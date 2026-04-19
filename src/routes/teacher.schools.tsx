@@ -6,6 +6,7 @@ import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { School as SchoolIcon, MapPin, ChevronRight, Sparkles, Phone } from "lucide-react";
+import { isPreviewMode, previewSchools } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/schools")({
   head: () => ({ meta: [{ title: "My Schools — Teacher" }] }),
@@ -39,6 +40,26 @@ function MySchools() {
   const [loadingRows, setLoadingRows] = useState(true);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      const mock: AssignedSchool[] = previewSchools.flatMap((s) =>
+        s.programs.map((p) => ({
+          school_id: s.id,
+          schools: {
+            id: s.id,
+            name: s.name,
+            village: s.village,
+            cluster: s.cluster,
+            num_students: s.num_students,
+            contact_person: s.contact_person,
+            contact_phone: s.contact_phone,
+          },
+          programs: { name: p, color: null },
+        }))
+      );
+      setRows(mock);
+      setLoadingRows(false);
+      return;
+    }
     if (!teacher) return;
     (async () => {
       const { data } = await supabase

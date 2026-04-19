@@ -29,14 +29,16 @@ function ProfilePage() {
     navigate({ to: "/auth" });
   };
 
+  const displayEmail = teacher?.email || user?.email || "preview@example.org";
+
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-6">
       <header className="text-center pt-6">
         <div className="mx-auto h-20 w-20 rounded-full bg-primary/10 text-primary flex items-center justify-center">
           <User className="h-10 w-10" />
         </div>
-        <h1 className="font-serif text-2xl mt-3">{teacher?.full_name || user?.email}</h1>
-        <p className="text-sm text-muted-foreground">{user?.email}</p>
+        <h1 className="font-serif text-2xl mt-3">{teacher?.full_name || user?.email || "Preview Teacher"}</h1>
+        <p className="text-sm text-muted-foreground">{displayEmail}</p>
       </header>
 
       <div className="rounded-xl bg-card border border-border divide-y divide-border">

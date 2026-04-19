@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { isPreviewMode, previewTeacher } from "@/lib/teacherPreview";
 
 export interface TeacherRecord {
   id: string;
@@ -17,6 +18,11 @@ export function useTeacherRecord() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      setTeacher(previewTeacher);
+      setLoading(false);
+      return;
+    }
     if (!user) {
       setLoading(false);
       return;

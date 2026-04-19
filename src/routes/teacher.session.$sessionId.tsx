@@ -20,6 +20,7 @@ import {
   ImageIcon,
 } from "lucide-react";
 import { toast } from "sonner";
+import { isPreviewMode, findPreviewSession, previewStudents } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/session/$sessionId")({
   head: () => ({ meta: [{ title: "Session — Teacher" }] }),
@@ -77,6 +78,30 @@ function SessionDetail() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      const ps = findPreviewSession(sessionId);
+      setSession({
+        id: ps.id,
+        scheduled_date: ps.scheduled_date,
+        scheduled_time: ps.scheduled_time,
+        status: ps.status,
+        summary: null,
+        students_present: ps.students_present,
+        duration_minutes: 60,
+        check_in_at: null,
+        check_in_lat: null,
+        check_in_lng: null,
+        photo_url: null,
+        school_id: ps.schools?.id ?? "p-school-1",
+        schools: ps.schools ? { name: ps.schools.name, village: ps.schools.village } : null,
+        programs: ps.programs,
+      });
+      setSummary("");
+      setDuration(60);
+      setStudents(previewStudents);
+      setAttendance({});
+      return;
+    }
     (async () => {
       const { data: s } = await supabase
         .from("sessions")
@@ -111,6 +136,20 @@ function SessionDetail() {
   }, [sessionId]);
 
   const handleCheckIn = () => {
+    if (isPreviewMode()) {
+      setSession((prev) =>
+        prev
+          ? {
+              ...prev,
+              check_in_at: new Date().toISOString(),
+              check_in_lat: 22.5645,
+              check_in_lng: 72.9289,
+            }
+          : prev
+      );
+      toast.success(t("teacher.checkedIn"));
+      return;
+    }
     if (!navigator.geolocation) {
       toast.error("Geolocation not supported");
       return;
@@ -153,7 +192,14 @@ function SessionDetail() {
 
   const handlePhotoChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (!file || !user) return;
+    if (!file) return;
+    if (isPreviewMode()) {
+      const localUrl = URL.createObjectURL(file);
+      setSession((prev) => (prev ? { ...prev, photo_url: localUrl } : prev));
+      toast.success(t("teacher.photoSaved"));
+      return;
+    }
+    if (!user) return;
     setUploading(true);
     try {
       const ext = file.name.split(".").pop() || "jpg";
@@ -203,6 +249,16 @@ function SessionDetail() {
 
   const saveAll = async (markComplete: boolean) => {
     if (!session) return;
+    if (isPreviewMode()) {
+      const presentCount = students.filter((s) => attendance[s.id]?.present ?? true).length;
+      toast.success(markComplete ? t("teacher.completed") : t("common.save"));
+      if (markComplete) {
+        navigate({ to: "/teacher/sessions" });
+      } else {
+        setSession((prev) => (prev ? { ...prev, summary, students_present: presentCount } : prev));
+      }
+      return;
+    }
     setBusy(true);
     try {
       const upserts = students.map((s) => {

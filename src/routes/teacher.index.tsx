@@ -7,6 +7,7 @@ import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { CalendarCheck, MapPin, ChevronRight, Sparkles } from "lucide-react";
+import { isPreviewMode, previewSessions } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/")({
   head: () => ({
@@ -37,6 +38,11 @@ function TeacherToday() {
   const [loadingSessions, setLoadingSessions] = useState(true);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      setSessions(previewSessions as unknown as SessionRow[]);
+      setLoadingSessions(false);
+      return;
+    }
     if (!teacher) return;
     (async () => {
       const today = new Date().toISOString().slice(0, 10);

@@ -7,6 +7,7 @@ import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { CalendarCheck, ChevronRight, Sparkles } from "lucide-react";
+import { isPreviewMode, previewSessions } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/sessions")({
   head: () => ({ meta: [{ title: "Sessions — Teacher" }] }),
@@ -35,6 +36,10 @@ function SessionsList() {
   const [filter, setFilter] = useState<"all" | "scheduled" | "completed">("all");
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      setRows(previewSessions as unknown as Row[]);
+      return;
+    }
     if (!teacher) return;
     (async () => {
       const { data } = await supabase
