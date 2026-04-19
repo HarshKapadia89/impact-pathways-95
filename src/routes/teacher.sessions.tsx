@@ -7,6 +7,7 @@ import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { CalendarCheck, ChevronRight, Sparkles } from "lucide-react";
+import { isPreviewMode, previewSessions } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/sessions")({
   head: () => ({ meta: [{ title: "Sessions — Teacher" }] }),
