@@ -38,6 +38,11 @@ function TeacherToday() {
   const [loadingSessions, setLoadingSessions] = useState(true);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      setSessions(previewSessions as unknown as SessionRow[]);
+      setLoadingSessions(false);
+      return;
+    }
     if (!teacher) return;
     (async () => {
       const today = new Date().toISOString().slice(0, 10);

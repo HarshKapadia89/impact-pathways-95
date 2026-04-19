@@ -36,6 +36,10 @@ function SessionsList() {
   const [filter, setFilter] = useState<"all" | "scheduled" | "completed">("all");
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      setRows(previewSessions as unknown as Row[]);
+      return;
+    }
     if (!teacher) return;
     (async () => {
       const { data } = await supabase
