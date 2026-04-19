@@ -2,16 +2,21 @@ import { useEffect, type ReactNode } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/useAuth";
 import { Sparkles } from "lucide-react";
+import { isPreviewMode } from "@/lib/teacherPreview";
 
 export function RequireTeacher({ children }: { children: ReactNode }) {
   const { user, loading, roles, isAdmin } = useAuth();
   const navigate = useNavigate();
+  const preview = isPreviewMode();
 
   useEffect(() => {
+    if (preview) return;
     if (!loading && !user) {
       navigate({ to: "/auth" });
     }
-  }, [loading, user, navigate]);
+  }, [loading, user, navigate, preview]);
+
+  if (preview) return <>{children}</>;
 
   if (loading) {
     return (
