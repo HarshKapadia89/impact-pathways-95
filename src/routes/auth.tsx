@@ -21,7 +21,7 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const { t } = useTranslation();
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp, user, roles, isAdmin } = useAuth();
   const navigate = useNavigate();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
@@ -30,7 +30,8 @@ function AuthPage() {
   const [busy, setBusy] = useState(false);
 
   if (user) {
-    navigate({ to: "/" });
+    const dest = isAdmin || roles.length === 0 ? "/" : roles.includes("teacher") ? "/teacher" : "/";
+    navigate({ to: dest });
     return null;
   }
 
@@ -42,7 +43,7 @@ function AuthPage() {
         const { error } = await signIn(email, password);
         if (error) throw error;
         toast.success("Signed in");
-        navigate({ to: "/" });
+        // Redirect handled by the effect above on next render
       } else {
         if (password.length < 6) throw new Error("Password must be at least 6 characters.");
         const { error } = await signUp(email, password, fullName || email.split("@")[0]);

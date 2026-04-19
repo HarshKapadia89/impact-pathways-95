@@ -3,17 +3,15 @@ import { useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/useAuth";
 import { Sparkles } from "lucide-react";
 
-export function RequireAdmin({ children }: { children: ReactNode }) {
-  const { user, loading, isAdmin, roles } = useAuth();
+export function RequireTeacher({ children }: { children: ReactNode }) {
+  const { user, loading, roles, isAdmin } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!loading && !user) {
       navigate({ to: "/auth" });
-    } else if (!loading && user && !isAdmin && roles.includes("teacher")) {
-      navigate({ to: "/teacher" });
     }
-  }, [loading, user, isAdmin, roles, navigate]);
+  }, [loading, user, navigate]);
 
   if (loading) {
     return (
@@ -25,19 +23,20 @@ export function RequireAdmin({ children }: { children: ReactNode }) {
 
   if (!user) return null;
 
-  if (!isAdmin && roles.length > 0 && !roles.includes("teacher")) {
+  // Admins and managers can preview the teacher app too
+  const allowed = isAdmin || roles.includes("teacher") || roles.includes("manager");
+  if (!allowed && roles.length > 0) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background px-4">
         <div className="max-w-md text-center space-y-3">
           <h1 className="font-serif text-3xl">Access restricted</h1>
           <p className="text-muted-foreground text-sm">
-            Your account does not have administrator access.
+            Your account is not linked to a teacher profile yet. Please contact your administrator.
           </p>
         </div>
       </div>
     );
   }
 
-  // Roles still loading or empty (first signup; will be admin once trigger runs)
   return <>{children}</>;
 }
