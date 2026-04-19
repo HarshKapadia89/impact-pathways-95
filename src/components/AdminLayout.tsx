@@ -9,6 +9,7 @@ import {
   FileText,
   LogOut,
   Sparkles,
+  Smartphone,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { useAuth } from "@/hooks/useAuth";
@@ -28,6 +29,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
     { to: "/programs", label: t("nav.programs"), icon: BookOpen },
     { to: "/sessions", label: t("nav.sessions"), icon: CalendarCheck },
     { to: "/reports", label: t("nav.reports"), icon: FileText },
+    { to: "/teacher", label: t("teacher.appName"), icon: Smartphone },
   ];
 
   const handleSignOut = async () => {
