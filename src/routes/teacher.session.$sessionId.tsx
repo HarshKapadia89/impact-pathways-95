@@ -20,6 +20,7 @@ import {
   ImageIcon,
 } from "lucide-react";
 import { toast } from "sonner";
+import { isPreviewMode, findPreviewSession, previewStudents } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/session/$sessionId")({
   head: () => ({ meta: [{ title: "Session — Teacher" }] }),
@@ -77,6 +78,30 @@ function SessionDetail() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      const ps = findPreviewSession(sessionId);
+      setSession({
+        id: ps.id,
+        scheduled_date: ps.scheduled_date,
+        scheduled_time: ps.scheduled_time,
+        status: ps.status,
+        summary: null,
+        students_present: ps.students_present,
+        duration_minutes: 60,
+        check_in_at: null,
+        check_in_lat: null,
+        check_in_lng: null,
+        photo_url: null,
+        school_id: ps.schools?.id ?? "p-school-1",
+        schools: ps.schools ? { name: ps.schools.name, village: ps.schools.village } : null,
+        programs: ps.programs,
+      });
+      setSummary("");
+      setDuration(60);
+      setStudents(previewStudents);
+      setAttendance({});
+      return;
+    }
     (async () => {
       const { data: s } = await supabase
         .from("sessions")
