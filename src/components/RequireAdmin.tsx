@@ -10,8 +10,10 @@ export function RequireAdmin({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!loading && !user) {
       navigate({ to: "/auth" });
+    } else if (!loading && user && !isAdmin && roles.includes("teacher")) {
+      navigate({ to: "/teacher" });
     }
-  }, [loading, user, navigate]);
+  }, [loading, user, isAdmin, roles, navigate]);
 
   if (loading) {
     return (
@@ -23,14 +25,13 @@ export function RequireAdmin({ children }: { children: ReactNode }) {
 
   if (!user) return null;
 
-  if (!isAdmin && roles.length > 0) {
+  if (!isAdmin && roles.length > 0 && !roles.includes("teacher")) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background px-4">
         <div className="max-w-md text-center space-y-3">
           <h1 className="font-serif text-3xl">Access restricted</h1>
           <p className="text-muted-foreground text-sm">
-            Your account does not have administrator access. The teacher and school portals are
-            coming soon.
+            Your account does not have administrator access.
           </p>
         </div>
       </div>
