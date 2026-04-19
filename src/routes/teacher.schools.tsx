@@ -6,6 +6,7 @@ import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { School as SchoolIcon, MapPin, ChevronRight, Sparkles, Phone } from "lucide-react";
+import { isPreviewMode, previewSchools } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/schools")({
   head: () => ({ meta: [{ title: "My Schools — Teacher" }] }),
