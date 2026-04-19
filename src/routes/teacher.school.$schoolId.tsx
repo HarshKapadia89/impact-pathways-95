@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, MapPin, Phone, School as SchoolIcon, Plus, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import { isPreviewMode, findPreviewSchool, previewSessions } from "@/lib/teacherPreview";
 
 export const Route = createFileRoute("/teacher/school/$schoolId")({
   head: () => ({ meta: [{ title: "School — Teacher" }] }),
@@ -49,6 +50,21 @@ function SchoolDetail() {
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
+    if (isPreviewMode()) {
+      const ps = findPreviewSchool(schoolId);
+      setSchool({
+        id: ps.id,
+        name: ps.name,
+        village: ps.village,
+        cluster: ps.cluster,
+        num_students: ps.num_students,
+        contact_person: ps.contact_person,
+        contact_phone: ps.contact_phone,
+      });
+      setStudentCount(ps.num_students);
+      setPrograms(ps.programs.map((name, i) => ({ id: `p-prog-${i}-${ps.id}`, name })));
+      return;
+    }
     (async () => {
       const [schoolRes, studentsRes, assignmentsRes] = await Promise.all([
         supabase
@@ -77,6 +93,11 @@ function SchoolDetail() {
   }, [schoolId, teacher]);
 
   const startNewSession = async (programId: string) => {
+    if (isPreviewMode()) {
+      const sample = previewSessions.find((s) => s.schools?.id === schoolId) ?? previewSessions[0];
+      navigate({ to: "/teacher/session/$sessionId", params: { sessionId: sample.id } });
+      return;
+    }
     if (!teacher || !user) return;
     setCreating(true);
     const today = new Date().toISOString().slice(0, 10);
