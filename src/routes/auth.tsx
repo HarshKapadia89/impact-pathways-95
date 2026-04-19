@@ -5,7 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Eye } from "lucide-react";
 import { toast } from "sonner";
 import { LanguageToggle } from "@/components/LanguageToggle";
 
@@ -141,6 +141,20 @@ function AuthPage() {
               </button>
             </div>
           </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              try {
+                sessionStorage.setItem("teacher_preview_mode", "1");
+              } catch {}
+              window.location.href = "/teacher";
+            }}
+            className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-dashed border-border bg-card/50 px-4 py-3 text-sm text-muted-foreground hover:bg-accent/30 transition"
+          >
+            <Eye className="h-4 w-4" />
+            Preview teacher app (no login)
+          </button>
         </div>
       </div>
     </div>
