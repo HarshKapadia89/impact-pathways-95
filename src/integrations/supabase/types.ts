@@ -14,16 +14,530 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attendance: {
+        Row: {
+          created_at: string
+          id: string
+          notes: string | null
+          present: boolean
+          session_id: string
+          skill_rating: number | null
+          student_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          notes?: string | null
+          present?: boolean
+          session_id: string
+          skill_rating?: number | null
+          student_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          notes?: string | null
+          present?: boolean
+          session_id?: string
+          skill_rating?: number | null
+          student_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "attendance_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "students"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      learning_outcomes: {
+        Row: {
+          created_at: string
+          id: string
+          module_id: string
+          outcome: string
+          sequence: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          module_id: string
+          outcome: string
+          sequence?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          module_id?: string
+          outcome?: string
+          sequence?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "learning_outcomes_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "program_modules"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          language: string
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          language?: string
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          language?: string
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      program_modules: {
+        Row: {
+          created_at: string
+          description: string | null
+          duration_minutes: number | null
+          id: string
+          program_id: string
+          sequence: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          program_id: string
+          sequence?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          id?: string
+          program_id?: string
+          sequence?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "program_modules_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      programs: {
+        Row: {
+          active: boolean
+          code: string
+          color: string | null
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          code: string
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          code?: string
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      schools: {
+        Row: {
+          active: boolean
+          cluster: string | null
+          contact_person: string | null
+          contact_phone: string | null
+          created_at: string
+          district: string | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          notes: string | null
+          num_students: number
+          state: string | null
+          updated_at: string
+          user_id: string | null
+          village: string | null
+        }
+        Insert: {
+          active?: boolean
+          cluster?: string | null
+          contact_person?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          district?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          notes?: string | null
+          num_students?: number
+          state?: string | null
+          updated_at?: string
+          user_id?: string | null
+          village?: string | null
+        }
+        Update: {
+          active?: boolean
+          cluster?: string | null
+          contact_person?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          district?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          notes?: string | null
+          num_students?: number
+          state?: string | null
+          updated_at?: string
+          user_id?: string | null
+          village?: string | null
+        }
+        Relationships: []
+      }
+      sessions: {
+        Row: {
+          check_in_at: string | null
+          check_in_lat: number | null
+          check_in_lng: number | null
+          created_at: string
+          created_by: string | null
+          duration_minutes: number | null
+          id: string
+          module_id: string | null
+          photo_url: string | null
+          program_id: string | null
+          scheduled_date: string
+          scheduled_time: string | null
+          school_id: string
+          status: Database["public"]["Enums"]["session_status"]
+          students_present: number | null
+          summary: string | null
+          teacher_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          check_in_at?: string | null
+          check_in_lat?: number | null
+          check_in_lng?: number | null
+          created_at?: string
+          created_by?: string | null
+          duration_minutes?: number | null
+          id?: string
+          module_id?: string | null
+          photo_url?: string | null
+          program_id?: string | null
+          scheduled_date: string
+          scheduled_time?: string | null
+          school_id: string
+          status?: Database["public"]["Enums"]["session_status"]
+          students_present?: number | null
+          summary?: string | null
+          teacher_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          check_in_at?: string | null
+          check_in_lat?: number | null
+          check_in_lng?: number | null
+          created_at?: string
+          created_by?: string | null
+          duration_minutes?: number | null
+          id?: string
+          module_id?: string | null
+          photo_url?: string | null
+          program_id?: string | null
+          scheduled_date?: string
+          scheduled_time?: string | null
+          school_id?: string
+          status?: Database["public"]["Enums"]["session_status"]
+          students_present?: number | null
+          summary?: string | null
+          teacher_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sessions_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "program_modules"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sessions_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sessions_school_id_fkey"
+            columns: ["school_id"]
+            isOneToOne: false
+            referencedRelation: "schools"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sessions_teacher_id_fkey"
+            columns: ["teacher_id"]
+            isOneToOne: false
+            referencedRelation: "teachers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      students: {
+        Row: {
+          active: boolean
+          age: number | null
+          created_at: string
+          full_name: string
+          gender: string | null
+          grade: string | null
+          guardian_name: string | null
+          guardian_phone: string | null
+          id: string
+          school_id: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          age?: number | null
+          created_at?: string
+          full_name: string
+          gender?: string | null
+          grade?: string | null
+          guardian_name?: string | null
+          guardian_phone?: string | null
+          id?: string
+          school_id: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          age?: number | null
+          created_at?: string
+          full_name?: string
+          gender?: string | null
+          grade?: string | null
+          guardian_name?: string | null
+          guardian_phone?: string | null
+          id?: string
+          school_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "students_school_id_fkey"
+            columns: ["school_id"]
+            isOneToOne: false
+            referencedRelation: "schools"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      teacher_assignments: {
+        Row: {
+          active: boolean
+          created_at: string
+          end_date: string | null
+          id: string
+          program_id: string | null
+          school_id: string
+          start_date: string | null
+          teacher_id: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          end_date?: string | null
+          id?: string
+          program_id?: string | null
+          school_id: string
+          start_date?: string | null
+          teacher_id: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          end_date?: string | null
+          id?: string
+          program_id?: string | null
+          school_id?: string
+          start_date?: string | null
+          teacher_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "teacher_assignments_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "teacher_assignments_school_id_fkey"
+            columns: ["school_id"]
+            isOneToOne: false
+            referencedRelation: "schools"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "teacher_assignments_teacher_id_fkey"
+            columns: ["teacher_id"]
+            isOneToOne: false
+            referencedRelation: "teachers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      teachers: {
+        Row: {
+          active: boolean
+          base_village: string | null
+          created_at: string
+          date_joined: string | null
+          email: string | null
+          employee_code: string | null
+          full_name: string
+          id: string
+          notes: string | null
+          phone: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          active?: boolean
+          base_village?: string | null
+          created_at?: string
+          date_joined?: string | null
+          email?: string | null
+          employee_code?: string | null
+          full_name: string
+          id?: string
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          active?: boolean
+          base_village?: string | null
+          created_at?: string
+          date_joined?: string | null
+          email?: string | null
+          employee_code?: string | null
+          full_name?: string
+          id?: string
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_admin_or_manager: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "manager" | "teacher" | "school"
+      session_status: "scheduled" | "completed" | "missed" | "cancelled"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +664,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "manager", "teacher", "school"],
+      session_status: ["scheduled", "completed", "missed", "cancelled"],
+    },
   },
 } as const
