@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
-import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
+import { STREAM_BY_ID, type StreamId, type Stream, type CareerPath } from "@/lib/careerData";
 import { ArrowLeft, Clock, Award, Building2, IndianRupee, GraduationCap } from "lucide-react";
 
 export const Route = createFileRoute("/career/$stream")({
