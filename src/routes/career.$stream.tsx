@@ -5,7 +5,7 @@ import { STREAM_BY_ID, type StreamId, type Stream, type CareerPath } from "@/lib
 import { ArrowLeft, Clock, Award, Building2, IndianRupee, GraduationCap } from "lucide-react";
 
 export const Route = createFileRoute("/career/$stream")({
-  loader: ({ params }) => {
+  loader: ({ params }): { stream: Stream } => {
     const stream = STREAM_BY_ID[params.stream as StreamId];
     if (!stream) throw notFound();
     return { stream };
