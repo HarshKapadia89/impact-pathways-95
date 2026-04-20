@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { Brain, Globe2, FileText, Sparkles, ChevronRight } from "lucide-react";
 
-export const Route = createFileRoute("/test")({
+export const Route = createFileRoute("/test/")({
   head: () => ({
     meta: [
       { title: "Free Bilingual Psychometric Test (Grades 6–12) — 20-page PDF | Disha" },
