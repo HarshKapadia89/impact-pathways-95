@@ -199,19 +199,16 @@ function SessionDetail() {
       toast.success(t("teacher.photoSaved"));
       return;
     }
-    if (!user) return;
     setUploading(true);
     try {
       const ext = file.name.split(".").pop() || "jpg";
-      const path = `${user.id}/${sessionId}-${Date.now()}.${ext}`;
+      const path = `sessions/${sessionId}-${Date.now()}.${ext}`;
       const { error: upErr } = await supabase.storage
         .from("session-photos")
         .upload(path, file, { upsert: true, contentType: file.type });
       if (upErr) throw upErr;
-      const { data: signed } = await supabase.storage
-        .from("session-photos")
-        .createSignedUrl(path, 60 * 60 * 24 * 365);
-      const photoUrl = signed?.signedUrl ?? path;
+      const { data: pub } = supabase.storage.from("session-photos").getPublicUrl(path);
+      const photoUrl = pub.publicUrl;
       const { error: updErr } = await supabase
         .from("sessions")
         .update({ photo_url: photoUrl })

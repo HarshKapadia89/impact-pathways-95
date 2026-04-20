@@ -98,7 +98,7 @@ function SchoolDetail() {
       navigate({ to: "/teacher/session/$sessionId", params: { sessionId: sample.id } });
       return;
     }
-    if (!teacher || !user) return;
+    if (!teacher) return;
     setCreating(true);
     const today = new Date().toISOString().slice(0, 10);
     const { data, error } = await supabase
@@ -109,7 +109,6 @@ function SchoolDetail() {
         program_id: programId,
         scheduled_date: today,
         status: "scheduled",
-        created_by: user.id,
       })
       .select("id")
       .maybeSingle();
