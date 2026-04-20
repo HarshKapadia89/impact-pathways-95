@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Eye, X } from "lucide-react";
 import { isPreviewMode, exitPreviewMode } from "@/lib/teacherPreview";
 
@@ -7,7 +6,7 @@ export function PreviewBanner() {
 
   const handleExit = () => {
     exitPreviewMode();
-    window.location.href = "/auth";
+    window.location.href = "/";
   };
 
   return (
