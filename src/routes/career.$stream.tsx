@@ -45,7 +45,7 @@ export const Route = createFileRoute("/career/$stream")({
 });
 
 function StreamDetail() {
-  const { stream } = Route.useLoaderData();
+  const { stream } = Route.useLoaderData() as { stream: Stream };
   const { i18n } = useTranslation();
   const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
 
