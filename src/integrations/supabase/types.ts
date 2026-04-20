@@ -59,6 +59,87 @@ export type Database = {
           },
         ]
       }
+      colleges: {
+        Row: {
+          active: boolean
+          address: string | null
+          affiliation: string | null
+          city: string | null
+          contact_email: string | null
+          contact_phone: string | null
+          courses: string[] | null
+          created_at: string
+          district: string | null
+          entrance_exams: string[] | null
+          established: number | null
+          fees_range: string | null
+          hostel: boolean | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          notes: string | null
+          scholarships: boolean | null
+          state: string
+          streams: string[] | null
+          type: string | null
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          active?: boolean
+          address?: string | null
+          affiliation?: string | null
+          city?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          courses?: string[] | null
+          created_at?: string
+          district?: string | null
+          entrance_exams?: string[] | null
+          established?: number | null
+          fees_range?: string | null
+          hostel?: boolean | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          notes?: string | null
+          scholarships?: boolean | null
+          state?: string
+          streams?: string[] | null
+          type?: string | null
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          active?: boolean
+          address?: string | null
+          affiliation?: string | null
+          city?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
+          courses?: string[] | null
+          created_at?: string
+          district?: string | null
+          entrance_exams?: string[] | null
+          established?: number | null
+          fees_range?: string | null
+          hostel?: boolean | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          notes?: string | null
+          scholarships?: boolean | null
+          state?: string
+          streams?: string[] | null
+          type?: string | null
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       learning_outcomes: {
         Row: {
           created_at: string
@@ -198,6 +279,48 @@ export type Database = {
           id?: string
           name?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      psychometric_results: {
+        Row: {
+          age: number | null
+          aptitude: Json | null
+          created_at: string
+          grade: string | null
+          id: string
+          language: string | null
+          multiple_intelligences: Json | null
+          recommended_careers: string[] | null
+          recommended_streams: string[] | null
+          riasec: Json | null
+          student_name: string | null
+        }
+        Insert: {
+          age?: number | null
+          aptitude?: Json | null
+          created_at?: string
+          grade?: string | null
+          id?: string
+          language?: string | null
+          multiple_intelligences?: Json | null
+          recommended_careers?: string[] | null
+          recommended_streams?: string[] | null
+          riasec?: Json | null
+          student_name?: string | null
+        }
+        Update: {
+          age?: number | null
+          aptitude?: Json | null
+          created_at?: string
+          grade?: string | null
+          id?: string
+          language?: string | null
+          multiple_intelligences?: Json | null
+          recommended_careers?: string[] | null
+          recommended_streams?: string[] | null
+          riasec?: Json | null
+          student_name?: string | null
         }
         Relationships: []
       }
