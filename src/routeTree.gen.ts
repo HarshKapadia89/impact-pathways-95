@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestRouteImport } from './routes/test'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as SessionsRouteImport } from './routes/sessions'
 import { Route as SchoolsRouteImport } from './routes/schools'
@@ -30,6 +31,11 @@ import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
 import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
 
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeachersRoute = TeachersRouteImport.update({
   id: '/teachers',
   path: '/teachers',
@@ -81,9 +87,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestIndexRoute = TestIndexRouteImport.update({
-  id: '/test/',
-  path: '/test/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => TestRoute,
 } as any)
 const TeacherIndexRoute = TeacherIndexRouteImport.update({
   id: '/teacher/',
@@ -91,9 +97,9 @@ const TeacherIndexRoute = TeacherIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestTakeRoute = TestTakeRouteImport.update({
-  id: '/test/take',
-  path: '/test/take',
-  getParentRoute: () => rootRouteImport,
+  id: '/take',
+  path: '/take',
+  getParentRoute: () => TestRoute,
 } as any)
 const TeacherSessionsRoute = TeacherSessionsRouteImport.update({
   id: '/teacher/sessions',
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
+  '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRoute
   '/teacher/profile': typeof TeacherProfileRoute
@@ -187,6 +194,7 @@ export interface FileRoutesById {
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
+  '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRoute
   '/teacher/profile': typeof TeacherProfileRoute
@@ -211,6 +219,7 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sessions'
     | '/teachers'
+    | '/test'
     | '/admin/colleges'
     | '/career/$stream'
     | '/teacher/profile'
@@ -255,6 +264,7 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sessions'
     | '/teachers'
+    | '/test'
     | '/admin/colleges'
     | '/career/$stream'
     | '/teacher/profile'
@@ -278,18 +288,24 @@ export interface RootRouteChildren {
   SchoolsRoute: typeof SchoolsRoute
   SessionsRoute: typeof SessionsRoute
   TeachersRoute: typeof TeachersRoute
+  TestRoute: typeof TestRouteWithChildren
   TeacherProfileRoute: typeof TeacherProfileRoute
   TeacherSchoolsRoute: typeof TeacherSchoolsRoute
   TeacherSessionsRoute: typeof TeacherSessionsRoute
-  TestTakeRoute: typeof TestTakeRoute
   TeacherIndexRoute: typeof TeacherIndexRoute
-  TestIndexRoute: typeof TestIndexRoute
   TeacherSchoolSchoolIdRoute: typeof TeacherSchoolSchoolIdRoute
   TeacherSessionSessionIdRoute: typeof TeacherSessionSessionIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teachers': {
       id: '/teachers'
       path: '/teachers'
@@ -362,10 +378,10 @@ declare module '@tanstack/react-router' {
     }
     '/test/': {
       id: '/test/'
-      path: '/test'
+      path: '/'
       fullPath: '/test/'
       preLoaderRoute: typeof TestIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof TestRoute
     }
     '/teacher/': {
       id: '/teacher/'
@@ -376,10 +392,10 @@ declare module '@tanstack/react-router' {
     }
     '/test/take': {
       id: '/test/take'
-      path: '/test/take'
+      path: '/take'
       fullPath: '/test/take'
       preLoaderRoute: typeof TestTakeRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof TestRoute
     }
     '/teacher/sessions': {
       id: '/teacher/sessions'
@@ -454,6 +470,18 @@ const CareerRouteChildren: CareerRouteChildren = {
 const CareerRouteWithChildren =
   CareerRoute._addFileChildren(CareerRouteChildren)
 
+interface TestRouteChildren {
+  TestTakeRoute: typeof TestTakeRoute
+  TestIndexRoute: typeof TestIndexRoute
+}
+
+const TestRouteChildren: TestRouteChildren = {
+  TestTakeRoute: TestTakeRoute,
+  TestIndexRoute: TestIndexRoute,
+}
+
+const TestRouteWithChildren = TestRoute._addFileChildren(TestRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
@@ -465,15 +493,23 @@ const rootRouteChildren: RootRouteChildren = {
   SchoolsRoute: SchoolsRoute,
   SessionsRoute: SessionsRoute,
   TeachersRoute: TeachersRoute,
+  TestRoute: TestRouteWithChildren,
   TeacherProfileRoute: TeacherProfileRoute,
   TeacherSchoolsRoute: TeacherSchoolsRoute,
   TeacherSessionsRoute: TeacherSessionsRoute,
-  TestTakeRoute: TestTakeRoute,
   TeacherIndexRoute: TeacherIndexRoute,
-  TestIndexRoute: TestIndexRoute,
   TeacherSchoolSchoolIdRoute: TeacherSchoolSchoolIdRoute,
   TeacherSessionSessionIdRoute: TeacherSessionSessionIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
