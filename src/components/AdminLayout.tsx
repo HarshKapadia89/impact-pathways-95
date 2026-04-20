@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import {
   LayoutDashboard,
@@ -7,20 +7,15 @@ import {
   BookOpen,
   CalendarCheck,
   FileText,
-  LogOut,
   Sparkles,
   Smartphone,
 } from "lucide-react";
 import type { ReactNode } from "react";
-import { useAuth } from "@/hooks/useAuth";
 import { LanguageToggle } from "./LanguageToggle";
-import { Button } from "@/components/ui/button";
 
 export function AdminLayout({ children }: { children: ReactNode }) {
   const { t } = useTranslation();
-  const { signOut, user } = useAuth();
   const location = useLocation();
-  const navigate = useNavigate();
 
   const nav = [
     { to: "/", label: t("nav.overview"), icon: LayoutDashboard },
@@ -31,11 +26,6 @@ export function AdminLayout({ children }: { children: ReactNode }) {
     { to: "/reports", label: t("nav.reports"), icon: FileText },
     { to: "/teacher", label: t("teacher.appName"), icon: Smartphone },
   ];
-
-  const handleSignOut = async () => {
-    await signOut();
-    navigate({ to: "/auth" });
-  };
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -70,16 +60,6 @@ export function AdminLayout({ children }: { children: ReactNode }) {
             );
           })}
         </nav>
-        <div className="border-t border-sidebar-border p-3 space-y-1">
-          <div className="px-3 py-2 text-xs text-sidebar-foreground/60 truncate">{user?.email}</div>
-          <button
-            onClick={handleSignOut}
-            className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-sidebar-foreground/80 hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground"
-          >
-            <LogOut className="h-4 w-4" />
-            {t("nav.signOut")}
-          </button>
-        </div>
       </aside>
 
       <div className="flex-1 flex flex-col min-w-0">
@@ -87,9 +67,6 @@ export function AdminLayout({ children }: { children: ReactNode }) {
           <div className="md:hidden font-serif text-lg">{t("app.name")}</div>
           <div className="ml-auto flex items-center gap-2">
             <LanguageToggle />
-            <Button size="sm" variant="ghost" onClick={handleSignOut} className="md:hidden">
-              <LogOut className="h-4 w-4" />
-            </Button>
           </div>
         </header>
         <main className="flex-1 p-4 md:p-8 overflow-auto">{children}</main>
