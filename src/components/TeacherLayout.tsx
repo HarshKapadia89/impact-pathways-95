@@ -1,17 +1,13 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { Home, School, CalendarCheck, LogOut, Sparkles, User } from "lucide-react";
+import { Home, School, CalendarCheck, Sparkles, User } from "lucide-react";
 import type { ReactNode } from "react";
-import { useAuth } from "@/hooks/useAuth";
 import { LanguageToggle } from "./LanguageToggle";
-import { Button } from "@/components/ui/button";
 import { PreviewBanner } from "./PreviewBanner";
 
 export function TeacherLayout({ children }: { children: ReactNode }) {
   const { t } = useTranslation();
-  const { signOut, user } = useAuth();
   const location = useLocation();
-  const navigate = useNavigate();
 
   const nav = [
     { to: "/teacher", label: t("teacher.nav.today"), icon: Home, exact: true },
@@ -19,11 +15,6 @@ export function TeacherLayout({ children }: { children: ReactNode }) {
     { to: "/teacher/sessions", label: t("teacher.nav.sessions"), icon: CalendarCheck },
     { to: "/teacher/profile", label: t("teacher.nav.profile"), icon: User },
   ];
-
-  const handleSignOut = async () => {
-    await signOut();
-    navigate({ to: "/auth" });
-  };
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -37,9 +28,6 @@ export function TeacherLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="flex items-center gap-1 shrink-0">
           <LanguageToggle />
-          <Button size="sm" variant="ghost" onClick={handleSignOut} aria-label="Sign out">
-            <LogOut className="h-4 w-4" />
-          </Button>
         </div>
       </header>
 
@@ -66,8 +54,6 @@ export function TeacherLayout({ children }: { children: ReactNode }) {
         })}
       </nav>
 
-      {/* hidden but for a11y */}
-      <span className="sr-only">{user?.email}</span>
     </div>
   );
 }

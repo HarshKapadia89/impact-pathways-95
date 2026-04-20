@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { format, parseISO } from "date-fns";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
+
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
@@ -65,7 +65,7 @@ function SessionDetail() {
   const { t } = useTranslation();
   const { sessionId } = Route.useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  
   const { teacher } = useTeacherRecord();
   const [session, setSession] = useState<SessionData | null>(null);
   const [students, setStudents] = useState<Student[]>([]);
@@ -199,19 +199,16 @@ function SessionDetail() {
       toast.success(t("teacher.photoSaved"));
       return;
     }
-    if (!user) return;
     setUploading(true);
     try {
       const ext = file.name.split(".").pop() || "jpg";
-      const path = `${user.id}/${sessionId}-${Date.now()}.${ext}`;
+      const path = `sessions/${sessionId}-${Date.now()}.${ext}`;
       const { error: upErr } = await supabase.storage
         .from("session-photos")
         .upload(path, file, { upsert: true, contentType: file.type });
       if (upErr) throw upErr;
-      const { data: signed } = await supabase.storage
-        .from("session-photos")
-        .createSignedUrl(path, 60 * 60 * 24 * 365);
-      const photoUrl = signed?.signedUrl ?? path;
+      const { data: pub } = supabase.storage.from("session-photos").getPublicUrl(path);
+      const photoUrl = pub.publicUrl;
       const { error: updErr } = await supabase
         .from("sessions")
         .update({ photo_url: photoUrl })

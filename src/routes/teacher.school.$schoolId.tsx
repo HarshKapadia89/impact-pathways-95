@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
+
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
@@ -42,7 +42,7 @@ function SchoolDetail() {
   const { t } = useTranslation();
   const { schoolId } = Route.useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  
   const { teacher } = useTeacherRecord();
   const [school, setSchool] = useState<SchoolData | null>(null);
   const [studentCount, setStudentCount] = useState(0);
@@ -98,7 +98,7 @@ function SchoolDetail() {
       navigate({ to: "/teacher/session/$sessionId", params: { sessionId: sample.id } });
       return;
     }
-    if (!teacher || !user) return;
+    if (!teacher) return;
     setCreating(true);
     const today = new Date().toISOString().slice(0, 10);
     const { data, error } = await supabase
@@ -109,7 +109,6 @@ function SchoolDetail() {
         program_id: programId,
         scheduled_date: today,
         status: "scheduled",
-        created_by: user.id,
       })
       .select("id")
       .maybeSingle();

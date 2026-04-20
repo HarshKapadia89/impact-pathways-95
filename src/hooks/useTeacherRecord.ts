@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
 import { isPreviewMode, previewTeacher } from "@/lib/teacherPreview";
 
 export interface TeacherRecord {
@@ -12,8 +11,10 @@ export interface TeacherRecord {
   employee_code: string | null;
 }
 
+// With auth removed, the teacher app uses the first active teacher record
+// from the database as the "default" teacher. If no teacher exists, one is
+// auto-created so session writes still work.
 export function useTeacherRecord() {
-  const { user } = useAuth();
   const [teacher, setTeacher] = useState<TeacherRecord | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -23,26 +24,41 @@ export function useTeacherRecord() {
       setLoading(false);
       return;
     }
-    if (!user) {
-      setLoading(false);
-      return;
-    }
     let cancelled = false;
     (async () => {
-      const { data } = await supabase
+      // Try to find an existing active teacher
+      const { data: existing } = await supabase
         .from("teachers")
         .select("id, full_name, phone, email, base_village, employee_code")
-        .eq("user_id", user.id)
+        .eq("active", true)
+        .order("created_at", { ascending: true })
+        .limit(1)
         .maybeSingle();
+
+      if (existing) {
+        if (!cancelled) {
+          setTeacher(existing);
+          setLoading(false);
+        }
+        return;
+      }
+
+      // None found — create a default one
+      const { data: created } = await supabase
+        .from("teachers")
+        .insert({ full_name: "Field Teacher", base_village: "Dharampur", active: true })
+        .select("id, full_name, phone, email, base_village, employee_code")
+        .single();
+
       if (!cancelled) {
-        setTeacher(data ?? null);
+        setTeacher(created ?? null);
         setLoading(false);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [user]);
+  }, []);
 
   return { teacher, loading };
 }
