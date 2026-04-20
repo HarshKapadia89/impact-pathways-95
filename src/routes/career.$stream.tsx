@@ -1,11 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
-import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
+import { STREAM_BY_ID, type StreamId, type Stream } from "@/lib/careerData";
 import { ArrowLeft, Clock, Award, Building2, IndianRupee, GraduationCap } from "lucide-react";
 
 export const Route = createFileRoute("/career/$stream")({
-  loader: ({ params }) => {
+  loader: ({ params }): { stream: Stream } => {
     const stream = STREAM_BY_ID[params.stream as StreamId];
     if (!stream) throw notFound();
     return { stream };
@@ -45,7 +45,7 @@ export const Route = createFileRoute("/career/$stream")({
 });
 
 function StreamDetail() {
-  const { stream } = Route.useLoaderData();
+  const { stream } = Route.useLoaderData() as { stream: Stream };
   const { i18n } = useTranslation();
   const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
 
