@@ -20,6 +20,7 @@ import { Route as CareerRouteImport } from './routes/career'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TestIndexRouteImport } from './routes/test.index'
 import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
 import { Route as TestTakeRouteImport } from './routes/test.take'
 import { Route as TeacherSessionsRouteImport } from './routes/teacher.sessions'
@@ -84,6 +85,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const TestIndexRoute = TestIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TestRoute,
 } as any)
 const TeacherIndexRoute = TeacherIndexRouteImport.update({
   id: '/teacher/',
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
+  '/test/': typeof TestIndexRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -164,7 +171,6 @@ export interface FileRoutesByTo {
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
-  '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRoute
   '/teacher/profile': typeof TeacherProfileRoute
@@ -172,6 +178,7 @@ export interface FileRoutesByTo {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/take': typeof TestTakeRoute
   '/teacher': typeof TeacherIndexRoute
+  '/test': typeof TestIndexRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -195,6 +202,7 @@ export interface FileRoutesById {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
+  '/test/': typeof TestIndexRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -219,6 +227,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/take'
     | '/teacher/'
+    | '/test/'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   fileRoutesByTo: FileRoutesByTo
@@ -233,7 +242,6 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sessions'
     | '/teachers'
-    | '/test'
     | '/admin/colleges'
     | '/career/$stream'
     | '/teacher/profile'
@@ -241,6 +249,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/take'
     | '/teacher'
+    | '/test'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   id:
@@ -263,6 +272,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/take'
     | '/teacher/'
+    | '/test/'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   fileRoutesById: FileRoutesById
@@ -366,6 +376,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/test/': {
+      id: '/test/'
+      path: '/'
+      fullPath: '/test/'
+      preLoaderRoute: typeof TestIndexRouteImport
+      parentRoute: typeof TestRoute
+    }
     '/teacher/': {
       id: '/teacher/'
       path: '/teacher'
@@ -455,10 +472,12 @@ const CareerRouteWithChildren =
 
 interface TestRouteChildren {
   TestTakeRoute: typeof TestTakeRoute
+  TestIndexRoute: typeof TestIndexRoute
 }
 
 const TestRouteChildren: TestRouteChildren = {
   TestTakeRoute: TestTakeRoute,
+  TestIndexRoute: TestIndexRoute,
 }
 
 const TestRouteWithChildren = TestRoute._addFileChildren(TestRouteChildren)
