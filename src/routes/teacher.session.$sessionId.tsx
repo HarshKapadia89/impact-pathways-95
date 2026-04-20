@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { format, parseISO } from "date-fns";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
+
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
@@ -65,7 +65,7 @@ function SessionDetail() {
   const { t } = useTranslation();
   const { sessionId } = Route.useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  
   const { teacher } = useTeacherRecord();
   const [session, setSession] = useState<SessionData | null>(null);
   const [students, setStudents] = useState<Student[]>([]);

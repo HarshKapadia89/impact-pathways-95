@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/useAuth";
+
 import { useTeacherRecord } from "@/hooks/useTeacherRecord";
 import { RequireTeacher } from "@/components/RequireTeacher";
 import { TeacherLayout } from "@/components/TeacherLayout";
@@ -42,7 +42,7 @@ function SchoolDetail() {
   const { t } = useTranslation();
   const { schoolId } = Route.useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  
   const { teacher } = useTeacherRecord();
   const [school, setSchool] = useState<SchoolData | null>(null);
   const [studentCount, setStudentCount] = useState(0);
