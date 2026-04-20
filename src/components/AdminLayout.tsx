@@ -48,7 +48,9 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         <nav className="flex-1 p-3 space-y-1">
           {nav.map((item) => {
             const active =
-              item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
+              "exact" in item && item.exact
+                ? location.pathname === item.to
+                : location.pathname === item.to || location.pathname.startsWith(item.to + "/");
             const Icon = item.icon;
             return (
               <Link
