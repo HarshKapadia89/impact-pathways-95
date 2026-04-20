@@ -9,6 +9,9 @@ import {
   FileText,
   Sparkles,
   Smartphone,
+  Library,
+  Compass,
+  Brain,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { LanguageToggle } from "./LanguageToggle";
@@ -18,12 +21,15 @@ export function AdminLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
 
   const nav = [
-    { to: "/", label: t("nav.overview"), icon: LayoutDashboard },
+    { to: "/admin", label: t("nav.overview"), icon: LayoutDashboard, exact: true },
     { to: "/schools", label: t("nav.schools"), icon: School },
     { to: "/teachers", label: t("nav.teachers"), icon: Users },
     { to: "/programs", label: t("nav.programs"), icon: BookOpen },
     { to: "/sessions", label: t("nav.sessions"), icon: CalendarCheck },
     { to: "/reports", label: t("nav.reports"), icon: FileText },
+    { to: "/admin/colleges", label: "Colleges", icon: Library },
+    { to: "/career", label: "Career Guides", icon: Compass },
+    { to: "/test", label: "Public Test", icon: Brain },
     { to: "/teacher", label: t("teacher.appName"), icon: Smartphone },
   ];
 
