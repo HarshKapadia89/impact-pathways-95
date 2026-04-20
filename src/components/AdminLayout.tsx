@@ -83,7 +83,9 @@ export function AdminLayout({ children }: { children: ReactNode }) {
           {nav.slice(0, 5).map((item) => {
             const Icon = item.icon;
             const active =
-              item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
+              "exact" in item && item.exact
+                ? location.pathname === item.to
+                : location.pathname === item.to || location.pathname.startsWith(item.to + "/");
             return (
               <Link
                 key={item.to}
