@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TestRouteImport } from './routes/test'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as SessionsRouteImport } from './routes/sessions'
 import { Route as SchoolsRouteImport } from './routes/schools'
@@ -20,6 +19,7 @@ import { Route as CareerRouteImport } from './routes/career'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TestIndexRouteImport } from './routes/test.index'
 import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
 import { Route as TestTakeRouteImport } from './routes/test.take'
 import { Route as TeacherSessionsRouteImport } from './routes/teacher.sessions'
@@ -30,11 +30,6 @@ import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
 import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
 
-const TestRoute = TestRouteImport.update({
-  id: '/test',
-  path: '/test',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TeachersRoute = TeachersRouteImport.update({
   id: '/teachers',
   path: '/teachers',
@@ -85,15 +80,20 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestIndexRoute = TestIndexRouteImport.update({
+  id: '/test/',
+  path: '/test/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeacherIndexRoute = TeacherIndexRouteImport.update({
   id: '/teacher/',
   path: '/teacher/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestTakeRoute = TestTakeRouteImport.update({
-  id: '/take',
-  path: '/take',
-  getParentRoute: () => TestRoute,
+  id: '/test/take',
+  path: '/test/take',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const TeacherSessionsRoute = TeacherSessionsRouteImport.update({
   id: '/teacher/sessions',
@@ -142,7 +142,6 @@ export interface FileRoutesByFullPath {
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
-  '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRoute
   '/teacher/profile': typeof TeacherProfileRoute
@@ -150,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
+  '/test/': typeof TestIndexRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -164,7 +164,6 @@ export interface FileRoutesByTo {
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
-  '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRoute
   '/teacher/profile': typeof TeacherProfileRoute
@@ -172,6 +171,7 @@ export interface FileRoutesByTo {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/take': typeof TestTakeRoute
   '/teacher': typeof TeacherIndexRoute
+  '/test': typeof TestIndexRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -187,7 +187,6 @@ export interface FileRoutesById {
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
-  '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRoute
   '/teacher/profile': typeof TeacherProfileRoute
@@ -195,6 +194,7 @@ export interface FileRoutesById {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
+  '/test/': typeof TestIndexRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -211,7 +211,6 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sessions'
     | '/teachers'
-    | '/test'
     | '/admin/colleges'
     | '/career/$stream'
     | '/teacher/profile'
@@ -219,6 +218,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/take'
     | '/teacher/'
+    | '/test/'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   fileRoutesByTo: FileRoutesByTo
@@ -233,7 +233,6 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sessions'
     | '/teachers'
-    | '/test'
     | '/admin/colleges'
     | '/career/$stream'
     | '/teacher/profile'
@@ -241,6 +240,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/take'
     | '/teacher'
+    | '/test'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   id:
@@ -255,7 +255,6 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sessions'
     | '/teachers'
-    | '/test'
     | '/admin/colleges'
     | '/career/$stream'
     | '/teacher/profile'
@@ -263,6 +262,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/take'
     | '/teacher/'
+    | '/test/'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   fileRoutesById: FileRoutesById
@@ -278,24 +278,18 @@ export interface RootRouteChildren {
   SchoolsRoute: typeof SchoolsRoute
   SessionsRoute: typeof SessionsRoute
   TeachersRoute: typeof TeachersRoute
-  TestRoute: typeof TestRouteWithChildren
   TeacherProfileRoute: typeof TeacherProfileRoute
   TeacherSchoolsRoute: typeof TeacherSchoolsRoute
   TeacherSessionsRoute: typeof TeacherSessionsRoute
+  TestTakeRoute: typeof TestTakeRoute
   TeacherIndexRoute: typeof TeacherIndexRoute
+  TestIndexRoute: typeof TestIndexRoute
   TeacherSchoolSchoolIdRoute: typeof TeacherSchoolSchoolIdRoute
   TeacherSessionSessionIdRoute: typeof TeacherSessionSessionIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/test': {
-      id: '/test'
-      path: '/test'
-      fullPath: '/test'
-      preLoaderRoute: typeof TestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/teachers': {
       id: '/teachers'
       path: '/teachers'
@@ -366,6 +360,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/test/': {
+      id: '/test/'
+      path: '/test'
+      fullPath: '/test/'
+      preLoaderRoute: typeof TestIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teacher/': {
       id: '/teacher/'
       path: '/teacher'
@@ -375,10 +376,10 @@ declare module '@tanstack/react-router' {
     }
     '/test/take': {
       id: '/test/take'
-      path: '/take'
+      path: '/test/take'
       fullPath: '/test/take'
       preLoaderRoute: typeof TestTakeRouteImport
-      parentRoute: typeof TestRoute
+      parentRoute: typeof rootRouteImport
     }
     '/teacher/sessions': {
       id: '/teacher/sessions'
@@ -453,16 +454,6 @@ const CareerRouteChildren: CareerRouteChildren = {
 const CareerRouteWithChildren =
   CareerRoute._addFileChildren(CareerRouteChildren)
 
-interface TestRouteChildren {
-  TestTakeRoute: typeof TestTakeRoute
-}
-
-const TestRouteChildren: TestRouteChildren = {
-  TestTakeRoute: TestTakeRoute,
-}
-
-const TestRouteWithChildren = TestRoute._addFileChildren(TestRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
@@ -474,11 +465,12 @@ const rootRouteChildren: RootRouteChildren = {
   SchoolsRoute: SchoolsRoute,
   SessionsRoute: SessionsRoute,
   TeachersRoute: TeachersRoute,
-  TestRoute: TestRouteWithChildren,
   TeacherProfileRoute: TeacherProfileRoute,
   TeacherSchoolsRoute: TeacherSchoolsRoute,
   TeacherSessionsRoute: TeacherSessionsRoute,
+  TestTakeRoute: TestTakeRoute,
   TeacherIndexRoute: TeacherIndexRoute,
+  TestIndexRoute: TestIndexRoute,
   TeacherSchoolSchoolIdRoute: TeacherSchoolSchoolIdRoute,
   TeacherSessionSessionIdRoute: TeacherSessionSessionIdRoute,
 }
