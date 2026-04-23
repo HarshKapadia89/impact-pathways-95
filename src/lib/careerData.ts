@@ -141,6 +141,20 @@ export const STREAMS: Stream[] = [
         description: "GNLU Gandhinagar is consistently ranked in India's top 5 National Law Universities.",
       },
     ],
+    gujaratHighlights: [
+      "IIT Gandhinagar, DA-IICT, PDEU, Nirma & SVNIT — strong placements within the state.",
+      "GUJCET counselling via ACPC for state engineering & pharmacy seats.",
+      "Mukhyamantri Yuva Swavalamban Yojana (MYSY): up to ₹2 L scholarship for top students from families earning < ₹6 LPA.",
+      "Sanand, Dholera & GIFT City driving demand for EV, semiconductors, fintech and chip-design engineers.",
+      "Gujarat Semiconductor Mission, NaMo Drone Didi & Vibrant Gujarat creating new high-tech roles.",
+    ],
+    gujaratHighlightsGu: [
+      "IIT ગાંધીનગર, DA-IICT, PDEU, નિરમા અને SVNIT — રાજ્યમાં મજબૂત પ્લેસમેન્ટ.",
+      "ACPC દ્વારા GUJCET કાઉન્સેલિંગ — રાજ્ય એન્જિનિયરિંગ અને ફાર્મસી પ્રવેશ.",
+      "મુખ્યમંત્રી યુવા સ્વાવલંબન યોજના (MYSY): ₹6 LPA થી ઓછી આવક ધરાવતા ટોચના વિદ્યાર્થીઓને ₹2 લાખ સુધી શિષ્યવૃત્તિ.",
+      "સાણંદ, ધોલેરા અને GIFT સિટી — EV, સેમિકન્ડક્ટર, ફિનટેક અને ચિપ ડિઝાઇન એન્જિનિયરોની માંગ.",
+      "ગુજરાત સેમિકન્ડક્ટર મિશન, નમો ડ્રોન દીદી અને વાઇબ્રન્ટ ગુજરાત — નવી ટેક્નિકલ તકો.",
+    ],
   },
   {
     id: "science-pcb",
