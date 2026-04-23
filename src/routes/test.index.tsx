@@ -21,11 +21,15 @@ import {
   Lightbulb,
   Star,
   TrendingUp,
+  CalendarCheck,
+  ListChecks,
+  Rocket,
 } from "lucide-react";
 import sampleCover from "@/assets/sample-report-cover.jpg";
 import sampleRiasec from "@/assets/sample-report-riasec.jpg";
 import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
+import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
 
 export const Route = createFileRoute("/test/")({
   head: () => ({
@@ -142,8 +146,16 @@ function TestIntro() {
       img: sampleCareers,
       title: t("Career Recommendations", "કારકિર્દી ભલામણો"),
       desc: t(
-        "Top streams, 12-15 specific career roles, suggested colleges in Gujarat & India, and a 90-day action plan.",
-        "ટોચના પ્રવાહો, 12-15 ચોક્કસ કારકિર્દી ભૂમિકાઓ, ગુજરાત અને ભારતની ભલામણ કોલેજો અને 90-દિવસનો એક્શન પ્લાન."
+        "Top streams, 12–15 specific career roles, and suggested colleges in Gujarat & India.",
+        "ટોચના પ્રવાહો, 12–15 ચોક્કસ કારકિર્દી ભૂમિકાઓ અને ગુજરાત તથા ભારતની ભલામણ કોલેજો."
+      ),
+    },
+    {
+      img: sampleActionPlan,
+      title: t("Personalised Action Plan", "વ્યક્તિગત એક્શન પ્લાન"),
+      desc: t(
+        "A month-by-month 90-day playbook of habits, courses, books, clubs and exams tailored to your profile.",
+        "તમારી પ્રોફાઇલ માટે અનુકૂળ આદતો, કોર્સ, પુસ્તકો, ક્લબ અને પરીક્ષાઓનો માસિક 90-દિવસનો પ્લેબુક."
       ),
     },
   ];
