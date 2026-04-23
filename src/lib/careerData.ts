@@ -465,7 +465,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Gujarat University", "MSU Baroda", "St. Xavier's Ahmedabad"],
         careers: ["Counsellor", "Clinical Psychologist (with M.Phil)", "HR/People Analytics", "UX Researcher", "School Psychologist"],
         avgSalary: "₹3.5–14 LPA",
-        description: "High-growth field. Mental health awareness is creating massive demand.",
+        description: "High-growth field with surging demand from corporates, schools, NGOs and the wellness industry. Clinical practice requires M.Phil + RCI registration; counselling, organisational, sports and UX-research roles open with a Master's in psychology.",
       },
       {
         title: "BSW / MSW (Social Work)",
@@ -475,7 +475,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["MSU Baroda — Faculty of Social Work (one of India's oldest)", "Gujarat Vidyapith"],
         careers: ["NGO Leader", "Community Development Officer", "CSR Specialist", "Policy Researcher"],
         avgSalary: "₹3–12 LPA",
-        description: "MSU Baroda's Faculty of Social Work was India's first (founded 1949).",
+        description: "MSU Baroda's Faculty of Social Work was India's first (founded 1949) and remains a benchmark. The 3+2-year BSW/MSW combines fieldwork with theory across community development, mental health, criminology and CSR — strong NGO, UN-agency and corporate-CSR placements.",
       },
       {
         title: "B.Des / B.F.A (Design / Fine Arts)",
