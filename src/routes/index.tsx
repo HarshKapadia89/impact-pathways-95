@@ -115,16 +115,6 @@ function HomePage() {
                 <div className="text-xs text-muted-foreground mt-1">{t.desc}</div>
               </Link>
             ))}
-            <div className="rounded-2xl border border-border bg-primary text-primary-foreground p-5">
-              <div className="font-serif text-2xl">428</div>
-              <div className="text-xs opacity-80 mt-1">
-                {lang === "gu" ? "શાળાઓ સુધી પહોંચ" : "Schools reached"}
-              </div>
-              <div className="font-serif text-2xl mt-3">35,000+</div>
-              <div className="text-xs opacity-80 mt-1">
-                {lang === "gu" ? "વિદ્યાર્થીઓ" : "Students"}
-              </div>
-            </div>
           </div>
         </div>
       </section>
