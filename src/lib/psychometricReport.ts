@@ -653,7 +653,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   ];
   for (const s of skills) {
     yy = ensureSpace(doc, yy, 7, name, current);
-    doc.text(`✓  ${s}`, M, yy);
+    doc.text(safe(`-  ${s}`), M, yy);
     yy += 7;
   }
   footer(doc, 17, 20, name);
@@ -675,7 +675,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(11);
   for (const s of thisYear) {
     yy = ensureSpace(doc, yy, 8, name, current);
-    doc.text(`◯  ${s}`, M, yy);
+    doc.text(safe(`[ ]  ${s}`), M, yy);
     yy += 8;
   }
   // 3-year plan starts here too
@@ -697,7 +697,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   ];
   for (const s of threeYear) {
     yy = ensureSpace(doc, yy, 8, name, current);
-    doc.text(`◯  ${s}`, M, yy);
+    doc.text(safe(`[ ]  ${s}`), M, yy);
     yy += 8;
   }
   footer(doc, 18, 20, name);
