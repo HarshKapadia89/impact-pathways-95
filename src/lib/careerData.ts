@@ -205,7 +205,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Dental Surgeon", "Orthodontist", "Oral Pathologist"],
         avgSalary: "₹4–20 LPA",
-        description: "Dentistry as a private practice or hospital specialist.",
+        description: "5-year programme covering oral anatomy, prosthodontics, orthodontics, oral surgery and a year of clinical posting. Career as a private dental surgeon, specialist (MDS) or hospital practitioner. NRI-quota seats add ~30% private capacity in Gujarat.",
       },
       {
         title: "B.Pharm (Pharmacy)",
