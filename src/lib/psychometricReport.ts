@@ -482,12 +482,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, i === 0 ? [255, 255, 255] : COLORS.ink);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text(`${i === 0 ? "Primary" : "Secondary"}: ${s.name}`, M + 6, yy + 10);
+    doc.text(safe(`${i === 0 ? "Primary" : "Secondary"}: ${s.name}`), M + 6, yy + 10);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text(s.tagline, M + 6, yy + 18);
+    doc.text(safe(s.tagline), M + 6, yy + 18);
     doc.setFontSize(9);
-    doc.text(`Core subjects: ${s.coreSubjects.slice(0, 4).join(", ")}`, M + 6, yy + 25);
+    doc.text(safe(`Core subjects: ${s.coreSubjects.slice(0, 4).join(", ")}`), M + 6, yy + 25);
     setText(doc, COLORS.ink);
     yy += 38;
   });
