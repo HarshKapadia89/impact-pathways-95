@@ -1,9 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
-import { STREAM_BY_ID, type StreamId, type Stream } from "@/lib/careerData";
+import { STREAM_BY_ID, pathSlug, type StreamId, type Stream } from "@/lib/careerData";
 import {
   ArrowLeft,
+  ArrowRight,
   Clock,
   Award,
   Building2,
@@ -200,6 +201,17 @@ function StreamDetail() {
                     </span>
                   ))}
                 </div>
+              </div>
+
+              <div className="mt-5 pt-4 border-t border-border">
+                <Link
+                  to="/career/$stream/$path"
+                  params={{ stream: stream.id, path: pathSlug(p.title) }}
+                  className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                >
+                  {lang === "gu" ? "વધુ વાંચો" : "Read more"}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </article>
           ))}
