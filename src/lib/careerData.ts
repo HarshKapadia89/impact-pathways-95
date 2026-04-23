@@ -688,3 +688,4 @@ export function recommendStreams(riasecTop: string[], aptitudeTop: string[]): St
     .slice(0, 2)
     .map(([id]) => id);
 }
+
