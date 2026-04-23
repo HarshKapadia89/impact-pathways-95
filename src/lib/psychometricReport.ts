@@ -273,9 +273,9 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
 
   doc.setFont("helvetica", "normal");
   setText(doc, COLORS.ink);
-  doc.text(report.riasecTop.join(" — "), M + 80, 55);
-  doc.text(report.miTop.slice(0, 2).map((k) => MI_LABELS[k]?.name ?? k).join(", "), M + 80, 65);
-  doc.text(`${report.aptitudeTop.join(" & ")}  (overall ${report.aptitudeOverall}%)`, M + 80, 75);
+  doc.text(safe(report.riasecTop.join(" — ")), M + 80, 55);
+  doc.text(safe(report.miTop.slice(0, 2).map((k) => MI_LABELS[k]?.name ?? k).join(", ")), M + 80, 65);
+  doc.text(safe(`${report.aptitudeTop.join(" & ")}  (overall ${report.aptitudeOverall}%)`), M + 80, 75);
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
@@ -290,14 +290,14 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, i === 0 ? COLORS.primary : COLORS.ink);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(13);
-    doc.text(`${i + 1}. ${s.name}`, M + 6, py + 9);
+    doc.text(safe(`${i + 1}. ${s.name}`), M + 6, py + 9);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text(s.tagline, M + 6, py + 17);
+    doc.text(safe(s.tagline), M + 6, py + 17);
     py += 28;
   });
 
-  doc.setFont("helvetica", "italic");
+  doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   setText(doc, COLORS.muted);
   doc.text(
