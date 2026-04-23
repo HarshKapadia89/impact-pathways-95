@@ -376,7 +376,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Gujarat University", "St. Xavier's Ahmedabad", "MSU Baroda"],
         careers: ["Economist", "Policy Analyst", "Banking", "Civil Services", "Data Analyst"],
         avgSalary: "₹4–15 LPA",
-        description: "Strong base for civil services, finance, and policy work.",
+        description: "Strong analytical base for civil services (UPSC/GPSC), banking (RBI Grade B), policy think-tanks, equity research and data analytics. Gujarat University and St. Xavier's run a 4-year honours track aligned with NEP 2020.",
       },
       {
         title: "BBA-LLB / B.Com-LLB (Integrated Law)",
@@ -386,7 +386,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["GNLU Gandhinagar", "Nirma Law", "Auro University Surat"],
         careers: ["Corporate Lawyer", "Tax Lawyer", "In-house Counsel"],
         avgSalary: "₹6–30 LPA",
-        description: "Lucrative corporate law track combining commerce + law.",
+        description: "Lucrative integrated 5-year track combining commerce/management with law. CLAT is the gateway to GNLU and other top NLUs; corporate law firms recruit heavily for M&A, banking, capital markets and tax practice — especially relevant for GIFT City IFSC.",
       },
     ],
     gujaratHighlights: [
