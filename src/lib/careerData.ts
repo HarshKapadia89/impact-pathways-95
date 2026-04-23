@@ -132,7 +132,8 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Product Designer", "UX/UI Designer", "Animation Artist", "Industrial Designer", "Graphic Designer"],
         avgSalary: "₹4–20 LPA",
-        description: "NID Ahmedabad is India's top design school. Design thinking + creativity + tech.",
+        description:
+          "A 4-year studio-based programme combining design thinking, sketching, prototyping, materials, user research and digital tools. Specialisations include Product, Communication, UX/UI, Animation, Industrial, Textile and Transportation Design.
       },
       {
         title: "Integrated Law (BA LLB / B.Com LLB)",
