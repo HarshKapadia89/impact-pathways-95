@@ -234,7 +234,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Ayurvedic Doctor", "Homeopath", "Wellness Consultant"],
         avgSalary: "₹3–15 LPA",
-        description: "Traditional medicine systems with growing demand globally.",
+        description: "Traditional Indian systems of medicine with growing global demand. BAMS (Ayurveda) and BHMS (Homeopathy) are 5.5-year programmes including internship; Jamnagar's I.P.G.T.&R.A. is the apex Ayurveda institute and a WHO collaborating centre.",
       },
       {
         title: "B.Sc. Nursing / Physiotherapy / Allied Health",
@@ -248,7 +248,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Staff Nurse", "Physiotherapist", "Occupational Therapist", "Radiologist", "Optometrist"],
         avgSalary: "₹3–10 LPA",
-        description: "High employability, both India and abroad.",
+        description: "High-employability allied-health degrees. Nursing graduates can work in India or abroad (Gulf, UK, Canada — strong NCLEX/OET pipeline). Physiotherapy and Occupational Therapy are booming with India's ageing population and sports-medicine demand.",
       },
       {
         title: "B.Sc. Agriculture / Horticulture / Veterinary",
