@@ -30,6 +30,7 @@ import { Route as TeacherProfileRouteImport } from './routes/teacher.profile'
 import { Route as HandbookSlugRouteImport } from './routes/handbook.$slug'
 import { Route as CareerStreamRouteImport } from './routes/career.$stream'
 import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
+import { Route as CareerStreamIndexRouteImport } from './routes/career.$stream.index'
 import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
 import { Route as CareerStreamPathRouteImport } from './routes/career.$stream.$path'
@@ -139,6 +140,11 @@ const AdminCollegesRoute = AdminCollegesRouteImport.update({
   path: '/colleges',
   getParentRoute: () => AdminRoute,
 } as any)
+const CareerStreamIndexRoute = CareerStreamIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CareerStreamRoute,
+} as any)
 const TeacherSessionSessionIdRoute = TeacherSessionSessionIdRouteImport.update({
   id: '/teacher/session/$sessionId',
   path: '/teacher/session/$sessionId',
@@ -180,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/career/$stream/$path': typeof CareerStreamPathRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
+  '/career/$stream/': typeof CareerStreamIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -194,7 +201,6 @@ export interface FileRoutesByTo {
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
   '/admin/colleges': typeof AdminCollegesRoute
-  '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
@@ -205,6 +211,7 @@ export interface FileRoutesByTo {
   '/career/$stream/$path': typeof CareerStreamPathRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
+  '/career/$stream': typeof CareerStreamIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -232,6 +239,7 @@ export interface FileRoutesById {
   '/career/$stream/$path': typeof CareerStreamPathRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
+  '/career/$stream/': typeof CareerStreamIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -260,6 +268,7 @@ export interface FileRouteTypes {
     | '/career/$stream/$path'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
+    | '/career/$stream/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -274,7 +283,6 @@ export interface FileRouteTypes {
     | '/sessions'
     | '/teachers'
     | '/admin/colleges'
-    | '/career/$stream'
     | '/handbook/$slug'
     | '/teacher/profile'
     | '/teacher/schools'
@@ -285,6 +293,7 @@ export interface FileRouteTypes {
     | '/career/$stream/$path'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
+    | '/career/$stream'
   id:
     | '__root__'
     | '/'
@@ -311,6 +320,7 @@ export interface FileRouteTypes {
     | '/career/$stream/$path'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
+    | '/career/$stream/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -483,6 +493,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCollegesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/career/$stream/': {
+      id: '/career/$stream/'
+      path: '/'
+      fullPath: '/career/$stream/'
+      preLoaderRoute: typeof CareerStreamIndexRouteImport
+      parentRoute: typeof CareerStreamRoute
+    }
     '/teacher/session/$sessionId': {
       id: '/teacher/session/$sessionId'
       path: '/teacher/session/$sessionId'
@@ -519,10 +536,12 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface CareerStreamRouteChildren {
   CareerStreamPathRoute: typeof CareerStreamPathRoute
+  CareerStreamIndexRoute: typeof CareerStreamIndexRoute
 }
 
 const CareerStreamRouteChildren: CareerStreamRouteChildren = {
   CareerStreamPathRoute: CareerStreamPathRoute,
+  CareerStreamIndexRoute: CareerStreamIndexRoute,
 }
 
 const CareerStreamRouteWithChildren = CareerStreamRoute._addFileChildren(
