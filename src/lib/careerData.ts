@@ -614,6 +614,26 @@ export const STREAM_BY_ID: Record<StreamId, Stream> = STREAMS.reduce((acc, s) =>
   return acc;
 }, {} as Record<StreamId, Stream>);
 
+/** URL-safe slug for a career path title (stable, lowercase, hyphen-separated). */
+export function pathSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Look up a stream + path by their URL slugs. */
+export function findPath(streamId: string, pathSlugStr: string):
+  | { stream: Stream; path: CareerPath }
+  | null {
+  const stream = STREAM_BY_ID[streamId as StreamId];
+  if (!stream) return null;
+  const path = stream.paths.find((p) => pathSlug(p.title) === pathSlugStr);
+  if (!path) return null;
+  return { stream, path };
+}
+
 // Major entrance exam quick-reference
 export const ENTRANCE_EXAMS = [
   { code: "JEE Main", for: "Engineering (NITs, IIITs, GFTIs)", when: "Jan & Apr", website: "jeemain.nta.nic.in" },
