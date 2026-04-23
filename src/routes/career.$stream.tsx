@@ -202,6 +202,17 @@ function StreamDetail() {
                   ))}
                 </div>
               </div>
+
+              <div className="mt-5 pt-4 border-t border-border">
+                <Link
+                  to="/career/$stream/$path"
+                  params={{ stream: stream.id, path: pathSlug(p.title) }}
+                  className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                >
+                  {lang === "gu" ? "વધુ વાંચો" : "Read more"}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </article>
           ))}
         </div>
