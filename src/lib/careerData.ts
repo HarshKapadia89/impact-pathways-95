@@ -88,7 +88,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Architect", "Urban Planner", "Interior Designer", "Landscape Architect", "Heritage Conservation"],
         avgSalary: "₹3.5–18 LPA",
-        description: "Design buildings, cities, and interiors. CEPT Ahmedabad is one of India's most prestigious schools.",
+        description: "Design buildings, cities, interiors and public spaces. The 5-year programme blends studio design, history of architecture, structural systems, building services, urban planning, sustainability and a mandatory 6-month practical training. CEPT Ahmedabad is one of India's most prestigious architecture schools and Gujarat — with Dholera, GIF
       },
       {
         title: "B.Sc. (Pure Sciences)",
