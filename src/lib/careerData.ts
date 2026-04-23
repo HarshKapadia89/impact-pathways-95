@@ -290,6 +290,8 @@ export const STREAMS: Stream[] = [
       "ગુજરાત ફોરેન્સિક સાયન્સ યુનિવર્સિટી (ગાંધીનગર) — ભારતની પ્રથમ FSU, અનોખી કારકિર્દી તક.",
     ],
   },
+  {
+    id: "commerce",
     name: "Commerce",
     nameGu: "વાણિજ્ય",
     tagline: "CA, Finance, Business, Economics, Law",
@@ -398,6 +400,8 @@ export const STREAMS: Stream[] = [
       "MYSY શિષ્યવૃત્તિ + સરસ્વતી સાધના યોજના ઓછી આવક ધરાવતા કોમર્સ વિદ્યાર્થીઓને સહાય.",
     ],
   },
+  {
+    id: "humanities",
     name: "Humanities / Arts",
     nameGu: "માનવવિદ્યા / કલા",
     tagline: "Civil Services, Law, Media, Psychology, Design, Social Sciences",
@@ -515,6 +519,8 @@ export const STREAMS: Stream[] = [
       "સ્ટેચ્યૂ ઓફ યુનિટી, ધોળાવીરા, દ્વારકા અને સોમનાથ — હેરિટેજ, પર્યટન અને હોસ્પિટાલિટી કારકિર્દી.",
     ],
   },
+  {
+    id: "vocational",
     name: "Vocational / Skill-based",
     nameGu: "વ્યાવસાયિક / કૌશલ્ય આધારિત",
     tagline: "ITI, Polytechnic, Diplomas, Direct Employment",
@@ -597,6 +603,7 @@ export const STREAMS: Stream[] = [
       "ડિપ્લોમા → DDSE/D2D દ્વારા B.E. 2જા વર્ષમાં લેટરલ એન્ટ્રી — એન્જિનિયરિંગ સુધીની સીડી.",
     ],
   },
+];
 
 export const STREAM_BY_ID: Record<StreamId, Stream> = STREAMS.reduce((acc, s) => {
   acc[s.id] = s;
