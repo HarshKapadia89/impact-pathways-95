@@ -85,8 +85,31 @@ function footer(doc: jsPDF, page: number, total: number, name: string) {
   setText(doc, COLORS.ink);
 }
 
+// jsPDF's built-in helvetica only supports WinAnsi (Latin-1).
+// Replace characters outside that range with safe ASCII fallbacks so
+// glyphs like Rs., >=, !=, etc. don't render as garbage.
+const GLYPH_MAP: Record<string, string> = {
+  "₹": "Rs.",
+  "≥": ">=",
+  "≤": "<=",
+  "≠": "!=",
+  "✓": "-",
+  "◯": "-",
+  "★": "*",
+  "→": "->",
+  "←": "<-",
+};
+function safe(text: string): string {
+  let out = "";
+  for (const ch of text) {
+    if (GLYPH_MAP[ch] !== undefined) out += GLYPH_MAP[ch];
+    else if (ch.charCodeAt(0) > 255) out += "?";
+    else out += ch;
+  }
+  return out;
+}
 function wrap(doc: jsPDF, text: string, maxWidth: number) {
-  return doc.splitTextToSize(text, maxWidth) as string[];
+  return doc.splitTextToSize(safe(text), maxWidth) as string[];
 }
 
 function drawBar(doc: jsPDF, x: number, y: number, label: string, value: number, max = 100, color = COLORS.bar) {
@@ -252,7 +275,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFont("helvetica", "normal");
   setText(doc, COLORS.ink);
   doc.text(report.riasecTop.join(" — "), M + 80, 55);
-  doc.text(report.miTop.map((k) => MI_LABELS[k]?.name ?? k).join(", "), M + 80, 65);
+  doc.text(report.miTop.slice(0, 2).map((k) => MI_LABELS[k]?.name ?? k).join(", "), M + 80, 65);
   doc.text(`${report.aptitudeTop.join(" & ")}  (overall ${report.aptitudeOverall}%)`, M + 80, 75);
 
   doc.setFont("helvetica", "bold");
@@ -630,7 +653,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   ];
   for (const s of skills) {
     yy = ensureSpace(doc, yy, 7, name, current);
-    doc.text(`✓  ${s}`, M, yy);
+    doc.text(safe(`-  ${s}`), M, yy);
     yy += 7;
   }
   footer(doc, 17, 20, name);
@@ -652,7 +675,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(11);
   for (const s of thisYear) {
     yy = ensureSpace(doc, yy, 8, name, current);
-    doc.text(`◯  ${s}`, M, yy);
+    doc.text(safe(`[ ]  ${s}`), M, yy);
     yy += 8;
   }
   // 3-year plan starts here too
@@ -674,7 +697,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   ];
   for (const s of threeYear) {
     yy = ensureSpace(doc, yy, 8, name, current);
-    doc.text(`◯  ${s}`, M, yy);
+    doc.text(safe(`[ ]  ${s}`), M, yy);
     yy += 8;
   }
   footer(doc, 18, 20, name);
@@ -690,7 +713,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const parentTips = [
     "Read this report together. Ask your child what surprised them.",
     "Stream choice belongs to the student. Adults guide; they don't decide.",
-    "Marks ≠ ability. Aptitude + effort + interest matter more long-term.",
+    "Marks are not ability. Aptitude + effort + interest matter more long-term.",
     "Gujarat has incredible institutions — IIM-A, NID, GNLU, NIFT, IIT-GN, MICA, MSU. Many give 100% scholarships.",
     "Visit one college campus together this year. It changes how a student thinks.",
     "Celebrate curiosity, not only marks. Ask 'what did you find interesting?' more than 'what did you score?'",
