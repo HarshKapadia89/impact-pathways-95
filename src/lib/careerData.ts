@@ -549,7 +549,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Junior Engineer (Govt)", "Technician", "Lateral entry to B.E. (2nd year)"],
         avgSalary: "₹2.5–6 LPA (entry)",
-        description: "Fast track into engineering jobs and B.E. programmes.",
+        description: "A 3-year diploma after 10th or 12th that provides hands-on technical training in Mechanical, Electrical, Civil, Computer, Chemical or Auto Engineering. Graduates can join as Junior Engineers in govt departments or take lateral entry into B.E. 2nd year.",
       },
       {
         title: "ITI (Industrial Training Institute)",
@@ -559,7 +559,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Government ITIs across Gujarat (250+)", "Kaushalya — The Skill University"],
         careers: ["Electrician", "Fitter", "Welder", "Mechanic", "Plumber", "Computer Operator"],
         avgSalary: "₹1.8–4.5 LPA",
-        description: "Direct skill training, often with apprenticeship. PSU recruitment is heavy from ITIs.",
+        description: "1-2 year trade-specific training (Electrician, Fitter, Welder, Mechanic, COPA, etc.) with heavy practical hours and often an apprenticeship. PSUs like ONGC, Indian Railways and IOCL recruit heavily from ITIs. Gujarat has 250+ government ITIs.",
       },
       {
         title: "Paramedical Diplomas (DMLT, X-Ray, OT)",
@@ -569,7 +569,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Civil Hospital, Ahmedabad", "B. J. Medical Paramedical", "GMERS Paramedical"],
         careers: ["Lab Technician", "Radiology Technician", "OT Technician", "Dialysis Technician"],
         avgSalary: "₹2.4–6 LPA",
-        description: "High employability in hospitals, diagnostic chains, and clinics.",
+        description: "Short 1-2 year diplomas in Medical Lab Technology (DMLT), X-Ray/Radiology, OT Technician and Dialysis. High employability in hospitals, diagnostic chains (SRL, Thyrocare, Metropolis) and clinics across Gujarat's expanding healthcare network.",
       },
       {
         title: "Diploma in Pharmacy (D.Pharm)",
@@ -579,7 +579,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["L. M. College of Pharmacy", "K. B. Institute, Gandhinagar"],
         careers: ["Pharmacist (retail/hospital)", "Lateral entry to B.Pharm"],
         avgSalary: "₹2.4–5 LPA",
-        description: "Quickest route into the pharma industry.",
+        description: "Quickest route into the pharma industry — 2-year diploma covering dispensing, pharmacology, drug store management and hospital pharmacy. Graduates can run a retail pharmacy or take lateral entry into B.Pharm 2nd year for higher studies.",
       },
       {
         title: "Skill India Certifications",
@@ -589,7 +589,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["NSDC partners across Gujarat", "Kaushalya — The Skill University"],
         careers: ["Mobile repair", "Solar PV technician", "Beauty & wellness", "Hospitality", "Tourism guide"],
         avgSalary: "₹1.8–4 LPA",
-        description: "Short, focused certifications under Skill India / PMKVY.",
+        description: "Short 3-12 month certifications under Skill India / PMKVY aligned to National Skills Qualification Framework (NSQF). Covers trades like mobile repair, solar PV installation, beauty & wellness, hospitality and tourism — with placement support from NSDC partners.",
       },
     ],
     gujaratHighlights: [
