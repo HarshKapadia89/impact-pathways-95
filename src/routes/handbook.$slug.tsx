@@ -1,18 +1,20 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
-  HANDBOOK_BY_SLUG,
+  HANDBOOK_SUMMARY_BY_SLUG,
+  loadHandbookStream,
   type HandbookStream,
   streamEmoji,
 } from "@/lib/handbookData";
-import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink } from "lucide-react";
+import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer } from "lucide-react";
 
 type TabKey = "professions" | "exams" | "institutes";
 
 export const Route = createFileRoute("/handbook/$slug")({
-  loader: ({ params }): { stream: HandbookStream } => {
-    const stream = HANDBOOK_BY_SLUG[params.slug];
+  loader: async ({ params }): Promise<{ stream: HandbookStream }> => {
+    if (!HANDBOOK_SUMMARY_BY_SLUG[params.slug]) throw notFound();
+    const stream = await loadHandbookStream(params.slug);
     if (!stream) throw notFound();
     return { stream };
   },
@@ -36,6 +38,11 @@ export const Route = createFileRoute("/handbook/$slug")({
         }
       : {},
   component: StreamDetail,
+  pendingComponent: () => (
+    <div className="max-w-7xl mx-auto px-4 md:px-8 py-20 text-center text-sm text-muted-foreground">
+      Loading handbook section…
+    </div>
+  ),
   notFoundComponent: () => (
     <div className="max-w-3xl mx-auto px-4 py-20 text-center">
       <h1 className="font-serif text-3xl">Stream not found</h1>
@@ -61,7 +68,12 @@ function StreamDetail() {
   const [tab, setTab] = useState<TabKey>("professions");
   const [query, setQuery] = useState("");
 
-  const tabs: Array<{ key: TabKey; label: { en: string; gu: string }; icon: typeof Briefcase; count: number }> = [
+  const tabs: Array<{
+    key: TabKey;
+    label: { en: string; gu: string };
+    icon: typeof Briefcase;
+    count: number;
+  }> = [
     {
       key: "professions",
       label: { en: "Professions", gu: "વ્યવસાયો" },
@@ -82,18 +94,26 @@ function StreamDetail() {
     },
   ];
 
-  const q = query.trim().toLowerCase();
-
   return (
     <>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
+      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border print:bg-none print:border-0">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
-          <Link
-            to="/handbook"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> {lang === "gu" ? "બધા પ્રવાહો" : "All streams"}
-          </Link>
+          <div className="flex items-center justify-between gap-3 print:hidden">
+            <Link
+              to="/handbook"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" /> {lang === "gu" ? "બધા પ્રવાહો" : "All streams"}
+            </Link>
+            <button
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground border border-border rounded-md px-2.5 py-1.5 bg-card"
+              title={lang === "gu" ? "છાપો" : "Print"}
+            >
+              <Printer className="h-3.5 w-3.5" />
+              {lang === "gu" ? "છાપો / સાચવો" : "Print / Save"}
+            </button>
+          </div>
           <div className="mt-3 flex items-start gap-4">
             <div className="text-5xl">{streamEmoji(stream.stream)}</div>
             <div>
@@ -109,7 +129,7 @@ function StreamDetail() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-6">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-border">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-border print:hidden">
           <div className="flex flex-wrap gap-1">
             {tabs.map((t) => {
               const Icon = t.icon;
@@ -142,7 +162,7 @@ function StreamDetail() {
           </div>
           <input
             type="search"
-            placeholder={lang === "gu" ? "શોધો…" : "Search…"}
+            placeholder={lang === "gu" ? "આ વિભાગમાં શોધો…" : "Search in this section…"}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="md:w-64 px-3 py-2 text-sm rounded-md border border-border bg-card focus:outline-none focus:border-primary"
@@ -150,11 +170,9 @@ function StreamDetail() {
         </div>
 
         <div className="py-6">
-          {tab === "professions" && (
-            <ProfessionsList items={stream.professions} q={q} />
-          )}
-          {tab === "exams" && <ExamsList items={stream.exams} q={q} lang={lang} />}
-          {tab === "institutes" && <InstitutesList items={stream.institutes} q={q} lang={lang} />}
+          {tab === "professions" && <ProfessionsList items={stream.professions} q={query} />}
+          {tab === "exams" && <ExamsList items={stream.exams} q={query} />}
+          {tab === "institutes" && <InstitutesList items={stream.institutes} q={query} lang={lang} />}
         </div>
       </section>
     </>
@@ -162,7 +180,10 @@ function StreamDetail() {
 }
 
 function ProfessionsList({ items, q }: { items: string[]; q: string }) {
-  const filtered = q ? items.filter((p) => p.toLowerCase().includes(q)) : items;
+  const filtered = useMemo(() => {
+    const t = q.trim().toLowerCase();
+    return t ? items.filter((p) => p.toLowerCase().includes(t)) : items;
+  }, [items, q]);
   if (!filtered.length)
     return <div className="text-sm text-muted-foreground py-8 text-center">No matches.</div>;
   return (
@@ -182,20 +203,21 @@ function ProfessionsList({ items, q }: { items: string[]; q: string }) {
 function ExamsList({
   items,
   q,
-  lang,
 }: {
   items: import("@/lib/handbookData").HandbookExam[];
   q: string;
-  lang: "en" | "gu";
 }) {
-  const filtered = q
-    ? items.filter(
-        (e) =>
-          e.code.toLowerCase().includes(q) ||
-          (e.fullName ?? "").toLowerCase().includes(q) ||
-          e.purpose.toLowerCase().includes(q),
-      )
-    : items;
+  const filtered = useMemo(() => {
+    const t = q.trim().toLowerCase();
+    return t
+      ? items.filter(
+          (e) =>
+            e.code.toLowerCase().includes(t) ||
+            (e.fullName ?? "").toLowerCase().includes(t) ||
+            e.purpose.toLowerCase().includes(t),
+        )
+      : items;
+  }, [items, q]);
   if (!filtered.length)
     return <div className="text-sm text-muted-foreground py-8 text-center">No matches.</div>;
   return (
@@ -204,12 +226,12 @@ function ExamsList({
         <div key={`${e.code}-${i}`} className="rounded-xl border border-border bg-card p-4">
           <div className="font-medium text-foreground">{e.code}</div>
           {e.fullName && (
-            <div className="text-xs text-muted-foreground italic mt-0.5">{e.fullName}</div>
+            <div className="text-xs text-muted-foreground mt-0.5">{e.fullName}</div>
           )}
           <div className="text-xs text-muted-foreground mt-2 leading-relaxed">{e.purpose}</div>
           {e.website && (
             <a
-              href={`https://${e.website.replace(/^https?:\/\//, "")}`}
+              href={normalizeUrl(e.website)}
               target="_blank"
               rel="noreferrer"
               className="text-xs text-primary mt-2 inline-flex items-center gap-1 hover:underline break-all"
@@ -233,32 +255,33 @@ function InstitutesList({
   q: string;
   lang: "en" | "gu";
 }) {
-  const filtered = q
-    ? items.filter(
-        (it) =>
-          it.name.toLowerCase().includes(q) ||
-          (it.entrance ?? "").toLowerCase().includes(q) ||
-          (it.category ?? "").toLowerCase().includes(q),
-      )
-    : items;
-  if (!filtered.length)
-    return <div className="text-sm text-muted-foreground py-8 text-center">No matches.</div>;
+  const groups = useMemo(() => {
+    const t = q.trim().toLowerCase();
+    const filtered = t
+      ? items.filter(
+          (it) =>
+            it.name.toLowerCase().includes(t) ||
+            (it.entrance ?? "").toLowerCase().includes(t) ||
+            (it.category ?? "").toLowerCase().includes(t),
+        )
+      : items;
+    const g = new Map<string, typeof filtered>();
+    for (const it of filtered) {
+      const key = it.category && it.category.trim() ? it.category : "";
+      if (!g.has(key)) g.set(key, []);
+      g.get(key)!.push(it);
+    }
+    return { groups: Array.from(g.entries()), count: filtered.length };
+  }, [items, q]);
 
-  // Group by category if any present
-  const groups = new Map<string, typeof filtered>();
-  for (const it of filtered) {
-    const key = it.category && it.category.trim() ? it.category : "";
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key)!.push(it);
-  }
+  if (!groups.count)
+    return <div className="text-sm text-muted-foreground py-8 text-center">No matches.</div>;
 
   return (
     <div className="space-y-8">
-      {Array.from(groups.entries()).map(([cat, list]) => (
+      {groups.groups.map(([cat, list]) => (
         <div key={cat || "default"}>
-          {cat && (
-            <h3 className="font-serif text-lg mb-3 text-foreground/90">{cat}</h3>
-          )}
+          {cat && <h3 className="font-serif text-lg mb-3 text-foreground/90">{cat}</h3>}
           <div className="overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm">
               <thead>
@@ -287,7 +310,7 @@ function InstitutesList({
                     <td className="px-4 py-2.5">
                       {it.website && (
                         <a
-                          href={`https://${it.website.replace(/^https?:\/\//, "")}`}
+                          href={normalizeUrl(it.website)}
                           target="_blank"
                           rel="noreferrer"
                           className="text-primary hover:underline inline-flex items-center"
@@ -306,4 +329,9 @@ function InstitutesList({
       ))}
     </div>
   );
+}
+
+function normalizeUrl(u: string): string {
+  if (!u) return "#";
+  return /^https?:\/\//.test(u) ? u : `https://${u}`;
 }

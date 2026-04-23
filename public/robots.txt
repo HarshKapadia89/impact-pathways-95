@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /admin/
+Disallow: /teacher
+Disallow: /teacher/
+Disallow: /auth
+Disallow: /reports
+Disallow: /sessions
+Disallow: /schools
+Disallow: /teachers
+Disallow: /programs

@@ -1,0 +1,142 @@
+[
+  {
+    "stream": "Agriculture and Allied Sciences",
+    "slug": "agriculture-and-allied-sciences",
+    "professionsCount": 25,
+    "examsCount": 12,
+    "institutesCount": 40
+  },
+  {
+    "stream": "Architecture and Planning",
+    "slug": "architecture-and-planning",
+    "professionsCount": 19,
+    "examsCount": 10,
+    "institutesCount": 80
+  },
+  {
+    "stream": "Arts, Humanities and Social Sciences",
+    "slug": "arts-humanities-and-social-sciences",
+    "professionsCount": 29,
+    "examsCount": 12,
+    "institutesCount": 60
+  },
+  {
+    "stream": "Business Management",
+    "slug": "business-management",
+    "professionsCount": 31,
+    "examsCount": 28,
+    "institutesCount": 124
+  },
+  {
+    "stream": "Commerce and Finance",
+    "slug": "commerce-and-finance",
+    "professionsCount": 33,
+    "examsCount": 10,
+    "institutesCount": 60
+  },
+  {
+    "stream": "Computer Applications and Sciences",
+    "slug": "computer-applications-and-sciences",
+    "professionsCount": 66,
+    "examsCount": 15,
+    "institutesCount": 90
+  },
+  {
+    "stream": "Design and Fine Arts",
+    "slug": "design-and-fine-arts",
+    "professionsCount": 58,
+    "examsCount": 26,
+    "institutesCount": 57
+  },
+  {
+    "stream": "Economics",
+    "slug": "economics",
+    "professionsCount": 25,
+    "examsCount": 14,
+    "institutesCount": 60
+  },
+  {
+    "stream": "Engineering and Technology",
+    "slug": "engineering-and-technology",
+    "professionsCount": 70,
+    "examsCount": 28,
+    "institutesCount": 148
+  },
+  {
+    "stream": "Hotel, Hospitality and Tourism Management",
+    "slug": "hotel-hospitality-and-tourism-management",
+    "professionsCount": 20,
+    "examsCount": 13,
+    "institutesCount": 111
+  },
+  {
+    "stream": "Law",
+    "slug": "law",
+    "professionsCount": 34,
+    "examsCount": 15,
+    "institutesCount": 75
+  },
+  {
+    "stream": "Liberal Studies",
+    "slug": "liberal-studies",
+    "professionsCount": 44,
+    "examsCount": 14,
+    "institutesCount": 40
+  },
+  {
+    "stream": "Mass Communication / Mass Media",
+    "slug": "mass-communication-mass-media",
+    "professionsCount": 41,
+    "examsCount": 16,
+    "institutesCount": 60
+  },
+  {
+    "stream": "Medicine and Surgery",
+    "slug": "medicine-and-surgery",
+    "professionsCount": 94,
+    "examsCount": 1,
+    "institutesCount": 115
+  },
+  {
+    "stream": "Paramedical Sciences",
+    "slug": "paramedical-sciences",
+    "professionsCount": 92,
+    "examsCount": 25,
+    "institutesCount": 25
+  },
+  {
+    "stream": "Performing Arts",
+    "slug": "performing-arts",
+    "professionsCount": 27,
+    "examsCount": 8,
+    "institutesCount": 60
+  },
+  {
+    "stream": "Pure Sciences",
+    "slug": "pure-sciences",
+    "professionsCount": 172,
+    "examsCount": 17,
+    "institutesCount": 75
+  },
+  {
+    "stream": "Rehabilitation Sciences",
+    "slug": "rehabilitation-sciences",
+    "professionsCount": 16,
+    "examsCount": 9,
+    "institutesCount": 54
+  },
+  {
+    "stream": "Sports & Physical Education",
+    "slug": "sports-physical-education",
+    "professionsCount": 21,
+    "examsCount": 9,
+    "institutesCount": 68
+  },
+  {
+    "stream": "Veterinary and Fishery Sciences",
+    "slug": "veterinary-and-fishery-sciences",
+    "professionsCount": 18,
+    "examsCount": 14,
+    "institutesCount": 65
+  }
+]

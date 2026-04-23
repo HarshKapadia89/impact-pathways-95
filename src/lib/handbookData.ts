@@ -1,4 +1,4 @@
-import data from "./handbookData.json";
+import summariesJson from "./handbookSummaries.json";
 
 export type HandbookExam = {
   code: string;
@@ -22,7 +22,15 @@ export type HandbookStream = {
   institutes: HandbookInstitute[];
 };
 
-export const HANDBOOK_STREAMS = data as HandbookStream[];
+export type HandbookSummary = {
+  stream: string;
+  slug: string;
+  professionsCount: number;
+  examsCount: number;
+  institutesCount: number;
+};
+
+export const HANDBOOK_SUMMARIES = summariesJson as HandbookSummary[];
 
 const EMOJI: Record<string, string> = {
   "Agriculture and Allied Sciences": "🌾",
@@ -59,6 +67,21 @@ export function slugify(name: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-export const HANDBOOK_BY_SLUG: Record<string, HandbookStream> = Object.fromEntries(
-  HANDBOOK_STREAMS.map((s) => [slugify(s.stream), s]),
+// Eager-loaded import map for code-splitting per stream JSON file
+const streamLoaders = import.meta.glob<{ default: HandbookStream }>("./handbook/*.json");
+
+export const HANDBOOK_SUMMARY_BY_SLUG: Record<string, HandbookSummary> = Object.fromEntries(
+  HANDBOOK_SUMMARIES.map((s) => [s.slug, s]),
 );
+
+const cache = new Map<string, HandbookStream>();
+
+export async function loadHandbookStream(slug: string): Promise<HandbookStream | null> {
+  if (cache.has(slug)) return cache.get(slug)!;
+  const key = `./handbook/${slug}.json`;
+  const loader = streamLoaders[key];
+  if (!loader) return null;
+  const mod = await loader();
+  cache.set(slug, mod.default);
+  return mod.default;
+}
