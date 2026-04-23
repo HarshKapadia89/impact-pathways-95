@@ -133,7 +133,7 @@ export const STREAMS: Stream[] = [
         careers: ["Product Designer", "UX/UI Designer", "Animation Artist", "Industrial Designer", "Graphic Designer"],
         avgSalary: "₹4–20 LPA",
         description:
-          "A 4-year studio-based programme combining design thinking, sketching, prototyping, materials, user research and digital tools. Specialisations include Product, Communication, UX/UI, Animation, Industrial, Textile and Transportation Design.
+          "A 4-year studio-based programme combining design thinking, sketching, prototyping, materials, user research and digital tools. NID Ahmedabad is India's top design school; portfolio + DAT/UCEED determine entry.",
       },
       {
         title: "Integrated Law (BA LLB / B.Com LLB)",
