@@ -1,5 +1,4 @@
-// Comprehensive post-12th career guidance data.
-// Used by /career, /career/$stream, and the psychometric report.
+// Comprehensive post-12th career guidance data (
 
 export type StreamId = "science-pcm" | "science-pcb" | "commerce" | "humanities" | "vocational";
 
