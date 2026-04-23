@@ -3,20 +3,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { STREAMS, ENTRANCE_EXAMS } from "@/lib/careerData";
-import { GUJ_COLLEGES, GUJ_COLLEGE_STATS, GUJ_CITIES, type CategoryGroup } from "@/lib/gujaratColleges";
+import { GUJ_COLLEGES, GUJ_COLLEGE_STATS, type CategoryGroup } from "@/lib/gujaratColleges";
 import {
-  ArrowRight,
   MapPin,
   BookOpen,
   Sparkles,
   Building2,
   GraduationCap,
   ExternalLink,
-  Search,
   IndianRupee,
   Calendar,
   Users,
-  Filter,
+  Search as SearchIcon,
 } from "lucide-react";
 
 export const Route = createFileRoute("/career")({
@@ -42,28 +40,11 @@ function CareerIndex() {
   const { i18n } = useTranslation();
   const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
 
-  const [collegeQuery, setCollegeQuery] = useState("");
-  const [cityFilter, setCityFilter] = useState<string>("all");
   const [activeCat, setActiveCat] = useState<string>("all");
 
   const filteredCategories = useMemo(() => {
-    const q = collegeQuery.trim().toLowerCase();
-    return GUJ_COLLEGES
-      .filter((cat) => activeCat === "all" || cat.id === activeCat)
-      .map((cat) => ({
-        ...cat,
-        colleges: cat.colleges.filter((c) => {
-          const matchQ =
-            !q ||
-            c.name.toLowerCase().includes(q) ||
-            c.city.toLowerCase().includes(q) ||
-            c.courses.join(" ").toLowerCase().includes(q);
-          const matchCity = cityFilter === "all" || c.city.toLowerCase().includes(cityFilter.toLowerCase());
-          return matchQ && matchCity;
-        }),
-      }))
-      .filter((cat) => cat.colleges.length > 0);
-  }, [collegeQuery, cityFilter, activeCat]);
+    return GUJ_COLLEGES.filter((cat) => activeCat === "all" || cat.id === activeCat);
+  }, [activeCat]);
 
   const totalShown = filteredCategories.reduce((n, c) => n + c.colleges.length, 0);
 
@@ -139,9 +120,18 @@ function CareerIndex() {
               </h2>
               <p className="text-sm text-muted-foreground mt-2 max-w-3xl">
                 {lang === "gu"
-                  ? `${GUJ_COLLEGE_STATS.totalListed}+ કોલેજો, ${GUJ_COLLEGE_STATS.categories} શ્રેણીઓમાં — એન્જિનિયરિંગ, મેડિકલ, કાયદો, મેનેજમેન્ટ, ડિઝાઇન, વાણિજ્ય, કળા-વિજ્ઞાન, કૃષિ, ITI અને વધુ. અંદાજિત ફી, સ્થાપના વર્ષ અને કોર્સ સાથે.`
-                  : `${GUJ_COLLEGE_STATS.totalListed}+ colleges across ${GUJ_COLLEGE_STATS.categories} categories — engineering, medical, law, management, design, commerce, arts-science, agriculture, ITI and more. With type, fees, established year and key courses.`}
+                  ? `${GUJ_COLLEGE_STATS.totalListed}+ કોલેજો, ${GUJ_COLLEGE_STATS.categories} શ્રેણીઓમાં — એન્જિનિયરિંગ, મેડિકલ, કાયદો, મેનેજમેન્ટ, ડિઝાઇન, વાણિજ્ય, કળા-વિજ્ઞાન, કૃષિ, ITI અને વધુ. શ્રેણી પસંદ કરી બ્રાઉઝ કરો.`
+                  : `${GUJ_COLLEGE_STATS.totalListed}+ colleges across ${GUJ_COLLEGE_STATS.categories} categories — engineering, medical, law, management, design, commerce, arts-science, agriculture, ITI and more. Pick a category to browse.`}
               </p>
+              <Link
+                to="/find-college"
+                className="mt-3 inline-flex items-center gap-1.5 text-xs rounded-full border border-primary/40 bg-primary/5 text-primary px-3 py-1.5 hover:bg-primary/10 transition"
+              >
+                <SearchIcon className="h-3.5 w-3.5" />
+                {lang === "gu"
+                  ? "શોધી રહ્યા છો? — Find Your College ખોલો (ગુજરાત + ભારત)"
+                  : "Looking for a specific college? Open Find Your College (Gujarat + India)"}
+              </Link>
             </div>
             <div className="text-xs text-muted-foreground">
               {lang === "gu" ? "દર્શાવેલ" : "Showing"}: <span className="font-medium text-foreground">{totalShown}</span> /{" "}
@@ -149,52 +139,8 @@ function CareerIndex() {
             </div>
           </div>
 
-          {/* Filters */}
-          <div className="mt-6 grid md:grid-cols-3 gap-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input
-                type="text"
-                value={collegeQuery}
-                onChange={(e) => setCollegeQuery(e.target.value)}
-                placeholder={lang === "gu" ? "કોલેજ, કોર્સ અથવા શહેર શોધો..." : "Search college, course or city..."}
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-md border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30"
-              />
-            </div>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-              <select
-                value={cityFilter}
-                onChange={(e) => setCityFilter(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-md border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none"
-              >
-                <option value="all">{lang === "gu" ? "બધાં શહેરો" : "All cities"}</option>
-                {GUJ_CITIES.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="relative">
-              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-              <select
-                value={activeCat}
-                onChange={(e) => setActiveCat(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-md border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none"
-              >
-                <option value="all">{lang === "gu" ? "બધી શ્રેણીઓ" : "All categories"}</option>
-                {GUJ_COLLEGES.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.emoji} {lang === "gu" ? c.titleGu : c.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
           {/* Category quick chips */}
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             <button
               onClick={() => setActiveCat("all")}
               className={`text-xs rounded-full border px-3 py-1.5 transition ${

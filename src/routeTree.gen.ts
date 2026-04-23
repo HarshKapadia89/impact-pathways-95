@@ -16,6 +16,7 @@ import { Route as SchoolsRouteImport } from './routes/schools'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as HandbookRouteImport } from './routes/handbook'
+import { Route as FindCollegeRouteImport } from './routes/find-college'
 import { Route as CollegesRouteImport } from './routes/colleges'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -68,6 +69,11 @@ const ProgramsRoute = ProgramsRouteImport.update({
 const HandbookRoute = HandbookRouteImport.update({
   id: '/handbook',
   path: '/handbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindCollegeRoute = FindCollegeRouteImport.update({
+  id: '/find-college',
+  path: '/find-college',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollegesRoute = CollegesRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
+  '/find-college': typeof FindCollegeRoute
   '/handbook': typeof HandbookRouteWithChildren
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
+  '/find-college': typeof FindCollegeRoute
   '/handbook': typeof HandbookRouteWithChildren
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
+  '/find-college': typeof FindCollegeRoute
   '/handbook': typeof HandbookRouteWithChildren
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
@@ -249,6 +258,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/career'
     | '/colleges'
+    | '/find-college'
     | '/handbook'
     | '/programs'
     | '/reports'
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/career'
     | '/colleges'
+    | '/find-college'
     | '/handbook'
     | '/programs'
     | '/reports'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/career'
     | '/colleges'
+    | '/find-college'
     | '/handbook'
     | '/programs'
     | '/reports'
@@ -329,6 +341,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CareerRoute: typeof CareerRouteWithChildren
   CollegesRoute: typeof CollegesRoute
+  FindCollegeRoute: typeof FindCollegeRoute
   HandbookRoute: typeof HandbookRouteWithChildren
   ProgramsRoute: typeof ProgramsRoute
   ReportsRoute: typeof ReportsRoute
@@ -393,6 +406,13 @@ declare module '@tanstack/react-router' {
       path: '/handbook'
       fullPath: '/handbook'
       preLoaderRoute: typeof HandbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/find-college': {
+      id: '/find-college'
+      path: '/find-college'
+      fullPath: '/find-college'
+      preLoaderRoute: typeof FindCollegeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/colleges': {
@@ -589,6 +609,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CareerRoute: CareerRouteWithChildren,
   CollegesRoute: CollegesRoute,
+  FindCollegeRoute: FindCollegeRoute,
   HandbookRoute: HandbookRouteWithChildren,
   ProgramsRoute: ProgramsRoute,
   ReportsRoute: ReportsRoute,
