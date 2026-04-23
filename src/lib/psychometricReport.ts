@@ -179,7 +179,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(14);
   doc.text("Career Discovery Report", M, 72);
   doc.setFontSize(10);
-  doc.text("Shrimad Rajchandra Educational Trust", M, 80);
+  doc.text("The H B Kapadia New High School, Ahmedabad", M, 80);
 
   doc.setFontSize(11);
   doc.text("Prepared for", M, 130);

@@ -92,7 +92,7 @@ function Reports() {
     doc.text("Outreach Impact Report", 14, 20);
     doc.setFontSize(10);
     doc.setTextColor(100);
-    doc.text("Shrimad Rajchandra Educational Trust — Outreach Program", 14, 27);
+    doc.text("The H B Kapadia New High School, Ahmedabad", 14, 27);
     doc.text(today, 14, 32);
 
     doc.setFontSize(12);

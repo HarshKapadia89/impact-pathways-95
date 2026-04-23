@@ -7,7 +7,7 @@ const resources = {
     translation: {
       app: {
         name: "Outreach Mission Control",
-        tagline: "Shrimad Rajchandra Educational Trust — Outreach Program",
+        tagline: "The H B Kapadia New High School, Ahmedabad",
       },
       nav: {
         overview: "Overview",
