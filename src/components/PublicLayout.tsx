@@ -7,8 +7,8 @@ import { useState } from "react";
 
 const NAV = [
   { to: "/", label: { en: "Home", gu: "મુખ્ય" }, icon: Sparkles },
-  { to: "/career", label: { en: "Career Guidance", gu: "કારકિર્દી માર્ગદર્શન" }, icon: Compass },
-  { to: "/handbook", label: { en: "Handbook", gu: "હેન્ડબુક" }, icon: BookOpen },
+  { to: "/career", label: { en: "Career Guidance — Gujarat", gu: "કારકિર્દી માર્ગદર્શન — ગુજરાત" }, icon: Compass },
+  { to: "/handbook", label: { en: "Career Guidance — India", gu: "કારકિર્દી માર્ગદર્શન — ભારત" }, icon: BookOpen },
   { to: "/test", label: { en: "Aptitude Test", gu: "મનો-યોગ્યતા ટેસ્ટ" }, icon: Brain },
 ];
 

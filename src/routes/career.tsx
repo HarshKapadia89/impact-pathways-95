@@ -127,39 +127,7 @@ function CareerIndex() {
         </div>
       </section>
 
-      {/* STREAMS */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12">
-        <h2 className="font-serif text-2xl md:text-3xl">
-          {lang === "gu" ? "પ્રવાહ પ્રમાણે અન્વેષણ કરો" : "Explore by Stream"}
-        </h2>
-        <p className="text-sm text-muted-foreground mt-2">
-          {lang === "gu"
-            ? "દરેક પ્રવાહ માટે ગુજરાતની ટોચની કોલેજો, કારકિર્દી માર્ગો, સરેરાશ પગાર અને પ્રવેશ પરીક્ષાઓ."
-            : "Top Gujarat colleges, career paths, average salary and entrance exams for each stream."}
-        </p>
-        <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {STREAMS.map((s) => (
-            <Link
-              key={s.id}
-              to="/career/$stream"
-              params={{ stream: s.id }}
-              preload="intent"
-              className="group rounded-2xl border border-border bg-card p-6 hover:shadow-[var(--shadow-card)] hover:border-primary/40 transition-all"
-            >
-              <div className="text-4xl">{s.emoji}</div>
-              <div className="mt-3 font-serif text-xl">{lang === "gu" ? s.nameGu : s.name}</div>
-              <div className="text-xs text-muted-foreground mt-1">{lang === "gu" ? s.taglineGu : s.tagline}</div>
-              <div className="mt-4 text-xs text-muted-foreground">
-                {s.paths.length} {lang === "gu" ? "કારકિર્દી માર્ગો" : "career paths"}
-              </div>
-              <div className="mt-3 inline-flex items-center gap-1 text-sm text-primary opacity-80 group-hover:opacity-100">
-                {lang === "gu" ? "વાંચો" : "Read more"}
-                <ArrowRight className="h-3.5 w-3.5" />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* STREAMS section removed per request — stream navigation lives within the colleges directory cross-links and via /career/$stream URLs. */}
 
       {/* GUJARAT COLLEGES DIRECTORY */}
       <section className="bg-muted/30 border-y border-border">
