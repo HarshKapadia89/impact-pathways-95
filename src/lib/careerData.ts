@@ -31,7 +31,7 @@ export interface Stream {
   gujaratHighlights: string[];
   gujaratHighlightsGu: string[];
 }
-
+        description: "India's most prestigious commerce qualification. Self-study under ICAI (Foundation → Intermediate → Final) plus a mandatory 3-year articleship at a CA firm. Many Gujarat students pair it with a parallel B.Com to keep an academic degree in hand.",
 export const STREAMS: Stream[] = [
   {
     id: "science-pcm",
@@ -277,7 +277,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Research Scientist", "Forensic Analyst", "Biotech Industry", "Pharma R&D"],
         avgSalary: "₹3–10 LPA (much higher with PG)",
-        description: "Research-oriented; usually requires M.Sc/PhD for top roles.",
+        description: "Research-focused degrees that usually require M.Sc/PhD for top R&D roles. Forensic Science from GFSU Gandhinagar (India's first FSU) is a unique launchpad — graduates get hired by CBI, NIA, state police, cybercrime cells and private investigation firms.",
       },
     ],
     gujaratHighlights: [
