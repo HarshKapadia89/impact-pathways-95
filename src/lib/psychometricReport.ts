@@ -86,8 +86,8 @@ function footer(doc: jsPDF, page: number, total: number, name: string) {
 }
 
 // jsPDF's built-in helvetica only supports WinAnsi (Latin-1).
-// Replace any character outside that range with a safe ASCII fallback so
-// glyphs like ₹, ≥, ≠, ✓, ◯, ★ don't render as garbage.
+// Replace characters outside that range with safe ASCII fallbacks so
+// glyphs like Rs., >=, !=, etc. don't render as garbage.
 const GLYPH_MAP: Record<string, string> = {
   "₹": "Rs.",
   "≥": ">=",
@@ -98,13 +98,6 @@ const GLYPH_MAP: Record<string, string> = {
   "★": "*",
   "→": "->",
   "←": "<-",
-  "—": "-", // en/em dash sometimes also breaks italic widths; keep ASCII hyphen
-  "–": "-",
-  "•": "-",
-  "’": "'",
-  "‘": "'",
-  "“": '"',
-  "”": '"',
 };
 function safe(text: string): string {
   let out = "";
@@ -117,11 +110,6 @@ function safe(text: string): string {
 }
 function wrap(doc: jsPDF, text: string, maxWidth: number) {
   return doc.splitTextToSize(safe(text), maxWidth) as string[];
-}
-// Wrap doc.text so every text call is sanitised.
-const _origText = jsPDF.prototype.text;
-function txt(doc: jsPDF, str: string, x: number, y: number, opts?: Parameters<typeof _origText>[3]) {
-  return doc.text(safe(str), x, y, opts);
 }
 
 function drawBar(doc: jsPDF, x: number, y: number, label: string, value: number, max = 100, color = COLORS.bar) {
