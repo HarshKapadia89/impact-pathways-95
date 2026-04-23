@@ -17,7 +17,7 @@ import { ChevronLeft, ChevronRight, Download, RefreshCcw } from "lucide-react";
 export const Route = createFileRoute("/test/take")({
   head: () => ({
     meta: [
-      { title: "Take the Psychometric Test — Disha" },
+      { title: "Take the Psychometric Test — HBK Careers" },
       { name: "description", content: "Answer the bilingual RIASEC + MI + Aptitude test." },
     ],
   }),
@@ -253,7 +253,7 @@ function Result({
       miAnswers: mi,
       aptAnswers: apt,
     });
-    doc.save(`Disha-Report-${meta.name.replace(/\s+/g, "-")}.pdf`);
+    doc.save(`HBK Careers-Report-${meta.name.replace(/\s+/g, "-")}.pdf`);
     setDownloading(false);
   };
 

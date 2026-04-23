@@ -23,7 +23,7 @@ export const Route = createFileRoute("/handbook/$slug")({
       ? {
           meta: [
             {
-              title: `${loaderData.stream.stream} — Professions, Exams & Top Institutes | Disha`,
+              title: `${loaderData.stream.stream} — Professions, Exams & Top Institutes | HBK Careers`,
             },
             {
               name: "description",

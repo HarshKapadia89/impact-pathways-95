@@ -7,13 +7,13 @@ import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-reac
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Disha — Free Career Guidance & College Directory for Gujarat Students" },
+      { title: "HBK Careers — Free Career Guidance & College Directory for Gujarat Students" },
       {
         name: "description",
         content:
           "Free career guidance, Gujarat college directory, and a bilingual psychometric test for grades 6–12 with a detailed 20-page PDF report.",
       },
-      { property: "og:title", content: "Disha — Career Discovery for Gujarat Students" },
+      { property: "og:title", content: "HBK Careers — Career Discovery for Gujarat Students" },
       { property: "og:description", content: "Free guidance, colleges, and a 20-page psychometric report." },
     ],
   }),

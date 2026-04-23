@@ -8,13 +8,13 @@ import { BookOpen, ArrowRight, Search } from "lucide-react";
 export const Route = createFileRoute("/handbook")({
   head: () => ({
     meta: [
-      { title: "Career Guidance — India | Professions, Exams & Top Institutes | Disha" },
+      { title: "Career Guidance — India | Professions, Exams & Top Institutes | HBK Careers" },
       {
         name: "description",
         content:
           "India-wide career guidance covering 20 streams: 935+ professions, 269+ entrance exams and 1,400+ top institutes across India.",
       },
-      { property: "og:title", content: "Career Guidance — India | Disha" },
+      { property: "og:title", content: "Career Guidance — India | HBK Careers" },
       {
         property: "og:description",
         content: "Professions, entrance exams and ranked top institutes for 20 career streams.",

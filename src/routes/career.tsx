@@ -20,13 +20,13 @@ import {
 export const Route = createFileRoute("/career")({
   head: () => ({
     meta: [
-      { title: "Career Guidance — Gujarat | Top Colleges, Streams & Entrance Exams | Disha" },
+      { title: "Career Guidance — Gujarat | Top Colleges, Streams & Entrance Exams | HBK Careers" },
       {
         name: "description",
         content:
           "Complete Gujarat career guide after Class 12 — IIT Gandhinagar, IIM Ahmedabad, GNLU, NID, CEPT, GMERS medical colleges, B. J. Medical, GUJCET, NEET, MYSY scholarship, ACPC counselling. 100+ Gujarat colleges across engineering, medical, law, design, commerce, arts.",
       },
-      { property: "og:title", content: "Career Guidance — Gujarat | Disha" },
+      { property: "og:title", content: "Career Guidance — Gujarat | HBK Careers" },
       {
         property: "og:description",
         content: "Top Gujarat colleges across every stream + entrance exams (GUJCET, JEE, NEET, CLAT, NID) + MYSY scholarship + ACPC counselling.",

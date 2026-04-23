@@ -26,7 +26,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <GraduationCap className="h-6 w-6 text-primary" />
             <div className="leading-tight">
-              <div className="font-serif text-base md:text-lg">Disha</div>
+              <div className="font-serif text-base md:text-lg">HBK Careers</div>
               <div className="text-[10px] text-muted-foreground -mt-0.5">
                 {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
               </div>
@@ -97,7 +97,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
       <footer className="border-t border-border bg-sidebar text-sidebar-foreground mt-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid md:grid-cols-3 gap-6 text-sm">
           <div>
-            <div className="font-serif text-lg mb-2">Disha — દિશા</div>
+            <div className="font-serif text-lg mb-2">HBK Careers</div>
             <p className="text-sidebar-foreground/70 text-xs">
               {lang === "gu"
                 ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
