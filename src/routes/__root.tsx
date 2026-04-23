@@ -33,18 +33,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Outreach Mission Control — Shrimad Rajchandra Educational Trust" },
+      { title: "Outreach Mission Control — The H B Kapadia New High School, Ahmedabad" },
       {
         name: "description",
         content:
-          "Mission control for the Shrimad Rajchandra Educational Trust outreach program — managing 428 schools across Dharampur.",
+          "Mission control for The H B Kapadia New High School, Ahmedabad outreach program — managing 428 schools across Dharampur.",
       },
-      { name: "author", content: "Shrimad Rajchandra Educational Trust" },
-      { property: "og:title", content: "Outreach Mission Control — Shrimad Rajchandra Educational Trust" },
+      { name: "author", content: "The H B Kapadia New High School, Ahmedabad" },
+      { property: "og:title", content: "Outreach Mission Control — The H B Kapadia New High School, Ahmedabad" },
       { property: "og:description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Outreach Mission Control — Shrimad Rajchandra Educational Trust" },
+      { name: "twitter:title", content: "Outreach Mission Control — The H B Kapadia New High School, Ahmedabad" },
       { name: "description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
       { name: "twitter:description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97c7d7ef-1c14-4c94-ad29-cda8bb94e96d/id-preview-344737cc--e314d757-25ae-430b-a2ef-6530bea02d8b.lovable.app-1776978743326.png" },

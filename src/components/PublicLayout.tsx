@@ -55,12 +55,6 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           </nav>
           <div className="ml-auto flex items-center gap-2">
             <LanguageToggle />
-            <Link
-              to="/admin"
-              className="hidden md:inline-flex text-xs text-muted-foreground hover:text-foreground px-2 py-1"
-            >
-              {lang === "gu" ? "એડમિન" : "Admin"}
-            </Link>
             <button
               onClick={() => setOpen((v) => !v)}
               className="md:hidden p-2 -mr-2 rounded-md hover:bg-muted"
@@ -93,13 +87,6 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   </Link>
                 );
               })}
-              <Link
-                to="/admin"
-                onClick={() => setOpen(false)}
-                className="block px-3 py-2.5 rounded-md text-xs text-muted-foreground"
-              >
-                {lang === "gu" ? "એડમિન ડેશબોર્ડ" : "Admin Dashboard"} →
-              </Link>
             </nav>
           </div>
         )}
@@ -113,8 +100,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             <div className="font-serif text-lg mb-2">Disha — દિશા</div>
             <p className="text-sidebar-foreground/70 text-xs">
               {lang === "gu"
-                ? "શ્રીમદ્ રાજચંદ્ર એજ્યુકેશનલ ટ્રસ્ટ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
-                : "Free career guidance for students of Gujarat by the Shrimad Rajchandra Educational Trust outreach program."}
+                ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
+                : "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
             </p>
           </div>
           <div>
@@ -140,7 +127,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="border-t border-sidebar-border/30">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 text-[10px] text-sidebar-foreground/50">
-            © {new Date().getFullYear()} Shrimad Rajchandra Educational Trust
+            © {new Date().getFullYear()} The H B Kapadia New High School, Ahmedabad
           </div>
         </div>
       </footer>
