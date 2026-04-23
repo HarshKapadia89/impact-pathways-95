@@ -73,7 +73,7 @@ export const STREAMS: Stream[] = [
         ],
         avgSalary: "₹4–25 LPA (entry to senior, varies by branch & college)",
         description:
-          "The flagship engineering route with the widest set of specialisations: CSE, IT, AI/ML, Data Science, Mechanical, Civil, Electrical, Electronics & Communication, Chemical, Aerospace, Biomedical, Robotics, Mechatronics and Pet
+          "The flagship engineering route with the widest set of specialisations: CSE, IT, AI/ML, Data Science, Mechanical, Civil, Electrical, Electronics & Communication, Chemical, Aerospace, Biomedical, Robotics, Mechatronics and Petroleum. First two years are common foundation (maths, programming, mechanics); branch-specific labs and electives follow. Top recruiters in Gujarat include TCS, Infosys, L&T, Adani, Reliance, Tata Motors (Sanand), Micron and Tata Electronics. Higher studies (M.Tech, MS abroad, MBA) further multiply earnings.",
       },
       {
         title: "B.Arch (Architecture)",
