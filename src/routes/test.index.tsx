@@ -346,7 +346,7 @@ function TestIntro() {
             </p>
           </div>
 
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {reportSections.map((s) => (
               <div key={s.title} className="group">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden bg-card border border-border shadow-sm group-hover:shadow-lg transition-shadow">
@@ -379,6 +379,100 @@ function TestIntro() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PERSONALISED ACTION PLAN — featured */}
+      <section className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent">
+              <Rocket className="h-3.5 w-3.5" />
+              {t("The most important page", "સૌથી મહત્વનું પાનું")}
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl mt-3">
+              {t(
+                "A personalised 90-day action plan — not just scores.",
+                "માત્ર સ્કોર નહીં — એક વ્યક્તિગત 90-દિવસનો એક્શન પ્લાન."
+              )}
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              {t(
+                "Knowing your profile is only half the journey. Every report ends with a month-by-month action plan tailored to your top stream and career matches — so you walk away with concrete things to do this week, this month and this term.",
+                "તમારી પ્રોફાઇલ જાણવી અડધી યાત્રા છે. દરેક રિપોર્ટ તમારા ટોચના પ્રવાહ અને કારકિર્દી મેચ માટે અનુકૂળ માસિક એક્શન પ્લાન સાથે પૂર્ણ થાય છે — જેથી તમે આ અઠવાડિયે, આ મહિને અને આ સત્રમાં કરવા જેવી નક્કર બાબતો સાથે જાઓ."
+              )}
+            </p>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              {[
+                {
+                  icon: CalendarCheck,
+                  title: t("Month-by-month milestones", "માસિક માઇલસ્ટોન"),
+                  desc: t(
+                    "Three months of clear goals — from skill-building to club memberships and exam prep.",
+                    "ત્રણ મહિનાના સ્પષ્ટ લક્ષ્યો — કૌશલ્ય નિર્માણથી ક્લબ સભ્યપદ અને પરીક્ષા તૈયારી સુધી."
+                  ),
+                },
+                {
+                  icon: BookOpen,
+                  title: t("Curated learning resources", "પસંદ કરેલ શીખવા ના સંસાધનો"),
+                  desc: t(
+                    "Free courses, books, YouTube channels and podcasts hand-picked for your top career matches.",
+                    "મફત કોર્સ, પુસ્તકો, YouTube ચેનલ અને પોડકાસ્ટ — તમારા ટોચના કારકિર્દી મેચ માટે."
+                  ),
+                },
+                {
+                  icon: ListChecks,
+                  title: t("Habits to build", "બનાવવા જેવી આદતો"),
+                  desc: t(
+                    "Daily and weekly habits that compound — reading, journaling, project work, mock tests.",
+                    "દૈનિક અને સાપ્તાહિક આદતો — વાંચન, જર્નલિંગ, પ્રોજેક્ટ વર્ક, મોક ટેસ્ટ."
+                  ),
+                },
+                {
+                  icon: Target,
+                  title: t("Exams & deadlines", "પરીક્ષાઓ અને સમયમર્યાદા"),
+                  desc: t(
+                    "Entrance exams to register for, dates to remember, and Olympiads worth attempting.",
+                    "નોંધણી માટેની પ્રવેશ પરીક્ષાઓ, યાદ રાખવાની તારીખો અને પ્રયત્ન કરવા યોગ્ય ઓલિમ્પિયાડ."
+                  ),
+                },
+              ].map((x) => (
+                <div key={x.title} className="rounded-xl border border-border bg-card p-4">
+                  <x.icon className="h-5 w-5 text-primary" />
+                  <div className="mt-2 font-serif text-sm">{x.title}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{x.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-xl border-l-4 border-accent bg-accent/5 px-4 py-3 text-sm">
+              <span className="font-medium">
+                {t("Built for parents too:", "માતા-પિતા માટે પણ:")}
+              </span>{" "}
+              <span className="text-muted-foreground">
+                {t(
+                  "Print the action plan and stick it on your study-room wall — it doubles as a weekly check-in tool for families.",
+                  "એક્શન પ્લાન છાપીને તમારી અભ્યાસ ખંડની દિવાલ પર લગાવો — તે પરિવારો માટે સાપ્તાહિક ચેક-ઇન સાધન તરીકે પણ કામ કરે છે."
+                )}
+              </span>
+            </div>
+          </div>
+
+          <div className="order-1 md:order-2 relative">
+            <div className="absolute -inset-6 bg-gradient-to-tr from-accent/20 via-primary/10 to-transparent rounded-3xl blur-2xl" />
+            <img
+              src={sampleActionPlan}
+              alt={t(
+                "Sample 90-day personalised action plan page",
+                "નમૂના 90-દિવસનો વ્યક્તિગત એક્શન પ્લાન પાનું"
+              )}
+              width={1024}
+              height={1280}
+              loading="lazy"
+              className="relative w-full rounded-2xl border border-border shadow-2xl object-cover"
+            />
           </div>
         </div>
       </section>
