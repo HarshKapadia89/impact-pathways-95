@@ -431,7 +431,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Civil Servant (IAS/IPS/IFS)", "Researcher", "NGO Leader", "Journalist", "Diplomat", "Policy Analyst"],
         avgSalary: "₹3–20 LPA (much higher in civil services & corporate)",
-        description: "Foundation degree for UPSC aspirants and a launchpad into law, social sciences, and policy.",
+        description: "Foundation degree for UPSC/GPSC aspirants and the most popular launchpad into law, social sciences, journalism and policy work. The 4-year honours track (NEP 2020) lets students add research, internships and a minor in a second discipline.",
       },
       {
         title: "Integrated Law (BA LLB)",
@@ -441,7 +441,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["GNLU Gandhinagar", "Nirma Law", "MSU Baroda Law"],
         careers: ["Litigator", "Corporate Lawyer", "Judge", "Civil Services", "Legal Journalism"],
         avgSalary: "₹6–30 LPA",
-        description: "Among the most rewarding humanities paths.",
+        description: "Among the most rewarding humanities paths. The 5-year integrated BA-LLB combines liberal arts with full law training and ends with eligibility to practise. CLAT/AILET ranks decide the NLU; Tier-1 corporate law firms recruit on-campus from GNLU.",
       },
       {
         title: "B.A. Journalism & Mass Communication / Media",
@@ -455,7 +455,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Journalist", "Anchor", "PR & Communications", "Content Strategist", "Documentary Maker"],
         avgSalary: "₹3.5–15 LPA",
-        description: "MICA is a global brand for communications & advertising.",
+        description: "Three-year programme covering reporting, editing, broadcasting, digital media, PR and advertising. MICA Ahmedabad is a global brand for strategic communications; Gujarat's vibrant news/OTT ecosystem and political journalism scene offer strong internships.",
       },
       {
         title: "B.A. Psychology / B.Sc. Psychology",
