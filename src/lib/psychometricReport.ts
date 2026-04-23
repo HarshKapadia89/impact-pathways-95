@@ -87,7 +87,7 @@ function footer(doc: jsPDF, page: number, total: number, name: string) {
 
 // jsPDF's built-in helvetica only supports WinAnsi (Latin-1).
 // Replace characters outside that range with safe ASCII fallbacks so
-// glyphs like Rs., >=, !=, etc. don't render as garbage.
+// glyphs like Rs., bullets, em-dashes, etc. don't render as garbage.
 const GLYPH_MAP: Record<string, string> = {
   "₹": "Rs.",
   "≥": ">=",
@@ -98,6 +98,18 @@ const GLYPH_MAP: Record<string, string> = {
   "★": "*",
   "→": "->",
   "←": "<-",
+  "•": "-",
+  "·": "-",
+  "—": " - ",
+  "–": "-",
+  "“": '"',
+  "”": '"',
+  "‘": "'",
+  "’": "'",
+  "…": "...",
+  "₂": "2",
+  "₃": "3",
+  "°": " deg",
 };
 function safe(text: string): string {
   let out = "";
@@ -140,6 +152,17 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const { name, grade, age, language, report } = input;
   const recommendedStreams = recommendStreams(report.riasecTop, report.aptitudeTop);
   const doc = new jsPDF({ unit: "mm", format: "a4" });
+
+  // Wrap doc.text so every string passed in is auto-sanitised through safe()
+  // — guarantees no "?" boxes from bullets, em-dashes or other Unicode glyphs.
+  const _origText = doc.text.bind(doc) as (...args: unknown[]) => jsPDF;
+  doc.text = function (text: unknown, ...rest: unknown[]) {
+    if (typeof text === "string") return _origText(safe(text), ...rest);
+    if (Array.isArray(text))
+      return _origText(text.map((t) => (typeof t === "string" ? safe(t) : t)), ...rest);
+    return _origText(text, ...rest);
+  } as typeof doc.text;
+
   const current = { page: 1, total: 20 };
 
   // ============== PAGE 1 — COVER ==============
@@ -209,8 +232,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     "16. Action Plan — This Year",
     "17. Action Plan — Next 3 Years",
     "18. Tips for Parents & Mentors",
-    "19. Your Answers (Reference)",
-    "20. Notes & Glossary",
+    "19. Notes & Glossary",
   ];
   let y = 50;
   doc.setFont("helvetica", "normal");
@@ -274,9 +296,9 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
 
   doc.setFont("helvetica", "normal");
   setText(doc, COLORS.ink);
-  doc.text(report.riasecTop.join(" — "), M + 80, 55);
-  doc.text(report.miTop.slice(0, 2).map((k) => MI_LABELS[k]?.name ?? k).join(", "), M + 80, 65);
-  doc.text(`${report.aptitudeTop.join(" & ")}  (overall ${report.aptitudeOverall}%)`, M + 80, 75);
+  doc.text(safe(report.riasecTop.join(" — ")), M + 80, 55);
+  doc.text(safe(report.miTop.slice(0, 2).map((k) => MI_LABELS[k]?.name ?? k).join(", ")), M + 80, 65);
+  doc.text(safe(`${report.aptitudeTop.join(" & ")}  (overall ${report.aptitudeOverall}%)`), M + 80, 75);
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
@@ -291,14 +313,14 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, i === 0 ? COLORS.primary : COLORS.ink);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(13);
-    doc.text(`${i + 1}. ${s.name}`, M + 6, py + 9);
+    doc.text(safe(`${i + 1}. ${s.name}`), M + 6, py + 9);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text(s.tagline, M + 6, py + 17);
+    doc.text(safe(s.tagline), M + 6, py + 17);
     py += 28;
   });
 
-  doc.setFont("helvetica", "italic");
+  doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   setText(doc, COLORS.muted);
   doc.text(
@@ -483,12 +505,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, i === 0 ? [255, 255, 255] : COLORS.ink);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text(`${i === 0 ? "Primary" : "Secondary"}: ${s.name}`, M + 6, yy + 10);
+    doc.text(safe(`${i === 0 ? "Primary" : "Secondary"}: ${s.name}`), M + 6, yy + 10);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text(s.tagline, M + 6, yy + 18);
+    doc.text(safe(s.tagline), M + 6, yy + 18);
     doc.setFontSize(9);
-    doc.text(`Core subjects: ${s.coreSubjects.slice(0, 4).join(", ")}`, M + 6, yy + 25);
+    doc.text(safe(`Core subjects: ${s.coreSubjects.slice(0, 4).join(", ")}`), M + 6, yy + 25);
     setText(doc, COLORS.ink);
     yy += 38;
   });
@@ -504,13 +526,16 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(15);
     setText(doc, COLORS.primary);
-    doc.text(s.name, M, yy);
+    doc.text(safe(s.name), M, yy);
     yy += 8;
-    doc.setFont("helvetica", "italic");
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     setText(doc, COLORS.muted);
-    doc.text(s.tagline, M, yy);
-    yy += 8;
+    for (const l of wrap(doc, s.tagline, PW - 2 * M)) {
+      doc.text(l, M, yy);
+      yy += 5;
+    }
+    yy += 3;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     setText(doc, COLORS.ink);
@@ -527,7 +552,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       yy = ensureSpace(doc, yy, 16, name, current);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(10);
-      doc.text(`• ${p.title}`, M, yy);
+      doc.text(safe(`• ${p.title}`), M, yy);
       yy += 5;
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
@@ -558,13 +583,13 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(11);
       setText(doc, COLORS.primary);
-      doc.text(`${counter}. ${p.title}`, M, yy);
+      doc.text(safe(`${counter}. ${p.title}`), M, yy);
       counter += 1;
       yy += 5;
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
       setText(doc, COLORS.ink);
-      doc.text(`Stream: ${s.name}  •  ${p.duration}  •  Salary: ${p.avgSalary}`, M, yy);
+      doc.text(safe(`Stream: ${s.name}  •  ${p.duration}  •  Salary: ${p.avgSalary}`), M, yy);
       yy += 5;
       setText(doc, COLORS.muted);
       const ent = p.entranceExams.join(", ");
@@ -601,7 +626,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     setText(doc, COLORS.primary);
-    doc.text(ex, M + 3, yy + 1);
+    doc.text(safe(ex), M + 3, yy + 1);
     setText(doc, COLORS.ink);
     yy += 9;
   }
@@ -626,7 +651,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
         yy = ensureSpace(doc, yy, 7, name, current);
         doc.setFont("helvetica", "normal");
         doc.setFontSize(10);
-        doc.text(`•  ${c}`, M, yy);
+        doc.text(safe(`•  ${c}`), M, yy);
         yy += 6;
       }
     }
@@ -731,7 +756,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // ============== PAGE 20 — NOTES & GLOSSARY ==============
   doc.addPage();
   current.page = 20;
-  header(doc, "20. Notes & Glossary");
+  header(doc, "19. Notes & Glossary");
   yy = 50;
   doc.setFont("helvetica", "normal");
   doc.setFontSize(11);
@@ -764,7 +789,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
 
   yy += 6;
-  doc.setFont("helvetica", "italic");
+  doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   setText(doc, COLORS.muted);
   doc.text(
@@ -774,10 +799,14 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   );
   footer(doc, 20, 20, name);
 
-  // Re-stamp footer page numbers in case ensureSpace inserted extra pages
+  // Re-stamp footer page numbers in case ensureSpace inserted extra pages.
+  // Cover the previous "Page x of 20" text with a white rect first so
+  // numbers don't appear stacked on top of each other.
   const totalPages = doc.getNumberOfPages();
   for (let i = 1; i <= totalPages; i++) {
     doc.setPage(i);
+    setFill(doc, [255, 255, 255]);
+    doc.rect(PW - M - 30, PH - 12, 30, 6, "F");
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     setText(doc, COLORS.muted);
