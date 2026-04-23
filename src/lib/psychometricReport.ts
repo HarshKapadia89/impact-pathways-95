@@ -275,7 +275,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFont("helvetica", "normal");
   setText(doc, COLORS.ink);
   doc.text(report.riasecTop.join(" — "), M + 80, 55);
-  doc.text(report.miTop.map((k) => MI_LABELS[k]?.name ?? k).join(", "), M + 80, 65);
+  doc.text(report.miTop.slice(0, 2).map((k) => MI_LABELS[k]?.name ?? k).join(", "), M + 80, 65);
   doc.text(`${report.aptitudeTop.join(" & ")}  (overall ${report.aptitudeOverall}%)`, M + 80, 75);
 
   doc.setFont("helvetica", "bold");
@@ -713,7 +713,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const parentTips = [
     "Read this report together. Ask your child what surprised them.",
     "Stream choice belongs to the student. Adults guide; they don't decide.",
-    "Marks ≠ ability. Aptitude + effort + interest matter more long-term.",
+    "Marks are not ability. Aptitude + effort + interest matter more long-term.",
     "Gujarat has incredible institutions — IIM-A, NID, GNLU, NIFT, IIT-GN, MICA, MSU. Many give 100% scholarships.",
     "Visit one college campus together this year. It changes how a student thinks.",
     "Celebrate curiosity, not only marks. Ask 'what did you find interesting?' more than 'what did you score?'",
