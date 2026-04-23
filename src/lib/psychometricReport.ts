@@ -209,8 +209,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     "16. Action Plan — This Year",
     "17. Action Plan — Next 3 Years",
     "18. Tips for Parents & Mentors",
-    "19. Your Answers (Reference)",
-    "20. Notes & Glossary",
+    "19. Notes & Glossary",
   ];
   let y = 50;
   doc.setFont("helvetica", "normal");
