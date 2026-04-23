@@ -603,7 +603,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     setText(doc, COLORS.primary);
-    doc.text(ex, M + 3, yy + 1);
+    doc.text(safe(ex), M + 3, yy + 1);
     setText(doc, COLORS.ink);
     yy += 9;
   }
@@ -628,7 +628,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
         yy = ensureSpace(doc, yy, 7, name, current);
         doc.setFont("helvetica", "normal");
         doc.setFontSize(10);
-        doc.text(`•  ${c}`, M, yy);
+        doc.text(safe(`•  ${c}`), M, yy);
         yy += 6;
       }
     }
@@ -733,7 +733,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // ============== PAGE 20 — NOTES & GLOSSARY ==============
   doc.addPage();
   current.page = 20;
-  header(doc, "20. Notes & Glossary");
+  header(doc, "19. Notes & Glossary");
   yy = 50;
   doc.setFont("helvetica", "normal");
   doc.setFontSize(11);
@@ -766,7 +766,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
 
   yy += 6;
-  doc.setFont("helvetica", "italic");
+  doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   setText(doc, COLORS.muted);
   doc.text(
