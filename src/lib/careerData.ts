@@ -26,6 +26,9 @@ export interface Stream {
   overviewGu: string;
   coreSubjects: string[];
   paths: CareerPath[];
+  /** Gujarat-specific advantages: clusters, schemes, recruiters, scholarships */
+  gujaratHighlights: string[];
+  gujaratHighlightsGu: string[];
 }
 
 export const STREAMS: Stream[] = [
