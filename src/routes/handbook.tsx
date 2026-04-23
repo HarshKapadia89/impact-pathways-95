@@ -8,13 +8,13 @@ import { BookOpen, ArrowRight, Search } from "lucide-react";
 export const Route = createFileRoute("/handbook")({
   head: () => ({
     meta: [
-      { title: "Career Handbook — Professions, Exams & Top Institutes | Disha" },
+      { title: "Career Guidance — India | Professions, Exams & Top Institutes | Disha" },
       {
         name: "description",
         content:
-          "Comprehensive career handbook covering 20 streams: 935+ professions, 269+ entrance exams and 1,400+ top institutes across India.",
+          "India-wide career guidance covering 20 streams: 935+ professions, 269+ entrance exams and 1,400+ top institutes across India.",
       },
-      { property: "og:title", content: "Career Handbook — Disha" },
+      { property: "og:title", content: "Career Guidance — India | Disha" },
       {
         property: "og:description",
         content: "Professions, entrance exams and ranked top institutes for 20 career streams.",
@@ -71,7 +71,7 @@ function HandbookIndex() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
             <BookOpen className="h-3.5 w-3.5" />
-            {lang === "gu" ? "કારકિર્દી હેન્ડબુક" : "Career Handbook"}
+            {lang === "gu" ? "કારકિર્દી માર્ગદર્શન — ભારત" : "Career Guidance — India"}
           </div>
           <h1 className="font-serif text-3xl md:text-5xl mt-2">
             {lang === "gu"
