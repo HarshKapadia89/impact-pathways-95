@@ -31,7 +31,6 @@ export interface Stream {
   gujaratHighlights: string[];
   gujaratHighlightsGu: string[];
 }
-        description: "India's most prestigious commerce qualification. Self-study under ICAI (Foundation → Intermediate → Final) plus a mandatory 3-year articleship at a CA firm. Many Gujarat students pair it with a parallel B.Com to keep an academic degree in hand.",
 export const STREAMS: Stream[] = [
   {
     id: "science-pcm",
