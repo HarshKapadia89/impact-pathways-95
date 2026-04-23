@@ -485,7 +485,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["NID Ahmedabad", "MSU Baroda — Faculty of Fine Arts", "NIFT Gandhinagar", "CEPT University"],
         careers: ["Fashion Designer", "Animator", "Illustrator", "UX Designer", "Painter", "Sculptor"],
         avgSalary: "₹4–18 LPA",
-        description: "Gujarat hosts NID, NIFT, CEPT, and MSU Fine Arts — one of India's strongest design clusters.",
+        description: "Gujarat hosts NID, NIFT, CEPT, MICA and MSU Fine Arts — one of India's strongest design clusters in a single state. UCEED/NID-DAT/NIFT entrances test creativity, observation and basic drawing rather than rote knowledge — open to students from any 12th stream.",
       },
       {
         title: "B.A. Performing Arts / Music / Theatre",
