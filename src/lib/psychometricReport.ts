@@ -560,13 +560,13 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(11);
       setText(doc, COLORS.primary);
-      doc.text(`${counter}. ${p.title}`, M, yy);
+      doc.text(safe(`${counter}. ${p.title}`), M, yy);
       counter += 1;
       yy += 5;
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
       setText(doc, COLORS.ink);
-      doc.text(`Stream: ${s.name}  •  ${p.duration}  •  Salary: ${p.avgSalary}`, M, yy);
+      doc.text(safe(`Stream: ${s.name}  •  ${p.duration}  •  Salary: ${p.avgSalary}`), M, yy);
       yy += 5;
       setText(doc, COLORS.muted);
       const ent = p.entranceExams.join(", ");
