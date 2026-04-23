@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { STREAMS } from "@/lib/careerData";
-import { Compass, Brain, ArrowRight, GraduationCap } from "lucide-react";
+import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,7 +41,7 @@ function HomePage() {
 
   const tiles = [
     {
-      to: "/career",
+      to: "/career" as const,
       icon: Compass,
       title: lang === "gu" ? "કારકિર્દી માર્ગદર્શન" : "Career Guidance",
       desc:
@@ -50,7 +50,16 @@ function HomePage() {
           : "Detailed guides for Science, Commerce, Humanities and Vocational paths.",
     },
     {
-      to: "/test",
+      to: "/handbook" as const,
+      icon: BookOpen,
+      title: lang === "gu" ? "કારકિર્દી હેન્ડબુક" : "Career Handbook",
+      desc:
+        lang === "gu"
+          ? "20 પ્રવાહોમાં 935+ વ્યવસાયો અને 1,400+ ટોચની સંસ્થાઓ."
+          : "935+ professions and 1,400+ top institutes across 20 streams.",
+    },
+    {
+      to: "/test" as const,
       icon: Brain,
       title: lang === "gu" ? "મનો-યોગ્યતા ટેસ્ટ" : "Psychometric Test",
       desc:
