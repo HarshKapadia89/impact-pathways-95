@@ -220,7 +220,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Pharmacist", "Drug Inspector", "Clinical Research", "QA/QC Pharma Industry"],
         avgSalary: "₹3.5–12 LPA",
-        description: "Gujarat is India's pharmaceutical hub — strong industry placements.",
+        description: "Gujarat is India's pharmaceutical hub — Zydus, Torrent, Cadila, Intas and Sun Pharma hire B.Pharm graduates in bulk for production, QA/QC, formulation and clinical research. M.Pharm or Pharm.D unlocks regulatory affairs and drug development roles abroad.",
       },
       {
         title: "BAMS / BHMS (Ayurveda / Homeopathy)",
