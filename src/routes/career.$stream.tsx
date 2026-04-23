@@ -1,9 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
-import { STREAM_BY_ID, type StreamId, type Stream } from "@/lib/careerData";
+import { STREAM_BY_ID, pathSlug, type StreamId, type Stream } from "@/lib/careerData";
 import {
   ArrowLeft,
+  ArrowRight,
   Clock,
   Award,
   Building2,

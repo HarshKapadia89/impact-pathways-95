@@ -32,6 +32,7 @@ import { Route as CareerStreamRouteImport } from './routes/career.$stream'
 import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
 import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
+import { Route as CareerStreamPathRouteImport } from './routes/career.$stream.$path'
 
 const TestRoute = TestRouteImport.update({
   id: '/test',
@@ -148,6 +149,11 @@ const TeacherSchoolSchoolIdRoute = TeacherSchoolSchoolIdRouteImport.update({
   path: '/teacher/school/$schoolId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareerStreamPathRoute = CareerStreamPathRouteImport.update({
+  id: '/$path',
+  path: '/$path',
+  getParentRoute: () => CareerStreamRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -163,7 +169,7 @@ export interface FileRoutesByFullPath {
   '/teachers': typeof TeachersRoute
   '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
-  '/career/$stream': typeof CareerStreamRoute
+  '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
@@ -171,6 +177,7 @@ export interface FileRoutesByFullPath {
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
+  '/career/$stream/$path': typeof CareerStreamPathRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -187,7 +194,7 @@ export interface FileRoutesByTo {
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
   '/admin/colleges': typeof AdminCollegesRoute
-  '/career/$stream': typeof CareerStreamRoute
+  '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/test/take': typeof TestTakeRoute
   '/teacher': typeof TeacherIndexRoute
   '/test': typeof TestIndexRoute
+  '/career/$stream/$path': typeof CareerStreamPathRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -213,7 +221,7 @@ export interface FileRoutesById {
   '/teachers': typeof TeachersRoute
   '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
-  '/career/$stream': typeof CareerStreamRoute
+  '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
@@ -221,6 +229,7 @@ export interface FileRoutesById {
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
+  '/career/$stream/$path': typeof CareerStreamPathRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
 }
@@ -248,6 +257,7 @@ export interface FileRouteTypes {
     | '/test/take'
     | '/teacher/'
     | '/test/'
+    | '/career/$stream/$path'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   fileRoutesByTo: FileRoutesByTo
@@ -272,6 +282,7 @@ export interface FileRouteTypes {
     | '/test/take'
     | '/teacher'
     | '/test'
+    | '/career/$stream/$path'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   id:
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/test/take'
     | '/teacher/'
     | '/test/'
+    | '/career/$stream/$path'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
   fileRoutesById: FileRoutesById
@@ -485,6 +497,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeacherSchoolSchoolIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/career/$stream/$path': {
+      id: '/career/$stream/$path'
+      path: '/$path'
+      fullPath: '/career/$stream/$path'
+      preLoaderRoute: typeof CareerStreamPathRouteImport
+      parentRoute: typeof CareerStreamRoute
+    }
   }
 }
 
@@ -498,12 +517,24 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
+interface CareerStreamRouteChildren {
+  CareerStreamPathRoute: typeof CareerStreamPathRoute
+}
+
+const CareerStreamRouteChildren: CareerStreamRouteChildren = {
+  CareerStreamPathRoute: CareerStreamPathRoute,
+}
+
+const CareerStreamRouteWithChildren = CareerStreamRoute._addFileChildren(
+  CareerStreamRouteChildren,
+)
+
 interface CareerRouteChildren {
-  CareerStreamRoute: typeof CareerStreamRoute
+  CareerStreamRoute: typeof CareerStreamRouteWithChildren
 }
 
 const CareerRouteChildren: CareerRouteChildren = {
-  CareerStreamRoute: CareerStreamRoute,
+  CareerStreamRoute: CareerStreamRouteWithChildren,
 }
 
 const CareerRouteWithChildren =
