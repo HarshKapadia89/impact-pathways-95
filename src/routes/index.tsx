@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { STREAMS } from "@/lib/careerData";
-import { Compass, Library, Brain, ArrowRight, GraduationCap } from "lucide-react";
+import { Compass, Brain, ArrowRight, GraduationCap } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,16 +27,16 @@ function HomePage() {
     hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",
     hero2:
       lang === "gu"
-        ? "ગ્રેડ 6–12 માટે મફત કારકિર્દી માર્ગદર્શન, ગુજરાત કોલેજ ડિરેક્ટરી, અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ સાથેનો સાયકોમેટ્રિક ટેસ્ટ."
-        : "Free career guidance, a Gujarat college directory, and a psychometric test with a 20-page personalised report — for grades 6 through 12.",
+        ? "ગ્રેડ 6–12 માટે મફત કારકિર્દી માર્ગદર્શન અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ સાથેનો સાયકોમેટ્રિક ટેસ્ટ."
+        : "Free career guidance and a psychometric test with a 20-page personalised report — for grades 6 through 12.",
     cta1: lang === "gu" ? "ટેસ્ટ આપો" : "Take the test",
-    cta2: lang === "gu" ? "કોલેજો જુઓ" : "Browse colleges",
+    cta2: lang === "gu" ? "કારકિર્દી માર્ગદર્શન" : "Career guidance",
     sectionsTitle: lang === "gu" ? "શું અન્વેષણ કરશો?" : "What to explore",
     streamsTitle: lang === "gu" ? "12 પછીના માર્ગો" : "Your paths after Class 12",
     streamsSub:
       lang === "gu"
-        ? "દરેક પ્રવાહ માટે વિગતવાર કારકિર્દી, કોલેજો, પ્રવેશ પરીક્ષાઓ અને પગાર."
-        : "Deep guides on careers, colleges, entrance exams and salaries — per stream.",
+        ? "દરેક પ્રવાહ માટે વિગતવાર કારકિર્દી, પ્રવેશ પરીક્ષાઓ અને પગાર."
+        : "Deep guides on careers, entrance exams and salaries — per stream.",
   };
 
   const tiles = [
@@ -48,15 +48,6 @@ function HomePage() {
         lang === "gu"
           ? "વિજ્ઞાન, વાણિજ્ય, માનવવિદ્યા, વ્યાવસાયિક — દરેક માટે વિગતવાર ગાઇડ."
           : "Detailed guides for Science, Commerce, Humanities and Vocational paths.",
-    },
-    {
-      to: "/colleges",
-      icon: Library,
-      title: lang === "gu" ? "ગુજરાત કોલેજો" : "Gujarat Colleges",
-      desc:
-        lang === "gu"
-          ? "શોધી શકાય તેવી ડિરેક્ટરી — IIT, IIM, NID, GNLU, MSU, અને વધુ."
-          : "Searchable directory — IIT, IIM, NID, GNLU, MSU and many more.",
     },
     {
       to: "/test",
@@ -95,10 +86,10 @@ function HomePage() {
                 {T.cta1}
               </Link>
               <Link
-                to="/colleges"
+                to="/career"
                 className="inline-flex items-center gap-2 bg-card border border-border rounded-md px-5 py-3 text-sm font-medium hover:bg-muted"
               >
-                <Library className="h-4 w-4" />
+                <Compass className="h-4 w-4" />
                 {T.cta2}
               </Link>
             </div>
