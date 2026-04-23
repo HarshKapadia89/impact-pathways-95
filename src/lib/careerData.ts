@@ -495,7 +495,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["MSU Baroda — Faculty of Performing Arts", "Gujarat Sangeet Nritya Akademi"],
         careers: ["Performing Artist", "Music Teacher", "Theatre Director", "Film/TV"],
         avgSalary: "₹2.5–15 LPA (highly variable)",
-        description: "MSU Baroda's Performing Arts faculty is one of India's premier institutions.",
+        description: "MSU Baroda's Faculty of Performing Arts is one of India's premier institutions — Hindustani vocal, instrumental, dance (Bharatanatyam, Kathak) and theatre. Graduates work in films, OTT, music labels, teaching and festivals.",",
       },
       {
         title: "Hotel Management & Hospitality (BHM)",
