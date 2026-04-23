@@ -31,7 +31,6 @@ export interface Stream {
   gujaratHighlights: string[];
   gujaratHighlightsGu: string[];
 }
-
 export const STREAMS: Stream[] = [
   {
     id: "science-pcm",
@@ -73,7 +72,7 @@ export const STREAMS: Stream[] = [
         ],
         avgSalary: "₹4–25 LPA (entry to senior, varies by branch & college)",
         description:
-          "The flagship engineering route. Specialise in CSE, IT, AI/ML, Mechanical, Civil, Electrical, Electronics, Chemical, Aerospace, Biomedical, etc.",
+          "The flagship engineering route with the widest set of specialisations: CSE, IT, AI/ML, Data Science, Mechanical, Civil, Electrical, Electronics & Communication, Chemical, Aerospace, Biomedical, Robotics, Mechatronics and Petroleum. First two years are common foundation (maths, programming, mechanics); branch-specific labs and electives follow. Top recruiters in Gujarat include TCS, Infosys, L&T, Adani, Reliance, Tata Motors (Sanand), Micron and Tata Electronics. Higher studies (M.Tech, MS abroad, MBA) further multiply earnings.",
       },
       {
         title: "B.Arch (Architecture)",
@@ -88,7 +87,8 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Architect", "Urban Planner", "Interior Designer", "Landscape Architect", "Heritage Conservation"],
         avgSalary: "₹3.5–18 LPA",
-        description: "Design buildings, cities, and interiors. CEPT Ahmedabad is one of India's most prestigious schools.",
+        description:
+          "Design buildings, cities, interiors and public spaces. The 5-year programme blends studio design, history of architecture, structural systems, building services, urban planning, sustainability and a mandatory 6-month practical training. CEPT Ahmedabad is one of India's most prestigious architecture schools and Gujarat — with Dholera, GIFT City and the Statue of Unity ecosystem — offers strong project exposure.",
       },
       {
         title: "B.Sc. (Pure Sciences)",
@@ -104,7 +104,8 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Researcher", "Lab Scientist", "Teacher", "Data Analyst", "Patent Analyst", "Civil Services"],
         avgSalary: "₹3–10 LPA (much higher with M.Sc/PhD)",
-        description: "Specialise in Physics, Maths, Statistics, Chemistry, Computer Science, IT, Biotechnology, Forensic Science.",
+        description:
+          "A 3-year (or 4-year honours/research) degree letting you specialise in Physics, Mathematics, Statistics, Chemistry, Computer Science, IT, Biotechnology, Microbiology or Forensic Science. PG (M.Sc) or research unlocks top R&D, teaching and civil-services pathways.",
       },
       {
         title: "NDA — Defence Services",
@@ -114,7 +115,8 @@ export const STREAMS: Stream[] = [
         topColleges: ["National Defence Academy, Khadakwasla, Pune"],
         careers: ["Officer — Indian Army", "Officer — Indian Navy", "Officer — Indian Air Force"],
         avgSalary: "₹56,100/month (Lieutenant) + perks; rises substantially with rank",
-        description: "Join as a commissioned officer in the Armed Forces. Highly competitive, prestigious, life of service.",
+        description:
+          "Join as a commissioned officer in the Indian Army, Navy or Air Force. The 3-year NDA Khadakwasla programme is followed by a year at IMA, INA or AFA. Selection is via UPSC written + a 5-day SSB interview at Bhopal/Bengaluru. Highly competitive, prestigious and life-long benefits.",
       },
       {
         title: "B.Des (Design)",
@@ -129,7 +131,8 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Product Designer", "UX/UI Designer", "Animation Artist", "Industrial Designer", "Graphic Designer"],
         avgSalary: "₹4–20 LPA",
-        description: "NID Ahmedabad is India's top design school. Design thinking + creativity + tech.",
+        description:
+          "A 4-year studio-based programme combining design thinking, sketching, prototyping, materials, user research and digital tools. NID Ahmedabad is India's top design school; portfolio + DAT/UCEED determine entry.",
       },
       {
         title: "Integrated Law (BA LLB / B.Com LLB)",
@@ -139,7 +142,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["GNLU Gandhinagar (one of India's top NLUs)", "Nirma University Law", "MSU Baroda Law"],
         careers: ["Lawyer", "Corporate Counsel", "Judge", "Civil Services", "Legal Tech"],
         avgSalary: "₹6–30 LPA",
-        description: "GNLU Gandhinagar is consistently ranked in India's top 5 National Law Universities.",
+        description: "GNLU Gandhinagar is consistently ranked in India's top 5 NLUs. The 5-year integrated BA-LLB / BBA-LLB blends law with arts/commerce; CLAT score determines NLU placement, with corporate, judiciary, civil services and litigation as the main exits.",
       },
     ],
     gujaratHighlights: [
@@ -187,7 +190,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Doctor (MD/MS specialist)", "Surgeon", "Public Health Officer", "Medical Researcher"],
         avgSalary: "₹6–60 LPA (rises sharply with PG)",
-        description: "The most sought-after PCB path. NEET cut-off is highly competitive.",
+        description: "The most sought-after PCB path. NEET-UG cut-off is highly competitive; 5.5 years includes 1-year rotating internship. Most graduates pursue PG (MD/MS) via NEET-PG to specialise. Government colleges in Gujarat charge ~₹25k/year — exceptional return on investment.",
       },
       {
         title: "BDS (Dentistry)",
@@ -201,7 +204,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Dental Surgeon", "Orthodontist", "Oral Pathologist"],
         avgSalary: "₹4–20 LPA",
-        description: "Dentistry as a private practice or hospital specialist.",
+        description: "5-year programme covering oral anatomy, prosthodontics, orthodontics, oral surgery and a year of clinical posting. Career as a private dental surgeon, specialist (MDS) or hospital practitioner. NRI-quota seats add ~30% private capacity in Gujarat.",
       },
       {
         title: "B.Pharm (Pharmacy)",
@@ -216,7 +219,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Pharmacist", "Drug Inspector", "Clinical Research", "QA/QC Pharma Industry"],
         avgSalary: "₹3.5–12 LPA",
-        description: "Gujarat is India's pharmaceutical hub — strong industry placements.",
+        description: "Gujarat is India's pharmaceutical hub — Zydus, Torrent, Cadila, Intas and Sun Pharma hire B.Pharm graduates in bulk for production, QA/QC, formulation and clinical research. M.Pharm or Pharm.D unlocks regulatory affairs and drug development roles abroad.",
       },
       {
         title: "BAMS / BHMS (Ayurveda / Homeopathy)",
@@ -230,7 +233,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Ayurvedic Doctor", "Homeopath", "Wellness Consultant"],
         avgSalary: "₹3–15 LPA",
-        description: "Traditional medicine systems with growing demand globally.",
+        description: "Traditional Indian systems of medicine with growing global demand. BAMS (Ayurveda) and BHMS (Homeopathy) are 5.5-year programmes including internship; Jamnagar's I.P.G.T.&R.A. is the apex Ayurveda institute and a WHO collaborating centre.",
       },
       {
         title: "B.Sc. Nursing / Physiotherapy / Allied Health",
@@ -244,7 +247,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Staff Nurse", "Physiotherapist", "Occupational Therapist", "Radiologist", "Optometrist"],
         avgSalary: "₹3–10 LPA",
-        description: "High employability, both India and abroad.",
+        description: "High-employability allied-health degrees. Nursing graduates can work in India or abroad (Gulf, UK, Canada — strong NCLEX/OET pipeline). Physiotherapy and Occupational Therapy are booming with India's ageing population and sports-medicine demand.",
       },
       {
         title: "B.Sc. Agriculture / Horticulture / Veterinary",
@@ -259,7 +262,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Agriculture Officer", "Agri-business Manager", "Veterinarian", "Horticulturist"],
         avgSalary: "₹4–12 LPA",
-        description: "Strong public sector openings + agri-startups. Gujarat has 4 dedicated agri universities.",
+        description: "Strong public-sector openings (state Agri Officer, IBPS-AFO, FCI) plus a fast-growing agri-startup ecosystem. Gujarat has 4 dedicated agriculture universities (Anand, Junagadh, Navsari, Sardarkrushinagar) and Kamdhenu Veterinary University.",
       },
       {
         title: "B.Sc. Biotechnology / Microbiology / Forensic Science",
@@ -273,7 +276,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Research Scientist", "Forensic Analyst", "Biotech Industry", "Pharma R&D"],
         avgSalary: "₹3–10 LPA (much higher with PG)",
-        description: "Research-oriented; usually requires M.Sc/PhD for top roles.",
+        description: "Research-focused degrees that usually require M.Sc/PhD for top R&D roles. Forensic Science from GFSU Gandhinagar (India's first FSU) is a unique launchpad — graduates get hired by CBI, NIA, state police, cybercrime cells and private investigation firms.",
       },
     ],
     gujaratHighlights: [
@@ -313,7 +316,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["ICAI — self-study + articleship at any CA firm", "H. L. College of Commerce (parallel B.Com)"],
         careers: ["Chartered Accountant", "Auditor", "Tax Consultant", "CFO", "Forensic Accountant"],
         avgSalary: "₹7–25 LPA at qualification; partners earn ₹50L+",
-        description: "India's most prestigious commerce qualification. Self-study under ICAI + 3-year articleship.",
+        description: "India's most prestigious commerce qualification. Self-study under ICAI (Foundation → Intermediate → Final) plus a mandatory 3-year articleship at a CA firm. Many Gujarat students pair it with a parallel B.Com to keep an academic degree in hand.",
       },
       {
         title: "B.Com (General / Honours)",
@@ -328,7 +331,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Accountant", "Banker", "Tax Officer", "Auditor", "Operations Analyst"],
         avgSalary: "₹3–8 LPA (entry); higher with PG",
-        description: "Foundational degree; usually paired with CA/CS/CMA, MBA, or specialised PG.",
+        description: "Foundational 3-year commerce degree covering accountancy, business law, taxation, economics and corporate finance. Usually paired with CA/CS/CMA, an MBA, or a specialised PG (M.Com, MA Economics, MBA Finance) for senior roles.",
       },
       {
         title: "BBA / BMS (Business Management)",
@@ -343,7 +346,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Marketing Manager", "Operations Manager", "HR", "Business Analyst", "Entrepreneur"],
         avgSalary: "₹4–12 LPA (entry)",
-        description: "Best paired with an MBA. IIM Ahmedabad's IPM is a flagship 5-year programme.",
+        description: "Practical management degree covering marketing, finance, HR, operations and entrepreneurship with internships and live projects. Best paired with an MBA. IIM Ahmedabad's IPM is a flagship 5-year integrated MBA opening straight after Class 12 via IPMAT.",
       },
       {
         title: "CS (Company Secretary)",
@@ -353,7 +356,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["ICSI — self-study"],
         careers: ["Company Secretary", "Compliance Officer", "Corporate Governance", "Legal Advisor"],
         avgSalary: "₹6–20 LPA",
-        description: "Compliance & corporate law specialist. Mandatory for listed companies.",
+        description: "Compliance and corporate-law specialist mandatory for every listed company. ICSI's 3-stage path (CSEET → Executive → Professional) plus 21 months of training. Strong demand in Gujarat's listed companies, GIFT City entities and SEBI-registered intermediaries.",
       },
       {
         title: "CMA (Cost & Management Accounting)",
@@ -363,7 +366,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["ICMAI — self-study"],
         careers: ["Cost Accountant", "Internal Auditor", "Finance Manager"],
         avgSalary: "₹6–18 LPA",
-        description: "Cost & management accounting; complements CA/CS in industry.",
+        description: "Cost & management accounting under ICMAI — covers costing, budgeting, internal audit and strategic finance. Complements CA/CS in industry, especially for manufacturing-heavy Gujarat (chemicals, ceramics, textiles, auto, pharma).",
       },
       {
         title: "B.A. Economics (Honours)",
@@ -373,7 +376,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Gujarat University", "St. Xavier's Ahmedabad", "MSU Baroda"],
         careers: ["Economist", "Policy Analyst", "Banking", "Civil Services", "Data Analyst"],
         avgSalary: "₹4–15 LPA",
-        description: "Strong base for civil services, finance, and policy work.",
+        description: "Strong analytical base for civil services (UPSC/GPSC), banking (RBI Grade B), policy think-tanks, equity research and data analytics. Gujarat University and St. Xavier's run a 4-year honours track aligned with NEP 2020.",
       },
       {
         title: "BBA-LLB / B.Com-LLB (Integrated Law)",
@@ -383,7 +386,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["GNLU Gandhinagar", "Nirma Law", "Auro University Surat"],
         careers: ["Corporate Lawyer", "Tax Lawyer", "In-house Counsel"],
         avgSalary: "₹6–30 LPA",
-        description: "Lucrative corporate law track combining commerce + law.",
+        description: "Lucrative integrated 5-year track combining commerce/management with law. CLAT is the gateway to GNLU and other top NLUs; corporate law firms recruit heavily for M&A, banking, capital markets and tax practice — especially relevant for GIFT City IFSC.",
       },
     ],
     gujaratHighlights: [
@@ -428,7 +431,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Civil Servant (IAS/IPS/IFS)", "Researcher", "NGO Leader", "Journalist", "Diplomat", "Policy Analyst"],
         avgSalary: "₹3–20 LPA (much higher in civil services & corporate)",
-        description: "Foundation degree for UPSC aspirants and a launchpad into law, social sciences, and policy.",
+        description: "Foundation degree for UPSC/GPSC aspirants and the most popular launchpad into law, social sciences, journalism and policy work. The 4-year honours track (NEP 2020) lets students add research, internships and a minor in a second discipline.",
       },
       {
         title: "Integrated Law (BA LLB)",
@@ -438,7 +441,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["GNLU Gandhinagar", "Nirma Law", "MSU Baroda Law"],
         careers: ["Litigator", "Corporate Lawyer", "Judge", "Civil Services", "Legal Journalism"],
         avgSalary: "₹6–30 LPA",
-        description: "Among the most rewarding humanities paths.",
+        description: "Among the most rewarding humanities paths. The 5-year integrated BA-LLB combines liberal arts with full law training and ends with eligibility to practise. CLAT/AILET ranks decide the NLU; Tier-1 corporate law firms recruit on-campus from GNLU.",
       },
       {
         title: "B.A. Journalism & Mass Communication / Media",
@@ -452,7 +455,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Journalist", "Anchor", "PR & Communications", "Content Strategist", "Documentary Maker"],
         avgSalary: "₹3.5–15 LPA",
-        description: "MICA is a global brand for communications & advertising.",
+        description: "Three-year programme covering reporting, editing, broadcasting, digital media, PR and advertising. MICA Ahmedabad is a global brand for strategic communications; Gujarat's vibrant news/OTT ecosystem and political journalism scene offer strong internships.",
       },
       {
         title: "B.A. Psychology / B.Sc. Psychology",
@@ -462,7 +465,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Gujarat University", "MSU Baroda", "St. Xavier's Ahmedabad"],
         careers: ["Counsellor", "Clinical Psychologist (with M.Phil)", "HR/People Analytics", "UX Researcher", "School Psychologist"],
         avgSalary: "₹3.5–14 LPA",
-        description: "High-growth field. Mental health awareness is creating massive demand.",
+        description: "High-growth field with surging demand from corporates, schools, NGOs and the wellness industry. Clinical practice requires M.Phil + RCI registration; counselling, organisational, sports and UX-research roles open with a Master's in psychology.",
       },
       {
         title: "BSW / MSW (Social Work)",
@@ -472,7 +475,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["MSU Baroda — Faculty of Social Work (one of India's oldest)", "Gujarat Vidyapith"],
         careers: ["NGO Leader", "Community Development Officer", "CSR Specialist", "Policy Researcher"],
         avgSalary: "₹3–12 LPA",
-        description: "MSU Baroda's Faculty of Social Work was India's first (founded 1949).",
+        description: "MSU Baroda's Faculty of Social Work was India's first (founded 1949) and remains a benchmark. The 3+2-year BSW/MSW combines fieldwork with theory across community development, mental health, criminology and CSR — strong NGO, UN-agency and corporate-CSR placements.",
       },
       {
         title: "B.Des / B.F.A (Design / Fine Arts)",
@@ -482,7 +485,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["NID Ahmedabad", "MSU Baroda — Faculty of Fine Arts", "NIFT Gandhinagar", "CEPT University"],
         careers: ["Fashion Designer", "Animator", "Illustrator", "UX Designer", "Painter", "Sculptor"],
         avgSalary: "₹4–18 LPA",
-        description: "Gujarat hosts NID, NIFT, CEPT, and MSU Fine Arts — one of India's strongest design clusters.",
+        description: "Gujarat hosts NID, NIFT, CEPT, MICA and MSU Fine Arts — one of India's strongest design clusters in a single state. UCEED/NID-DAT/NIFT entrances test creativity, observation and basic drawing rather than rote knowledge — open to students from any 12th stream.",
       },
       {
         title: "B.A. Performing Arts / Music / Theatre",
@@ -492,7 +495,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["MSU Baroda — Faculty of Performing Arts", "Gujarat Sangeet Nritya Akademi"],
         careers: ["Performing Artist", "Music Teacher", "Theatre Director", "Film/TV"],
         avgSalary: "₹2.5–15 LPA (highly variable)",
-        description: "MSU Baroda's Performing Arts faculty is one of India's premier institutions.",
+        description: "MSU Baroda's Faculty of Performing Arts is one of India's premier institutions — Hindustani vocal, instrumental, dance (Bharatanatyam, Kathak) and theatre. Graduates work in films, OTT, music labels, teaching and festivals.",
       },
       {
         title: "Hotel Management & Hospitality (BHM)",
@@ -502,7 +505,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["IHM Ahmedabad", "IHM Gandhinagar"],
         careers: ["Hotel Manager", "F&B Manager", "Cruise/Airlines", "Event Management"],
         avgSalary: "₹3.5–12 LPA",
-        description: "Strong global mobility, growing tourism in Gujarat.",
+        description: "Strong global mobility — graduates work with Taj, Marriott, Hyatt, cruise lines and airlines worldwide. Gujarat's tourism boom (Statue of Unity, Dholavira, Dwarka, Somnath, Rann Utsav) is rapidly expanding hotel and event-management openings.",
       },
     ],
     gujaratHighlights: [
@@ -546,7 +549,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Junior Engineer (Govt)", "Technician", "Lateral entry to B.E. (2nd year)"],
         avgSalary: "₹2.5–6 LPA (entry)",
-        description: "Fast track into engineering jobs and B.E. programmes.",
+        description: "A 3-year diploma after 10th or 12th that provides hands-on technical training in Mechanical, Electrical, Civil, Computer, Chemical or Auto Engineering. Graduates can join as Junior Engineers in govt departments or take lateral entry into B.E. 2nd year.",
       },
       {
         title: "ITI (Industrial Training Institute)",
@@ -556,7 +559,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Government ITIs across Gujarat (250+)", "Kaushalya — The Skill University"],
         careers: ["Electrician", "Fitter", "Welder", "Mechanic", "Plumber", "Computer Operator"],
         avgSalary: "₹1.8–4.5 LPA",
-        description: "Direct skill training, often with apprenticeship. PSU recruitment is heavy from ITIs.",
+        description: "1-2 year trade-specific training (Electrician, Fitter, Welder, Mechanic, COPA, etc.) with heavy practical hours and often an apprenticeship. PSUs like ONGC, Indian Railways and IOCL recruit heavily from ITIs. Gujarat has 250+ government ITIs.",
       },
       {
         title: "Paramedical Diplomas (DMLT, X-Ray, OT)",
@@ -566,7 +569,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["Civil Hospital, Ahmedabad", "B. J. Medical Paramedical", "GMERS Paramedical"],
         careers: ["Lab Technician", "Radiology Technician", "OT Technician", "Dialysis Technician"],
         avgSalary: "₹2.4–6 LPA",
-        description: "High employability in hospitals, diagnostic chains, and clinics.",
+        description: "Short 1-2 year diplomas in Medical Lab Technology (DMLT), X-Ray/Radiology, OT Technician and Dialysis. High employability in hospitals, diagnostic chains (SRL, Thyrocare, Metropolis) and clinics across Gujarat's expanding healthcare network.",
       },
       {
         title: "Diploma in Pharmacy (D.Pharm)",
@@ -576,7 +579,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["L. M. College of Pharmacy", "K. B. Institute, Gandhinagar"],
         careers: ["Pharmacist (retail/hospital)", "Lateral entry to B.Pharm"],
         avgSalary: "₹2.4–5 LPA",
-        description: "Quickest route into the pharma industry.",
+        description: "Quickest route into the pharma industry — 2-year diploma covering dispensing, pharmacology, drug store management and hospital pharmacy. Graduates can run a retail pharmacy or take lateral entry into B.Pharm 2nd year for higher studies.",
       },
       {
         title: "Skill India Certifications",
@@ -586,7 +589,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["NSDC partners across Gujarat", "Kaushalya — The Skill University"],
         careers: ["Mobile repair", "Solar PV technician", "Beauty & wellness", "Hospitality", "Tourism guide"],
         avgSalary: "₹1.8–4 LPA",
-        description: "Short, focused certifications under Skill India / PMKVY.",
+        description: "Short 3-12 month certifications under Skill India / PMKVY aligned to National Skills Qualification Framework (NSQF). Covers trades like mobile repair, solar PV installation, beauty & wellness, hospitality and tourism — with placement support from NSDC partners.",
       },
     ],
     gujaratHighlights: [
