@@ -87,7 +87,7 @@ function footer(doc: jsPDF, page: number, total: number, name: string) {
 
 // jsPDF's built-in helvetica only supports WinAnsi (Latin-1).
 // Replace characters outside that range with safe ASCII fallbacks so
-// glyphs like Rs., >=, !=, etc. don't render as garbage.
+// glyphs like Rs., bullets, em-dashes, etc. don't render as garbage.
 const GLYPH_MAP: Record<string, string> = {
   "₹": "Rs.",
   "≥": ">=",
@@ -98,6 +98,18 @@ const GLYPH_MAP: Record<string, string> = {
   "★": "*",
   "→": "->",
   "←": "<-",
+  "•": "-",
+  "·": "-",
+  "—": " - ",
+  "–": "-",
+  "“": '"',
+  "”": '"',
+  "‘": "'",
+  "’": "'",
+  "…": "...",
+  "₂": "2",
+  "₃": "3",
+  "°": " deg",
 };
 function safe(text: string): string {
   let out = "";
