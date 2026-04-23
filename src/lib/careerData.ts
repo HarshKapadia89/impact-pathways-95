@@ -143,7 +143,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["GNLU Gandhinagar (one of India's top NLUs)", "Nirma University Law", "MSU Baroda Law"],
         careers: ["Lawyer", "Corporate Counsel", "Judge", "Civil Services", "Legal Tech"],
         avgSalary: "₹6–30 LPA",
-        description: "GNLU Gandhinagar is consistently ranked in India's top 5 National Law Universities.",
+        description: "GNLU Gandhinagar is consistently ranked in India's top 5 NLUs. The 5-year integrated BA-LLB / BBA-LLB blends law with arts/commerce; CLAT score determines NLU placement, with corporate, judiciary, civil services and litigation as the main exits.",
       },
     ],
     gujaratHighlights: [
@@ -191,7 +191,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Doctor (MD/MS specialist)", "Surgeon", "Public Health Officer", "Medical Researcher"],
         avgSalary: "₹6–60 LPA (rises sharply with PG)",
-        description: "The most sought-after PCB path. NEET cut-off is highly competitive.",
+        description: "The most sought-after PCB path. NEET-UG cut-off is highly competitive; 5.5 years includes 1-year rotating internship. Most graduates pursue PG (MD/MS) via NEET-PG to specialise. Government colleges in Gujarat charge ~₹25k/year — exceptional return on investment.",
       },
       {
         title: "BDS (Dentistry)",
