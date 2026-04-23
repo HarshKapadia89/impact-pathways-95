@@ -316,7 +316,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["ICAI — self-study + articleship at any CA firm", "H. L. College of Commerce (parallel B.Com)"],
         careers: ["Chartered Accountant", "Auditor", "Tax Consultant", "CFO", "Forensic Accountant"],
         avgSalary: "₹7–25 LPA at qualification; partners earn ₹50L+",
-        description: "India's most prestigious commerce qualification. Self-study under ICAI + 3-year articleship.",
+        description: "India's most prestigious commerce qualification. Self-study under ICAI (Foundation → Intermediate → Final) plus a mandatory 3-year articleship at a CA firm. Many Gujarat students pair it with a parallel B.Com to keep an academic degree in hand.",
       },
       {
         title: "B.Com (General / Honours)",
@@ -331,7 +331,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Accountant", "Banker", "Tax Officer", "Auditor", "Operations Analyst"],
         avgSalary: "₹3–8 LPA (entry); higher with PG",
-        description: "Foundational degree; usually paired with CA/CS/CMA, MBA, or specialised PG.",
+        description: "Foundational 3-year commerce degree covering accountancy, business law, taxation, economics and corporate finance. Usually paired with CA/CS/CMA, an MBA, or a specialised PG (M.Com, MA Economics, MBA Finance) for senior roles.",
       },
       {
         title: "BBA / BMS (Business Management)",
@@ -346,7 +346,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Marketing Manager", "Operations Manager", "HR", "Business Analyst", "Entrepreneur"],
         avgSalary: "₹4–12 LPA (entry)",
-        description: "Best paired with an MBA. IIM Ahmedabad's IPM is a flagship 5-year programme.",
+        description: "Practical management degree covering marketing, finance, HR, operations and entrepreneurship with internships and live projects. Best paired with an MBA. IIM Ahmedabad's IPM is a flagship 5-year integrated MBA opening straight after Class 12 via IPMAT.",
       },
       {
         title: "CS (Company Secretary)",
