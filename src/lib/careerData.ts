@@ -275,9 +275,21 @@ export const STREAMS: Stream[] = [
         description: "Research-oriented; usually requires M.Sc/PhD for top roles.",
       },
     ],
+    gujaratHighlights: [
+      "Gujarat is India's pharma capital — Zydus, Torrent, Cadila, Intas hire B.Pharm/M.Pharm graduates in bulk.",
+      "AIIMS Rajkot, GMERS network and Gujarat's expanding hospital chains create strong MBBS internship & PG opportunities.",
+      "I.P.G.T.&R.A. Jamnagar — India's apex Ayurveda institute (WHO-collaborating centre).",
+      "4 dedicated agriculture universities (Anand, Junagadh, Navsari, Sardarkrushinagar) + Kamdhenu Veterinary University.",
+      "Gujarat Forensic Sciences University (Gandhinagar) — India's first FSU, unique career launchpad.",
+    ],
+    gujaratHighlightsGu: [
+      "ગુજરાત — ભારતનું ફાર્મા કેપિટલ. Zydus, Torrent, Cadila, Intas જેવી કંપનીઓ B.Pharm/M.Pharm ગ્રેજ્યુએટ્સ માટે મોટા પ્રમાણમાં ભરતી કરે છે.",
+      "AIIMS રાજકોટ, GMERS નેટવર્ક અને હોસ્પિટલ ચેઇન્સ — મજબૂત ઇન્ટર્નશિપ અને PG તકો.",
+      "I.P.G.T.&R.A. જામનગર — ભારતની ટોચની આયુર્વેદ સંસ્થા (WHO સહયોગ કેન્દ્ર).",
+      "4 સમર્પિત કૃષિ યુનિવર્સિટીઓ (આણંદ, જૂનાગઢ, નવસારી, સરદારકૃષિનગર) + કામધેનુ વેટરનરી યુનિવર્સિટી.",
+      "ગુજરાત ફોરેન્સિક સાયન્સ યુનિવર્સિટી (ગાંધીનગર) — ભારતની પ્રથમ FSU, અનોખી કારકિર્દી તક.",
+    ],
   },
-  {
-    id: "commerce",
     name: "Commerce",
     nameGu: "વાણિજ્ય",
     tagline: "CA, Finance, Business, Economics, Law",
@@ -371,9 +383,21 @@ export const STREAMS: Stream[] = [
         description: "Lucrative corporate law track combining commerce + law.",
       },
     ],
+    gujaratHighlights: [
+      "GIFT City (Gandhinagar) — India's only IFSC, hiring CAs, fund managers, fintech & forex specialists.",
+      "IIM Ahmedabad's IPM (5-yr Integrated MBA) — open right after Class 12.",
+      "Surat (diamonds & textiles), Ahmedabad (chemicals), Morbi (ceramics) — vibrant SME finance & exports market.",
+      "ICAI Ahmedabad branch — among India's largest, with strong CA articleship network.",
+      "MYSY scholarship + Saraswati Sadhana Yojana support commerce students from low-income families.",
+    ],
+    gujaratHighlightsGu: [
+      "GIFT સિટી (ગાંધીનગર) — ભારતનું એકમાત્ર IFSC, CA, ફંડ મેનેજર્સ, ફિનટેક અને ફોરેક્સ નિષ્ણાતો માટે.",
+      "IIM અમદાવાદ IPM (5-વર્ષનો ઇન્ટિગ્રેટેડ MBA) — ધોરણ 12 પછી સીધો પ્રવેશ.",
+      "સુરત (હીરા-ટેક્સટાઇલ), અમદાવાદ (કેમિકલ્સ), મોરબી (સિરામિક્સ) — જીવંત SME ફાઇનાન્સ અને નિકાસ બજાર.",
+      "ICAI અમદાવાદ બ્રાન્ચ — ભારતની સૌથી મોટી, મજબૂત CA આર્ટિકલશિપ નેટવર્ક.",
+      "MYSY શિષ્યવૃત્તિ + સરસ્વતી સાધના યોજના ઓછી આવક ધરાવતા કોમર્સ વિદ્યાર્થીઓને સહાય.",
+    ],
   },
-  {
-    id: "humanities",
     name: "Humanities / Arts",
     nameGu: "માનવવિદ્યા / કલા",
     tagline: "Civil Services, Law, Media, Psychology, Design, Social Sciences",
@@ -476,9 +500,21 @@ export const STREAMS: Stream[] = [
         description: "Strong global mobility, growing tourism in Gujarat.",
       },
     ],
+    gujaratHighlights: [
+      "SPIPA Ahmedabad — Sardar Patel Institute of Public Administration: free UPSC/GPSC coaching for selected aspirants.",
+      "GNLU Gandhinagar — Top 5 NLU; CLAT entry after 12th, full-ride scholarships available.",
+      "NID Ahmedabad, NIFT Gandhinagar, CEPT, MICA, MSU Fine Arts & Performing Arts — India's strongest arts/design cluster in one state.",
+      "MSU Faculty of Social Work — India's first (since 1949).",
+      "Statue of Unity, Dholavira, Dwarka & Somnath circuits driving heritage, tourism & hospitality careers.",
+    ],
+    gujaratHighlightsGu: [
+      "SPIPA અમદાવાદ — પસંદગીના ઉમેદવારોને UPSC/GPSC માટે મફત કોચિંગ.",
+      "GNLU ગાંધીનગર — ટોચની 5 NLU; ધોરણ 12 પછી CLAT દ્વારા પ્રવેશ, સંપૂર્ણ શિષ્યવૃત્તિ ઉપલબ્ધ.",
+      "NID અમદાવાદ, NIFT ગાંધીનગર, CEPT, MICA, MSU ફાઇન આર્ટ્સ અને પરફોર્મિંગ આર્ટ્સ — એક જ રાજ્યમાં ભારતનું સૌથી મજબૂત આર્ટ્સ/ડિઝાઇન ક્લસ્ટર.",
+      "MSU સોશિયલ વર્ક ફેકલ્ટી — ભારતની પ્રથમ (1949 થી).",
+      "સ્ટેચ્યૂ ઓફ યુનિટી, ધોળાવીરા, દ્વારકા અને સોમનાથ — હેરિટેજ, પર્યટન અને હોસ્પિટાલિટી કારકિર્દી.",
+    ],
   },
-  {
-    id: "vocational",
     name: "Vocational / Skill-based",
     nameGu: "વ્યાવસાયિક / કૌશલ્ય આધારિત",
     tagline: "ITI, Polytechnic, Diplomas, Direct Employment",
@@ -546,8 +582,21 @@ export const STREAMS: Stream[] = [
         description: "Short, focused certifications under Skill India / PMKVY.",
       },
     ],
+    gujaratHighlights: [
+      "250+ Government ITIs and Kaushalya — The Skill University (Ahmedabad) for industry-aligned trades.",
+      "Strong industry absorption: Tata-Nano (Sanand), Maruti-Suzuki, L&T, Reliance, Adani — heavy ITI/Diploma recruitment.",
+      "ACPDC (Diploma) and ACPC (Pharmacy) handle centralised admissions transparently.",
+      "Mukhyamantri Apprenticeship Yojana — stipend for trainees in industry placements.",
+      "Diploma → lateral entry to 2nd-year B.E. via DDSE/D2D — ladder into engineering.",
+    ],
+    gujaratHighlightsGu: [
+      "250+ સરકારી ITI અને કૌશલ્ય — ધ સ્કિલ યુનિવર્સિટી (અમદાવાદ) — ઉદ્યોગ સાથે જોડાયેલા ટ્રેડ્સ.",
+      "મજબૂત ઔદ્યોગિક શોષણ: ટાટા-નેનો (સાણંદ), મારૂતિ-સુઝુકી, L&T, રિલાયન્સ, અદાણી — ITI/ડિપ્લોમા ભરતી.",
+      "ACPDC (ડિપ્લોમા) અને ACPC (ફાર્મસી) દ્વારા પારદર્શક કેન્દ્રીય પ્રવેશ.",
+      "મુખ્યમંત્રી એપ્રેન્ટિસશિપ યોજના — ઉદ્યોગ પ્લેસમેન્ટ માટે સ્ટાઇપેન્ડ.",
+      "ડિપ્લોમા → DDSE/D2D દ્વારા B.E. 2જા વર્ષમાં લેટરલ એન્ટ્રી — એન્જિનિયરિંગ સુધીની સીડી.",
+    ],
   },
-];
 
 export const STREAM_BY_ID: Record<StreamId, Stream> = STREAMS.reduce((acc, s) => {
   acc[s.id] = s;
