@@ -799,10 +799,14 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   );
   footer(doc, 20, 20, name);
 
-  // Re-stamp footer page numbers in case ensureSpace inserted extra pages
+  // Re-stamp footer page numbers in case ensureSpace inserted extra pages.
+  // Cover the previous "Page x of 20" text with a white rect first so
+  // numbers don't appear stacked on top of each other.
   const totalPages = doc.getNumberOfPages();
   for (let i = 1; i <= totalPages; i++) {
     doc.setPage(i);
+    setFill(doc, [255, 255, 255]);
+    doc.rect(PW - M - 30, PH - 12, 30, 6, "F");
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     setText(doc, COLORS.muted);
