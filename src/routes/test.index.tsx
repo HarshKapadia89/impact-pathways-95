@@ -7,13 +7,13 @@ import { Brain, Globe2, FileText, Sparkles, ChevronRight } from "lucide-react";
 export const Route = createFileRoute("/test/")({
   head: () => ({
     meta: [
-      { title: "Free Bilingual Psychometric Test (Grades 6–12) — 20-page PDF | Disha" },
+      { title: "Free Bilingual Psychometric Test (Grades 6–12) — 20-page PDF | HBK Careers" },
       {
         name: "description",
         content:
           "Free RIASEC + Multiple Intelligences + Aptitude test in English & Gujarati for grades 6–12. Get a detailed 20-page PDF report instantly.",
       },
-      { property: "og:title", content: "Free Psychometric Test — Disha" },
+      { property: "og:title", content: "Free Psychometric Test — HBK Careers" },
       { property: "og:description", content: "Bilingual test, 20-page personalised PDF report." },
     ],
   }),

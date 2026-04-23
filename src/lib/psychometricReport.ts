@@ -54,7 +54,7 @@ function header(doc: jsPDF, title: string, sub?: string) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   setText(doc, [255, 255, 255]);
-  doc.text("Disha — Career Discovery Report", M, 9);
+  doc.text("HBK Careers — Career Discovery Report", M, 9);
   if (sub) {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
@@ -80,7 +80,7 @@ function footer(doc: jsPDF, page: number, total: number, name: string) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   setText(doc, COLORS.muted);
-  doc.text(`Disha Report — ${name}`, M, PH - 8);
+  doc.text(`HBK Careers Report — ${name}`, M, PH - 8);
   doc.text(`Page ${page} of ${total}`, PW - M, PH - 8, { align: "right" });
   setText(doc, COLORS.ink);
 }
@@ -174,7 +174,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setText(doc, [255, 255, 255]);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(36);
-  doc.text("Disha", M, 60);
+  doc.text("HBK Careers", M, 60);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(14);
   doc.text("Career Discovery Report", M, 72);
