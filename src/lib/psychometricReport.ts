@@ -155,10 +155,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
 
   // Wrap doc.text so every string passed in is auto-sanitised through safe()
   // — guarantees no "?" boxes from bullets, em-dashes or other Unicode glyphs.
-  const _origText = doc.text.bind(doc);
-  doc.text = function (text: any, ...rest: any[]) {
+  const _origText = doc.text.bind(doc) as (...args: unknown[]) => jsPDF;
+  doc.text = function (text: unknown, ...rest: unknown[]) {
     if (typeof text === "string") return _origText(safe(text), ...rest);
-    if (Array.isArray(text)) return _origText(text.map((t) => (typeof t === "string" ? safe(t) : t)), ...rest);
+    if (Array.isArray(text))
+      return _origText(text.map((t) => (typeof t === "string" ? safe(t) : t)), ...rest);
     return _origText(text, ...rest);
   } as typeof doc.text;
 
