@@ -105,7 +105,8 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Researcher", "Lab Scientist", "Teacher", "Data Analyst", "Patent Analyst", "Civil Services"],
         avgSalary: "₹3–10 LPA (much higher with M.Sc/PhD)",
-        description: "Specialise in Physics, Maths, Statistics, Chemistry, Computer Science, IT, Biotechnology, Forensic Science.",
+        description:
+          "A 3-year (or 4-year honours/research) degree letting you specialise in Physics, Mathematics, Statistics, Chemistry, Computer Science, IT, Biotechnology, Microbiology or Forensic Science. The first year is broad foundation; specialisation deepens in years 2 and 3 with lab work, projects and a final-year dissertation in honours streams.
       },
       {
         title: "NDA — Defence Services",
