@@ -73,7 +73,7 @@ export const STREAMS: Stream[] = [
         ],
         avgSalary: "₹4–25 LPA (entry to senior, varies by branch & college)",
         description:
-          "The flagship engineering route. Specialise in CSE, IT, AI/ML, Mechanical, Civil, Electrical, Electronics, Chemical, Aerospace, Biomedical, etc.",
+          "The flagship engineering route with the widest set of specialisations: CSE, IT, AI/ML, Data Science, Mechanical, Civil, Electrical, Electronics & Communication, Chemical, Aerospace, Biomedical, Robotics, Mechatronics and Pet
       },
       {
         title: "B.Arch (Architecture)",
