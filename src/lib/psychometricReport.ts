@@ -503,13 +503,16 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(15);
     setText(doc, COLORS.primary);
-    doc.text(s.name, M, yy);
+    doc.text(safe(s.name), M, yy);
     yy += 8;
-    doc.setFont("helvetica", "italic");
+    doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     setText(doc, COLORS.muted);
-    doc.text(s.tagline, M, yy);
-    yy += 8;
+    for (const l of wrap(doc, s.tagline, PW - 2 * M)) {
+      doc.text(l, M, yy);
+      yy += 5;
+    }
+    yy += 3;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     setText(doc, COLORS.ink);
@@ -526,7 +529,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       yy = ensureSpace(doc, yy, 16, name, current);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(10);
-      doc.text(`• ${p.title}`, M, yy);
+      doc.text(safe(`• ${p.title}`), M, yy);
       yy += 5;
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
