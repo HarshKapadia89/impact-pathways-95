@@ -505,7 +505,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["IHM Ahmedabad", "IHM Gandhinagar"],
         careers: ["Hotel Manager", "F&B Manager", "Cruise/Airlines", "Event Management"],
         avgSalary: "₹3.5–12 LPA",
-        description: "Strong global mobility, growing tourism in Gujarat.",
+        description: "Strong global mobility — graduates work with Taj, Marriott, Hyatt, cruise lines and airlines worldwide. Gujarat's tourism boom (Statue of Unity, Dholavira, Dwarka, Somnath, Rann Utsav) is rapidly expanding hotel and event-management openings.",
       },
     ],
     gujaratHighlights: [
