@@ -116,7 +116,8 @@ export const STREAMS: Stream[] = [
         topColleges: ["National Defence Academy, Khadakwasla, Pune"],
         careers: ["Officer — Indian Army", "Officer — Indian Navy", "Officer — Indian Air Force"],
         avgSalary: "₹56,100/month (Lieutenant) + perks; rises substantially with rank",
-        description: "Join as a commissioned officer in the Armed Forces. Highly competitive, prestigious, life of service.",
+        description:
+          "Join as a commissioned officer in the Indian Army, Navy or Air Force. The 3-year NDA Khadakwasla programme is followed by a year at IMA, INA or AFA. Selection is via UPSC written + a 5-day SSB interview at Bhopal/Bengaluru. Highly competitive, prestigious and life-long benefits.",
       },
       {
         title: "B.Des (Design)",
