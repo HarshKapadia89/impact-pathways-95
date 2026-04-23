@@ -68,9 +68,7 @@ export function slugify(name: string): string {
 }
 
 // Eager-loaded import map for code-splitting per stream JSON file
-const streamLoaders: Record<string, () => Promise<{ default: HandbookStream }>> = import.meta.glob(
-  "./handbook/*.json",
-);
+const streamLoaders = import.meta.glob<{ default: HandbookStream }>("./handbook/*.json");
 
 export const HANDBOOK_SUMMARY_BY_SLUG: Record<string, HandbookSummary> = Object.fromEntries(
   HANDBOOK_SUMMARIES.map((s) => [s.slug, s]),
