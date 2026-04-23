@@ -263,7 +263,7 @@ export const STREAMS: Stream[] = [
         ],
         careers: ["Agriculture Officer", "Agri-business Manager", "Veterinarian", "Horticulturist"],
         avgSalary: "₹4–12 LPA",
-        description: "Strong public sector openings + agri-startups. Gujarat has 4 dedicated agri universities.",
+        description: "Strong public-sector openings (state Agri Officer, IBPS-AFO, FCI) plus a fast-growing agri-startup ecosystem. Gujarat has 4 dedicated agriculture universities (Anand, Junagadh, Navsari, Sardarkrushinagar) and Kamdhenu Veterinary University.",
       },
       {
         title: "B.Sc. Biotechnology / Microbiology / Forensic Science",
