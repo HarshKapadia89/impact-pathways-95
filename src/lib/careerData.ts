@@ -356,7 +356,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["ICSI — self-study"],
         careers: ["Company Secretary", "Compliance Officer", "Corporate Governance", "Legal Advisor"],
         avgSalary: "₹6–20 LPA",
-        description: "Compliance & corporate law specialist. Mandatory for listed companies.",
+        description: "Compliance and corporate-law specialist mandatory for every listed company. ICSI's 3-stage path (CSEET → Executive → Professional) plus 21 months of training. Strong demand in Gujarat's listed companies, GIFT City entities and SEBI-registered intermediaries.",
       },
       {
         title: "CMA (Cost & Management Accounting)",
@@ -366,7 +366,7 @@ export const STREAMS: Stream[] = [
         topColleges: ["ICMAI — self-study"],
         careers: ["Cost Accountant", "Internal Auditor", "Finance Manager"],
         avgSalary: "₹6–18 LPA",
-        description: "Cost & management accounting; complements CA/CS in industry.",
+        description: "Cost & management accounting under ICMAI — covers costing, budgeting, internal audit and strategic finance. Complements CA/CS in industry, especially for manufacturing-heavy Gujarat (chemicals, ceramics, textiles, auto, pharma).",
       },
       {
         title: "B.A. Economics (Honours)",
