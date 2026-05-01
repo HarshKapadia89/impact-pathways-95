@@ -1,11 +1,22 @@
 // Psychometric test bank — RIASEC + Multiple Intelligences + Aptitude.
-// Bilingual (English / Gujarati) for grades 6-12.
+// Bilingual (English / Gujarati) for the on-screen test UI; reports are English-only.
 //
 // RIASEC (Holland Codes): 30 items, 5 per type.
 // Multiple Intelligences (Gardner): 24 items, 3 per type x 8 types.
-// Aptitude: 20 items (Numerical, Verbal, Logical, Spatial, Memory).
+// Aptitude: ~75 items, tagged by grade band (6-8, 9-10, 11-12) and category
+//           (Numerical, Verbal, Logical, Spatial, Mechanical, DataInterpretation).
+//           Selection logic in test.take.tsx serves only items matching the
+//           student's grade band — ~24 questions per attempt.
 
 export type Lang = "en" | "gu";
+export type GradeBand = "6-8" | "9-10" | "11-12";
+export type AptitudeCategory =
+  | "Numerical"
+  | "Verbal"
+  | "Logical"
+  | "Spatial"
+  | "Mechanical"
+  | "DataInterpretation";
 
 export interface LikertItem {
   id: string;
@@ -15,10 +26,19 @@ export interface LikertItem {
 
 export interface AptitudeItem {
   id: string;
-  category: "Numerical" | "Verbal" | "Logical" | "Spatial" | "Memory";
+  category: AptitudeCategory;
+  gradeBand: GradeBand;
   text: { en: string; gu: string };
   options: { en: string; gu: string }[];
   answer: number; // index
+}
+
+export function gradeToBand(grade: string | number | undefined): GradeBand {
+  const n = Number(grade);
+  if (!Number.isFinite(n)) return "9-10";
+  if (n <= 8) return "6-8";
+  if (n <= 10) return "9-10";
+  return "11-12";
 }
 
 export const RIASEC_LABELS: Record<string, { name: string; nameGu: string; description: string; descriptionGu: string }> = {
@@ -137,285 +157,290 @@ export const MI_ITEMS: LikertItem[] = [
   { id: "mi24", category: "Naturalist", text: { en: "I care about environment and sustainability.", gu: "મને પર્યાવરણ અને ટકાઉપણાંની ચિંતા છે." } },
 ];
 
+// Helper to keep aptitude items concise. answer is the 0-based index.
+const opt = (...items: string[]) => items.map((s) => ({ en: s, gu: s }));
+
+// ============================================================
+// APTITUDE BANK — grade-banded, NCERT-aligned difficulty.
+// ~25 items per band × 3 bands = ~75 total.
+// Categories balanced 4–5 per category per band.
+// ============================================================
 export const APTITUDE_ITEMS: AptitudeItem[] = [
-  // Numerical
-  {
-    id: "ap1",
-    category: "Numerical",
-    text: { en: "If 5 pencils cost ₹40, how much do 8 pencils cost?", gu: "જો 5 પેન્સિલની કિંમત ₹40 છે, તો 8 પેન્સિલની કિંમત શું?" },
-    options: [
-      { en: "₹56", gu: "₹56" },
-      { en: "₹64", gu: "₹64" },
-      { en: "₹72", gu: "₹72" },
-      { en: "₹80", gu: "₹80" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap2",
-    category: "Numerical",
-    text: { en: "What is 15% of 240?", gu: "240નું 15% શું?" },
-    options: [
-      { en: "24", gu: "24" },
-      { en: "32", gu: "32" },
-      { en: "36", gu: "36" },
-      { en: "48", gu: "48" },
-    ],
-    answer: 2,
-  },
-  {
-    id: "ap3",
-    category: "Numerical",
-    text: { en: "Next number: 2, 6, 12, 20, ?", gu: "આગળનો નંબર: 2, 6, 12, 20, ?" },
-    options: [
-      { en: "26", gu: "26" },
-      { en: "28", gu: "28" },
-      { en: "30", gu: "30" },
-      { en: "32", gu: "32" },
-    ],
-    answer: 2,
-  },
-  {
-    id: "ap4",
-    category: "Numerical",
-    text: { en: "A train covers 180 km in 3 hours. Speed in km/h?", gu: "ટ્રેન 3 કલાકમાં 180 કિમી જાય. ગતિ કિમી/કલાક?" },
-    options: [
-      { en: "50", gu: "50" },
-      { en: "55", gu: "55" },
-      { en: "60", gu: "60" },
-      { en: "65", gu: "65" },
-    ],
-    answer: 2,
-  },
-  // Verbal
-  {
-    id: "ap5",
-    category: "Verbal",
-    text: { en: "Choose the synonym of ABUNDANT:", gu: "ABUNDANT નો સમાનાર્થી પસંદ કરો:" },
-    options: [
-      { en: "Scarce", gu: "દુર્લભ" },
-      { en: "Plentiful", gu: "વિપુલ" },
-      { en: "Tiny", gu: "નાનું" },
-      { en: "Empty", gu: "ખાલી" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap6",
-    category: "Verbal",
+  // ============================================================
+  // GRADE 6–8 — arithmetic, basic algebra, vocab, simple analogies,
+  // pattern recognition, mirror images, simple mechanical cause-effect.
+  // ============================================================
+
+  // Numerical (5)
+  { id: "g68_n1", category: "Numerical", gradeBand: "6-8",
+    text: { en: "If 5 pencils cost ₹40, how much do 8 pencils cost?", gu: "જો 5 પેન્સિલની કિંમત ₹40, તો 8 પેન્સિલની?" },
+    options: opt("₹56", "₹64", "₹72", "₹80"), answer: 1 },
+  { id: "g68_n2", category: "Numerical", gradeBand: "6-8",
+    text: { en: "Find: 1/2 + 1/3 = ?", gu: "ગણો: 1/2 + 1/3 = ?" },
+    options: opt("2/5", "5/6", "3/5", "1/6"), answer: 1 },
+  { id: "g68_n3", category: "Numerical", gradeBand: "6-8",
+    text: { en: "What is the next number? 2, 6, 12, 20, ?", gu: "આગળનો નંબર: 2, 6, 12, 20, ?" },
+    options: opt("26", "28", "30", "32"), answer: 2 },
+  { id: "g68_n4", category: "Numerical", gradeBand: "6-8",
+    text: { en: "If x + 7 = 15, then x = ?", gu: "જો x + 7 = 15, તો x = ?" },
+    options: opt("6", "7", "8", "9"), answer: 2 },
+  { id: "g68_n5", category: "Numerical", gradeBand: "6-8",
+    text: { en: "A bag has 3 red and 2 blue balls. Probability of red?", gu: "બેગમાં 3 લાલ અને 2 ભૂરા બોલ. લાલની સંભાવના?" },
+    options: opt("2/5", "3/5", "1/2", "1/5"), answer: 1 },
+
+  // Verbal (4)
+  { id: "g68_v1", category: "Verbal", gradeBand: "6-8",
+    text: { en: "Choose the synonym of HAPPY:", gu: "HAPPY નો સમાનાર્થી પસંદ કરો:" },
+    options: opt("Sad", "Joyful", "Angry", "Tired"), answer: 1 },
+  { id: "g68_v2", category: "Verbal", gradeBand: "6-8",
     text: { en: "Antonym of BRAVE:", gu: "BRAVE નો વિરુદ્ધાર્થી:" },
-    options: [
-      { en: "Bold", gu: "બહાદુર" },
-      { en: "Cowardly", gu: "ડરપોક" },
-      { en: "Strong", gu: "શક્તિશાળી" },
-      { en: "Heroic", gu: "વીર" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap7",
-    category: "Verbal",
+    options: opt("Bold", "Cowardly", "Strong", "Heroic"), answer: 1 },
+  { id: "g68_v3", category: "Verbal", gradeBand: "6-8",
     text: { en: "Doctor : Hospital :: Teacher : ?", gu: "ડોક્ટર : હોસ્પિટલ :: શિક્ષક : ?" },
-    options: [
-      { en: "Office", gu: "ઓફિસ" },
-      { en: "School", gu: "શાળા" },
-      { en: "Library", gu: "ગ્રંથાલય" },
-      { en: "Court", gu: "કોર્ટ" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap8",
-    category: "Verbal",
+    options: opt("Office", "School", "Library", "Court"), answer: 1 },
+  { id: "g68_v4", category: "Verbal", gradeBand: "6-8",
     text: { en: "Pick the odd one out:", gu: "વિચિત્ર પસંદ કરો:" },
-    options: [
-      { en: "Apple", gu: "સફરજન" },
-      { en: "Banana", gu: "કેળું" },
-      { en: "Carrot", gu: "ગાજર" },
-      { en: "Mango", gu: "આંબો" },
-    ],
-    answer: 2,
-  },
-  // Logical
-  {
-    id: "ap9",
-    category: "Logical",
-    text: {
-      en: "All roses are flowers. Some flowers fade quickly. Therefore:",
-      gu: "બધાં ગુલાબ ફૂલ છે. કેટલાંક ફૂલ જલ્દી મરી જાય. તેથી:",
-    },
-    options: [
-      { en: "All roses fade quickly", gu: "બધાં ગુલાબ જલ્દી મરી જાય" },
-      { en: "Some roses might fade quickly", gu: "કેટલાંક ગુલાબ જલ્દી મરી શકે" },
-      { en: "No roses fade", gu: "કોઈ ગુલાબ મરી જાય નહીં" },
-      { en: "Roses are not flowers", gu: "ગુલાબ ફૂલ નથી" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap10",
-    category: "Logical",
-    text: { en: "Find the missing letter: A, C, F, J, ?", gu: "ખૂટતો અક્ષર: A, C, F, J, ?" },
-    options: [
-      { en: "M", gu: "M" },
-      { en: "N", gu: "N" },
-      { en: "O", gu: "O" },
-      { en: "P", gu: "P" },
-    ],
-    answer: 2,
-  },
-  {
-    id: "ap11",
-    category: "Logical",
-    text: {
-      en: "If MONDAY is coded as NPOEBZ, how is FRIDAY coded?",
-      gu: "જો MONDAY = NPOEBZ, તો FRIDAY = ?",
-    },
-    options: [
-      { en: "GSJEBZ", gu: "GSJEBZ" },
-      { en: "GSJFBZ", gu: "GSJFBZ" },
-      { en: "GSJEBA", gu: "GSJEBA" },
-      { en: "HTKFCA", gu: "HTKFCA" },
-    ],
-    answer: 0,
-  },
-  {
-    id: "ap12",
-    category: "Logical",
-    text: {
-      en: "Ravi is taller than Sita. Sita is taller than Mira. Who is shortest?",
-      gu: "રવિ સીતા કરતાં ઊંચો છે. સીતા મીરા કરતાં ઊંચી છે. સૌથી નાનું કોણ?",
-    },
-    options: [
-      { en: "Ravi", gu: "રવિ" },
-      { en: "Sita", gu: "સીતા" },
-      { en: "Mira", gu: "મીરા" },
-      { en: "Cannot say", gu: "કહી શકાય નહીં" },
-    ],
-    answer: 2,
-  },
-  // Spatial
-  {
-    id: "ap13",
-    category: "Spatial",
-    text: {
-      en: "How many faces does a cube have?",
-      gu: "ઘન (cube) ને કેટલાં ફેસ હોય છે?",
-    },
-    options: [
-      { en: "4", gu: "4" },
-      { en: "6", gu: "6" },
-      { en: "8", gu: "8" },
-      { en: "12", gu: "12" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap14",
-    category: "Spatial",
-    text: {
-      en: "If you fold a square paper twice in half, how many small squares form?",
-      gu: "ચોરસ કાગળને બે વાર અડધો વાળો, તો કેટલાં નાના ચોરસ બને?",
-    },
-    options: [
-      { en: "2", gu: "2" },
-      { en: "3", gu: "3" },
-      { en: "4", gu: "4" },
-      { en: "8", gu: "8" },
-    ],
-    answer: 2,
-  },
-  {
-    id: "ap15",
-    category: "Spatial",
-    text: {
-      en: "Mirror image of the letter 'b' looks like:",
-      gu: "'b' અક્ષરનું દર્પણ-પ્રતિબિંબ કેવું દેખાય?",
-    },
-    options: [
-      { en: "p", gu: "p" },
-      { en: "d", gu: "d" },
-      { en: "q", gu: "q" },
-      { en: "b", gu: "b" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap16",
-    category: "Spatial",
-    text: {
-      en: "Walking 3 km North, then 4 km East — how far from start (straight line)?",
-      gu: "3 કિમી ઉત્તર, પછી 4 કિમી પૂર્વ ચાલ્યા — શરૂઆતથી સીધી દૂરી?",
-    },
-    options: [
-      { en: "5 km", gu: "5 કિમી" },
-      { en: "6 km", gu: "6 કિમી" },
-      { en: "7 km", gu: "7 કિમી" },
-      { en: "12 km", gu: "12 કિમી" },
-    ],
-    answer: 0,
-  },
-  // Memory
-  {
-    id: "ap17",
-    category: "Memory",
-    text: {
-      en: "Memorise: 7-2-9-4-6. Which digit was 3rd?",
-      gu: "યાદ રાખો: 7-2-9-4-6. ત્રીજો અંક?",
-    },
-    options: [
-      { en: "2", gu: "2" },
-      { en: "9", gu: "9" },
-      { en: "4", gu: "4" },
-      { en: "6", gu: "6" },
-    ],
-    answer: 1,
-  },
-  {
-    id: "ap18",
-    category: "Memory",
-    text: {
-      en: "List: Apple, Sun, Book, Tiger, River. Which is the animal?",
-      gu: "યાદી: સફરજન, સૂર્ય, પુસ્તક, વાઘ, નદી. પ્રાણી કયું?",
-    },
-    options: [
-      { en: "Apple", gu: "સફરજન" },
-      { en: "Sun", gu: "સૂર્ય" },
-      { en: "Tiger", gu: "વાઘ" },
-      { en: "River", gu: "નદી" },
-    ],
-    answer: 2,
-  },
-  {
-    id: "ap19",
-    category: "Memory",
-    text: {
-      en: "Sequence: ▲ ● ■ ▲ ● ?  What comes next?",
-      gu: "ક્રમ: ▲ ● ■ ▲ ● ?  પછી શું?",
-    },
-    options: [
-      { en: "▲", gu: "▲" },
-      { en: "●", gu: "●" },
-      { en: "■", gu: "■" },
-      { en: "★", gu: "★" },
-    ],
-    answer: 2,
-  },
-  {
-    id: "ap20",
-    category: "Memory",
-    text: {
-      en: "Words: Cat, Dog, Cow, Cat, Dog. How many times did 'Cat' appear?",
-      gu: "શબ્દો: બિલાડી, કૂતરો, ગાય, બિલાડી, કૂતરો. 'બિલાડી' કેટલી વાર?",
-    },
-    options: [
-      { en: "1", gu: "1" },
-      { en: "2", gu: "2" },
-      { en: "3", gu: "3" },
-      { en: "4", gu: "4" },
-    ],
-    answer: 1,
-  },
+    options: opt("Apple", "Banana", "Carrot", "Mango"), answer: 2 },
+
+  // Logical (4)
+  { id: "g68_l1", category: "Logical", gradeBand: "6-8",
+    text: { en: "Find the missing letter: A, C, E, G, ?", gu: "ખૂટતો અક્ષર: A, C, E, G, ?" },
+    options: opt("H", "I", "J", "K"), answer: 1 },
+  { id: "g68_l2", category: "Logical", gradeBand: "6-8",
+    text: { en: "Ravi is taller than Sita. Sita is taller than Mira. Who is shortest?", gu: "રવિ સીતાથી ઊંચો, સીતા મીરાથી ઊંચી. સૌથી નાનું?" },
+    options: opt("Ravi", "Sita", "Mira", "Cannot say"), answer: 2 },
+  { id: "g68_l3", category: "Logical", gradeBand: "6-8",
+    text: { en: "If today is Wednesday, what day will it be 10 days later?", gu: "જો આજે બુધવાર છે, તો 10 દિવસ પછી કયો વાર?" },
+    options: opt("Friday", "Saturday", "Sunday", "Monday"), answer: 1 },
+  { id: "g68_l4", category: "Logical", gradeBand: "6-8",
+    text: { en: "Series: 1, 4, 9, 16, ?", gu: "શ્રેણી: 1, 4, 9, 16, ?" },
+    options: opt("20", "24", "25", "30"), answer: 2 },
+
+  // Spatial (4)
+  { id: "g68_s1", category: "Spatial", gradeBand: "6-8",
+    text: { en: "How many faces does a cube have?", gu: "ઘન (cube) ને કેટલાં ફેસ?" },
+    options: opt("4", "6", "8", "12"), answer: 1 },
+  { id: "g68_s2", category: "Spatial", gradeBand: "6-8",
+    text: { en: "Mirror image of the letter 'b' looks like:", gu: "'b' નું દર્પણ-પ્રતિબિંબ:" },
+    options: opt("p", "d", "q", "b"), answer: 1 },
+  { id: "g68_s3", category: "Spatial", gradeBand: "6-8",
+    text: { en: "Walking 3 km North then 4 km East — straight-line distance?", gu: "3 કિમી ઉત્તર, પછી 4 કિમી પૂર્વ — સીધી દૂરી?" },
+    options: opt("5 km", "6 km", "7 km", "12 km"), answer: 0 },
+  { id: "g68_s4", category: "Spatial", gradeBand: "6-8",
+    text: { en: "Fold a square paper in half twice. How many small squares form?", gu: "ચોરસ કાગળ બે વાર અડધો વાળો — કેટલાં નાના ચોરસ?" },
+    options: opt("2", "3", "4", "8"), answer: 2 },
+
+  // Mechanical (4)
+  { id: "g68_m1", category: "Mechanical", gradeBand: "6-8",
+    text: { en: "Which of these is a simple machine?", gu: "આમાંથી સરળ યંત્ર કયું?" },
+    options: opt("Lever", "Computer", "Mobile phone", "TV"), answer: 0 },
+  { id: "g68_m2", category: "Mechanical", gradeBand: "6-8",
+    text: { en: "A see-saw is an example of a:", gu: "સી-સો કયા પ્રકારનું યંત્ર છે?" },
+    options: opt("Pulley", "Lever", "Wedge", "Screw"), answer: 1 },
+  { id: "g68_m3", category: "Mechanical", gradeBand: "6-8",
+    text: { en: "A bicycle uses which simple machines mainly?", gu: "સાયકલ મુખ્યત્વે કયા સરળ યંત્રો વાપરે છે?" },
+    options: opt("Wheel and axle, lever", "Pulley only", "Screw only", "None"), answer: 0 },
+  { id: "g68_m4", category: "Mechanical", gradeBand: "6-8",
+    text: { en: "If you drop a stone and a feather in vacuum, which lands first?", gu: "શૂન્યાવકાશમાં પથ્થર અને પીંછું ફેંકો — પહેલા કયું પડે?" },
+    options: opt("Stone", "Feather", "Both together", "Neither falls"), answer: 2 },
+
+  // Data Interpretation (4)
+  { id: "g68_d1", category: "DataInterpretation", gradeBand: "6-8",
+    text: { en: "Class strength: Class 6 = 30, Class 7 = 35, Class 8 = 25. Total students?", gu: "વર્ગ સંખ્યા: 6 = 30, 7 = 35, 8 = 25. કુલ?" },
+    options: opt("80", "85", "90", "95"), answer: 2 },
+  { id: "g68_d2", category: "DataInterpretation", gradeBand: "6-8",
+    text: { en: "If a pie chart shows 25% Maths, 25% Science, 50% Other — Other is what fraction?", gu: "પાઇ ચાર્ટ: 25% ગણિત, 25% વિજ્ઞાન, 50% અન્ય — અન્યનો અપૂર્ણાંક?" },
+    options: opt("1/4", "1/3", "1/2", "2/3"), answer: 2 },
+  { id: "g68_d3", category: "DataInterpretation", gradeBand: "6-8",
+    text: { en: "Rainfall (mm): Mon 5, Tue 10, Wed 15, Thu 0. Average?", gu: "વરસાદ (mm): સોમ 5, મંગ 10, બુધ 15, ગુરુ 0. સરેરાશ?" },
+    options: opt("5", "7.5", "10", "30"), answer: 1 },
+  { id: "g68_d4", category: "DataInterpretation", gradeBand: "6-8",
+    text: { en: "If 60 out of 100 students passed, what % failed?", gu: "જો 100માંથી 60 વિદ્યાર્થી પાસ થયા, કેટલા % ફેલ?" },
+    options: opt("30%", "40%", "50%", "60%"), answer: 1 },
+
+  // ============================================================
+  // GRADE 9–10 — percentages, ratios, geometry, comprehension,
+  // reasoning chains, paper folding, levers/pulleys, charts.
+  // ============================================================
+
+  // Numerical (5)
+  { id: "g910_n1", category: "Numerical", gradeBand: "9-10",
+    text: { en: "What is 15% of 240?", gu: "240 નું 15% શું?" },
+    options: opt("24", "32", "36", "48"), answer: 2 },
+  { id: "g910_n2", category: "Numerical", gradeBand: "9-10",
+    text: { en: "A train covers 180 km in 3 hours. Speed in km/h?", gu: "ટ્રેન 3 કલાકમાં 180 કિમી. ગતિ?" },
+    options: opt("50", "55", "60", "65"), answer: 2 },
+  { id: "g910_n3", category: "Numerical", gradeBand: "9-10",
+    text: { en: "If a:b = 2:3 and b:c = 4:5, then a:c = ?", gu: "જો a:b = 2:3 અને b:c = 4:5, તો a:c?" },
+    options: opt("2:5", "8:15", "4:5", "2:3"), answer: 1 },
+  { id: "g910_n4", category: "Numerical", gradeBand: "9-10",
+    text: { en: "Simple interest on ₹2000 at 5% per year for 3 years?", gu: "₹2000 પર 5% પ્રતિ વર્ષ, 3 વર્ષનું સાદું વ્યાજ?" },
+    options: opt("₹200", "₹250", "₹300", "₹400"), answer: 2 },
+  { id: "g910_n5", category: "Numerical", gradeBand: "9-10",
+    text: { en: "Solve: 2x − 5 = 11, x = ?", gu: "ઉકેલો: 2x − 5 = 11, x = ?" },
+    options: opt("3", "6", "8", "16"), answer: 2 },
+
+  // Verbal (4)
+  { id: "g910_v1", category: "Verbal", gradeBand: "9-10",
+    text: { en: "Synonym of ABUNDANT:", gu: "ABUNDANT નો સમાનાર્થી:" },
+    options: opt("Scarce", "Plentiful", "Tiny", "Empty"), answer: 1 },
+  { id: "g910_v2", category: "Verbal", gradeBand: "9-10",
+    text: { en: "Choose the correctly spelt word:", gu: "સાચી જોડણી પસંદ કરો:" },
+    options: opt("Recieve", "Receive", "Receeve", "Recive"), answer: 1 },
+  { id: "g910_v3", category: "Verbal", gradeBand: "9-10",
+    text: { en: "Architect : Building :: Author : ?", gu: "આર્કિટેક્ટ : ઇમારત :: લેખક : ?" },
+    options: opt("Pen", "Book", "Paper", "Library"), answer: 1 },
+  { id: "g910_v4", category: "Verbal", gradeBand: "9-10",
+    text: { en: "Identify the part of speech: 'She runs quickly.' — quickly is a:", gu: "વાક્યમાં 'quickly' કયો ભાગ?" },
+    options: opt("Noun", "Verb", "Adjective", "Adverb"), answer: 3 },
+
+  // Logical (4)
+  { id: "g910_l1", category: "Logical", gradeBand: "9-10",
+    text: { en: "All roses are flowers. Some flowers fade quickly. Therefore:", gu: "બધાં ગુલાબ ફૂલ છે. કેટલાંક ફૂલ જલ્દી મરી જાય. તેથી:" },
+    options: opt("All roses fade quickly", "Some roses might fade quickly", "No roses fade", "Roses are not flowers"), answer: 1 },
+  { id: "g910_l2", category: "Logical", gradeBand: "9-10",
+    text: { en: "If MONDAY is coded NPOEBZ, FRIDAY is coded:", gu: "જો MONDAY = NPOEBZ, તો FRIDAY?" },
+    options: opt("GSJEBZ", "GSJFBZ", "GSJEBA", "HTKFCA"), answer: 0 },
+  { id: "g910_l3", category: "Logical", gradeBand: "9-10",
+    text: { en: "Which doesn't belong: Triangle, Square, Circle, Cube", gu: "આમાંથી જુદું: ત્રિકોણ, ચોરસ, વર્તુળ, ઘન" },
+    options: opt("Triangle", "Square", "Circle", "Cube"), answer: 3 },
+  { id: "g910_l4", category: "Logical", gradeBand: "9-10",
+    text: { en: "A is B's brother. B is C's mother. C is A's:", gu: "A એ B નો ભાઈ. B એ C ની માતા. C એ A નો?" },
+    options: opt("Son", "Niece/Nephew", "Brother", "Father"), answer: 1 },
+
+  // Spatial (4)
+  { id: "g910_s1", category: "Spatial", gradeBand: "9-10",
+    text: { en: "Area of a circle with radius 7 (use π = 22/7):", gu: "ત્રિજ્યા 7 વાળા વર્તુળનું ક્ષેત્રફળ (π = 22/7):" },
+    options: opt("44", "144", "154", "196"), answer: 2 },
+  { id: "g910_s2", category: "Spatial", gradeBand: "9-10",
+    text: { en: "A rectangle is folded along its diagonal. The two halves are:", gu: "લંબચોરસને કર્ણ સાથે વાળો — બે ભાગ?" },
+    options: opt("Equal squares", "Congruent triangles", "Two trapeziums", "Different shapes"), answer: 1 },
+  { id: "g910_s3", category: "Spatial", gradeBand: "9-10",
+    text: { en: "Number of edges on a rectangular box (cuboid):", gu: "લંબઘન (cuboid) ની ધારોની સંખ્યા:" },
+    options: opt("8", "10", "12", "14"), answer: 2 },
+  { id: "g910_s4", category: "Spatial", gradeBand: "9-10",
+    text: { en: "Volume of a cube of side 5 cm:", gu: "5 સેમી બાજુવાળા ઘનનું કદ:" },
+    options: opt("25 cm³", "75 cm³", "125 cm³", "150 cm³"), answer: 2 },
+
+  // Mechanical (4)
+  { id: "g910_m1", category: "Mechanical", gradeBand: "9-10",
+    text: { en: "If a pulley reduces effort to half, what is the mechanical advantage?", gu: "પુલી અડધો પ્રયત્ન કરે — મિકેનિકલ એડવાન્ટેજ?" },
+    options: opt("0.5", "1", "2", "4"), answer: 2 },
+  { id: "g910_m2", category: "Mechanical", gradeBand: "9-10",
+    text: { en: "Heavier objects fall faster than lighter ones in air mainly due to:", gu: "ભારે વસ્તુઓ હવામાં ઝડપથી પડે — મુખ્ય કારણ?" },
+    options: opt("Gravity differs", "Air resistance", "Mass alone", "Wind speed"), answer: 1 },
+  { id: "g910_m3", category: "Mechanical", gradeBand: "9-10",
+    text: { en: "Which gear arrangement increases speed?", gu: "કયો ગિયર ગતિ વધારે છે?" },
+    options: opt("Big driver, small driven", "Small driver, big driven", "Equal gears", "No gears"), answer: 0 },
+  { id: "g910_m4", category: "Mechanical", gradeBand: "9-10",
+    text: { en: "The unit of force is:", gu: "બળનું એકમ?" },
+    options: opt("Joule", "Newton", "Watt", "Pascal"), answer: 1 },
+
+  // Data Interpretation (4)
+  { id: "g910_d1", category: "DataInterpretation", gradeBand: "9-10",
+    text: { en: "Marks: 80, 70, 60, 90, 50. Median?", gu: "ગુણ: 80, 70, 60, 90, 50. મીડિયન?" },
+    options: opt("60", "70", "75", "80"), answer: 1 },
+  { id: "g910_d2", category: "DataInterpretation", gradeBand: "9-10",
+    text: { en: "A bar chart shows monthly sales. Jan = 200, Feb = 300, Mar = 250. Average sales?", gu: "વેચાણ: જાન્યુ 200, ફેબ્રુ 300, માર્ચ 250. સરેરાશ?" },
+    options: opt("225", "250", "275", "300"), answer: 1 },
+  { id: "g910_d3", category: "DataInterpretation", gradeBand: "9-10",
+    text: { en: "If sales rose from 200 to 250, percentage increase is:", gu: "વેચાણ 200થી 250 થયું. ટકાવારી વધારો?" },
+    options: opt("20%", "25%", "30%", "50%"), answer: 1 },
+  { id: "g910_d4", category: "DataInterpretation", gradeBand: "9-10",
+    text: { en: "In a class of 40, 25% are girls. How many boys?", gu: "40 વિદ્યાર્થી વર્ગમાં 25% છોકરીઓ. છોકરા?" },
+    options: opt("10", "20", "25", "30"), answer: 3 },
+
+  // ============================================================
+  // GRADE 11–12 — DI, probability, syllogisms, critical reasoning,
+  // 3D rotation, mechanical advantage, error spotting.
+  // ============================================================
+
+  // Numerical (5)
+  { id: "g1112_n1", category: "Numerical", gradeBand: "11-12",
+    text: { en: "Compound interest on ₹10,000 at 10% p.a. for 2 years (compounded annually):", gu: "₹10,000 પર 10% p.a., 2 વર્ષનું ચક્રવૃદ્ધિ વ્યાજ (વાર્ષિક):" },
+    options: opt("₹2000", "₹2100", "₹2200", "₹2400"), answer: 1 },
+  { id: "g1112_n2", category: "Numerical", gradeBand: "11-12",
+    text: { en: "Probability of rolling a sum of 7 with two dice?", gu: "બે પાસાથી સરવાળો 7 થાય તેવી સંભાવના?" },
+    options: opt("1/9", "1/6", "5/36", "1/12"), answer: 1 },
+  { id: "g1112_n3", category: "Numerical", gradeBand: "11-12",
+    text: { en: "If log₁₀ 2 = 0.301, log₁₀ 8 = ?", gu: "જો log₁₀ 2 = 0.301, તો log₁₀ 8?" },
+    options: opt("0.602", "0.903", "0.804", "1.204"), answer: 1 },
+  { id: "g1112_n4", category: "Numerical", gradeBand: "11-12",
+    text: { en: "Solve: x² − 5x + 6 = 0. Roots are:", gu: "ઉકેલો: x² − 5x + 6 = 0. મૂળ?" },
+    options: opt("1, 6", "2, 3", "−2, −3", "3, 4"), answer: 1 },
+  { id: "g1112_n5", category: "Numerical", gradeBand: "11-12",
+    text: { en: "A man invests ₹50,000 at 8% p.a. simple interest. Total amount after 4 years?", gu: "₹50,000 પર 8% p.a. સાદું વ્યાજ, 4 વર્ષ. કુલ રકમ?" },
+    options: opt("₹62,000", "₹64,000", "₹66,000", "₹70,000"), answer: 2 },
+
+  // Verbal (4)
+  { id: "g1112_v1", category: "Verbal", gradeBand: "11-12",
+    text: { en: "Synonym of UBIQUITOUS:", gu: "UBIQUITOUS નો સમાનાર્થી:" },
+    options: opt("Rare", "Omnipresent", "Hidden", "Sudden"), answer: 1 },
+  { id: "g1112_v2", category: "Verbal", gradeBand: "11-12",
+    text: { en: "Spot the error: 'Each of the boys have completed their homework.'", gu: "ભૂલ શોધો: 'Each of the boys have completed their homework.'" },
+    options: opt("Each of", "the boys", "have completed", "No error"), answer: 2 },
+  { id: "g1112_v3", category: "Verbal", gradeBand: "11-12",
+    text: { en: "Choose the closest meaning of 'PRAGMATIC':", gu: "'PRAGMATIC' નો નજીકનો અર્થ:" },
+    options: opt("Theoretical", "Practical", "Idealistic", "Romantic"), answer: 1 },
+  { id: "g1112_v4", category: "Verbal", gradeBand: "11-12",
+    text: { en: "Sentence completion: 'Despite the rain, the match _____ as scheduled.'", gu: "વાક્ય પૂરું કરો: 'Despite the rain, the match _____ as scheduled.'" },
+    options: opt("proceeded", "preceded", "procured", "proclaimed"), answer: 0 },
+
+  // Logical (4)
+  { id: "g1112_l1", category: "Logical", gradeBand: "11-12",
+    text: { en: "Syllogism — All artists are creative. No accountant is an artist. Therefore:", gu: "બધાં કલાકારો સર્જનાત્મક છે. કોઈ એકાઉન્ટન્ટ કલાકાર નથી. તેથી:" },
+    options: opt("No accountant is creative", "All accountants are creative", "Some accountants may be creative", "All artists are accountants"), answer: 2 },
+  { id: "g1112_l2", category: "Logical", gradeBand: "11-12",
+    text: { en: "Critical reasoning — Sales rose after we increased ad spend. So ads caused sales. The reasoning is:", gu: "જાહેરાત ખર્ચ પછી વેચાણ વધ્યું, માટે જાહેરાતે વેચાણ વધાર્યું — તર્ક?" },
+    options: opt("Strong", "Weak — correlation ≠ causation", "Conclusive", "Mathematical"), answer: 1 },
+  { id: "g1112_l3", category: "Logical", gradeBand: "11-12",
+    text: { en: "If A > B, B > C and C = D, then which is true?", gu: "જો A > B, B > C અને C = D, તો સાચું?" },
+    options: opt("A > D", "A < D", "A = D", "Cannot decide"), answer: 0 },
+  { id: "g1112_l4", category: "Logical", gradeBand: "11-12",
+    text: { en: "A statement: 'Either all students pass or the teacher resigns.' If no student passes, then:", gu: "'કાં બધા વિદ્યાર્થી પાસ થાય, કાં શિક્ષક રાજીનામું આપે.' જો કોઈ પાસ ન થાય, તો:" },
+    options: opt("Teacher does not resign", "Teacher must resign", "All pass", "Cannot say"), answer: 1 },
+
+  // Spatial (4)
+  { id: "g1112_s1", category: "Spatial", gradeBand: "11-12",
+    text: { en: "If a cube is rotated 90° about a vertical axis, the top face:", gu: "ઘનને ઊભા અક્ષ પર 90° ઘુમાવો — ઉપરનું ફેસ?" },
+    options: opt("Becomes the bottom", "Stays as top", "Becomes a side", "Disappears"), answer: 1 },
+  { id: "g1112_s2", category: "Spatial", gradeBand: "11-12",
+    text: { en: "How many small cubes form a 3×3×3 large cube?", gu: "3×3×3 ઘન કેટલા નાના ઘનથી બને?" },
+    options: opt("9", "18", "27", "36"), answer: 2 },
+  { id: "g1112_s3", category: "Spatial", gradeBand: "11-12",
+    text: { en: "A net of 6 squares connected in a cross shape folds into:", gu: "ક્રોસ આકારમાં જોડાયેલા 6 ચોરસનું જાળ વાળતાં બને:" },
+    options: opt("Pyramid", "Cube", "Cylinder", "Cone"), answer: 1 },
+  { id: "g1112_s4", category: "Spatial", gradeBand: "11-12",
+    text: { en: "If you reflect the digit 6 in a mirror, it most resembles:", gu: "દર્પણમાં 6 અંક કોને મળતું દેખાય?" },
+    options: opt("9", "0", "5", "6"), answer: 0 },
+
+  // Mechanical (4)
+  { id: "g1112_m1", category: "Mechanical", gradeBand: "11-12",
+    text: { en: "A lever has effort arm 4 m and load arm 1 m. Mechanical advantage?", gu: "લિવર: પ્રયત્ન બાજુ 4 મી, બોજ બાજુ 1 મી. MA?" },
+    options: opt("0.25", "1", "4", "5"), answer: 2 },
+  { id: "g1112_m2", category: "Mechanical", gradeBand: "11-12",
+    text: { en: "Power = Work / ?", gu: "પાવર = કામ ÷ ?" },
+    options: opt("Force", "Time", "Mass", "Distance"), answer: 1 },
+  { id: "g1112_m3", category: "Mechanical", gradeBand: "11-12",
+    text: { en: "Which has the highest efficiency in transferring rotary motion?", gu: "રોટરી મોશન ટ્રાન્સફરમાં શ્રેષ્ઠ કાર્યક્ષમતા?" },
+    options: opt("Belt drive", "Chain drive", "Gear drive", "Friction drive"), answer: 2 },
+  { id: "g1112_m4", category: "Mechanical", gradeBand: "11-12",
+    text: { en: "Hydraulic brakes work on which principle?", gu: "હાઇડ્રોલિક બ્રેક કયા સિદ્ધાંત પર?" },
+    options: opt("Newton's", "Pascal's", "Bernoulli's", "Archimedes'"), answer: 1 },
+
+  // Data Interpretation (4)
+  { id: "g1112_d1", category: "DataInterpretation", gradeBand: "11-12",
+    text: { en: "A company's revenue: 2021=₹100Cr, 2022=₹120Cr, 2023=₹150Cr. CAGR (approx)?", gu: "મહેસુલ: 2021=₹100Cr, 2022=₹120Cr, 2023=₹150Cr. CAGR (લગભગ)?" },
+    options: opt("15%", "20%", "22%", "25%"), answer: 2 },
+  { id: "g1112_d2", category: "DataInterpretation", gradeBand: "11-12",
+    text: { en: "If 30% of 200 students play cricket and 25% play football (no overlap), how many play neither?", gu: "200માંથી 30% ક્રિકેટ, 25% ફૂટબોલ રમે (ઓવરલેપ નહીં). કેટલા કોઈ ન રમે?" },
+    options: opt("70", "80", "90", "110"), answer: 2 },
+  { id: "g1112_d3", category: "DataInterpretation", gradeBand: "11-12",
+    text: { en: "Pie chart: Food 30%, Rent 25%, Travel 15%, Savings 30%. If income is ₹40,000, savings amount?", gu: "પાઇ: ખોરાક 30%, ભાડું 25%, મુસાફરી 15%, બચત 30%. આવક ₹40,000 — બચત?" },
+    options: opt("₹10,000", "₹12,000", "₹14,000", "₹15,000"), answer: 1 },
+  { id: "g1112_d4", category: "DataInterpretation", gradeBand: "11-12",
+    text: { en: "Standard deviation measures:", gu: "પ્રમાણિત વિચલન શું માપે છે?" },
+    options: opt("Average", "Spread of data", "Median", "Mode"), answer: 1 },
 ];
 
 export const LIKERT_OPTIONS: { value: number; label: { en: string; gu: string } }[] = [
@@ -427,13 +452,14 @@ export const LIKERT_OPTIONS: { value: number; label: { en: string; gu: string } 
 ];
 
 export interface ScoreReport {
-  riasec: Record<string, number>; // R/I/A/S/E/C → 0-100
-  riasecTop: string[]; // top 3
-  mi: Record<string, number>; // 0-100
-  miTop: string[]; // top 3
+  riasec: Record<string, number>;
+  riasecTop: string[];
+  mi: Record<string, number>;
+  miTop: string[];
   aptitude: Record<string, { correct: number; total: number; pct: number }>;
   aptitudeTop: string[];
-  aptitudeOverall: number; // overall %
+  aptitudeOverall: number;
+  gradeBand?: GradeBand;
 }
 
 export function scoreLikert(items: LikertItem[], answers: Record<string, number>) {
@@ -446,9 +472,14 @@ export function scoreLikert(items: LikertItem[], answers: Record<string, number>
   }
   const out: Record<string, number> = {};
   for (const [k, v] of Object.entries(totals)) {
-    out[k] = Math.round(((v.sum - v.count) / (v.count * 4)) * 100); // map 1..5 → 0..100
+    out[k] = Math.round(((v.sum - v.count) / (v.count * 4)) * 100);
   }
   return out;
+}
+
+// Returns aptitude items for a specific grade band (used by the test runner).
+export function aptitudeItemsForBand(band: GradeBand): AptitudeItem[] {
+  return APTITUDE_ITEMS.filter((i) => i.gradeBand === band);
 }
 
 export function scoreAptitude(items: AptitudeItem[], answers: Record<string, number>) {
@@ -462,21 +493,23 @@ export function scoreAptitude(items: AptitudeItem[], answers: Record<string, num
   let total = 0;
   let correct = 0;
   for (const [k, v] of Object.entries(cats)) {
-    out[k] = { ...v, pct: Math.round((v.correct / v.total) * 100) };
+    out[k] = { ...v, pct: v.total ? Math.round((v.correct / v.total) * 100) : 0 };
     total += v.total;
     correct += v.correct;
   }
-  return { perCategory: out, overall: Math.round((correct / total) * 100) };
+  return { perCategory: out, overall: total ? Math.round((correct / total) * 100) : 0 };
 }
 
 export function buildReport(
   riasecAns: Record<string, number>,
   miAns: Record<string, number>,
-  aptAns: Record<string, number>
+  aptAns: Record<string, number>,
+  aptItems: AptitudeItem[] = APTITUDE_ITEMS,
+  band?: GradeBand,
 ): ScoreReport {
   const riasec = scoreLikert(RIASEC_ITEMS, riasecAns);
   const mi = scoreLikert(MI_ITEMS, miAns);
-  const apt = scoreAptitude(APTITUDE_ITEMS, aptAns);
+  const apt = scoreAptitude(aptItems, aptAns);
   const top = (obj: Record<string, number>, n: number) =>
     Object.entries(obj)
       .sort((a, b) => b[1] - a[1])
@@ -494,5 +527,6 @@ export function buildReport(
     aptitude: apt.perCategory,
     aptitudeTop: aptTop,
     aptitudeOverall: apt.overall,
+    gradeBand: band,
   };
 }
