@@ -234,52 +234,120 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       doc.addPage();
       current.page += 1;
       header("", t.generatedOn(new Date().toLocaleDateString()));
-      return 22;
+      return 26;
     }
     return y;
+  }
+
+  // Tinted callout box for personalised insights
+  function callout(x: number, y: number, w: number, label: string, body: string): number {
+    const lines = wrap(body, w - 8);
+    const h = 10 + lines.length * 4.6;
+    setFill(doc, COLORS.callout);
+    doc.roundedRect(x, y, w, h, 2.5, 2.5, "F");
+    setDraw(doc, COLORS.calloutBorder);
+    doc.setLineWidth(0.4);
+    doc.line(x, y, x, y + h);
+    font("bold");
+    doc.setFontSize(8.5);
+    setText(doc, COLORS.calloutBorder);
+    doc.text(label.toUpperCase(), x + 4, y + 5.5);
+    font("normal");
+    doc.setFontSize(9.5);
+    setText(doc, COLORS.ink);
+    let cy = y + 10.5;
+    for (const ln of lines) {
+      doc.text(ln, x + 4, cy);
+      cy += 4.6;
+    }
+    return y + h + 3;
   }
 
   const current = { page: 1, total: 20 };
 
   // ============== PAGE 1 — COVER ==============
-  setFill(doc, COLORS.primary);
+  // Deep field
+  setFill(doc, COLORS.primaryDark);
   doc.rect(0, 0, PW, PH, "F");
+  // Inner field
+  setFill(doc, COLORS.primary);
+  doc.rect(0, 0, PW, PH - 95, "F");
+  // Accent stripe
   setFill(doc, COLORS.accent);
-  doc.rect(0, PH - 80, PW, 80, "F");
+  doc.rect(0, PH - 95, PW, 1.4, "F");
 
+  // Top corner monogram + brand
   setText(doc, [255, 255, 255]);
   font("bold");
-  doc.setFontSize(36);
-  doc.text("HBK Careers", M, 60);
-  font("normal");
-  doc.setFontSize(14);
-  doc.text(t.coverSubtitle, M, 72);
   doc.setFontSize(10);
-  doc.text(t.schoolLine, M, 80);
+  doc.text("HBK", M, 20);
+  setDraw(doc, COLORS.accent);
+  doc.setLineWidth(0.6);
+  doc.line(M + 12, 17.5, M + 22, 17.5);
+  font("normal");
+  doc.setFontSize(8);
+  doc.text("CAREERS", M + 24, 20);
+  doc.setFontSize(8);
+  doc.text("CAREER · DISCOVERY · REPORT", PW - M, 20, { align: "right" });
 
+  // Big display title
+  font("bold");
+  doc.setFontSize(56);
+  setText(doc, [255, 255, 255]);
+  doc.text("Career", M, 95);
+  doc.text("Discovery", M, 117);
+  font("normal");
+  setText(doc, COLORS.accentSoft);
+  doc.setFontSize(56);
+  doc.text("Report.", M, 139);
+
+  // Hairline
+  setDraw(doc, [255, 255, 255]);
+  doc.setLineWidth(0.3);
+  doc.line(M, 152, M + 60, 152);
+
+  font("normal");
   doc.setFontSize(11);
-  doc.text(t.preparedFor, M, 130);
+  setText(doc, [230, 226, 240]);
+  doc.text("RIASEC interests  ·  Multiple Intelligences  ·  Aptitude", M, 160);
+
+  // Prepared-for block on the cream lower band
+  setText(doc, COLORS.muted);
+  font("normal");
+  doc.setFontSize(8);
+  doc.text("PREPARED FOR", M, PH - 80);
   font("bold");
   doc.setFontSize(28);
-  doc.text(name || t.studentFallback, M, 145);
-  font("normal");
-  doc.setFontSize(11);
-  const langName = language === "gu" ? t.langNameGu : t.langNameEn;
-  doc.text(t.metaLine(grade, age, langName), M, 155);
-
   setText(doc, COLORS.primary);
-  font("bold");
-  doc.setFontSize(13);
-  doc.text(t.coverHeadline, M, PH - 60);
+  doc.text(name || t.studentFallback, M, PH - 65);
   font("normal");
   doc.setFontSize(10);
   setText(doc, COLORS.ink);
-  doc.text(t.coverBullets1, M, PH - 50);
-  doc.text(t.coverBullets2, M, PH - 44);
-  doc.setFontSize(9);
+  doc.text(`Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : t.langNameEn}`, M, PH - 56);
+
+  // Right column: school + date
+  font("normal");
+  doc.setFontSize(8);
   setText(doc, COLORS.muted);
-  doc.text(t.generatedOn(new Date().toLocaleDateString()), M, PH - 30);
-  doc.text(t.coverFooter, M, PH - 24);
+  doc.text("ISSUED BY", PW - M, PH - 80, { align: "right" });
+  font("bold");
+  doc.setFontSize(10);
+  setText(doc, COLORS.primary);
+  doc.text("The H B Kapadia New High School", PW - M, PH - 71, { align: "right" });
+  font("normal");
+  doc.setFontSize(8.5);
+  setText(doc, COLORS.muted);
+  doc.text("Ahmedabad", PW - M, PH - 66, { align: "right" });
+
+  font("normal");
+  doc.setFontSize(8);
+  setText(doc, COLORS.muted);
+  doc.text(`ISSUED  ${new Date().toLocaleDateString()}`, M, PH - 22);
+  doc.text("hbkcareers.org", PW - M, PH - 22, { align: "right" });
+  // Tiny report ref
+  const ref = `REF · ${(name || "STU").slice(0, 3).toUpperCase()}-${new Date().getFullYear()}`;
+  doc.text(ref, PW / 2, PH - 22, { align: "center" });
+
 
   // ============== PAGE 2 — TABLE OF CONTENTS ==============
   doc.addPage();
