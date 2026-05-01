@@ -384,10 +384,106 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.text("hbkcareers.org", PW - M, PH - 14, { align: "right" });
 
 
-  // ============== PAGE 2 — TABLE OF CONTENTS ==============
+  // ============== PAGE 2 — FOR PARENTS (Plain-language summary) ==============
+  doc.addPage();
+  current.page = 2;
+  header("For Parents — In 2 Minutes", `Page 2 / 21`);
+
+  const parentSummary = buildParentSummary({
+    studentName: name,
+    grade,
+    report,
+    topStreamIds: recommendedStreams,
+    topCareers,
+  });
+
+  setText(doc, COLORS.ink);
+  font("normal");
+  doc.setFontSize(10.5);
+  let py = 50;
+  // Intro line
+  font("normal");
+  doc.setFontSize(9.5);
+  setText(doc, COLORS.muted);
+  const introLines = wrap(
+    "This first page is written in plain language for parents. The 19 pages that follow contain the full assessment with charts and frameworks.",
+    PW - 2 * M,
+  );
+  for (const ln of introLines) { doc.text(ln, M, py); py += 5.2; }
+  py += 4;
+
+  // Section 1 — Who they are
+  font("bold");
+  doc.setFontSize(12);
+  setText(doc, COLORS.primary);
+  doc.text("Who " + (name?.split(" ")[0] || "your child") + " is", M, py);
+  py += 7;
+  font("normal");
+  doc.setFontSize(10.5);
+  setText(doc, COLORS.ink);
+  for (const ln of wrap(parentSummary.whoTheyAre, PW - 2 * M)) {
+    doc.text(ln, M, py);
+    py += 5.6;
+  }
+  py += 4;
+
+  // Section 2 — Direction (callout)
+  py = callout(M, py, PW - 2 * M, "What direction the data points to",
+    parentSummary.direction.replace(/\*\*/g, ""));
+  py += 2;
+
+  // Section 3 — Next steps
+  font("bold");
+  doc.setFontSize(12);
+  setText(doc, COLORS.primary);
+  doc.text("3 things you can do this term", M, py);
+  py += 7;
+  font("normal");
+  doc.setFontSize(10.5);
+  setText(doc, COLORS.ink);
+  parentSummary.nextSteps.forEach((step, i) => {
+    // Number badge
+    setFill(doc, COLORS.accent);
+    doc.circle(M + 3, py - 2, 3, "F");
+    setText(doc, [255, 255, 255]);
+    font("bold");
+    doc.setFontSize(8);
+    doc.text(String(i + 1), M + 3, py - 0.7, { align: "center" });
+    // Body
+    font("normal");
+    doc.setFontSize(10.5);
+    setText(doc, COLORS.ink);
+    const lines = wrap(step, PW - 2 * M - 12);
+    let sy = py;
+    for (const ln of lines) {
+      doc.text(ln, M + 10, sy);
+      sy += 5.6;
+    }
+    py = sy + 3;
+  });
+
+  // Closing note
+  py += 2;
+  setFill(doc, COLORS.band);
+  const closingLines = wrap(parentSummary.closing, PW - 2 * M - 8);
+  const closingH = 8 + closingLines.length * 5.4;
+  doc.roundedRect(M, py, PW - 2 * M, closingH, 2.5, 2.5, "F");
+  font("normal");
+  doc.setFontSize(10);
+  setText(doc, COLORS.ink);
+  let cy = py + 6.5;
+  for (const ln of closingLines) {
+    doc.text(ln, M + 4, cy);
+    cy += 5.4;
+  }
+
+  footer(2, 21);
+
+  // ============== PAGE 3 — TABLE OF CONTENTS ==============
   doc.addPage();
   current.page = 3;
-  header(t.toc, `Page 2`);
+  header(t.toc, `Page 3`);
+
 
   const toc = [
     t.sec1, t.sec2, t.sec3, t.sec4, t.sec5, t.sec6, t.sec7, t.sec8, t.sec9,
