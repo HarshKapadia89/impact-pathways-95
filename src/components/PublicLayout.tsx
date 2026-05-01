@@ -22,7 +22,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="sticky top-0 z-40 border-b border-border bg-card/85 backdrop-blur">
+      <div className="h-1 w-full bg-gradient-to-r from-primary via-accent to-primary" />
+      <header className="sticky top-0 z-40 border-b border-border bg-card/85 backdrop-blur supports-[backdrop-filter]:bg-card/70">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center gap-4">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <GraduationCap className="h-6 w-6 text-primary" />
@@ -42,14 +43,15 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  className={`relative flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-all ${
                     active
-                      ? "bg-primary/10 text-primary font-medium"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      ? "bg-accent/15 text-primary font-semibold shadow-sm"
+                      : "text-muted-foreground hover:text-primary hover:bg-accent/10"
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className={`h-4 w-4 ${active ? "text-accent-foreground" : ""}`} style={active ? { color: "var(--brand-2)" } : undefined} />
                   {item.label[lang]}
+                  {active && <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-0.5 w-6 rounded-full bg-accent" />}
                 </Link>
               );
             })}
@@ -95,7 +97,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t border-border bg-sidebar text-sidebar-foreground mt-12">
+      <footer className="border-t-4 border-accent/70 bg-sidebar text-sidebar-foreground mt-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid md:grid-cols-3 gap-6 text-sm">
           <div>
             <div className="font-serif text-lg mb-2">HBK Careers</div>
