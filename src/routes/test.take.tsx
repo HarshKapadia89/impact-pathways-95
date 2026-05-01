@@ -12,7 +12,8 @@ import {
   type AptitudeItem,
 } from "@/lib/psychometricData";
 import { generatePsychometricPDF } from "@/lib/psychometricReport";
-import { recommendStreams, STREAM_BY_ID } from "@/lib/careerData";
+import { STREAM_BY_ID } from "@/lib/careerData";
+import { recommendStreamsAccurate, rankCareerPaths } from "@/lib/careerMatch";
 import { enqueueSubmission } from "@/lib/offlineQueue";
 import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
@@ -237,7 +238,8 @@ function Result({
   const [downloading, setDownloading] = useState(false);
   const band = useMemo(() => gradeToBand(meta.grade), [meta.grade]);
   const report = useMemo(() => buildReport(riasec, mi, apt, aptItems, band), [riasec, mi, apt, aptItems, band]);
-  const recs = useMemo(() => recommendStreams(report.riasecTop, report.aptitudeTop), [report]);
+  const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
+  const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
 
   useEffect(() => {
     const recStreamNames = recs.map((r: { id?: string; name?: string } | string) =>
