@@ -10,7 +10,8 @@ import {
   APTITUDE_ITEMS,
   type ScoreReport,
 } from "./psychometricData";
-import { recommendStreams, STREAM_BY_ID, type StreamId } from "./careerData";
+import { STREAM_BY_ID, type StreamId } from "./careerData";
+import { recommendStreamsAccurate, rankCareerPaths } from "./careerMatch";
 import { getReportStrings, type ReportLang, type ReportStrings } from "./psychometricReportStrings";
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
@@ -95,7 +96,8 @@ function safe(text: string): string {
 export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const { name, grade, age, language, report } = input;
   const t: ReportStrings = getReportStrings(language);
-  const recommendedStreams = recommendStreams(report.riasecTop, report.aptitudeTop);
+  const recommendedStreams = recommendStreamsAccurate(report, 2);
+  const topCareers = rankCareerPaths(report, recommendedStreams, 8);
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   registerFonts(doc);
 
