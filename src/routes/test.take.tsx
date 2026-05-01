@@ -160,9 +160,28 @@ function TakeTest() {
       setSection((section + 1) as 0 | 1 | 2);
       setPage(0);
     } else {
+      try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       setDone(true);
     }
   };
+
+  const acceptResume = () => {
+    if (!resumeDraft) return;
+    setRiasec(resumeDraft.riasec || {});
+    setMi(resumeDraft.mi || {});
+    setApt(resumeDraft.apt || {});
+    setSection(resumeDraft.section ?? 0);
+    setPage(resumeDraft.page ?? 0);
+    setResumeOffered(false);
+    setResumeDraft(null);
+  };
+
+  const declineResume = () => {
+    try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+    setResumeOffered(false);
+    setResumeDraft(null);
+  };
+
   const prev = () => {
     if (page > 0) setPage(page - 1);
     else if (section > 0) {
