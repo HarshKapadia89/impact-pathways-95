@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { ReactNode } from "react";
 import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
+import { CareerChatbot } from "./CareerChatbot";
 import { useState } from "react";
 
 const NAV = [
@@ -131,6 +132,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </footer>
+
+      <CareerChatbot />
     </div>
   );
 }
