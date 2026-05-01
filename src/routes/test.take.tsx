@@ -234,7 +234,7 @@ function TakeTest() {
         )}
 
         <div className="mt-6 space-y-6">
-
+          {pageItems.map((item, idx) => (
             <div key={item.id} className="rounded-xl border border-border bg-card p-5">
               <div className="flex items-start gap-3">
                 <span className="text-xs text-muted-foreground mt-0.5 shrink-0">
