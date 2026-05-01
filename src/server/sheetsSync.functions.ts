@@ -66,7 +66,34 @@ function gwHeaders() {
   };
 }
 
+async function ensureSheetTab() {
+  // Check if the Submissions tab exists; create it if missing.
+  const metaUrl = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}?fields=sheets.properties.title`;
+  const metaRes = await fetch(metaUrl, { headers: gwHeaders() });
+  if (!metaRes.ok) {
+    const text = await metaRes.text();
+    throw new Error(`Sheets metadata read failed [${metaRes.status}]: ${text}`);
+  }
+  const meta = (await metaRes.json()) as { sheets?: Array<{ properties?: { title?: string } }> };
+  const titles = (meta.sheets ?? []).map((s) => s.properties?.title).filter(Boolean) as string[];
+  if (titles.includes(SHEET_NAME)) return;
+
+  const addUrl = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}:batchUpdate`;
+  const addRes = await fetch(addUrl, {
+    method: "POST",
+    headers: gwHeaders(),
+    body: JSON.stringify({
+      requests: [{ addSheet: { properties: { title: SHEET_NAME } } }],
+    }),
+  });
+  if (!addRes.ok) {
+    const text = await addRes.text();
+    throw new Error(`Sheets addSheet failed [${addRes.status}]: ${text}`);
+  }
+}
+
 async function ensureHeader() {
+  await ensureSheetTab();
   // Check if header row exists; if not, write it.
   const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A1:V1`;
   const res = await fetch(url, { headers: gwHeaders() });
