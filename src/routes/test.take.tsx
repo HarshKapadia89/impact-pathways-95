@@ -12,6 +12,7 @@ import {
 import { generatePsychometricPDF } from "@/lib/psychometricReport";
 import { recommendStreams, STREAM_BY_ID } from "@/lib/careerData";
 import { supabase } from "@/integrations/supabase/client";
+import { saveReport } from "@/lib/chatbotContext";
 import { ChevronLeft, ChevronRight, Download, RefreshCcw } from "lucide-react";
 
 export const Route = createFileRoute("/test/take")({
@@ -226,7 +227,7 @@ function Result({
   const recs = useMemo(() => recommendStreams(report.riasecTop, report.aptitudeTop), [report]);
   const lang = meta.language;
 
-  // Save anonymously (best effort)
+  // Save anonymously (best effort) + persist locally for the chatbot
   useEffect(() => {
     supabase.from("psychometric_results").insert({
       student_name: meta.name,
@@ -237,6 +238,22 @@ function Result({
       multiple_intelligences: report.mi,
       aptitude: report.aptitude,
       recommended_streams: recs,
+    });
+    saveReport({
+      name: meta.name,
+      grade: meta.grade,
+      age: meta.age,
+      language: meta.language,
+      riasecTop: report.riasecTop,
+      riasec: report.riasec,
+      miTop: report.miTop,
+      mi: report.mi,
+      aptitudeTop: report.aptitudeTop,
+      aptitude: report.aptitude,
+      recommendedStreams: recs.map((r: { id?: string; name?: string } | string) =>
+        typeof r === "string" ? r : (r.name ?? r.id ?? ""),
+      ),
+      takenAt: new Date().toISOString(),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
