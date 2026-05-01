@@ -46,7 +46,7 @@ export interface ReportStrings {
 
   // RIASEC
   riasecIntro: string;
-  riasec: Record<RiasecKey, { name: string; description: string }>;
+  riasec: Record<string, { name: string; description: string }>;
   riasecYourCode: (code: string) => string;
   riasecCodeText: string;
 
