@@ -288,9 +288,14 @@ export type Database = {
           aptitude: Json | null
           created_at: string
           grade: string | null
+          grade_band: string | null
           id: string
           language: string | null
           multiple_intelligences: Json | null
+          paid_at: string | null
+          payment_amount: number | null
+          payment_coupon: string | null
+          payment_utr: string | null
           recommended_careers: string[] | null
           recommended_streams: string[] | null
           riasec: Json | null
@@ -301,9 +306,14 @@ export type Database = {
           aptitude?: Json | null
           created_at?: string
           grade?: string | null
+          grade_band?: string | null
           id?: string
           language?: string | null
           multiple_intelligences?: Json | null
+          paid_at?: string | null
+          payment_amount?: number | null
+          payment_coupon?: string | null
+          payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
           riasec?: Json | null
@@ -314,9 +324,14 @@ export type Database = {
           aptitude?: Json | null
           created_at?: string
           grade?: string | null
+          grade_band?: string | null
           id?: string
           language?: string | null
           multiple_intelligences?: Json | null
+          paid_at?: string | null
+          payment_amount?: number | null
+          payment_coupon?: string | null
+          payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
           riasec?: Json | null
@@ -333,10 +348,15 @@ export type Database = {
           created_at: string
           device_id: string | null
           grade: string | null
+          grade_band: string | null
           id: string
           language: string | null
           mi_top: string[] | null
           multiple_intelligences: Json | null
+          paid_at: string | null
+          payment_amount: number | null
+          payment_coupon: string | null
+          payment_utr: string | null
           recommended_careers: string[] | null
           recommended_streams: string[] | null
           riasec: Json | null
@@ -353,10 +373,15 @@ export type Database = {
           created_at?: string
           device_id?: string | null
           grade?: string | null
+          grade_band?: string | null
           id: string
           language?: string | null
           mi_top?: string[] | null
           multiple_intelligences?: Json | null
+          paid_at?: string | null
+          payment_amount?: number | null
+          payment_coupon?: string | null
+          payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
           riasec?: Json | null
@@ -373,10 +398,15 @@ export type Database = {
           created_at?: string
           device_id?: string | null
           grade?: string | null
+          grade_band?: string | null
           id?: string
           language?: string | null
           mi_top?: string[] | null
           multiple_intelligences?: Json | null
+          paid_at?: string | null
+          payment_amount?: number | null
+          payment_coupon?: string | null
+          payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
           riasec?: Json | null
