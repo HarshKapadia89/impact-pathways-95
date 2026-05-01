@@ -275,12 +275,14 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setFill(doc, COLORS.primary);
   doc.rect(0, 0, PW, SPLIT, "F");
 
-  // Subtle decorative saffron glow circle (top-right)
+  // Decorative saffron arcs (top-right) — subtle brand motif
   setFill(doc, COLORS.accent);
-  doc.circle(PW - 10, 14, 28, "F");
-  // Mask back with primary so it's a soft halo on the edge
-  setFill(doc, COLORS.primary);
-  doc.circle(PW - 10, 14, 24, "F");
+  doc.circle(PW - 22, 38, 3.2, "F");
+  setDraw(doc, COLORS.accent);
+  doc.setLineWidth(0.7);
+  doc.circle(PW - 22, 38, 8, "S");
+  doc.setLineWidth(0.4);
+  doc.circle(PW - 22, 38, 14, "S");
 
   // Cream lower band
   setFill(doc, COLORS.accentSoft);
