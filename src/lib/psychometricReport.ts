@@ -692,28 +692,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
   footer(10, 20);
 
-  // ============== PAGE 10 — APTITUDE DETAIL ==============
-  doc.addPage();
-  current.page = 10;
-  header(t.sec8);
-  yy = 48;
-  for (const [cat, v] of Object.entries(report.aptitude)) {
-    yy = ensureSpace(yy, 24, current);
-    font("bold");
-    doc.setFontSize(12);
-    setText(doc, COLORS.primary);
-    doc.text(`${t.aptCategoryName(cat)}  —  ${v.pct}%`, M, yy);
-    yy += 6;
-    font("normal");
-    doc.setFontSize(10);
-    setText(doc, COLORS.ink);
-    for (const l of wrap(t.aptDescriptions[cat] ?? "", PW - 2 * M)) {
-      doc.text(l, M, yy);
-      yy += 5;
-    }
-    yy += 3;
-  }
-  footer(10, 20);
+
 
   // ============== PAGE 11 — RECOMMENDED STREAMS ==============
   doc.addPage();
