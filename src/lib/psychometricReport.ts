@@ -171,38 +171,46 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
 
   function header(title: string, sub?: string) {
+    // Slim header bar
     setFill(doc, COLORS.primary);
-    doc.rect(0, 0, PW, 14, "F");
+    doc.rect(0, 0, PW, 11, "F");
+    setFill(doc, COLORS.accent);
+    doc.rect(0, 11, PW, 0.6, "F");
     font("bold");
-    doc.setFontSize(11);
+    doc.setFontSize(8.5);
     setText(doc, [255, 255, 255]);
-    doc.text(t.brand, M, 9);
+    doc.text(t.brand.toUpperCase(), M, 7.4);
     if (sub) {
       font("normal");
-      doc.setFontSize(9);
-      doc.text(sub, PW - M, 9, { align: "right" });
+      doc.setFontSize(8);
+      doc.text(sub, PW - M, 7.4, { align: "right" });
     }
     setText(doc, COLORS.ink);
     if (title) {
+      font("normal");
+      doc.setFontSize(8);
+      setText(doc, COLORS.muted);
+      doc.text("HBK CAREERS  ·  CAREER DISCOVERY REPORT", M, 24);
       font("bold");
-      doc.setFontSize(18);
+      doc.setFontSize(20);
       setText(doc, COLORS.primary);
-      doc.text(title, M, 28);
+      doc.text(title, M, 33);
       setDraw(doc, COLORS.accent);
-      doc.setLineWidth(1.2);
-      doc.line(M, 31, M + 22, 31);
+      doc.setLineWidth(1.4);
+      doc.line(M, 36.5, M + 18, 36.5);
       setText(doc, COLORS.ink);
     }
   }
 
   function footer(page: number, total: number) {
-    setDraw(doc, COLORS.rule);
+    setDraw(doc, COLORS.hairline);
     doc.setLineWidth(0.2);
-    doc.line(M, PH - 14, PW - M, PH - 14);
+    doc.line(M, PH - 13, PW - M, PH - 13);
     font("normal");
-    doc.setFontSize(8);
+    doc.setFontSize(7.5);
     setText(doc, COLORS.muted);
-    doc.text(t.footerName(name), M, PH - 8);
+    doc.text(t.footerName(name).toUpperCase(), M, PH - 8);
+    doc.text("hbkcareers.org", PW / 2, PH - 8, { align: "center" });
     doc.text(t.pageOf(page, total), PW - M, PH - 8, { align: "right" });
     setText(doc, COLORS.ink);
   }
