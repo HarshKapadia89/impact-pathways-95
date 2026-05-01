@@ -228,18 +228,52 @@ function Result({
   const recs = useMemo(() => recommendStreams(report.riasecTop, report.aptitudeTop), [report]);
   const lang = meta.language;
 
-  // Save anonymously (best effort) + persist locally for the chatbot
+  // Queue submission for sync (works offline). Persist locally for the chatbot.
   useEffect(() => {
-    supabase.from("psychometric_results").insert({
-      student_name: meta.name,
-      grade: meta.grade,
-      age: meta.age ? Number(meta.age) : null,
-      language: meta.language,
-      riasec: report.riasec,
-      multiple_intelligences: report.mi,
-      aptitude: report.aptitude,
-      recommended_streams: recs,
-    });
+    const recStreamNames = recs.map((r: { id?: string; name?: string } | string) =>
+      typeof r === "string" ? r : (r.name ?? r.id ?? ""),
+    );
+    const id =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    let deviceId = "";
+    try {
+      deviceId = localStorage.getItem("hbk-device-id") || "";
+      if (!deviceId) {
+        deviceId =
+          typeof crypto !== "undefined" && "randomUUID" in crypto
+            ? crypto.randomUUID()
+            : `dev-${Date.now()}`;
+        localStorage.setItem("hbk-device-id", deviceId);
+      }
+    } catch {
+      /* ignore */
+    }
+    enqueueSubmission({
+      id,
+      createdAt: Date.now(),
+      attempts: 0,
+      payload: {
+        id,
+        student_name: meta.name,
+        grade: meta.grade,
+        age: meta.age ? Number(meta.age) : null,
+        language: meta.language,
+        riasec: report.riasec,
+        riasec_top: report.riasecTop,
+        multiple_intelligences: report.mi,
+        mi_top: report.miTop,
+        aptitude: report.aptitude,
+        aptitude_top: report.aptitudeTop,
+        recommended_streams: recStreamNames,
+        taken_at: new Date().toISOString(),
+        device_id: deviceId,
+        app_version: "1.0",
+      },
+    })
+      .then(() => flushQueue().catch(() => null))
+      .catch(() => null);
     saveReport({
       name: meta.name,
       grade: meta.grade,
