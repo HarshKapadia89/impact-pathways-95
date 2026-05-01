@@ -29,6 +29,7 @@ import { Route as TestPayRouteImport } from './routes/test.pay'
 import { Route as TeacherSessionsRouteImport } from './routes/teacher.sessions'
 import { Route as TeacherSchoolsRouteImport } from './routes/teacher.schools'
 import { Route as TeacherProfileRouteImport } from './routes/teacher.profile'
+import { Route as RTokenRouteImport } from './routes/r.$token'
 import { Route as HandbookSlugRouteImport } from './routes/handbook.$slug'
 import { Route as CareerStreamRouteImport } from './routes/career.$stream'
 import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
@@ -137,6 +138,11 @@ const TeacherProfileRoute = TeacherProfileRouteImport.update({
   path: '/teacher/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RTokenRoute = RTokenRouteImport.update({
+  id: '/r/$token',
+  path: '/r/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HandbookSlugRoute = HandbookSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -190,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
+  '/r/$token': typeof RTokenRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
   '/teacher/sessions': typeof TeacherSessionsRoute
@@ -217,6 +224,7 @@ export interface FileRoutesByTo {
   '/teachers': typeof TeachersRoute
   '/admin/colleges': typeof AdminCollegesRoute
   '/handbook/$slug': typeof HandbookSlugRoute
+  '/r/$token': typeof RTokenRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
   '/teacher/sessions': typeof TeacherSessionsRoute
@@ -247,6 +255,7 @@ export interface FileRoutesById {
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
+  '/r/$token': typeof RTokenRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
   '/teacher/sessions': typeof TeacherSessionsRoute
@@ -278,6 +287,7 @@ export interface FileRouteTypes {
     | '/admin/colleges'
     | '/career/$stream'
     | '/handbook/$slug'
+    | '/r/$token'
     | '/teacher/profile'
     | '/teacher/schools'
     | '/teacher/sessions'
@@ -305,6 +315,7 @@ export interface FileRouteTypes {
     | '/teachers'
     | '/admin/colleges'
     | '/handbook/$slug'
+    | '/r/$token'
     | '/teacher/profile'
     | '/teacher/schools'
     | '/teacher/sessions'
@@ -334,6 +345,7 @@ export interface FileRouteTypes {
     | '/admin/colleges'
     | '/career/$stream'
     | '/handbook/$slug'
+    | '/r/$token'
     | '/teacher/profile'
     | '/teacher/schools'
     | '/teacher/sessions'
@@ -361,6 +373,7 @@ export interface RootRouteChildren {
   SessionsRoute: typeof SessionsRoute
   TeachersRoute: typeof TeachersRoute
   TestRoute: typeof TestRouteWithChildren
+  RTokenRoute: typeof RTokenRoute
   TeacherProfileRoute: typeof TeacherProfileRoute
   TeacherSchoolsRoute: typeof TeacherSchoolsRoute
   TeacherSessionsRoute: typeof TeacherSessionsRoute
@@ -511,6 +524,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeacherProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/r/$token': {
+      id: '/r/$token'
+      path: '/r/$token'
+      fullPath: '/r/$token'
+      preLoaderRoute: typeof RTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/handbook/$slug': {
       id: '/handbook/$slug'
       path: '/$slug'
@@ -638,6 +658,7 @@ const rootRouteChildren: RootRouteChildren = {
   SessionsRoute: SessionsRoute,
   TeachersRoute: TeachersRoute,
   TestRoute: TestRouteWithChildren,
+  RTokenRoute: RTokenRoute,
   TeacherProfileRoute: TeacherProfileRoute,
   TeacherSchoolsRoute: TeacherSchoolsRoute,
   TeacherSessionsRoute: TeacherSessionsRoute,
