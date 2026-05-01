@@ -1,9 +1,10 @@
 import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/hooks/useAuth";
 import { Toaster } from "@/components/ui/sonner";
+import { bootstrapOffline } from "@/lib/offlineBoot";
 import "@/lib/i18n";
 
 function NotFoundComponent() {
@@ -86,6 +87,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  useEffect(() => {
+    bootstrapOffline();
+  }, []);
   return (
     <Suspense fallback={null}>
       <AuthProvider>
