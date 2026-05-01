@@ -286,8 +286,10 @@ export type Database = {
         Row: {
           age: number | null
           aptitude: Json | null
+          counsellor_note: string | null
           created_at: string
           email: string | null
+          emailed_at: string | null
           grade: string | null
           grade_band: string | null
           id: string
@@ -295,11 +297,13 @@ export type Database = {
           mobile: string | null
           multiple_intelligences: Json | null
           paid_at: string | null
+          parent_email: string | null
           payment_amount: number | null
           payment_coupon: string | null
           payment_utr: string | null
           recommended_careers: string[] | null
           recommended_streams: string[] | null
+          report_token: string | null
           riasec: Json | null
           school_name: string | null
           student_name: string | null
@@ -307,8 +311,10 @@ export type Database = {
         Insert: {
           age?: number | null
           aptitude?: Json | null
+          counsellor_note?: string | null
           created_at?: string
           email?: string | null
+          emailed_at?: string | null
           grade?: string | null
           grade_band?: string | null
           id?: string
@@ -316,11 +322,13 @@ export type Database = {
           mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
+          parent_email?: string | null
           payment_amount?: number | null
           payment_coupon?: string | null
           payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
+          report_token?: string | null
           riasec?: Json | null
           school_name?: string | null
           student_name?: string | null
@@ -328,8 +336,10 @@ export type Database = {
         Update: {
           age?: number | null
           aptitude?: Json | null
+          counsellor_note?: string | null
           created_at?: string
           email?: string | null
+          emailed_at?: string | null
           grade?: string | null
           grade_band?: string | null
           id?: string
@@ -337,11 +347,13 @@ export type Database = {
           mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
+          parent_email?: string | null
           payment_amount?: number | null
           payment_coupon?: string | null
           payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
+          report_token?: string | null
           riasec?: Json | null
           school_name?: string | null
           student_name?: string | null
@@ -365,11 +377,13 @@ export type Database = {
           mobile: string | null
           multiple_intelligences: Json | null
           paid_at: string | null
+          parent_email: string | null
           payment_amount: number | null
           payment_coupon: string | null
           payment_utr: string | null
           recommended_careers: string[] | null
           recommended_streams: string[] | null
+          report_token: string | null
           riasec: Json | null
           riasec_top: string[] | null
           school_name: string | null
@@ -393,11 +407,13 @@ export type Database = {
           mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
+          parent_email?: string | null
           payment_amount?: number | null
           payment_coupon?: string | null
           payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
+          report_token?: string | null
           riasec?: Json | null
           riasec_top?: string[] | null
           school_name?: string | null
@@ -421,11 +437,13 @@ export type Database = {
           mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
+          parent_email?: string | null
           payment_amount?: number | null
           payment_coupon?: string | null
           payment_utr?: string | null
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
+          report_token?: string | null
           riasec?: Json | null
           riasec_top?: string[] | null
           school_name?: string | null
