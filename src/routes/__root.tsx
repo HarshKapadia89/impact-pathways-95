@@ -5,6 +5,7 @@ import appCss from "../styles.css?url";
 import { AuthProvider } from "@/hooks/useAuth";
 import { Toaster } from "@/components/ui/sonner";
 import { bootstrapOffline } from "@/lib/offlineBoot";
+import { applyStoredTheme } from "@/components/ThemeSwitcher";
 import "@/lib/i18n";
 
 function NotFoundComponent() {
@@ -88,6 +89,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   useEffect(() => {
+    applyStoredTheme();
     bootstrapOffline();
   }, []);
   return (
