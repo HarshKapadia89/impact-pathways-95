@@ -79,7 +79,7 @@ function buildAptitudeAnswers(items: AptitudeItem[]) {
   return out;
 }
 
-export function buildSampleReportInput() {
+export function buildSampleReportInput(language: "en" | "gu" = "en") {
   const riasecAns = buildLikertAnswers(RIASEC_ITEMS, RIASEC_PROFILE);
   const miAns = buildLikertAnswers(MI_ITEMS, MI_PROFILE);
   const aptAns = buildAptitudeAnswers(APTITUDE_ITEMS);
@@ -88,7 +88,7 @@ export function buildSampleReportInput() {
     name: "Aarav Patel",
     grade: "10",
     age: "15",
-    language: "en" as const,
+    language,
     report,
     riasecAnswers: riasecAns,
     miAnswers: miAns,
@@ -96,16 +96,16 @@ export function buildSampleReportInput() {
   };
 }
 
-export function openSampleReport() {
-  const doc = generatePsychometricPDF(buildSampleReportInput());
+export function openSampleReport(language: "en" | "gu" = "en") {
+  const doc = generatePsychometricPDF(buildSampleReportInput(language));
   const blob = doc.output("blob");
   const url = URL.createObjectURL(blob);
   window.open(url, "_blank", "noopener");
-  // Revoke later so the new tab has time to load
   setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
-export function downloadSampleReport() {
-  const doc = generatePsychometricPDF(buildSampleReportInput());
-  doc.save("HBK-Careers-Sample-Report-Aarav-Patel.pdf");
+export function downloadSampleReport(language: "en" | "gu" = "en") {
+  const doc = generatePsychometricPDF(buildSampleReportInput(language));
+  const suffix = language === "gu" ? "Gujarati" : "English";
+  doc.save(`HBK-Careers-Sample-Report-Aarav-Patel-${suffix}.pdf`);
 }
