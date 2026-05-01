@@ -1,99 +1,89 @@
-## Goals
+## Goal
 
-1. **Sheet entry missing** — root cause confirmed: the Google Sheet has no tab named `Submissions`. The append API returns `400 Unable to parse range: Submissions!A1:V1`. The DB row exists, but the sheet write silently failed (it's wrapped in a non-fatal try/catch).
-2. **Report quality** — make the 20-page PDF look genuinely world-class: better cover, proper RIASEC radar (hexagon) chart, MI radar, refined typography, score legends, color coding per dimension, "what this means for you" callouts, and a polished snapshot/exec-summary page.
-
----
-
-## Part A — Fix Google Sheet sync (small, surgical)
-
-Two changes, no new features:
-
-1. **Auto-create the `Submissions` tab if missing.** Before reading `A1:V1`, call the spreadsheet metadata endpoint; if the sheet name doesn't exist, call `batchUpdate` with an `addSheet` request, then proceed to write headers + append.
-2. **Backfill the one DB row that didn't sync.** After the fix deploys, trigger one append for the existing submission (`13444772-…`) so the sheet matches the database.
-
-Files: `src/server/sheetsSync.functions.ts` only.
-
-User action required: nothing — the code will create the tab automatically. (Alternative if you'd prefer: you manually rename the existing tab to `Submissions`. Either works.)
+Two improvements:
+1. **Report cover (Page 1 of PDF)** — text in the lower "Prepared For / Issued By" block is dark indigo on a dark indigo background, so it's effectively invisible. Make the entire cover legible and crisp.
+2. **Public website** — refresh the look to feel brighter, more colourful and more student-friendly without abandoning the existing brand (deep indigo + saffron).
 
 ---
 
-## Part B — World-class PDF redesign
+## Part 1 — Fix the report cover (`src/lib/psychometricReport.ts`)
 
-All changes in `src/lib/psychometricReport.ts` (+ a small new helper module for chart drawing). No data shape changes, no new dependencies — pure jsPDF vector drawing.
+The cover currently fills the page with `primaryDark` and `primary` (both deep indigo) for the full height, but the bottom block writes labels in `COLORS.muted` and big text in `COLORS.primary` / `COLORS.ink` — all dark, so they disappear.
 
-### B1. New: RIASEC Hexagon (Holland Hexagon) chart
-The canonical RIASEC visualization is a hexagon with R-I-A-S-E-C at the six vertices, with the student's scores plotted as a filled polygon inside. This is the chart psychometricians and counsellors expect.
+Two options to fix:
 
-```text
-            R
-         .  |  .
-       .    |    .
-     C------+------I
-     |\    /|\    /|
-     | \  / | \  / |
-     |  \/  |  \/  |
-     E------+------A
-       .    |    .
-         .  |  .
-            S
-```
+- **Option A (chosen):** Restore the intended two-tone layout. Keep deep indigo for the top ~62% of the page (title area), then paint a **bright cream band** (`COLORS.accentSoft` / pale ivory) for the bottom ~38% so the dark "Prepared For / Issued By" text reads with strong contrast.
+- Add a thin saffron accent rule between the two zones for polish.
 
-- Drawn at ~80mm wide, vector strokes + light fill, with axis labels and percentage rings (25/50/75/100).
-- Renders on the new dedicated **Page 5 — RIASEC Profile**, replacing the current bar-only layout. Bars stay below the hexagon as a secondary read.
+Concrete changes on the cover:
+- Replace the single dark fill with: `primaryDark` band (top), `cream` band (bottom), `accent` hairline divider.
+- "PREPARED FOR" / "ISSUED BY" small caps → keep, but use a clearly readable muted-on-cream tone.
+- Student name → large serif, deep indigo on cream (high contrast).
+- Add a subtle saffron underline under the student name (decorative + brand).
+- Brighten the title area too: make "Report." word use full saffron (`COLORS.accent`) instead of pale `accentSoft` so the hero word pops.
+- Tagline "RIASEC interests · Multiple Intelligences · Aptitude" → bump to pure white at slightly larger size.
+- Footer ref/date row → ensure it sits inside the cream band with muted indigo text.
 
-### B2. New: MI radar (8-axis spider)
-Same vector approach: 8 axes for the 8 intelligences, polygon fill in accent colour. Replaces the plain MI bar list on Page 7 (bars stay as a secondary detail).
-
-### B3. New: Aptitude category chart
-A clean horizontal grouped bar with score, max, and a coloured proficiency band (Beginner / Developing / Proficient / Advanced) so the number means something.
-
-### B4. Cover page redesign
-- Two-tone composition (deep primary field, accent stripe) with serif display title, small caps subtitle, monogrammed "HBK" mark, student name in large display weight, meta line in muted small caps.
-- "Inside this report" right-aligned vertical index (5 highlights, not paragraph text).
-- Date + report ID in tiny mono at the foot.
-
-### B5. New page: Executive Summary (becomes new page 3, pushing TOC to page 2)
-A single-page "at a glance" with three large stat tiles (Top Holland Code, Top Intelligence, Aptitude %), a one-paragraph narrative auto-composed from the top scores, and a thin recommendation strip showing the two streams. This is what counsellors / parents will read first.
-
-### B6. Typography & spacing pass
-- Larger section numerals (display-weight) with hairline accent rule.
-- Consistent 11/9/8 pt scale, more line-height, more white space.
-- Section pages get a coloured chapter-tab in the top-right corner.
-- Page footer: thin rule + small caps brand left, page count right (already there but restyled).
-- Replace plain `•` bullets with custom small squares in accent colour.
-
-### B7. "What this means" callouts
-On each detailed-insights page (RIASEC, MI, Aptitude), add a tinted callout box with a personalised one-line interpretation derived from the student's top score in that dimension.
-
-### B8. Score legend & methodology mini-section
-A short box at the bottom of the snapshot/exec-summary explaining the 0–100 score, sample size, and that this is guidance not diagnosis. Builds trust.
-
-### B9. Better recommended-streams cards
-Cards get an icon (emoji we already have), a subtle gradient, and three labelled chips: *Class 11–12 subjects · Top exam · Avg starting salary*. Currently it's only tagline + subjects.
+No structural changes elsewhere in the PDF; this is cover-only.
 
 ---
 
-## Out of scope (not changing this round)
+## Part 2 — Brighter, friendlier public site
 
-- No new data collection or schema changes.
-- No bilingual content — English only as already decided.
-- No changes to test flow, payment flow, or admin.
-- No new npm dependencies — all charts are pure jsPDF vector drawing so the bundle size is unchanged.
+Keep the current design tokens (so the rest of the app stays consistent), but lift the palette and add more colour accents on the surfaces students actually see.
+
+### Token tweaks (`src/styles.css`)
+- Slightly warmer, brighter background (already cream — nudge lightness up a touch).
+- Add a few semantic helper tokens so we can sprinkle colour without hand-coding hex:
+  - `--brand-1` (indigo), `--brand-2` (saffron), `--brand-3` (teal/green from chart-3), `--brand-4` (coral from chart-4), `--brand-5` (sky from chart-5).
+  - `--gradient-hero`, `--gradient-card`, `--shadow-glow` for soft tinted shadows.
+- Keep dark-mode mapping intact.
+
+### Header (`src/components/PublicLayout.tsx`)
+- Active nav link: pill background using `bg-accent/15 text-primary` with a saffron underline dot, instead of muted indigo tint only.
+- Add a small coloured icon chip behind each nav icon (rotating brand colours) so the bar feels lively.
+- Logo: keep mark, add a tiny saffron accent dot.
+
+### Home hero (`src/routes/index.tsx`)
+- Replace flat `from-primary/5 via-background to-accent/10` with a richer multi-stop gradient using the new `--gradient-hero` (indigo → cream → saffron glow) and a soft blurred saffron blob in the corner.
+- Headline: keep serif, but colour the verb ("Find" / "શોધો") in saffron for emphasis.
+- CTA buttons: primary stays indigo; secondary becomes outlined saffron for visual variety.
+
+### Section tiles (Career / Handbook / Test)
+- Each tile gets its own brand accent (indigo, saffron, teal) — coloured icon background, coloured top border, soft tinted hover shadow using the matching `--shadow-glow`.
+- Slightly larger icon, bolder titles.
+
+### Stream cards ("paths after Class 12")
+- Add a coloured left border per stream and a subtle gradient background tint.
+- Hover: lift + tinted shadow.
+
+### Footer (`PublicLayout` footer)
+- Already dark indigo (sidebar). Add a thin saffron top accent line and brighten link hover to saffron for warmth.
+
+### Buttons (`src/components/ui/button.tsx`)
+- Add two new variants (purely additive, no breaking change):
+  - `accent` — saffron background, indigo text — for friendly CTAs.
+  - `soft` — tinted brand background (`bg-primary/10 text-primary`) — for tertiary actions.
 
 ---
 
-## Technical notes
+## Out of scope
 
-- Hexagon and radar geometry: standard polar→cartesian (`cx + r*cos(θ), cy + r*sin(θ)`) with θ stepping by `2π/n`. jsPDF `lines()` and `triangle()`/`lines()` support filled polygons.
-- All new colours added as semantic constants in the existing `COLORS` object — no design-token changes elsewhere in the app.
-- Page numbering re-stamp at the end of `generatePsychometricPDF` already handles dynamic page counts; new pages slot in cleanly.
-- For Part A, the metadata call is `GET /spreadsheets/{id}?fields=sheets.properties.title` and the create call is `POST /spreadsheets/{id}:batchUpdate` with `{ requests: [{ addSheet: { properties: { title: "Submissions" } } }] }`.
+- No changes to the test flow, scoring logic, Google Sheets sync, or career match engine.
+- No changes to admin/teacher routes (different audience, different design language).
+- Other PDF pages stay as-is — only the cover is touched.
 
 ---
 
-## Deliverables
-- Updated `src/lib/psychometricReport.ts` (redesigned report).
-- New tiny helper `src/lib/pdfCharts.ts` (hexagon + radar drawing functions).
-- Updated `src/server/sheetsSync.functions.ts` (auto-create tab + backfill the missed row once on next deploy via a one-off call from a small admin-only script — or simply on next student submission, which will trigger header init too).
-- No UI/route changes.
+## Files
+
+- **Modified:** `src/lib/psychometricReport.ts` (cover page only, ~lines 270-352)
+- **Modified:** `src/styles.css` (add brand helper tokens + gradients)
+- **Modified:** `src/components/PublicLayout.tsx` (header polish, footer accent)
+- **Modified:** `src/routes/index.tsx` (hero, tiles, stream cards)
+- **Modified:** `src/components/ui/button.tsx` (add `accent` and `soft` variants)
+
+## QA
+
+- Generate a sample PDF via the existing sample-report route and visually inspect page 1 (convert to image, confirm name/grade/school all read clearly).
+- Load `/` at the current 1162px viewport and at mobile (375px) to confirm the brighter palette holds and nothing regresses.
