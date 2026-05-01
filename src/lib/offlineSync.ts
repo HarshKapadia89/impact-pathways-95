@@ -45,6 +45,15 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
           .from("psychometric_submissions")
           .upsert(item.payload as never, { onConflict: "id" });
         if (error) throw error;
+        // Mirror to Google Sheet (best effort — failures don't block sync).
+        try {
+          const { appendSubmissionToSheet } = await import(
+            "@/server/sheetsSync.functions"
+          );
+          await appendSubmissionToSheet({ data: item.payload as never });
+        } catch (sheetErr) {
+          console.warn("Sheet append failed (non-fatal):", sheetErr);
+        }
         // Also write to the legacy table for backward compatibility (best effort).
         await supabase
           .from("psychometric_results")
