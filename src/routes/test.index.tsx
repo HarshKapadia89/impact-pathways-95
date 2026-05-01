@@ -61,12 +61,15 @@ function TestIntro() {
   const [school, setSchool] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  const [parentEmail, setParentEmail] = useState("");
 
   const mobileDigits = mobile.replace(/\D/g, "");
   const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const parentEmailValid =
+    parentEmail.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(parentEmail.trim());
   const schoolValid = school.trim().length >= 2;
-  const canContinue = !!grade && schoolValid && mobileValid && emailValid;
+  const canContinue = !!grade && schoolValid && mobileValid && emailValid && parentEmailValid;
 
   const start = () => {
     if (!canContinue) return;
@@ -80,10 +83,12 @@ function TestIntro() {
         school: school.trim(),
         mobile: mobileDigits,
         email: email.trim(),
+        parent_email: parentEmail.trim() || null,
       }),
     );
     navigate({ to: "/test/pay" });
   };
+
 
   const frameworks = [
     {
