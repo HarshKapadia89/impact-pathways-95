@@ -194,9 +194,12 @@ function TestIntro() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5 text-accent" />
-              {t("100% Free · Instant 20-page PDF", "100% મફત · તરત 20-પાનાનો PDF")}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+                <Sparkles className="h-3.5 w-3.5 text-accent" />
+                {t("100% Free · Instant 20-page PDF", "100% મફત · તરત 20-પાનાનો PDF")}
+              </div>
+              <OfflineStatus lang={lang} />
             </div>
             <h1 className="mt-4 font-serif text-4xl md:text-6xl leading-tight">
               {t(
