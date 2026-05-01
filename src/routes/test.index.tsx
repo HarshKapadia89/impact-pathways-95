@@ -465,19 +465,45 @@ function TestIntro() {
         <div className="md:col-span-3">
           <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Your name" value={name} onChange={setName} placeholder="e.g. Aarav Patel" />
-              <Field label="Grade" value={grade} onChange={setGrade} placeholder="6 to 12" />
-              <Field label="Age" value={age} onChange={setAge} placeholder="11 to 18" />
+              <Field label="Full name" value={name} onChange={setName} placeholder="e.g. Aarav Patel" />
+              <Field label="School name *" value={school} onChange={setSchool} placeholder="e.g. Delhi Public School" />
+              <Field label="Grade *" value={grade} onChange={setGrade} placeholder="6 to 12" />
+              <Field label="Age" value={age} onChange={setAge} placeholder="11 to 18" type="number" />
+              <Field
+                label="Mobile number *"
+                value={mobile}
+                onChange={setMobile}
+                placeholder="10-digit Indian mobile"
+                type="tel"
+                inputMode="numeric"
+                maxLength={10}
+              />
+              <Field
+                label="Email ID *"
+                value={email}
+                onChange={setEmail}
+                placeholder="you@example.com"
+                type="email"
+              />
             </div>
+            {(school.length > 0 && !schoolValid) && (
+              <p className="mt-3 text-xs text-destructive">Please enter your school name.</p>
+            )}
+            {(mobile.length > 0 && !mobileValid) && (
+              <p className="mt-1 text-xs text-destructive">Enter a valid 10-digit Indian mobile number.</p>
+            )}
+            {(email.length > 0 && !emailValid) && (
+              <p className="mt-1 text-xs text-destructive">Enter a valid email address.</p>
+            )}
             <button
               onClick={start}
-              disabled={!grade}
+              disabled={!canContinue}
               className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium hover:opacity-90 disabled:opacity-40"
             >
               Continue to payment <ChevronRight className="h-4 w-4" />
             </button>
             <p className="text-[11px] text-muted-foreground mt-3">
-              By continuing, you agree to our terms. Your responses stay private and are used only to generate your report.
+              By continuing, you agree to our terms. Your responses stay private and your report will be sent to your email and mobile.
             </p>
             <div className="mt-4 text-xs text-muted-foreground">
               Have questions?{" "}
