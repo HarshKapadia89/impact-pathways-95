@@ -524,11 +524,17 @@ function Field({
   value,
   onChange,
   placeholder,
+  type = "text",
+  inputMode,
+  maxLength,
 }: {
   label: string;
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
+  type?: string;
+  inputMode?: "text" | "numeric" | "tel" | "email" | "search" | "url" | "decimal" | "none";
+  maxLength?: number;
 }) {
   return (
     <label className="block">
@@ -537,6 +543,9 @@ function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        type={type}
+        inputMode={inputMode}
+        maxLength={maxLength}
         className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
       />
     </label>
