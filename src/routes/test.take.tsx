@@ -242,9 +242,8 @@ function Result({
   const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
 
   useEffect(() => {
-    const recStreamNames = recs.map((r: { id?: string; name?: string } | string) =>
-      typeof r === "string" ? r : (r.name ?? r.id ?? ""),
-    );
+    const recStreamNames = recs.map((sid) => STREAM_BY_ID[sid]?.name ?? sid);
+    const recCareerTitles = careerRecs.map((c) => `${c.path.title} (${c.fit}%)`);
     const id =
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
@@ -283,6 +282,7 @@ function Result({
         aptitude: report.aptitude,
         aptitude_top: report.aptitudeTop,
         recommended_streams: recStreamNames,
+        recommended_careers: recCareerTitles,
         taken_at: new Date().toISOString(),
         device_id: deviceId,
         app_version: "1.1",
@@ -305,9 +305,8 @@ function Result({
       mi: report.mi,
       aptitudeTop: report.aptitudeTop,
       aptitude: report.aptitude,
-      recommendedStreams: recs.map((r: { id?: string; name?: string } | string) =>
-        typeof r === "string" ? r : (r.name ?? r.id ?? ""),
-      ),
+      recommendedStreams: recStreamNames,
+      recommendedCareers: recCareerTitles,
       takenAt: new Date().toISOString(),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
