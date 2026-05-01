@@ -12,7 +12,8 @@ import {
   type AptitudeItem,
 } from "@/lib/psychometricData";
 import { generatePsychometricPDF } from "@/lib/psychometricReport";
-import { recommendStreams, STREAM_BY_ID } from "@/lib/careerData";
+import { STREAM_BY_ID } from "@/lib/careerData";
+import { recommendStreamsAccurate, rankCareerPaths } from "@/lib/careerMatch";
 import { enqueueSubmission } from "@/lib/offlineQueue";
 import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
@@ -237,12 +238,12 @@ function Result({
   const [downloading, setDownloading] = useState(false);
   const band = useMemo(() => gradeToBand(meta.grade), [meta.grade]);
   const report = useMemo(() => buildReport(riasec, mi, apt, aptItems, band), [riasec, mi, apt, aptItems, band]);
-  const recs = useMemo(() => recommendStreams(report.riasecTop, report.aptitudeTop), [report]);
+  const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
+  const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
 
   useEffect(() => {
-    const recStreamNames = recs.map((r: { id?: string; name?: string } | string) =>
-      typeof r === "string" ? r : (r.name ?? r.id ?? ""),
-    );
+    const recStreamNames = recs.map((sid) => STREAM_BY_ID[sid]?.name ?? sid);
+    const recCareerTitles = careerRecs.map((c) => `${c.path.title} (${c.fit}%)`);
     const id =
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
@@ -281,6 +282,7 @@ function Result({
         aptitude: report.aptitude,
         aptitude_top: report.aptitudeTop,
         recommended_streams: recStreamNames,
+        recommended_careers: recCareerTitles,
         taken_at: new Date().toISOString(),
         device_id: deviceId,
         app_version: "1.1",
@@ -303,9 +305,8 @@ function Result({
       mi: report.mi,
       aptitudeTop: report.aptitudeTop,
       aptitude: report.aptitude,
-      recommendedStreams: recs.map((r: { id?: string; name?: string } | string) =>
-        typeof r === "string" ? r : (r.name ?? r.id ?? ""),
-      ),
+      recommendedStreams: recStreamNames,
+      recommendedCareers: recCareerTitles,
       takenAt: new Date().toISOString(),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

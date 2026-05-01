@@ -15,6 +15,7 @@ export interface SavedReport {
   aptitudeTop: string[];
   aptitude: Record<string, { correct: number; total: number; pct: number } | number>;
   recommendedStreams: string[];
+  recommendedCareers?: string[];
   takenAt: string;
 }
 
@@ -60,5 +61,8 @@ export function buildReportContext(r: SavedReport): string {
     `Top Multiple Intelligences: ${topN(r.mi, 3)}.`,
     `Top Aptitudes: ${topN(r.aptitude, 3)}.`,
     `App-recommended streams: ${r.recommendedStreams.join(", ") || "—"}.`,
-  ].join("\n");
+    r.recommendedCareers?.length
+      ? `Top personalised career matches: ${r.recommendedCareers.slice(0, 6).join("; ")}.`
+      : "",
+  ].filter(Boolean).join("\n");
 }
