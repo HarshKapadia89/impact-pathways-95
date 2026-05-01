@@ -25,6 +25,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TestIndexRouteImport } from './routes/test.index'
 import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
 import { Route as TestTakeRouteImport } from './routes/test.take'
+import { Route as TestPayRouteImport } from './routes/test.pay'
 import { Route as TeacherSessionsRouteImport } from './routes/teacher.sessions'
 import { Route as TeacherSchoolsRouteImport } from './routes/teacher.schools'
 import { Route as TeacherProfileRouteImport } from './routes/teacher.profile'
@@ -116,6 +117,11 @@ const TestTakeRoute = TestTakeRouteImport.update({
   path: '/take',
   getParentRoute: () => TestRoute,
 } as any)
+const TestPayRoute = TestPayRouteImport.update({
+  id: '/pay',
+  path: '/pay',
+  getParentRoute: () => TestRoute,
+} as any)
 const TeacherSessionsRoute = TeacherSessionsRouteImport.update({
   id: '/teacher/sessions',
   path: '/teacher/sessions',
@@ -187,6 +193,7 @@ export interface FileRoutesByFullPath {
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
   '/teacher/sessions': typeof TeacherSessionsRoute
+  '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
@@ -213,6 +220,7 @@ export interface FileRoutesByTo {
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
   '/teacher/sessions': typeof TeacherSessionsRoute
+  '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
   '/teacher': typeof TeacherIndexRoute
   '/test': typeof TestIndexRoute
@@ -242,6 +250,7 @@ export interface FileRoutesById {
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
   '/teacher/sessions': typeof TeacherSessionsRoute
+  '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
@@ -272,6 +281,7 @@ export interface FileRouteTypes {
     | '/teacher/profile'
     | '/teacher/schools'
     | '/teacher/sessions'
+    | '/test/pay'
     | '/test/take'
     | '/teacher/'
     | '/test/'
@@ -298,6 +308,7 @@ export interface FileRouteTypes {
     | '/teacher/profile'
     | '/teacher/schools'
     | '/teacher/sessions'
+    | '/test/pay'
     | '/test/take'
     | '/teacher'
     | '/test'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '/teacher/profile'
     | '/teacher/schools'
     | '/teacher/sessions'
+    | '/test/pay'
     | '/test/take'
     | '/teacher/'
     | '/test/'
@@ -471,6 +483,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TestTakeRouteImport
       parentRoute: typeof TestRoute
     }
+    '/test/pay': {
+      id: '/test/pay'
+      path: '/pay'
+      fullPath: '/test/pay'
+      preLoaderRoute: typeof TestPayRouteImport
+      parentRoute: typeof TestRoute
+    }
     '/teacher/sessions': {
       id: '/teacher/sessions'
       path: '/teacher/sessions'
@@ -592,11 +611,13 @@ const HandbookRouteWithChildren = HandbookRoute._addFileChildren(
 )
 
 interface TestRouteChildren {
+  TestPayRoute: typeof TestPayRoute
   TestTakeRoute: typeof TestTakeRoute
   TestIndexRoute: typeof TestIndexRoute
 }
 
 const TestRouteChildren: TestRouteChildren = {
+  TestPayRoute: TestPayRoute,
   TestTakeRoute: TestTakeRoute,
   TestIndexRoute: TestIndexRoute,
 }
