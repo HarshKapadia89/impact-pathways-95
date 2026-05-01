@@ -268,87 +268,117 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const current = { page: 1, total: 20 };
 
   // ============== PAGE 1 — COVER ==============
-  // Deep field
+  // Top deep-indigo zone (≈ 62% of page)
+  const SPLIT = PH - 110; // y-position where cream band starts
   setFill(doc, COLORS.primaryDark);
   doc.rect(0, 0, PW, PH, "F");
-  // Inner field
   setFill(doc, COLORS.primary);
-  doc.rect(0, 0, PW, PH - 95, "F");
-  // Accent stripe
+  doc.rect(0, 0, PW, SPLIT, "F");
+
+  // Subtle decorative saffron glow circle (top-right)
   setFill(doc, COLORS.accent);
-  doc.rect(0, PH - 95, PW, 1.4, "F");
+  doc.circle(PW - 10, 14, 28, "F");
+  // Mask back with primary so it's a soft halo on the edge
+  setFill(doc, COLORS.primary);
+  doc.circle(PW - 10, 14, 24, "F");
+
+  // Cream lower band
+  setFill(doc, COLORS.accentSoft);
+  doc.rect(0, SPLIT, PW, PH - SPLIT, "F");
+  // Saffron divider rule between zones
+  setFill(doc, COLORS.accent);
+  doc.rect(0, SPLIT - 1.2, PW, 2.4, "F");
 
   // Top corner monogram + brand
   setText(doc, [255, 255, 255]);
   font("bold");
-  doc.setFontSize(10);
+  doc.setFontSize(11);
   doc.text("HBK", M, 20);
   setDraw(doc, COLORS.accent);
-  doc.setLineWidth(0.6);
-  doc.line(M + 12, 17.5, M + 22, 17.5);
+  doc.setLineWidth(0.8);
+  doc.line(M + 13, 17.8, M + 24, 17.8);
   font("normal");
-  doc.setFontSize(8);
-  doc.text("CAREERS", M + 24, 20);
-  doc.setFontSize(8);
+  doc.setFontSize(8.5);
+  doc.text("CAREERS", M + 26, 20);
+  doc.setFontSize(8.5);
+  setText(doc, COLORS.accentSoft);
   doc.text("CAREER · DISCOVERY · REPORT", PW - M, 20, { align: "right" });
 
-  // Big display title
+  // Big display title — pure white for max legibility
   font("bold");
-  doc.setFontSize(56);
+  doc.setFontSize(58);
   setText(doc, [255, 255, 255]);
-  doc.text("Career", M, 95);
-  doc.text("Discovery", M, 117);
-  font("normal");
-  setText(doc, COLORS.accentSoft);
-  doc.setFontSize(56);
-  doc.text("Report.", M, 139);
+  doc.text("Career", M, 90);
+  doc.text("Discovery", M, 114);
+  // Hero word in saffron — pops against indigo
+  setText(doc, COLORS.accent);
+  doc.text("Report.", M, 138);
 
   // Hairline
-  setDraw(doc, [255, 255, 255]);
-  doc.setLineWidth(0.3);
-  doc.line(M, 152, M + 60, 152);
+  setDraw(doc, COLORS.accent);
+  doc.setLineWidth(0.6);
+  doc.line(M, 150, M + 70, 150);
 
   font("normal");
-  doc.setFontSize(11);
-  setText(doc, [230, 226, 240]);
-  doc.text("RIASEC interests  ·  Multiple Intelligences  ·  Aptitude", M, 160);
+  doc.setFontSize(12);
+  setText(doc, [255, 255, 255]);
+  doc.text("RIASEC Interests   ·   Multiple Intelligences   ·   Aptitude", M, 160);
 
-  // Prepared-for block on the cream lower band
+  font("normal");
+  doc.setFontSize(9.5);
+  setText(doc, COLORS.accentSoft);
+  doc.text("A personalised psychometric profile to guide your next academic step.", M, 168);
+
+  // ===== Cream band content — dark ink reads cleanly =====
+  // Prepared For (left)
   setText(doc, COLORS.muted);
-  font("normal");
-  doc.setFontSize(8);
-  doc.text("PREPARED FOR", M, PH - 80);
   font("bold");
-  doc.setFontSize(28);
-  setText(doc, COLORS.primary);
-  doc.text(name || t.studentFallback, M, PH - 65);
+  doc.setFontSize(8.5);
+  doc.text("PREPARED FOR", M, SPLIT + 14);
+
+  font("bold");
+  doc.setFontSize(30);
+  setText(doc, COLORS.primaryDark);
+  doc.text(name || t.studentFallback, M, SPLIT + 32);
+
+  // Saffron underline accent under the name
+  setDraw(doc, COLORS.accent);
+  doc.setLineWidth(0.9);
+  doc.line(M, SPLIT + 36, M + 40, SPLIT + 36);
+
   font("normal");
-  doc.setFontSize(10);
+  doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
-  doc.text(`Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : t.langNameEn}`, M, PH - 56);
+  doc.text(
+    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : t.langNameEn}`,
+    M,
+    SPLIT + 46,
+  );
 
-  // Right column: school + date
-  font("normal");
-  doc.setFontSize(8);
-  setText(doc, COLORS.muted);
-  doc.text("ISSUED BY", PW - M, PH - 80, { align: "right" });
+  // Issued By (right)
   font("bold");
-  doc.setFontSize(10);
-  setText(doc, COLORS.primary);
-  doc.text("The H B Kapadia New High School", PW - M, PH - 71, { align: "right" });
+  doc.setFontSize(8.5);
+  setText(doc, COLORS.muted);
+  doc.text("ISSUED BY", PW - M, SPLIT + 14, { align: "right" });
+  font("bold");
+  doc.setFontSize(11);
+  setText(doc, COLORS.primaryDark);
+  doc.text("The H B Kapadia New High School", PW - M, SPLIT + 22, { align: "right" });
+  font("normal");
+  doc.setFontSize(9);
+  setText(doc, COLORS.ink);
+  doc.text("Ahmedabad", PW - M, SPLIT + 28, { align: "right" });
+
+  // Bottom row: date / ref / website
   font("normal");
   doc.setFontSize(8.5);
   setText(doc, COLORS.muted);
-  doc.text("Ahmedabad", PW - M, PH - 66, { align: "right" });
-
-  font("normal");
-  doc.setFontSize(8);
-  setText(doc, COLORS.muted);
-  doc.text(`ISSUED  ${new Date().toLocaleDateString()}`, M, PH - 22);
-  doc.text("hbkcareers.org", PW - M, PH - 22, { align: "right" });
-  // Tiny report ref
+  doc.text(`ISSUED  ${new Date().toLocaleDateString()}`, M, PH - 14);
   const ref = `REF · ${(name || "STU").slice(0, 3).toUpperCase()}-${new Date().getFullYear()}`;
-  doc.text(ref, PW / 2, PH - 22, { align: "center" });
+  doc.text(ref, PW / 2, PH - 14, { align: "center" });
+  font("bold");
+  setText(doc, COLORS.primary);
+  doc.text("hbkcareers.org", PW - M, PH - 14, { align: "right" });
 
 
   // ============== PAGE 2 — TABLE OF CONTENTS ==============
