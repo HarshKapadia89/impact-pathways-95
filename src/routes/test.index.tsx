@@ -367,22 +367,40 @@ function TestIntro() {
               <div className="mt-4 grid grid-cols-2 gap-2">
                 <button
                   onClick={() =>
-                    import("@/lib/sampleReport").then((m) => m.openSampleReport())
+                    import("@/lib/sampleReport").then((m) => m.openSampleReport("en"))
                   }
                   className="inline-flex items-center justify-center gap-1.5 bg-primary text-primary-foreground rounded-md px-3 py-2 text-xs font-medium hover:opacity-90"
                 >
-                  {t("View PDF", "PDF જુઓ")}
+                  {t("View English PDF", "અંગ્રેજી PDF જુઓ")}
                   <ChevronRight className="h-3.5 w-3.5" />
                 </button>
                 <button
                   onClick={() =>
-                    import("@/lib/sampleReport").then((m) => m.downloadSampleReport())
+                    import("@/lib/sampleReport").then((m) => m.openSampleReport("gu"))
+                  }
+                  className="inline-flex items-center justify-center gap-1.5 bg-accent text-accent-foreground rounded-md px-3 py-2 text-xs font-medium hover:opacity-90"
+                >
+                  {t("View Gujarati PDF", "ગુજરાતી PDF જુઓ")}
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </button>
+                <button
+                  onClick={() =>
+                    import("@/lib/sampleReport").then((m) => m.downloadSampleReport("en"))
                   }
                   className="inline-flex items-center justify-center gap-1.5 border border-border bg-background rounded-md px-3 py-2 text-xs font-medium hover:bg-muted"
                 >
-                  {t("Download", "ડાઉનલોડ")}
+                  {t("Download English", "અંગ્રેજી ડાઉનલોડ")}
+                </button>
+                <button
+                  onClick={() =>
+                    import("@/lib/sampleReport").then((m) => m.downloadSampleReport("gu"))
+                  }
+                  className="inline-flex items-center justify-center gap-1.5 border border-border bg-background rounded-md px-3 py-2 text-xs font-medium hover:bg-muted"
+                >
+                  {t("Download Gujarati", "ગુજરાતી ડાઉનલોડ")}
                 </button>
               </div>
+
             </div>
           </div>
 
