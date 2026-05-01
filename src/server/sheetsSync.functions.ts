@@ -49,6 +49,9 @@ const SubmissionSchema = z.object({
   taken_at: z.string().optional(),
   device_id: z.string().nullable().optional(),
   app_version: z.string().nullable().optional(),
+  payment_amount: z.number().nullable().optional(),
+  payment_utr: z.string().nullable().optional(),
+  payment_coupon: z.string().nullable().optional(),
 });
 
 function gwHeaders() {
