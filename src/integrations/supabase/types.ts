@@ -324,6 +324,69 @@ export type Database = {
         }
         Relationships: []
       }
+      psychometric_submissions: {
+        Row: {
+          age: number | null
+          app_version: string | null
+          aptitude: Json | null
+          aptitude_top: string[] | null
+          created_at: string
+          device_id: string | null
+          grade: string | null
+          id: string
+          language: string | null
+          mi_top: string[] | null
+          multiple_intelligences: Json | null
+          recommended_careers: string[] | null
+          recommended_streams: string[] | null
+          riasec: Json | null
+          riasec_top: string[] | null
+          student_name: string | null
+          synced_at: string
+          taken_at: string
+        }
+        Insert: {
+          age?: number | null
+          app_version?: string | null
+          aptitude?: Json | null
+          aptitude_top?: string[] | null
+          created_at?: string
+          device_id?: string | null
+          grade?: string | null
+          id: string
+          language?: string | null
+          mi_top?: string[] | null
+          multiple_intelligences?: Json | null
+          recommended_careers?: string[] | null
+          recommended_streams?: string[] | null
+          riasec?: Json | null
+          riasec_top?: string[] | null
+          student_name?: string | null
+          synced_at?: string
+          taken_at?: string
+        }
+        Update: {
+          age?: number | null
+          app_version?: string | null
+          aptitude?: Json | null
+          aptitude_top?: string[] | null
+          created_at?: string
+          device_id?: string | null
+          grade?: string | null
+          id?: string
+          language?: string | null
+          mi_top?: string[] | null
+          multiple_intelligences?: Json | null
+          recommended_careers?: string[] | null
+          recommended_streams?: string[] | null
+          riasec?: Json | null
+          riasec_top?: string[] | null
+          student_name?: string | null
+          synced_at?: string
+          taken_at?: string
+        }
+        Relationships: []
+      }
       schools: {
         Row: {
           active: boolean
