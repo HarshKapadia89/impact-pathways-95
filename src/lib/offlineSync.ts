@@ -48,7 +48,7 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
         // Also write to the legacy table for backward compatibility (best effort).
         await supabase
           .from("psychometric_results")
-          .insert({
+          .insert([{
             student_name: (item.payload as { student_name?: string }).student_name ?? null,
             grade: (item.payload as { grade?: string }).grade ?? null,
             age: (item.payload as { age?: number }).age ?? null,
@@ -59,7 +59,7 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
             aptitude: (item.payload as { aptitude?: unknown }).aptitude ?? {},
             recommended_streams:
               (item.payload as { recommended_streams?: string[] }).recommended_streams ?? [],
-          })
+          }])
           .then(() => null, () => null);
         await removeSubmission(item.id);
         ok++;
