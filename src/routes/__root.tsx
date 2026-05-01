@@ -49,6 +49,7 @@ export const Route = createRootRoute({
       { name: "twitter:description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97c7d7ef-1c14-4c94-ad29-cda8bb94e96d/id-preview-344737cc--e314d757-25ae-430b-a2ef-6530bea02d8b.lovable.app-1776978743326.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97c7d7ef-1c14-4c94-ad29-cda8bb94e96d/id-preview-344737cc--e314d757-25ae-430b-a2ef-6530bea02d8b.lovable.app-1776978743326.png" },
+      { name: "theme-color", content: "#0f172a" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -63,9 +64,6 @@ export const Route = createRootRoute({
       },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/icon-192.png" },
-    ],
-    meta: [
-      { name: "theme-color", content: "#0f172a" },
     ],
   }),
   shellComponent: RootShell,
