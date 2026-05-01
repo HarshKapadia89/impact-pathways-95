@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
+import { OfflineStatus } from "@/components/OfflineStatus";
 import {
   RIASEC_ITEMS,
   MI_ITEMS,
@@ -11,9 +12,10 @@ import {
 } from "@/lib/psychometricData";
 import { generatePsychometricPDF } from "@/lib/psychometricReport";
 import { recommendStreams, STREAM_BY_ID } from "@/lib/careerData";
-import { supabase } from "@/integrations/supabase/client";
+import { enqueueSubmission } from "@/lib/offlineQueue";
+import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
-import { ChevronLeft, ChevronRight, Download, RefreshCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, RefreshCcw, WifiOff } from "lucide-react";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({
@@ -107,9 +109,12 @@ function TakeTest() {
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-8">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>{current.title}</span>
-          <span>
-            {lang === "gu" ? "પ્રગતિ" : "Progress"}: {overallProgress}%
-          </span>
+          <div className="flex items-center gap-3">
+            <OfflineStatus lang={lang} />
+            <span>
+              {lang === "gu" ? "પ્રગતિ" : "Progress"}: {overallProgress}%
+            </span>
+          </div>
         </div>
         <div className="mt-2 h-2 rounded-full bg-secondary overflow-hidden">
           <div
@@ -227,18 +232,52 @@ function Result({
   const recs = useMemo(() => recommendStreams(report.riasecTop, report.aptitudeTop), [report]);
   const lang = meta.language;
 
-  // Save anonymously (best effort) + persist locally for the chatbot
+  // Queue submission for sync (works offline). Persist locally for the chatbot.
   useEffect(() => {
-    supabase.from("psychometric_results").insert({
-      student_name: meta.name,
-      grade: meta.grade,
-      age: meta.age ? Number(meta.age) : null,
-      language: meta.language,
-      riasec: report.riasec,
-      multiple_intelligences: report.mi,
-      aptitude: report.aptitude,
-      recommended_streams: recs,
-    });
+    const recStreamNames = recs.map((r: { id?: string; name?: string } | string) =>
+      typeof r === "string" ? r : (r.name ?? r.id ?? ""),
+    );
+    const id =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    let deviceId = "";
+    try {
+      deviceId = localStorage.getItem("hbk-device-id") || "";
+      if (!deviceId) {
+        deviceId =
+          typeof crypto !== "undefined" && "randomUUID" in crypto
+            ? crypto.randomUUID()
+            : `dev-${Date.now()}`;
+        localStorage.setItem("hbk-device-id", deviceId);
+      }
+    } catch {
+      /* ignore */
+    }
+    enqueueSubmission({
+      id,
+      createdAt: Date.now(),
+      attempts: 0,
+      payload: {
+        id,
+        student_name: meta.name,
+        grade: meta.grade,
+        age: meta.age ? Number(meta.age) : null,
+        language: meta.language,
+        riasec: report.riasec,
+        riasec_top: report.riasecTop,
+        multiple_intelligences: report.mi,
+        mi_top: report.miTop,
+        aptitude: report.aptitude,
+        aptitude_top: report.aptitudeTop,
+        recommended_streams: recStreamNames,
+        taken_at: new Date().toISOString(),
+        device_id: deviceId,
+        app_version: "1.0",
+      },
+    })
+      .then(() => flushQueue().catch(() => null))
+      .catch(() => null);
     saveReport({
       name: meta.name,
       grade: meta.grade,
