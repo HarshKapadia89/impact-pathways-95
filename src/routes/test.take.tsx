@@ -371,6 +371,8 @@ function Result({
         school_name: meta.school ?? null,
         mobile: meta.mobile ?? null,
         email: meta.email ?? null,
+        parent_email: meta.parent_email ?? null,
+        report_token: token,
         riasec: report.riasec,
         riasec_top: report.riasecTop,
         multiple_intelligences: report.mi,
@@ -381,11 +383,13 @@ function Result({
         recommended_careers: recCareerTitles,
         taken_at: new Date().toISOString(),
         device_id: deviceId,
-        app_version: "1.1",
+        app_version: "1.2",
         payment_amount: payment.amount,
         payment_coupon: payment.coupon,
         payment_utr: payment.utr,
         paid_at: payment.paid_at,
+      },
+    })
       },
     })
       .then(() => flushQueue().catch(() => null))
