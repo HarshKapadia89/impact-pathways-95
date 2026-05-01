@@ -329,6 +329,7 @@ function Result({
   const report = useMemo(() => buildReport(riasec, mi, apt, aptItems, band), [riasec, mi, apt, aptItems, band]);
   const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
   const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
+  const [reportToken, setReportToken] = useState<string>("");
 
   useEffect(() => {
     const recStreamNames = recs.map((sid) => STREAM_BY_ID[sid]?.name ?? sid);
@@ -337,6 +338,12 @@ function Result({
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    // Short, URL-friendly share token. Independent from row id so a leaked id
+    // doesn't expose the report — the token is what unlocks /r/$token.
+    const token = `${id.replace(/-/g, "").slice(0, 10)}${Math.random()
+      .toString(36)
+      .slice(2, 6)}`;
+    setReportToken(token);
     let deviceId = "";
     try {
       deviceId = localStorage.getItem("hbk-device-id") || "";
