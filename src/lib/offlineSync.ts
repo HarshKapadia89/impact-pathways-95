@@ -71,6 +71,8 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
             aptitude: (item.payload as { aptitude?: unknown }).aptitude ?? {},
             recommended_streams:
               (item.payload as { recommended_streams?: string[] }).recommended_streams ?? [],
+            recommended_careers:
+              (item.payload as { recommended_careers?: string[] }).recommended_careers ?? [],
           }])
           .then(() => null, () => null);
         await removeSubmission(item.id);
