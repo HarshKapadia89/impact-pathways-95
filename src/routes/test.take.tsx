@@ -11,9 +11,10 @@ import {
 } from "@/lib/psychometricData";
 import { generatePsychometricPDF } from "@/lib/psychometricReport";
 import { recommendStreams, STREAM_BY_ID } from "@/lib/careerData";
-import { supabase } from "@/integrations/supabase/client";
+import { enqueueSubmission } from "@/lib/offlineQueue";
+import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
-import { ChevronLeft, ChevronRight, Download, RefreshCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, RefreshCcw, WifiOff } from "lucide-react";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({
