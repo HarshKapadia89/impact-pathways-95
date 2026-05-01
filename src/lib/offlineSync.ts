@@ -65,6 +65,8 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
             school_name: (item.payload as { school_name?: string }).school_name ?? null,
             mobile: (item.payload as { mobile?: string }).mobile ?? null,
             email: (item.payload as { email?: string }).email ?? null,
+            parent_email: (item.payload as { parent_email?: string }).parent_email ?? null,
+            report_token: (item.payload as { report_token?: string }).report_token ?? null,
             riasec: (item.payload as { riasec?: unknown }).riasec ?? {},
             multiple_intelligences:
               (item.payload as { multiple_intelligences?: unknown }).multiple_intelligences ?? {},
