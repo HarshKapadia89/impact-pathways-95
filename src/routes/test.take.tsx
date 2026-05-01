@@ -17,7 +17,8 @@ import { recommendStreamsAccurate, rankCareerPaths } from "@/lib/careerMatch";
 import { enqueueSubmission } from "@/lib/offlineQueue";
 import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
-import { ChevronLeft, ChevronRight, Download, RefreshCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, RefreshCcw, Link2, Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({
@@ -329,6 +330,7 @@ function Result({
   const report = useMemo(() => buildReport(riasec, mi, apt, aptItems, band), [riasec, mi, apt, aptItems, band]);
   const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
   const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
+  const [reportToken, setReportToken] = useState<string>("");
 
   useEffect(() => {
     const recStreamNames = recs.map((sid) => STREAM_BY_ID[sid]?.name ?? sid);
@@ -337,6 +339,12 @@ function Result({
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    // Short, URL-friendly share token. Independent from row id so a leaked id
+    // doesn't expose the report — the token is what unlocks /r/$token.
+    const token = `${id.replace(/-/g, "").slice(0, 10)}${Math.random()
+      .toString(36)
+      .slice(2, 6)}`;
+    setReportToken(token);
     let deviceId = "";
     try {
       deviceId = localStorage.getItem("hbk-device-id") || "";
@@ -364,6 +372,8 @@ function Result({
         school_name: meta.school ?? null,
         mobile: meta.mobile ?? null,
         email: meta.email ?? null,
+        parent_email: meta.parent_email ?? null,
+        report_token: token,
         riasec: report.riasec,
         riasec_top: report.riasecTop,
         multiple_intelligences: report.mi,
@@ -374,7 +384,7 @@ function Result({
         recommended_careers: recCareerTitles,
         taken_at: new Date().toISOString(),
         device_id: deviceId,
-        app_version: "1.1",
+        app_version: "1.2",
         payment_amount: payment.amount,
         payment_coupon: payment.coupon,
         payment_utr: payment.utr,
@@ -440,6 +450,36 @@ function Result({
               <Download className="h-4 w-4" />
               {downloading ? "Generating…" : "Download 20-page PDF report"}
             </button>
+            {reportToken && (
+              <>
+                <Link
+                  to="/r/$token"
+                  params={{ token: reportToken }}
+                  className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+                >
+                  <Link2 className="h-4 w-4" /> Open shareable web report
+                </Link>
+                <button
+                  onClick={async () => {
+                    const url = `${window.location.origin}/r/${reportToken}`;
+                    const text = `${meta.name}'s HBK Careers report — ${url}`;
+                    try {
+                      if (navigator.share) {
+                        await navigator.share({ title: "HBK Careers Report", text, url });
+                      } else {
+                        await navigator.clipboard.writeText(url);
+                        toast.success("Shareable link copied");
+                      }
+                    } catch {
+                      /* user cancelled */
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+                >
+                  <Share2 className="h-4 w-4" /> Share with parent
+                </button>
+              </>
+            )}
             <Link
               to="/test"
               className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
@@ -447,6 +487,11 @@ function Result({
               <RefreshCcw className="h-4 w-4" /> Retake
             </Link>
           </div>
+          {reportToken && (
+            <p className="text-[11px] text-muted-foreground mt-3">
+              This private link works on any phone. Save it — you can revisit the report anytime.
+            </p>
+          )}
         </div>
 
         <div className="mt-8">
