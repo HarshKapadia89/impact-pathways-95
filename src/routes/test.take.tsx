@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
+import { OfflineStatus } from "@/components/OfflineStatus";
 import {
   RIASEC_ITEMS,
   MI_ITEMS,
@@ -108,9 +109,12 @@ function TakeTest() {
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-8">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>{current.title}</span>
-          <span>
-            {lang === "gu" ? "પ્રગતિ" : "Progress"}: {overallProgress}%
-          </span>
+          <div className="flex items-center gap-3">
+            <OfflineStatus lang={lang} />
+            <span>
+              {lang === "gu" ? "પ્રગતિ" : "Progress"}: {overallProgress}%
+            </span>
+          </div>
         </div>
         <div className="mt-2 h-2 rounded-full bg-secondary overflow-hidden">
           <div
