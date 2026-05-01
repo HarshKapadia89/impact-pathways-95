@@ -78,19 +78,35 @@ function HomePage() {
     saffron: { bg: "from-[oklch(0.78_0.15_60/0.14)]  to-transparent", ring: "hover:ring-[var(--brand-2)]/40", iconBg: "bg-[oklch(0.78_0.15_60/0.18)]",  iconColor: "text-[var(--brand-2)]" },
   };
 
+  // Highlight first word of headline in saffron for warmth
+  const heroParts = T.hero1.split(" ");
+  const heroFirst = heroParts.shift() ?? "";
+  const heroRest = heroParts.join(" ");
+
   return (
     <PublicLayout>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10 -z-10" />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{ background: "var(--gradient-hero)" }}
+          aria-hidden
+        />
+        {/* soft saffron blob */}
+        <div
+          className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full blur-3xl opacity-40 -z-10"
+          style={{ background: "var(--brand-2)" }}
+          aria-hidden
+        />
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground mb-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-xs text-primary font-medium mb-5 shadow-sm">
               <GraduationCap className="h-3.5 w-3.5" />
               {lang === "gu" ? "મફત • કોઈ લૉગિન જરૂરી નથી" : "Free • No login required"}
             </div>
             <h1 className="font-serif text-4xl md:text-6xl text-foreground leading-tight">
-              {T.hero1}
+              <span style={{ color: "var(--brand-2)" }}>{heroFirst}</span>{" "}
+              <span>{heroRest}</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl">
               {T.hero2}
@@ -98,32 +114,37 @@ function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/test"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium shadow-[var(--shadow-glow-primary)] hover:opacity-95 hover:-translate-y-0.5 transition"
               >
                 <Brain className="h-4 w-4" />
                 {T.cta1}
               </Link>
               <Link
                 to="/career"
-                className="inline-flex items-center gap-2 bg-card border border-border rounded-md px-5 py-3 text-sm font-medium hover:bg-muted"
+                className="inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold border-2 border-accent text-primary bg-card hover:bg-accent/15 hover:-translate-y-0.5 transition"
               >
-                <Compass className="h-4 w-4" />
+                <Compass className="h-4 w-4" style={{ color: "var(--brand-2)" }} />
                 {T.cta2}
               </Link>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {tiles.map((t) => (
-              <Link
-                key={t.to}
-                to={t.to}
-                className="rounded-2xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
-              >
-                <t.icon className="h-6 w-6 text-primary" />
-                <div className="mt-3 font-serif text-base">{t.title}</div>
-                <div className="text-xs text-muted-foreground mt-1">{t.desc}</div>
-              </Link>
-            ))}
+            {tiles.map((tile) => {
+              const tone = TONE[tile.tone];
+              return (
+                <Link
+                  key={tile.to}
+                  to={tile.to}
+                  className={`group rounded-2xl border border-border bg-card p-5 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${tone.ring} bg-gradient-to-br ${tone.bg}`}
+                >
+                  <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${tone.iconBg}`}>
+                    <tile.icon className={`h-5 w-5 ${tone.iconColor}`} />
+                  </div>
+                  <div className="mt-3 font-serif text-base">{tile.title}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{tile.desc}</div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -140,24 +161,34 @@ function HomePage() {
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {STREAMS.map((s) => (
-            <Link
-              key={s.id}
-              to="/career/$stream"
-              params={{ stream: s.id }}
-              className="group rounded-2xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
-            >
-              <div className="text-3xl">{s.emoji}</div>
-              <div className="mt-3 font-serif text-lg">{lang === "gu" ? s.nameGu : s.name}</div>
-              <div className="text-xs text-muted-foreground mt-1">
-                {lang === "gu" ? s.taglineGu : s.tagline}
-              </div>
-              <div className="mt-4 inline-flex items-center gap-1 text-sm text-primary opacity-80 group-hover:opacity-100">
-                {lang === "gu" ? "ખોલો" : "Explore"}
-                <ArrowRight className="h-3.5 w-3.5" />
-              </div>
-            </Link>
-          ))}
+          {STREAMS.map((s, i) => {
+            const palette = ["--brand-1", "--brand-2", "--brand-3", "--brand-4", "--brand-5", "--brand-6"];
+            const tone = `var(${palette[i % palette.length]})`;
+            return (
+              <Link
+                key={s.id}
+                to="/career/$stream"
+                params={{ stream: s.id }}
+                className="group relative rounded-2xl border border-border bg-card p-5 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
+                style={{ borderLeftWidth: 4, borderLeftColor: tone }}
+              >
+                <div
+                  className="pointer-events-none absolute -top-10 -right-10 h-28 w-28 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"
+                  style={{ background: tone }}
+                  aria-hidden
+                />
+                <div className="text-3xl">{s.emoji}</div>
+                <div className="mt-3 font-serif text-lg">{lang === "gu" ? s.nameGu : s.name}</div>
+                <div className="text-xs text-muted-foreground mt-1">
+                  {lang === "gu" ? s.taglineGu : s.tagline}
+                </div>
+                <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium" style={{ color: tone }}>
+                  {lang === "gu" ? "ખોલો" : "Explore"}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </PublicLayout>
