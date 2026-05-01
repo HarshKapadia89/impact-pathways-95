@@ -7,13 +7,14 @@ import { Wifi, WifiOff, RefreshCcw, CloudUpload } from "lucide-react";
 import { onPendingChange, flushQueue } from "@/lib/offlineSync";
 
 export function OfflineStatus({ lang = "en" }: { lang?: "en" | "gu" }) {
-  const [online, setOnline] = useState(
-    typeof navigator !== "undefined" ? navigator.onLine : true,
-  );
+  const [online, setOnline] = useState(true);
   const [pending, setPending] = useState(0);
   const [syncing, setSyncing] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setOnline(navigator.onLine);
     const up = () => setOnline(true);
     const down = () => setOnline(false);
     window.addEventListener("online", up);
@@ -26,7 +27,7 @@ export function OfflineStatus({ lang = "en" }: { lang?: "en" | "gu" }) {
     };
   }, []);
 
-  if (online && pending === 0) {
+  if (!mounted || (online && pending === 0)) {
     return (
       <div className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
         <Wifi className="h-3 w-3" />
