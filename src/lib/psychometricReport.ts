@@ -14,6 +14,7 @@ import { recommendStreams, STREAM_BY_ID, type StreamId } from "./careerData";
 import { getReportStrings, type ReportLang, type ReportStrings } from "./psychometricReportStrings";
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
+import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 
 interface ReportInput {
   name: string;
@@ -28,13 +29,21 @@ interface ReportInput {
 
 // --- styling helpers ---
 const COLORS = {
-  primary: [40, 30, 95] as [number, number, number],
-  accent: [220, 145, 50] as [number, number, number],
-  ink: [30, 30, 50] as [number, number, number],
+  primary: [28, 24, 78] as [number, number, number],          // deep indigo
+  primaryDark: [18, 16, 52] as [number, number, number],
+  accent: [212, 138, 42] as [number, number, number],         // warm gold
+  accentSoft: [245, 224, 184] as [number, number, number],
+  ink: [28, 28, 46] as [number, number, number],
   muted: [110, 110, 130] as [number, number, number],
+  hairline: [220, 220, 232] as [number, number, number],
   rule: [225, 225, 235] as [number, number, number],
   band: [248, 246, 240] as [number, number, number],
+  bandAlt: [241, 240, 248] as [number, number, number],
   bar: [60, 50, 130] as [number, number, number],
+  bar2: [200, 130, 60] as [number, number, number],
+  callout: [248, 244, 232] as [number, number, number],
+  calloutBorder: [212, 138, 42] as [number, number, number],
+  ok: [38, 130, 90] as [number, number, number],
 };
 
 const M = 18; // page margin mm
