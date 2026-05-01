@@ -58,11 +58,29 @@ function TestIntro() {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
+  const [school, setSchool] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+
+  const mobileDigits = mobile.replace(/\D/g, "");
+  const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const schoolValid = school.trim().length >= 2;
+  const canContinue = !!grade && schoolValid && mobileValid && emailValid;
 
   const start = () => {
+    if (!canContinue) return;
     sessionStorage.setItem(
       "disha-test-meta",
-      JSON.stringify({ name: name || "Student", grade, age, language: "en" }),
+      JSON.stringify({
+        name: name || "Student",
+        grade,
+        age,
+        language: "en",
+        school: school.trim(),
+        mobile: mobileDigits,
+        email: email.trim(),
+      }),
     );
     navigate({ to: "/test/pay" });
   };
