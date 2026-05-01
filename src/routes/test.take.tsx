@@ -33,6 +33,9 @@ interface Meta {
   grade: string;
   age: string;
   language: "en";
+  school?: string;
+  mobile?: string;
+  email?: string;
 }
 
 interface PaymentMeta {
