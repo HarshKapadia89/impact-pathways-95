@@ -43,8 +43,9 @@ export function clearReport() {
   }
 }
 
-function topN(scores: Record<string, number>, n = 3) {
+function topN(scores: Record<string, number | { pct: number }>, n = 3) {
   return Object.entries(scores)
+    .map(([k, v]) => [k, typeof v === "number" ? v : v.pct] as const)
     .sort((a, b) => b[1] - a[1])
     .slice(0, n)
     .map(([k, v]) => `${k} (${Math.round(v)})`)
