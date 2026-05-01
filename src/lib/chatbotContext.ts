@@ -13,7 +13,7 @@ export interface SavedReport {
   miTop: string[];
   mi: Record<string, number>;
   aptitudeTop: string[];
-  aptitude: Record<string, number>;
+  aptitude: Record<string, { correct: number; total: number; pct: number } | number>;
   recommendedStreams: string[];
   takenAt: string;
 }
