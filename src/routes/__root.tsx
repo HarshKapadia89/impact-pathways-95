@@ -89,6 +89,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   useEffect(() => {
+    applyStoredTheme();
     bootstrapOffline();
   }, []);
   return (
