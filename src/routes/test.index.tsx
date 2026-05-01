@@ -490,6 +490,13 @@ function TestIntro() {
                 placeholder="you@example.com"
                 type="email"
               />
+              <Field
+                label="Parent's email (optional)"
+                value={parentEmail}
+                onChange={setParentEmail}
+                placeholder="parent@example.com — for sharing the report"
+                type="email"
+              />
             </div>
             {(school.length > 0 && !schoolValid) && (
               <p className="mt-3 text-xs text-destructive">Please enter your school name.</p>
@@ -499,6 +506,9 @@ function TestIntro() {
             )}
             {(email.length > 0 && !emailValid) && (
               <p className="mt-1 text-xs text-destructive">Enter a valid email address.</p>
+            )}
+            {(parentEmail.length > 0 && !parentEmailValid) && (
+              <p className="mt-1 text-xs text-destructive">Enter a valid parent email address (or leave blank).</p>
             )}
             <button
               onClick={start}
