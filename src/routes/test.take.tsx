@@ -450,6 +450,36 @@ function Result({
               <Download className="h-4 w-4" />
               {downloading ? "Generating…" : "Download 20-page PDF report"}
             </button>
+            {reportToken && (
+              <>
+                <Link
+                  to="/r/$token"
+                  params={{ token: reportToken }}
+                  className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+                >
+                  <Link2 className="h-4 w-4" /> Open shareable web report
+                </Link>
+                <button
+                  onClick={async () => {
+                    const url = `${window.location.origin}/r/${reportToken}`;
+                    const text = `${meta.name}'s HBK Careers report — ${url}`;
+                    try {
+                      if (navigator.share) {
+                        await navigator.share({ title: "HBK Careers Report", text, url });
+                      } else {
+                        await navigator.clipboard.writeText(url);
+                        toast.success("Shareable link copied");
+                      }
+                    } catch {
+                      /* user cancelled */
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+                >
+                  <Share2 className="h-4 w-4" /> Share with parent
+                </button>
+              </>
+            )}
             <Link
               to="/test"
               className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
@@ -457,6 +487,11 @@ function Result({
               <RefreshCcw className="h-4 w-4" /> Retake
             </Link>
           </div>
+          {reportToken && (
+            <p className="text-[11px] text-muted-foreground mt-3">
+              This private link works on any phone. Save it — you can revisit the report anytime.
+            </p>
+          )}
         </div>
 
         <div className="mt-8">
