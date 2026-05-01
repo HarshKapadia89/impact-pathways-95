@@ -17,7 +17,8 @@ import { recommendStreamsAccurate, rankCareerPaths } from "@/lib/careerMatch";
 import { enqueueSubmission } from "@/lib/offlineQueue";
 import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
-import { ChevronLeft, ChevronRight, Download, RefreshCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, RefreshCcw, Link2, Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({
