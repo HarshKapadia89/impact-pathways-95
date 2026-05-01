@@ -265,7 +265,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     return y + h + 3;
   }
 
-  const current = { page: 1, total: 20 };
+  const current = { page: 1, total: 21 };
 
   // ============== PAGE 1 — COVER ==============
   // Top deep-indigo zone (≈ 62% of page)
@@ -385,7 +385,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
 
   // ============== PAGE 2 — TABLE OF CONTENTS ==============
   doc.addPage();
-  current.page = 2;
+  current.page = 3;
   header(t.toc, `Page 2`);
 
   const toc = [
@@ -404,11 +404,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     y += 9;
   }
-  footer(2, 20);
+  footer(3, 21);
 
   // ============== PAGE 3 — ABOUT ==============
   doc.addPage();
-  current.page = 3;
+  current.page = 4;
   header(t.sec1);
   setText(doc, COLORS.ink);
   font("normal");
@@ -418,11 +418,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.text(l, M, yy);
     yy += 6.5;
   }
-  footer(3, 20);
+  footer(4, 21);
 
   // ============== PAGE 4 — SNAPSHOT (Executive Summary) ==============
   doc.addPage();
-  current.page = 4;
+  current.page = 5;
   header(t.sec2);
 
   // Three large stat tiles
@@ -503,11 +503,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setText(doc, COLORS.ink);
   doc.text("Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.", M + 4, PH - 21);
 
-  footer(4, 20);
+  footer(5, 21);
 
   // ============== PAGE 5 — RIASEC PROFILE (Holland Hexagon) ==============
   doc.addPage();
-  current.page = 5;
+  current.page = 6;
   header(t.sec3);
   setText(doc, COLORS.ink);
   font("normal");
@@ -561,11 +561,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   by += 2;
   by = callout(M, by, PW - 2 * M, `${t.riasec[report.riasecTop[0]].name} leads your profile`,
     `${t.riasec[report.riasecTop[0]].description} This pull tends to be most energising in the long run.`);
-  footer(5, 20);
+  footer(6, 21);
 
   // ============== PAGE 6 — RIASEC DETAIL ==============
   doc.addPage();
-  current.page = 6;
+  current.page = 7;
   header(t.sec4);
   yy = 48;
   for (const k of report.riasecTop) {
@@ -584,11 +584,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 4;
   }
-  footer(6, 20);
+  footer(7, 21);
 
   // ============== PAGE 7 — MI RADAR + BARS ==============
   doc.addPage();
-  current.page = 7;
+  current.page = 8;
   header(t.sec5);
   setText(doc, COLORS.ink);
   font("normal");
@@ -631,11 +631,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   by = Math.max(by, 155);
   by = callout(M, by, PW - 2 * M, `${t.mi[report.miTop[0]]?.name ?? ""} stands out`,
     `${t.mi[report.miTop[0]]?.description ?? ""} Lean into activities that exercise this style — they will compound fastest.`);
-  footer(7, 20);
+  footer(8, 21);
 
   // ============== PAGE 8 — MI DETAIL ==============
   doc.addPage();
-  current.page = 8;
+  current.page = 9;
   header(t.sec6);
   yy = 48;
   for (const k of report.miTop) {
@@ -654,11 +654,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 4;
   }
-  footer(8, 20);
+  footer(9, 21);
 
   // ============== PAGE 9 — APTITUDE WITH PROFICIENCY CHIPS ==============
   doc.addPage();
-  current.page = 9;
+  current.page = 10;
   header(t.sec7);
   setText(doc, COLORS.ink);
   font("normal");
@@ -701,11 +701,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     by = callout(M, by, PW - 2 * M, `${t.aptCategoryName(topCat)} is your strongest aptitude`,
       `${t.aptDescriptions[topCat] ?? ""}`);
   }
-  footer(9, 20);
+  footer(10, 21);
 
   // ============== PAGE 10 — APTITUDE DETAIL ==============
   doc.addPage();
-  current.page = 10;
+  current.page = 11;
   header(t.sec8);
   yy = 48;
   for (const [cat, v] of Object.entries(report.aptitude)) {
@@ -724,13 +724,13 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 3;
   }
-  footer(10, 20);
+  footer(11, 21);
 
 
 
   // ============== PAGE 11 — RECOMMENDED STREAMS ==============
   doc.addPage();
-  current.page = 11;
+  current.page = 12;
   header(t.sec9);
   yy = 48;
   font("normal");
@@ -757,7 +757,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     yy += 38;
   });
-  footer(11, 20);
+  footer(12, 21);
 
   // ============== PAGE 12-13 — STREAM DEEP DIVE 1 & 2 ==============
   recommendedStreams.forEach((sid, i) => {
@@ -807,12 +807,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       setText(doc, COLORS.ink);
       yy += 1.5;
     }
-    footer(current.page, 20);
+    footer(current.page, 21);
   });
 
   // ============== PAGE 14 — TOP CAREERS PERSONALISED FOR YOU ==============
   doc.addPage();
-  current.page = 14;
+  current.page = 15;
   header(t.sec12);
   yy = 48;
   font("normal");
@@ -871,12 +871,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     yy += 28;
   });
-  footer(14, 20);
+  footer(15, 21);
 
 
   // ============== PAGE 15 — ENTRANCE EXAMS ==============
   doc.addPage();
-  current.page = 15;
+  current.page = 16;
   header(t.sec13);
   yy = 48;
   font("normal");
@@ -901,11 +901,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     yy += 9;
   }
-  footer(15, 20);
+  footer(16, 21);
 
   // ============== PAGE 16 — TOP COLLEGES ==============
   doc.addPage();
-  current.page = 16;
+  current.page = 17;
   header(t.sec14);
   yy = 48;
   font("normal");
@@ -927,11 +927,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       }
     }
   }
-  footer(16, 20);
+  footer(17, 21);
 
   // ============== PAGE 17 — SKILLS TO BUILD ==============
   doc.addPage();
-  current.page = 17;
+  current.page = 18;
   header(t.sec15);
   yy = 48;
   font("normal");
@@ -945,11 +945,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 1;
   }
-  footer(17, 20);
+  footer(18, 21);
 
   // ============== PAGE 18 — ACTION PLAN THIS YEAR ==============
   doc.addPage();
-  current.page = 18;
+  current.page = 19;
   header(t.sec16);
   yy = 50;
   font("normal");
@@ -980,11 +980,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 1;
   }
-  footer(18, 20);
+  footer(19, 21);
 
   // ============== PAGE 19 — TIPS FOR PARENTS ==============
   doc.addPage();
-  current.page = 19;
+  current.page = 20;
   header(t.sec18);
   yy = 50;
   font("normal");
@@ -998,11 +998,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 1;
   }
-  footer(19, 20);
+  footer(20, 21);
 
   // ============== PAGE 20 — NOTES & GLOSSARY ==============
   doc.addPage();
-  current.page = 20;
+  current.page = 21;
   header(t.sec19);
   yy = 50;
   font("normal");
@@ -1030,7 +1030,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.text(l, M, yy);
     yy += 5;
   }
-  footer(20, 20);
+  footer(21, 21);
 
   // Re-stamp footer page numbers in case ensureSpace inserted extra pages.
   const totalPages = doc.getNumberOfPages();
