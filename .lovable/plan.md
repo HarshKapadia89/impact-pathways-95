@@ -1,89 +1,146 @@
-## Goal
+## What "world class" means here
 
-Two improvements:
-1. **Report cover (Page 1 of PDF)** — text in the lower "Prepared For / Issued By" block is dark indigo on a dark indigo background, so it's effectively invisible. Make the entire cover legible and crisp.
-2. **Public website** — refresh the look to feel brighter, more colourful and more student-friendly without abandoning the existing brand (deep indigo + saffron).
+Right now the product is solid: a clean test, a 20-page report, a brand-aligned site. To go from "very good" to world-class, the gaps that show up clearest in the codebase + the 2 real submissions are:
 
----
+1. **Trust on the landing page is thin.** No testimonials, no counsellor bio, no "How accurate is this?" page, no sample report inline (only static images). Parents pay ₹1,500 sight-unseen.
+2. **The PDF is the only deliverable.** No email of the report, no shareable web view, no parent-friendly summary, no follow-up.
+3. **The test result vanishes.** Once the PDF closes, the student/parent can't revisit it. There's no private link, no progress save during the test, no resume.
+4. **No social proof loop.** No way for a happy parent to share, no counsellor follow-up CTA, no review collection.
+5. **Counsellor / ops blind spot.** Admin can see submissions in a sheet, but there's no per-student review screen, no "send to parent" button, no notes by a counsellor.
 
-## Part 1 — Fix the report cover (`src/lib/psychometricReport.ts`)
-
-The cover currently fills the page with `primaryDark` and `primary` (both deep indigo) for the full height, but the bottom block writes labels in `COLORS.muted` and big text in `COLORS.primary` / `COLORS.ink` — all dark, so they disappear.
-
-Two options to fix:
-
-- **Option A (chosen):** Restore the intended two-tone layout. Keep deep indigo for the top ~62% of the page (title area), then paint a **bright cream band** (`COLORS.accentSoft` / pale ivory) for the bottom ~38% so the dark "Prepared For / Issued By" text reads with strong contrast.
-- Add a thin saffron accent rule between the two zones for polish.
-
-Concrete changes on the cover:
-- Replace the single dark fill with: `primaryDark` band (top), `cream` band (bottom), `accent` hairline divider.
-- "PREPARED FOR" / "ISSUED BY" small caps → keep, but use a clearly readable muted-on-cream tone.
-- Student name → large serif, deep indigo on cream (high contrast).
-- Add a subtle saffron underline under the student name (decorative + brand).
-- Brighten the title area too: make "Report." word use full saffron (`COLORS.accent`) instead of pale `accentSoft` so the hero word pops.
-- Tagline "RIASEC interests · Multiple Intelligences · Aptitude" → bump to pure white at slightly larger size.
-- Footer ref/date row → ensure it sits inside the cream band with muted indigo text.
-
-No structural changes elsewhere in the PDF; this is cover-only.
+Picking the highest-leverage slice for this iteration (keeping it shippable in one round, not five): **a Parent + Student report-delivery layer, plus the trust upgrades on the landing page.** This single iteration moves conversion AND retention.
 
 ---
 
-## Part 2 — Brighter, friendlier public site
+## Iteration goal
 
-Keep the current design tokens (so the rest of the app stays consistent), but lift the palette and add more colour accents on the surfaces students actually see.
-
-### Token tweaks (`src/styles.css`)
-- Slightly warmer, brighter background (already cream — nudge lightness up a touch).
-- Add a few semantic helper tokens so we can sprinkle colour without hand-coding hex:
-  - `--brand-1` (indigo), `--brand-2` (saffron), `--brand-3` (teal/green from chart-3), `--brand-4` (coral from chart-4), `--brand-5` (sky from chart-5).
-  - `--gradient-hero`, `--gradient-card`, `--shadow-glow` for soft tinted shadows.
-- Keep dark-mode mapping intact.
-
-### Header (`src/components/PublicLayout.tsx`)
-- Active nav link: pill background using `bg-accent/15 text-primary` with a saffron underline dot, instead of muted indigo tint only.
-- Add a small coloured icon chip behind each nav icon (rotating brand colours) so the bar feels lively.
-- Logo: keep mark, add a tiny saffron accent dot.
-
-### Home hero (`src/routes/index.tsx`)
-- Replace flat `from-primary/5 via-background to-accent/10` with a richer multi-stop gradient using the new `--gradient-hero` (indigo → cream → saffron glow) and a soft blurred saffron blob in the corner.
-- Headline: keep serif, but colour the verb ("Find" / "શોધો") in saffron for emphasis.
-- CTA buttons: primary stays indigo; secondary becomes outlined saffron for visual variety.
-
-### Section tiles (Career / Handbook / Test)
-- Each tile gets its own brand accent (indigo, saffron, teal) — coloured icon background, coloured top border, soft tinted hover shadow using the matching `--shadow-glow`.
-- Slightly larger icon, bolder titles.
-
-### Stream cards ("paths after Class 12")
-- Add a coloured left border per stream and a subtle gradient background tint.
-- Hover: lift + tinted shadow.
-
-### Footer (`PublicLayout` footer)
-- Already dark indigo (sidebar). Add a thin saffron top accent line and brighten link hover to saffron for warmth.
-
-### Buttons (`src/components/ui/button.tsx`)
-- Add two new variants (purely additive, no breaking change):
-  - `accent` — saffron background, indigo text — for friendly CTAs.
-  - `soft` — tinted brand background (`bg-primary/10 text-primary`) — for tertiary actions.
+Every paying student walks away with:
+- a private, mobile-friendly **web report URL** they can revisit forever,
+- the **PDF emailed** to student + parent automatically,
+- a **one-page parent summary** at the top of the report (and on the web view),
+- the landing page now has the **proof a parent needs** before paying.
 
 ---
 
-## Out of scope
+## Part A — Trust upgrades on the public site
 
-- No changes to the test flow, scoring logic, Google Sheets sync, or career match engine.
-- No changes to admin/teacher routes (different audience, different design language).
-- Other PDF pages stay as-is — only the cover is touched.
+### A1. Inline interactive sample report on `/test`
+Today the sample is 5 static jpg screenshots. Replace the screenshot strip with a small embedded preview that:
+- Shows actual rendered cover (we already generate it via `openSampleReport`).
+- Has a "Flip through 20 pages" carousel (use existing 5 page screenshots + 3 new ones for: parent summary, careers, action plan).
+- Has a "See the full sample (English / Gujarati)" button — already wired, just promote it visually.
+
+### A2. New `/about` page (counsellor + methodology)
+Trust comes from a real human + a real method. New route `/about` with:
+- Photo + bio of the counsellor / school principal (placeholder content with editable JSON).
+- "How the test works" — 3-paragraph explanation of RIASEC + MI + Aptitude with citations.
+- "How accurate?" — explain the affinity engine in plain language; note this is guidance, not destiny.
+- HBK school context (year founded, students served).
+
+### A3. Testimonials section on `/` and `/test`
+- Carousel of 4–6 short quotes (start with placeholder content the school can replace).
+- Stored as a single `src/lib/testimonials.ts` JSON so the school can edit without code knowledge.
+- Show student first name + grade + city only.
+
+### A4. FAQ accordion on `/test`
+8–10 entries covering: refund policy, time required, who sees my data, can I retake, English vs Gujarati, what if I'm in grade 6 vs 12, how is this different from free tests online, do you give college admission help.
+
+### A5. SEO + share polish
+- Each route already has its own head() — verify and tighten meta descriptions.
+- Add `application/ld+json` `EducationalOrganization` + `Course` schema on `/test` so it shows rich results in Google.
+- Generate a real OG image (1200x630) for the home + `/test` instead of reusing the screenshot.
 
 ---
 
-## Files
+## Part B — Report delivery layer
 
-- **Modified:** `src/lib/psychometricReport.ts` (cover page only, ~lines 270-352)
-- **Modified:** `src/styles.css` (add brand helper tokens + gradients)
-- **Modified:** `src/components/PublicLayout.tsx` (header polish, footer accent)
-- **Modified:** `src/routes/index.tsx` (hero, tiles, stream cards)
-- **Modified:** `src/components/ui/button.tsx` (add `accent` and `soft` variants)
+### B1. Shareable private web report (`/r/$reportId`)
+After the test, save the full report payload (already in `psychometric_results`) and mint a link like `/r/abc123`. The page is a beautiful, mobile-first web rendering of the same data the PDF uses:
+- Hero: name + Holland code + top intelligence + top stream.
+- Parent Summary card (see B3).
+- Tabs / sections matching the PDF: Interests, Intelligences, Aptitudes, Careers, Action Plan.
+- "Download PDF" button regenerates the PDF on demand.
+- "Share with parent" → copy link / WhatsApp / email pre-filled.
 
-## QA
+Security: the URL contains a short random token; no auth required (parents are not logged in). RLS allows public read by `id` but not list — easy to enforce.
 
-- Generate a sample PDF via the existing sample-report route and visually inspect page 1 (convert to image, confirm name/grade/school all read clearly).
-- Load `/` at the current 1162px viewport and at mobile (375px) to confirm the brighter palette holds and nothing regresses.
+### B2. Email delivery via edge function
+- New edge function `send-report` that takes `reportId`, fetches the row, generates the PDF server-side (jsPDF runs in workers), and sends via Resend.
+- Triggers automatically after payment confirmation in `test.pay.tsx`.
+- Two recipients: student email (collected on `/test`) and an optional parent email field (add to the form).
+- Template is short + warm, signed by the counsellor, with the web link AND the attached PDF.
+- Requires user to add the `RESEND_API_KEY` secret + verified domain.
+
+### B3. Parent Summary page in the PDF + web report
+Insert a NEW page (page 2, before the TOC) titled "For Parents — what this means in 2 minutes":
+- Plain-language paragraph: "Aarav shows strong Investigative + Logical-Mathematical traits, suited to Science / Engineering paths."
+- 3 concrete next steps for the parent: "Talk about subjects in Class 11", "Visit one of these 3 sample colleges", "Encourage these activities".
+- Avoids jargon (no "RIASEC", no "Holland code") — that's for the rest of the report.
+
+### B4. Save-and-resume on the test
+Today, refreshing `/test/take` loses progress. Add localStorage autosave keyed by mobile number; show a "Resume your test" banner if a draft exists. Critical for a 60-min test on a phone.
+
+---
+
+## Part C — Counsellor mini-dashboard
+
+A lightweight admin view at `/admin/submissions` showing each submission with:
+- Student name, grade, mobile, paid status, timestamp.
+- Top RIASEC / MI / stream at a glance.
+- "Open web report" link.
+- "Email PDF" button (re-trigger B2).
+- "Add counsellor note" — free text saved to a new column.
+
+This lets the school actually deliver value, not just collect payments.
+
+---
+
+## What we're NOT doing this round
+
+- Cohort/school-level analytics (later).
+- Bulk codes / per-school pricing (later).
+- WhatsApp delivery (needs WhatsApp Business API setup — separate iteration).
+- Re-balancing the test item bank or extended 60-min version (assessment work, separate iteration).
+- Changing the PDF visual layout — we just add the Parent Summary page.
+
+---
+
+## Files & data changes
+
+### Database (one migration)
+- Add `report_token TEXT UNIQUE` and `counsellor_note TEXT` and `parent_email TEXT` and `emailed_at TIMESTAMPTZ` to `psychometric_results`.
+- Add public-read RLS by `report_token` (so `/r/$token` works without auth) — list/select * stays admin-only.
+
+### New files
+- `src/routes/r.$token.tsx` — public web report.
+- `src/routes/about.tsx` — counsellor + methodology page.
+- `src/routes/admin.submissions.tsx` — counsellor dashboard.
+- `src/lib/testimonials.ts` — editable testimonials JSON.
+- `src/lib/parentSummary.ts` — narrative builder used by both PDF and web view.
+- `src/components/ReportWebView.tsx` — shared web rendering of report sections.
+- `src/components/Testimonials.tsx`, `src/components/SampleReportCarousel.tsx`, `src/components/FAQ.tsx`.
+- `supabase/functions/send-report/index.ts` — edge function for email delivery.
+
+### Modified
+- `src/routes/index.tsx` — add Testimonials + FAQ teaser + About link.
+- `src/routes/test.index.tsx` — replace screenshot strip with carousel; add FAQ; add parent email field.
+- `src/routes/test.pay.tsx` — on payment confirm, mint `report_token`, call `send-report`, redirect to `/r/$token` instead of straight PDF.
+- `src/routes/test.take.tsx` — autosave + resume banner.
+- `src/lib/psychometricReport.ts` — insert Parent Summary page (page 2).
+- `src/components/PublicLayout.tsx` — add `About` to nav.
+- `src/components/AdminLayout.tsx` — add `Submissions` link.
+
+### Secrets to request
+- `RESEND_API_KEY` (for email).
+- The user must verify a sending domain in Resend (we'll guide them).
+
+---
+
+## How to judge success after this lands
+
+- Landing-to-test conversion: should rise meaningfully thanks to A1–A4.
+- Test completion rate: should rise thanks to B4 (resume).
+- Parent NPS / informal feedback: B2 + B3 turn the deliverable from "a PDF" into "a service".
+- Counsellor time per student: drops because C eliminates manual sheet hunting.
+
+If you'd rather front-load a different slice (assessment quality, cohort/school sales, or pure visual polish), say the word and I'll re-scope before any code is written.

@@ -61,12 +61,15 @@ function TestIntro() {
   const [school, setSchool] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  const [parentEmail, setParentEmail] = useState("");
 
   const mobileDigits = mobile.replace(/\D/g, "");
   const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const parentEmailValid =
+    parentEmail.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(parentEmail.trim());
   const schoolValid = school.trim().length >= 2;
-  const canContinue = !!grade && schoolValid && mobileValid && emailValid;
+  const canContinue = !!grade && schoolValid && mobileValid && emailValid && parentEmailValid;
 
   const start = () => {
     if (!canContinue) return;
@@ -80,10 +83,12 @@ function TestIntro() {
         school: school.trim(),
         mobile: mobileDigits,
         email: email.trim(),
+        parent_email: parentEmail.trim() || null,
       }),
     );
     navigate({ to: "/test/pay" });
   };
+
 
   const frameworks = [
     {
@@ -485,6 +490,13 @@ function TestIntro() {
                 placeholder="you@example.com"
                 type="email"
               />
+              <Field
+                label="Parent's email (optional)"
+                value={parentEmail}
+                onChange={setParentEmail}
+                placeholder="parent@example.com — for sharing the report"
+                type="email"
+              />
             </div>
             {(school.length > 0 && !schoolValid) && (
               <p className="mt-3 text-xs text-destructive">Please enter your school name.</p>
@@ -494,6 +506,9 @@ function TestIntro() {
             )}
             {(email.length > 0 && !emailValid) && (
               <p className="mt-1 text-xs text-destructive">Enter a valid email address.</p>
+            )}
+            {(parentEmail.length > 0 && !parentEmailValid) && (
+              <p className="mt-1 text-xs text-destructive">Enter a valid parent email address (or leave blank).</p>
             )}
             <button
               onClick={start}

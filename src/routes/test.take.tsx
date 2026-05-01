@@ -37,6 +37,7 @@ interface Meta {
   school?: string;
   mobile?: string;
   email?: string;
+  parent_email?: string | null;
 }
 
 interface PaymentMeta {
@@ -47,6 +48,17 @@ interface PaymentMeta {
 }
 
 const PAGE_SIZE = 6;
+const DRAFT_KEY = "hbk-test-draft-v1";
+
+interface Draft {
+  mobile: string;
+  section: 0 | 1 | 2;
+  page: number;
+  riasec: Record<string, number>;
+  mi: Record<string, number>;
+  apt: Record<string, number>;
+  savedAt: number;
+}
 
 function TakeTest() {
   const navigate = useNavigate();
@@ -58,6 +70,8 @@ function TakeTest() {
   const [mi, setMi] = useState<Record<string, number>>({});
   const [apt, setApt] = useState<Record<string, number>>({});
   const [done, setDone] = useState(false);
+  const [resumeOffered, setResumeOffered] = useState(false);
+  const [resumeDraft, setResumeDraft] = useState<Draft | null>(null);
 
   useEffect(() => {
     const raw = sessionStorage.getItem("disha-test-meta");
@@ -70,9 +84,49 @@ function TakeTest() {
       navigate({ to: "/test/pay" });
       return;
     }
-    setMeta({ ...(JSON.parse(raw) as Meta), language: "en" });
+    const parsed = { ...(JSON.parse(raw) as Meta), language: "en" as const };
+    setMeta(parsed);
     setPayment(JSON.parse(pay) as PaymentMeta);
+
+    // Look for an existing draft for this mobile number
+    try {
+      const draftRaw = localStorage.getItem(DRAFT_KEY);
+      if (draftRaw) {
+        const d = JSON.parse(draftRaw) as Draft;
+        if (d.mobile && parsed.mobile && d.mobile === parsed.mobile) {
+          const answered =
+            Object.keys(d.riasec || {}).length +
+            Object.keys(d.mi || {}).length +
+            Object.keys(d.apt || {}).length;
+          if (answered > 0) {
+            setResumeDraft(d);
+            setResumeOffered(true);
+          }
+        }
+      }
+    } catch { /* ignore */ }
   }, [navigate]);
+
+  // Autosave draft on every answer change (debounced via microtask)
+  useEffect(() => {
+    if (!meta?.mobile) return;
+    if (resumeOffered) return; // don't overwrite while user is deciding
+    const total = Object.keys(riasec).length + Object.keys(mi).length + Object.keys(apt).length;
+    if (total === 0) return;
+    try {
+      const draft: Draft = {
+        mobile: meta.mobile,
+        section,
+        page,
+        riasec,
+        mi,
+        apt,
+        savedAt: Date.now(),
+      };
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    } catch { /* ignore quota */ }
+  }, [meta?.mobile, section, page, riasec, mi, apt, resumeOffered]);
+
 
   const band = useMemo(() => gradeToBand(meta?.grade), [meta?.grade]);
   const aptItems = useMemo<AptitudeItem[]>(() => aptitudeItemsForBand(band), [band]);
@@ -106,9 +160,28 @@ function TakeTest() {
       setSection((section + 1) as 0 | 1 | 2);
       setPage(0);
     } else {
+      try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
       setDone(true);
     }
   };
+
+  const acceptResume = () => {
+    if (!resumeDraft) return;
+    setRiasec(resumeDraft.riasec || {});
+    setMi(resumeDraft.mi || {});
+    setApt(resumeDraft.apt || {});
+    setSection(resumeDraft.section ?? 0);
+    setPage(resumeDraft.page ?? 0);
+    setResumeOffered(false);
+    setResumeDraft(null);
+  };
+
+  const declineResume = () => {
+    try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+    setResumeOffered(false);
+    setResumeDraft(null);
+  };
+
   const prev = () => {
     if (page > 0) setPage(page - 1);
     else if (section > 0) {
@@ -143,6 +216,22 @@ function TakeTest() {
         <p className="text-xs text-muted-foreground mt-1">
           Page {page + 1} / {totalPages}
         </p>
+
+
+        {resumeOffered && resumeDraft && (
+          <div className="mt-5 rounded-xl border border-accent/40 bg-accent/10 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="text-sm">
+              <div className="font-medium text-foreground">Resume your earlier attempt?</div>
+              <div className="text-xs text-muted-foreground mt-0.5">
+                We saved {Object.keys(resumeDraft.riasec).length + Object.keys(resumeDraft.mi).length + Object.keys(resumeDraft.apt).length} answers from {new Date(resumeDraft.savedAt).toLocaleString()}.
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <button onClick={acceptResume} className="text-xs px-3 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">Resume</button>
+              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border border-border bg-card hover:bg-muted">Start fresh</button>
+            </div>
+          </div>
+        )}
 
         <div className="mt-6 space-y-6">
           {pageItems.map((item, idx) => (

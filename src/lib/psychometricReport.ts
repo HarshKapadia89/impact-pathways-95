@@ -16,6 +16,7 @@ import { getReportStrings, type ReportLang, type ReportStrings } from "./psychom
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
 import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
+import { buildParentSummary } from "./parentSummary";
 
 interface ReportInput {
   name: string;
@@ -265,7 +266,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     return y + h + 3;
   }
 
-  const current = { page: 1, total: 20 };
+  const current = { page: 1, total: 21 };
 
   // ============== PAGE 1 — COVER ==============
   // Top deep-indigo zone (≈ 62% of page)
@@ -383,10 +384,106 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.text("hbkcareers.org", PW - M, PH - 14, { align: "right" });
 
 
-  // ============== PAGE 2 — TABLE OF CONTENTS ==============
+  // ============== PAGE 2 — FOR PARENTS (Plain-language summary) ==============
   doc.addPage();
   current.page = 2;
-  header(t.toc, `Page 2`);
+  header("For Parents — In 2 Minutes", `Page 2 / 21`);
+
+  const parentSummary = buildParentSummary({
+    studentName: name,
+    grade,
+    report,
+    topStreamIds: recommendedStreams,
+    topCareers,
+  });
+
+  setText(doc, COLORS.ink);
+  font("normal");
+  doc.setFontSize(10.5);
+  let py = 50;
+  // Intro line
+  font("normal");
+  doc.setFontSize(9.5);
+  setText(doc, COLORS.muted);
+  const introLines = wrap(
+    "This first page is written in plain language for parents. The 19 pages that follow contain the full assessment with charts and frameworks.",
+    PW - 2 * M,
+  );
+  for (const ln of introLines) { doc.text(ln, M, py); py += 5.2; }
+  py += 4;
+
+  // Section 1 — Who they are
+  font("bold");
+  doc.setFontSize(12);
+  setText(doc, COLORS.primary);
+  doc.text("Who " + (name?.split(" ")[0] || "your child") + " is", M, py);
+  py += 7;
+  font("normal");
+  doc.setFontSize(10.5);
+  setText(doc, COLORS.ink);
+  for (const ln of wrap(parentSummary.whoTheyAre, PW - 2 * M)) {
+    doc.text(ln, M, py);
+    py += 5.6;
+  }
+  py += 4;
+
+  // Section 2 — Direction (callout)
+  py = callout(M, py, PW - 2 * M, "What direction the data points to",
+    parentSummary.direction.replace(/\*\*/g, ""));
+  py += 2;
+
+  // Section 3 — Next steps
+  font("bold");
+  doc.setFontSize(12);
+  setText(doc, COLORS.primary);
+  doc.text("3 things you can do this term", M, py);
+  py += 7;
+  font("normal");
+  doc.setFontSize(10.5);
+  setText(doc, COLORS.ink);
+  parentSummary.nextSteps.forEach((step, i) => {
+    // Number badge
+    setFill(doc, COLORS.accent);
+    doc.circle(M + 3, py - 2, 3, "F");
+    setText(doc, [255, 255, 255]);
+    font("bold");
+    doc.setFontSize(8);
+    doc.text(String(i + 1), M + 3, py - 0.7, { align: "center" });
+    // Body
+    font("normal");
+    doc.setFontSize(10.5);
+    setText(doc, COLORS.ink);
+    const lines = wrap(step, PW - 2 * M - 12);
+    let sy = py;
+    for (const ln of lines) {
+      doc.text(ln, M + 10, sy);
+      sy += 5.6;
+    }
+    py = sy + 3;
+  });
+
+  // Closing note
+  py += 2;
+  setFill(doc, COLORS.band);
+  const closingLines = wrap(parentSummary.closing, PW - 2 * M - 8);
+  const closingH = 8 + closingLines.length * 5.4;
+  doc.roundedRect(M, py, PW - 2 * M, closingH, 2.5, 2.5, "F");
+  font("normal");
+  doc.setFontSize(10);
+  setText(doc, COLORS.ink);
+  let cy = py + 6.5;
+  for (const ln of closingLines) {
+    doc.text(ln, M + 4, cy);
+    cy += 5.4;
+  }
+
+  footer(2, 21);
+
+  // ============== PAGE 3 — TABLE OF CONTENTS ==============
+  doc.addPage();
+  current.page = 3;
+  header(t.toc, `Page 3`);
+
 
   const toc = [
     t.sec1, t.sec2, t.sec3, t.sec4, t.sec5, t.sec6, t.sec7, t.sec8, t.sec9,
@@ -404,11 +501,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     y += 9;
   }
-  footer(2, 20);
+  footer(3, 21);
 
   // ============== PAGE 3 — ABOUT ==============
   doc.addPage();
-  current.page = 3;
+  current.page = 4;
   header(t.sec1);
   setText(doc, COLORS.ink);
   font("normal");
@@ -418,11 +515,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.text(l, M, yy);
     yy += 6.5;
   }
-  footer(3, 20);
+  footer(4, 21);
 
   // ============== PAGE 4 — SNAPSHOT (Executive Summary) ==============
   doc.addPage();
-  current.page = 4;
+  current.page = 5;
   header(t.sec2);
 
   // Three large stat tiles
@@ -503,11 +600,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setText(doc, COLORS.ink);
   doc.text("Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.", M + 4, PH - 21);
 
-  footer(4, 20);
+  footer(5, 21);
 
   // ============== PAGE 5 — RIASEC PROFILE (Holland Hexagon) ==============
   doc.addPage();
-  current.page = 5;
+  current.page = 6;
   header(t.sec3);
   setText(doc, COLORS.ink);
   font("normal");
@@ -561,11 +658,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   by += 2;
   by = callout(M, by, PW - 2 * M, `${t.riasec[report.riasecTop[0]].name} leads your profile`,
     `${t.riasec[report.riasecTop[0]].description} This pull tends to be most energising in the long run.`);
-  footer(5, 20);
+  footer(6, 21);
 
   // ============== PAGE 6 — RIASEC DETAIL ==============
   doc.addPage();
-  current.page = 6;
+  current.page = 7;
   header(t.sec4);
   yy = 48;
   for (const k of report.riasecTop) {
@@ -584,11 +681,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 4;
   }
-  footer(6, 20);
+  footer(7, 21);
 
   // ============== PAGE 7 — MI RADAR + BARS ==============
   doc.addPage();
-  current.page = 7;
+  current.page = 8;
   header(t.sec5);
   setText(doc, COLORS.ink);
   font("normal");
@@ -631,11 +728,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   by = Math.max(by, 155);
   by = callout(M, by, PW - 2 * M, `${t.mi[report.miTop[0]]?.name ?? ""} stands out`,
     `${t.mi[report.miTop[0]]?.description ?? ""} Lean into activities that exercise this style — they will compound fastest.`);
-  footer(7, 20);
+  footer(8, 21);
 
   // ============== PAGE 8 — MI DETAIL ==============
   doc.addPage();
-  current.page = 8;
+  current.page = 9;
   header(t.sec6);
   yy = 48;
   for (const k of report.miTop) {
@@ -654,11 +751,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 4;
   }
-  footer(8, 20);
+  footer(9, 21);
 
   // ============== PAGE 9 — APTITUDE WITH PROFICIENCY CHIPS ==============
   doc.addPage();
-  current.page = 9;
+  current.page = 10;
   header(t.sec7);
   setText(doc, COLORS.ink);
   font("normal");
@@ -701,11 +798,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     by = callout(M, by, PW - 2 * M, `${t.aptCategoryName(topCat)} is your strongest aptitude`,
       `${t.aptDescriptions[topCat] ?? ""}`);
   }
-  footer(9, 20);
+  footer(10, 21);
 
   // ============== PAGE 10 — APTITUDE DETAIL ==============
   doc.addPage();
-  current.page = 10;
+  current.page = 11;
   header(t.sec8);
   yy = 48;
   for (const [cat, v] of Object.entries(report.aptitude)) {
@@ -724,13 +821,13 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 3;
   }
-  footer(10, 20);
+  footer(11, 21);
 
 
 
   // ============== PAGE 11 — RECOMMENDED STREAMS ==============
   doc.addPage();
-  current.page = 11;
+  current.page = 12;
   header(t.sec9);
   yy = 48;
   font("normal");
@@ -757,7 +854,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     yy += 38;
   });
-  footer(11, 20);
+  footer(12, 21);
 
   // ============== PAGE 12-13 — STREAM DEEP DIVE 1 & 2 ==============
   recommendedStreams.forEach((sid, i) => {
@@ -807,12 +904,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       setText(doc, COLORS.ink);
       yy += 1.5;
     }
-    footer(current.page, 20);
+    footer(current.page, 21);
   });
 
   // ============== PAGE 14 — TOP CAREERS PERSONALISED FOR YOU ==============
   doc.addPage();
-  current.page = 14;
+  current.page = 15;
   header(t.sec12);
   yy = 48;
   font("normal");
@@ -871,12 +968,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     yy += 28;
   });
-  footer(14, 20);
+  footer(15, 21);
 
 
   // ============== PAGE 15 — ENTRANCE EXAMS ==============
   doc.addPage();
-  current.page = 15;
+  current.page = 16;
   header(t.sec13);
   yy = 48;
   font("normal");
@@ -901,11 +998,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     setText(doc, COLORS.ink);
     yy += 9;
   }
-  footer(15, 20);
+  footer(16, 21);
 
   // ============== PAGE 16 — TOP COLLEGES ==============
   doc.addPage();
-  current.page = 16;
+  current.page = 17;
   header(t.sec14);
   yy = 48;
   font("normal");
@@ -927,11 +1024,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       }
     }
   }
-  footer(16, 20);
+  footer(17, 21);
 
   // ============== PAGE 17 — SKILLS TO BUILD ==============
   doc.addPage();
-  current.page = 17;
+  current.page = 18;
   header(t.sec15);
   yy = 48;
   font("normal");
@@ -945,11 +1042,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 1;
   }
-  footer(17, 20);
+  footer(18, 21);
 
   // ============== PAGE 18 — ACTION PLAN THIS YEAR ==============
   doc.addPage();
-  current.page = 18;
+  current.page = 19;
   header(t.sec16);
   yy = 50;
   font("normal");
@@ -980,11 +1077,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 1;
   }
-  footer(18, 20);
+  footer(19, 21);
 
   // ============== PAGE 19 — TIPS FOR PARENTS ==============
   doc.addPage();
-  current.page = 19;
+  current.page = 20;
   header(t.sec18);
   yy = 50;
   font("normal");
@@ -998,11 +1095,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     yy += 1;
   }
-  footer(19, 20);
+  footer(20, 21);
 
   // ============== PAGE 20 — NOTES & GLOSSARY ==============
   doc.addPage();
-  current.page = 20;
+  current.page = 21;
   header(t.sec19);
   yy = 50;
   font("normal");
@@ -1030,7 +1127,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     doc.text(l, M, yy);
     yy += 5;
   }
-  footer(20, 20);
+  footer(21, 21);
 
   // Re-stamp footer page numbers in case ensureSpace inserted extra pages.
   const totalPages = doc.getNumberOfPages();
