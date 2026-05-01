@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useState } from "react";
 
 const NAV = [
