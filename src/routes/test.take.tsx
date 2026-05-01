@@ -33,6 +33,9 @@ interface Meta {
   grade: string;
   age: string;
   language: "en";
+  school?: string;
+  mobile?: string;
+  email?: string;
 }
 
 interface PaymentMeta {
@@ -268,6 +271,9 @@ function Result({
         age: meta.age ? Number(meta.age) : null,
         language: "en",
         grade_band: band,
+        school_name: meta.school ?? null,
+        mobile: meta.mobile ?? null,
+        email: meta.email ?? null,
         riasec: report.riasec,
         riasec_top: report.riasecTop,
         multiple_intelligences: report.mi,

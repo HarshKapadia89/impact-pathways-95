@@ -287,10 +287,12 @@ export type Database = {
           age: number | null
           aptitude: Json | null
           created_at: string
+          email: string | null
           grade: string | null
           grade_band: string | null
           id: string
           language: string | null
+          mobile: string | null
           multiple_intelligences: Json | null
           paid_at: string | null
           payment_amount: number | null
@@ -299,16 +301,19 @@ export type Database = {
           recommended_careers: string[] | null
           recommended_streams: string[] | null
           riasec: Json | null
+          school_name: string | null
           student_name: string | null
         }
         Insert: {
           age?: number | null
           aptitude?: Json | null
           created_at?: string
+          email?: string | null
           grade?: string | null
           grade_band?: string | null
           id?: string
           language?: string | null
+          mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
           payment_amount?: number | null
@@ -317,16 +322,19 @@ export type Database = {
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
           riasec?: Json | null
+          school_name?: string | null
           student_name?: string | null
         }
         Update: {
           age?: number | null
           aptitude?: Json | null
           created_at?: string
+          email?: string | null
           grade?: string | null
           grade_band?: string | null
           id?: string
           language?: string | null
+          mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
           payment_amount?: number | null
@@ -335,6 +343,7 @@ export type Database = {
           recommended_careers?: string[] | null
           recommended_streams?: string[] | null
           riasec?: Json | null
+          school_name?: string | null
           student_name?: string | null
         }
         Relationships: []
@@ -347,11 +356,13 @@ export type Database = {
           aptitude_top: string[] | null
           created_at: string
           device_id: string | null
+          email: string | null
           grade: string | null
           grade_band: string | null
           id: string
           language: string | null
           mi_top: string[] | null
+          mobile: string | null
           multiple_intelligences: Json | null
           paid_at: string | null
           payment_amount: number | null
@@ -361,6 +372,7 @@ export type Database = {
           recommended_streams: string[] | null
           riasec: Json | null
           riasec_top: string[] | null
+          school_name: string | null
           student_name: string | null
           synced_at: string
           taken_at: string
@@ -372,11 +384,13 @@ export type Database = {
           aptitude_top?: string[] | null
           created_at?: string
           device_id?: string | null
+          email?: string | null
           grade?: string | null
           grade_band?: string | null
           id: string
           language?: string | null
           mi_top?: string[] | null
+          mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
           payment_amount?: number | null
@@ -386,6 +400,7 @@ export type Database = {
           recommended_streams?: string[] | null
           riasec?: Json | null
           riasec_top?: string[] | null
+          school_name?: string | null
           student_name?: string | null
           synced_at?: string
           taken_at?: string
@@ -397,11 +412,13 @@ export type Database = {
           aptitude_top?: string[] | null
           created_at?: string
           device_id?: string | null
+          email?: string | null
           grade?: string | null
           grade_band?: string | null
           id?: string
           language?: string | null
           mi_top?: string[] | null
+          mobile?: string | null
           multiple_intelligences?: Json | null
           paid_at?: string | null
           payment_amount?: number | null
@@ -411,6 +428,7 @@ export type Database = {
           recommended_streams?: string[] | null
           riasec?: Json | null
           riasec_top?: string[] | null
+          school_name?: string | null
           student_name?: string | null
           synced_at?: string
           taken_at?: string
