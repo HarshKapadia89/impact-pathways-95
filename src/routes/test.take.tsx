@@ -390,8 +390,6 @@ function Result({
         paid_at: payment.paid_at,
       },
     })
-      },
-    })
       .then(() => flushQueue().catch(() => null))
       .catch(() => null);
     saveReport({
