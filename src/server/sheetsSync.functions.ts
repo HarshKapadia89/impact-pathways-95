@@ -26,6 +26,7 @@ const HEADERS = [
   "Aptitude Top",
   "Aptitude Scores",
   "Recommended Streams",
+  "Top Career Matches",
   "Device ID",
   "App Version",
 ];
@@ -46,6 +47,7 @@ const SubmissionSchema = z.object({
   aptitude: z.unknown().optional(),
   aptitude_top: z.array(z.string()).optional(),
   recommended_streams: z.array(z.string()).optional(),
+  recommended_careers: z.array(z.string()).optional(),
   taken_at: z.string().optional(),
   device_id: z.string().nullable().optional(),
   app_version: z.string().nullable().optional(),
@@ -148,6 +150,7 @@ function rowFor(s: z.infer<typeof SubmissionSchema>): string[] {
     (s.aptitude_top ?? []).join(", "),
     stringify(s.aptitude),
     (s.recommended_streams ?? []).join(", "),
+    (s.recommended_careers ?? []).slice(0, 8).join(" | "),
     s.device_id ?? "",
     s.app_version ?? "",
   ];
@@ -158,7 +161,7 @@ export const appendSubmissionToSheet = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     try {
       await ensureHeader();
-      const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A:V:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
+      const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A:W:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
       const res = await fetch(url, {
         method: "POST",
         headers: gwHeaders(),
