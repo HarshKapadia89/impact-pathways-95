@@ -97,7 +97,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t border-border bg-sidebar text-sidebar-foreground mt-12">
+      <footer className="border-t-4 border-accent/70 bg-sidebar text-sidebar-foreground mt-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid md:grid-cols-3 gap-6 text-sm">
           <div>
             <div className="font-serif text-lg mb-2">HBK Careers</div>
