@@ -778,41 +778,69 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     footer(current.page, 20);
   });
 
-  // ============== PAGE 14 — TOP CAREERS LIST ==============
+  // ============== PAGE 14 — TOP CAREERS PERSONALISED FOR YOU ==============
   doc.addPage();
   current.page = 14;
   header(t.sec12);
   yy = 48;
   font("normal");
   doc.setFontSize(10);
-  setText(doc, COLORS.ink);
-  let counter = 1;
-  for (const sid of recommendedStreams) {
-    const s = STREAM_BY_ID[sid];
-    for (const p of s.paths.slice(0, 4)) {
-      yy = ensureSpace(yy, 14, current);
-      font("bold");
-      doc.setFontSize(11);
-      setText(doc, COLORS.primary);
-      doc.text(`${counter}. ${p.title}`, M, yy);
-      counter += 1;
-      yy += 5;
-      font("normal");
-      doc.setFontSize(9);
-      setText(doc, COLORS.ink);
-      doc.text(`${t.pathStream(s.name)}  •  ${p.duration}  •  ${t.pathSalary(p.avgSalary)}`, M, yy);
-      yy += 5;
-      setText(doc, COLORS.muted);
-      const ent = p.entranceExams.join(", ");
-      for (const l of wrap(t.pathExams(ent), PW - 2 * M)) {
-        doc.text(l, M, yy);
-        yy += 4.5;
-      }
-      setText(doc, COLORS.ink);
-      yy += 2;
-    }
+  setText(doc, COLORS.muted);
+  for (const l of wrap(
+    "These careers are ranked by how well each one fits your unique combination of interests (RIASEC), intelligences and aptitude scores — not just your stream. The fit % shows how aligned your profile is with that career's typical demands.",
+    PW - 2 * M,
+  )) {
+    doc.text(l, M, yy);
+    yy += 5;
   }
+  yy += 4;
+  setText(doc, COLORS.ink);
+  topCareers.forEach((c, idx) => {
+    yy = ensureSpace(yy, 26, current);
+    // Card background
+    setFill(doc, idx === 0 ? COLORS.callout : COLORS.band);
+    doc.roundedRect(M, yy - 4, PW - 2 * M, 24, 2.5, 2.5, "F");
+    // Title + fit chip
+    font("bold");
+    doc.setFontSize(11);
+    setText(doc, COLORS.primary);
+    doc.text(`${idx + 1}. ${c.path.title}`, M + 4, yy + 1);
+    // fit chip on the right
+    const chipW = 22;
+    const chipX = PW - M - chipW - 2;
+    setFill(doc, COLORS.primary);
+    doc.roundedRect(chipX, yy - 3, chipW, 7, 1.5, 1.5, "F");
+    setText(doc, [255, 255, 255]);
+    doc.setFontSize(9);
+    doc.text(`${c.fit}% fit`, chipX + chipW / 2, yy + 1.5, { align: "center" });
+    // Meta line
+    font("normal");
+    doc.setFontSize(9);
+    setText(doc, COLORS.ink);
+    doc.text(
+      `${t.pathStream(c.streamName)}  •  ${c.path.duration}  •  ${t.pathSalary(c.path.avgSalary)}`,
+      M + 4,
+      yy + 7,
+    );
+    // Why this fits
+    font("bold");
+    setText(doc, COLORS.accent);
+    doc.text("Why this fits you:", M + 4, yy + 12.5);
+    font("normal");
+    setText(doc, COLORS.ink);
+    const reasonW = PW - 2 * M - 38;
+    const reasonLines = wrap(c.reason, reasonW);
+    doc.text(reasonLines[0] ?? "", M + 32, yy + 12.5);
+    // Entrance exams (compact)
+    setText(doc, COLORS.muted);
+    const ent = c.path.entranceExams.slice(0, 4).join(", ");
+    const examLines = wrap(t.pathExams(ent), PW - 2 * M - 8);
+    doc.text(examLines[0] ?? "", M + 4, yy + 17.5);
+    setText(doc, COLORS.ink);
+    yy += 28;
+  });
   footer(14, 20);
+
 
   // ============== PAGE 15 — ENTRANCE EXAMS ==============
   doc.addPage();
