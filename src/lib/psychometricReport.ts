@@ -14,6 +14,7 @@ import { recommendStreams, STREAM_BY_ID, type StreamId } from "./careerData";
 import { getReportStrings, type ReportLang, type ReportStrings } from "./psychometricReportStrings";
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
+import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 
 interface ReportInput {
   name: string;
@@ -28,13 +29,21 @@ interface ReportInput {
 
 // --- styling helpers ---
 const COLORS = {
-  primary: [40, 30, 95] as [number, number, number],
-  accent: [220, 145, 50] as [number, number, number],
-  ink: [30, 30, 50] as [number, number, number],
+  primary: [28, 24, 78] as [number, number, number],          // deep indigo
+  primaryDark: [18, 16, 52] as [number, number, number],
+  accent: [212, 138, 42] as [number, number, number],         // warm gold
+  accentSoft: [245, 224, 184] as [number, number, number],
+  ink: [28, 28, 46] as [number, number, number],
   muted: [110, 110, 130] as [number, number, number],
+  hairline: [220, 220, 232] as [number, number, number],
   rule: [225, 225, 235] as [number, number, number],
   band: [248, 246, 240] as [number, number, number],
+  bandAlt: [241, 240, 248] as [number, number, number],
   bar: [60, 50, 130] as [number, number, number],
+  bar2: [200, 130, 60] as [number, number, number],
+  callout: [248, 244, 232] as [number, number, number],
+  calloutBorder: [212, 138, 42] as [number, number, number],
+  ok: [38, 130, 90] as [number, number, number],
 };
 
 const M = 18; // page margin mm
@@ -162,38 +171,46 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
 
   function header(title: string, sub?: string) {
+    // Slim header bar
     setFill(doc, COLORS.primary);
-    doc.rect(0, 0, PW, 14, "F");
+    doc.rect(0, 0, PW, 11, "F");
+    setFill(doc, COLORS.accent);
+    doc.rect(0, 11, PW, 0.6, "F");
     font("bold");
-    doc.setFontSize(11);
+    doc.setFontSize(8.5);
     setText(doc, [255, 255, 255]);
-    doc.text(t.brand, M, 9);
+    doc.text(t.brand.toUpperCase(), M, 7.4);
     if (sub) {
       font("normal");
-      doc.setFontSize(9);
-      doc.text(sub, PW - M, 9, { align: "right" });
+      doc.setFontSize(8);
+      doc.text(sub, PW - M, 7.4, { align: "right" });
     }
     setText(doc, COLORS.ink);
     if (title) {
+      font("normal");
+      doc.setFontSize(8);
+      setText(doc, COLORS.muted);
+      doc.text("HBK CAREERS  ·  CAREER DISCOVERY REPORT", M, 24);
       font("bold");
-      doc.setFontSize(18);
+      doc.setFontSize(20);
       setText(doc, COLORS.primary);
-      doc.text(title, M, 28);
+      doc.text(title, M, 33);
       setDraw(doc, COLORS.accent);
-      doc.setLineWidth(1.2);
-      doc.line(M, 31, M + 22, 31);
+      doc.setLineWidth(1.4);
+      doc.line(M, 36.5, M + 18, 36.5);
       setText(doc, COLORS.ink);
     }
   }
 
   function footer(page: number, total: number) {
-    setDraw(doc, COLORS.rule);
+    setDraw(doc, COLORS.hairline);
     doc.setLineWidth(0.2);
-    doc.line(M, PH - 14, PW - M, PH - 14);
+    doc.line(M, PH - 13, PW - M, PH - 13);
     font("normal");
-    doc.setFontSize(8);
+    doc.setFontSize(7.5);
     setText(doc, COLORS.muted);
-    doc.text(t.footerName(name), M, PH - 8);
+    doc.text(t.footerName(name).toUpperCase(), M, PH - 8);
+    doc.text("hbkcareers.org", PW / 2, PH - 8, { align: "center" });
     doc.text(t.pageOf(page, total), PW - M, PH - 8, { align: "right" });
     setText(doc, COLORS.ink);
   }
@@ -217,52 +234,120 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       doc.addPage();
       current.page += 1;
       header("", t.generatedOn(new Date().toLocaleDateString()));
-      return 22;
+      return 26;
     }
     return y;
+  }
+
+  // Tinted callout box for personalised insights
+  function callout(x: number, y: number, w: number, label: string, body: string): number {
+    const lines = wrap(body, w - 8);
+    const h = 10 + lines.length * 4.6;
+    setFill(doc, COLORS.callout);
+    doc.roundedRect(x, y, w, h, 2.5, 2.5, "F");
+    setDraw(doc, COLORS.calloutBorder);
+    doc.setLineWidth(0.4);
+    doc.line(x, y, x, y + h);
+    font("bold");
+    doc.setFontSize(8.5);
+    setText(doc, COLORS.calloutBorder);
+    doc.text(label.toUpperCase(), x + 4, y + 5.5);
+    font("normal");
+    doc.setFontSize(9.5);
+    setText(doc, COLORS.ink);
+    let cy = y + 10.5;
+    for (const ln of lines) {
+      doc.text(ln, x + 4, cy);
+      cy += 4.6;
+    }
+    return y + h + 3;
   }
 
   const current = { page: 1, total: 20 };
 
   // ============== PAGE 1 — COVER ==============
-  setFill(doc, COLORS.primary);
+  // Deep field
+  setFill(doc, COLORS.primaryDark);
   doc.rect(0, 0, PW, PH, "F");
+  // Inner field
+  setFill(doc, COLORS.primary);
+  doc.rect(0, 0, PW, PH - 95, "F");
+  // Accent stripe
   setFill(doc, COLORS.accent);
-  doc.rect(0, PH - 80, PW, 80, "F");
+  doc.rect(0, PH - 95, PW, 1.4, "F");
 
+  // Top corner monogram + brand
   setText(doc, [255, 255, 255]);
   font("bold");
-  doc.setFontSize(36);
-  doc.text("HBK Careers", M, 60);
-  font("normal");
-  doc.setFontSize(14);
-  doc.text(t.coverSubtitle, M, 72);
   doc.setFontSize(10);
-  doc.text(t.schoolLine, M, 80);
+  doc.text("HBK", M, 20);
+  setDraw(doc, COLORS.accent);
+  doc.setLineWidth(0.6);
+  doc.line(M + 12, 17.5, M + 22, 17.5);
+  font("normal");
+  doc.setFontSize(8);
+  doc.text("CAREERS", M + 24, 20);
+  doc.setFontSize(8);
+  doc.text("CAREER · DISCOVERY · REPORT", PW - M, 20, { align: "right" });
 
+  // Big display title
+  font("bold");
+  doc.setFontSize(56);
+  setText(doc, [255, 255, 255]);
+  doc.text("Career", M, 95);
+  doc.text("Discovery", M, 117);
+  font("normal");
+  setText(doc, COLORS.accentSoft);
+  doc.setFontSize(56);
+  doc.text("Report.", M, 139);
+
+  // Hairline
+  setDraw(doc, [255, 255, 255]);
+  doc.setLineWidth(0.3);
+  doc.line(M, 152, M + 60, 152);
+
+  font("normal");
   doc.setFontSize(11);
-  doc.text(t.preparedFor, M, 130);
+  setText(doc, [230, 226, 240]);
+  doc.text("RIASEC interests  ·  Multiple Intelligences  ·  Aptitude", M, 160);
+
+  // Prepared-for block on the cream lower band
+  setText(doc, COLORS.muted);
+  font("normal");
+  doc.setFontSize(8);
+  doc.text("PREPARED FOR", M, PH - 80);
   font("bold");
   doc.setFontSize(28);
-  doc.text(name || t.studentFallback, M, 145);
-  font("normal");
-  doc.setFontSize(11);
-  const langName = language === "gu" ? t.langNameGu : t.langNameEn;
-  doc.text(t.metaLine(grade, age, langName), M, 155);
-
   setText(doc, COLORS.primary);
-  font("bold");
-  doc.setFontSize(13);
-  doc.text(t.coverHeadline, M, PH - 60);
+  doc.text(name || t.studentFallback, M, PH - 65);
   font("normal");
   doc.setFontSize(10);
   setText(doc, COLORS.ink);
-  doc.text(t.coverBullets1, M, PH - 50);
-  doc.text(t.coverBullets2, M, PH - 44);
-  doc.setFontSize(9);
+  doc.text(`Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : t.langNameEn}`, M, PH - 56);
+
+  // Right column: school + date
+  font("normal");
+  doc.setFontSize(8);
   setText(doc, COLORS.muted);
-  doc.text(t.generatedOn(new Date().toLocaleDateString()), M, PH - 30);
-  doc.text(t.coverFooter, M, PH - 24);
+  doc.text("ISSUED BY", PW - M, PH - 80, { align: "right" });
+  font("bold");
+  doc.setFontSize(10);
+  setText(doc, COLORS.primary);
+  doc.text("The H B Kapadia New High School", PW - M, PH - 71, { align: "right" });
+  font("normal");
+  doc.setFontSize(8.5);
+  setText(doc, COLORS.muted);
+  doc.text("Ahmedabad", PW - M, PH - 66, { align: "right" });
+
+  font("normal");
+  doc.setFontSize(8);
+  setText(doc, COLORS.muted);
+  doc.text(`ISSUED  ${new Date().toLocaleDateString()}`, M, PH - 22);
+  doc.text("hbkcareers.org", PW - M, PH - 22, { align: "right" });
+  // Tiny report ref
+  const ref = `REF · ${(name || "STU").slice(0, 3).toUpperCase()}-${new Date().getFullYear()}`;
+  doc.text(ref, PW / 2, PH - 22, { align: "center" });
+
 
   // ============== PAGE 2 — TABLE OF CONTENTS ==============
   doc.addPage();
@@ -301,85 +386,147 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
   footer(3, 20);
 
-  // ============== PAGE 4 — SNAPSHOT ==============
+  // ============== PAGE 4 — SNAPSHOT (Executive Summary) ==============
   doc.addPage();
   current.page = 4;
   header(t.sec2);
 
-  setFill(doc, COLORS.band);
-  doc.roundedRect(M, 45, PW - 2 * M, 36, 3, 3, "F");
-  font("bold");
-  doc.setFontSize(12);
-  setText(doc, COLORS.primary);
-  doc.text(t.snapTopRiasec, M + 6, 55);
-  doc.text(t.snapTopMi, M + 6, 65);
-  doc.text(t.snapTopApt, M + 6, 75);
-
-  font("normal");
+  // Three large stat tiles
+  const tileW = (PW - 2 * M - 8) / 3;
+  const tileY = 50;
+  const tiles: { label: string; value: string; sub: string; tone: "primary" | "accent" }[] = [
+    { label: "Holland Code", value: report.riasecTop.join("·"), sub: "Top 3 interest types", tone: "primary" },
+    { label: "Top Intelligence", value: t.mi[report.miTop[0]]?.name ?? "—", sub: "Strongest cognitive style", tone: "accent" },
+    { label: "Aptitude", value: `${report.aptitudeOverall}%`, sub: "Overall score across 6 areas", tone: "primary" },
+  ];
+  tiles.forEach((tile, i) => {
+    const tx = M + i * (tileW + 4);
+    setFill(doc, tile.tone === "primary" ? COLORS.primary : COLORS.accent);
+    doc.roundedRect(tx, tileY, tileW, 36, 2.5, 2.5, "F");
+    setText(doc, [255, 255, 255]);
+    font("normal");
+    doc.setFontSize(7.5);
+    doc.text(tile.label.toUpperCase(), tx + 5, tileY + 7);
+    font("bold");
+    doc.setFontSize(tile.value.length > 10 ? 16 : 22);
+    doc.text(tile.value, tx + 5, tileY + 22);
+    font("normal");
+    doc.setFontSize(7.5);
+    doc.text(tile.sub, tx + 5, tileY + 31);
+  });
   setText(doc, COLORS.ink);
-  doc.text(report.riasecTop.join(" — "), M + 80, 55);
-  doc.text(report.miTop.slice(0, 2).map((k) => t.mi[k]?.name ?? k).join(", "), M + 80, 65);
-  doc.text(
-    `${report.aptitudeTop.map(t.aptCategoryName).join(" & ")}  ${t.snapAptOverall(report.aptitudeOverall)}`,
-    M + 80,
-    75,
-  );
 
+  // Narrative
+  const narrative = `Your profile points to a ${report.riasecTop.join("-")} interest pattern with ${t.mi[report.miTop[0]]?.name ?? "broad"} as your strongest intelligence and ${report.aptitudeTop.map(t.aptCategoryName).join(" & ")} as standout aptitudes. The streams below are mapped to fit this combined profile.`;
+  font("normal");
+  doc.setFontSize(10.5);
+  setText(doc, COLORS.ink);
+  let snapY = tileY + 44;
+  for (const l of wrap(narrative, PW - 2 * M)) {
+    doc.text(l, M, snapY);
+    snapY += 5.5;
+  }
+
+  // Streams strip
+  snapY += 4;
   font("bold");
-  doc.setFontSize(13);
+  doc.setFontSize(11);
   setText(doc, COLORS.primary);
-  doc.text(t.snapTopStreams, M, 100);
+  doc.text(t.snapTopStreams.toUpperCase(), M, snapY);
+  setDraw(doc, COLORS.accent);
+  doc.setLineWidth(0.8);
+  doc.line(M, snapY + 1.5, M + 14, snapY + 1.5);
+  snapY += 9;
 
-  let py = 110;
   recommendedStreams.forEach((sid, i) => {
     const s = STREAM_BY_ID[sid];
-    setFill(doc, i === 0 ? COLORS.accent : COLORS.rule);
-    doc.roundedRect(M, py, PW - 2 * M, 22, 3, 3, "F");
-    setText(doc, i === 0 ? COLORS.primary : COLORS.ink);
-    font("bold");
-    doc.setFontSize(13);
-    doc.text(`${i + 1}. ${s.name}`, M + 6, py + 9);
+    setFill(doc, i === 0 ? COLORS.primary : COLORS.bandAlt);
+    doc.roundedRect(M, snapY, PW - 2 * M, 24, 2.5, 2.5, "F");
+    setFill(doc, i === 0 ? COLORS.accent : COLORS.primary);
+    doc.roundedRect(M, snapY, 1.6, 24, 0.6, 0.6, "F");
+    setText(doc, i === 0 ? [255, 255, 255] : COLORS.ink);
     font("normal");
-    doc.setFontSize(10);
-    doc.text(s.tagline, M + 6, py + 17);
-    py += 28;
+    doc.setFontSize(7.5);
+    doc.text(i === 0 ? "PRIMARY MATCH" : "SECONDARY MATCH", M + 6, snapY + 7);
+    font("bold");
+    doc.setFontSize(14);
+    doc.text(s.name, M + 6, snapY + 15);
+    font("normal");
+    doc.setFontSize(9);
+    setText(doc, i === 0 ? [220, 220, 235] : COLORS.muted);
+    doc.text(s.tagline, M + 6, snapY + 21);
+    snapY += 28;
   });
 
+  // Methodology footnote
+  setFill(doc, COLORS.band);
+  doc.roundedRect(M, PH - 32, PW - 2 * M, 14, 2, 2, "F");
   font("normal");
-  doc.setFontSize(9);
+  doc.setFontSize(7.5);
   setText(doc, COLORS.muted);
-  doc.text(t.snapBoth, M, py + 4);
+  doc.text("METHODOLOGY", M + 4, PH - 26);
+  doc.setFontSize(8.5);
+  setText(doc, COLORS.ink);
+  doc.text("Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.", M + 4, PH - 21);
 
   footer(4, 20);
 
-  // ============== PAGE 5 — RIASEC PROFILE ==============
+  // ============== PAGE 5 — RIASEC PROFILE (Holland Hexagon) ==============
   doc.addPage();
   current.page = 5;
   header(t.sec3);
   setText(doc, COLORS.ink);
   font("normal");
-  doc.setFontSize(11);
-  doc.text(t.riasecIntro, M, 48);
+  doc.setFontSize(10.5);
+  for (const l of wrap(t.riasecIntro, PW - 2 * M)) {
+    doc.text(l, M, 48);
+  }
 
-  let by = 60;
-  ["R", "I", "A", "S", "E", "C"].forEach((k) => {
-    drawBar(M, by, `${k} — ${t.riasec[k].name}`, report.riasec[k] ?? 0);
-    by += 11;
+  // Hexagon — canonical RIASEC order: R, I, A, S, E, C clockwise from top
+  const RIASEC_ORDER: Array<"R" | "I" | "A" | "S" | "E" | "C"> = ["R", "I", "A", "S", "E", "C"];
+  drawRadar(doc, {
+    cx: PW / 2,
+    cy: 110,
+    radius: 38,
+    axes: RIASEC_ORDER.map((k) => ({
+      label: `${k} · ${t.riasec[k].name}`,
+      value: report.riasec[k] ?? 0,
+    })),
+    fillColor: COLORS.bar,
+    strokeColor: COLORS.primary,
+    fillOpacity: 0.32,
   });
 
-  by += 6;
-  font("bold");
-  doc.setFontSize(12);
-  setText(doc, COLORS.primary);
-  doc.text(t.riasecYourCode(report.riasecTop.join(" - ")), M, by);
-  by += 8;
+  // Code call-out
+  let by = 168;
+  setFill(doc, COLORS.primary);
+  doc.roundedRect(M, by, PW - 2 * M, 14, 2, 2, "F");
+  setText(doc, [255, 255, 255]);
   font("normal");
-  doc.setFontSize(10);
+  doc.setFontSize(8);
+  doc.text("YOUR HOLLAND CODE", M + 5, by + 5.5);
+  font("bold");
+  doc.setFontSize(16);
+  doc.text(report.riasecTop.join(" · "), M + 5, by + 11.5);
   setText(doc, COLORS.ink);
-  for (const l of wrap(t.riasecCodeText, PW - 2 * M)) {
-    doc.text(l, M, by);
-    by += 5;
-  }
+  by += 20;
+
+  // Inline bar list (secondary read)
+  font("bold");
+  doc.setFontSize(9.5);
+  setText(doc, COLORS.muted);
+  doc.text("DIMENSION SCORES", M, by);
+  by += 5;
+  RIASEC_ORDER.forEach((k) => {
+    drawScoreBar(doc, M, by, PW - 2 * M, `${k} · ${t.riasec[k].name}`, report.riasec[k] ?? 0, {
+      fillColor: COLORS.bar,
+    });
+    by += 8;
+  });
+
+  by += 2;
+  by = callout(M, by, PW - 2 * M, `${t.riasec[report.riasecTop[0]].name} leads your profile`,
+    `${t.riasec[report.riasecTop[0]].description} This pull tends to be most energising in the long run.`);
   footer(5, 20);
 
   // ============== PAGE 6 — RIASEC DETAIL ==============
@@ -405,19 +552,51 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
   footer(6, 20);
 
-  // ============== PAGE 7 — MI BARS ==============
+  // ============== PAGE 7 — MI RADAR + BARS ==============
   doc.addPage();
   current.page = 7;
   header(t.sec5);
   setText(doc, COLORS.ink);
   font("normal");
-  doc.setFontSize(11);
+  doc.setFontSize(10.5);
   doc.text(t.miIntro, M, 48);
-  by = 60;
-  for (const k of Object.keys(t.mi)) {
-    drawBar(M, by, `${t.mi[k].name}`, report.mi[k] ?? 0, 100, COLORS.accent);
-    by += 11;
+
+  const miKeys = Object.keys(t.mi);
+  // Two-column: radar left, bars right
+  drawRadar(doc, {
+    cx: M + 45,
+    cy: 105,
+    radius: 36,
+    axes: miKeys.map((k) => ({
+      label: t.mi[k].name.split("-")[0],
+      value: report.mi[k] ?? 0,
+    })),
+    fillColor: COLORS.accent,
+    strokeColor: [180, 110, 30],
+    fillOpacity: 0.3,
+    labelFontSize: 7.5,
+    valueFontSize: 7,
+  });
+
+  // Right side bars
+  by = 65;
+  const barX = M + 95;
+  const barW = PW - M - barX;
+  font("bold");
+  doc.setFontSize(8.5);
+  setText(doc, COLORS.muted);
+  doc.text("YOUR INTELLIGENCES", barX, by);
+  by += 6;
+  for (const k of miKeys) {
+    drawScoreBar(doc, barX, by, barW, t.mi[k].name, report.mi[k] ?? 0, {
+      fillColor: COLORS.accent,
+    });
+    by += 8;
   }
+
+  by = Math.max(by, 155);
+  by = callout(M, by, PW - 2 * M, `${t.mi[report.miTop[0]]?.name ?? ""} stands out`,
+    `${t.mi[report.miTop[0]]?.description ?? ""} Lean into activities that exercise this style — they will compound fastest.`);
   footer(7, 20);
 
   // ============== PAGE 8 — MI DETAIL ==============
@@ -443,18 +622,50 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   }
   footer(8, 20);
 
-  // ============== PAGE 9 — APTITUDE BARS ==============
+  // ============== PAGE 9 — APTITUDE WITH PROFICIENCY CHIPS ==============
   doc.addPage();
   current.page = 9;
   header(t.sec7);
   setText(doc, COLORS.ink);
   font("normal");
-  doc.setFontSize(11);
+  doc.setFontSize(10.5);
   doc.text(t.aptOverall(report.aptitudeOverall), M, 48);
-  by = 62;
+
+  // Big overall ring/tile
+  setFill(doc, COLORS.primary);
+  doc.roundedRect(M, 56, PW - 2 * M, 22, 2.5, 2.5, "F");
+  setText(doc, [255, 255, 255]);
+  font("normal");
+  doc.setFontSize(8);
+  doc.text("OVERALL APTITUDE", M + 6, 64);
+  font("bold");
+  doc.setFontSize(22);
+  doc.text(`${report.aptitudeOverall}%`, M + 6, 74);
+  font("normal");
+  doc.setFontSize(9);
+  const overallBand = proficiencyBand(report.aptitudeOverall);
+  setFill(doc, overallBand.color);
+  doc.roundedRect(PW - M - 32, 64, 26, 7, 1.5, 1.5, "F");
+  setText(doc, [255, 255, 255]);
+  doc.setFontSize(8);
+  doc.text(overallBand.label.toUpperCase(), PW - M - 19, 68.8, { align: "center" });
+  setText(doc, COLORS.ink);
+
+  by = 88;
   for (const [cat, v] of Object.entries(report.aptitude)) {
-    drawBar(M, by, `${t.aptCategoryName(cat)}  (${v.correct}/${v.total})`, v.pct, 100, COLORS.bar);
-    by += 11;
+    drawScoreBar(doc, M, by, PW - 2 * M, t.aptCategoryName(cat), v.pct, {
+      sub: `${v.correct} of ${v.total} correct`,
+      chip: true,
+      fillColor: COLORS.bar,
+    });
+    by += 10;
+  }
+
+  by += 3;
+  const topCat = report.aptitudeTop[0];
+  if (topCat) {
+    by = callout(M, by, PW - 2 * M, `${t.aptCategoryName(topCat)} is your strongest aptitude`,
+      `${t.aptDescriptions[topCat] ?? ""}`);
   }
   footer(9, 20);
 
@@ -480,6 +691,8 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     yy += 3;
   }
   footer(10, 20);
+
+
 
   // ============== PAGE 11 — RECOMMENDED STREAMS ==============
   doc.addPage();
