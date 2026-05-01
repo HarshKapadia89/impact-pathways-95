@@ -68,7 +68,7 @@ function gwHeaders() {
 
 async function ensureHeader() {
   // Check if header row exists; if not, write it.
-  const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A1:R1`;
+  const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A1:V1`;
   const res = await fetch(url, { headers: gwHeaders() });
   if (!res.ok) {
     const text = await res.text();
@@ -107,6 +107,10 @@ function rowFor(s: z.infer<typeof SubmissionSchema>): string[] {
     s.school_name ?? "",
     s.mobile ?? "",
     s.email ?? "",
+    "Pending",
+    s.payment_amount != null ? String(s.payment_amount) : "",
+    s.payment_utr ?? "",
+    s.payment_coupon ?? "",
     s.grade ?? "",
     s.age != null ? String(s.age) : "",
     s.language ?? "",
@@ -127,7 +131,7 @@ export const appendSubmissionToSheet = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     try {
       await ensureHeader();
-      const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A:R:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
+      const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!A:V:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
       const res = await fetch(url, {
         method: "POST",
         headers: gwHeaders(),
