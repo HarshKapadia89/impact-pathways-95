@@ -48,6 +48,7 @@ function HomePage() {
         lang === "gu"
           ? "વિજ્ઞાન, વાણિજ્ય, માનવવિદ્યા, વ્યાવસાયિક — દરેક માટે વિગતવાર ગાઇડ."
           : "Detailed guides for Science, Commerce, Humanities and Vocational paths.",
+      tone: "indigo" as const,
     },
     {
       to: "/handbook" as const,
@@ -57,6 +58,7 @@ function HomePage() {
         lang === "gu"
           ? "20 પ્રવાહોમાં 935+ વ્યવસાયો અને 1,400+ ટોચની સંસ્થાઓ."
           : "935+ professions and 1,400+ top institutes across 20 streams.",
+      tone: "teal" as const,
     },
     {
       to: "/test" as const,
@@ -66,8 +68,15 @@ function HomePage() {
         lang === "gu"
           ? "RIASEC + MI + યોગ્યતા. દ્વિભાષી. 20-પાનાનો PDF રિપોર્ટ."
           : "RIASEC + MI + Aptitude. Bilingual. Instant 20-page PDF report.",
+      tone: "saffron" as const,
     },
   ];
+
+  const TONE: Record<"indigo" | "teal" | "saffron", { bg: string; ring: string; iconBg: string; iconColor: string }> = {
+    indigo:  { bg: "from-[oklch(0.32_0.11_270/0.08)] to-transparent", ring: "hover:ring-[var(--brand-1)]/30", iconBg: "bg-[oklch(0.32_0.11_270/0.12)]", iconColor: "text-[var(--brand-1)]" },
+    teal:    { bg: "from-[oklch(0.62_0.15_150/0.10)] to-transparent", ring: "hover:ring-[var(--brand-3)]/30", iconBg: "bg-[oklch(0.62_0.15_150/0.14)]", iconColor: "text-[var(--brand-3)]" },
+    saffron: { bg: "from-[oklch(0.78_0.15_60/0.14)]  to-transparent", ring: "hover:ring-[var(--brand-2)]/40", iconBg: "bg-[oklch(0.78_0.15_60/0.18)]",  iconColor: "text-[var(--brand-2)]" },
+  };
 
   return (
     <PublicLayout>
