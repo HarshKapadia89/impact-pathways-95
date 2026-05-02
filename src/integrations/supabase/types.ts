@@ -172,6 +172,66 @@ export type Database = {
           },
         ]
       }
+      payment_orders: {
+        Row: {
+          age: number | null
+          amount_paise: number
+          coupon: string | null
+          created_at: string
+          currency: string
+          email: string | null
+          grade: string | null
+          id: string
+          language: string | null
+          mobile: string | null
+          paid_at: string | null
+          razorpay_order_id: string | null
+          razorpay_payment_id: string | null
+          school_name: string | null
+          status: string
+          student_name: string | null
+          updated_at: string
+        }
+        Insert: {
+          age?: number | null
+          amount_paise: number
+          coupon?: string | null
+          created_at?: string
+          currency?: string
+          email?: string | null
+          grade?: string | null
+          id?: string
+          language?: string | null
+          mobile?: string | null
+          paid_at?: string | null
+          razorpay_order_id?: string | null
+          razorpay_payment_id?: string | null
+          school_name?: string | null
+          status?: string
+          student_name?: string | null
+          updated_at?: string
+        }
+        Update: {
+          age?: number | null
+          amount_paise?: number
+          coupon?: string | null
+          created_at?: string
+          currency?: string
+          email?: string | null
+          grade?: string | null
+          id?: string
+          language?: string | null
+          mobile?: string | null
+          paid_at?: string | null
+          razorpay_order_id?: string | null
+          razorpay_payment_id?: string | null
+          school_name?: string | null
+          status?: string
+          student_name?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
