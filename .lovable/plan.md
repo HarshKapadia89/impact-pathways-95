@@ -1,146 +1,73 @@
-## What "world class" means here
+# Take payment for each report (auto-verified via Razorpay)
 
-Right now the product is solid: a clean test, a 20-page report, a brand-aligned site. To go from "very good" to world-class, the gaps that show up clearest in the codebase + the 2 real submissions are:
+Today the pay page (`src/routes/test.pay.tsx`) shows a static QR and asks the student to type a UTR — the school then verifies manually. This plan replaces that with Razorpay so each report is paid for and **auto-verified** before the test starts. Pricing stays the same: ₹2,500 with `HBK1000` coupon → ₹1,500.
 
-1. **Trust on the landing page is thin.** No testimonials, no counsellor bio, no "How accurate is this?" page, no sample report inline (only static images). Parents pay ₹1,500 sight-unseen.
-2. **The PDF is the only deliverable.** No email of the report, no shareable web view, no parent-friendly summary, no follow-up.
-3. **The test result vanishes.** Once the PDF closes, the student/parent can't revisit it. There's no private link, no progress save during the test, no resume.
-4. **No social proof loop.** No way for a happy parent to share, no counsellor follow-up CTA, no review collection.
-5. **Counsellor / ops blind spot.** Admin can see submissions in a sheet, but there's no per-student review screen, no "send to parent" button, no notes by a counsellor.
+## What the student will see
 
-Picking the highest-leverage slice for this iteration (keeping it shippable in one round, not five): **a Parent + Student report-delivery layer, plus the trust upgrades on the landing page.** This single iteration moves conversion AND retention.
+1. Same intro page (`/test`) → name/grade/age form.
+2. New `/test/pay` flow:
+   - Order summary + coupon entry (unchanged UI).
+   - Click **Pay ₹1,500** → Razorpay Checkout opens (UPI / cards / netbanking / wallets).
+   - On success, page polls our backend; once webhook confirms payment, student is auto-redirected to `/test/take`.
+   - If they close Checkout, they can retry — same order is reused.
+3. `/test/take`, report PDF, and `/r/$token` are **only reachable** if the matching `payment_orders` row is `paid`.
 
----
+## What changes in the backend
 
-## Iteration goal
+### New table `payment_orders`
+- `id` (uuid, pk) — our internal order id, also used as `submission_id` once the test is taken.
+- `razorpay_order_id` (text, unique)
+- `razorpay_payment_id` (text, nullable)
+- `amount_paise` (int), `currency` (text default `INR`)
+- `status` (text: `created` | `paid` | `failed`), default `created`
+- `coupon` (text, nullable), `student_name`, `grade`, `age`, `email`, `mobile`, `school_name`, `language`
+- `paid_at` (timestamptz), `created_at`, `updated_at`
+- RLS: anon can `SELECT` own row by `id` (id acts as unguessable token); only service role can `INSERT`/`UPDATE`. (Insert/update happens in server functions with service role.)
 
-Every paying student walks away with:
-- a private, mobile-friendly **web report URL** they can revisit forever,
-- the **PDF emailed** to student + parent automatically,
-- a **one-page parent summary** at the top of the report (and on the web view),
-- the landing page now has the **proof a parent needs** before paying.
+### Server functions (`src/server/payments.functions.ts`)
+- `createPaymentOrder({ meta, coupon })` → calls Razorpay `POST /v1/orders`, inserts `payment_orders` row, returns `{ orderId, razorpayOrderId, amount, keyId }`. Coupon validated server-side (only `HBK1000` → ₹1,500, else ₹2,500) so the price can't be tampered with from the client.
+- `getPaymentStatus({ orderId })` → returns `status` for the polling UI.
 
----
+### Public webhook route `src/routes/api/public/razorpay-webhook.ts`
+- Verifies `X-Razorpay-Signature` HMAC-SHA256 against `RAZORPAY_WEBHOOK_SECRET`.
+- On `payment.captured`: marks the matching `payment_orders` row `paid`, stores `razorpay_payment_id` and `paid_at`.
+- On `payment.failed`: marks `failed`.
+- Returns 200 quickly; idempotent on repeat deliveries.
 
-## Part A — Trust upgrades on the public site
+### Submission linkage
+- `psychometric_submissions.id` will use the same uuid as `payment_orders.id`. `offlineSync.ts` already upserts by `id`, so no schema change needed there — we just pass the order id through to `/test/take`.
+- Sheet sync gets two extra columns (`razorpay_order_id`, `razorpay_payment_id`) so the school can reconcile.
 
-### A1. Inline interactive sample report on `/test`
-Today the sample is 5 static jpg screenshots. Replace the screenshot strip with a small embedded preview that:
-- Shows actual rendered cover (we already generate it via `openSampleReport`).
-- Has a "Flip through 20 pages" carousel (use existing 5 page screenshots + 3 new ones for: parent summary, careers, action plan).
-- Has a "See the full sample (English / Gujarati)" button — already wired, just promote it visually.
+## What changes in the frontend
 
-### A2. New `/about` page (counsellor + methodology)
-Trust comes from a real human + a real method. New route `/about` with:
-- Photo + bio of the counsellor / school principal (placeholder content with editable JSON).
-- "How the test works" — 3-paragraph explanation of RIASEC + MI + Aptitude with citations.
-- "How accurate?" — explain the affinity engine in plain language; note this is guidance, not destiny.
-- HBK school context (year founded, students served).
+- `test.pay.tsx`: drop UTR field + static QR. Add Razorpay Checkout (script loaded on demand from `https://checkout.razorpay.com/v1/checkout.js`). New flow:
+  1. On mount, call `createPaymentOrder` with the coupon → store `orderId` in `sessionStorage`.
+  2. Coupon "Apply" recreates the order at the new price.
+  3. **Pay** button opens Razorpay Checkout with `order_id`.
+  4. After checkout closes, poll `getPaymentStatus` every 2 s for up to 60 s. On `paid` → `navigate("/test/take")`.
+- `test.take.tsx`: on mount, refuse to render if `getPaymentStatus(orderId) !== "paid"` (redirect back to `/test/pay`).
+- Static QR asset (`payment-qr.jpg`) stays in repo but is no longer rendered.
 
-### A3. Testimonials section on `/` and `/test`
-- Carousel of 4–6 short quotes (start with placeholder content the school can replace).
-- Stored as a single `src/lib/testimonials.ts` JSON so the school can edit without code knowledge.
-- Show student first name + grade + city only.
+## Secrets & setup the user needs to add
 
-### A4. FAQ accordion on `/test`
-8–10 entries covering: refund policy, time required, who sees my data, can I retake, English vs Gujarati, what if I'm in grade 6 vs 12, how is this different from free tests online, do you give college admission help.
+To go live we'll need three secrets (added via the secrets tool, not committed):
+- `RAZORPAY_KEY_ID` (also exposed to client as a non-secret build var)
+- `RAZORPAY_KEY_SECRET`
+- `RAZORPAY_WEBHOOK_SECRET`
 
-### A5. SEO + share polish
-- Each route already has its own head() — verify and tighten meta descriptions.
-- Add `application/ld+json` `EducationalOrganization` + `Course` schema on `/test` so it shows rich results in Google.
-- Generate a real OG image (1200x630) for the home + `/test` instead of reusing the screenshot.
+In the Razorpay dashboard the user will need to:
+1. Create an account (test mode is fine to start) and grab the API key pair.
+2. Add a webhook pointing to `https://hbkcareers.org/api/public/razorpay-webhook` with the `payment.captured` and `payment.failed` events, then copy the webhook secret.
 
----
+We'll start in **test mode** so payments don't move real money until they switch to live keys.
 
-## Part B — Report delivery layer
+## Out of scope (intentionally)
 
-### B1. Shareable private web report (`/r/$reportId`)
-After the test, save the full report payload (already in `psychometric_results`) and mint a link like `/r/abc123`. The page is a beautiful, mobile-first web rendering of the same data the PDF uses:
-- Hero: name + Holland code + top intelligence + top stream.
-- Parent Summary card (see B3).
-- Tabs / sections matching the PDF: Interests, Intelligences, Aptitudes, Careers, Action Plan.
-- "Download PDF" button regenerates the PDF on demand.
-- "Share with parent" → copy link / WhatsApp / email pre-filled.
+- Refunds, partial payments, settlement reports — handled in Razorpay dashboard.
+- Per-school invoicing or GST line items.
+- Changing the price model or adding new coupons.
 
-Security: the URL contains a short random token; no auth required (parents are not logged in). RLS allows public read by `id` but not list — easy to enforce.
+## Files touched
 
-### B2. Email delivery via edge function
-- New edge function `send-report` that takes `reportId`, fetches the row, generates the PDF server-side (jsPDF runs in workers), and sends via Resend.
-- Triggers automatically after payment confirmation in `test.pay.tsx`.
-- Two recipients: student email (collected on `/test`) and an optional parent email field (add to the form).
-- Template is short + warm, signed by the counsellor, with the web link AND the attached PDF.
-- Requires user to add the `RESEND_API_KEY` secret + verified domain.
-
-### B3. Parent Summary page in the PDF + web report
-Insert a NEW page (page 2, before the TOC) titled "For Parents — what this means in 2 minutes":
-- Plain-language paragraph: "Aarav shows strong Investigative + Logical-Mathematical traits, suited to Science / Engineering paths."
-- 3 concrete next steps for the parent: "Talk about subjects in Class 11", "Visit one of these 3 sample colleges", "Encourage these activities".
-- Avoids jargon (no "RIASEC", no "Holland code") — that's for the rest of the report.
-
-### B4. Save-and-resume on the test
-Today, refreshing `/test/take` loses progress. Add localStorage autosave keyed by mobile number; show a "Resume your test" banner if a draft exists. Critical for a 60-min test on a phone.
-
----
-
-## Part C — Counsellor mini-dashboard
-
-A lightweight admin view at `/admin/submissions` showing each submission with:
-- Student name, grade, mobile, paid status, timestamp.
-- Top RIASEC / MI / stream at a glance.
-- "Open web report" link.
-- "Email PDF" button (re-trigger B2).
-- "Add counsellor note" — free text saved to a new column.
-
-This lets the school actually deliver value, not just collect payments.
-
----
-
-## What we're NOT doing this round
-
-- Cohort/school-level analytics (later).
-- Bulk codes / per-school pricing (later).
-- WhatsApp delivery (needs WhatsApp Business API setup — separate iteration).
-- Re-balancing the test item bank or extended 60-min version (assessment work, separate iteration).
-- Changing the PDF visual layout — we just add the Parent Summary page.
-
----
-
-## Files & data changes
-
-### Database (one migration)
-- Add `report_token TEXT UNIQUE` and `counsellor_note TEXT` and `parent_email TEXT` and `emailed_at TIMESTAMPTZ` to `psychometric_results`.
-- Add public-read RLS by `report_token` (so `/r/$token` works without auth) — list/select * stays admin-only.
-
-### New files
-- `src/routes/r.$token.tsx` — public web report.
-- `src/routes/about.tsx` — counsellor + methodology page.
-- `src/routes/admin.submissions.tsx` — counsellor dashboard.
-- `src/lib/testimonials.ts` — editable testimonials JSON.
-- `src/lib/parentSummary.ts` — narrative builder used by both PDF and web view.
-- `src/components/ReportWebView.tsx` — shared web rendering of report sections.
-- `src/components/Testimonials.tsx`, `src/components/SampleReportCarousel.tsx`, `src/components/FAQ.tsx`.
-- `supabase/functions/send-report/index.ts` — edge function for email delivery.
-
-### Modified
-- `src/routes/index.tsx` — add Testimonials + FAQ teaser + About link.
-- `src/routes/test.index.tsx` — replace screenshot strip with carousel; add FAQ; add parent email field.
-- `src/routes/test.pay.tsx` — on payment confirm, mint `report_token`, call `send-report`, redirect to `/r/$token` instead of straight PDF.
-- `src/routes/test.take.tsx` — autosave + resume banner.
-- `src/lib/psychometricReport.ts` — insert Parent Summary page (page 2).
-- `src/components/PublicLayout.tsx` — add `About` to nav.
-- `src/components/AdminLayout.tsx` — add `Submissions` link.
-
-### Secrets to request
-- `RESEND_API_KEY` (for email).
-- The user must verify a sending domain in Resend (we'll guide them).
-
----
-
-## How to judge success after this lands
-
-- Landing-to-test conversion: should rise meaningfully thanks to A1–A4.
-- Test completion rate: should rise thanks to B4 (resume).
-- Parent NPS / informal feedback: B2 + B3 turn the deliverable from "a PDF" into "a service".
-- Counsellor time per student: drops because C eliminates manual sheet hunting.
-
-If you'd rather front-load a different slice (assessment quality, cohort/school sales, or pure visual polish), say the word and I'll re-scope before any code is written.
+- New: `supabase/migrations/<ts>_payment_orders.sql`, `src/server/payments.functions.ts`, `src/server/payments.server.ts`, `src/routes/api/public/razorpay-webhook.ts`.
+- Edit: `src/routes/test.pay.tsx`, `src/routes/test.take.tsx`, `src/routes/r.$token.tsx` (gate by paid status), `src/server/sheetsSync.functions.ts` (extra columns), `src/lib/offlineSync.ts` (pass through `razorpay_payment_id`).
