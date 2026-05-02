@@ -24,18 +24,18 @@ const STORAGE_MODE = "hbk-mode-v1";
 
 export function applyStoredTheme() {
   if (typeof document === "undefined") return;
-  const theme = (localStorage.getItem(STORAGE_THEME) as ThemeId) || "indigo";
+  const theme = (localStorage.getItem(STORAGE_THEME) as ThemeId) || "ocean";
   const mode = localStorage.getItem(STORAGE_MODE) || "light";
   document.documentElement.setAttribute("data-theme", theme);
   document.documentElement.classList.toggle("dark", mode === "dark");
 }
 
 export function ThemeSwitcher({ lang = "en" as "en" | "gu" }) {
-  const [theme, setTheme] = useState<ThemeId>("indigo");
+  const [theme, setTheme] = useState<ThemeId>("ocean");
   const [mode, setMode] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    const t = (localStorage.getItem(STORAGE_THEME) as ThemeId) || "indigo";
+    const t = (localStorage.getItem(STORAGE_THEME) as ThemeId) || "ocean";
     const m = (localStorage.getItem(STORAGE_MODE) as "light" | "dark") || "light";
     setTheme(t);
     setMode(m);
