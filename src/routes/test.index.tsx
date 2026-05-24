@@ -31,7 +31,24 @@ import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
 import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
 
+type VibeId = "investigator" | "creator" | "builder" | "leader";
+const VIBE_IDS: VibeId[] = ["investigator", "creator", "builder", "leader"];
+
+const VIBE_BANNER: Record<VibeId, { emoji: string; name: string; nudge: string }> = {
+  investigator: { emoji: "🔬", name: "Investigator", nudge: "Your full report will dig deep into Investigative (RIASEC) and logical-mathematical intelligence — pay attention to the science & research streams." },
+  creator: { emoji: "🎨", name: "Creator", nudge: "Your full report will surface Artistic (RIASEC) and spatial intelligence strengths — watch for design, media and architecture matches." },
+  builder: { emoji: "🚀", name: "Builder", nudge: "Your full report will highlight Realistic (RIASEC) and bodily-kinesthetic intelligence — engineering, CS and trades are likely strong matches." },
+  leader: { emoji: "⚡", name: "Leader", nudge: "Your full report will spotlight Enterprising (RIASEC) and interpersonal intelligence — keep an eye on business, law and civil services." },
+};
+
 export const Route = createFileRoute("/test/")({
+  validateSearch: (search: Record<string, unknown>): { vibe?: VibeId } => {
+    const v = search.vibe;
+    if (typeof v === "string" && (VIBE_IDS as string[]).includes(v)) {
+      return { vibe: v as VibeId };
+    }
+    return {};
+  },
   head: () => ({
     meta: [
       { title: "Psychometric Aptitude Test (Grades 6–12) — 20-page Report | HBK Careers" },
@@ -55,6 +72,8 @@ export const Route = createFileRoute("/test/")({
 
 function TestIntro() {
   const navigate = useNavigate();
+  const { vibe } = Route.useSearch() as { vibe?: VibeId };
+  const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
@@ -84,6 +103,7 @@ function TestIntro() {
         mobile: mobileDigits,
         email: email.trim(),
         parent_email: parentEmail.trim() || null,
+        vibe: vibe ?? null,
       }),
     );
     navigate({ to: "/test/pay" });
@@ -156,6 +176,22 @@ function TestIntro() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
+            {vibeMeta && (
+              <div className="mb-5 rounded-2xl border border-accent/40 bg-gradient-to-r from-accent/10 via-card to-primary/5 p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
+                <div className="text-3xl leading-none">{vibeMeta.emoji}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] uppercase tracking-widest text-accent font-semibold">
+                    Vibe check complete
+                  </div>
+                  <div className="font-serif text-lg leading-tight mt-0.5">
+                    You're a <span className="text-accent">{vibeMeta.name}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                    {vibeMeta.nudge}
+                  </p>
+                </div>
+              </div>
+            )}
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent font-medium">
                 <Sparkles className="h-3.5 w-3.5" />
