@@ -388,6 +388,10 @@ function Result({
       .toString(36)
       .slice(2, 6)}`;
     setReportToken(token);
+    try {
+      localStorage.setItem("hbk-report-token", token);
+      localStorage.setItem("hbk-student-name", meta.name || "Student");
+    } catch { /* ignore */ }
     let deviceId = "";
     try {
       deviceId = localStorage.getItem("hbk-device-id") || "";
