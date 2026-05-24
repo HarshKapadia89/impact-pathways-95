@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import type { ReactNode } from "react";
-import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard } from "lucide-react";
+import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2 } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -9,11 +9,18 @@ import { useState } from "react";
 
 const NAV = [
   { to: "/", label: { en: "Home", gu: "મુખ્ય" }, icon: Sparkles },
-  { to: "/career", label: { en: "Career Guidance — Gujarat", gu: "કારકિર્દી માર્ગદર્શન — ગુજરાત" }, icon: Compass },
-  { to: "/handbook", label: { en: "Career Guidance — India", gu: "કારકિર્દી માર્ગદર્શન — ભારત" }, icon: BookOpen },
-  { to: "/find-college", label: { en: "Find Your College", gu: "તમારી કોલેજ શોધો" }, icon: Search },
+  { to: "/career", label: { en: "Career — Gujarat", gu: "કારકિર્દી — ગુજરાત" }, icon: Compass },
+  { to: "/handbook", label: { en: "Career — India", gu: "કારકિર્દી — ભારત" }, icon: BookOpen },
+  { to: "/find-college", label: { en: "Colleges", gu: "કોલેજો" }, icon: Search },
+  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ" }, icon: Award },
+  { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ" }, icon: FileCheck },
   { to: "/test", label: { en: "Aptitude Test", gu: "મનો-યોગ્યતા ટેસ્ટ" }, icon: Brain },
-  { to: "/dashboard", label: { en: "My Dashboard", gu: "મારું ડેશબોર્ડ" }, icon: LayoutDashboard },
+  { to: "/dashboard", label: { en: "Dashboard", gu: "ડેશબોર્ડ" }, icon: LayoutDashboard },
+];
+
+const FOOTER_EXTRA = [
+  { to: "/profile-builder", label: { en: "Resume Builder", gu: "રિઝ્યુમ બિલ્ડર" }, icon: FileText },
+  { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
 ];
 
 export function PublicLayout({ children }: { children: ReactNode }) {
