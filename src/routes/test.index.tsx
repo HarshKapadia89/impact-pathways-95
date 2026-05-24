@@ -176,6 +176,22 @@ function TestIntro() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
+            {vibeMeta && (
+              <div className="mb-5 rounded-2xl border border-accent/40 bg-gradient-to-r from-accent/10 via-card to-primary/5 p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
+                <div className="text-3xl leading-none">{vibeMeta.emoji}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] uppercase tracking-widest text-accent font-semibold">
+                    Vibe check complete
+                  </div>
+                  <div className="font-serif text-lg leading-tight mt-0.5">
+                    You're a <span className="text-accent">{vibeMeta.name}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                    {vibeMeta.nudge}
+                  </p>
+                </div>
+              </div>
+            )}
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent font-medium">
                 <Sparkles className="h-3.5 w-3.5" />
