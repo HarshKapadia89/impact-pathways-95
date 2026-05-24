@@ -301,7 +301,7 @@ function PathDetail() {
               <BookmarkButton
                 kind="career"
                 stream={stream.id}
-                pathKey={pathSlug(path)}
+                pathKey={pathSlug(path.title)}
                 title={path.title}
                 size="sm"
               />
