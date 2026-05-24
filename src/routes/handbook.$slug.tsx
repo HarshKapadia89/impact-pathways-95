@@ -8,9 +8,9 @@ import {
   streamEmoji,
 } from "@/lib/handbookData";
 import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
-import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, MapPin, Sparkles, BookOpen } from "lucide-react";
+import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, Sparkles, BookOpen } from "lucide-react";
 
-type TabKey = "professions" | "exams" | "institutes" | "gujarat";
+type TabKey = "professions" | "exams" | "institutes";
 
 export const Route = createFileRoute("/handbook/$slug")({
   loader: async ({ params }): Promise<{ stream: HandbookStream }> => {
@@ -75,14 +75,6 @@ function StreamDetail() {
     ) ?? "",
   );
 
-  const gujaratInstitutes = useMemo(() => {
-    if (!overview) return [];
-    const hints = overview.gujaratHints.map((h) => h.toLowerCase());
-    return stream.institutes.filter((it) => {
-      const hay = `${it.name} ${it.category ?? ""}`.toLowerCase();
-      return hints.some((h) => hay.includes(h));
-    });
-  }, [stream.institutes, overview]);
 
   const tabs: Array<{
     key: TabKey;
@@ -108,16 +100,6 @@ function StreamDetail() {
       icon: Building2,
       count: stream.institutes.length,
     },
-    ...(gujaratInstitutes.length
-      ? [
-          {
-            key: "gujarat" as TabKey,
-            label: { en: "Gujarat Picks", gu: "ગુજરાત પસંદગીઓ" },
-            icon: MapPin,
-            count: gujaratInstitutes.length,
-          },
-        ]
-      : []),
   ];
 
   return (
@@ -206,9 +188,6 @@ function StreamDetail() {
           {tab === "professions" && <ProfessionsList items={stream.professions} q={query} />}
           {tab === "exams" && <ExamsList items={stream.exams} q={query} />}
           {tab === "institutes" && <InstitutesList items={stream.institutes} q={query} lang={lang} />}
-          {tab === "gujarat" && (
-            <InstitutesList items={gujaratInstitutes} q={query} lang={lang} />
-          )}
         </div>
       </section>
 
@@ -243,9 +222,6 @@ function OverviewBlock({ overview }: { overview: HandbookOverview }) {
               </li>
             ))}
           </ul>
-          <div className="mt-4 pt-4 border-t border-border/60 text-xs text-foreground/75 italic">
-            {overview.hbkNote}
-          </div>
         </div>
       </div>
     </section>
