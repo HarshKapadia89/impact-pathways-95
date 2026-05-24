@@ -7,9 +7,10 @@ import {
   type HandbookStream,
   streamEmoji,
 } from "@/lib/handbookData";
-import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer } from "lucide-react";
+import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
+import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, MapPin, Sparkles, BookOpen } from "lucide-react";
 
-type TabKey = "professions" | "exams" | "institutes";
+type TabKey = "professions" | "exams" | "institutes" | "gujarat";
 
 export const Route = createFileRoute("/handbook/$slug")({
   loader: async ({ params }): Promise<{ stream: HandbookStream }> => {
