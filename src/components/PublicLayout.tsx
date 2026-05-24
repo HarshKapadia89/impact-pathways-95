@@ -20,6 +20,10 @@ const NAV = [
 ];
 
 const FOOTER_EXTRA = [
+  { to: "/about", label: { en: "About", gu: "વિશે" }, icon: Info },
+  { to: "/parents", label: { en: "For Parents", gu: "માતા-પિતા માટે" }, icon: Heart },
+  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતા" }, icon: Trophy },
+  { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો" }, icon: HelpCircle },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
 ];
 
