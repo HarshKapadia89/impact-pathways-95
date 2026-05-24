@@ -59,11 +59,14 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               >
                 <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-white" />
               </div>
-              <div className="leading-tight hidden sm:block">
+              <div className="leading-tight hidden xl:block">
                 <div className="font-serif text-base md:text-lg text-foreground tracking-tight">HBK Careers</div>
                 <div className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.15em]" style={{ color: "var(--brand-2, var(--accent))" }}>
                   {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
                 </div>
+              </div>
+              <div className="leading-tight hidden sm:block xl:hidden">
+                <div className="font-serif text-base text-foreground tracking-tight">HBK</div>
               </div>
             </Link>
 
