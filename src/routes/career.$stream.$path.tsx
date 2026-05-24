@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
+import { CareerRoadmap } from "@/components/CareerRoadmap";
+import { BookmarkButton } from "@/components/BookmarkButton";
 import {
   findPath,
   pathSlug,
