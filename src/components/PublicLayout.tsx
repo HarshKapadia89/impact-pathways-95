@@ -1,9 +1,10 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import type { ReactNode } from "react";
-import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2 } from "lucide-react";
+import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2, Heart, HelpCircle, Trophy, Info } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
+import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
 
 const NAV = [
