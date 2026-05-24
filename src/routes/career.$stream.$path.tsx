@@ -297,10 +297,19 @@ function PathDetail() {
               <ArrowLeft className="h-3.5 w-3.5" />
               {lang === "gu" ? stream.nameGu : stream.name}
             </Link>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
-              <MapPin className="h-3 w-3" />
-              {lang === "gu" ? "ગુજરાત-કેન્દ્રિત" : "Gujarat-focused"}
-            </span>
+            <div className="flex items-center gap-2">
+              <BookmarkButton
+                kind="career"
+                stream={stream.id}
+                pathKey={pathSlug(path)}
+                title={path.title}
+                size="sm"
+              />
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
+                <MapPin className="h-3 w-3" />
+                {lang === "gu" ? "ગુજરાત-કેન્દ્રિત" : "Gujarat-focused"}
+              </span>
+            </div>
           </div>
 
           <div className="mt-4 flex items-start gap-4">
