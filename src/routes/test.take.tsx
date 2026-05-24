@@ -558,6 +558,14 @@ function Result({
             })}
           </div>
         </div>
+
+        <AIInterpretationPanel
+          state={aiState}
+          interpretation={aiInterp}
+          model={aiModel}
+          error={aiError}
+          onRetry={runInterpretation}
+        />
       </section>
     </PublicLayout>
   );
