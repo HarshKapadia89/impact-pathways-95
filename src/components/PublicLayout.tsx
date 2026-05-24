@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import type { ReactNode } from "react";
-import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search } from "lucide-react";
+import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -13,6 +13,7 @@ const NAV = [
   { to: "/handbook", label: { en: "Career Guidance — India", gu: "કારકિર્દી માર્ગદર્શન — ભારત" }, icon: BookOpen },
   { to: "/find-college", label: { en: "Find Your College", gu: "તમારી કોલેજ શોધો" }, icon: Search },
   { to: "/test", label: { en: "Aptitude Test", gu: "મનો-યોગ્યતા ટેસ્ટ" }, icon: Brain },
+  { to: "/dashboard", label: { en: "My Dashboard", gu: "મારું ડેશબોર્ડ" }, icon: LayoutDashboard },
 ];
 
 export function PublicLayout({ children }: { children: ReactNode }) {

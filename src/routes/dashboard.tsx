@@ -525,12 +525,12 @@ function EmptyState({ title, desc, href, cta }: { title: string; desc: string; h
       <h3 className="font-serif text-xl">{title}</h3>
       <p className="text-sm text-muted-foreground mt-2 max-w-md mx-auto">{desc}</p>
       {href && cta && (
-        <Link
-          to={href}
+        <a
+          href={href}
           className="inline-flex mt-5 items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium"
         >
           {cta} <ChevronRight className="h-4 w-4" />
-        </Link>
+        </a>
       )}
     </div>
   );
