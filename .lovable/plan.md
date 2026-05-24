@@ -1,102 +1,108 @@
-# De-risk the handbook content (avoid mohitmangal.com copyright exposure)
+# Make the aptitude/psychometric test materially more accurate (AI-assisted)
 
-The 22 vertical handbooks under `src/lib/handbook/*.json` (engineering, medicine, commerce, design, etc.) clearly mirror Mohit Mangal's "22 career verticals" free handbook structure. The facts (entrance exams, degrees, college names, scope) are not copyrightable — but their **wording, ordering of bullets, taglines, and any distinctive phrasing** are. Same for FAQ/stream-choice articles if we've reused any of them.
+## Honest framing first
 
-The goal: keep every fact, lose every borrowed sentence, and make the result visibly *ours* — HBK Careers, Gujarat-rooted, in our voice — with primary public sources cited so we never depend on mohitmangal.com.
+No psychometric test can be "100% accurate" — that's not how the science works, and any product promising it loses credibility with counsellors and schools. What we *can* do is make HBK's test demonstrably more accurate than the typical Indian career-test product by combining:
 
-## Approach (recommended): heavy paraphrase + restructure + HBK layer
+1. **Validated deterministic scoring** (what we have — RIASEC, MI, aptitude % per category, grade-banded item pool). This must remain the source of truth.
+2. **AI-assisted response-quality checks** that catch the things that actually wreck accuracy in real student data: straight-lining, contradictory answers, rushing, language confusion.
+3. **An AI interpretation layer** that turns the raw scores into a personalised narrative + career recommendations using the **best available reasoning model**, grounded in our deterministic numbers (not free-form guessing).
+4. **A small calibration set** so we can measure accuracy honestly over time instead of asserting it.
 
-Three things happen to every handbook entry:
+The headline claim on the marketing page changes from "100% accuracy" to something defensible — e.g. *"Validated RIASEC + MI + aptitude scoring, reviewed by an AI counsellor model on every report."*
 
-1. **Rewrite** every prose sentence in HBK's voice (warmer, parent-friendly, bilingual-aware). Facts unchanged.
-2. **Restructure** sections into a new HBK schema (below) so the on-page order and grouping no longer match the source.
-3. **Augment** with HBK-original content that the source doesn't have — Gujarat colleges, GUJCET/ACPC exam paths, scholarship list from `gujaratColleges.ts`, alumni-style example student journeys, and a "How HBK helps" footer.
+## What currently exists (baseline)
 
-Net effect: same coverage and depth, ~0% sentence overlap with the source, and a unique local angle.
+- `src/lib/psychometricData.ts` — item bank (30 RIASEC + 24 MI + ~75 aptitude with grade bands) and `buildReport()` deterministic scoring.
+- `src/lib/careerMatch.ts` — `recommendStreamsAccurate` + `rankCareerPaths` mapping scores to streams/careers.
+- `src/lib/psychometricReport.ts` — PDF generation from the report object.
+- `src/routes/test.take.tsx` — test runner. No response-quality check; submits straight to PDF.
+- `supabase/functions/chat-career` — chatbot using `google/gemini-2.5-flash`.
 
-## New HBK handbook schema
+The scoring is deterministic and reasonable. The two real accuracy gaps are: (a) we don't detect low-quality response patterns, and (b) we don't use any AI to interpret the report — the PDF text comes from hand-written templates in `psychometricReportStrings.ts`.
 
-Each `src/lib/handbook/<slug>.json` migrates to:
+## The plan
 
-```jsonc
+### 1. Response-quality validation (deterministic, runs before AI)
+
+Add `src/lib/responseQuality.ts` that, given the raw RIASEC/MI/aptitude answers, computes:
+
+- **Straight-lining score**: % of identical consecutive Likert answers in each section. Flag > 60%.
+- **Variance score**: standard deviation per section. Flag near-zero variance.
+- **Contradiction score**: pairs of items in the same RIASEC type / MI type where the answers diverge by ≥ 3 points. Flag > N contradictions.
+- **Time-per-item** (if we capture it — small addition to `test.take.tsx`): flag sections answered faster than a realistic threshold (~2 sec/item).
+- **Aptitude effort**: % blank or "I don't know" responses.
+
+Output: `{ quality: "high" | "medium" | "low", flags: string[] }`. Low-quality submissions get a soft warning in the UI and a note on the PDF — "These results may not reflect the student accurately; retake recommended." This alone removes the biggest source of bad reports in real schools.
+
+### 2. New AI counsellor edge function — `supabase/functions/interpret-report`
+
+A new Lovable AI Gateway function that takes the *already-computed* `ScoreReport` plus quality flags and returns a structured interpretation.
+
+- **Model**: `openai/gpt-5.5` (top-tier reasoning) with `reasoning: { effort: "high" }`, fallback to `google/gemini-2.5-pro` if rate-limited. Both are on the Lovable AI Gateway, no extra keys needed.
+- **Structured output via tool calling** (not free-form JSON) with this schema:
+
+```ts
 {
-  "slug": "engineering-and-technology",
-  "title": "Engineering & Technology",
-  "tagline": "<HBK-original one-liner>",
-  "version": "hbk-v2",
-  "lastReviewed": "2026-05",
-  "sources": [
-    "https://www.aicte-india.org/...",
-    "https://gujacpc.admissions.nic.in/...",
-    "https://www.education.gov.in/..."
-  ],
-  "overview": "<3-4 paragraph HBK rewrite>",
-  "whoFitsWell": ["<RIASEC + MI cues, mapped to our test>"],
-  "subFields": [{ "name": "...", "whatYouDo": "...", "skillsBuilt": [...] }],
-  "afterClass10": { "streamsRequired": [...], "subjectsToTake": [...] },
-  "afterClass12": { "degreePaths": [...], "diplomaPaths": [...] },
-  "entranceExams": [{ "name": "JEE Main", "level": "national", "window": "Jan & Apr", "officialUrl": "..." }],
-  "topInstitutes": { "national": [...], "gujarat": [...] },     // Gujarat list = HBK addition
-  "scholarships": [...],                                         // pulled from our DB
-  "careerOutcomes": [{ "role": "...", "typicalEmployers": [...], "earlySalaryRangeINR": "..." }],
-  "studentJourneys": [                                           // HBK-original mini case studies
-    { "name": "Riya, Ahmedabad", "path": "Class 11 PCM \u2192 GUJCET \u2192 LDCE \u2192 ..." }
-  ],
-  "commonMisconceptions": ["<HBK-written, not copied>"],
-  "hbkNextSteps": "<how HBK counsellors / the test help here>"
+  consistencyVerdict: "high" | "medium" | "low",
+  consistencyExplanation: string,
+  riasecNarrative: string,            // 2 short paras, references actual top-3 types
+  miNarrative: string,                // 2 short paras, references actual top-3 intelligences
+  aptitudeNarrative: string,          // ties aptitude % to RIASEC/MI fit
+  recommendedStreams: [{ slug, fitRationale }],   // must be one of our 20 handbook slugs
+  recommendedCareers: [{ name, fitRationale, watchOuts }],
+  developmentSuggestions: string[],
+  parentTalkingPoints: string[],
+  redFlags: string[]                  // e.g. "answered too fast", "all 3s"
 }
 ```
 
-The fields `tagline`, `whoFitsWell`, `topInstitutes.gujarat`, `scholarships`, `studentJourneys`, `commonMisconceptions`, and `hbkNextSteps` are **net-new HBK content** — together they make each page substantially different from the source.
+- **Grounding rules** baked into the system prompt: only use the numbers we pass in; never invent scores; recommended streams MUST be from our 20-slug list; if quality is "low", say so plainly instead of producing a confident narrative.
+- **Two-model cross-check** (optional toggle, off by default to control cost): if `consistencyVerdict` is "high" but the second model disagrees on the top stream, mark the report as `needs-counsellor-review`.
 
-## How the rewrite is done (operationally)
+### 3. Wire the interpretation into the report
 
-For each of the 22 handbooks:
+- `src/routes/test.take.tsx` — after `buildReport()`, call the new edge function, await the structured response, and pass it into PDF generation.
+- `src/lib/psychometricReport.ts` — render the AI narrative sections alongside the existing deterministic charts. The numbers (RIASEC bars, MI bars, aptitude %) stay exactly as they are; the AI only writes the prose around them.
+- Cache the AI response in the saved report so re-opening doesn't re-call the model.
+- Loading state in the UI: "Your counsellor AI is reviewing your answers… ~15–25 sec."
 
-1. **Extract facts** from the existing JSON into a "facts only" sheet (lists of exams, degrees, colleges, salaries — no prose).
-2. **Re-source every fact** against a primary public source and record it in `sources[]`:
-   - AICTE, NMC, BCI, ICAI, NCHMCT, COA for regulators
-   - Official exam sites (JEE, NEET, CLAT, NIFT, NID, CUET, GUJCET, ACPC) for windows & eligibility
-   - Official college sites for fees / programmes
-   - NCERT / Ministry of Education for stream/subject framing
-3. **Generate fresh prose** with Lovable AI Gateway (Gemini 2.5 Pro) using a strict prompt: "Write in HBK Careers' voice for an Indian Class 9–12 student and parent. Use only the facts in the input JSON. Do not reuse phrasing from any external site. Keep paragraphs short. Add bilingual-friendly word choices."
-4. **Manual pass** by a counsellor (you / school staff) on 2–3 handbooks first to lock the voice, then apply the same prompt template to the other 19.
-5. **Plagiarism check** — run each rewritten handbook through a similarity check vs the original source (script using cosine similarity on shingled n-grams). Anything > 15% overlap goes back through step 3.
+### 4. Calibrate the item bank itself (one-time cleanup)
 
-## What changes in the codebase
+A one-off `scripts/auditItems.ts` (not shipped) that uses GPT-5.5 to review every item in `psychometricData.ts` for:
+- Ambiguity / double-barrelled wording
+- Gujarati translation drift vs the English original
+- Aptitude items with multiple defensible answers
+- RIASEC items that map to the wrong type
+- Difficulty mis-bucketing by grade band
 
-- **`src/lib/handbook/*.json` (22 files)** — rewritten in place to the new schema above. Old fields removed.
-- **`src/lib/handbookData.ts`** — extend the TypeScript type to match the new schema; provide back-compat getters so existing pages don't break during the migration.
-- **`src/routes/handbook.$slug.tsx`** — render the new sections (`whoFitsWell`, `topInstitutes.gujarat`, `studentJourneys`, `commonMisconceptions`, `hbkNextSteps`, `sources`). Add a small "Sources" footer listing `sources[]` as links.
-- **`src/lib/handbookSummaries.json`** — regenerated from the new `tagline` + first paragraph so the index page reflects the new copy.
-- **New `scripts/rewriteHandbook.ts`** (one-off, runs locally) — reads old JSON, calls Lovable AI Gateway with the template prompt, writes new JSON. Not shipped to the app bundle.
-- **New `scripts/similarityCheck.ts`** — compares each new handbook against a `sources/originals/*.txt` cache (gitignored) and prints overlap %. Used as a gate before merging.
-- **Footer note on every handbook page**: "© HBK Careers. Compiled from public sources (AICTE, NCERT, official exam and college websites)." Removes any implicit attribution to a third party.
+The script outputs a CSV of suggested fixes; you (or a counsellor) approve them; we patch `psychometricData.ts`. This is the single highest-leverage accuracy win — bad items create bad scores no matter how good the AI on top is.
 
-## Other surfaces to audit
+### 5. Marketing/UX honesty
 
-While we're at it, sweep these for borrowed phrasing and apply the same paraphrase pass:
+Replace any "100% accurate" copy with one of:
+- "Validated RIASEC + Multiple Intelligences + grade-banded aptitude, every report reviewed by an AI counsellor."
+- "Each report is double-checked: deterministic scoring + an AI consistency review before it reaches you."
+- Add a "How accurate is this?" link on `/test` that explains the methodology, the response-quality checks, and the option to retake.
 
-- `src/lib/psychometricReportStrings.ts` (report copy) — if any RIASEC/MI descriptions came from a counselling site, rewrite.
-- `src/lib/parentSummary.ts` — verify the parent-facing tone is HBK-original.
-- `src/lib/chatbotContext.ts` — the system prompt should reference HBK + cited public sources, not any third party.
-- `src/routes/index.tsx`, `src/routes/test.index.tsx`, `src/routes/career.*` — any tagline or "why a career test matters" paragraph gets the same rewrite.
+### 6. Measurement (so we can improve over time)
 
-## What we deliberately do NOT do
+Add a `report_feedback` table: student/parent/counsellor rates each report 1–5 + free-text. Surface aggregate accuracy in the admin view. Without measurement, "accuracy" is just a vibe.
 
-- Don't shrink the catalog — all 22 verticals stay.
-- Don't drop facts (entrance exams, college lists, salary ranges).
-- Don't claim originality on data that is public (exam dates, eligibility) — just cite the official source.
-- Don't keep any verbatim taglines, headings, or "did you know" boxes from the source.
+## Files we'll touch
 
-## Risk after this work
+- **New**: `supabase/functions/interpret-report/index.ts` (+ `supabase/config.toml` block)
+- **New**: `src/lib/responseQuality.ts`
+- **New**: `src/lib/aiInterpretation.ts` (client wrapper + types)
+- **New**: `scripts/auditItems.ts` (one-off, local)
+- **New migration**: `report_feedback` table with RLS
+- **Edited**: `src/lib/psychometricReport.ts` (render AI sections)
+- **Edited**: `src/routes/test.take.tsx` (call interpretation, show loading, capture timing)
+- **Edited**: `src/routes/test.index.tsx` (replace accuracy claims with honest copy + methodology link)
+- **Edited**: `src/lib/sampleReport.ts` (include sample AI narrative so the sample PDF reflects the new flow)
 
-- **Copyright**: very low — facts are uncopyrightable, prose is rewritten and AI-paraphrased with a similarity gate, structure is HBK-specific, and we add substantial original sections (Gujarat layer, journeys, HBK next steps).
-- **Trademark**: zero — we never mention or imply Mohit Mangal anywhere.
-- **Accuracy**: improved, because every fact is now tied to a primary public source in `sources[]` and dated via `lastReviewed`.
+## What I am NOT proposing
 
-## Suggested rollout
-
-1. Migrate the schema + rewrite **2 pilot handbooks** (e.g. Engineering, Commerce) end-to-end so you can sign off on the voice.
-2. Apply the same template to the remaining 20.
-3. Run the similarity gate, fix outliers, then ship.
+- Replacing the deterministic score with an AI score. The numbers stay deterministic and auditable — the AI only interprets them.
+- Sending raw answers to the AI before scoring. The AI sees aggregated scores + quality flags only — no item-level data — to keep latency, cost and risk down.
+- Claiming "100% accuracy" anywhere in the product. We'd rather lose that line than lose a counsellor's trust.
