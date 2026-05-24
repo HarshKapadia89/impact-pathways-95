@@ -8,7 +8,7 @@ import {
   streamEmoji,
 } from "@/lib/handbookData";
 import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
-import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, MapPin, Sparkles, BookOpen } from "lucide-react";
+import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, Sparkles, BookOpen } from "lucide-react";
 
 type TabKey = "professions" | "exams" | "institutes" | "gujarat";
 
