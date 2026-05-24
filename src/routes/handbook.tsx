@@ -89,10 +89,10 @@ function HandbookIndex() {
             <Stat n={totals.institutes} label={lang === "gu" ? "સંસ્થાઓ" : "top institutes"} />
             <Stat n={20} label={lang === "gu" ? "પ્રવાહો" : "streams"} />
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">
+          <p className="mt-3 text-xs text-muted-foreground max-w-3xl leading-relaxed">
             {lang === "gu"
-              ? "સ્રોત: પેરેન્ટ્સ કારકિર્દી હેન્ડબુક (mohitmangal.com)"
-              : "Source: Parents' Career Handbook (mohitmangal.com)"}
+              ? "© HBK Careers. અધિકૃત નિયમનકારી અને પરીક્ષા સંસ્થાઓના જાહેર સ્ત્રોતોમાંથી HBK દ્વારા સંકલિત — AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC ગુજરાત અને સંબંધિત મંત્રાલયો. દરેક પ્રવાહ પૃષ્ઠના તળિયે વિગતવાર સ્ત્રોતો સૂચિબદ્ધ છે."
+              : "© HBK Careers. Compiled in-house from public sources — official regulators and exam bodies including AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC Gujarat and the relevant ministries. Detailed sources are listed at the bottom of every stream page."}
           </p>
         </div>
       </section>
