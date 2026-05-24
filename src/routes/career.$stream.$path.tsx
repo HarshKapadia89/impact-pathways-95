@@ -454,6 +454,11 @@ function PathDetail() {
         </div>
       </section>
 
+      {/* Career roadmap */}
+      <section className={`${sectionClass} pb-8`}>
+        <CareerRoadmap stream={stream} path={path} lang={lang} />
+      </section>
+
       {/* Why Gujarat */}
       {extras.whyGujarat.length > 0 && (
         <section className={`${sectionClass} pb-8`}>
