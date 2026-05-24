@@ -11,21 +11,25 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestRouteImport } from './routes/test'
 import { Route as TeachersRouteImport } from './routes/teachers'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as SessionsRouteImport } from './routes/sessions'
 import { Route as SchoolsRouteImport } from './routes/schools'
 import { Route as ScholarshipsRouteImport } from './routes/scholarships'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ProfileBuilderRouteImport } from './routes/profile-builder'
+import { Route as ParentsRouteImport } from './routes/parents'
 import { Route as HandbookRouteImport } from './routes/handbook'
 import { Route as ForSchoolsRouteImport } from './routes/for-schools'
 import { Route as FindCollegeRouteImport } from './routes/find-college'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CollegesRouteImport } from './routes/colleges'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TestIndexRouteImport } from './routes/test.index'
 import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
@@ -51,6 +55,11 @@ const TestRoute = TestRouteImport.update({
 const TeachersRoute = TeachersRouteImport.update({
   id: '/teachers',
   path: '/teachers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SessionsRoute = SessionsRouteImport.update({
@@ -83,6 +92,11 @@ const ProfileBuilderRoute = ProfileBuilderRouteImport.update({
   path: '/profile-builder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ParentsRoute = ParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HandbookRoute = HandbookRouteImport.update({
   id: '/handbook',
   path: '/handbook',
@@ -96,6 +110,11 @@ const ForSchoolsRoute = ForSchoolsRouteImport.update({
 const FindCollegeRoute = FindCollegeRouteImport.update({
   id: '/find-college',
   path: '/find-college',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamsRoute = ExamsRouteImport.update({
@@ -126,6 +145,11 @@ const AuthRoute = AuthRouteImport.update({
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -211,21 +235,25 @@ const CareerStreamPathRoute = CareerStreamPathRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
   '/dashboard': typeof DashboardRoute
   '/exams': typeof ExamsRoute
+  '/faq': typeof FaqRoute
   '/find-college': typeof FindCollegeRoute
   '/for-schools': typeof ForSchoolsRoute
   '/handbook': typeof HandbookRouteWithChildren
+  '/parents': typeof ParentsRoute
   '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
   '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
+  '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
   '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
@@ -246,21 +274,25 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
   '/dashboard': typeof DashboardRoute
   '/exams': typeof ExamsRoute
+  '/faq': typeof FaqRoute
   '/find-college': typeof FindCollegeRoute
   '/for-schools': typeof ForSchoolsRoute
   '/handbook': typeof HandbookRouteWithChildren
+  '/parents': typeof ParentsRoute
   '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
   '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
+  '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
   '/admin/colleges': typeof AdminCollegesRoute
   '/handbook/$slug': typeof HandbookSlugRoute
@@ -280,21 +312,25 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
   '/dashboard': typeof DashboardRoute
   '/exams': typeof ExamsRoute
+  '/faq': typeof FaqRoute
   '/find-college': typeof FindCollegeRoute
   '/for-schools': typeof ForSchoolsRoute
   '/handbook': typeof HandbookRouteWithChildren
+  '/parents': typeof ParentsRoute
   '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
   '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
+  '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
   '/test': typeof TestRouteWithChildren
   '/admin/colleges': typeof AdminCollegesRoute
@@ -317,21 +353,25 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/admin'
     | '/auth'
     | '/career'
     | '/colleges'
     | '/dashboard'
     | '/exams'
+    | '/faq'
     | '/find-college'
     | '/for-schools'
     | '/handbook'
+    | '/parents'
     | '/profile-builder'
     | '/programs'
     | '/reports'
     | '/scholarships'
     | '/schools'
     | '/sessions'
+    | '/success-stories'
     | '/teachers'
     | '/test'
     | '/admin/colleges'
@@ -352,21 +392,25 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/admin'
     | '/auth'
     | '/career'
     | '/colleges'
     | '/dashboard'
     | '/exams'
+    | '/faq'
     | '/find-college'
     | '/for-schools'
     | '/handbook'
+    | '/parents'
     | '/profile-builder'
     | '/programs'
     | '/reports'
     | '/scholarships'
     | '/schools'
     | '/sessions'
+    | '/success-stories'
     | '/teachers'
     | '/admin/colleges'
     | '/handbook/$slug'
@@ -385,21 +429,25 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/admin'
     | '/auth'
     | '/career'
     | '/colleges'
     | '/dashboard'
     | '/exams'
+    | '/faq'
     | '/find-college'
     | '/for-schools'
     | '/handbook'
+    | '/parents'
     | '/profile-builder'
     | '/programs'
     | '/reports'
     | '/scholarships'
     | '/schools'
     | '/sessions'
+    | '/success-stories'
     | '/teachers'
     | '/test'
     | '/admin/colleges'
@@ -421,21 +469,25 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
   CareerRoute: typeof CareerRouteWithChildren
   CollegesRoute: typeof CollegesRoute
   DashboardRoute: typeof DashboardRoute
   ExamsRoute: typeof ExamsRoute
+  FaqRoute: typeof FaqRoute
   FindCollegeRoute: typeof FindCollegeRoute
   ForSchoolsRoute: typeof ForSchoolsRoute
   HandbookRoute: typeof HandbookRouteWithChildren
+  ParentsRoute: typeof ParentsRoute
   ProfileBuilderRoute: typeof ProfileBuilderRoute
   ProgramsRoute: typeof ProgramsRoute
   ReportsRoute: typeof ReportsRoute
   ScholarshipsRoute: typeof ScholarshipsRoute
   SchoolsRoute: typeof SchoolsRoute
   SessionsRoute: typeof SessionsRoute
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
   TeachersRoute: typeof TeachersRoute
   TestRoute: typeof TestRouteWithChildren
   RTokenRoute: typeof RTokenRoute
@@ -461,6 +513,13 @@ declare module '@tanstack/react-router' {
       path: '/teachers'
       fullPath: '/teachers'
       preLoaderRoute: typeof TeachersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sessions': {
@@ -505,6 +564,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileBuilderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/parents': {
+      id: '/parents'
+      path: '/parents'
+      fullPath: '/parents'
+      preLoaderRoute: typeof ParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/handbook': {
       id: '/handbook'
       path: '/handbook'
@@ -524,6 +590,13 @@ declare module '@tanstack/react-router' {
       path: '/find-college'
       fullPath: '/find-college'
       preLoaderRoute: typeof FindCollegeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exams': {
@@ -566,6 +639,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -746,21 +826,25 @@ const TestRouteWithChildren = TestRoute._addFileChildren(TestRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
   CareerRoute: CareerRouteWithChildren,
   CollegesRoute: CollegesRoute,
   DashboardRoute: DashboardRoute,
   ExamsRoute: ExamsRoute,
+  FaqRoute: FaqRoute,
   FindCollegeRoute: FindCollegeRoute,
   ForSchoolsRoute: ForSchoolsRoute,
   HandbookRoute: HandbookRouteWithChildren,
+  ParentsRoute: ParentsRoute,
   ProfileBuilderRoute: ProfileBuilderRoute,
   ProgramsRoute: ProgramsRoute,
   ReportsRoute: ReportsRoute,
   ScholarshipsRoute: ScholarshipsRoute,
   SchoolsRoute: SchoolsRoute,
   SessionsRoute: SessionsRoute,
+  SuccessStoriesRoute: SuccessStoriesRoute,
   TeachersRoute: TeachersRoute,
   TestRoute: TestRouteWithChildren,
   RTokenRoute: RTokenRoute,
@@ -774,12 +858,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

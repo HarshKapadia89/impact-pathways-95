@@ -1,9 +1,10 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import type { ReactNode } from "react";
-import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2 } from "lucide-react";
+import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2, Heart, HelpCircle, Trophy, Info } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
+import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
 
 const NAV = [
@@ -19,6 +20,10 @@ const NAV = [
 ];
 
 const FOOTER_EXTRA = [
+  { to: "/about", label: { en: "About", gu: "વિશે" }, icon: Info },
+  { to: "/parents", label: { en: "For Parents", gu: "માતા-પિતા માટે" }, icon: Heart },
+  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતા" }, icon: Trophy },
+  { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો" }, icon: HelpCircle },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
 ];
 
@@ -198,6 +203,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
         </div>
       </footer>
 
+      <StickyMobileCTA />
       <CareerChatbot />
     </div>
   );
