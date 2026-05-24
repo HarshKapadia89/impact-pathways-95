@@ -68,7 +68,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </Link>
 
             {/* Nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center overflow-x-auto no-scrollbar mx-2">
+            <nav className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0 overflow-x-auto no-scrollbar mx-1 px-1">
               {NAV.map((item) => {
                 const Icon = item.icon;
                 const active =
