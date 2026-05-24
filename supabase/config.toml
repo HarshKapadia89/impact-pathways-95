@@ -1,1 +1,7 @@
 project_id = "dxfqudbidfjrtjkkuhba"
+
+[functions.chat-career]
+verify_jwt = false
+
+[functions.interpret-report]
+verify_jwt = false
