@@ -69,6 +69,21 @@ function StreamDetail() {
   const [tab, setTab] = useState<TabKey>("professions");
   const [query, setQuery] = useState("");
 
+  const overview = getOverview(
+    Object.keys(HANDBOOK_SUMMARY_BY_SLUG).find(
+      (s) => HANDBOOK_SUMMARY_BY_SLUG[s].stream === stream.stream,
+    ) ?? "",
+  );
+
+  const gujaratInstitutes = useMemo(() => {
+    if (!overview) return [];
+    const hints = overview.gujaratHints.map((h) => h.toLowerCase());
+    return stream.institutes.filter((it) => {
+      const hay = `${it.name} ${it.category ?? ""}`.toLowerCase();
+      return hints.some((h) => hay.includes(h));
+    });
+  }, [stream.institutes, overview]);
+
   const tabs: Array<{
     key: TabKey;
     label: { en: string; gu: string };
@@ -93,6 +108,16 @@ function StreamDetail() {
       icon: Building2,
       count: stream.institutes.length,
     },
+    ...(gujaratInstitutes.length
+      ? [
+          {
+            key: "gujarat" as TabKey,
+            label: { en: "Gujarat Picks", gu: "ગુજરાત પસંદગીઓ" },
+            icon: MapPin,
+            count: gujaratInstitutes.length,
+          },
+        ]
+      : []),
   ];
 
   return (
