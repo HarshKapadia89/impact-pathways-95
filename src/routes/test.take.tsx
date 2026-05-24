@@ -202,7 +202,7 @@ function TakeTest() {
   if (!meta || !payment) return null;
 
   if (done) {
-    return <Result meta={meta} payment={payment} aptItems={aptItems} riasec={riasec} mi={mi} apt={apt} />;
+    return <Result meta={meta} payment={payment} aptItems={aptItems} riasec={riasec} mi={mi} apt={apt} startedAt={startedAt} finishedAt={finishedAt ?? Date.now()} />;
   }
 
   return (
