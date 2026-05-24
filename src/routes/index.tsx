@@ -2,6 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
+import { HowItWorks } from "@/components/HowItWorks";
+import { ReportPreview } from "@/components/ReportPreview";
+import { VibeQuizCard } from "@/components/VibeQuizCard";
+import { FAQAccordion } from "@/components/FAQAccordion";
 import { STREAMS } from "@/lib/careerData";
 import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-react";
 
