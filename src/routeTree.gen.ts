@@ -13,10 +13,14 @@ import { Route as TestRouteImport } from './routes/test'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as SessionsRouteImport } from './routes/sessions'
 import { Route as SchoolsRouteImport } from './routes/schools'
+import { Route as ScholarshipsRouteImport } from './routes/scholarships'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as ProfileBuilderRouteImport } from './routes/profile-builder'
 import { Route as HandbookRouteImport } from './routes/handbook'
+import { Route as ForSchoolsRouteImport } from './routes/for-schools'
 import { Route as FindCollegeRouteImport } from './routes/find-college'
+import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CollegesRouteImport } from './routes/colleges'
 import { Route as CareerRouteImport } from './routes/career'
@@ -59,6 +63,11 @@ const SchoolsRoute = SchoolsRouteImport.update({
   path: '/schools',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScholarshipsRoute = ScholarshipsRouteImport.update({
+  id: '/scholarships',
+  path: '/scholarships',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportsRoute = ReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
@@ -69,14 +78,29 @@ const ProgramsRoute = ProgramsRouteImport.update({
   path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileBuilderRoute = ProfileBuilderRouteImport.update({
+  id: '/profile-builder',
+  path: '/profile-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HandbookRoute = HandbookRouteImport.update({
   id: '/handbook',
   path: '/handbook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForSchoolsRoute = ForSchoolsRouteImport.update({
+  id: '/for-schools',
+  path: '/for-schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FindCollegeRoute = FindCollegeRouteImport.update({
   id: '/find-college',
   path: '/find-college',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamsRoute = ExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -192,10 +216,14 @@ export interface FileRoutesByFullPath {
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
   '/dashboard': typeof DashboardRoute
+  '/exams': typeof ExamsRoute
   '/find-college': typeof FindCollegeRoute
+  '/for-schools': typeof ForSchoolsRoute
   '/handbook': typeof HandbookRouteWithChildren
+  '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
+  '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
@@ -223,10 +251,14 @@ export interface FileRoutesByTo {
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
   '/dashboard': typeof DashboardRoute
+  '/exams': typeof ExamsRoute
   '/find-college': typeof FindCollegeRoute
+  '/for-schools': typeof ForSchoolsRoute
   '/handbook': typeof HandbookRouteWithChildren
+  '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
+  '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
@@ -253,10 +285,14 @@ export interface FileRoutesById {
   '/career': typeof CareerRouteWithChildren
   '/colleges': typeof CollegesRoute
   '/dashboard': typeof DashboardRoute
+  '/exams': typeof ExamsRoute
   '/find-college': typeof FindCollegeRoute
+  '/for-schools': typeof ForSchoolsRoute
   '/handbook': typeof HandbookRouteWithChildren
+  '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
+  '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
   '/teachers': typeof TeachersRoute
@@ -286,10 +322,14 @@ export interface FileRouteTypes {
     | '/career'
     | '/colleges'
     | '/dashboard'
+    | '/exams'
     | '/find-college'
+    | '/for-schools'
     | '/handbook'
+    | '/profile-builder'
     | '/programs'
     | '/reports'
+    | '/scholarships'
     | '/schools'
     | '/sessions'
     | '/teachers'
@@ -317,10 +357,14 @@ export interface FileRouteTypes {
     | '/career'
     | '/colleges'
     | '/dashboard'
+    | '/exams'
     | '/find-college'
+    | '/for-schools'
     | '/handbook'
+    | '/profile-builder'
     | '/programs'
     | '/reports'
+    | '/scholarships'
     | '/schools'
     | '/sessions'
     | '/teachers'
@@ -346,10 +390,14 @@ export interface FileRouteTypes {
     | '/career'
     | '/colleges'
     | '/dashboard'
+    | '/exams'
     | '/find-college'
+    | '/for-schools'
     | '/handbook'
+    | '/profile-builder'
     | '/programs'
     | '/reports'
+    | '/scholarships'
     | '/schools'
     | '/sessions'
     | '/teachers'
@@ -378,10 +426,14 @@ export interface RootRouteChildren {
   CareerRoute: typeof CareerRouteWithChildren
   CollegesRoute: typeof CollegesRoute
   DashboardRoute: typeof DashboardRoute
+  ExamsRoute: typeof ExamsRoute
   FindCollegeRoute: typeof FindCollegeRoute
+  ForSchoolsRoute: typeof ForSchoolsRoute
   HandbookRoute: typeof HandbookRouteWithChildren
+  ProfileBuilderRoute: typeof ProfileBuilderRoute
   ProgramsRoute: typeof ProgramsRoute
   ReportsRoute: typeof ReportsRoute
+  ScholarshipsRoute: typeof ScholarshipsRoute
   SchoolsRoute: typeof SchoolsRoute
   SessionsRoute: typeof SessionsRoute
   TeachersRoute: typeof TeachersRoute
@@ -425,6 +477,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchoolsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scholarships': {
+      id: '/scholarships'
+      path: '/scholarships'
+      fullPath: '/scholarships'
+      preLoaderRoute: typeof ScholarshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reports': {
       id: '/reports'
       path: '/reports'
@@ -439,6 +498,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile-builder': {
+      id: '/profile-builder'
+      path: '/profile-builder'
+      fullPath: '/profile-builder'
+      preLoaderRoute: typeof ProfileBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/handbook': {
       id: '/handbook'
       path: '/handbook'
@@ -446,11 +512,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HandbookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/for-schools': {
+      id: '/for-schools'
+      path: '/for-schools'
+      fullPath: '/for-schools'
+      preLoaderRoute: typeof ForSchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/find-college': {
       id: '/find-college'
       path: '/find-college'
       fullPath: '/find-college'
       preLoaderRoute: typeof FindCollegeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exams': {
+      id: '/exams'
+      path: '/exams'
+      fullPath: '/exams'
+      preLoaderRoute: typeof ExamsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -671,10 +751,14 @@ const rootRouteChildren: RootRouteChildren = {
   CareerRoute: CareerRouteWithChildren,
   CollegesRoute: CollegesRoute,
   DashboardRoute: DashboardRoute,
+  ExamsRoute: ExamsRoute,
   FindCollegeRoute: FindCollegeRoute,
+  ForSchoolsRoute: ForSchoolsRoute,
   HandbookRoute: HandbookRouteWithChildren,
+  ProfileBuilderRoute: ProfileBuilderRoute,
   ProgramsRoute: ProgramsRoute,
   ReportsRoute: ReportsRoute,
+  ScholarshipsRoute: ScholarshipsRoute,
   SchoolsRoute: SchoolsRoute,
   SessionsRoute: SessionsRoute,
   TeachersRoute: TeachersRoute,
