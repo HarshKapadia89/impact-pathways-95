@@ -72,7 +72,7 @@ export const Route = createFileRoute("/test/")({
 
 function TestIntro() {
   const navigate = useNavigate();
-  const { vibe } = Route.useSearch();
+  const { vibe } = Route.useSearch() as { vibe?: VibeId };
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
