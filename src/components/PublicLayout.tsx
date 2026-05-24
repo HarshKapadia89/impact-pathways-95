@@ -97,7 +97,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground hover:text-foreground transition-all hover:bg-accent/10 ${
+                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap shrink-0 text-muted-foreground hover:text-foreground transition-all hover:bg-accent/10 ${
                       isResume ? "border border-accent/30 font-semibold text-foreground hover:bg-accent/15" : ""
                     }`}
                   >
