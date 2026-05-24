@@ -156,6 +156,13 @@ function HomePage() {
 
       <TrustLayer lang={lang} />
 
+      <HowItWorks lang={lang} />
+
+      <ReportPreview lang={lang} />
+
+      <VibeQuizCard lang={lang} />
+
+
       {/* Streams strip */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-12">
         <div className="flex items-end justify-between gap-3 mb-6">
