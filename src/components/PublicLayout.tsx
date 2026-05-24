@@ -203,6 +203,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
         </div>
       </footer>
 
+      <StickyMobileCTA />
       <CareerChatbot />
     </div>
   );
