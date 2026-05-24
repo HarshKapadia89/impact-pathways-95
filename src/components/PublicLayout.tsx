@@ -79,7 +79,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="relative flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-white whitespace-nowrap transition-all duration-300"
+                      className="relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-semibold text-white whitespace-nowrap shrink-0 transition-all duration-300"
                     >
                       <div
                         className="absolute inset-0 rounded-full"
