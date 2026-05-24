@@ -7,9 +7,10 @@ import {
   type HandbookStream,
   streamEmoji,
 } from "@/lib/handbookData";
-import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer } from "lucide-react";
+import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
+import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, MapPin, Sparkles, BookOpen } from "lucide-react";
 
-type TabKey = "professions" | "exams" | "institutes";
+type TabKey = "professions" | "exams" | "institutes" | "gujarat";
 
 export const Route = createFileRoute("/handbook/$slug")({
   loader: async ({ params }): Promise<{ stream: HandbookStream }> => {
@@ -68,6 +69,21 @@ function StreamDetail() {
   const [tab, setTab] = useState<TabKey>("professions");
   const [query, setQuery] = useState("");
 
+  const overview = getOverview(
+    Object.keys(HANDBOOK_SUMMARY_BY_SLUG).find(
+      (s) => HANDBOOK_SUMMARY_BY_SLUG[s].stream === stream.stream,
+    ) ?? "",
+  );
+
+  const gujaratInstitutes = useMemo(() => {
+    if (!overview) return [];
+    const hints = overview.gujaratHints.map((h) => h.toLowerCase());
+    return stream.institutes.filter((it) => {
+      const hay = `${it.name} ${it.category ?? ""}`.toLowerCase();
+      return hints.some((h) => hay.includes(h));
+    });
+  }, [stream.institutes, overview]);
+
   const tabs: Array<{
     key: TabKey;
     label: { en: string; gu: string };
@@ -92,6 +108,16 @@ function StreamDetail() {
       icon: Building2,
       count: stream.institutes.length,
     },
+    ...(gujaratInstitutes.length
+      ? [
+          {
+            key: "gujarat" as TabKey,
+            label: { en: "Gujarat Picks", gu: "ગુજરાત પસંદગીઓ" },
+            icon: MapPin,
+            count: gujaratInstitutes.length,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -118,7 +144,12 @@ function StreamDetail() {
             <div className="text-5xl">{streamEmoji(stream.stream)}</div>
             <div>
               <h1 className="font-serif text-2xl md:text-4xl">{stream.stream}</h1>
-              <p className="text-sm text-muted-foreground mt-1">
+              {overview?.tagline && (
+                <p className="text-sm md:text-base text-foreground/80 mt-1 italic">
+                  {overview.tagline}
+                </p>
+              )}
+              <p className="text-xs text-muted-foreground mt-2">
                 {stream.professions.length} {lang === "gu" ? "વ્યવસાયો" : "professions"} ·{" "}
                 {stream.exams.length} {lang === "gu" ? "પરીક્ષાઓ" : "exams"} ·{" "}
                 {stream.institutes.length} {lang === "gu" ? "સંસ્થાઓ" : "institutes"}
@@ -127,6 +158,8 @@ function StreamDetail() {
           </div>
         </div>
       </section>
+
+      {overview && <OverviewBlock overview={overview} />}
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-border print:hidden">
@@ -173,9 +206,80 @@ function StreamDetail() {
           {tab === "professions" && <ProfessionsList items={stream.professions} q={query} />}
           {tab === "exams" && <ExamsList items={stream.exams} q={query} />}
           {tab === "institutes" && <InstitutesList items={stream.institutes} q={query} lang={lang} />}
+          {tab === "gujarat" && (
+            <InstitutesList items={gujaratInstitutes} q={query} lang={lang} />
+          )}
         </div>
       </section>
+
+      {overview && <SourcesFooter overview={overview} />}
     </>
+  );
+}
+
+function OverviewBlock({ overview }: { overview: HandbookOverview }) {
+  return (
+    <section className="max-w-7xl mx-auto px-4 md:px-8 pt-6">
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="md:col-span-2 rounded-xl border border-border bg-card p-5">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground mb-2">
+            <BookOpen className="h-3.5 w-3.5" /> HBK Overview
+          </div>
+          {overview.overview.split("\n\n").map((p, i) => (
+            <p key={i} className="text-sm leading-relaxed text-foreground/85 mb-3 last:mb-0">
+              {p}
+            </p>
+          ))}
+        </div>
+        <div className="rounded-xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-5">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground mb-2">
+            <Sparkles className="h-3.5 w-3.5" /> Who fits well
+          </div>
+          <ul className="space-y-1.5 text-sm text-foreground/85">
+            {overview.whoFitsWell.map((w, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="text-primary">•</span>
+                <span>{w}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 pt-4 border-t border-border/60 text-xs text-foreground/75 italic">
+            {overview.hbkNote}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SourcesFooter({ overview }: { overview: HandbookOverview }) {
+  return (
+    <section className="max-w-7xl mx-auto px-4 md:px-8 pb-12">
+      <div className="rounded-xl border border-dashed border-border bg-muted/30 p-4">
+        <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+          Sources
+        </div>
+        <p className="text-xs text-muted-foreground leading-relaxed mb-2">
+          © HBK Careers. Compiled in-house from the following public sources — official
+          regulators, exam bodies and government portals. We do not reproduce content from
+          third-party counselling sites.
+        </p>
+        <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+          {overview.sources.map((s, i) => (
+            <a
+              key={i}
+              href={s.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-primary hover:underline inline-flex items-center gap-1"
+            >
+              <ExternalLink className="h-3 w-3" />
+              {s.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
