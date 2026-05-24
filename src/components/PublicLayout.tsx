@@ -40,37 +40,47 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
           {/* Main glass bar — dual-layer borders: outer white/40, inner ring teal */}
           <div
-            className="relative flex items-center gap-3 px-3 md:px-5 py-2.5 bg-card/70 backdrop-blur-2xl border border-white/40 rounded-full ring-1 ring-inset"
+            className="relative flex flex-col gap-2 px-3 md:px-5 py-2.5 bg-card/70 backdrop-blur-2xl border border-white/40 rounded-3xl ring-1 ring-inset"
             style={{
               boxShadow: "0 8px 32px color-mix(in oklab, var(--accent) 12%, transparent)",
               // @ts-expect-error custom ring color
               "--tw-ring-color": "color-mix(in oklab, var(--accent) 30%, transparent)",
             }}
           >
-            {/* Logo — always full */}
-            <Link to="/" className="flex items-center gap-2.5 shrink-0 pl-1">
-              <div
-                className="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl"
-                style={{
-                  background: "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--primary)))",
-                  boxShadow: "0 0 18px color-mix(in oklab, var(--accent) 40%, transparent)",
-                }}
-              >
-                <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-white" />
-              </div>
-              <div className="leading-tight">
-                <div className="font-serif text-base md:text-lg text-foreground tracking-tight whitespace-nowrap">HBK Careers</div>
+            {/* Row 1: brand + mobile toggle */}
+            <div className="flex items-center gap-3">
+              <Link to="/" className="flex items-center gap-2.5 shrink-0 pl-1">
                 <div
-                  className="hidden md:block text-[10px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap"
-                  style={{ color: "var(--brand-2, var(--accent))" }}
+                  className="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl"
+                  style={{
+                    background: "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--primary)))",
+                    boxShadow: "0 0 18px color-mix(in oklab, var(--accent) 40%, transparent)",
+                  }}
                 >
-                  {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
+                  <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </div>
-              </div>
-            </Link>
+                <div className="leading-tight">
+                  <div className="font-serif text-base md:text-lg text-foreground tracking-tight whitespace-nowrap">HBK Careers</div>
+                  <div
+                    className="text-[10px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap"
+                    style={{ color: "var(--brand-2, var(--accent))" }}
+                  >
+                    {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
+                  </div>
+                </div>
+              </Link>
 
-            {/* Nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0 overflow-x-auto no-scrollbar ml-2">
+              <button
+                onClick={() => setOpen((v) => !v)}
+                className="lg:hidden ml-auto p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
+                aria-label="Menu"
+              >
+                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
+
+            {/* Row 2: full nav (desktop) */}
+            <nav className="hidden lg:flex flex-wrap items-center gap-1 pt-1.5 border-t border-white/30">
               {NAV.map((item) => {
                 const Icon = item.icon;
                 const active =
@@ -81,7 +91,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-semibold text-white whitespace-nowrap shrink-0 transition-all duration-300"
+                      className="relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-semibold text-white whitespace-nowrap transition-all duration-300"
                     >
                       <div
                         className="absolute inset-0 rounded-full"
@@ -99,7 +109,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap shrink-0 text-muted-foreground hover:text-foreground transition-all hover:bg-accent/10 ${
+                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap text-muted-foreground hover:text-foreground transition-all hover:bg-accent/10 ${
                       isResume ? "border border-accent/30 font-semibold text-foreground hover:bg-accent/15" : ""
                     }`}
                   >
@@ -109,15 +119,6 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 );
               })}
             </nav>
-
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setOpen((v) => !v)}
-              className="lg:hidden ml-auto p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
-              aria-label="Menu"
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
           </div>
 
           {/* Mobile menu */}
