@@ -76,6 +76,8 @@ function TakeTest() {
   const [done, setDone] = useState(false);
   const [resumeOffered, setResumeOffered] = useState(false);
   const [resumeDraft, setResumeDraft] = useState<Draft | null>(null);
+  const [startedAt] = useState<number>(() => Date.now());
+  const [finishedAt, setFinishedAt] = useState<number | null>(null);
 
   useEffect(() => {
     const raw = sessionStorage.getItem("disha-test-meta");
