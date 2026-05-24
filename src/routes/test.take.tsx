@@ -167,6 +167,7 @@ function TakeTest() {
       setPage(0);
     } else {
       try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+      setFinishedAt(Date.now());
       setDone(true);
     }
   };
