@@ -10,7 +10,7 @@ import {
 import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
 import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, Sparkles, BookOpen } from "lucide-react";
 
-type TabKey = "professions" | "exams" | "institutes" | "gujarat";
+type TabKey = "professions" | "exams" | "institutes";
 
 export const Route = createFileRoute("/handbook/$slug")({
   loader: async ({ params }): Promise<{ stream: HandbookStream }> => {
