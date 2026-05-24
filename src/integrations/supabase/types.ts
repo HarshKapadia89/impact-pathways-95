@@ -513,6 +513,48 @@ export type Database = {
         }
         Relationships: []
       }
+      school_leads: {
+        Row: {
+          city: string | null
+          contact_person: string
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          phone: string | null
+          role: string | null
+          school_name: string
+          status: string
+          student_count: number | null
+        }
+        Insert: {
+          city?: string | null
+          contact_person: string
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          phone?: string | null
+          role?: string | null
+          school_name: string
+          status?: string
+          student_count?: number | null
+        }
+        Update: {
+          city?: string | null
+          contact_person?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          phone?: string | null
+          role?: string | null
+          school_name?: string
+          status?: string
+          student_count?: number | null
+        }
+        Relationships: []
+      }
       schools: {
         Row: {
           active: boolean
