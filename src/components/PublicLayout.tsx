@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { Compass, GraduationCap, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2 } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
-import { ThemeSwitcher } from "./ThemeSwitcher";
 import { useState } from "react";
 
 const NAV = [
@@ -44,11 +43,11 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             className="relative flex items-center gap-3 px-3 md:px-5 py-2.5 bg-card/70 backdrop-blur-2xl border border-white/40 rounded-full ring-1 ring-inset"
             style={{
               boxShadow: "0 8px 32px color-mix(in oklab, var(--accent) 12%, transparent)",
-              // @ts-expect-error custom prop accepted by Tailwind ring-color
+              // @ts-expect-error custom ring color
               "--tw-ring-color": "color-mix(in oklab, var(--accent) 30%, transparent)",
             }}
           >
-            {/* Logo */}
+            {/* Logo — always full */}
             <Link to="/" className="flex items-center gap-2.5 shrink-0 pl-1">
               <div
                 className="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl"
@@ -59,19 +58,19 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               >
                 <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-white" />
               </div>
-              <div className="leading-tight hidden xl:block">
-                <div className="font-serif text-base md:text-lg text-foreground tracking-tight">HBK Careers</div>
-                <div className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.15em]" style={{ color: "var(--brand-2, var(--accent))" }}>
+              <div className="leading-tight">
+                <div className="font-serif text-base md:text-lg text-foreground tracking-tight whitespace-nowrap">HBK Careers</div>
+                <div
+                  className="hidden md:block text-[10px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap"
+                  style={{ color: "var(--brand-2, var(--accent))" }}
+                >
                   {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
                 </div>
-              </div>
-              <div className="leading-tight hidden sm:block xl:hidden">
-                <div className="font-serif text-base text-foreground tracking-tight">HBK</div>
               </div>
             </Link>
 
             {/* Nav */}
-            <nav className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0 overflow-x-auto no-scrollbar mx-1 px-1">
+            <nav className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0 overflow-x-auto no-scrollbar ml-2">
               {NAV.map((item) => {
                 const Icon = item.icon;
                 const active =
@@ -111,19 +110,14 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               })}
             </nav>
 
-            {/* Right controls */}
-            <div className="ml-auto flex items-center gap-2 shrink-0 pr-1">
-              <ThemeSwitcher lang={lang} />
-              <div className="hidden md:block h-6 w-px bg-border/60" />
-              <LanguageToggle />
-              <button
-                onClick={() => setOpen((v) => !v)}
-                className="lg:hidden p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
-                aria-label="Menu"
-              >
-                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
-            </div>
+            {/* Mobile menu toggle */}
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="lg:hidden ml-auto p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
+              aria-label="Menu"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
 
           {/* Mobile menu */}
@@ -168,6 +162,12 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
                 : "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
             </p>
+            <div className="mt-4">
+              <div className="text-[10px] uppercase tracking-widest text-sidebar-foreground/60 mb-2">
+                {lang === "gu" ? "ભાષા" : "Language"}
+              </div>
+              <LanguageToggle />
+            </div>
           </div>
           <div>
             <div className="font-medium mb-2">{lang === "gu" ? "વિભાગો" : "Sections"}</div>
