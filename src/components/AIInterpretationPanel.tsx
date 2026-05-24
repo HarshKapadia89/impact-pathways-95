@@ -105,7 +105,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
         <Section title="Streams that fit you — and why">
           <div className="grid sm:grid-cols-2 gap-3">
             {interpretation.recommendedStreams.map((s) => {
-              const stream = STREAM_BY_ID[s.slug];
+              const stream = (STREAM_BY_ID as Record<string, { name: string; emoji: string }>)[s.slug];
               return (
                 <div key={s.slug} className="rounded-xl border border-border bg-card p-4">
                   <div className="flex items-center gap-2">
