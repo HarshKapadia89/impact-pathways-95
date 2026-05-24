@@ -19,6 +19,9 @@ import { flushQueue } from "@/lib/offlineSync";
 import { saveReport } from "@/lib/chatbotContext";
 import { ChevronLeft, ChevronRight, Download, RefreshCcw, Link2, Share2 } from "lucide-react";
 import { toast } from "sonner";
+import { assessResponseQuality } from "@/lib/responseQuality";
+import { fetchInterpretation, type AIInterpretation } from "@/lib/aiInterpretation";
+import { AIInterpretationPanel } from "@/components/AIInterpretationPanel";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({
