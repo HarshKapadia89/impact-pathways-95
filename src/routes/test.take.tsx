@@ -323,6 +323,8 @@ function Result({
   riasec,
   mi,
   apt,
+  startedAt,
+  finishedAt,
 }: {
   meta: Meta;
   payment: PaymentMeta;
@@ -330,6 +332,8 @@ function Result({
   riasec: Record<string, number>;
   mi: Record<string, number>;
   apt: Record<string, number>;
+  startedAt: number;
+  finishedAt: number;
 }) {
   const [downloading, setDownloading] = useState(false);
   const band = useMemo(() => gradeToBand(meta.grade), [meta.grade]);
@@ -337,6 +341,39 @@ function Result({
   const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
   const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
   const [reportToken, setReportToken] = useState<string>("");
+  const quality = useMemo(
+    () => assessResponseQuality({ riasec, mi, apt, aptItems, startedAt, finishedAt }),
+    [riasec, mi, apt, aptItems, startedAt, finishedAt],
+  );
+  const [aiState, setAiState] = useState<"loading" | "ready" | "error">("loading");
+  const [aiInterp, setAiInterp] = useState<AIInterpretation | undefined>();
+  const [aiModel, setAiModel] = useState<string | undefined>();
+  const [aiError, setAiError] = useState<string | undefined>();
+
+  const runInterpretation = () => {
+    setAiState("loading");
+    setAiError(undefined);
+    fetchInterpretation({
+      student: { name: meta.name, grade: meta.grade, age: meta.age, gradeBand: band },
+      report,
+      quality,
+      deterministicStreams: recs,
+    })
+      .then((res) => {
+        setAiInterp(res.interpretation);
+        setAiModel(res.model);
+        setAiState("ready");
+      })
+      .catch((e) => {
+        setAiError(e instanceof Error ? e.message : "Unknown error");
+        setAiState("error");
+      });
+  };
+
+  useEffect(() => {
+    runInterpretation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const recStreamNames = recs.map((sid) => STREAM_BY_ID[sid]?.name ?? sid);
