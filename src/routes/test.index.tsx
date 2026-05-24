@@ -103,6 +103,7 @@ function TestIntro() {
         mobile: mobileDigits,
         email: email.trim(),
         parent_email: parentEmail.trim() || null,
+        vibe: vibe ?? null,
       }),
     );
     navigate({ to: "/test/pay" });
