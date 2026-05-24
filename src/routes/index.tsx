@@ -205,6 +205,8 @@ function HomePage() {
           })}
         </div>
       </section>
+
+      <FAQAccordion lang={lang} />
     </PublicLayout>
   );
 }
