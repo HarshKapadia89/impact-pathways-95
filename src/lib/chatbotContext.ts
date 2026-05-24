@@ -1,5 +1,5 @@
 // Reads the saved psychometric report (if any) and formats it as compact context
-// for the career chatbot.
+// for HBK Career Counsellor.
 
 const REPORT_KEY = "hbk-last-report";
 

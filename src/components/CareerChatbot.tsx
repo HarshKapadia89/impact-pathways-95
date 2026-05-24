@@ -170,7 +170,7 @@ export function CareerChatbot() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-5 right-5 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:scale-105 transition-transform flex items-center justify-center group"
-          aria-label="Open career chatbot"
+          aria-label="Open HBK Career Counsellor"
         >
           <MessageCircle className="h-6 w-6" />
           <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-accent animate-pulse" />
@@ -327,8 +327,8 @@ export function CareerChatbot() {
           </form>
           <div className="px-3 pb-2 text-[10px] text-muted-foreground text-center">
             {lang === "gu"
-              ? "AI જવાબો માર્ગદર્શન માટે છે — મહત્વના નિર્ણયો માટે શિક્ષક/વાલી સાથે ચર્ચા કરો."
-              : "AI guidance is for orientation — verify big decisions with a teacher/parent."}
+              ? "સલાહકાર જવાબો માર્ગદર્શન માટે છે — મહત્વના નિર્ણયો માટે શિક્ષક/વાલી સાથે ચર્ચા કરો."
+              : "Career Counsellor guidance is for orientation — verify big decisions with a teacher/parent."}
           </div>
         </div>
       )}

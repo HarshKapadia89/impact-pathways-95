@@ -17,7 +17,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <Loader2 className="h-4 w-4 animate-spin text-primary" />
           <span>
-            HBK AI counsellor is reviewing your answers with our most accurate reasoning model
+            HBK Career Counsellor is reviewing your answers with our most accurate reasoning model
             (this takes ~15–25 seconds)…
           </span>
         </div>
@@ -31,7 +31,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
         <div className="flex items-start gap-3">
           <AlertTriangle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
           <div className="flex-1">
-            <div className="font-medium text-foreground">AI review couldn't complete</div>
+            <div className="font-medium text-foreground">Career Counsellor review couldn't complete</div>
             <p className="text-sm text-muted-foreground mt-1">
               {error ?? "Please try again. Your deterministic scores above are unaffected."}
             </p>
@@ -40,7 +40,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
                 onClick={onRetry}
                 className="mt-3 text-xs px-3 py-1.5 rounded-md border border-border bg-card hover:bg-muted"
               >
-                Retry AI review
+                Retry Career Counsellor review
               </button>
             )}
           </div>
@@ -64,7 +64,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
       <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 p-6">
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5 text-primary" />
-          <span>AI counsellor review</span>
+          <span>Career Counsellor review</span>
           {model && <span className="ml-auto font-mono text-[10px] opacity-60">{model}</span>}
         </div>
         <h2 className="font-serif text-2xl mt-2">What your scores actually mean</h2>
