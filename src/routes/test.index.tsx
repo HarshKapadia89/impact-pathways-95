@@ -31,7 +31,24 @@ import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
 import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
 
+type VibeId = "investigator" | "creator" | "builder" | "leader";
+const VIBE_IDS: VibeId[] = ["investigator", "creator", "builder", "leader"];
+
+const VIBE_BANNER: Record<VibeId, { emoji: string; name: string; nudge: string }> = {
+  investigator: { emoji: "🔬", name: "Investigator", nudge: "Your full report will dig deep into Investigative (RIASEC) and logical-mathematical intelligence — pay attention to the science & research streams." },
+  creator: { emoji: "🎨", name: "Creator", nudge: "Your full report will surface Artistic (RIASEC) and spatial intelligence strengths — watch for design, media and architecture matches." },
+  builder: { emoji: "🚀", name: "Builder", nudge: "Your full report will highlight Realistic (RIASEC) and bodily-kinesthetic intelligence — engineering, CS and trades are likely strong matches." },
+  leader: { emoji: "⚡", name: "Leader", nudge: "Your full report will spotlight Enterprising (RIASEC) and interpersonal intelligence — keep an eye on business, law and civil services." },
+};
+
 export const Route = createFileRoute("/test/")({
+  validateSearch: (search: Record<string, unknown>): { vibe?: VibeId } => {
+    const v = search.vibe;
+    if (typeof v === "string" && (VIBE_IDS as string[]).includes(v)) {
+      return { vibe: v as VibeId };
+    }
+    return {};
+  },
   head: () => ({
     meta: [
       { title: "Psychometric Aptitude Test (Grades 6–12) — 20-page Report | HBK Careers" },
