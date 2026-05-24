@@ -9,17 +9,17 @@ import { useState } from "react";
 
 const NAV = [
   { to: "/", label: { en: "Home", gu: "મુખ્ય" }, icon: Sparkles },
-  { to: "/career", label: { en: "Career — Gujarat", gu: "કારકિર્દી — ગુજરાત" }, icon: Compass },
-  { to: "/handbook", label: { en: "Career — India", gu: "કારકિર્દી — ભારત" }, icon: BookOpen },
+  { to: "/career", label: { en: "Gujarat", gu: "ગુજરાત" }, icon: Compass },
+  { to: "/handbook", label: { en: "India", gu: "ભારત" }, icon: BookOpen },
   { to: "/find-college", label: { en: "Colleges", gu: "કોલેજો" }, icon: Search },
   { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ" }, icon: Award },
   { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ" }, icon: FileCheck },
-  { to: "/test", label: { en: "Aptitude Test", gu: "મનો-યોગ્યતા ટેસ્ટ" }, icon: Brain },
+  { to: "/test", label: { en: "Aptitude", gu: "ટેસ્ટ" }, icon: Brain },
   { to: "/dashboard", label: { en: "Dashboard", gu: "ડેશબોર્ડ" }, icon: LayoutDashboard },
+  { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમ" }, icon: FileText },
 ];
 
 const FOOTER_EXTRA = [
-  { to: "/profile-builder", label: { en: "Resume Builder", gu: "રિઝ્યુમ બિલ્ડર" }, icon: FileText },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
 ];
 
@@ -31,78 +31,127 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <div className="h-1 w-full bg-gradient-to-r from-primary via-accent to-primary" />
-      <header className="sticky top-0 z-40 border-b border-border bg-card/85 backdrop-blur supports-[backdrop-filter]:bg-card/70">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <GraduationCap className="h-6 w-6 text-primary" />
-            <div className="leading-tight">
-              <div className="font-serif text-base md:text-lg">HBK Careers</div>
-              <div className="text-[10px] text-muted-foreground -mt-0.5">
-                {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
+      <header className="sticky top-0 z-40 px-2 md:px-4 pt-3 pb-2">
+        <div className="max-w-7xl mx-auto relative group">
+          {/* Floating glow background */}
+          <div
+            className="pointer-events-none absolute -inset-1 rounded-[2rem] blur-xl opacity-50 group-hover:opacity-75 transition duration-1000"
+            style={{ background: "linear-gradient(90deg, color-mix(in oklab, var(--accent) 35%, transparent), color-mix(in oklab, var(--primary) 20%, transparent))" }}
+          />
+
+          {/* Main glass bar — dual-layer borders: outer white/40, inner ring teal */}
+          <div
+            className="relative flex items-center gap-3 px-3 md:px-5 py-2.5 bg-card/70 backdrop-blur-2xl border border-white/40 rounded-full ring-1 ring-inset"
+            style={{
+              boxShadow: "0 8px 32px color-mix(in oklab, var(--accent) 12%, transparent)",
+              // @ts-expect-error custom prop accepted by Tailwind ring-color
+              "--tw-ring-color": "color-mix(in oklab, var(--accent) 30%, transparent)",
+            }}
+          >
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2.5 shrink-0 pl-1">
+              <div
+                className="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl"
+                style={{
+                  background: "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--primary)))",
+                  boxShadow: "0 0 18px color-mix(in oklab, var(--accent) 40%, transparent)",
+                }}
+              >
+                <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-white" />
               </div>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-1 ml-4">
-            {NAV.map((item) => {
-              const Icon = item.icon;
-              const active =
-                item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={`relative flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-all ${
-                    active
-                      ? "bg-accent/15 text-primary font-semibold shadow-sm"
-                      : "text-muted-foreground hover:text-primary hover:bg-accent/10"
-                  }`}
-                >
-                  <Icon className={`h-4 w-4 ${active ? "text-accent-foreground" : ""}`} style={active ? { color: "var(--brand-2)" } : undefined} />
-                  {item.label[lang]}
-                  {active && <span className="absolute -bottom-px left-1/2 -translate-x-1/2 h-0.5 w-6 rounded-full bg-accent" />}
-                </Link>
-              );
-            })}
-          </nav>
-          <div className="ml-auto flex items-center gap-2">
-            <ThemeSwitcher lang={lang} />
-            <LanguageToggle />
-            <button
-              onClick={() => setOpen((v) => !v)}
-              className="md:hidden p-2 -mr-2 rounded-md hover:bg-muted"
-              aria-label="Menu"
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
-        </div>
-        {open && (
-          <div className="md:hidden border-t border-border">
-            <nav className="px-4 py-3 space-y-1">
+              <div className="leading-tight hidden sm:block">
+                <div className="font-serif text-base md:text-lg text-foreground tracking-tight">HBK Careers</div>
+                <div className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.15em]" style={{ color: "var(--brand-2, var(--accent))" }}>
+                  {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
+                </div>
+              </div>
+            </Link>
+
+            {/* Nav */}
+            <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center overflow-x-auto no-scrollbar mx-2">
               {NAV.map((item) => {
                 const Icon = item.icon;
                 const active =
                   item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
+                const isResume = item.to === "/profile-builder";
+                if (active) {
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="relative flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-white whitespace-nowrap transition-all duration-300"
+                    >
+                      <div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 65%, var(--primary)))",
+                          boxShadow: "0 4px 14px color-mix(in oklab, var(--accent) 35%, transparent)",
+                        }}
+                      />
+                      <Icon className="relative h-4 w-4" />
+                      <span className="relative">{item.label[lang]}</span>
+                    </Link>
+                  );
+                }
                 return (
                   <Link
                     key={item.to}
                     to={item.to}
-                    onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded-md text-sm ${
-                      active
-                        ? "bg-primary/10 text-primary font-medium"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground hover:text-foreground transition-all hover:bg-accent/10 ${
+                      isResume ? "border border-accent/30 font-semibold text-foreground hover:bg-accent/15" : ""
                     }`}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className={`h-4 w-4 ${isResume ? "text-accent" : ""}`} style={isResume ? { color: "var(--accent)" } : undefined} />
                     {item.label[lang]}
                   </Link>
                 );
               })}
             </nav>
+
+            {/* Right controls */}
+            <div className="ml-auto flex items-center gap-2 shrink-0 pr-1">
+              <ThemeSwitcher lang={lang} />
+              <div className="hidden md:block h-6 w-px bg-border/60" />
+              <LanguageToggle />
+              <button
+                onClick={() => setOpen((v) => !v)}
+                className="lg:hidden p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
+                aria-label="Menu"
+              >
+                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
-        )}
+
+          {/* Mobile menu */}
+          {open && (
+            <div className="lg:hidden mt-2 rounded-2xl border border-white/40 bg-card/85 backdrop-blur-2xl shadow-[0_8px_32px_color-mix(in_oklab,var(--accent)_12%,transparent)] overflow-hidden">
+              <nav className="px-2 py-2 space-y-0.5">
+                {NAV.map((item) => {
+                  const Icon = item.icon;
+                  const active =
+                    item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
+                        active
+                          ? "text-white font-semibold"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+                      }`}
+                      style={active ? { background: "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 65%, var(--primary)))" } : undefined}
+                    >
+                      <Icon className="h-4 w-4" />
+                      {item.label[lang]}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+          )}
+        </div>
       </header>
 
       <main className="flex-1">{children}</main>
