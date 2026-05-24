@@ -120,7 +120,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           <div>
             <div className="font-medium mb-2">{lang === "gu" ? "વિભાગો" : "Sections"}</div>
             <ul className="space-y-1 text-sidebar-foreground/70 text-xs">
-              {NAV.slice(1).map((n) => (
+              {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
                 <li key={n.to}>
                   <Link to={n.to} className="hover:text-sidebar-foreground">
                     {n.label[lang]}
