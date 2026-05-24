@@ -55,7 +55,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Naturalist intelligence",
       "Comfortable with biology and chemistry at Class 12",
     ],
-    hbkNote: "Use your HBK report's RIASEC profile to choose between research (plant science) vs management (agri-business) tracks.",
     sources: [
       { label: "ICAR — Indian Council of Agricultural Research", url: "https://icar.org.in/" },
       { label: "ICAR AIEEA (entrance exam)", url: "https://icar.nta.ac.in/" },
@@ -74,7 +73,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Strong Spatial intelligence; comfortable with both maths and freehand drawing",
       "Patience for long projects and iteration",
     ],
-    hbkNote: "If the report shows high Spatial + Artistic but lower Mathematical, consider interior design or landscape architecture before B.Arch.",
     sources: [
       { label: "Council of Architecture (COA)", url: "https://www.coa.gov.in/" },
       { label: "NATA — National Aptitude Test in Architecture", url: "https://www.nata.in/" },
@@ -93,7 +91,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Linguistic and Interpersonal intelligence",
       "Curious readers who enjoy debate and writing",
     ],
-    hbkNote: "HBK counsellors map your top-3 RIASEC interests to specific BA Hons subjects so you don't pick 'arts' by default.",
     sources: [
       { label: "CUET-UG (NTA)", url: "https://cuet.nta.nic.in/" },
       { label: "UGC — University Grants Commission", url: "https://www.ugc.gov.in/" },
@@ -111,7 +108,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Comfort with quant + persuasion + ambiguity",
       "Leadership in school activities or family business exposure",
     ],
-    hbkNote: "Use the HBK aptitude scores to decide between an early-IPM bet (high quant + verbal) vs BBA-then-CAT (steady builder).",
     sources: [
       { label: "AICTE — All India Council for Technical Education", url: "https://www.aicte-india.org/" },
       { label: "IIM Common Admission Test (CAT)", url: "https://iimcat.ac.in/" },
@@ -129,7 +125,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Comfort with arithmetic, attention to detail",
       "Patience for long professional-exam cycles",
     ],
-    hbkNote: "If HBK shows high Conventional + Logical-Mathematical, CA is a strong fit. High Enterprising tilts you towards finance / markets.",
     sources: [
       { label: "ICAI — Institute of Chartered Accountants of India", url: "https://www.icai.org/" },
       { label: "ICSI — Institute of Company Secretaries of India", url: "https://www.icsi.edu/" },
@@ -148,7 +143,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Strong Logical-Mathematical intelligence",
       "Enjoys building, breaking and rebuilding things",
     ],
-    hbkNote: "BCA is often a better fit than B.Tech for students whose HBK report shows high Logical-Math but moderate Spatial / Physical-engineering interest.",
     sources: [
       { label: "AICTE", url: "https://www.aicte-india.org/" },
       { label: "JEE Main (NTA)", url: "https://jeemain.nta.nic.in/" },
@@ -167,7 +161,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Strong Spatial + Visual intelligence",
       "Sketchbook habit; comfortable showing work and taking feedback",
     ],
-    hbkNote: "A portfolio matters more than your Class 12 percentage. HBK helps students build a NID/NIFT-ready portfolio over Classes 11–12.",
     sources: [
       { label: "NID — National Institute of Design", url: "https://www.nid.edu/" },
       { label: "NIFT — National Institute of Fashion Technology", url: "https://www.nift.ac.in/" },
@@ -184,7 +177,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Investigative + Conventional + Social",
       "High Logical-Mathematical intelligence; enjoys puzzles + reading",
     ],
-    hbkNote: "Mathematics in Class 11–12 is non-negotiable for Hons Economics. HBK will flag this early if it's missing.",
     sources: [
       { label: "Indian Statistical Institute (ISI)", url: "https://www.isical.ac.in/" },
       { label: "CUET-UG", url: "https://cuet.nta.nic.in/" },
@@ -202,7 +194,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Strong Logical-Mathematical and Spatial intelligence",
       "Enjoys problem-solving more than memorising",
     ],
-    hbkNote: "HBK matches your interest profile to a specific branch — not just 'engineering yes/no' — to avoid the common drop-out trap of joining the wrong branch.",
     sources: [
       { label: "AICTE", url: "https://www.aicte-india.org/" },
       { label: "JEE Main (NTA)", url: "https://jeemain.nta.nic.in/" },
@@ -222,7 +213,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Interpersonal + Bodily-Kinesthetic intelligence",
       "Comfortable on your feet for long shifts; love food/travel",
     ],
-    hbkNote: "If HBK shows high Social + Enterprising, hospitality often beats a forced commerce/engineering path.",
     sources: [
       { label: "NCHMCT — National Council for Hotel Management & Catering Technology", url: "https://nchmct.nic.in/" },
       { label: "NCHM JEE (NTA)", url: "https://nchmjee.nta.nic.in/" },
@@ -240,7 +230,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Linguistic + Logical-Mathematical intelligence",
       "Strong reading stamina and willingness to argue both sides",
     ],
-    hbkNote: "HBK helps Class 9–10 students start CLAT prep early — the exam rewards reading habits built over years, not last-minute coaching.",
     sources: [
       { label: "Bar Council of India (BCI)", url: "https://www.barcouncilofindia.org/" },
       { label: "CLAT — Consortium of NLUs", url: "https://consortiumofnlus.ac.in/" },
@@ -258,7 +247,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Linguistic + Interpersonal",
       "Self-driven readers who like writing essays",
     ],
-    hbkNote: "If your HBK report shows no single dominant interest, liberal studies is often a better fit than picking randomly.",
     sources: [
       { label: "CUET-UG", url: "https://cuet.nta.nic.in/" },
       { label: "UGC", url: "https://www.ugc.gov.in/" },
@@ -276,7 +264,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Linguistic + Interpersonal intelligence",
       "Already creating something publicly — blog, reels, podcast, school paper",
     ],
-    hbkNote: "Start building a portfolio in Class 11 — HBK helps you pick projects that match the kind of media work you'll enjoy long-term.",
     sources: [
       { label: "IIMC — Indian Institute of Mass Communication", url: "https://iimc.gov.in/" },
       { label: "Jamia Millia Islamia AJK MCRC", url: "https://www.jmi.ac.in/" },
@@ -294,7 +281,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Bodily-Kinesthetic + Naturalist intelligence",
       "Comfort with biology + chemistry; high stress tolerance",
     ],
-    hbkNote: "HBK helps students realistically test their NEET commitment in Class 11 before sinking two years into a single-exam path.",
     sources: [
       { label: "NMC — National Medical Commission", url: "https://www.nmc.org.in/" },
       { label: "NEET-UG (NTA)", url: "https://neet.nta.nic.in/" },
@@ -313,7 +299,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Steady hands, comfort with hospital settings",
       "Biology in Class 12 helps but isn't always required",
     ],
-    hbkNote: "HBK shows you which paramedical specialisation matches your interest profile — radiology vs lab vs therapy roles feel very different day-to-day.",
     sources: [
       { label: "National Commission for Allied and Healthcare Professions (NCAHP)", url: "https://ncahp.abdm.gov.in/" },
       { label: "Indian Nursing Council", url: "https://www.indiannursingcouncil.org/" },
@@ -331,7 +316,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "Strong Musical / Bodily-Kinesthetic intelligence",
       "Already practising regularly outside school",
     ],
-    hbkNote: "HBK helps families take performing-arts seriously as a career — with concrete college options instead of vague 'pursue your passion' talk.",
     sources: [
       { label: "NSD — National School of Drama", url: "https://nsd.gov.in/" },
       { label: "FTII — Film and Television Institute of India", url: "https://www.ftii.ac.in/" },
@@ -349,7 +333,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Logical-Mathematical or Naturalist intelligence",
       "Curious by default — asks 'why' more than 'what'",
     ],
-    hbkNote: "Pure sciences need a research mindset, not just good marks. HBK uses your aptitude pattern to flag genuine fit vs default fallback.",
     sources: [
       { label: "IISER Aptitude Test (IAT)", url: "https://www.iiseradmission.in/" },
       { label: "NEST — NISER + CEBS", url: "https://www.nestexam.in/" },
@@ -367,7 +350,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Interpersonal + Bodily-Kinesthetic intelligence",
       "Patience with slow, incremental progress",
     ],
-    hbkNote: "Great fit if your HBK profile shows high Social + Realistic but you don't want the NEET-MBBS path.",
     sources: [
       { label: "Rehabilitation Council of India (RCI)", url: "https://www.rehabcouncil.nic.in/" },
       { label: "NCAHP", url: "https://ncahp.abdm.gov.in/" },
@@ -385,7 +367,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Bodily-Kinesthetic intelligence",
       "Already playing or training seriously",
     ],
-    hbkNote: "HBK helps athletes plan a 'two-track' career — sport + a complementary degree — so neither track is left to chance.",
     sources: [
       { label: "Sports Authority of India (SAI)", url: "https://sportsauthorityofindia.nic.in/" },
       { label: "LNIPE Gwalior", url: "https://lnipe.edu.in/" },
@@ -403,7 +384,6 @@ export const HANDBOOK_OVERVIEWS: Record<string, HandbookOverview> = {
       "High Naturalist + Bodily-Kinesthetic intelligence",
       "Comfortable working with animals and in rural settings",
     ],
-    hbkNote: "If you love biology but find the MBBS competition crushing, veterinary or fishery science is a strong, under-discussed alternative.",
     sources: [
       { label: "Veterinary Council of India (VCI)", url: "https://vci.nic.in/" },
       { label: "ICAR", url: "https://icar.org.in/" },
