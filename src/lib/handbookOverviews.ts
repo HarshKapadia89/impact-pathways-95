@@ -7,7 +7,6 @@ export type HandbookOverview = {
   tagline: string;
   overview: string; // 2–3 short paragraphs, HBK voice
   whoFitsWell: string[]; // RIASEC / MI cues mapped to our test
-  hbkNote: string; // one-line "how HBK helps"
   sources: { label: string; url: string }[];
   // Substrings used to flag a "Gujarat pick" from the institutes list.
   gujaratHints: string[];
