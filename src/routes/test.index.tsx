@@ -251,6 +251,100 @@ function TestIntro() {
         </div>
       </section>
 
+      {/* GRADE BAND PICKER */}
+      <section className="border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
+          <div className="text-center max-w-2xl mx-auto">
+            <div className="text-xs uppercase tracking-widest text-accent">Pick your grade band</div>
+            <h2 className="font-serif text-3xl md:text-4xl mt-2">Three tailored test tracks</h2>
+            <p className="text-muted-foreground mt-2 text-sm">
+              Same RIASEC + Multiple Intelligences engine; aptitude questions adjust to your grade band so the difficulty stays NCERT-appropriate.
+            </p>
+          </div>
+
+          <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {[
+              {
+                band: "6–8",
+                defaultGrade: "7",
+                title: "Class 6, 7, 8",
+                tagline: "Discover early strengths",
+                points: [
+                  "Foundational RIASEC interests",
+                  "8 Multiple Intelligences map",
+                  "Easier numerical & verbal items",
+                ],
+                tone: "from-emerald-500/10 to-transparent",
+                ring: "hover:ring-emerald-500/40",
+              },
+              {
+                band: "9–10",
+                defaultGrade: "10",
+                title: "Class 9, 10",
+                tagline: "Pick the right stream",
+                points: [
+                  "Stream-fit scoring (Sci / Com / Hum)",
+                  "Aptitude tuned to board difficulty",
+                  "Entrance-exam early signals",
+                ],
+                tone: "from-primary/10 to-transparent",
+                ring: "hover:ring-primary/40",
+                highlight: true,
+              },
+              {
+                band: "11–12",
+                defaultGrade: "11",
+                title: "Class 11, 12",
+                tagline: "Lock in college & career",
+                points: [
+                  "Specific career roles & salaries",
+                  "Colleges in Gujarat & India",
+                  "Entrance exam roadmap",
+                ],
+                tone: "from-accent/15 to-transparent",
+                ring: "hover:ring-accent/50",
+              },
+            ].map((b) => (
+              <button
+                key={b.band}
+                type="button"
+                onClick={() => {
+                  setGrade(b.defaultGrade);
+                  setTimeout(() => {
+                    document.getElementById("start")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }, 80);
+                }}
+                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${b.ring} bg-gradient-to-br ${b.tone} ${
+                  b.highlight ? "border-primary/40" : "border-border"
+                }`}
+              >
+                <div className="flex items-start justify-between">
+                  <div className="text-3xl font-serif font-semibold text-primary">{b.band}</div>
+                  {b.highlight && (
+                    <span className="text-[10px] uppercase tracking-widest bg-primary/10 text-primary rounded-full px-2 py-0.5">
+                      Most popular
+                    </span>
+                  )}
+                </div>
+                <div className="mt-3 font-serif text-lg">{b.title}</div>
+                <div className="text-xs text-accent mt-0.5 uppercase tracking-wider">{b.tagline}</div>
+                <ul className="mt-4 space-y-1.5 border-t border-border pt-4">
+                  {b.points.map((p) => (
+                    <li key={p} className="flex items-start gap-2 text-xs">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-accent mt-0.5 shrink-0" />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                  Start this track <ChevronRight className="h-3.5 w-3.5" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* STATS */}
       <section className="border-b border-border bg-card/40">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
+import { TrustLayer } from "@/components/TrustLayer";
 import { STREAMS } from "@/lib/careerData";
 import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-react";
 
@@ -148,6 +149,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <TrustLayer lang={lang} />
 
       {/* Streams strip */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-12">
