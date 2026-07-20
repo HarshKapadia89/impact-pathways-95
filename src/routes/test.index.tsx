@@ -73,6 +73,7 @@ export const Route = createFileRoute("/test/")({
 
 function TestIntro() {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
   const { vibe } = Route.useSearch() as { vibe?: VibeId };
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
   const [name, setName] = useState("");
@@ -91,6 +92,12 @@ function TestIntro() {
   const schoolValid = school.trim().length >= 2;
   const canContinue = !!grade && schoolValid && mobileValid && emailValid && parentEmailValid;
 
+  const currentLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
+    ? "hi"
+    : i18n.language?.startsWith("gu")
+      ? "gu"
+      : "en";
+
   const start = () => {
     if (!canContinue) return;
     sessionStorage.setItem(
@@ -99,7 +106,7 @@ function TestIntro() {
         name: name || "Student",
         grade,
         age,
-        language: "en",
+        language: currentLang,
         school: school.trim(),
         mobile: mobileDigits,
         email: email.trim(),
@@ -109,6 +116,8 @@ function TestIntro() {
     );
     navigate({ to: "/test/pay" });
   };
+
+
 
 
   const frameworks = [
