@@ -15,6 +15,7 @@ import { recommendStreamsAccurate, rankCareerPaths } from "./careerMatch";
 import { getReportStrings, type ReportLang, type ReportStrings } from "./psychometricReportStrings";
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
+import { notoSansDevanagariRegular, notoSansDevanagariBold } from "./fonts/notoSansDevanagari";
 import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 import { buildParentSummary } from "./parentSummary";
 
