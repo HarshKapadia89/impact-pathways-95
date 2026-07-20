@@ -91,7 +91,9 @@ function TakeTest() {
       navigate({ to: "/test/pay" });
       return;
     }
-    const parsed = { ...(JSON.parse(raw) as Meta), language: "en" as const };
+    const raw2 = JSON.parse(raw) as Meta;
+    const lang: UILang = raw2.language === "hi" || raw2.language === "gu" ? raw2.language : "en";
+    const parsed = { ...raw2, language: lang };
     setMeta(parsed);
     setPayment(JSON.parse(pay) as PaymentMeta);
 
