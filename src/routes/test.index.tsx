@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { OfflineStatus } from "@/components/OfflineStatus";
 import {
