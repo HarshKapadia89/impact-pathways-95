@@ -56,6 +56,7 @@ const PH = 297;
 // Font family aliases registered with jsPDF
 const FONT_LATIN = "NotoSans";
 const FONT_GU = "NotoGujarati";
+const FONT_HI = "NotoDevanagari";
 
 function setFill(doc: jsPDF, c: [number, number, number]) {
   doc.setFillColor(c[0], c[1], c[2]);
