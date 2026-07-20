@@ -287,7 +287,7 @@ function TakeTest() {
 
         <h1 className="mt-6 font-serif text-2xl md:text-3xl">{current.title}</h1>
         <p className="text-xs text-muted-foreground mt-1">
-          Page {page + 1} / {totalPages}
+          {t.page(page + 1, totalPages)}
         </p>
 
 
