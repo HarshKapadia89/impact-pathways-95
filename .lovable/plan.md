@@ -1,57 +1,41 @@
+## Problem
+
+Today the test language is silently inferred from the global header `i18n.language` at the moment the student clicks "Begin test" on `/test`. There is no explicit picker on the intro form, so students don't realise they must switch language *before* starting, and the choice is easy to miss. Additionally, while question text and Likert/MCQ options are already localised (EN/HI/GU), several fixed UI strings on the test-taking page (`Part 1: Interests`, `Part 2: Multiple Intelligences`, `Part 3: Aptitude (Grade X)`, `Progress`, `Page x / y`, `Back`, `Next`, `Finish`, resume prompts) still render in English regardless of chosen language, which makes the experience feel half-translated.
+
 ## Goal
 
-Let a student pick English / हिन्दी / ગુજરાતી on the test intake form and have every subsequent surface — RIASEC questions, MI questions, aptitude MCQs (question + all 4 options), the on-screen result page, and the full 20-page PDF report — render in that language. Report PDF must embed Devanagari font so Hindi renders correctly.
+Make language a first-class, explicit choice on the pre-test form. Once chosen, the test questions, options, the surrounding test-taking chrome, and the generated PDF report must all render in that language — independent of the header toggle.
 
-## What exists today
+## Changes
 
-- `Lang` type is `"en" | "gu"`. RIASEC/MI question stems have real Gujarati; aptitude options are English-only (the `opt()` helper duplicates `en` into `gu`).
-- `test.take.tsx` hardcodes English (`item.text.en`, `o.label.en`, `meta.language = "en"`).
-- `psychometricReportStrings.ts` — `getReportStrings()` ignores its arg and always returns English.
-- PDF report embeds Noto Sans + Noto Sans Gujarati; no Devanagari font yet.
-- Header language toggle (EN → HI → GU) already exists, but the test flow ignores it.
+### 1. Explicit language picker on `/test` (src/routes/test.index.tsx)
 
-## Plan
+- Add a required "Test language / परीक्षा की भाषा / પરીક્ષાની ભાષા" selector in the start form (three large pill buttons: English · हिन्दी · ગુજરાતી), defaulting to the current `i18n.language`.
+- Store the picked language in local state (`testLang`) and use *that* — not `i18n.language` — when writing `disha-test-meta` to `sessionStorage`.
+- Also call `i18n.changeLanguage(testLang)` on submit so the whole shell aligns with the pick.
+- Add a small helper line: "You can change this later only by retaking the test."
 
-### 1. Widen the language type end-to-end
-- `Lang` and `ReportLang` become `"en" | "hi" | "gu"`.
-- `LikertItem.text`, `AptitudeItem.text`, `AptitudeItem.options`, `LIKERT_OPTIONS.label` all gain `hi` alongside `en` and `gu`.
-- Meta / payload / dashboard store / offline queue accept the wider union.
+### 2. Localise test-taking chrome (src/routes/test.take.tsx)
 
-### 2. Fill in real translations for the test bank
-- Rewrite `RIASEC_ITEMS` and `MI_ITEMS` to carry proper Hindi text next to existing English/Gujarati.
-- Rewrite `APTITUDE_ITEMS`: replace the `opt(...)` shortcut with per-language option arrays, add proper Gujarati and Hindi for both the question stem and every option across all 3 grade bands.
-- Translations are authored by hand in the repo, not called at runtime — keeps the test deterministic and offline-capable.
+Introduce a small in-file `T` dictionary keyed by `UILang` for the strings currently hard-coded in English:
+- Section titles ("Part 1: Interests (RIASEC)", "Part 2: Multiple Intelligences", "Part 3: Aptitude (Grade {band})")
+- `Progress: X%`, `Page {n} / {total}`
+- Resume-draft card ("Resume your earlier attempt?", "Resume", "Start fresh", saved-answers sentence)
+- Nav buttons: `Back`, `Next`, `Finish`
 
-### 3. Wire language selection through the flow
-- Test intake form (`test.index.tsx`) already collects preferences; add a language radio (English / हिन्दी / ગુજરાતી) stored on `Meta`.
-- `test.take.tsx` reads `meta.language` and renders `item.text[lang]`, `option[lang]`, `LIKERT_OPTIONS.label[lang]`. Nav buttons ("Back", "Next", "Finish", "Progress", "Resume", etc.) become localised strings.
-- Result screen (Result component) uses the same lang for headings, buttons, "Download report", AI panel labels.
+All strings picked via `T[meta.language]` so the page fully reflects the chosen test language. Header `LanguageToggle` continues to work but is not what drives the test.
 
-### 4. Rebuild `psychometricReportStrings.ts` for three languages
-- Replace the single English `ReportStrings` object with `en`, `hi`, `gu` variants covering: brand line, TOC, section titles, snapshot phrasing, RIASEC/MI/Aptitude labels + descriptions, streams, careers, exams, colleges, skills list, action-plan lists, parent tips, glossary, footer, page-of, "Executive Summary", etc.
-- `getReportStrings(lang)` returns the right one.
+### 3. Force PDF / Result to use `meta.language`
 
-### 5. PDF report — add Devanagari font + smart font routing
-- Add `src/lib/fonts/notoSansDevanagari.ts` (base64 of Noto Sans Devanagari Regular + Bold), same pattern as the existing Gujarati font file.
-- Register a new `FONT_HI` alias in `psychometricReport.ts`.
-- Extend `hasGu`-style detection with `hasHi` (`U+0900–U+097F`); `smartFont` picks Devanagari font for Hindi strings, Gujarati font for Gujarati strings, Latin font otherwise. Works for mixed strings (proper nouns stay Latin).
-- Report body loops over questions in the appendix — those already carry `text[lang]` from step 2, so appendix pages render in the chosen language automatically.
+`generatePsychometricPDF` and `saveReport` are already called with `meta.language`, and `psychometricReportXlate.ts` covers EN/HI/GU — no logic change needed, just confirm no code path falls back to `i18n.language`. Add a comment noting the source of truth is `meta.language`.
 
-### 6. AI interpretation panel
-- Pass `language` to `fetchInterpretation` so the `interpret-report` edge function returns narrative + action plan in the selected language (system prompt tweak: "respond in {lang}"). Non-blocking — panel already handles error state.
+### 4. Sanity check
 
-### 7. Sanity checks
-- Take the test in each language, download the PDF, open pages 1/2/RIASEC/MI/Aptitude/Appendix, confirm glyphs render (no boxes) and no English leaks into HI/GU sections.
-- Verify dashboard/report-token flow still works (language field is stored but non-breaking for existing rows).
+- `sessionStorage` `disha-test-meta.language` is the single source of truth from the moment the student clicks Start.
+- Header toggle change mid-test does not mutate `meta.language` (already the case; keep it that way).
 
-## Out of scope (call out to user)
+## Out of scope
 
-- Translating career-card prose and stream deep-dive copy inside the PDF beyond section headings — those pull from `careerData` / `careerCards` (career-cards trilingual work landed earlier; stream copy stays English for now).
-- Retranslating the marketing site pages (About, Parents, FAQ, etc.).
-- Translations of the AI chatbot answers — the chatbot already handles language via its own prompt.
-
-## Notes
-
-- Hand-authored translations (not runtime AI) so the test is deterministic, printable, and offline-friendly.
-- Adding a Devanagari TTF grows the JS bundle by ~350 KB gzipped (same order of magnitude as the Gujarati font already shipped).
-- This is a large mechanical edit across ~8 files with hundreds of translation strings; expect a single big commit rather than incremental UI changes.
+- No new translations of career-card content or handbook (already trilingual).
+- No changes to payment page copy (short, mostly numeric).
+- No DB schema change.
