@@ -294,14 +294,17 @@ function TakeTest() {
         {resumeOffered && resumeDraft && (
           <div className="mt-5 rounded-xl border border-accent/40 bg-accent/10 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="text-sm">
-              <div className="font-medium text-foreground">Resume your earlier attempt?</div>
+              <div className="font-medium text-foreground">{t.resumeTitle}</div>
               <div className="text-xs text-muted-foreground mt-0.5">
-                We saved {Object.keys(resumeDraft.riasec).length + Object.keys(resumeDraft.mi).length + Object.keys(resumeDraft.apt).length} answers from {new Date(resumeDraft.savedAt).toLocaleString()}.
+                {t.resumeBody(
+                  Object.keys(resumeDraft.riasec).length + Object.keys(resumeDraft.mi).length + Object.keys(resumeDraft.apt).length,
+                  new Date(resumeDraft.savedAt).toLocaleString(),
+                )}
               </div>
             </div>
             <div className="flex gap-2">
-              <button onClick={acceptResume} className="text-xs px-3 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">Resume</button>
-              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border border-border bg-card hover:bg-muted">Start fresh</button>
+              <button onClick={acceptResume} className="text-xs px-3 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">{t.resumeYes}</button>
+              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border border-border bg-card hover:bg-muted">{t.resumeNo}</button>
             </div>
           </div>
         )}
