@@ -370,14 +370,14 @@ function TakeTest() {
             disabled={section === 0 && page === 0}
             className="inline-flex items-center gap-1 text-sm px-4 py-2 rounded-md border border-border bg-card hover:bg-muted disabled:opacity-40"
           >
-            <ChevronLeft className="h-4 w-4" /> Back
+            <ChevronLeft className="h-4 w-4" /> {t.back}
           </button>
           <button
             onClick={next}
             disabled={!allAnswered}
             className="inline-flex items-center gap-1 text-sm px-5 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-40"
           >
-            {section === 2 && page + 1 === totalPages ? "Finish" : "Next"} <ChevronRight className="h-4 w-4" />
+            {section === 2 && page + 1 === totalPages ? t.finish : t.next} <ChevronRight className="h-4 w-4" />
           </button>
         </div>
       </section>
