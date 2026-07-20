@@ -202,13 +202,14 @@ function TakeTest() {
   const band = useMemo(() => gradeToBand(meta?.grade), [meta?.grade]);
   const aptItems = useMemo<AptitudeItem[]>(() => aptitudeItemsForBand(band), [band]);
 
+  const t = T[meta?.language ?? "en"];
   const sections = useMemo(
     () => [
-      { id: 0, title: "Part 1: Interests (RIASEC)", items: RIASEC_ITEMS, type: "likert" as const, answers: riasec, set: setRiasec },
-      { id: 1, title: "Part 2: Multiple Intelligences", items: MI_ITEMS, type: "likert" as const, answers: mi, set: setMi },
-      { id: 2, title: `Part 3: Aptitude (Grade ${band})`, items: aptItems, type: "mcq" as const, answers: apt, set: setApt },
+      { id: 0, title: t.part1, items: RIASEC_ITEMS, type: "likert" as const, answers: riasec, set: setRiasec },
+      { id: 1, title: t.part2, items: MI_ITEMS, type: "likert" as const, answers: mi, set: setMi },
+      { id: 2, title: t.part3(band), items: aptItems, type: "mcq" as const, answers: apt, set: setApt },
     ],
-    [riasec, mi, apt, aptItems, band],
+    [riasec, mi, apt, aptItems, band, t],
   );
 
   const current = sections[section];
