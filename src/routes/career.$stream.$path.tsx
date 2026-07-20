@@ -11,6 +11,20 @@ import {
   type CareerPath,
 } from "@/lib/careerData";
 import {
+  getCareerCard,
+  pickT,
+  pickList,
+  DEFAULT_COMPETENCIES,
+  DEFAULT_PLACES,
+  DEFAULT_WORK_ENV,
+  DEFAULT_ENTREPRENEURSHIP,
+  DEFAULT_DIFFERENTLY_ABLED,
+  DEFAULT_LOANS,
+  DEFAULT_ONLINE,
+  DEFAULT_DISTANCE,
+  type Lang,
+} from "@/lib/careerCards";
+import {
   ArrowLeft,
   Clock,
   Award,
@@ -25,6 +39,14 @@ import {
   TrendingUp,
   ExternalLink,
   HelpCircle,
+  Users,
+  Rocket,
+  Accessibility,
+  Landmark,
+  Globe,
+  Wallet,
+  Quote,
+  Tag,
 } from "lucide-react";
 
 export const Route = createFileRoute("/career/$stream/$path")({
@@ -278,9 +300,43 @@ function relatedExams(path: CareerPath) {
 function PathDetail() {
   const { stream, path } = Route.useLoaderData() as { stream: Stream; path: CareerPath };
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const raw = i18n.language ?? "en";
+  const lang: Lang = raw.startsWith("gu") ? "gu" : raw.startsWith("hi") ? "hi" : "en";
+  // Legacy en/gu callers below still work because "hi" cleanly falls back to "en" strings.
+  const langLegacy = (lang === "gu" ? "gu" : "en") as "en" | "gu";
   const extras = pickExtras(stream, path);
   const exams = relatedExams(path);
+  const card = getCareerCard(pathSlug(path.title));
+
+  const L = {
+    competencies: { en: "Personal competencies", hi: "व्यक्तिगत योग्यताएँ", gu: "વ્યક્તિગત ક્ષમતાઓ" }[lang],
+    workEnv: { en: "Where you'll work", hi: "आप कहाँ काम करेंगे", gu: "તમે ક્યાં કામ કરશો" }[lang],
+    places: { en: "Places of work", hi: "कार्यस्थल", gu: "કાર્યસ્થળ" }[lang],
+    hours: { en: "Work environment", hi: "कार्य वातावरण", gu: "કાર્ય વાતાવરણ" }[lang],
+    ownFirm: { en: "Start your own?", hi: "अपना काम शुरू करें?", gu: "તમારો પોતાનો ધંધો?" }[lang],
+    accessible: { en: "Differently-abled friendly", hi: "दिव्यांगों के लिए अनुकूल", gu: "દિવ્યાંગ મૈત્રીપૂર્ણ" }[lang],
+    ladder: { en: "Growth ladder", hi: "पदोन्नति क्रम", gu: "પદોન્નતિ ક્રમ" }[lang],
+    nationalColleges: { en: "Where you'll study (India-wide)", hi: "आप कहाँ पढ़ेंगे (भारत-भर)", gu: "તમે ક્યાં ભણશો (ભારત-વ્યાપી)" }[lang],
+    govt: { en: "Government institutes", hi: "सरकारी संस्थान", gu: "સરકારી સંસ્થાઓ" }[lang],
+    priv: { en: "Private institutes", hi: "निजी संस्थान", gu: "ખાનગી સંસ્થાઓ" }[lang],
+    distance: { en: "Distance learning", hi: "दूरस्थ शिक्षा", gu: "દૂરસ્થ શિક્ષણ" }[lang],
+    online: { en: "Online courses", hi: "ऑनलाइन कोर्स", gu: "ઑનલાઇન કોર્સ" }[lang],
+    loans: { en: "Education loans", hi: "शिक्षा ऋण", gu: "શિક્ષણ લોન" }[lang],
+    roleModel: { en: "Example from the field", hi: "क्षेत्र से एक उदाहरण", gu: "ક્ષેત્રમાંથી ઉદાહરણ" }[lang],
+    keywords: { en: "Also searched as", hi: "इन नामों से भी खोजा जाता है", gu: "આ નામોથી પણ શોધાય છે" }[lang],
+    sources: { en: "Sources", hi: "स्रोत", gu: "સ્રોત" }[lang],
+    viewSource: { en: "View source", hi: "स्रोत देखें", gu: "સ્રોત જુઓ" }[lang],
+  };
+
+  const comps = pickList(card.competencies, lang, pickList(DEFAULT_COMPETENCIES, lang));
+  const places = pickList(card.placesOfWork, lang, pickList(DEFAULT_PLACES, lang));
+  const workEnv = pickT(card.workEnvironment, lang, pickT(DEFAULT_WORK_ENV, lang));
+  const own = pickT(card.entrepreneurship, lang, pickT(DEFAULT_ENTREPRENEURSHIP, lang));
+  const abled = pickT(card.differentlyAbled, lang, pickT(DEFAULT_DIFFERENTLY_ABLED, lang));
+  const ladder = pickList(card.ladder, lang);
+  const loans = card.loans ?? DEFAULT_LOANS;
+  const onlineCourses = card.onlineCourses ?? DEFAULT_ONLINE;
+  const distance = card.distanceLearning ?? DEFAULT_DISTANCE;
 
   const sectionClass = "max-w-5xl mx-auto px-4 md:px-8";
 
@@ -403,6 +459,210 @@ function PathDetail() {
         </div>
       </section>
 
+      {/* NEW – Personal competencies */}
+      <section className={`${sectionClass} pb-8`}>
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <h2 className="font-serif text-xl flex items-center gap-2">
+            <Users className="h-4 w-4 text-primary" />
+            {L.competencies}
+          </h2>
+          <ul className="mt-3 grid md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            {comps.map((s, i) => (
+              <li key={i} className="flex gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* NEW – Where you'll work */}
+      <section className={`${sectionClass} pb-8`}>
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <h2 className="font-serif text-xl flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-primary" />
+            {L.workEnv}
+          </h2>
+          <div className="mt-4 grid md:grid-cols-3 gap-4 text-sm">
+            <div>
+              <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">{L.places}</div>
+              <ul className="space-y-1">
+                {places.map((p, i) => <li key={i}>• {p}</li>)}
+              </ul>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">{L.hours}</div>
+              <p>{workEnv}</p>
+              <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Accessibility className="h-3.5 w-3.5" /> {abled}
+              </p>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1 flex items-center gap-1">
+                <Rocket className="h-3.5 w-3.5" /> {L.ownFirm}
+              </div>
+              <p>{own}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW – Growth ladder (title-only) */}
+      {ladder.length > 0 && (
+        <section className={`${sectionClass} pb-8`}>
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="font-serif text-xl flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-primary" />
+              {L.ladder}
+            </h2>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
+              {ladder.map((step, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <span className="rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 font-medium">
+                    {step}
+                  </span>
+                  {i < ladder.length - 1 && <span className="text-muted-foreground">→</span>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* NEW – National institutes */}
+      {(card.govtInstitutes?.length || card.privateInstitutes?.length) && (
+        <section className={`${sectionClass} pb-8`}>
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="font-serif text-xl flex items-center gap-2">
+              <Landmark className="h-4 w-4 text-primary" />
+              {L.nationalColleges}
+            </h2>
+            <div className="mt-4 grid md:grid-cols-2 gap-6 text-sm">
+              {card.govtInstitutes?.length ? (
+                <div>
+                  <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">{L.govt}</div>
+                  <ul className="space-y-1">
+                    {card.govtInstitutes.map((c) => (
+                      <li key={c.name}>• {c.name}{c.city ? `, ${c.city}` : ""}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {card.privateInstitutes?.length ? (
+                <div>
+                  <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">{L.priv}</div>
+                  <ul className="space-y-1">
+                    {card.privateInstitutes.map((c) => (
+                      <li key={c.name}>• {c.name}{c.city ? `, ${c.city}` : ""}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* NEW – Distance & online */}
+      <section className={`${sectionClass} pb-8 grid md:grid-cols-2 gap-5`}>
+        {distance.length > 0 && (
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="font-serif text-lg flex items-center gap-2">
+              <GraduationCap className="h-4 w-4 text-primary" />
+              {L.distance}
+            </h2>
+            <ul className="mt-3 space-y-1 text-sm">
+              {distance.map((d) => <li key={d.name}>• {d.name}</li>)}
+            </ul>
+          </div>
+        )}
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <h2 className="font-serif text-lg flex items-center gap-2">
+            <Globe className="h-4 w-4 text-primary" />
+            {L.online}
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {onlineCourses.map((c) => (
+              <li key={c.provider + c.url}>
+                <a href={c.url} target="_blank" rel="noreferrer" className="hover:text-primary">
+                  <span className="font-medium">{c.provider}</span> — {pickT(c.title, lang)}
+                  <ExternalLink className="inline h-3 w-3 ml-1 text-muted-foreground" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* NEW – Education loans */}
+      <section className={`${sectionClass} pb-8`}>
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <h2 className="font-serif text-xl flex items-center gap-2">
+            <Wallet className="h-4 w-4 text-primary" />
+            {L.loans}
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {loans.map((ln, i) => (
+              <li key={i} className="flex gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                <span>
+                  {pickT(ln.label, lang)}
+                  {ln.url && (
+                    <a href={ln.url} target="_blank" rel="noreferrer" className="ml-1 text-primary hover:underline">
+                      ↗
+                    </a>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* NEW – Role model */}
+      {card.roleModel && (
+        <section className={`${sectionClass} pb-8`}>
+          <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6">
+            <div className="text-xs uppercase tracking-wide text-primary mb-2 flex items-center gap-1.5">
+              <Quote className="h-3.5 w-3.5" /> {L.roleModel}
+            </div>
+            <div className="font-serif text-lg">{card.roleModel.name}</div>
+            <p className="mt-2 text-sm text-foreground/85">{pickT(card.roleModel.bio, lang)}</p>
+            {card.roleModel.sourceUrl && (
+              <a
+                href={card.roleModel.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-flex items-center gap-1 text-xs text-primary hover:underline"
+              >
+                {L.viewSource} <ExternalLink className="h-3 w-3" />
+              </a>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* NEW – Search keywords */}
+      {card.keywords?.length ? (
+        <section className={`${sectionClass} pb-8`}>
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="font-serif text-lg flex items-center gap-2">
+              <Tag className="h-4 w-4 text-primary" />
+              {L.keywords}
+            </h2>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {card.keywords.map((k) => (
+                <span key={k} className="text-xs rounded-full border border-border bg-muted px-2.5 py-0.5">
+                  {k}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+
       {/* Top colleges + Career roles */}
       <section className={`${sectionClass} pb-8 grid md:grid-cols-2 gap-5`}>
         <div className="rounded-2xl border border-border bg-card p-6">
@@ -456,7 +716,7 @@ function PathDetail() {
 
       {/* Career roadmap */}
       <section className={`${sectionClass} pb-8`}>
-        <CareerRoadmap stream={stream} path={path} lang={lang} />
+        <CareerRoadmap stream={stream} path={path} lang={langLegacy} />
       </section>
 
       {/* Why Gujarat */}
@@ -596,6 +856,23 @@ function PathDetail() {
           </Link>
         </div>
       </section>
+
+      {/* Sources footer */}
+      {card.sources?.length ? (
+        <section className={`${sectionClass} pb-12`}>
+          <div className="text-xs text-muted-foreground border-t border-border pt-4">
+            <span className="font-medium mr-1">{L.sources}:</span>
+            {card.sources.map((s, i) => (
+              <span key={s.url}>
+                {i > 0 && " · "}
+                <a href={s.url} target="_blank" rel="noreferrer" className="hover:text-primary underline-offset-2 hover:underline">
+                  {s.label}
+                </a>
+              </span>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </PublicLayout>
   );
 }

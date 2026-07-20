@@ -1,86 +1,59 @@
-# Plan: Career Cards Hub + Full HI/GU Test & Report
 
-Two independent workstreams. Both can ship in one build.
+## Goal
+Every profession page under `/career/$stream/$path` should carry the information that the attached career card (DS001 – Industrial Designer) contains, minus what we already show, and render fully in **English, Hindi, Gujarati**.
 
----
+## What we already have (do NOT duplicate)
+Duration · Eligibility · Entrance exams · Avg salary · Description · Top Gujarat colleges · What you'll study · Day in the life · Growth path (basic) · Scholarships · FAQs · Career roles.
 
-## Part 1 — Career Cards Hub (`/careers-cards`)
+## What is missing from the card (to be added)
+1. **Personal competencies** – "You are good with…" style bullet checklist.
+2. **Work environment** – places of work, weekly hours / shift pattern, differently-abled friendliness.
+3. **Entrepreneurship note** – can you start your own firm?
+4. **Detailed growth-path ladder** – Trainee → Designer → Sr. Designer → Design Lead (title-only, separate from the salary ladder we already show).
+5. **National institutes** – Government + Private institutes across India (currently only Gujarat).
+6. **Distance-learning option** (IGNOU etc.) and **Online courses** (NPTEL/Swayam/Udemy) with links.
+7. **Loans block** – Vidya Lakshmi, state student credit cards, bank education loans.
+8. **Example from the field** – one real practitioner with a 2-line bio and source link.
+9. **Search keywords / role synonyms** – helps SEO + student vocabulary.
+10. **Reference / source URLs** – Payscale, NIRF etc. as a small footnote.
 
-### Prerequisite (blocking)
-You'll share the master Google Sheet URL that has all card fields for the 522 careers (role name, category, education path, entrance exams, key skills, salary band, top employers, EN/HI/GU description). I'll import from that sheet — the Index sheet in the Drive folder only has folder-level counts, not per-card data.
+## Language plan (EN / HI / GU)
+- Extend `CareerPath` (in `src/lib/careerData.ts`) with a `titleHi/titleGu`, `descriptionHi/Gu`, `avgSalaryHi/Gu` etc. — only for fields that are prose. Numeric fields (duration, salary numbers, college names) stay language-neutral.
+- Extend the new "card extras" (`ExtraContent`) with `hi` and `gu` variants so all added prose is trilingual.
+- `PublicLayout` already exposes an i18n language toggle. Read `i18n.language` → `en | hi | gu` and pick the right variant in `career.$stream.$path.tsx`. Fall back to English when a Hindi/Gujarati string is missing.
+- Add Hindi strings to `src/lib/i18n.ts` for the section labels ("Personal competencies", "Work environment", etc.).
 
-Once shared, I:
-1. Create `career_cards` table in Lovable Cloud with columns: `id, code, name_en, name_hi, name_gu, category, handbook_stream_slug, education, exams[], skills[], salary_min, salary_max, employers[], description_en, description_hi, description_gu, pdf_url_en, pdf_url_hi, pdf_url_gu`. RLS: public SELECT.
-2. Run a one-time import script (via `code--exec` + Google Sheets connector) that also resolves each card to one of our 20 existing handbook streams via a keyword/category map.
-3. Match PDF filenames in the Drive folders to card codes and store viewable Drive URLs (`https://drive.google.com/file/d/{id}/preview`).
+## Data source strategy (scales to all 522 professions)
+Rather than hand-writing prose for every path, we introduce a small **card-extras map** keyed by career path slug, e.g. `industrial-designer`, `mbbs`, `b-tech-computer-science`. Each entry stores the 10 missing fields in EN/HI/GU. Paths without an explicit entry keep today's auto-generated fallback (already trilingual-ready).
 
-### New pages
-- **`/careers-cards`** — main hub
-  - Search bar + filters (stream, category, salary band, exam)
-  - Grid of card tiles (name, category chip, top skills, salary)
-  - Language toggle (EN / HI / GU) updates card text and PDF link
-  - Each card has: **View details**, **Open PDF** (in current language), **+ Compare** (adds to compare tray)
-- **`/careers-cards/$code`** — single card detail
-  - Full structured info, embedded PDF preview iframe, bookmark button, link back to the mapped handbook stream page
-- **`/careers-cards/compare`** — comparison view
-  - Up to 4 cards side-by-side table: education, exams, skills, salary, employers, RIASEC fit
-  - Sticky compare tray on `/careers-cards` shows selected cards + "Compare (n)" button
-  - Compare selection persisted in `localStorage` (no login required)
+- New file: `src/lib/careerCards.ts` – typed `Record<slug, CareerCardExtras>`.
+- Seed it with **~30 flagship paths** first (all paths currently in `careerData.ts`: B.Tech, MBBS, CA, LLB, B.Des, B.Arch, BBA, BCA, Hotel Mgmt, etc.).
+- Include the uploaded Industrial Designer card as the reference implementation.
+- Later cards from the Google-Drive PDF pack can be appended in the same shape (out of scope for this turn; the schema stays stable).
 
-### Handbook integration
-Each `/handbook/$slug` page gets a new "Explore careers in this stream" section listing matching cards (linked via `handbook_stream_slug`).
+## UI changes to `career.$stream.$path.tsx`
+Add these sections after "Day in the life", before "Related exams":
+1. **Personal competencies** – tick-list.
+2. **Where you'll work** – 3-column grid (Places · Hours · Entrepreneurship).
+3. **Career growth ladder** – horizontal stepper (reuses `CareerRoadmap` styling).
+4. **Where you'll study – India-wide** – two lists: Government / Private, plus a "Distance & Online" note.
+5. **Financing your studies** – Scholarships (existing) + new **Loans** card.
+6. **Example from the field** – small quote card with practitioner name, one-line bio, source link.
+7. **Also searched as** – comma-separated keyword chips (aids on-page SEO).
+8. Footer note: "Salary figures indicative — source: Payscale / NIRF" with the source URL.
 
-### Nav
-Add "Career Cards" to top nav (row 2, between Handbook and Colleges).
+All new sections read from `careerCards[slug]` when present, else use safe generic defaults.
 
----
+## Head / SEO
+Update `head()` to switch `title` and `description` by language (English / Hindi / Gujarati) so shared links preview in the reader's language.
 
-## Part 2 — Full HI/GU Test + Report
+## Technical notes
+- No database changes; everything is static TS data (fast, SSR-safe, works offline).
+- New type additions in `careerData.ts` are additive → no breaking changes to existing consumers (handbook, dashboard, chatbot).
+- All added strings pass through `t()` or the manual `lang` switch already used in the file — no new i18n framework.
+- 522-card bulk import is deferred: this turn wires the schema, UI, and ~30 flagship entries. Bulk PDF-→-JSON extraction can follow in a dedicated batch turn once you confirm the schema.
 
-### Language plumbing (ships first)
-- Extend `Meta.language` type from `"en"` → `"en" | "hi" | "gu"` in `src/routes/test.take.tsx` (currently hardcoded to `"en"`).
-- Read `language` from the intake form (`test.index.tsx`) and honour it end-to-end: question stems, options, aptitude items, result page UI, PDF report.
-- `psychometricData.ts`: extend `text/options` shape from `{en, gu}` to `{en, hi, gu}` for all RIASEC + MI + aptitude items (~150 items).
-- `psychometricReportStrings.ts`: rebuild `hi` and `gu` string bundles alongside the existing `en` (currently `getReportStrings` returns EN for both).
-- `psychometricReport.ts`: font already loads `notoSans`; extend to Devanagari + Gujarati fonts (Noto Sans Devanagari + Noto Sans Gujarati) so the jsPDF report renders both scripts. Report cover, section titles, narrative, appendix all switch on `language`.
-- Result page (`test.take.tsx`) + `AIInterpretationPanel` + `ReportPreview` + Parent Summary switch on language.
-- `interpret-report` edge function receives `language` and instructs the model to write the narrative in that language.
-
-### AI-generated translations
-Using `google/gemini-2.5-pro` via the AI Gateway skill, I generate:
-- All missing HI translations for RIASEC/MI question texts + options
-- All HI + GU translations for aptitude items (question + 4 options each), with a system prompt that preserves numbers, units, and technical precision
-- HI + GU translations for `psychometricReportStrings.ts` (cover, TOC, section bodies, skill lists, action plans, parent tips, glossary, closing)
-- HI + GU narrative templates for `parentSummary.ts` and `chatbotContext.ts`
-
-Output committed as static TS strings — no runtime translation. You spot-check a sample of each language before we mark it done; anything you flag I revise.
-
-### Report language flag storage
-- Save `language` on `psychometric_submissions` (already saved via `meta.language`) and use it as the source of truth when regenerating the PDF from `/r/$token`.
-- Google Sheets sync gains a `Language` column.
-
----
-
-## Technical section (dev-only)
-
-- **Fonts:** add `src/lib/fonts/notoDevanagari.ts` and `src/lib/fonts/notoGujarati.ts` (base64) mirroring existing `notoSans.ts`; register in jsPDF based on `report.language`.
-- **Aptitude translation quality:** aptitude items are shuffled, so any translation drift breaks scoring only if `answer` index changes — I keep option order identical in translation prompts and validate with a diff check post-generation.
-- **Build error above:** the import-protection failure will be diagnosed when we enter build mode (likely a `.functions.ts` file importing `client.server` at top level from earlier work). I'll read the full stderr and fix before adding new files.
-- **New table grants:**
-  ```sql
-  GRANT SELECT ON public.career_cards TO anon, authenticated;
-  GRANT ALL   ON public.career_cards TO service_role;
-  ALTER TABLE public.career_cards ENABLE ROW LEVEL SECURITY;
-  CREATE POLICY "public read" ON public.career_cards FOR SELECT USING (true);
-  ```
-- **PDF hosting:** we link to Drive `preview` URLs — no storage cost. If Drive rate-limits or you want the app to work with Drive private, follow-up is mirroring PDFs into a Supabase storage bucket.
-
----
-
-## Suggested build order
-1. Fix the outstanding build error.
-2. Ship language plumbing end-to-end in EN only (regression-safe).
-3. AI-translate + wire HI and GU strings; you review batches.
-4. Once you share the master sheet: build `career_cards` table, import, ship the hub + compare + handbook integration.
-
-Reply with the master Google Sheet link and I'll start building.
+## Out of scope for this turn
+- Bulk-ingesting all 522 PDFs (needs a separate extraction pipeline; will propose once schema is approved).
+- Translating the entire `handbook` route (kept as EN/GU as it is today).
+- Changing psychometric report language (separate track already discussed).
