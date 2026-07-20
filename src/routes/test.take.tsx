@@ -278,7 +278,7 @@ function TakeTest() {
           <span>{current.title}</span>
           <div className="flex items-center gap-3">
             <OfflineStatus lang="en" />
-            <span>Progress: {overallProgress}%</span>
+            <span>{t.progress}: {overallProgress}%</span>
           </div>
         </div>
         <div className="mt-2 h-2 rounded-full bg-secondary overflow-hidden">
