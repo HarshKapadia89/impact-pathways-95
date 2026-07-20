@@ -286,7 +286,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {String.fromCharCode(65 + i)}. {o.en}
+                            {String.fromCharCode(65 + i)}. {o[meta.language] ?? o.en}
                           </button>
                         );
                       })}
