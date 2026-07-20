@@ -76,6 +76,12 @@ function TestIntro() {
   const { i18n } = useTranslation();
   const { vibe } = Route.useSearch() as { vibe?: VibeId };
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
+  const initialLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
+    ? "hi"
+    : i18n.language?.startsWith("gu")
+      ? "gu"
+      : "en";
+  const [testLang, setTestLang] = useState<"en" | "hi" | "gu">(initialLang);
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
@@ -92,21 +98,20 @@ function TestIntro() {
   const schoolValid = school.trim().length >= 2;
   const canContinue = !!grade && schoolValid && mobileValid && emailValid && parentEmailValid;
 
-  const currentLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
-    ? "hi"
-    : i18n.language?.startsWith("gu")
-      ? "gu"
-      : "en";
-
   const start = () => {
     if (!canContinue) return;
+    // testLang (explicit picker) is the single source of truth for the whole
+    // test + PDF. Also align the app shell so surrounding chrome matches.
+    if (i18n.language !== testLang) {
+      i18n.changeLanguage(testLang);
+    }
     sessionStorage.setItem(
       "disha-test-meta",
       JSON.stringify({
         name: name || "Student",
         grade,
         age,
-        language: currentLang,
+        language: testLang,
         school: school.trim(),
         mobile: mobileDigits,
         email: email.trim(),
