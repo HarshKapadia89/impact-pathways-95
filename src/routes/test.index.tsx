@@ -76,6 +76,12 @@ function TestIntro() {
   const { i18n } = useTranslation();
   const { vibe } = Route.useSearch() as { vibe?: VibeId };
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
+  const initialLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
+    ? "hi"
+    : i18n.language?.startsWith("gu")
+      ? "gu"
+      : "en";
+  const [testLang, setTestLang] = useState<"en" | "hi" | "gu">(initialLang);
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
@@ -92,21 +98,20 @@ function TestIntro() {
   const schoolValid = school.trim().length >= 2;
   const canContinue = !!grade && schoolValid && mobileValid && emailValid && parentEmailValid;
 
-  const currentLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
-    ? "hi"
-    : i18n.language?.startsWith("gu")
-      ? "gu"
-      : "en";
-
   const start = () => {
     if (!canContinue) return;
+    // testLang (explicit picker) is the single source of truth for the whole
+    // test + PDF. Also align the app shell so surrounding chrome matches.
+    if (i18n.language !== testLang) {
+      i18n.changeLanguage(testLang);
+    }
     sessionStorage.setItem(
       "disha-test-meta",
       JSON.stringify({
         name: name || "Student",
         grade,
         age,
-        language: currentLang,
+        language: testLang,
         school: school.trim(),
         mobile: mobileDigits,
         email: email.trim(),
@@ -609,7 +614,40 @@ function TestIntro() {
 
         <div className="md:col-span-3">
           <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+            {/* LANGUAGE PICKER — drives the whole test + PDF */}
+            <div className="mb-5 rounded-xl border border-primary/30 bg-primary/5 p-4">
+              <div className="text-xs font-semibold uppercase tracking-widest text-primary">
+                Test language · परीक्षा की भाषा · પરીક્ષાની ભાષા
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2">
+                {([
+                  { id: "en", label: "English" },
+                  { id: "hi", label: "हिन्दी" },
+                  { id: "gu", label: "ગુજરાતી" },
+                ] as const).map((opt) => {
+                  const active = testLang === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => setTestLang(opt.id)}
+                      className={`rounded-lg border px-3 py-2.5 text-sm font-medium transition-colors ${
+                        active
+                          ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                          : "bg-background border-border hover:bg-muted"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="mt-2 text-[11px] text-muted-foreground">
+                Questions, options and your final PDF report will all be in this language. To change it later you must retake the test.
+              </p>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4">
+
               <Field label="Full name" value={name} onChange={setName} placeholder="e.g. Aarav Patel" />
               <Field label="School name *" value={school} onChange={setSchool} placeholder="e.g. Delhi Public School" />
               <Field label="Grade *" value={grade} onChange={setGrade} placeholder="6 to 12" />

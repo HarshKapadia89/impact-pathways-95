@@ -55,6 +55,68 @@ interface PaymentMeta {
 const PAGE_SIZE = 6;
 const DRAFT_KEY = "hbk-test-draft-v1";
 
+// Chrome strings for the test-taking flow, keyed by the language chosen on /test.
+const T: Record<
+  "en" | "hi" | "gu",
+  {
+    part1: string;
+    part2: string;
+    part3: (band: string) => string;
+    progress: string;
+    page: (n: number, total: number) => string;
+    resumeTitle: string;
+    resumeBody: (count: number, when: string) => string;
+    resumeYes: string;
+    resumeNo: string;
+    back: string;
+    next: string;
+    finish: string;
+  }
+> = {
+  en: {
+    part1: "Part 1: Interests (RIASEC)",
+    part2: "Part 2: Multiple Intelligences",
+    part3: (b) => `Part 3: Aptitude (Grade ${b})`,
+    progress: "Progress",
+    page: (n, t) => `Page ${n} / ${t}`,
+    resumeTitle: "Resume your earlier attempt?",
+    resumeBody: (c, w) => `We saved ${c} answers from ${w}.`,
+    resumeYes: "Resume",
+    resumeNo: "Start fresh",
+    back: "Back",
+    next: "Next",
+    finish: "Finish",
+  },
+  hi: {
+    part1: "भाग 1: रुचियाँ (RIASEC)",
+    part2: "भाग 2: बहु-बुद्धिमत्ताएँ",
+    part3: (b) => `भाग 3: योग्यता (कक्षा ${b})`,
+    progress: "प्रगति",
+    page: (n, t) => `पृष्ठ ${n} / ${t}`,
+    resumeTitle: "क्या आप पिछला प्रयास जारी रखना चाहते हैं?",
+    resumeBody: (c, w) => `हमने ${w} पर ${c} उत्तर सहेजे हैं।`,
+    resumeYes: "जारी रखें",
+    resumeNo: "नए सिरे से शुरू करें",
+    back: "पिछला",
+    next: "आगे",
+    finish: "समाप्त करें",
+  },
+  gu: {
+    part1: "ભાગ 1: રુચિઓ (RIASEC)",
+    part2: "ભાગ 2: બહુવિધ બુદ્ધિમત્તા",
+    part3: (b) => `ભાગ 3: યોગ્યતા (ધોરણ ${b})`,
+    progress: "પ્રગતિ",
+    page: (n, t) => `પૃષ્ઠ ${n} / ${t}`,
+    resumeTitle: "શું તમે અગાઉનો પ્રયાસ ફરી શરૂ કરવા માંગો છો?",
+    resumeBody: (c, w) => `અમે ${w} પર ${c} જવાબો સાચવ્યા છે.`,
+    resumeYes: "ચાલુ રાખો",
+    resumeNo: "નવેસરથી શરૂ કરો",
+    back: "પાછળ",
+    next: "આગળ",
+    finish: "પૂર્ણ કરો",
+  },
+};
+
 interface Draft {
   mobile: string;
   section: 0 | 1 | 2;
@@ -140,13 +202,14 @@ function TakeTest() {
   const band = useMemo(() => gradeToBand(meta?.grade), [meta?.grade]);
   const aptItems = useMemo<AptitudeItem[]>(() => aptitudeItemsForBand(band), [band]);
 
+  const t = T[meta?.language ?? "en"];
   const sections = useMemo(
     () => [
-      { id: 0, title: "Part 1: Interests (RIASEC)", items: RIASEC_ITEMS, type: "likert" as const, answers: riasec, set: setRiasec },
-      { id: 1, title: "Part 2: Multiple Intelligences", items: MI_ITEMS, type: "likert" as const, answers: mi, set: setMi },
-      { id: 2, title: `Part 3: Aptitude (Grade ${band})`, items: aptItems, type: "mcq" as const, answers: apt, set: setApt },
+      { id: 0, title: t.part1, items: RIASEC_ITEMS, type: "likert" as const, answers: riasec, set: setRiasec },
+      { id: 1, title: t.part2, items: MI_ITEMS, type: "likert" as const, answers: mi, set: setMi },
+      { id: 2, title: t.part3(band), items: aptItems, type: "mcq" as const, answers: apt, set: setApt },
     ],
-    [riasec, mi, apt, aptItems, band],
+    [riasec, mi, apt, aptItems, band, t],
   );
 
   const current = sections[section];
@@ -215,7 +278,7 @@ function TakeTest() {
           <span>{current.title}</span>
           <div className="flex items-center gap-3">
             <OfflineStatus lang="en" />
-            <span>Progress: {overallProgress}%</span>
+            <span>{t.progress}: {overallProgress}%</span>
           </div>
         </div>
         <div className="mt-2 h-2 rounded-full bg-secondary overflow-hidden">
@@ -224,21 +287,24 @@ function TakeTest() {
 
         <h1 className="mt-6 font-serif text-2xl md:text-3xl">{current.title}</h1>
         <p className="text-xs text-muted-foreground mt-1">
-          Page {page + 1} / {totalPages}
+          {t.page(page + 1, totalPages)}
         </p>
 
 
         {resumeOffered && resumeDraft && (
           <div className="mt-5 rounded-xl border border-accent/40 bg-accent/10 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="text-sm">
-              <div className="font-medium text-foreground">Resume your earlier attempt?</div>
+              <div className="font-medium text-foreground">{t.resumeTitle}</div>
               <div className="text-xs text-muted-foreground mt-0.5">
-                We saved {Object.keys(resumeDraft.riasec).length + Object.keys(resumeDraft.mi).length + Object.keys(resumeDraft.apt).length} answers from {new Date(resumeDraft.savedAt).toLocaleString()}.
+                {t.resumeBody(
+                  Object.keys(resumeDraft.riasec).length + Object.keys(resumeDraft.mi).length + Object.keys(resumeDraft.apt).length,
+                  new Date(resumeDraft.savedAt).toLocaleString(),
+                )}
               </div>
             </div>
             <div className="flex gap-2">
-              <button onClick={acceptResume} className="text-xs px-3 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">Resume</button>
-              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border border-border bg-card hover:bg-muted">Start fresh</button>
+              <button onClick={acceptResume} className="text-xs px-3 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">{t.resumeYes}</button>
+              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border border-border bg-card hover:bg-muted">{t.resumeNo}</button>
             </div>
           </div>
         )}
@@ -304,14 +370,14 @@ function TakeTest() {
             disabled={section === 0 && page === 0}
             className="inline-flex items-center gap-1 text-sm px-4 py-2 rounded-md border border-border bg-card hover:bg-muted disabled:opacity-40"
           >
-            <ChevronLeft className="h-4 w-4" /> Back
+            <ChevronLeft className="h-4 w-4" /> {t.back}
           </button>
           <button
             onClick={next}
             disabled={!allAnswered}
             className="inline-flex items-center gap-1 text-sm px-5 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-40"
           >
-            {section === 2 && page + 1 === totalPages ? "Finish" : "Next"} <ChevronRight className="h-4 w-4" />
+            {section === 2 && page + 1 === totalPages ? t.finish : t.next} <ChevronRight className="h-4 w-4" />
           </button>
         </div>
       </section>
