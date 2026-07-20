@@ -358,7 +358,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
   doc.text(
-    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : t.langNameEn}`,
+    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : language === "hi" ? "हिन्दी" : t.langNameEn}`,
     M,
     SPLIT + 46,
   );
