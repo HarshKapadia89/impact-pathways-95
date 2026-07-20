@@ -77,6 +77,10 @@ function registerFonts(doc: jsPDF) {
   doc.addFont("NotoSansGujarati-Regular.ttf", FONT_GU, "normal");
   doc.addFileToVFS("NotoSansGujarati-Bold.ttf", notoSansGujaratiBold);
   doc.addFont("NotoSansGujarati-Bold.ttf", FONT_GU, "bold");
+  doc.addFileToVFS("NotoSansDevanagari-Regular.ttf", notoSansDevanagariRegular);
+  doc.addFont("NotoSansDevanagari-Regular.ttf", FONT_HI, "normal");
+  doc.addFileToVFS("NotoSansDevanagari-Bold.ttf", notoSansDevanagariBold);
+  doc.addFont("NotoSansDevanagari-Bold.ttf", FONT_HI, "bold");
 }
 
 // Lightweight glyph cleanup. With Noto fonts, most Unicode chars render fine,
