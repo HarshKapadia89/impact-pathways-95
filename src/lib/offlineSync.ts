@@ -48,7 +48,7 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
         // Mirror to Google Sheet (best effort — failures don't block sync).
         try {
           const { appendSubmissionToSheet } = await import(
-            "@/server/sheetsSync.functions"
+            "@/lib/sheetsSync.functions"
           );
           await appendSubmissionToSheet({ data: item.payload as never });
         } catch (sheetErr) {
