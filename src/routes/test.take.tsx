@@ -33,11 +33,12 @@ export const Route = createFileRoute("/test/take")({
   component: TakeTest,
 });
 
+type UILang = "en" | "hi" | "gu";
 interface Meta {
   name: string;
   grade: string;
   age: string;
-  language: "en";
+  language: UILang;
   school?: string;
   mobile?: string;
   email?: string;
