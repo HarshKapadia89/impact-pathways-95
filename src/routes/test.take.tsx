@@ -55,6 +55,68 @@ interface PaymentMeta {
 const PAGE_SIZE = 6;
 const DRAFT_KEY = "hbk-test-draft-v1";
 
+// Chrome strings for the test-taking flow, keyed by the language chosen on /test.
+const T: Record<
+  "en" | "hi" | "gu",
+  {
+    part1: string;
+    part2: string;
+    part3: (band: string) => string;
+    progress: string;
+    page: (n: number, total: number) => string;
+    resumeTitle: string;
+    resumeBody: (count: number, when: string) => string;
+    resumeYes: string;
+    resumeNo: string;
+    back: string;
+    next: string;
+    finish: string;
+  }
+> = {
+  en: {
+    part1: "Part 1: Interests (RIASEC)",
+    part2: "Part 2: Multiple Intelligences",
+    part3: (b) => `Part 3: Aptitude (Grade ${b})`,
+    progress: "Progress",
+    page: (n, t) => `Page ${n} / ${t}`,
+    resumeTitle: "Resume your earlier attempt?",
+    resumeBody: (c, w) => `We saved ${c} answers from ${w}.`,
+    resumeYes: "Resume",
+    resumeNo: "Start fresh",
+    back: "Back",
+    next: "Next",
+    finish: "Finish",
+  },
+  hi: {
+    part1: "भाग 1: रुचियाँ (RIASEC)",
+    part2: "भाग 2: बहु-बुद्धिमत्ताएँ",
+    part3: (b) => `भाग 3: योग्यता (कक्षा ${b})`,
+    progress: "प्रगति",
+    page: (n, t) => `पृष्ठ ${n} / ${t}`,
+    resumeTitle: "क्या आप पिछला प्रयास जारी रखना चाहते हैं?",
+    resumeBody: (c, w) => `हमने ${w} पर ${c} उत्तर सहेजे हैं।`,
+    resumeYes: "जारी रखें",
+    resumeNo: "नए सिरे से शुरू करें",
+    back: "पिछला",
+    next: "आगे",
+    finish: "समाप्त करें",
+  },
+  gu: {
+    part1: "ભાગ 1: રુચિઓ (RIASEC)",
+    part2: "ભાગ 2: બહુવિધ બુદ્ધિમત્તા",
+    part3: (b) => `ભાગ 3: યોગ્યતા (ધોરણ ${b})`,
+    progress: "પ્રગતિ",
+    page: (n, t) => `પૃષ્ઠ ${n} / ${t}`,
+    resumeTitle: "શું તમે અગાઉનો પ્રયાસ ફરી શરૂ કરવા માંગો છો?",
+    resumeBody: (c, w) => `અમે ${w} પર ${c} જવાબો સાચવ્યા છે.`,
+    resumeYes: "ચાલુ રાખો",
+    resumeNo: "નવેસરથી શરૂ કરો",
+    back: "પાછળ",
+    next: "આગળ",
+    finish: "પૂર્ણ કરો",
+  },
+};
+
 interface Draft {
   mobile: string;
   section: 0 | 1 | 2;
