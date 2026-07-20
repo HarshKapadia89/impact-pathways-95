@@ -11,6 +11,20 @@ import {
   type CareerPath,
 } from "@/lib/careerData";
 import {
+  getCareerCard,
+  pickT,
+  pickList,
+  DEFAULT_COMPETENCIES,
+  DEFAULT_PLACES,
+  DEFAULT_WORK_ENV,
+  DEFAULT_ENTREPRENEURSHIP,
+  DEFAULT_DIFFERENTLY_ABLED,
+  DEFAULT_LOANS,
+  DEFAULT_ONLINE,
+  DEFAULT_DISTANCE,
+  type Lang,
+} from "@/lib/careerCards";
+import {
   ArrowLeft,
   Clock,
   Award,
@@ -25,6 +39,14 @@ import {
   TrendingUp,
   ExternalLink,
   HelpCircle,
+  Users,
+  Rocket,
+  Accessibility,
+  Landmark,
+  Globe,
+  Wallet,
+  Quote,
+  Tag,
 } from "lucide-react";
 
 export const Route = createFileRoute("/career/$stream/$path")({
