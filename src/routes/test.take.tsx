@@ -267,7 +267,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {o.label.en}
+                            {o.label[meta.language] ?? o.label.en}
                           </button>
                         );
                       })}
