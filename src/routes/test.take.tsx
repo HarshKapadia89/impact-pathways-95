@@ -33,11 +33,12 @@ export const Route = createFileRoute("/test/take")({
   component: TakeTest,
 });
 
+type UILang = "en" | "hi" | "gu";
 interface Meta {
   name: string;
   grade: string;
   age: string;
-  language: "en";
+  language: UILang;
   school?: string;
   mobile?: string;
   email?: string;
@@ -90,7 +91,9 @@ function TakeTest() {
       navigate({ to: "/test/pay" });
       return;
     }
-    const parsed = { ...(JSON.parse(raw) as Meta), language: "en" as const };
+    const raw2 = JSON.parse(raw) as Meta;
+    const lang: UILang = raw2.language === "hi" || raw2.language === "gu" ? raw2.language : "en";
+    const parsed = { ...raw2, language: lang };
     setMeta(parsed);
     setPayment(JSON.parse(pay) as PaymentMeta);
 
@@ -248,7 +251,7 @@ function TakeTest() {
                   {page * PAGE_SIZE + idx + 1}.
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm md:text-base text-foreground">{item.text.en}</p>
+                  <p className="text-sm md:text-base text-foreground">{item.text[meta.language] ?? item.text.en}</p>
 
                   {current.type === "likert" ? (
                     <div className="mt-4 grid grid-cols-5 gap-1.5">
@@ -264,7 +267,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {o.label.en}
+                            {o.label[meta.language] ?? o.label.en}
                           </button>
                         );
                       })}
@@ -283,7 +286,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {String.fromCharCode(65 + i)}. {o.en}
+                            {String.fromCharCode(65 + i)}. {o[meta.language] ?? o.en}
                           </button>
                         );
                       })}
@@ -414,7 +417,7 @@ function Result({
         student_name: meta.name,
         grade: meta.grade,
         age: meta.age ? Number(meta.age) : null,
-        language: "en",
+        language: meta.language,
         grade_band: band,
         school_name: meta.school ?? null,
         mobile: meta.mobile ?? null,
@@ -444,7 +447,7 @@ function Result({
       name: meta.name,
       grade: meta.grade,
       age: meta.age,
-      language: "en",
+      language: meta.language,
       riasecTop: report.riasecTop,
       riasec: report.riasec,
       miTop: report.miTop,
@@ -464,7 +467,7 @@ function Result({
       name: meta.name,
       grade: meta.grade,
       age: meta.age,
-      language: "en",
+      language: meta.language,
       report,
       riasecAnswers: riasec,
       miAnswers: mi,

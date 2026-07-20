@@ -15,6 +15,7 @@ import { recommendStreamsAccurate, rankCareerPaths } from "./careerMatch";
 import { getReportStrings, type ReportLang, type ReportStrings } from "./psychometricReportStrings";
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
+import { notoSansDevanagariRegular, notoSansDevanagariBold } from "./fonts/notoSansDevanagari";
 import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 import { buildParentSummary } from "./parentSummary";
 
@@ -55,6 +56,7 @@ const PH = 297;
 // Font family aliases registered with jsPDF
 const FONT_LATIN = "NotoSans";
 const FONT_GU = "NotoGujarati";
+const FONT_HI = "NotoDevanagari";
 
 function setFill(doc: jsPDF, c: [number, number, number]) {
   doc.setFillColor(c[0], c[1], c[2]);
@@ -75,6 +77,10 @@ function registerFonts(doc: jsPDF) {
   doc.addFont("NotoSansGujarati-Regular.ttf", FONT_GU, "normal");
   doc.addFileToVFS("NotoSansGujarati-Bold.ttf", notoSansGujaratiBold);
   doc.addFont("NotoSansGujarati-Bold.ttf", FONT_GU, "bold");
+  doc.addFileToVFS("NotoSansDevanagari-Regular.ttf", notoSansDevanagariRegular);
+  doc.addFont("NotoSansDevanagari-Regular.ttf", FONT_HI, "normal");
+  doc.addFileToVFS("NotoSansDevanagari-Bold.ttf", notoSansDevanagariBold);
+  doc.addFont("NotoSansDevanagari-Bold.ttf", FONT_HI, "bold");
 }
 
 // Lightweight glyph cleanup. With Noto fonts, most Unicode chars render fine,
@@ -111,13 +117,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // possible. The simplest reliable approach: in Gujarati mode set both the
   // font and rely on jsPDF's per-call setFont — every text() call below uses
   // font(weight) which auto-picks based on string content.
-  const PRIMARY_FONT = language === "gu" ? FONT_GU : FONT_LATIN;
+  const PRIMARY_FONT = language === "gu" ? FONT_GU : language === "hi" ? FONT_HI : FONT_LATIN;
 
   function font(weight: "normal" | "bold" = "normal", forceLatin = false) {
     doc.setFont(forceLatin ? FONT_LATIN : PRIMARY_FONT, weight);
   }
 
-  // Detect whether a string contains any Gujarati codepoints
   function hasGu(s: string): boolean {
     for (const ch of s) {
       const code = ch.charCodeAt(0);
@@ -125,21 +130,21 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     }
     return false;
   }
-
-  // Safe text renderer: picks Gu font for Gu strings, Latin font otherwise.
-  // We can't easily mix fonts within a single text() call in jsPDF, so we
-  // pick by majority. Practically, body strings in EN mode are pure Latin
-  // (Latin font), and body strings in GU mode are mostly Gujarati (Gu font);
-  // proper nouns embedded inside Gu strings fall back to .notdef but Noto
-  // Gujarati's notdef is a small box — visible but acceptable.
-  // Better: switch font per string. For Gu mode if a string is pure Latin
-  // (no Gujarati chars), use Latin font.
-  function smartFont(text: string, weight: "normal" | "bold") {
-    if (language === "gu" && !hasGu(text)) {
-      doc.setFont(FONT_LATIN, weight);
-    } else {
-      doc.setFont(PRIMARY_FONT, weight);
+  function hasHi(s: string): boolean {
+    for (const ch of s) {
+      const code = ch.charCodeAt(0);
+      if (code >= 0x0900 && code <= 0x097F) return true;
     }
+    return false;
+  }
+
+  // Pick font per string: if the string contains script glyphs for the active
+  // language, use that font; otherwise fall back to Latin so proper nouns and
+  // digits render cleanly.
+  function smartFont(text: string, weight: "normal" | "bold") {
+    if (language === "gu" && hasGu(text)) doc.setFont(FONT_GU, weight);
+    else if (language === "hi" && hasHi(text)) doc.setFont(FONT_HI, weight);
+    else doc.setFont(FONT_LATIN, weight);
   }
 
   // Wrap doc.text so we sanitise typography & auto-pick font per string.
@@ -353,7 +358,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
   doc.text(
-    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : t.langNameEn}`,
+    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : language === "hi" ? "हिन्दी" : t.langNameEn}`,
     M,
     SPLIT + 46,
   );

@@ -79,7 +79,7 @@ function buildAptitudeAnswers(items: AptitudeItem[]) {
   return out;
 }
 
-export function buildSampleReportInput(language: "en" | "gu" = "en") {
+export function buildSampleReportInput(language: "en" | "hi" | "gu" = "en") {
   const riasecAns = buildLikertAnswers(RIASEC_ITEMS, RIASEC_PROFILE);
   const miAns = buildLikertAnswers(MI_ITEMS, MI_PROFILE);
   const aptAns = buildAptitudeAnswers(APTITUDE_ITEMS);
@@ -96,7 +96,7 @@ export function buildSampleReportInput(language: "en" | "gu" = "en") {
   };
 }
 
-export function openSampleReport(language: "en" | "gu" = "en") {
+export function openSampleReport(language: "en" | "hi" | "gu" = "en") {
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
   const blob = doc.output("blob");
   const url = URL.createObjectURL(blob);
@@ -104,8 +104,8 @@ export function openSampleReport(language: "en" | "gu" = "en") {
   setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
-export function downloadSampleReport(language: "en" | "gu" = "en") {
+export function downloadSampleReport(language: "en" | "hi" | "gu" = "en") {
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
-  const suffix = language === "gu" ? "Gujarati" : "English";
+  const suffix = language === "gu" ? "Gujarati" : language === "hi" ? "Hindi" : "English";
   doc.save(`HBK-Careers-Sample-Report-Aarav-Patel-${suffix}.pdf`);
 }

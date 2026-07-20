@@ -7,7 +7,7 @@ export interface SavedReport {
   name: string;
   grade: string;
   age?: string;
-  language: "en" | "gu";
+  language: "en" | "hi" | "gu";
   riasecTop: string[];
   riasec: Record<string, number>;
   miTop: string[];
