@@ -512,7 +512,7 @@ function PathDetail() {
 
       {/* Career roadmap */}
       <section className={`${sectionClass} pb-8`}>
-        <CareerRoadmap stream={stream} path={path} lang={lang} />
+        <CareerRoadmap stream={stream} path={path} lang={langLegacy} />
       </section>
 
       {/* Why Gujarat */}
