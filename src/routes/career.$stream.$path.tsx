@@ -856,6 +856,23 @@ function PathDetail() {
           </Link>
         </div>
       </section>
+
+      {/* Sources footer */}
+      {card.sources?.length ? (
+        <section className={`${sectionClass} pb-12`}>
+          <div className="text-xs text-muted-foreground border-t border-border pt-4">
+            <span className="font-medium mr-1">{L.sources}:</span>
+            {card.sources.map((s, i) => (
+              <span key={s.url}>
+                {i > 0 && " · "}
+                <a href={s.url} target="_blank" rel="noreferrer" className="hover:text-primary underline-offset-2 hover:underline">
+                  {s.label}
+                </a>
+              </span>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </PublicLayout>
   );
 }
