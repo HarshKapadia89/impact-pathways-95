@@ -251,7 +251,7 @@ function TakeTest() {
                   {page * PAGE_SIZE + idx + 1}.
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm md:text-base text-foreground">{item.text.en}</p>
+                  <p className="text-sm md:text-base text-foreground">{item.text[meta.language] ?? item.text.en}</p>
 
                   {current.type === "likert" ? (
                     <div className="mt-4 grid grid-cols-5 gap-1.5">
