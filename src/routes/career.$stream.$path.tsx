@@ -300,9 +300,43 @@ function relatedExams(path: CareerPath) {
 function PathDetail() {
   const { stream, path } = Route.useLoaderData() as { stream: Stream; path: CareerPath };
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const raw = i18n.language ?? "en";
+  const lang: Lang = raw.startsWith("gu") ? "gu" : raw.startsWith("hi") ? "hi" : "en";
+  // Legacy en/gu callers below still work because "hi" cleanly falls back to "en" strings.
+  const langLegacy = (lang === "gu" ? "gu" : "en") as "en" | "gu";
   const extras = pickExtras(stream, path);
   const exams = relatedExams(path);
+  const card = getCareerCard(pathSlug(path.title));
+
+  const L = {
+    competencies: { en: "Personal competencies", hi: "व्यक्तिगत योग्यताएँ", gu: "વ્યક્તિગત ક્ષમતાઓ" }[lang],
+    workEnv: { en: "Where you'll work", hi: "आप कहाँ काम करेंगे", gu: "તમે ક્યાં કામ કરશો" }[lang],
+    places: { en: "Places of work", hi: "कार्यस्थल", gu: "કાર્યસ્થળ" }[lang],
+    hours: { en: "Work environment", hi: "कार्य वातावरण", gu: "કાર્ય વાતાવરણ" }[lang],
+    ownFirm: { en: "Start your own?", hi: "अपना काम शुरू करें?", gu: "તમારો પોતાનો ધંધો?" }[lang],
+    accessible: { en: "Differently-abled friendly", hi: "दिव्यांगों के लिए अनुकूल", gu: "દિવ્યાંગ મૈત્રીપૂર્ણ" }[lang],
+    ladder: { en: "Growth ladder", hi: "पदोन्नति क्रम", gu: "પદોન્નતિ ક્રમ" }[lang],
+    nationalColleges: { en: "Where you'll study (India-wide)", hi: "आप कहाँ पढ़ेंगे (भारत-भर)", gu: "તમે ક્યાં ભણશો (ભારત-વ્યાપી)" }[lang],
+    govt: { en: "Government institutes", hi: "सरकारी संस्थान", gu: "સરકારી સંસ્થાઓ" }[lang],
+    priv: { en: "Private institutes", hi: "निजी संस्थान", gu: "ખાનગી સંસ્થાઓ" }[lang],
+    distance: { en: "Distance learning", hi: "दूरस्थ शिक्षा", gu: "દૂરસ્થ શિક્ષણ" }[lang],
+    online: { en: "Online courses", hi: "ऑनलाइन कोर्स", gu: "ઑનલાઇન કોર્સ" }[lang],
+    loans: { en: "Education loans", hi: "शिक्षा ऋण", gu: "શિક્ષણ લોન" }[lang],
+    roleModel: { en: "Example from the field", hi: "क्षेत्र से एक उदाहरण", gu: "ક્ષેત્રમાંથી ઉદાહરણ" }[lang],
+    keywords: { en: "Also searched as", hi: "इन नामों से भी खोजा जाता है", gu: "આ નામોથી પણ શોધાય છે" }[lang],
+    sources: { en: "Sources", hi: "स्रोत", gu: "સ્રોત" }[lang],
+    viewSource: { en: "View source", hi: "स्रोत देखें", gu: "સ્રોત જુઓ" }[lang],
+  };
+
+  const comps = pickList(card.competencies, lang, pickList(DEFAULT_COMPETENCIES, lang));
+  const places = pickList(card.placesOfWork, lang, pickList(DEFAULT_PLACES, lang));
+  const workEnv = pickT(card.workEnvironment, lang, pickT(DEFAULT_WORK_ENV, lang));
+  const own = pickT(card.entrepreneurship, lang, pickT(DEFAULT_ENTREPRENEURSHIP, lang));
+  const abled = pickT(card.differentlyAbled, lang, pickT(DEFAULT_DIFFERENTLY_ABLED, lang));
+  const ladder = pickList(card.ladder, lang);
+  const loans = card.loans ?? DEFAULT_LOANS;
+  const onlineCourses = card.onlineCourses ?? DEFAULT_ONLINE;
+  const distance = card.distanceLearning ?? DEFAULT_DISTANCE;
 
   const sectionClass = "max-w-5xl mx-auto px-4 md:px-8";
 
