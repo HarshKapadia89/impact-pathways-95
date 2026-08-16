@@ -47,20 +47,20 @@ export function PublicLayout({ children }: { children: ReactNode }) {
       {/* Top colour stripe */}
       <div className="h-2 stripe-band" aria-hidden />
 
-      <header className="sticky top-0 z-40 bg-ink text-paper border-b-4 border-ink">
+      <header className="sticky top-0 z-40 bg-paper text-ink border-b-4 border-ink">
         <div className="max-w-7xl mx-auto px-3 md:px-6">
           {/* Row 1: brand */}
           <div className="flex items-center gap-3 py-3">
             <Link to="/" className="flex items-center gap-3 shrink-0">
               <div
-                className="flex items-center justify-center w-10 h-10 border-2 border-paper"
+                className="flex items-center justify-center w-10 h-10 border-2 border-ink"
                 style={{ background: "var(--brand-5)" }}
               >
                 <span className="font-serif text-lg text-ink leading-none">H</span>
               </div>
               <div className="leading-none">
-                <div className="poster-title text-xl md:text-2xl text-paper">HBK CAREERS</div>
-                <div className="mt-1 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "var(--brand-5)" }}>
+                <div className="poster-title text-xl md:text-2xl text-ink">HBK CAREERS</div>
+                <div className="mt-1 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: "var(--brand-1)" }}>
                   {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
                 </div>
               </div>
@@ -68,7 +68,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
             <button
               onClick={() => setOpen((v) => !v)}
-              className="lg:hidden ml-auto p-2 border-2 border-paper"
+              className="lg:hidden ml-auto p-2 border-2 border-ink"
               aria-label="Menu"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -76,7 +76,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           </div>
 
           {/* Row 2: nav */}
-          <nav className="hidden lg:flex flex-wrap items-stretch gap-0 border-t-2 border-paper/25">
+          <nav className="hidden lg:flex flex-wrap items-stretch gap-0 border-t-2 border-ink/15">
             {NAV.map((item, i) => {
               const Icon = item.icon;
               const active =
@@ -87,7 +87,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   key={item.to}
                   to={item.to}
                   className="group relative flex items-center gap-1.5 px-3 py-2.5 text-[13px] font-extrabold uppercase tracking-wide whitespace-nowrap transition-colors"
-                  style={active ? { background: tone, color: "var(--ink)" } : { color: "var(--paper)" }}
+                  style={active ? { background: tone, color: "var(--ink)" } : { color: "var(--ink)" }}
                 >
                   <Icon className="h-4 w-4" style={active ? undefined : { color: tone }} />
                   <span>{item.label[lang]}</span>
@@ -105,7 +105,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
         {/* Mobile menu */}
         {open && (
-          <div className="lg:hidden border-t-2 border-paper/25">
+          <div className="lg:hidden border-t-2 border-ink/15">
             <nav className="px-3 py-2">
               {NAV.map((item, i) => {
                 const Icon = item.icon;
@@ -117,7 +117,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     key={item.to}
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 px-3 py-3 text-sm font-extrabold uppercase tracking-wide border-b-2 border-paper/15"
+                    className="flex items-center gap-3 px-3 py-3 text-sm font-extrabold uppercase tracking-wide border-b-2 border-ink/10"
                     style={active ? { background: tone, color: "var(--ink)" } : undefined}
                   >
                     <Icon className="h-4 w-4" style={active ? undefined : { color: tone }} />
@@ -132,7 +132,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="bg-ink text-paper mt-16">
+      <footer className="text-paper mt-16" style={{ background: "var(--brand-1)" }}>
         <div className="h-2 stripe-band" aria-hidden />
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 grid md:grid-cols-3 gap-8 text-sm">
           <div>
@@ -164,7 +164,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </ul>
           </div>
           <div>
-            <div className="text-[10px] font-black uppercase tracking-[0.25em] mb-3" style={{ color: "var(--brand-3)" }}>
+            <div className="text-[10px] font-black uppercase tracking-[0.25em] mb-3" style={{ color: "var(--brand-5)" }}>
               {lang === "gu" ? "ઉપયોગ" : "Usage"}
             </div>
             <p className="text-paper/70 text-xs leading-relaxed">

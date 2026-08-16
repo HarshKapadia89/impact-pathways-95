@@ -312,3 +312,26 @@ h1, h2 {
   letter-spacing: -0.03em;
   line-height: 0.92;
 }
+
+/* Youth-friendly interactive extras */
+@keyframes poster-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@utility poster-float { animation: poster-float 4s ease-in-out infinite; }
+
+@keyframes word-swap {
+  0% { opacity: 0; transform: translateY(12px) skewY(2deg); }
+  100% { opacity: 1; transform: translateY(0) skewY(0); }
+}
+@utility word-swap { animation: word-swap 0.4s cubic-bezier(0.2, 1.3, 0.4, 1) both; }
+
+@utility tile-lift {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  &:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 0 var(--ink); }
+  &:active { transform: translate(0, 0); box-shadow: 3px 3px 0 0 var(--ink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster-float, .word-swap { animation: none; }
+}
