@@ -106,7 +106,7 @@ function ParentsPage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-14">
-        <div className="rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/10 to-primary/5 p-8 md:p-10">
+        <div className="rounded-3xl border border-accent/30 p-8 md:p-10">
           <h2 className="font-serif text-2xl md:text-3xl">
             {lang === "gu" ? "રિપોર્ટ કેવી રીતે વાંચવો?" : "How to read the report together"}
           </h2>

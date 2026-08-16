@@ -546,7 +546,7 @@ function Result({
   return (
     <PublicLayout>
       <section className="max-w-4xl mx-auto px-4 md:px-8 py-10">
-        <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/10 to-accent/10 p-6 md:p-8">
+        <div className="rounded-2xl border border-border p-6 md:p-8">
           <div className="text-xs text-muted-foreground">Complete ✓</div>
           <h1 className="font-serif text-3xl md:text-4xl mt-1">Your direction is ready</h1>
           <p className="text-sm text-muted-foreground mt-2">

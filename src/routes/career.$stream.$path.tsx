@@ -342,7 +342,7 @@ function PathDetail() {
 
   return (
     <PublicLayout>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
+      <section className="border-b border-border">
         <div className={`${sectionClass} py-10`}>
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <Link

@@ -208,7 +208,7 @@ function WebReportPage() {
     <PublicLayout>
       <article className="max-w-4xl mx-auto px-4 md:px-8 py-10">
         {/* Hero */}
-        <header className="rounded-3xl bg-gradient-to-br from-primary/15 via-accent/10 to-primary/5 p-6 md:p-10 border border-border">
+        <header className="rounded-3xl p-6 md:p-10 border border-border">
           <div className="inline-flex items-center gap-1.5 bg-card/70 backdrop-blur px-3 py-1 rounded-full text-[11px] uppercase tracking-widest text-primary border border-border">
             <Sparkles className="h-3 w-3" /> HBK Careers · Personalised Report
           </div>
@@ -417,7 +417,7 @@ function ScoreCard({
               </div>
               <div className="mt-1 h-1.5 rounded-full bg-muted overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-primary to-accent"
+                  className="h-full to-accent"
                   style={{ width: `${pct}%` }}
                 />
               </div>

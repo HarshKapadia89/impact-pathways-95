@@ -197,7 +197,7 @@ function FindCollegePage() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
+      <section className="border-b border-border">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
             <Search className="h-3.5 w-3.5" />

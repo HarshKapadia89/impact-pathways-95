@@ -156,7 +156,7 @@ export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
 
         {/* Sample report + testimonial */}
         <div className="mt-10 grid md:grid-cols-2 gap-5">
-          <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-6 md:p-7">
+          <div className="rounded-2xl border border-primary/20 p-6 md:p-7">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
               <FileText className="h-3.5 w-3.5" />
               {T.sampleTitle}

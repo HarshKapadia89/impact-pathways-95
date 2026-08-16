@@ -21,7 +21,7 @@ export function ReportPreview({ lang }: { lang: "en" | "gu" }) {
   ];
 
   return (
-    <section className="border-y border-border bg-gradient-to-b from-accent/5 via-transparent to-primary/5">
+    <section className="border-y border-border to-primary/5">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-14">
         <div className="text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent font-semibold uppercase tracking-widest">

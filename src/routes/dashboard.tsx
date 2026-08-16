@@ -192,7 +192,7 @@ function DashboardPage() {
 
   return (
     <PublicLayout>
-      <section className="border-b border-border bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <section className="border-b border-border to-accent/5">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-10">
           <div className="text-xs uppercase tracking-widest text-accent flex items-center gap-1.5">
             <Sparkles className="h-3.5 w-3.5" /> My Dashboard

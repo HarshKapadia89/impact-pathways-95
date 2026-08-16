@@ -184,7 +184,7 @@ export function CareerChatbot() {
       {open && (
         <div className="fixed inset-0 z-50 sm:inset-auto sm:bottom-5 sm:right-5 sm:w-[420px] sm:h-[640px] sm:max-h-[85vh] flex flex-col bg-card border border-border sm:rounded-2xl shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-gradient-to-r from-primary/15 to-accent/15">
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-border to-accent/15">
             <div className="h-9 w-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
               <Sparkles className="h-4 w-4" />
             </div>

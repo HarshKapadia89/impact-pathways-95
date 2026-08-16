@@ -104,7 +104,7 @@ function StreamDetail() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border print:bg-none print:border-0">
+      <section className="border-b border-border print:bg-none print:border-0">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
           <div className="flex items-center justify-between gap-3 print:hidden">
             <Link
@@ -210,7 +210,7 @@ function OverviewBlock({ overview }: { overview: HandbookOverview }) {
             </p>
           ))}
         </div>
-        <div className="rounded-xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-5">
+        <div className="rounded-xl border border-border p-5">
           <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground mb-2">
             <Sparkles className="h-3.5 w-3.5" /> Who fits well
           </div>

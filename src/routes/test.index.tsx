@@ -188,11 +188,11 @@ function TestIntro() {
     <PublicLayout>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
             {vibeMeta && (
-              <div className="mb-5 rounded-2xl border border-accent/40 bg-gradient-to-r from-accent/10 via-card to-primary/5 p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
+              <div className="mb-5 rounded-2xl border border-accent/40 p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
                 <div className="text-3xl leading-none">{vibeMeta.emoji}</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] uppercase tracking-widest text-accent font-semibold">
@@ -276,7 +276,7 @@ function TestIntro() {
       </section>
 
       {/* PRICING BANNER */}
-      <section className="border-b border-border bg-gradient-to-r from-accent/15 via-accent/5 to-primary/10">
+      <section className="border-b border-border to-primary/10">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-6 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center">
@@ -338,7 +338,7 @@ function TestIntro() {
                   "Aptitude tuned to board difficulty",
                   "Entrance-exam early signals",
                 ],
-                tone: "from-primary/10 to-transparent",
+                tone: "to-transparent",
                 ring: "hover:ring-primary/40",
                 highlight: true,
               },
@@ -352,7 +352,7 @@ function TestIntro() {
                   "Colleges in Gujarat & India",
                   "Entrance exam roadmap",
                 ],
-                tone: "from-accent/15 to-transparent",
+                tone: "to-transparent",
                 ring: "hover:ring-accent/50",
               },
             ].map((b) => (
@@ -365,7 +365,7 @@ function TestIntro() {
                     document.getElementById("start")?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }, 80);
                 }}
-                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${b.ring} bg-gradient-to-br ${b.tone} ${
+                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${b.ring} ${b.tone} ${
                   b.highlight ? "border-primary/40" : "border-border"
                 }`}
               >
@@ -552,7 +552,7 @@ function TestIntro() {
           </div>
 
           <div className="order-1 md:order-2 relative">
-            <div className="absolute -inset-6 bg-gradient-to-tr from-accent/20 via-primary/10 to-transparent rounded-3xl blur-2xl" />
+            <div className="absolute -inset-6 rounded-3xl blur-2xl" />
             <img src={sampleActionPlan} alt="Sample 90-day personalised action plan page" width={1024} height={1280} loading="lazy" className="relative w-full rounded-2xl border border-border shadow-2xl object-cover" />
           </div>
         </div>

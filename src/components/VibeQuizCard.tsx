@@ -230,7 +230,7 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
                 return (
                   <div
                     key={v}
-                    className={`rounded-2xl bg-gradient-to-br ${m.gradient} border border-white/40 backdrop-blur-sm p-5 hover:-translate-y-1 hover:rotate-1 transition cursor-default`}
+                    className={`rounded-2xl ${m.gradient} border border-white/40 p-5 hover:-translate-y-1 hover:rotate-1 transition cursor-default`}
                   >
                     <m.icon className="h-6 w-6 text-foreground" />
                     <div className="mt-3 font-serif text-base">

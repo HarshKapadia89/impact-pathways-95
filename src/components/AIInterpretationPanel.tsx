@@ -61,7 +61,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
 
   return (
     <div className="mt-8 space-y-6">
-      <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 p-6">
+      <div className="rounded-2xl border border-primary/30 p-6">
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5 text-primary" />
           <span>Career Counsellor review</span>
