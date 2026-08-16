@@ -67,7 +67,18 @@
   --font-display: "Archivo Black", "Archivo", Arial, sans-serif;
   --shadow-soft: 4px 4px 0 0 var(--ink);
   --shadow-card: 6px 6px 0 0 var(--ink);
+  /* Flatten every Tailwind elevation into a solid offset block */
+  --shadow-2xs: 2px 2px 0 0 var(--ink);
+  --shadow-xs: 3px 3px 0 0 var(--ink);
+  --shadow-sm: 4px 4px 0 0 var(--ink);
+  --shadow: 5px 5px 0 0 var(--ink);
+  --shadow-md: 5px 5px 0 0 var(--ink);
+  --shadow-lg: 6px 6px 0 0 var(--ink);
+  --shadow-xl: 8px 8px 0 0 var(--ink);
+  --shadow-2xl: 10px 10px 0 0 var(--ink);
+  --shadow-inner: none;
 }
+
 
 :root {
   --radius: 0rem;
