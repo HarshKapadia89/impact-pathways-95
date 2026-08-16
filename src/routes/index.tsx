@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { useUiLangEnGu } from "@/hooks/useUiLang";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
@@ -27,6 +28,12 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const lang = useUiLangEnGu();
+  const [activeWord, setActiveWord] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => setActiveWord((v) => (v + 1) % 4), 1600);
+    return () => window.clearInterval(id);
+  }, []);
   const T = {
     hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",
     hero2:
