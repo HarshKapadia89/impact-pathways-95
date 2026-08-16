@@ -89,7 +89,7 @@ type Question = { en: string; gu: string; options: QOption[] };
 
 const QUESTIONS: Question[] = [
   {
-    en: "Free Saturday afternoon. What sounds best?",
+    en: "An open Saturday afternoon. What sounds best?",
     gu: "ફ્રી શનિવારની બપોર. શું ગમશે?",
     options: [
       { en: "Disassembling something to see how it works", gu: "કોઈ વસ્તુ ખોલીને જોવી કેવી રીતે કામ કરે", vibe: "investigator" },

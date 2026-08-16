@@ -138,8 +138,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             <div className="poster-title text-3xl mb-3">HBK CAREERS</div>
             <p className="text-paper/70 text-xs leading-relaxed max-w-xs">
               {lang === "gu"
-                ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
-                : "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
+                ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે કારકિર્દી માર્ગદર્શન."
+                : "Career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
             </p>
             <div className="mt-6">
               <div className="text-[10px] font-black uppercase tracking-[0.25em] text-paper/50 mb-2">
@@ -168,8 +168,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </div>
             <p className="text-paper/70 text-xs leading-relaxed">
               {lang === "gu"
-                ? "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે મફત છે. કોઈ લૉગિન જરૂરી નથી."
-                : "All content and tests are completely free. No login required."}
+                ? "ધોરણ 6–12 ના વિદ્યાર્થીઓ, માતા-પિતા અને શાળાઓ માટે — ગુજરાતી, હિન્દી અને અંગ્રેજીમાં."
+                : "Built for students of grades 6–12, their parents and their schools — in Gujarati, Hindi and English."}
             </p>
           </div>
         </div>
