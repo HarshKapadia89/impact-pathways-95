@@ -341,8 +341,8 @@ function HomePage() {
           {[0, 1].map((dup) => (
             <div key={dup} className="flex items-center">
               {(lang === "gu"
-                ? ["મફત ટેસ્ટ", "935+ વ્યવસાયો", "1,400+ સંસ્થાઓ", "20 પ્રવાહો", "ગુજરાતની કોલેજો", "શિષ્યવૃત્તિ"]
-                : ["FREE TEST", "935+ PROFESSIONS", "1,400+ INSTITUTES", "20 STREAMS", "GUJARAT COLLEGES", "SCHOLARSHIPS"]
+                ? ["એપ્ટિટ્યુડ ટેસ્ટ", "935+ વ્યવસાયો", "1,400+ સંસ્થાઓ", "20 પ્રવાહો", "ગુજરાતની કોલેજો", "શિષ્યવૃત્તિ"]
+                : ["APTITUDE TEST", "935+ PROFESSIONS", "1,400+ INSTITUTES", "20 STREAMS", "GUJARAT COLLEGES", "SCHOLARSHIPS"]
               ).map((word, i) => (
                 <span key={`${dup}-${word}`} className="flex items-center">
                   <span className="px-5 text-sm font-black uppercase tracking-[0.18em]">{word}</span>
