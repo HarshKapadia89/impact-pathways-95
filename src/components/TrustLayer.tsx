@@ -145,7 +145,7 @@ export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
           ].map((c) => (
             <div
               key={c.label}
-              className="rounded-2xl border border-border bg-background p-5 text-center hover:shadow-[var(--shadow-card)] transition"
+              className="rounded-2xl border-2 border-border bg-background p-5 text-center hover:shadow-[var(--shadow-card)] transition"
             >
               <c.icon className="h-5 w-5 mx-auto text-primary" />
               <div className="mt-2 font-serif text-3xl md:text-4xl text-primary">{c.value}</div>
@@ -156,7 +156,7 @@ export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
 
         {/* Sample report + testimonial */}
         <div className="mt-10 grid md:grid-cols-2 gap-5">
-          <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-6 md:p-7">
+          <div className="rounded-2xl border border-primary/20 p-6 md:p-7">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
               <FileText className="h-3.5 w-3.5" />
               {T.sampleTitle}
@@ -172,7 +172,7 @@ export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
               </button>
               <button
                 onClick={() => import("@/lib/sampleReport").then((m) => m.downloadSampleReport(lang))}
-                className="inline-flex items-center gap-1.5 border border-border bg-background rounded-md px-4 py-2 text-sm font-medium hover:bg-muted"
+                className="inline-flex items-center gap-1.5 border-2 border-border bg-background rounded-md px-4 py-2 text-sm font-medium hover:bg-muted"
               >
                 <Download className="h-4 w-4" />
                 {T.download}
@@ -188,7 +188,7 @@ export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
 
           <div
             key={idx}
-            className="rounded-2xl border border-border bg-background p-6 md:p-7 relative overflow-hidden animate-in fade-in duration-500"
+            className="rounded-2xl border-2 border-border bg-background p-6 md:p-7 relative overflow-hidden animate-in fade-in duration-500"
           >
             <Quote className="absolute -top-2 -right-2 h-24 w-24 text-accent/10" />
             <div className="relative">
@@ -218,7 +218,7 @@ export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
         {/* Recognition strip */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-widest text-muted-foreground">
           {T.media.map((m) => (
-            <span key={m} className="px-3 py-1 border border-border rounded-full bg-background">
+            <span key={m} className="px-3 py-1 border-2 border-border rounded-full bg-background">
               {m}
             </span>
           ))}

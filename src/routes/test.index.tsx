@@ -187,12 +187,12 @@ function TestIntro() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
+      <section className="poster-hero relative overflow-hidden border-b-4 border-ink">
+        <div className="absolute inset-0 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
             {vibeMeta && (
-              <div className="mb-5 rounded-2xl border border-accent/40 bg-gradient-to-r from-accent/10 via-card to-primary/5 p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
+              <div className="mb-5 rounded-2xl border border-accent/40 p-4 flex items-start gap-3 animate-in fade-in slide-in-from-top-2 duration-500">
                 <div className="text-3xl leading-none">{vibeMeta.emoji}</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-[11px] uppercase tracking-widest text-accent font-semibold">
@@ -231,7 +231,7 @@ function TestIntro() {
               </a>
               <a
                 href="#sample"
-                className="inline-flex items-center gap-2 border border-border bg-card rounded-md px-5 py-3 text-sm font-medium hover:bg-muted"
+                className="inline-flex items-center gap-2 border-2 border-border bg-card rounded-md px-5 py-3 text-sm font-medium hover:bg-muted"
               >
                 See sample report
               </a>
@@ -253,7 +253,7 @@ function TestIntro() {
               alt="Sample career discovery report cover"
               width={1024}
               height={1280}
-              className="absolute right-4 top-2 w-[68%] rounded-xl shadow-2xl border border-border rotate-[5deg] object-cover"
+              className="absolute right-4 top-2 w-[68%] rounded-xl shadow-2xl border-2 border-border rotate-[5deg] object-cover"
             />
             <img
               src={sampleRiasec}
@@ -261,7 +261,7 @@ function TestIntro() {
               width={1024}
               height={1280}
               loading="lazy"
-              className="absolute left-2 top-12 w-[58%] rounded-xl shadow-xl border border-border -rotate-[6deg] object-cover"
+              className="absolute left-2 top-12 w-[58%] rounded-xl shadow-xl border-2 border-border -rotate-[6deg] object-cover"
             />
             <img
               src={sampleCareers}
@@ -269,14 +269,14 @@ function TestIntro() {
               width={1024}
               height={1280}
               loading="lazy"
-              className="absolute left-12 bottom-0 w-[55%] rounded-xl shadow-xl border border-border rotate-[2deg] object-cover"
+              className="absolute left-12 bottom-0 w-[55%] rounded-xl shadow-xl border-2 border-border rotate-[2deg] object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* PRICING BANNER */}
-      <section className="border-b border-border bg-gradient-to-r from-accent/15 via-accent/5 to-primary/10">
+      <section className="border-b-2 border-border to-primary/10">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-6 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center">
@@ -303,7 +303,7 @@ function TestIntro() {
       </section>
 
       {/* GRADE BAND PICKER */}
-      <section className="border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
           <div className="text-center max-w-2xl mx-auto">
             <div className="text-xs uppercase tracking-widest text-accent">Pick your grade band</div>
@@ -338,7 +338,7 @@ function TestIntro() {
                   "Aptitude tuned to board difficulty",
                   "Entrance-exam early signals",
                 ],
-                tone: "from-primary/10 to-transparent",
+                tone: "to-transparent",
                 ring: "hover:ring-primary/40",
                 highlight: true,
               },
@@ -352,7 +352,7 @@ function TestIntro() {
                   "Colleges in Gujarat & India",
                   "Entrance exam roadmap",
                 ],
-                tone: "from-accent/15 to-transparent",
+                tone: "to-transparent",
                 ring: "hover:ring-accent/50",
               },
             ].map((b) => (
@@ -365,7 +365,7 @@ function TestIntro() {
                     document.getElementById("start")?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }, 80);
                 }}
-                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${b.ring} bg-gradient-to-br ${b.tone} ${
+                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${b.ring} ${b.tone} ${
                   b.highlight ? "border-primary/40" : "border-border"
                 }`}
               >
@@ -379,7 +379,7 @@ function TestIntro() {
                 </div>
                 <div className="mt-3 font-serif text-lg">{b.title}</div>
                 <div className="text-xs text-accent mt-0.5 uppercase tracking-wider">{b.tagline}</div>
-                <ul className="mt-4 space-y-1.5 border-t border-border pt-4">
+                <ul className="mt-4 space-y-1.5 border-t-2 border-border pt-4">
                   {b.points.map((p) => (
                     <li key={p} className="flex items-start gap-2 text-xs">
                       <CheckCircle2 className="h-3.5 w-3.5 text-accent mt-0.5 shrink-0" />
@@ -397,7 +397,7 @@ function TestIntro() {
       </section>
 
       {/* STATS */}
-      <section className="border-b border-border bg-card/40">
+      <section className="border-b-2 border-border bg-card/40">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((s) => (
             <div key={s.label}>
@@ -422,7 +422,7 @@ function TestIntro() {
 
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {frameworks.map((f) => (
-            <div key={f.title} className="rounded-2xl border border-border bg-card p-6 flex flex-col">
+            <div key={f.title} className="rounded-2xl border-2 border-border bg-card p-6 flex flex-col">
               <div className="flex items-center justify-between">
                 <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
                   <f.icon className="h-5 w-5 text-primary" />
@@ -431,7 +431,7 @@ function TestIntro() {
               </div>
               <h3 className="mt-4 font-serif text-xl">{f.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
-              <ul className="mt-4 space-y-1.5 border-t border-border pt-4">
+              <ul className="mt-4 space-y-1.5 border-t-2 border-border pt-4">
                 {f.points.map((p) => (
                   <li key={p} className="flex items-start gap-2 text-xs">
                     <CheckCircle2 className="h-3.5 w-3.5 text-accent mt-0.5 shrink-0" />
@@ -476,7 +476,7 @@ function TestIntro() {
                 </button>
                 <button
                   onClick={() => import("@/lib/sampleReport").then((m) => m.downloadSampleReport("en"))}
-                  className="inline-flex items-center justify-center gap-1.5 border border-border bg-background rounded-md px-3 py-2 text-xs font-medium hover:bg-muted"
+                  className="inline-flex items-center justify-center gap-1.5 border-2 border-border bg-background rounded-md px-3 py-2 text-xs font-medium hover:bg-muted"
                 >
                   Download sample
                 </button>
@@ -487,7 +487,7 @@ function TestIntro() {
           <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {reportSections.map((s) => (
               <div key={s.title} className="group">
-                <div className="aspect-[4/5] rounded-xl overflow-hidden bg-card border border-border shadow-sm group-hover:shadow-lg transition-shadow">
+                <div className="aspect-[4/5] rounded-xl overflow-hidden bg-card border-2 border-border shadow-sm group-hover:shadow-lg transition-shadow">
                   <img src={s.img} alt={s.title} width={1024} height={1280} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="mt-3 font-serif text-base">{s.title}</div>
@@ -496,7 +496,7 @@ function TestIntro() {
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+          <div className="mt-12 rounded-2xl border-2 border-border bg-card p-6 md:p-8">
             <div className="flex items-center gap-2 font-serif text-xl">
               <FileText className="h-5 w-5 text-primary" />
               Everything your report includes
@@ -535,7 +535,7 @@ function TestIntro() {
                 { icon: ListChecks, title: "Habits to build", desc: "Daily and weekly habits that compound — reading, journaling, project work, mock tests." },
                 { icon: Target, title: "Exams & deadlines", desc: "Entrance exams to register for, dates to remember, and Olympiads worth attempting." },
               ].map((x) => (
-                <div key={x.title} className="rounded-xl border border-border bg-card p-4">
+                <div key={x.title} className="rounded-xl border-2 border-border bg-card p-4">
                   <x.icon className="h-5 w-5 text-primary" />
                   <div className="mt-2 font-serif text-sm">{x.title}</div>
                   <div className="text-xs text-muted-foreground mt-1">{x.desc}</div>
@@ -552,8 +552,8 @@ function TestIntro() {
           </div>
 
           <div className="order-1 md:order-2 relative">
-            <div className="absolute -inset-6 bg-gradient-to-tr from-accent/20 via-primary/10 to-transparent rounded-3xl blur-2xl" />
-            <img src={sampleActionPlan} alt="Sample 90-day personalised action plan page" width={1024} height={1280} loading="lazy" className="relative w-full rounded-2xl border border-border shadow-2xl object-cover" />
+            <div className="absolute -inset-6 rounded-3xl blur-2xl" />
+            <img src={sampleActionPlan} alt="Sample 90-day personalised action plan page" width={1024} height={1280} loading="lazy" className="relative w-full rounded-2xl border-2 border-border shadow-2xl object-cover" />
           </div>
         </div>
       </section>
@@ -566,7 +566,7 @@ function TestIntro() {
             { g: "Grades 9–10", t: "Pick the right stream", d: "Make the Science / Commerce / Arts decision with data, not pressure. Includes stream-fit scoring." },
             { g: "Grades 11–12", t: "Lock in college & career", d: "Specific career roles, entrance exams to target and curated colleges in Gujarat & across India." },
           ].map((x) => (
-            <div key={x.g} className="rounded-2xl border border-border bg-card p-6">
+            <div key={x.g} className="rounded-2xl border-2 border-border bg-card p-6">
               <div className="text-xs uppercase tracking-widest text-accent">{x.g}</div>
               <div className="mt-2 font-serif text-xl">{x.t}</div>
               <p className="text-sm text-muted-foreground mt-2">{x.d}</p>
@@ -586,7 +586,7 @@ function TestIntro() {
               { n: "03", t: "Answer the questions", d: "RIASEC + 8 MI + grade-banded aptitude (~78 questions)." },
               { n: "04", t: "Download 20-page PDF", d: "Personalised, shareable, printable." },
             ].map((p) => (
-              <div key={p.n} className="rounded-xl border border-border bg-background p-5">
+              <div key={p.n} className="rounded-xl border-2 border-border bg-background p-5">
                 <div className="font-serif text-2xl text-primary/40">{p.n}</div>
                 <div className="mt-2 font-serif text-lg">{p.t}</div>
                 <div className="text-xs text-muted-foreground mt-1">{p.d}</div>
@@ -613,7 +613,7 @@ function TestIntro() {
         </div>
 
         <div className="md:col-span-3">
-          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+          <div className="rounded-2xl border-2 border-border bg-card p-6 md:p-8">
             {/* LANGUAGE PICKER — drives the whole test + PDF */}
             <div className="mb-5 rounded-xl border border-primary/30 bg-primary/5 p-4">
               <div className="text-xs font-semibold uppercase tracking-widest text-primary">
@@ -739,7 +739,7 @@ function Field({
         type={type}
         inputMode={inputMode}
         maxLength={maxLength}
-        className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+        className="mt-1 w-full rounded-md border-2 border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
       />
     </label>
   );

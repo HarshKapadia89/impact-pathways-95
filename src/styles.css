@@ -67,7 +67,18 @@
   --font-display: "Archivo Black", "Archivo", Arial, sans-serif;
   --shadow-soft: 4px 4px 0 0 var(--ink);
   --shadow-card: 6px 6px 0 0 var(--ink);
+  /* Flatten every Tailwind elevation into a solid offset block */
+  --shadow-2xs: 2px 2px 0 0 var(--ink);
+  --shadow-xs: 3px 3px 0 0 var(--ink);
+  --shadow-sm: 4px 4px 0 0 var(--ink);
+  --shadow: 5px 5px 0 0 var(--ink);
+  --shadow-md: 5px 5px 0 0 var(--ink);
+  --shadow-lg: 6px 6px 0 0 var(--ink);
+  --shadow-xl: 8px 8px 0 0 var(--ink);
+  --shadow-2xl: 10px 10px 0 0 var(--ink);
+  --shadow-inner: none;
 }
+
 
 :root {
   --radius: 0rem;
@@ -224,4 +235,80 @@
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ---- Brand guideline enforcement ------------------------------------- */
+
+/* Radius is 0 everywhere — no exceptions. */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+/* Colour-field hero: paper sections become a flat poster block */
+@utility poster-hero {
+  background-color: var(--brand-5);
+  color: var(--ink);
+  & .text-muted-foreground,
+  & .text-foreground\/70,
+  & .text-foreground\/60 {
+    color: color-mix(in oklab, var(--ink) 72%, transparent);
+  }
+  & .text-primary,
+  & .text-accent {
+    color: var(--ink);
+  }
+  & .bg-card {
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+}
+
+@utility poster-eyebrow {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.6875rem;
+}
+
+/* Radiating bars motif */
+@utility radiate-bar {
+  transform-origin: left center;
+  height: 8px;
+}
+
+/* Hard-edged halftone dot grid */
+@utility halftone {
+  background-image: radial-gradient(var(--ink) 1.2px, transparent 1.3px);
+  background-size: 10px 10px;
+}
+
+/* Motion: snap in from an offset, never soft drift */
+@keyframes poster-pop {
+  from { opacity: 0; transform: translate(-8px, 8px); }
+  to { opacity: 1; transform: translate(0, 0); }
+}
+@utility poster-pop {
+  animation: poster-pop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@keyframes poster-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility poster-marquee {
+  animation: poster-marquee 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster-pop, .poster-marquee { animation: none; }
+}
+
+/* Headlines: oversized, uppercase, flush-left — never centered */
+h1, h2 {
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
 }

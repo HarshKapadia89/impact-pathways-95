@@ -342,7 +342,7 @@ function PathDetail() {
 
   return (
     <PublicLayout>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className={`${sectionClass} py-10`}>
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <Link
@@ -396,25 +396,25 @@ function PathDetail() {
       {/* Quick facts grid */}
       <section className={`${sectionClass} py-8`}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="rounded-xl border border-border bg-card p-4">
+          <div className="rounded-xl border-2 border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
               {lang === "gu" ? "અવધિ" : "Duration"}
             </div>
             <div className="mt-1 font-medium">{path.duration}</div>
           </div>
-          <div className="rounded-xl border border-border bg-card p-4">
+          <div className="rounded-xl border-2 border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
               {lang === "gu" ? "પાત્રતા" : "Eligibility"}
             </div>
             <div className="mt-1 font-medium text-sm">{path.eligibility}</div>
           </div>
-          <div className="rounded-xl border border-border bg-card p-4">
+          <div className="rounded-xl border-2 border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
               {lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "Entrance exams"}
             </div>
             <div className="mt-1 font-medium text-sm">{path.entranceExams.join(", ")}</div>
           </div>
-          <div className="rounded-xl border border-border bg-card p-4">
+          <div className="rounded-xl border-2 border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
               {lang === "gu" ? "સરેરાશ પગાર" : "Avg salary"}
             </div>
@@ -425,7 +425,7 @@ function PathDetail() {
 
       {/* What you'll study */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <BookOpen className="h-4 w-4 text-primary" />
             {lang === "gu" ? "તમે શું ભણશો" : "What you'll study"}
@@ -443,7 +443,7 @@ function PathDetail() {
 
       {/* Day in the life */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <Briefcase className="h-4 w-4 text-primary" />
             {lang === "gu" ? "દિવસ કેવો રહેશે" : "What a typical day looks like"}
@@ -461,7 +461,7 @@ function PathDetail() {
 
       {/* NEW – Personal competencies */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <Users className="h-4 w-4 text-primary" />
             {L.competencies}
@@ -479,7 +479,7 @@ function PathDetail() {
 
       {/* NEW – Where you'll work */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <MapPin className="h-4 w-4 text-primary" />
             {L.workEnv}
@@ -511,7 +511,7 @@ function PathDetail() {
       {/* NEW – Growth ladder (title-only) */}
       {ladder.length > 0 && (
         <section className={`${sectionClass} pb-8`}>
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-2xl border-2 border-border bg-card p-6">
             <h2 className="font-serif text-xl flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-primary" />
               {L.ladder}
@@ -533,7 +533,7 @@ function PathDetail() {
       {/* NEW – National institutes */}
       {(card.govtInstitutes?.length || card.privateInstitutes?.length) && (
         <section className={`${sectionClass} pb-8`}>
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-2xl border-2 border-border bg-card p-6">
             <h2 className="font-serif text-xl flex items-center gap-2">
               <Landmark className="h-4 w-4 text-primary" />
               {L.nationalColleges}
@@ -567,7 +567,7 @@ function PathDetail() {
       {/* NEW – Distance & online */}
       <section className={`${sectionClass} pb-8 grid md:grid-cols-2 gap-5`}>
         {distance.length > 0 && (
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-2xl border-2 border-border bg-card p-6">
             <h2 className="font-serif text-lg flex items-center gap-2">
               <GraduationCap className="h-4 w-4 text-primary" />
               {L.distance}
@@ -577,7 +577,7 @@ function PathDetail() {
             </ul>
           </div>
         )}
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-lg flex items-center gap-2">
             <Globe className="h-4 w-4 text-primary" />
             {L.online}
@@ -597,7 +597,7 @@ function PathDetail() {
 
       {/* NEW – Education loans */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <Wallet className="h-4 w-4 text-primary" />
             {L.loans}
@@ -646,14 +646,14 @@ function PathDetail() {
       {/* NEW – Search keywords */}
       {card.keywords?.length ? (
         <section className={`${sectionClass} pb-8`}>
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-2xl border-2 border-border bg-card p-6">
             <h2 className="font-serif text-lg flex items-center gap-2">
               <Tag className="h-4 w-4 text-primary" />
               {L.keywords}
             </h2>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {card.keywords.map((k) => (
-                <span key={k} className="text-xs rounded-full border border-border bg-muted px-2.5 py-0.5">
+                <span key={k} className="text-xs rounded-full border-2 border-border bg-muted px-2.5 py-0.5">
                   {k}
                 </span>
               ))}
@@ -665,7 +665,7 @@ function PathDetail() {
 
       {/* Top colleges + Career roles */}
       <section className={`${sectionClass} pb-8 grid md:grid-cols-2 gap-5`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-lg flex items-center gap-2">
             <Building2 className="h-4 w-4 text-primary" />
             {lang === "gu" ? "ગુજરાતની ટોચની કોલેજો" : "Top colleges in Gujarat"}
@@ -678,7 +678,7 @@ function PathDetail() {
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-lg flex items-center gap-2">
             <GraduationCap className="h-4 w-4 text-primary" />
             {lang === "gu" ? "કારકિર્દી ભૂમિકાઓ" : "Career roles"}
@@ -698,7 +698,7 @@ function PathDetail() {
 
       {/* Growth path */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <TrendingUp className="h-4 w-4 text-primary" />
             {lang === "gu" ? "કારકિર્દી પ્રગતિ" : "Career growth path"}
@@ -741,7 +741,7 @@ function PathDetail() {
 
       {/* Scholarships */}
       <section className={`${sectionClass} pb-8`}>
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border-2 border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <IndianRupee className="h-4 w-4 text-primary" />
             {lang === "gu" ? "શિષ્યવૃત્તિ અને નાણાકીય સહાય" : "Scholarships & financial aid"}
@@ -770,7 +770,7 @@ function PathDetail() {
                 href={`https://${e.website}`}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-xl border border-border bg-card p-4 hover:border-primary/40 transition"
+                className="rounded-xl border-2 border-border bg-card p-4 hover:border-primary/40 transition"
               >
                 <div className="flex items-center justify-between">
                   <div className="font-medium">{e.code}</div>
@@ -798,7 +798,7 @@ function PathDetail() {
             {extras.faqs.map((f, i) => (
               <details
                 key={i}
-                className="rounded-xl border border-border bg-card p-4 group"
+                className="rounded-xl border-2 border-border bg-card p-4 group"
               >
                 <summary className="cursor-pointer font-medium text-sm flex items-start gap-2 list-none">
                   <span className="text-primary">Q.</span>
@@ -824,7 +824,7 @@ function PathDetail() {
                 key={p.title}
                 to="/career/$stream/$path"
                 params={{ stream: stream.id, path: pathSlug(p.title) }}
-                className="rounded-xl border border-border bg-card p-4 hover:border-primary/40 transition group"
+                className="rounded-xl border-2 border-border bg-card p-4 hover:border-primary/40 transition group"
               >
                 <div className="font-medium text-sm group-hover:text-primary">{p.title}</div>
                 <div className="text-xs text-muted-foreground mt-1">
@@ -860,7 +860,7 @@ function PathDetail() {
       {/* Sources footer */}
       {card.sources?.length ? (
         <section className={`${sectionClass} pb-12`}>
-          <div className="text-xs text-muted-foreground border-t border-border pt-4">
+          <div className="text-xs text-muted-foreground border-t-2 border-border pt-4">
             <span className="font-medium mr-1">{L.sources}:</span>
             {card.sources.map((s, i) => (
               <span key={s.url}>

@@ -139,7 +139,7 @@ function CollegesAdmin() {
       </header>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="rounded-2xl border border-border bg-card p-5">
+        <div className="rounded-2xl border-2 border-border bg-card p-5">
           <div className="font-serif text-lg flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-accent" /> Seed sample colleges
           </div>
@@ -155,7 +155,7 @@ function CollegesAdmin() {
           </button>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-5">
+        <div className="rounded-2xl border-2 border-border bg-card p-5">
           <div className="font-serif text-lg flex items-center gap-2">
             <Upload className="h-4 w-4 text-primary" /> Import Excel
           </div>
@@ -174,7 +174,7 @@ function CollegesAdmin() {
             </label>
             <button
               onClick={downloadTemplate}
-              className="text-sm border border-border bg-background px-3 py-2 rounded-md inline-flex items-center gap-1 hover:bg-muted"
+              className="text-sm border-2 border-border bg-background px-3 py-2 rounded-md inline-flex items-center gap-1 hover:bg-muted"
             >
               <Download className="h-3.5 w-3.5" />
               Template
@@ -182,7 +182,7 @@ function CollegesAdmin() {
           </div>
 
           {preview.length > 0 && (
-            <div className="mt-4 border-t border-border pt-3">
+            <div className="mt-4 border-t-2 border-border pt-3">
               <div className="text-sm font-medium">Preview: {preview.length} rows</div>
               <ul className="mt-1 max-h-40 overflow-auto text-xs space-y-0.5">
                 {preview.slice(0, 8).map((p, i) => (

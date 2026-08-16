@@ -94,7 +94,7 @@ function ParentsPage() {
         </h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {cards.map((c) => (
-            <div key={c.title} className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
+            <div key={c.title} className="rounded-2xl border-2 border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
               <div className="h-10 w-10 rounded-xl flex items-center justify-center" style={{ background: "color-mix(in oklab, var(--accent) 15%, transparent)" }}>
                 <c.icon className="h-5 w-5 text-accent" />
               </div>
@@ -106,7 +106,7 @@ function ParentsPage() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-14">
-        <div className="rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/10 to-primary/5 p-8 md:p-10">
+        <div className="rounded-3xl border border-accent/30 p-8 md:p-10">
           <h2 className="font-serif text-2xl md:text-3xl">
             {lang === "gu" ? "રિપોર્ટ કેવી રીતે વાંચવો?" : "How to read the report together"}
           </h2>

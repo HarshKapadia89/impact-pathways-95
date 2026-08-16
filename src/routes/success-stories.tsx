@@ -153,14 +153,14 @@ function SuccessStoriesPage() {
           {stories.map((s) => (
             <article
               key={s.name}
-              className="relative rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition overflow-hidden"
+              className="relative rounded-2xl border-2 border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition overflow-hidden"
             >
               <Quote className="absolute -top-2 -right-2 h-20 w-20 text-accent/10" />
               <div className="flex items-center gap-1 text-amber-500">
                 {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
               </div>
               <p className="mt-3 font-serif text-base leading-relaxed relative">"{s.quote}"</p>
-              <div className="mt-5 pt-4 border-t border-border">
+              <div className="mt-5 pt-4 border-t-2 border-border">
                 <div className="text-sm font-semibold">{s.name}</div>
                 <div className="text-xs text-muted-foreground">{s.grade} · {s.city}</div>
                 <div className="text-xs text-accent font-medium mt-1">{s.where}</div>

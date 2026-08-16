@@ -104,7 +104,7 @@ function StreamDetail() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border print:bg-none print:border-0">
+      <section className="poster-hero border-b-4 border-ink print:bg-none print:border-0">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
           <div className="flex items-center justify-between gap-3 print:hidden">
             <Link
@@ -115,7 +115,7 @@ function StreamDetail() {
             </Link>
             <button
               onClick={() => window.print()}
-              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground border border-border rounded-md px-2.5 py-1.5 bg-card"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground border-2 border-border rounded-md px-2.5 py-1.5 bg-card"
               title={lang === "gu" ? "છાપો" : "Print"}
             >
               <Printer className="h-3.5 w-3.5" />
@@ -144,7 +144,7 @@ function StreamDetail() {
       {overview && <OverviewBlock overview={overview} />}
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-6">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-border print:hidden">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b-2 border-border print:hidden">
           <div className="flex flex-wrap gap-1">
             {tabs.map((t) => {
               const Icon = t.icon;
@@ -180,7 +180,7 @@ function StreamDetail() {
             placeholder={lang === "gu" ? "આ વિભાગમાં શોધો…" : "Search in this section…"}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="md:w-64 px-3 py-2 text-sm rounded-md border border-border bg-card focus:outline-none focus:border-primary"
+            className="md:w-64 px-3 py-2 text-sm rounded-md border-2 border-border bg-card focus:outline-none focus:border-primary"
           />
         </div>
 
@@ -200,7 +200,7 @@ function OverviewBlock({ overview }: { overview: HandbookOverview }) {
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-8 pt-6">
       <div className="grid md:grid-cols-3 gap-4">
-        <div className="md:col-span-2 rounded-xl border border-border bg-card p-5">
+        <div className="md:col-span-2 rounded-xl border-2 border-border bg-card p-5">
           <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground mb-2">
             <BookOpen className="h-3.5 w-3.5" /> HBK Overview
           </div>
@@ -210,7 +210,7 @@ function OverviewBlock({ overview }: { overview: HandbookOverview }) {
             </p>
           ))}
         </div>
-        <div className="rounded-xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-5">
+        <div className="rounded-xl border-2 border-border p-5">
           <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground mb-2">
             <Sparkles className="h-3.5 w-3.5" /> Who fits well
           </div>
@@ -271,7 +271,7 @@ function ProfessionsList({ items, q }: { items: string[]; q: string }) {
       {filtered.map((p, i) => (
         <div
           key={`${p}-${i}`}
-          className="rounded-lg border border-border bg-card px-3 py-2.5 text-sm hover:border-primary/40 transition-colors"
+          className="rounded-lg border-2 border-border bg-card px-3 py-2.5 text-sm hover:border-primary/40 transition-colors"
         >
           {p}
         </div>
@@ -303,7 +303,7 @@ function ExamsList({
   return (
     <div className="grid md:grid-cols-2 gap-3">
       {filtered.map((e, i) => (
-        <div key={`${e.code}-${i}`} className="rounded-xl border border-border bg-card p-4">
+        <div key={`${e.code}-${i}`} className="rounded-xl border-2 border-border bg-card p-4">
           <div className="font-medium text-foreground">{e.code}</div>
           {e.fullName && (
             <div className="text-xs text-muted-foreground mt-0.5">{e.fullName}</div>
@@ -362,7 +362,7 @@ function InstitutesList({
       {groups.groups.map(([cat, list]) => (
         <div key={cat || "default"}>
           {cat && <h3 className="font-serif text-lg mb-3 text-foreground/90">{cat}</h3>}
-          <div className="overflow-x-auto rounded-xl border border-border bg-card">
+          <div className="overflow-x-auto rounded-xl border-2 border-border bg-card">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-muted/50 text-xs uppercase tracking-wide text-muted-foreground">
@@ -380,7 +380,7 @@ function InstitutesList({
                 {list.map((it, i) => (
                   <tr
                     key={`${it.rank}-${it.name}-${i}`}
-                    className="border-t border-border hover:bg-muted/30"
+                    className="border-t-2 border-border hover:bg-muted/30"
                   >
                     <td className="px-4 py-2.5 text-muted-foreground tabular-nums">{it.rank}</td>
                     <td className="px-4 py-2.5">{it.name}</td>

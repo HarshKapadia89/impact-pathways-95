@@ -87,7 +87,7 @@ function SessionsList() {
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition ${
               filter === f.v
                 ? "bg-primary text-primary-foreground"
-                : "bg-card border border-border text-muted-foreground"
+                : "bg-card border-2 border-border text-muted-foreground"
             }`}
           >
             {f.l}
@@ -96,7 +96,7 @@ function SessionsList() {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="rounded-xl bg-card border border-border p-6 text-center text-sm text-muted-foreground">
+        <div className="rounded-xl bg-card border-2 border-border p-6 text-center text-sm text-muted-foreground">
           {t("teacher.noSessions")}
         </div>
       ) : (
@@ -106,7 +106,7 @@ function SessionsList() {
               <Link
                 to="/teacher/session/$sessionId"
                 params={{ sessionId: s.id }}
-                className="flex items-center gap-3 rounded-xl bg-card border border-border p-3 active:scale-[0.99] transition"
+                className="flex items-center gap-3 rounded-xl bg-card border-2 border-border p-3 active:scale-[0.99] transition"
               >
                 <div
                   className="h-9 w-9 rounded-lg flex items-center justify-center shrink-0"

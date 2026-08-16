@@ -80,7 +80,7 @@ function Programs() {
           {data.map((p) => (
             <article
               key={p.id}
-              className="rounded-xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]"
+              className="rounded-xl border-2 border-border bg-card p-5 shadow-[var(--shadow-soft)]"
             >
               <div className="flex items-start gap-3">
                 <div

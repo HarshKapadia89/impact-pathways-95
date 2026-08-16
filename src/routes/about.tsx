@@ -86,7 +86,7 @@ function AboutPage() {
         <h2 className="font-serif text-2xl md:text-3xl mb-8">{lang === "gu" ? "અમારા મૂલ્યો" : "What we stand for"}</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
+            <div key={v.title} className="rounded-2xl border-2 border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
               <div className="h-10 w-10 rounded-xl flex items-center justify-center" style={{ background: "color-mix(in oklab, var(--accent) 15%, transparent)" }}>
                 <v.icon className="h-5 w-5 text-accent" />
               </div>

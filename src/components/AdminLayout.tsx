@@ -71,7 +71,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="flex items-center justify-between gap-3 border-b border-border bg-card/60 backdrop-blur px-4 md:px-8 py-3">
+        <header className="flex items-center justify-between gap-3 border-b-2 border-border bg-card/60 backdrop-blur px-4 md:px-8 py-3">
           <div className="md:hidden font-serif text-lg">{t("app.name")}</div>
           <div className="ml-auto flex items-center gap-2">
             <LanguageToggle />
@@ -79,7 +79,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         </header>
         <main className="flex-1 p-4 md:p-8 overflow-auto">{children}</main>
         {/* Mobile bottom nav */}
-        <nav className="md:hidden flex border-t border-border bg-card">
+        <nav className="md:hidden flex border-t-2 border-border bg-card">
           {nav.slice(0, 5).map((item) => {
             const Icon = item.icon;
             const active =
