@@ -196,7 +196,7 @@ function HomePage() {
                 key={s.id}
                 to="/career/$stream"
                 params={{ stream: s.id }}
-                className="group relative rounded-2xl border border-border bg-card p-5 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
+                className="group relative rounded-2xl border-2 border-border bg-card p-5 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
                 style={{ borderLeftWidth: 4, borderLeftColor: tone }}
               >
                 <div

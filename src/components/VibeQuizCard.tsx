@@ -272,7 +272,7 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
                 <button
                   key={i}
                   onClick={() => answer(opt.vibe)}
-                  className="text-left rounded-2xl border border-border bg-card hover:border-accent/60 hover:bg-accent/5 hover:-translate-y-0.5 transition p-4 group"
+                  className="text-left rounded-2xl border-2 border-border bg-card hover:border-accent/60 hover:bg-accent/5 hover:-translate-y-0.5 transition p-4 group"
                 >
                   <span className="text-sm md:text-base font-medium group-hover:text-foreground">
                     {opt[lang]}

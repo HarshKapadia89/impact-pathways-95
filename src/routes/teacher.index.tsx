@@ -93,11 +93,11 @@ function TeacherToday() {
           <span className="text-xs text-muted-foreground">{format(new Date(), "EEE, d MMM")}</span>
         </div>
         {loadingSessions ? (
-          <div className="rounded-xl bg-card border border-border p-6 text-center text-sm text-muted-foreground">
+          <div className="rounded-xl bg-card border-2 border-border p-6 text-center text-sm text-muted-foreground">
             {t("common.loading")}
           </div>
         ) : todays.length === 0 ? (
-          <div className="rounded-xl bg-card border border-border p-6 text-center text-sm text-muted-foreground">
+          <div className="rounded-xl bg-card border-2 border-border p-6 text-center text-sm text-muted-foreground">
             {t("teacher.noSessions")}
           </div>
         ) : (
@@ -130,7 +130,7 @@ function SessionCard({ s, compact }: { s: SessionRow; compact?: boolean }) {
       <Link
         to="/teacher/session/$sessionId"
         params={{ sessionId: s.id }}
-        className="flex items-center gap-3 rounded-xl bg-card border border-border p-4 hover:bg-accent/30 active:scale-[0.99] transition shadow-[var(--shadow-soft)]"
+        className="flex items-center gap-3 rounded-xl bg-card border-2 border-border p-4 hover:bg-accent/30 active:scale-[0.99] transition shadow-[var(--shadow-soft)]"
       >
         <div
           className="h-10 w-10 rounded-lg flex items-center justify-center shrink-0"

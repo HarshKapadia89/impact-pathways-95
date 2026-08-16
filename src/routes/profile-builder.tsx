@@ -151,7 +151,7 @@ function ProfileBuilderPage() {
   const rmAch = (i: number) => setP({ ...p, achievements: p.achievements.filter((_, idx) => idx !== i) });
 
   const L = (en: string, gu: string) => (lang === "gu" ? gu : en);
-  const input = "w-full px-3 py-2 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30";
+  const input = "w-full px-3 py-2 text-sm rounded-md border-2 border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30";
 
   return (
     <PublicLayout>
@@ -189,13 +189,13 @@ function ProfileBuilderPage() {
 
         <Block title={L("Education", "શિક્ષણ")} onAdd={addEdu}>
           {p.education.map((e, i) => (
-            <div key={i} className="grid md:grid-cols-2 gap-3 mb-3 pb-3 border-b border-border/60 last:border-0 last:pb-0">
+            <div key={i} className="grid md:grid-cols-2 gap-3 mb-3 pb-3 border-b-2 border-border/60 last:border-0 last:pb-0">
               <input className={input} placeholder={L("Institution", "સંસ્થા")} value={e.institution} onChange={(ev) => { const c = [...p.education]; c[i] = { ...c[i], institution: ev.target.value }; setP({ ...p, education: c }); }} />
               <input className={input} placeholder={L("Qualification / Class", "લાયકાત / ધોરણ")} value={e.qualification} onChange={(ev) => { const c = [...p.education]; c[i] = { ...c[i], qualification: ev.target.value }; setP({ ...p, education: c }); }} />
               <input className={input} placeholder={L("Year", "વર્ષ")} value={e.year} onChange={(ev) => { const c = [...p.education]; c[i] = { ...c[i], year: ev.target.value }; setP({ ...p, education: c }); }} />
               <div className="flex gap-2">
                 <input className={input} placeholder={L("Grade / %", "ગ્રેડ / %")} value={e.grade} onChange={(ev) => { const c = [...p.education]; c[i] = { ...c[i], grade: ev.target.value }; setP({ ...p, education: c }); }} />
-                {p.education.length > 1 && <button onClick={() => rmEdu(i)} className="p-2 rounded-md border border-border hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>}
+                {p.education.length > 1 && <button onClick={() => rmEdu(i)} className="p-2 rounded-md border-2 border-border hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>}
               </div>
             </div>
           ))}
@@ -208,10 +208,10 @@ function ProfileBuilderPage() {
 
         <Block title={L("Projects", "પ્રોજેક્ટ્સ")} onAdd={addProj}>
           {p.projects.map((x, i) => (
-            <div key={i} className="space-y-2 mb-3 pb-3 border-b border-border/60 last:border-0 last:pb-0">
+            <div key={i} className="space-y-2 mb-3 pb-3 border-b-2 border-border/60 last:border-0 last:pb-0">
               <div className="flex gap-2">
                 <input className={input} placeholder={L("Project title", "પ્રોજેક્ટ શીર્ષક")} value={x.title} onChange={(ev) => { const c = [...p.projects]; c[i] = { ...c[i], title: ev.target.value }; setP({ ...p, projects: c }); }} />
-                {p.projects.length > 1 && <button onClick={() => rmProj(i)} className="p-2 rounded-md border border-border hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>}
+                {p.projects.length > 1 && <button onClick={() => rmProj(i)} className="p-2 rounded-md border-2 border-border hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>}
               </div>
               <textarea className={input} rows={2} placeholder={L("What you did, tools, outcome", "તમે શું કર્યું, ટૂલ્સ, પરિણામ")} value={x.detail} onChange={(ev) => { const c = [...p.projects]; c[i] = { ...c[i], detail: ev.target.value }; setP({ ...p, projects: c }); }} />
             </div>
@@ -220,10 +220,10 @@ function ProfileBuilderPage() {
 
         <Block title={L("Achievements", "સિદ્ધિઓ")} onAdd={addAch}>
           {p.achievements.map((x, i) => (
-            <div key={i} className="space-y-2 mb-3 pb-3 border-b border-border/60 last:border-0 last:pb-0">
+            <div key={i} className="space-y-2 mb-3 pb-3 border-b-2 border-border/60 last:border-0 last:pb-0">
               <div className="flex gap-2">
                 <input className={input} placeholder={L("Achievement", "સિદ્ધિ")} value={x.title} onChange={(ev) => { const c = [...p.achievements]; c[i] = { ...c[i], title: ev.target.value }; setP({ ...p, achievements: c }); }} />
-                {p.achievements.length > 1 && <button onClick={() => rmAch(i)} className="p-2 rounded-md border border-border hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>}
+                {p.achievements.length > 1 && <button onClick={() => rmAch(i)} className="p-2 rounded-md border-2 border-border hover:bg-destructive/10 text-destructive"><Trash2 className="h-4 w-4" /></button>}
               </div>
               <textarea className={input} rows={2} placeholder={L("Context, year, scale", "વિગત, વર્ષ, સ્તર")} value={x.detail} onChange={(ev) => { const c = [...p.achievements]; c[i] = { ...c[i], detail: ev.target.value }; setP({ ...p, achievements: c }); }} />
             </div>
@@ -235,8 +235,8 @@ function ProfileBuilderPage() {
             placeholder={L("Reading, cricket, robotics club...", "વાંચન, ક્રિકેટ, રોબોટિક્સ ક્લબ...")} />
         </Block>
 
-        <div className="sticky bottom-4 z-20 flex flex-wrap gap-2 justify-end bg-card/90 backdrop-blur border border-border rounded-xl p-3 shadow-lg">
-          <button onClick={save} className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border text-sm hover:bg-muted">
+        <div className="sticky bottom-4 z-20 flex flex-wrap gap-2 justify-end bg-card/90 backdrop-blur border-2 border-border rounded-xl p-3 shadow-lg">
+          <button onClick={save} className="inline-flex items-center gap-2 px-4 py-2 rounded-md border-2 border-border text-sm hover:bg-muted">
             <Save className="h-4 w-4" /> {L("Save draft", "ડ્રાફ્ટ સાચવો")}
           </button>
           <button onClick={exportPDF} className="inline-flex items-center gap-2 px-5 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90">
@@ -250,7 +250,7 @@ function ProfileBuilderPage() {
 
 function Block({ title, children, onAdd }: { title: string; children: React.ReactNode; onAdd?: () => void }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-5">
+    <div className="rounded-xl border-2 border-border bg-card p-5">
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-serif text-lg">{title}</h2>
         {onAdd && (

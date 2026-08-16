@@ -19,7 +19,7 @@ export function TeacherLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <PreviewBanner />
-      <header className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-3 sticky top-0 z-30">
+      <header className="flex items-center justify-between gap-3 border-b-2 border-border bg-card px-4 py-3 sticky top-0 z-30">
         <div className="flex items-center gap-2 min-w-0">
           <Sparkles className="h-5 w-5 text-primary shrink-0" />
           <div className="font-serif text-base leading-tight truncate">
@@ -33,7 +33,7 @@ export function TeacherLayout({ children }: { children: ReactNode }) {
 
       <main className="flex-1 overflow-auto pb-20">{children}</main>
 
-      <nav className="fixed bottom-0 inset-x-0 flex border-t border-border bg-card z-40 max-w-2xl mx-auto">
+      <nav className="fixed bottom-0 inset-x-0 flex border-t-2 border-border bg-card z-40 max-w-2xl mx-auto">
         {nav.map((item) => {
           const Icon = item.icon;
           const active = item.exact

@@ -182,9 +182,9 @@ export function CareerChatbot() {
 
       {/* Panel */}
       {open && (
-        <div className="fixed inset-0 z-50 sm:inset-auto sm:bottom-5 sm:right-5 sm:w-[420px] sm:h-[640px] sm:max-h-[85vh] flex flex-col bg-card border border-border sm:rounded-2xl shadow-2xl overflow-hidden">
+        <div className="fixed inset-0 z-50 sm:inset-auto sm:bottom-5 sm:right-5 sm:w-[420px] sm:h-[640px] sm:max-h-[85vh] flex flex-col bg-card border-2 border-border sm:rounded-2xl shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-border to-accent/15">
+          <div className="flex items-center gap-3 px-4 py-3 border-b-2 border-border to-accent/15">
             <div className="h-9 w-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
               <Sparkles className="h-4 w-4" />
             </div>
@@ -223,14 +223,14 @@ export function CareerChatbot() {
 
           {/* Report banner */}
           {report ? (
-            <div className="px-4 py-2 border-b border-border bg-primary/5 text-[11px] text-foreground/80 flex items-center gap-2">
+            <div className="px-4 py-2 border-b-2 border-border bg-primary/5 text-[11px] text-foreground/80 flex items-center gap-2">
               <Brain className="h-3.5 w-3.5 text-primary" />
               <span className="truncate">
                 RIASEC <b>{report.riasecTop.join("-")}</b> · {report.miTop[0]} · {report.aptitudeTop[0]}
               </span>
             </div>
           ) : (
-            <div className="px-4 py-2 border-b border-border bg-accent/10 text-[11px] flex items-center gap-2">
+            <div className="px-4 py-2 border-b-2 border-border bg-accent/10 text-[11px] flex items-center gap-2">
               <Brain className="h-3.5 w-3.5 text-accent" />
               <Link to="/test" onClick={() => setOpen(false)} className="underline hover:text-foreground">
                 {lang === "gu"
@@ -257,7 +257,7 @@ export function CareerChatbot() {
                     <button
                       key={s}
                       onClick={() => send(s)}
-                      className="text-left text-xs rounded-lg border border-border bg-background hover:bg-muted px-3 py-2 transition-colors"
+                      className="text-left text-xs rounded-lg border-2 border-border bg-background hover:bg-muted px-3 py-2 transition-colors"
                     >
                       {s}
                     </button>
@@ -299,7 +299,7 @@ export function CareerChatbot() {
           {/* Input */}
           <form
             onSubmit={(e) => { e.preventDefault(); send(input); }}
-            className="border-t border-border p-3 flex items-end gap-2 bg-card"
+            className="border-t-2 border-border p-3 flex items-end gap-2 bg-card"
           >
             <textarea
               value={input}
@@ -314,7 +314,7 @@ export function CareerChatbot() {
                 lang === "gu" ? "તમારો પ્રશ્ન લખો…" : "Ask about streams, exams, colleges…"
               }
               rows={1}
-              className="flex-1 resize-none rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 max-h-32"
+              className="flex-1 resize-none rounded-lg border-2 border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 max-h-32"
             />
             <button
               type="submit"

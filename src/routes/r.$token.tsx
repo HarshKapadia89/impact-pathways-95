@@ -208,8 +208,8 @@ function WebReportPage() {
     <PublicLayout>
       <article className="max-w-4xl mx-auto px-4 md:px-8 py-10">
         {/* Hero */}
-        <header className="rounded-3xl p-6 md:p-10 border border-border">
-          <div className="inline-flex items-center gap-1.5 bg-card/70 backdrop-blur px-3 py-1 rounded-full text-[11px] uppercase tracking-widest text-primary border border-border">
+        <header className="rounded-3xl p-6 md:p-10 border-2 border-border">
+          <div className="inline-flex items-center gap-1.5 bg-card/70 backdrop-blur px-3 py-1 rounded-full text-[11px] uppercase tracking-widest text-primary border-2 border-border">
             <Sparkles className="h-3 w-3" /> HBK Careers · Personalised Report
           </div>
           <h1 className="mt-4 font-serif text-3xl md:text-5xl text-foreground">
@@ -256,7 +256,7 @@ function WebReportPage() {
             </button>
             <button
               onClick={share}
-              className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+              className="inline-flex items-center gap-2 border-2 border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
             >
               Copy / Share link
             </button>
@@ -265,7 +265,7 @@ function WebReportPage() {
 
         {/* Parent Summary */}
         {parentSummary && (
-          <section className="mt-8 rounded-2xl border border-border bg-card p-6 md:p-8">
+          <section className="mt-8 rounded-2xl border-2 border-border bg-card p-6 md:p-8">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
               <Users className="h-3.5 w-3.5" /> For Parents — 2-minute summary
             </div>
@@ -282,7 +282,7 @@ function WebReportPage() {
               {parentSummary.nextSteps.map((step, i) => (
                 <div
                   key={i}
-                  className="rounded-xl bg-background border border-border p-4 text-sm"
+                  className="rounded-xl bg-background border-2 border-border p-4 text-sm"
                 >
                   <div className="flex items-center gap-2 text-primary text-xs font-semibold">
                     <CheckCircle2 className="h-3.5 w-3.5" /> Step {i + 1}
@@ -309,7 +309,7 @@ function WebReportPage() {
                   key={s!.id}
                   to="/career/$stream"
                   params={{ stream: s!.id }}
-                  className="rounded-xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
+                  className="rounded-xl border-2 border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
                 >
                   <div className="text-xs text-muted-foreground">
                     {i === 0 ? "Primary fit" : "Secondary fit"}
@@ -333,7 +333,7 @@ function WebReportPage() {
               {careers.map((c, i) => (
                 <div
                   key={`${c.path.title}-${i}`}
-                  className="rounded-xl border border-border bg-card p-4 md:p-5 flex items-start gap-4"
+                  className="rounded-xl border-2 border-border bg-card p-4 md:p-5 flex items-start gap-4"
                 >
                   <div className="shrink-0 w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-serif text-lg">
                     {i + 1}
@@ -366,7 +366,7 @@ function WebReportPage() {
           <ScoreCard title="Multiple Intelligences" scores={report.mi} />
         </section>
 
-        <footer className="mt-10 pt-6 border-t border-border text-xs text-muted-foreground">
+        <footer className="mt-10 pt-6 border-t-2 border-border text-xs text-muted-foreground">
           This report is guidance — not a verdict. Re-take in 6 months as you
           grow. © The H B Kapadia New High School, Ahmedabad.
         </footer>
@@ -385,7 +385,7 @@ function HeroStat({
   value: string;
 }) {
   return (
-    <div className="rounded-xl bg-card/70 backdrop-blur border border-border p-4">
+    <div className="rounded-xl bg-card/70 backdrop-blur border-2 border-border p-4">
       <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted-foreground">
         {icon} {label}
       </div>
@@ -404,7 +404,7 @@ function ScoreCard({
   const entries = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const max = Math.max(1, ...entries.map(([, v]) => v));
   return (
-    <div className="rounded-xl border border-border bg-card p-5">
+    <div className="rounded-xl border-2 border-border bg-card p-5">
       <div className="font-serif text-base">{title}</div>
       <div className="mt-3 space-y-2">
         {entries.map(([k, v]) => {

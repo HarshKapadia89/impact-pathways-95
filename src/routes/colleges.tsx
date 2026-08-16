@@ -95,7 +95,7 @@ function CollegesPage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-8">
-        <div className="rounded-2xl border border-border bg-card p-4 grid md:grid-cols-12 gap-3">
+        <div className="rounded-2xl border-2 border-border bg-card p-4 grid md:grid-cols-12 gap-3">
           <div className="md:col-span-5 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
@@ -169,7 +169,7 @@ function CollegesPage() {
 
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((c) => (
-            <article key={c.id} className="rounded-2xl border border-border bg-card p-5">
+            <article key={c.id} className="rounded-2xl border-2 border-border bg-card p-5">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-serif text-base leading-snug">{c.name}</h3>
                 {c.type && (

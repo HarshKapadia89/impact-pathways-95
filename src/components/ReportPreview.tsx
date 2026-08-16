@@ -35,7 +35,7 @@ export function ReportPreview({ lang }: { lang: "en" | "gu" }) {
           {items.map((it) => (
             <div
               key={it.t}
-              className="rounded-2xl border border-border bg-card p-4 hover:border-accent/40 hover:-translate-y-0.5 transition"
+              className="rounded-2xl border-2 border-border bg-card p-4 hover:border-accent/40 hover:-translate-y-0.5 transition"
             >
               <div
                 className="h-9 w-9 rounded-lg flex items-center justify-center"

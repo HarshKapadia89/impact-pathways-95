@@ -105,7 +105,7 @@ function HandbookIndex() {
             placeholder={lang === "gu" ? "પ્રવાહ શોધો…" : "Search streams…"}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-md border border-border bg-card focus:outline-none focus:border-primary"
+            className="w-full pl-9 pr-3 py-2.5 text-sm rounded-md border-2 border-border bg-card focus:outline-none focus:border-primary"
           />
         </div>
 
@@ -121,7 +121,7 @@ function HandbookIndex() {
                 to="/handbook/$slug"
                 params={{ slug: s.slug }}
                 preload="intent"
-                className="group rounded-2xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] hover:border-primary/40 transition-all"
+                className="group rounded-2xl border-2 border-border bg-card p-5 hover:shadow-[var(--shadow-card)] hover:border-primary/40 transition-all"
               >
                 <div className="text-3xl">{streamEmoji(s.stream)}</div>
                 <div className="mt-3 font-serif text-lg leading-snug">{s.stream}</div>

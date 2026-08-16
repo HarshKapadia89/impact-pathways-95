@@ -13,7 +13,7 @@ interface Props {
 export function AIInterpretationPanel({ state, interpretation, model, error, onRetry }: Props) {
   if (state === "loading") {
     return (
-      <div className="mt-8 rounded-2xl border border-border bg-card p-6">
+      <div className="mt-8 rounded-2xl border-2 border-border bg-card p-6">
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <Loader2 className="h-4 w-4 animate-spin text-primary" />
           <span>
@@ -38,7 +38,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
             {onRetry && (
               <button
                 onClick={onRetry}
-                className="mt-3 text-xs px-3 py-1.5 rounded-md border border-border bg-card hover:bg-muted"
+                className="mt-3 text-xs px-3 py-1.5 rounded-md border-2 border-border bg-card hover:bg-muted"
               >
                 Retry Career Counsellor review
               </button>
@@ -107,7 +107,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
             {interpretation.recommendedStreams.map((s) => {
               const stream = (STREAM_BY_ID as Record<string, { name: string; emoji: string }>)[s.slug];
               return (
-                <div key={s.slug} className="rounded-xl border border-border bg-card p-4">
+                <div key={s.slug} className="rounded-xl border-2 border-border bg-card p-4">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">{stream?.emoji ?? "🎯"}</span>
                     <div className="font-serif text-base">{stream?.name ?? s.slug}</div>
@@ -124,7 +124,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
         <Section title="Careers worth exploring">
           <div className="space-y-3">
             {interpretation.recommendedCareers.map((c, i) => (
-              <div key={i} className="rounded-xl border border-border bg-card p-4">
+              <div key={i} className="rounded-xl border-2 border-border bg-card p-4">
                 <div className="font-serif text-base">{c.name}</div>
                 <p className="text-sm text-foreground/80 mt-1.5">{c.fitRationale}</p>
                 {c.watchOuts && (
@@ -156,7 +156,7 @@ export function AIInterpretationPanel({ state, interpretation, model, error, onR
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 md:p-6">
+    <div className="rounded-2xl border-2 border-border bg-card p-5 md:p-6">
       <h3 className="font-serif text-lg mb-3">{title}</h3>
       {children}
     </div>

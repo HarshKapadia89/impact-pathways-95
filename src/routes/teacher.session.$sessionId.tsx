@@ -317,7 +317,7 @@ function SessionDetail() {
       </Link>
 
       <header
-        className="rounded-xl border border-border p-5 shadow-[var(--shadow-soft)]"
+        className="rounded-xl border-2 border-border p-5 shadow-[var(--shadow-soft)]"
         style={{
           background: `linear-gradient(135deg, ${session.programs?.color || "var(--primary)"}15, var(--card))`,
         }}
@@ -414,7 +414,7 @@ function SessionDetail() {
           href={session.photo_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block rounded-xl overflow-hidden border border-border bg-card"
+          className="block rounded-xl overflow-hidden border-2 border-border bg-card"
         >
           <img
             src={session.photo_url}
@@ -434,7 +434,7 @@ function SessionDetail() {
         </div>
 
         {students.length === 0 ? (
-          <div className="rounded-xl bg-card border border-border p-5 text-center text-sm text-muted-foreground">
+          <div className="rounded-xl bg-card border-2 border-border p-5 text-center text-sm text-muted-foreground">
             <ImageIcon className="h-6 w-6 mx-auto mb-2 opacity-40" />
             {t("teacher.noStudents")}
             <div className="text-xs mt-1 opacity-70">{t("teacher.addStudents")}</div>
@@ -447,7 +447,7 @@ function SessionDetail() {
               return (
                 <li
                   key={s.id}
-                  className="rounded-xl bg-card border border-border p-3 flex items-center gap-3"
+                  className="rounded-xl bg-card border-2 border-border p-3 flex items-center gap-3"
                 >
                   <button
                     type="button"
@@ -509,7 +509,7 @@ function SessionDetail() {
             min={0}
             value={duration}
             onChange={(e) => setDuration(e.target.value === "" ? "" : Number(e.target.value))}
-            className="w-20 rounded-md border border-border bg-card px-2 py-1 text-sm"
+            className="w-20 rounded-md border-2 border-border bg-card px-2 py-1 text-sm"
           />
         </div>
       </section>

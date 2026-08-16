@@ -61,7 +61,7 @@ function StreamDetail() {
             {stream.coreSubjects.map((c) => (
               <span
                 key={c}
-                className="rounded-full bg-card border border-border px-3 py-1 text-xs"
+                className="rounded-full bg-card border-2 border-border px-3 py-1 text-xs"
               >
                 {c}
               </span>
@@ -93,7 +93,7 @@ function StreamDetail() {
         </h2>
         <div className="space-y-5">
           {stream.paths.map((p) => (
-            <article key={p.title} className="rounded-2xl border border-border bg-card p-6">
+            <article key={p.title} className="rounded-2xl border-2 border-border bg-card p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <h3 className="font-serif text-xl text-foreground">{p.title}</h3>
                 <span className="text-xs text-muted-foreground inline-flex items-center gap-1">
@@ -159,7 +159,7 @@ function StreamDetail() {
                 </div>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-border">
+              <div className="mt-5 pt-4 border-t-2 border-border">
                 <Link
                   to="/career/$stream/$path"
                   params={{ stream: stream.id, path: pathSlug(p.title) }}
@@ -173,7 +173,7 @@ function StreamDetail() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-2xl border border-border bg-card p-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="mt-8 rounded-2xl border-2 border-border bg-card p-6 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-lg flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-primary" />
@@ -187,13 +187,13 @@ function StreamDetail() {
           </div>
           <Link
             to="/handbook"
-            className="bg-card border border-border px-4 py-2 rounded-md text-sm font-medium hover:bg-muted"
+            className="bg-card border-2 border-border px-4 py-2 rounded-md text-sm font-medium hover:bg-muted"
           >
             {lang === "gu" ? "હેન્ડબુક ખોલો" : "Open Handbook"} →
           </Link>
         </div>
 
-        <div className="mt-5 rounded-2xl border border-border bg-primary/5 p-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="mt-5 rounded-2xl border-2 border-border bg-primary/5 p-6 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-xl">
               {lang === "gu" ? "હજી અનિશ્ચિત છો?" : "Still unsure?"}
