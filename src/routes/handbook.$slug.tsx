@@ -104,7 +104,7 @@ function StreamDetail() {
 
   return (
     <>
-      <section className="border-b border-border print:bg-none print:border-0">
+      <section className="poster-hero border-b-4 border-ink print:bg-none print:border-0">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
           <div className="flex items-center justify-between gap-3 print:hidden">
             <Link
