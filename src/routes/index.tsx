@@ -26,8 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useUiLangEnGu();
   const T = {
     hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",
     hero2:
