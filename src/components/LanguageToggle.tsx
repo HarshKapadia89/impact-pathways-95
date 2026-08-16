@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
+import { useUiLang } from "@/hooks/useUiLang";
 
 // Cycle order: English → हिन्दी → ગુજરાતી → English
 const ORDER = ["en", "hi", "gu"] as const;
@@ -11,26 +11,19 @@ const LABEL: Record<Lng, string> = {
   gu: "ગુજરાતી",
 };
 
-function currentLng(raw: string | undefined): Lng {
-  if (raw?.startsWith("hi")) return "hi";
-  if (raw?.startsWith("gu")) return "gu";
-  return "en";
-}
-
 export function LanguageToggle() {
   const { i18n } = useTranslation();
-  const now = currentLng(i18n.language);
+  const now = useUiLang();
   const nextIdx = (ORDER.indexOf(now) + 1) % ORDER.length;
   const next = ORDER[nextIdx];
   return (
-    <Button
-      variant="ghost"
-      size="sm"
+    <button
+      type="button"
       onClick={() => i18n.changeLanguage(next)}
-      className="font-medium"
       title={`Switch to ${LABEL[next]}`}
+      className="inline-flex items-center gap-2 border-2 border-current px-3 py-1.5 text-xs font-black uppercase tracking-widest transition-transform hover:-translate-y-0.5"
     >
       {LABEL[next]}
-    </Button>
+    </button>
   );
 }

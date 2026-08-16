@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
+import { useUiLangEnGu } from "@/hooks/useUiLang";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -26,8 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useUiLangEnGu();
   const T = {
     hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",
     hero2:
@@ -77,82 +76,96 @@ function HomePage() {
     },
   ];
 
-  const TONE: Record<"indigo" | "teal" | "saffron", { bg: string; ring: string; iconBg: string; iconColor: string }> = {
-    indigo:  { bg: "from-[oklch(0.32_0.11_270/0.08)] to-transparent", ring: "hover:ring-[var(--brand-1)]/30", iconBg: "bg-[oklch(0.32_0.11_270/0.12)]", iconColor: "text-[var(--brand-1)]" },
-    teal:    { bg: "from-[oklch(0.62_0.15_150/0.10)] to-transparent", ring: "hover:ring-[var(--brand-3)]/30", iconBg: "bg-[oklch(0.62_0.15_150/0.14)]", iconColor: "text-[var(--brand-3)]" },
-    saffron: { bg: "from-[oklch(0.78_0.15_60/0.14)]  to-transparent", ring: "hover:ring-[var(--brand-2)]/40", iconBg: "bg-[oklch(0.78_0.15_60/0.18)]",  iconColor: "text-[var(--brand-2)]" },
+  const TILE_TONE: Record<"indigo" | "teal" | "saffron", string> = {
+    indigo: "var(--brand-1)",
+    teal: "var(--brand-3)",
+    saffron: "var(--brand-5)",
   };
 
-  // Highlight first word of headline in saffron for warmth
-  const heroParts = T.hero1.split(" ");
-  const heroFirst = heroParts.shift() ?? "";
-  const heroRest = heroParts.join(" ");
+  // Poster word-stack: each verb gets its own flat colour
+  const STACK =
+    lang === "gu"
+      ? ["શોધો", "સમજો", "પસંદ કરો", "બનો"]
+      : ["DISCOVER", "DECIDE", "DESIGN", "BECOME"];
+  const STACK_TONE = ["var(--brand-4)", "var(--brand-1)", "var(--brand-3)", "var(--brand-2)"];
 
   return (
     <PublicLayout>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{ background: "var(--gradient-hero)" }}
-          aria-hidden
-        />
-        {/* soft saffron blob */}
-        <div
-          className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full blur-3xl opacity-40 -z-10"
-          style={{ background: "var(--brand-2)" }}
-          aria-hidden
-        />
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      {/* Hero — black poster with word stack */}
+      <section className="bg-ink text-paper">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-xs text-primary font-medium mb-5 shadow-sm">
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-ink"
+              style={{ background: "var(--brand-5)" }}
+            >
               <GraduationCap className="h-3.5 w-3.5" />
-              {lang === "gu" ? "મફત • કોઈ લૉગિન જરૂરી નથી" : "Free • No login required"}
+              {lang === "gu" ? "મફત • લૉગિન નહીં" : "Free • No login required"}
             </div>
-            <h1 className="font-serif text-4xl md:text-6xl text-foreground leading-tight">
-              <span style={{ color: "var(--brand-2)" }}>{heroFirst}</span>{" "}
-              <span>{heroRest}</span>
-            </h1>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl">
+
+            <div className="mt-6">
+              {STACK.map((w, i) => (
+                <div
+                  key={w}
+                  className="poster-title text-[13vw] sm:text-6xl lg:text-7xl"
+                  style={{ color: STACK_TONE[i % STACK_TONE.length] }}
+                >
+                  {w}
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-6 text-sm md:text-base text-paper/75 max-w-lg leading-relaxed">
               {T.hero2}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/test"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium shadow-[var(--shadow-glow-primary)] hover:opacity-95 hover:-translate-y-0.5 transition"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black uppercase tracking-widest text-ink border-2 border-ink block-shadow-hover"
+                style={{ background: "var(--brand-5)", boxShadow: "5px 5px 0 0 var(--paper)" }}
               >
                 <Brain className="h-4 w-4" />
                 {T.cta1}
               </Link>
               <Link
                 to="/career"
-                className="inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold border-2 border-accent text-primary bg-card hover:bg-accent/15 hover:-translate-y-0.5 transition"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black uppercase tracking-widest border-2 border-paper text-paper hover:bg-paper hover:text-ink transition-colors"
               >
-                <Compass className="h-4 w-4" style={{ color: "var(--brand-2)" }} />
+                <Compass className="h-4 w-4" />
                 {T.cta2}
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            {tiles.map((tile) => {
-              const tone = TONE[tile.tone];
-              return (
-                <Link
-                  key={tile.to}
-                  to={tile.to}
-                  className={`group rounded-2xl border border-border bg-card p-5 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${tone.ring} bg-gradient-to-br ${tone.bg}`}
-                >
-                  <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${tone.iconBg}`}>
-                    <tile.icon className={`h-5 w-5 ${tone.iconColor}`} />
-                  </div>
-                  <div className="mt-3 font-serif text-base">{tile.title}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{tile.desc}</div>
-                </Link>
-              );
-            })}
+
+          {/* Colour block tiles */}
+          <div className="grid grid-cols-2 gap-0 border-4 border-paper">
+            {tiles.map((tile, i) => (
+              <Link
+                key={tile.to}
+                to={tile.to}
+                className={`group p-6 border-paper text-ink transition-transform hover:-translate-y-1 ${i % 2 === 0 ? "border-r-4" : ""} ${i < 2 ? "border-b-4" : ""}`}
+                style={{ background: TILE_TONE[tile.tone] }}
+              >
+                <tile.icon className="h-7 w-7" />
+                <div className="mt-4 poster-title text-lg leading-none">{tile.title}</div>
+                <div className="text-xs mt-2 font-medium text-ink/80">{tile.desc}</div>
+                <div className="mt-4 inline-flex items-center gap-1 text-xs font-black uppercase tracking-widest">
+                  {lang === "gu" ? "ખોલો" : "Open"} <ArrowRight className="h-3.5 w-3.5" />
+                </div>
+              </Link>
+            ))}
+            {/* Filler block keeps the 2x2 grid solid */}
+            <div className="p-6 flex items-end" style={{ background: "var(--brand-6)" }}>
+              <div className="poster-title text-2xl text-paper leading-none">
+                {lang === "gu" ? "20 પાનાનો રિપોર્ટ" : "20-PAGE REPORT"}
+              </div>
+            </div>
           </div>
         </div>
+        <div className="h-3 stripe-band" aria-hidden />
       </section>
+
 
       <TrustLayer lang={lang} />
 
