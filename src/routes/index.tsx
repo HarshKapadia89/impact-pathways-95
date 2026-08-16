@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
+import { useUiLangEnGu } from "@/hooks/useUiLang";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
 import { HowItWorks } from "@/components/HowItWorks";
