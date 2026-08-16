@@ -342,7 +342,7 @@ function PathDetail() {
 
   return (
     <PublicLayout>
-      <section className="border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className={`${sectionClass} py-10`}>
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <Link

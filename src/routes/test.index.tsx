@@ -187,7 +187,7 @@ function TestIntro() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="poster-hero relative overflow-hidden border-b-4 border-ink">
         <div className="absolute inset-0 pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -303,7 +303,7 @@ function TestIntro() {
       </section>
 
       {/* GRADE BAND PICKER */}
-      <section className="border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
           <div className="text-center max-w-2xl mx-auto">
             <div className="text-xs uppercase tracking-widest text-accent">Pick your grade band</div>

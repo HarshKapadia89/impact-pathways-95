@@ -67,7 +67,7 @@ function HandbookIndex() {
 
   return (
     <>
-      <section className="border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
             <BookOpen className="h-3.5 w-3.5" />

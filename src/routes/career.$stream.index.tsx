@@ -29,7 +29,7 @@ function StreamDetail() {
 
   return (
     <PublicLayout>
-      <section className="border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <Link

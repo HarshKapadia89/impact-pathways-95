@@ -81,7 +81,7 @@ function CollegesPage() {
 
   return (
     <PublicLayout>
-      <section className="border-b border-border">
+      <section className="poster-hero border-b-4 border-ink">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <h1 className="font-serif text-3xl md:text-5xl">
             {lang === "gu" ? "ગુજરાત કોલેજ ડિરેક્ટરી" : "Gujarat Colleges Directory"}
