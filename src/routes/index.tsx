@@ -111,8 +111,9 @@ function HomePage() {
               style={{ background: "var(--brand-5)" }}
             >
               <GraduationCap className="h-3.5 w-3.5" />
-              {lang === "gu" ? "મફત • લૉગિન નહીં" : "Free • No login required"}
+              {lang === "gu" ? "ધોરણ 6–12 • ગુજરાત માટે" : "Grades 6–12 • Built for Gujarat"}
             </div>
+
 
             <div className="mt-6">
               {STACK.map((w, i) => (
