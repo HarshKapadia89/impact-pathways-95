@@ -91,12 +91,16 @@ function HomePage() {
 
   return (
     <PublicLayout>
-      {/* Hero — black poster with word stack */}
-      <section className="bg-ink text-paper">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20 grid lg:grid-cols-2 gap-12 items-center">
+      {/* Hero — cream poster with an animated word stack */}
+      <section className="bg-background text-foreground relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 halftone opacity-[0.18]"
+          aria-hidden
+        />
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16 grid lg:grid-cols-2 gap-10 items-center relative">
           <div>
             <div
-              className="inline-flex items-center gap-2 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-ink"
+              className="inline-flex items-center gap-2 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-ink border-2 border-ink"
               style={{ background: "var(--brand-5)" }}
             >
               <GraduationCap className="h-3.5 w-3.5" />
@@ -105,66 +109,122 @@ function HomePage() {
 
             <div className="mt-6">
               {STACK.map((w, i) => (
-                <div
+                <button
                   key={w}
-                  className="poster-title text-[13vw] sm:text-6xl lg:text-7xl"
-                  style={{ color: STACK_TONE[i % STACK_TONE.length] }}
+                  type="button"
+                  onMouseEnter={() => setActiveWord(i)}
+                  onFocus={() => setActiveWord(i)}
+                  className="block text-left poster-title text-[13vw] sm:text-6xl lg:text-7xl transition-transform duration-200 hover:translate-x-2 focus:outline-none"
+                  style={{
+                    color: activeWord === i ? STACK_TONE[i % STACK_TONE.length] : "var(--ink)",
+                  }}
                 >
                   {w}
-                </div>
+                </button>
               ))}
             </div>
 
-            <p className="mt-6 text-sm md:text-base text-paper/75 max-w-lg leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-foreground/80 max-w-lg leading-relaxed">
               {T.hero2}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/test"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black uppercase tracking-widest text-ink border-2 border-ink block-shadow-hover"
-                style={{ background: "var(--brand-5)", boxShadow: "5px 5px 0 0 var(--paper)" }}
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black uppercase tracking-widest text-ink border-2 border-ink tile-lift"
+                style={{ background: "var(--brand-5)", boxShadow: "5px 5px 0 0 var(--ink)" }}
               >
                 <Brain className="h-4 w-4" />
                 {T.cta1}
               </Link>
               <Link
                 to="/career"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black uppercase tracking-widest border-2 border-paper text-paper hover:bg-paper hover:text-ink transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-black uppercase tracking-widest border-2 border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
               >
                 <Compass className="h-4 w-4" />
                 {T.cta2}
               </Link>
             </div>
+
+            {/* Quick facts chips */}
+            <div className="mt-8 flex flex-wrap gap-2">
+              {(lang === "gu"
+                ? ["20 મિનિટ", "20-પાનાનો રિપોર્ટ", "3 ભાષાઓ", "ધોરણ 6–12"]
+                : ["20 minutes", "20-page report", "3 languages", "Grades 6–12"]
+              ).map((chip, i) => (
+                <span
+                  key={chip}
+                  className="px-3 py-1.5 text-[11px] font-black uppercase tracking-widest border-2 border-ink"
+                  style={{
+                    background: i % 2 === 0 ? "var(--paper)" : "var(--brand-5)",
+                  }}
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Colour block tiles */}
-          <div className="grid grid-cols-2 gap-0 border-4 border-paper">
+          <div className="grid grid-cols-2 gap-0 border-4 border-ink block-shadow">
             {tiles.map((tile, i) => (
               <Link
                 key={tile.to}
                 to={tile.to}
-                className={`group p-6 border-paper text-ink transition-transform hover:-translate-y-1 ${i % 2 === 0 ? "border-r-4" : ""} ${i < 2 ? "border-b-4" : ""}`}
+                className={`group p-6 border-ink text-ink transition-all hover:brightness-105 ${i % 2 === 0 ? "border-r-4" : ""} ${i < 2 ? "border-b-4" : ""}`}
                 style={{ background: TILE_TONE[tile.tone] }}
               >
-                <tile.icon className="h-7 w-7" />
+                <tile.icon className="h-7 w-7 transition-transform group-hover:scale-125 group-hover:-rotate-6" />
                 <div className="mt-4 poster-title text-lg leading-none">{tile.title}</div>
                 <div className="text-xs mt-2 font-medium text-ink/80">{tile.desc}</div>
                 <div className="mt-4 inline-flex items-center gap-1 text-xs font-black uppercase tracking-widest">
-                  {lang === "gu" ? "ખોલો" : "Open"} <ArrowRight className="h-3.5 w-3.5" />
+                  {lang === "gu" ? "ખોલો" : "Open"}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>
             ))}
             {/* Filler block keeps the 2x2 grid solid */}
-            <div className="p-6 flex items-end" style={{ background: "var(--brand-6)" }}>
+            <Link
+              to="/test"
+              className="group p-6 flex flex-col justify-end"
+              style={{ background: "var(--brand-6)" }}
+            >
               <div className="poster-title text-2xl text-paper leading-none">
                 {lang === "gu" ? "20 પાનાનો રિપોર્ટ" : "20-PAGE REPORT"}
               </div>
-            </div>
+              <div className="mt-3 inline-flex items-center gap-1 text-xs font-black uppercase tracking-widest text-paper">
+                {lang === "gu" ? "ખોલો" : "Open"}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="h-3 stripe-band" aria-hidden />
       </section>
+
+      {/* Scrolling marquee ticker */}
+      <div className="overflow-hidden border-b-4 border-ink bg-ink/[0.03] py-2.5">
+        <div className="poster-marquee whitespace-nowrap flex w-max">
+          {[0, 1].map((dup) => (
+            <div key={dup} className="flex items-center">
+              {(lang === "gu"
+                ? ["મફત ટેસ્ટ", "935+ વ્યવસાયો", "1,400+ સંસ્થાઓ", "20 પ્રવાહો", "ગુજરાતની કોલેજો", "શિષ્યવૃત્તિ"]
+                : ["FREE TEST", "935+ PROFESSIONS", "1,400+ INSTITUTES", "20 STREAMS", "GUJARAT COLLEGES", "SCHOLARSHIPS"]
+              ).map((word, i) => (
+                <span key={`${dup}-${word}`} className="flex items-center">
+                  <span className="px-5 text-sm font-black uppercase tracking-[0.18em]">{word}</span>
+                  <span
+                    className="h-3 w-3 shrink-0"
+                    style={{ background: STACK_TONE[i % STACK_TONE.length] }}
+                    aria-hidden
+                  />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
 
 
       <TrustLayer lang={lang} />
