@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { Compass, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2, Heart, HelpCircle, Trophy, Info } from "lucide-react";
+import { Compass, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2, Heart, HelpCircle, Trophy, Info, Target } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
@@ -17,15 +17,14 @@ const NAV = [
   { to: "/test", label: { en: "Aptitude", gu: "ટેસ્ટ" }, icon: Brain },
   { to: "/dashboard", label: { en: "Dashboard", gu: "ડેશબોર્ડ" }, icon: LayoutDashboard },
   { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમ" }, icon: FileText },
-];
-
-const FOOTER_EXTRA = [
+  { to: "/vision", label: { en: "Vision", gu: "વિઝન" }, icon: Target },
   { to: "/about", label: { en: "About", gu: "વિશે" }, icon: Info },
-  { to: "/parents", label: { en: "For Parents", gu: "માતા-પિતા માટે" }, icon: Heart },
-  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતા" }, icon: Trophy },
+  { to: "/parents", label: { en: "Parents", gu: "માતા-પિતા" }, icon: Heart },
+  { to: "/success-stories", label: { en: "Stories", gu: "સફળતા" }, icon: Trophy },
   { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો" }, icon: HelpCircle },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
 ];
+
 
 // Flat poster colours cycled across nav items
 const NAV_TONE = [
@@ -86,7 +85,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="group relative flex items-center gap-1.5 px-3 py-2.5 text-[13px] font-extrabold uppercase tracking-wide whitespace-nowrap transition-colors"
+                  className="group relative flex items-center gap-1.5 px-2.5 py-2 text-[12px] font-extrabold uppercase tracking-tight whitespace-nowrap transition-colors"
                   style={active ? { background: tone, color: "var(--ink)" } : { color: "var(--ink)" }}
                 >
                   <Icon className="h-4 w-4" style={active ? undefined : { color: tone }} />
@@ -139,8 +138,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             <div className="poster-title text-3xl mb-3">HBK CAREERS</div>
             <p className="text-paper/70 text-xs leading-relaxed max-w-xs">
               {lang === "gu"
-                ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
-                : "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
+                ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે કારકિર્દી માર્ગદર્શન."
+                : "Career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
             </p>
             <div className="mt-6">
               <div className="text-[10px] font-black uppercase tracking-[0.25em] text-paper/50 mb-2">
@@ -154,7 +153,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               {lang === "gu" ? "વિભાગો" : "Sections"}
             </div>
             <ul className="space-y-1.5 text-paper/75 text-xs font-semibold uppercase tracking-wide">
-              {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
+              {NAV.slice(1).map((n) => (
                 <li key={n.to}>
                   <Link to={n.to} className="hover:text-paper">
                     {n.label[lang]}
@@ -169,8 +168,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </div>
             <p className="text-paper/70 text-xs leading-relaxed">
               {lang === "gu"
-                ? "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે મફત છે. કોઈ લૉગિન જરૂરી નથી."
-                : "All content and tests are completely free. No login required."}
+                ? "ધોરણ 6–12 ના વિદ્યાર્થીઓ, માતા-પિતા અને શાળાઓ માટે — ગુજરાતી, હિન્દી અને અંગ્રેજીમાં."
+                : "Built for students of grades 6–12, their parents and their schools — in Gujarati, Hindi and English."}
             </p>
           </div>
         </div>

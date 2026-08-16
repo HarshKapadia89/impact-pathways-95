@@ -9,8 +9,8 @@ import { FileText, Download, Plus, Trash2, Save } from "lucide-react";
 export const Route = createFileRoute("/profile-builder")({
   head: () => ({
     meta: [
-      { title: "Student Resume Builder — Free PDF Export | HBK Careers" },
-      { name: "description", content: "Build your student resume free. Add education, skills, projects and achievements. Export as polished PDF in one click." },
+      { title: "Student Resume Builder — One-Click PDF Export | HBK Careers" },
+      { name: "description", content: "Build your student resume in minutes. Add education, skills, projects and achievements. Export as a polished PDF in one click." },
     ],
   }),
   component: ProfileBuilderPage,
@@ -164,8 +164,8 @@ function ProfileBuilderPage() {
           <h1 className="font-serif text-3xl md:text-5xl mt-3">{L("Build Your Student Resume", "તમારો વિદ્યાર્થી રિઝ્યુમ બનાવો")}</h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
             {L(
-              "Free, no-login resume builder for school and college students. Fill the form, get a polished PDF. Saved on this device.",
-              "શાળા અને કોલેજ વિદ્યાર્થીઓ માટે મફત રિઝ્યુમ બિલ્ડર. ફોર્મ ભરો, PDF મેળવો. આ ડિવાઇસ પર સચવાય છે."
+              "A resume builder for school and college students. Fill the form, get a polished PDF. Saved on this device.",
+              "શાળા અને કોલેજ વિદ્યાર્થીઓ માટે રિઝ્યુમ બિલ્ડર. ફોર્મ ભરો, PDF મેળવો. આ ડિવાઇસ પર સચવાય છે."
             )}
           </p>
         </div>

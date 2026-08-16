@@ -47,7 +47,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The Holland code + Multiple Intelligences combination is exactly what we use in private practice. Refreshing to see it free.",
+      "The Holland code + Multiple Intelligences combination is exactly what we use in private practice. Refreshing to see it done properly for school students.",
     name: "Dr. Ketan Joshi",
     role: "Career Counsellor · Rajkot",
   },

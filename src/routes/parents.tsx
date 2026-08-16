@@ -77,7 +77,7 @@ function ParentsPage() {
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
             {lang === "gu"
               ? "તમારા બાળકને ટેસ્ટ આપવા દો. પછી 20-પાનાનો રિપોર્ટ સાથે વાંચો. ગુજરાતી અથવા અંગ્રેજીમાં."
-              : "Let your child take the test. Then read the 20-page report together — in Gujarati or English. It's free, private, and built by a school you can trust."}
+              : "Let your child take the test. Then read the 20-page report together — in Gujarati or English. It's private, jargon-free, and built by a school you can trust."}
           </p>
           <div className="mt-7 flex flex-wrap gap-3 justify-center">
             <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">

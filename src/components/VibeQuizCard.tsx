@@ -89,7 +89,7 @@ type Question = { en: string; gu: string; options: QOption[] };
 
 const QUESTIONS: Question[] = [
   {
-    en: "Free Saturday afternoon. What sounds best?",
+    en: "An open Saturday afternoon. What sounds best?",
     gu: "ફ્રી શનિવારની બપોર. શું ગમશે?",
     options: [
       { en: "Disassembling something to see how it works", gu: "કોઈ વસ્તુ ખોલીને જોવી કેવી રીતે કામ કરે", vibe: "investigator" },
@@ -173,8 +173,8 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
     matchPrefix: lang === "gu" ? "મેચ થાય છે:" : "Matches:",
     takeFull:
       lang === "gu"
-        ? "પૂરો 25-મિનિટનો ટેસ્ટ આપો — મફત રિપોર્ટ"
-        : "Take the full 25-min test → Free report",
+        ? "પૂરો 25-મિનિટનો ટેસ્ટ આપો — 20-પાનાનો રિપોર્ટ"
+        : "Take the full 25-min test → 20-page report",
     retake: lang === "gu" ? "ફરી ચેક કરો" : "Retake",
   };
 

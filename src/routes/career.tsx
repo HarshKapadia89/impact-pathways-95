@@ -284,8 +284,8 @@ function CareerIndex() {
             </div>
             <div className="text-sm text-muted-foreground mt-1 max-w-2xl">
               {lang === "gu"
-                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો — તમારા RIASEC, અભિરુચિ અને બહુવિધ બુદ્ધિના આધારે ગુજરાત-કેન્દ્રિત ભલામણો."
-                : "Take the free psychometric test and get a 20-page personalised report — Gujarat-focused recommendations based on your RIASEC, aptitude and multiple-intelligences profile."}
+                ? "મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો — તમારા RIASEC, અભિરુચિ અને બહુવિધ બુદ્ધિના આધારે ગુજરાત-કેન્દ્રિત ભલામણો."
+                : "Take the psychometric test and get a 20-page personalised report — Gujarat-focused recommendations based on your RIASEC, aptitude and multiple-intelligences profile."}
             </div>
           </div>
           <Link

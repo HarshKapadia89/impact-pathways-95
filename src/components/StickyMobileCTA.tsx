@@ -13,7 +13,7 @@ export function StickyMobileCTA() {
       >
         <Brain className="h-4 w-4" style={{ color: "var(--brand-5)" }} />
         <span className="truncate">
-          {lang === "gu" ? "મફત ટેસ્ટ આપો — 20-પાનાનો રિપોર્ટ" : "Take free test — 20-page report"}
+          {lang === "gu" ? "એપ્ટિટ્યુડ ટેસ્ટ આપો — 20-પાનાનો રિપોર્ટ" : "Take the aptitude test — 20-page report"}
         </span>
         <ArrowRight className="h-4 w-4 ml-auto" />
       </Link>

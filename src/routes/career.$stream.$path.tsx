@@ -844,8 +844,8 @@ function PathDetail() {
             </div>
             <div className="text-sm text-muted-foreground mt-1">
               {lang === "gu"
-                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો."
-                : "Take the free psychometric test and get a 20-page personalised report."}
+                ? "મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો."
+                : "Take the psychometric test and get a 20-page personalised report."}
             </div>
           </div>
           <Link
