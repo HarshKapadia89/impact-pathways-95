@@ -85,7 +85,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="group relative flex items-center gap-1.5 px-3 py-2.5 text-[13px] font-extrabold uppercase tracking-wide whitespace-nowrap transition-colors"
+                  className="group relative flex items-center gap-1.5 px-2.5 py-2 text-[12px] font-extrabold uppercase tracking-tight whitespace-nowrap transition-colors"
                   style={active ? { background: tone, color: "var(--ink)" } : { color: "var(--ink)" }}
                 >
                   <Icon className="h-4 w-4" style={active ? undefined : { color: tone }} />
@@ -153,7 +153,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               {lang === "gu" ? "વિભાગો" : "Sections"}
             </div>
             <ul className="space-y-1.5 text-paper/75 text-xs font-semibold uppercase tracking-wide">
-              {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
+              {NAV.slice(1).map((n) => (
                 <li key={n.to}>
                   <Link to={n.to} className="hover:text-paper">
                     {n.label[lang]}
