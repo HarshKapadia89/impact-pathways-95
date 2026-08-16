@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { Compass, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2, Heart, HelpCircle, Trophy, Info } from "lucide-react";
+import { Compass, Sparkles, Brain, BookOpen, Menu, X, Search, LayoutDashboard, Award, FileCheck, FileText, Building2, Heart, HelpCircle, Trophy, Info, Target } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
@@ -17,15 +17,14 @@ const NAV = [
   { to: "/test", label: { en: "Aptitude", gu: "ટેસ્ટ" }, icon: Brain },
   { to: "/dashboard", label: { en: "Dashboard", gu: "ડેશબોર્ડ" }, icon: LayoutDashboard },
   { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમ" }, icon: FileText },
-];
-
-const FOOTER_EXTRA = [
+  { to: "/vision", label: { en: "Vision", gu: "વિઝન" }, icon: Target },
   { to: "/about", label: { en: "About", gu: "વિશે" }, icon: Info },
-  { to: "/parents", label: { en: "For Parents", gu: "માતા-પિતા માટે" }, icon: Heart },
-  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતા" }, icon: Trophy },
+  { to: "/parents", label: { en: "Parents", gu: "માતા-પિતા" }, icon: Heart },
+  { to: "/success-stories", label: { en: "Stories", gu: "સફળતા" }, icon: Trophy },
   { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો" }, icon: HelpCircle },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
 ];
+
 
 // Flat poster colours cycled across nav items
 const NAV_TONE = [
