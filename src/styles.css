@@ -304,3 +304,11 @@
 @media (prefers-reduced-motion: reduce) {
   .poster-pop, .poster-marquee { animation: none; }
 }
+
+/* Headlines: oversized, uppercase, flush-left — never centered */
+h1, h2 {
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
