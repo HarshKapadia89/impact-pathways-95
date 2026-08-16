@@ -179,7 +179,7 @@ function SuccessStoriesPage() {
         </h2>
         <div className="mt-6">
           <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">
-            {lang === "gu" ? "મફત ટેસ્ટ આપો" : "Take the free test"} <ArrowRight className="h-4 w-4" />
+            {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

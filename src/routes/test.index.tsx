@@ -178,7 +178,7 @@ function TestIntro() {
   ];
 
   const trustBadges = [
-    { icon: ShieldCheck, label: "No login required" },
+    { icon: ShieldCheck, label: "Private & secure" },
     { icon: Clock, label: "15–25 minutes" },
     { icon: Award, label: "Trusted by schools" },
     { icon: Brain, label: "NCERT-aligned" },
@@ -581,7 +581,7 @@ function TestIntro() {
           <h2 className="font-serif text-3xl md:text-4xl">How it works</h2>
           <div className="mt-8 grid md:grid-cols-4 gap-5">
             {[
-              { n: "01", t: "Tell us about you", d: "Name, grade, age. No login." },
+              { n: "01", t: "Tell us about you", d: "Name, grade, age. Takes a minute." },
               { n: "02", t: "Pay & enter coupon", d: "₹1,500 with HBK1000. Scan the QR, share your UTR." },
               { n: "03", t: "Answer the questions", d: "RIASEC + 8 MI + grade-banded aptitude (~78 questions)." },
               { n: "04", t: "Download 20-page PDF", d: "Personalised, shareable, printable." },

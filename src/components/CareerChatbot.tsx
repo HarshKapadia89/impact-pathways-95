@@ -234,8 +234,8 @@ export function CareerChatbot() {
               <Brain className="h-3.5 w-3.5 text-accent" />
               <Link to="/test" onClick={() => setOpen(false)} className="underline hover:text-foreground">
                 {lang === "gu"
-                  ? "વ્યક્તિગત જવાબો માટે મફત ટેસ્ટ આપો →"
-                  : "Take the free aptitude test for personalised answers →"}
+                  ? "વ્યક્તિગત જવાબો માટે એપ્ટિટ્યુડ ટેસ્ટ આપો →"
+                  : "Take the aptitude test for personalised answers →"}
               </Link>
             </div>
           )}

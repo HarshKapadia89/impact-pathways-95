@@ -153,7 +153,7 @@ function ExamsPage() {
         <div className="rounded-2xl border-2 border-border bg-primary/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-lg md:text-xl">{lang === "gu" ? "કયા ક્ષેત્રમાં જવું?" : "Not sure which exam fits you?"}</div>
-            <div className="text-sm text-muted-foreground mt-1">{lang === "gu" ? "મફત મનો-યોગ્યતા ટેસ્ટ — RIASEC + અભિરુચિ આધારિત ભલામણો." : "Take the free aptitude test for personalised recommendations."}</div>
+            <div className="text-sm text-muted-foreground mt-1">{lang === "gu" ? "મનો-યોગ્યતા ટેસ્ટ — RIASEC + અભિરુચિ આધારિત ભલામણો." : "Take the aptitude test for personalised recommendations."}</div>
           </div>
           <Link to="/test" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90">
             {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"}

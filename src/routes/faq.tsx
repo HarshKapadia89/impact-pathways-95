@@ -6,11 +6,11 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — HBK Careers | Free Psychometric Test & Career Guidance for Gujarat" },
+      { title: "FAQ — HBK Careers | Psychometric Test & Career Guidance for Gujarat" },
       {
         name: "description",
         content:
-          "Common questions about HBK Careers' free 20-page psychometric report, bilingual test, grade coverage, data safety and school onboarding.",
+          "Common questions about the HBK Careers 20-page psychometric report, bilingual test, grade coverage, data safety and school onboarding.",
       },
       { property: "og:title", content: "FAQ — HBK Careers" },
       { property: "og:description", content: "Answers to the questions students and parents ask most." },
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/faq")({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: [
-            { "@type": "Question", name: "Is this actually free?", acceptedAnswer: { "@type": "Answer", text: "Yes. No login, no credit card. Funded by H B Kapadia New High School, Ahmedabad." } },
+            { "@type": "Question", name: "Who is this platform for?", acceptedAnswer: { "@type": "Answer", text: "Students in grades 6 to 12, their parents and schools. Run by H B Kapadia New High School, Ahmedabad." } },
             { "@type": "Question", name: "How long does the test take?", acceptedAnswer: { "@type": "Answer", text: "About 25 minutes. You can pause and resume." } },
             { "@type": "Question", name: "Is it available in Gujarati?", acceptedAnswer: { "@type": "Answer", text: "Yes — questions, report and AI summary in both Gujarati and English." } },
           ],

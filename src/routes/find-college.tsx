@@ -381,8 +381,8 @@ function FindCollegePage() {
             </div>
             <div className="text-sm text-muted-foreground mt-1">
               {lang === "gu"
-                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો — તમારા RIASEC + અભિરુચિ આધારિત ભલામણો."
-                : "Take the free aptitude test — RIASEC + interest-based recommendations."}
+                ? "મનો-યોગ્યતા ટેસ્ટ આપો — તમારા RIASEC + અભિરુચિ આધારિત ભલામણો."
+                : "Take the aptitude test — RIASEC + interest-based recommendations."}
             </div>
           </div>
           <Link
