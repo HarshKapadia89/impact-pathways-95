@@ -19,6 +19,7 @@ import {
   HelpCircle,
   Trophy,
   Info,
+  Library,
 } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
@@ -30,6 +31,7 @@ const NAV = [
   { to: "/career", label: { en: "Gujarat", gu: "ગુજરાત" }, icon: Compass },
   { to: "/handbook", label: { en: "India", gu: "ભારત" }, icon: BookOpen },
   { to: "/find-college", label: { en: "Colleges", gu: "કોલેજો" }, icon: Search },
+  { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી" }, icon: Library },
   { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ" }, icon: Award },
   { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ" }, icon: FileCheck },
   { to: "/test", label: { en: "Aptitude", gu: "ટેસ્ટ" }, icon: Brain },
