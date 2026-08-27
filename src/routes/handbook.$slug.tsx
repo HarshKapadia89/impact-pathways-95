@@ -65,6 +65,7 @@ export const Route = createFileRoute("/handbook/$slug")({
 
 function StreamDetail() {
   const { stream } = Route.useLoaderData() as { stream: HandbookStream };
+  const { slug } = Route.useParams();
   const { i18n } = useTranslation();
   const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
   const [tab, setTab] = useState<TabKey>("professions");
@@ -186,7 +187,7 @@ function StreamDetail() {
         </div>
 
         <div className="py-6">
-          {tab === "professions" && <ProfessionsList items={stream.professions} q={query} slug={Route.useParams().slug} />}
+          {tab === "professions" && <ProfessionsList items={stream.professions} q={query} slug={slug} />}
           {tab === "exams" && <ExamsList items={stream.exams} q={query} />}
           {tab === "institutes" && <InstitutesList items={stream.institutes} q={query} lang={lang} />}
         </div>
