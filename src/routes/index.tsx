@@ -89,57 +89,56 @@ function HomePage() {
 
   return (
     <PublicLayout>
-      {/* Hero — ink block with colour-block tiles */}
-      <section className="bg-[var(--ink)] text-[var(--cream)] border-b-4 border-[var(--ink)]">
+      {/* Hero — soft cream field with tinted feature cards */}
+      <section style={{ background: "var(--gradient-hero)" }}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <div
-              className="inline-flex items-center gap-2 border-2 border-[var(--cream)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] mb-6"
-              style={{ background: "var(--brand-3)", color: "oklch(0.16 0.01 270)" }}
-            >
-              <GraduationCap className="h-3.5 w-3.5" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 text-xs font-semibold text-foreground mb-6">
+              <GraduationCap className="h-3.5 w-3.5" style={{ color: "var(--accent)" }} />
               {lang === "gu" ? "મફત • કોઈ લૉગિન જરૂરી નથી" : "Free • No login required"}
             </div>
-            <h1 className="display-caps text-5xl md:text-7xl">
-              <span style={{ color: "var(--brand-5)" }}>{heroFirst}</span>{" "}
-              <span>{heroRest}</span>
+            <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight">
+              <span style={{ color: "var(--accent)" }}>{heroFirst}</span> <span>{heroRest}</span>
             </h1>
-            <p className="mt-6 text-base md:text-lg text-[oklch(0.96_0.022_95_/_75%)] max-w-xl">
+            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
               {T.hero2}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/test"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wide border-2 border-[var(--cream)] shadow-[5px_5px_0_var(--cream)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
-                style={{ background: "var(--brand-1)", color: "oklch(1 0 0)" }}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow-primary)] transition-transform hover:-translate-y-0.5"
               >
                 <Brain className="h-4 w-4" />
                 {T.cta1}
               </Link>
               <Link
                 to="/career"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wide border-2 border-[var(--cream)] text-[var(--cream)] hover:bg-[oklch(0.96_0.022_95_/_12%)] transition-colors"
+                className="inline-flex items-center gap-2 rounded-xl border border-accent/50 bg-card px-6 py-3 text-sm font-semibold text-foreground shadow-[var(--shadow-soft)] transition-colors hover:bg-accent/10"
               >
-                <Compass className="h-4 w-4" style={{ color: "var(--brand-5)" }} />
+                <Compass className="h-4 w-4" style={{ color: "var(--accent)" }} />
                 {T.cta2}
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {tiles.map((tile, i) => {
               const tone = TONE[tile.tone];
               return (
                 <Link
                   key={tile.to}
                   to={tile.to}
-                  className={`group border-2 border-[var(--cream)] p-5 transition-transform hover:-translate-y-1 ${
-                    i === 2 ? "col-span-2" : ""
+                  className={`group rounded-2xl border border-border bg-card/80 backdrop-blur p-5 shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 ${
+                    i === 2 ? "sm:col-span-2" : ""
                   }`}
-                  style={{ background: tone, color: "oklch(0.16 0.01 270)" }}
                 >
-                  <tile.icon className="h-7 w-7" />
-                  <div className="mt-3 font-display text-base leading-tight">{tile.title}</div>
-                  <div className="text-xs mt-1.5 opacity-80">{tile.desc}</div>
+                  <span
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: `color-mix(in oklab, ${tone} 16%, transparent)`, color: tone }}
+                  >
+                    <tile.icon className="h-6 w-6" />
+                  </span>
+                  <div className="mt-4 font-serif text-lg leading-tight">{tile.title}</div>
+                  <div className="text-sm mt-1.5 text-muted-foreground leading-relaxed">{tile.desc}</div>
                 </Link>
               );
             })}
@@ -159,12 +158,12 @@ function HomePage() {
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-14">
         <div className="flex items-end justify-between gap-3 mb-7">
           <div>
-            <h2 className="display-caps text-3xl md:text-4xl">{T.streamsTitle}</h2>
+            <h2 className="font-serif text-3xl md:text-4xl tracking-tight">{T.streamsTitle}</h2>
             <p className="text-sm text-muted-foreground mt-2">{T.streamsSub}</p>
           </div>
           <Link
             to="/career"
-            className="text-xs font-bold uppercase tracking-wide border-2 border-[var(--ink)] px-3 py-2 shrink-0 hover:bg-secondary"
+            className="text-xs font-semibold rounded-full border border-border px-3.5 py-2 shrink-0 hover:bg-accent/10"
           >
             {lang === "gu" ? "બધા જુઓ" : "View all"} →
           </Link>
@@ -178,17 +177,17 @@ function HomePage() {
                 key={s.id}
                 to="/career/$stream"
                 params={{ stream: s.id }}
-                className="group relative bg-card border-2 border-[var(--ink)] shadow-[5px_5px_0_var(--ink)] p-5 transition-transform hover:-translate-x-1 hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-5 transition-transform hover:-translate-y-1"
               >
-                <div className="h-3 -mx-5 -mt-5 mb-4" style={{ background: tone }} aria-hidden />
+                <div className="h-1.5 -mx-5 -mt-5 mb-4" style={{ background: tone }} aria-hidden />
                 <div className="text-3xl">{s.emoji}</div>
-                <div className="mt-3 font-display text-lg leading-tight">
+                <div className="mt-3 font-serif text-lg leading-tight">
                   {lang === "gu" ? s.nameGu : s.name}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1.5">
+                <div className="text-sm text-muted-foreground mt-1.5">
                   {lang === "gu" ? s.taglineGu : s.tagline}
                 </div>
-                <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide">
+                <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold" style={{ color: "var(--accent)" }}>
                   {lang === "gu" ? "ખોલો" : "Explore"}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>
@@ -197,6 +196,7 @@ function HomePage() {
           })}
         </div>
       </section>
+
 
 
       <FAQAccordion lang={lang} />
