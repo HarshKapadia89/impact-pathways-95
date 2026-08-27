@@ -137,7 +137,7 @@ function ProfessionPage() {
             <span className="text-4xl md:text-5xl">{streamEmoji(profile.streamName)}</span>
             <div>
               <h1 className="font-serif tracking-tight text-4xl md:text-6xl">{profile.name}</h1>
-              <p className="mt-3 max-w-3xl text-sm md:text-base text-[oklch(0.96_0.022_95_/_75%)]">
+              <p className="mt-3 max-w-3xl text-sm md:text-base text-sidebar-foreground/75">
                 {overview?.tagline}
               </p>
             </div>
@@ -311,8 +311,8 @@ function ProfessionPage() {
           </Section>
 
           {/* Fit check CTA */}
-          <section className="rounded-xl border border-border shadow-[var(--shadow-card)] p-6 flex flex-wrap items-center gap-4 justify-between" style={{ background: "var(--brand-5)" }}>
-            <div className="text-[oklch(0.16_0.01_270)]">
+          <section className="rounded-xl border border-border shadow-[var(--shadow-card)] p-6 flex flex-wrap items-center gap-4 justify-between" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--card))" }}>
+            <div className="text-foreground">
               <div className="font-display text-xl">Are you fit for this career?</div>
               <p className="text-sm mt-1">
                 Take the free HBK psychometric test and see how {profile.name} matches your interests and aptitude.
