@@ -8,6 +8,7 @@ import {
   streamEmoji,
 } from "@/lib/handbookData";
 import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
+import { professionSlug } from "@/lib/professionData";
 import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, Sparkles, BookOpen } from "lucide-react";
 
 type TabKey = "professions" | "exams" | "institutes";
@@ -185,7 +186,7 @@ function StreamDetail() {
         </div>
 
         <div className="py-6">
-          {tab === "professions" && <ProfessionsList items={stream.professions} q={query} />}
+          {tab === "professions" && <ProfessionsList items={stream.professions} q={query} slug={Route.useParams().slug} />}
           {tab === "exams" && <ExamsList items={stream.exams} q={query} />}
           {tab === "institutes" && <InstitutesList items={stream.institutes} q={query} lang={lang} />}
         </div>
@@ -259,7 +260,7 @@ function SourcesFooter({ overview }: { overview: HandbookOverview }) {
   );
 }
 
-function ProfessionsList({ items, q }: { items: string[]; q: string }) {
+function ProfessionsList({ items, q, slug }: { items: string[]; q: string; slug: string }) {
   const filtered = useMemo(() => {
     const t = q.trim().toLowerCase();
     return t ? items.filter((p) => p.toLowerCase().includes(t)) : items;
@@ -269,12 +270,15 @@ function ProfessionsList({ items, q }: { items: string[]; q: string }) {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
       {filtered.map((p, i) => (
-        <div
+        <Link
           key={`${p}-${i}`}
-          className="rounded-lg border border-border bg-card px-3 py-2.5 text-sm hover:border-primary/40 transition-colors"
+          to="/handbook/$slug/$profession"
+          params={{ slug, profession: professionSlug(p) }}
+          className="group flex items-center justify-between gap-2 border-2 border-[var(--ink)] bg-card px-3 py-2.5 text-sm font-semibold transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--ink)]"
         >
-          {p}
-        </div>
+          <span>{p}</span>
+          <span className="text-xs opacity-0 group-hover:opacity-100">→</span>
+        </Link>
       ))}
     </div>
   );
