@@ -78,6 +78,22 @@ export const Route = createFileRoute("/handbook/$slug/$profession")({
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary" },
       ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Occupation",
+            name: p.name,
+            description: p.summary,
+            occupationalCategory: p.streamName,
+            occupationLocation: { "@type": "Country", name: "India" },
+            skills: p.skills.join(", "),
+            responsibilities: p.duties.join(" "),
+            educationRequirements: p.path.map((r) => `${r.stage}: ${r.options}`).join(" | "),
+          }),
+        },
+      ],
     };
   },
   component: ProfessionPage,
