@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
-import { PublicLayout } from "@/components/PublicLayout";
 import {
   HANDBOOK_SUMMARY_BY_SLUG,
   loadHandbookStream,
@@ -88,14 +87,14 @@ export const Route = createFileRoute("/handbook/$slug/$profession")({
     </div>
   ),
   notFoundComponent: () => (
-    <PublicLayout>
+    <>
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
         <h1 className="display-caps text-3xl">Profession not found</h1>
         <Link to="/handbook" className="mt-4 inline-block font-bold uppercase text-sm underline">
           ← Back to the India handbook
         </Link>
       </div>
-    </PublicLayout>
+    </>
   ),
 });
 
@@ -106,7 +105,7 @@ function ProfessionPage() {
   const [jump, setJump] = useState("");
 
   return (
-    <PublicLayout>
+    <>
       {/* Hero */}
       <section className="bg-[var(--ink)] text-[var(--cream)]">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
@@ -339,7 +338,7 @@ function ProfessionPage() {
           )}
         </div>
       </div>
-    </PublicLayout>
+    </>
   );
 }
 
