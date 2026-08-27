@@ -169,7 +169,7 @@ function ProfessionPage() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold border-b-2 border-[var(--ink)] last:border-b-0 hover:bg-secondary"
+                className="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold border-b border-border last:border-b-0 hover:bg-secondary"
               >
                 <s.icon className="h-3.5 w-3.5" style={{ color: BLOCK[i % BLOCK.length] }} />
                 {s.label}
@@ -425,7 +425,7 @@ function BlockTable({
         </thead>
         <tbody>
           {rows.map((r, i) => (
-            <tr key={i} className="border-t-2 border-[var(--ink)] align-top">
+            <tr key={i} className="border-t border-border align-top">
               {r.map((cell, j) => (
                 <td key={j} className="px-3 py-2">
                   {linkColumn === j && cell ? (
