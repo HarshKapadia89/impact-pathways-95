@@ -128,7 +128,7 @@ function ProfessionPage() {
           <Link
             to="/handbook/$slug"
             params={{ slug }}
-            className="inline-flex items-center gap-2 text-xs font-semibold rounded-full border border-sidebar-border px-3 py-1.5 hover:bg-[oklch(0.96_0.022_95_/_12%)]"
+            className="inline-flex items-center gap-2 text-xs font-semibold rounded-full border border-sidebar-border px-3 py-1.5 hover:bg-sidebar-accent"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             {profile.streamName}
