@@ -372,6 +372,8 @@ export const ABROAD_BY_STREAM: Record<string, AbroadInstitute[]> = {
 
 type Archetype = {
   test: RegExp;
+  /** Opening sentence of the generated summary; {name} is replaced. */
+  lead?: string;
   duties: string[];
   sectors: string[];
   skills: string[];
@@ -380,6 +382,261 @@ type Archetype = {
 };
 
 const ARCHETYPES: Archetype[] = [
+  {
+    test: /doctor|physician|surgeon|medical officer|paediatric|cardiolog|dermatolog|psychiatr|radiolog|anaesth|gynaec|orthoped|oncolog|neurolog|pathologist|ophthalm|dentist|ayurved|homoeopath|homeopath|unani|siddha/i,
+    lead: "A {name} diagnoses and treats patients, working in hospitals, clinics or community health programmes, and carries direct clinical responsibility for the people under their care.",
+    duties: [
+      "Examine patients, take a clinical history and order the investigations needed for a diagnosis.",
+      "Decide on treatment, prescribe medication or procedures and explain the plan to the patient and family.",
+      "Perform or assist in procedures within the scope of the qualification and registration.",
+      "Review progress, adjust treatment and refer to super-specialists when required.",
+      "Maintain clinical records, follow infection-control protocols and meet council registration norms.",
+    ],
+    sectors: ["Government hospitals and district health services", "Private hospitals and nursing homes", "Own clinic or group practice", "Medical colleges, research and public-health programmes"],
+    skills: ["Clinical reasoning and diagnostic skill", "Steady hands and calm decision-making under pressure", "Communication with anxious patients and families", "Lifelong study of updated protocols"],
+    pros: ["High social respect and secure demand", "Direct, visible impact on people's lives", "Clear specialisation ladder with strong earnings later"],
+    cons: ["Very long training before independent practice", "Long duty hours, night calls and emotional strain", "Medico-legal responsibility for every decision"],
+  },
+  {
+    test: /nurse|midwif|paramedic|emergency medical|ward|dialysis|perfusion|optometr|radiograph|laboratory technolog|imaging|sonograph|prosthet|orthot|physiotherap|occupational therap|dietician|dietitian|nutritionist|pharmacist|pharmac/i,
+    lead: "A {name} is a qualified allied-health professional who supports diagnosis, treatment and recovery alongside doctors, and is often the person a patient interacts with most.",
+    duties: [
+      "Prepare patients, equipment and records before each procedure or session.",
+      "Carry out the clinical or technical work the role is licensed for, following standard protocols.",
+      "Monitor patients, record readings and escalate anything abnormal to the treating doctor.",
+      "Maintain equipment, stock, calibration and sterility standards.",
+      "Counsel patients and families on aftercare, medication and follow-up.",
+    ],
+    sectors: ["Hospitals and multi-speciality centres", "Diagnostic labs and imaging centres", "Community health and government programmes", "Home-care, rehabilitation and wellness providers"],
+    skills: ["Precise clinical technique", "Patience and empathy with patients", "Equipment handling and hygiene discipline", "Accurate documentation"],
+    pros: ["Short, employable qualification with fast entry", "Very strong demand in India and abroad", "Regular hospital-sector openings and overseas mobility"],
+    cons: ["Shift duties including nights and weekends", "Physically and emotionally demanding days", "Pay depends heavily on employer type and city"],
+  },
+  {
+    test: /lawyer|advocate|judge|legal|solicitor|attorney|counsel at law|notary|magistrate|jurist/i,
+    lead: "A {name} works with the law — advising clients, drafting documents and representing or deciding matters within the Indian legal system.",
+    duties: [
+      "Read the file, research statutes, rules and case law relevant to the matter.",
+      "Draft pleadings, contracts, opinions or orders in the correct legal form.",
+      "Advise clients on risk, options and likely outcomes in plain language.",
+      "Appear before courts, tribunals or authorities and argue the matter.",
+      "Track deadlines, filings and compliance obligations meticulously.",
+    ],
+    sectors: ["Litigation practice at district, High Court and Supreme Court", "Corporate law firms and in-house legal teams", "Judicial services and government law offices", "Compliance, IP and legal-research organisations"],
+    skills: ["Legal research and precise drafting", "Argument and public speaking", "Reading long documents with attention to detail", "Ethics and client confidentiality"],
+    pros: ["Independent practice is possible from day one", "Strong earnings after reputation is built", "Direct role in justice, policy and business decisions"],
+    cons: ["Early years in litigation pay very little", "Adjournments and long hours are routine", "Success depends heavily on networks and persistence"],
+  },
+  {
+    test: /accountant|auditor|chartered|company secretary|cost account|tax|actuar|treasur|financial analyst|finance|investment|banker|equity|portfolio|insurance|underwrit|credit/i,
+    lead: "A {name} works with money, numbers and regulation — keeping records accurate, assessing risk and helping organisations or individuals make sound financial decisions.",
+    duties: [
+      "Collect and verify financial data, statements and supporting documents.",
+      "Prepare accounts, valuations, forecasts or risk assessments to the applicable standard.",
+      "Test compliance with tax law, accounting standards and regulator requirements.",
+      "Present findings, recommendations and reports to management or clients.",
+      "Track statutory deadlines, filings and audit trails.",
+    ],
+    sectors: ["Audit and accounting firms", "Banks, NBFCs and insurance companies", "Corporate finance and treasury teams", "Independent practice and consultancy"],
+    skills: ["Numerical accuracy and analytical thinking", "Knowledge of tax, accounting and regulatory rules", "Excel, ERP and financial-modelling tools", "Integrity and confidentiality"],
+    pros: ["Recognised professional qualifications with clear market value", "Every sector needs the skill, so demand is stable", "Practice, industry and overseas routes all open"],
+    cons: ["Professional exams have low pass rates and take years", "Deadline seasons mean very long hours", "Errors carry regulatory and reputational consequences"],
+  },
+  {
+    test: /architect|urban planner|town planner|planner|interior|landscape|surveyor|valuer/i,
+    lead: "A {name} shapes built space — turning a client brief and a site into drawings, approvals and a finished project that people use every day.",
+    duties: [
+      "Study the site, the brief, the budget and the applicable development-control rules.",
+      "Prepare concepts, drawings and 3D models, and revise them with the client.",
+      "Prepare working drawings, specifications and municipal approval submissions.",
+      "Coordinate with structural, services and landscape consultants.",
+      "Visit site during construction to check quality against drawings.",
+    ],
+    sectors: ["Architecture and design practices", "Real-estate developers and construction firms", "Urban local bodies and planning authorities", "Independent practice and consultancy"],
+    skills: ["Spatial imagination and drawing", "CAD, BIM and visualisation software", "Building codes and by-laws", "Client handling and coordination"],
+    pros: ["Creative work with a permanent, visible result", "Licensed profession with independent-practice rights", "Wide scope from housing to public infrastructure"],
+    cons: ["Long five-year degree plus registration", "Project timelines and client changes cause pressure", "Income is uneven in the early practice years"],
+  },
+  {
+    test: /designer|design|animator|illustrat|art director|craft|jewel|ceramic artist|textile design|fashion|photograph|videograph|cinematograph|game art/i,
+    lead: "A {name} solves problems visually — combining research, craft and software to produce work that communicates clearly and looks right.",
+    duties: [
+      "Understand the brief, the audience and the constraints of the medium.",
+      "Research references, sketch options and develop the strongest concept.",
+      "Produce finished work in the required software and file standards.",
+      "Take feedback from clients or art directors and iterate.",
+      "Prepare final files for production, print, screen or manufacture.",
+    ],
+    sectors: ["Design studios and creative agencies", "Product, apparel and manufacturing companies", "Media, gaming and entertainment houses", "Freelance and own-label practice"],
+    skills: ["Visual sense, colour and composition", "Industry-standard design software", "Concept development and storytelling", "Time management across parallel briefs"],
+    pros: ["Creative, portfolio-driven career where skill beats pedigree", "Freelance and remote work are genuinely possible", "Fast-growing demand from digital brands"],
+    cons: ["Income is uneven at the start", "Subjective feedback and rework are constant", "Portfolio must be kept current to stay employable"],
+  },
+  {
+    test: /journalis|reporter|anchor|correspondent|editor|copywriter|content writer|columnist|broadcast|radio jockey|video jockey|public relation|media|publish|advertis|screenwriter|script/i,
+    lead: "A {name} works with words, stories and audiences — gathering material, shaping it for a medium and publishing it to deadline.",
+    duties: [
+      "Track the beat, sources and trends the audience cares about.",
+      "Research, interview and verify facts before anything is published.",
+      "Write, edit or present the piece in the tone the platform requires.",
+      "Work with designers, editors and producers to finish the story.",
+      "Meet publication deadlines and follow legal and ethical norms.",
+    ],
+    sectors: ["Newspapers, TV channels and digital newsrooms", "Advertising, PR and content agencies", "Brand and corporate communication teams", "Independent creator and freelance work"],
+    skills: ["Clear writing and editing", "Interviewing and fact-checking", "Speed under deadline", "Social and digital publishing tools"],
+    pros: ["Varied work with real public influence", "Entry is skill-based; a portfolio matters more than marks", "Digital platforms have opened independent earning routes"],
+    cons: ["Irregular hours and unpredictable news cycles", "Starting salaries in media are modest", "Pressure and public criticism come with the role"],
+  },
+  {
+    test: /pilot|cabin crew|air traffic|flight|aviation|airline|navigat|merchant navy|marine officer|ship/i,
+    lead: "A {name} works in the transport and aviation system, where licensing, safety procedure and precision matter more than anything else.",
+    duties: [
+      "Complete pre-departure checks, documentation and briefings.",
+      "Operate or coordinate the movement of aircraft, vessels or traffic under standard procedures.",
+      "Monitor weather, instruments and communication continuously.",
+      "Handle abnormal situations using trained emergency protocols.",
+      "Maintain logs, licences, medicals and recurrent training records.",
+    ],
+    sectors: ["Airlines and charter operators", "Airport and air-navigation authorities", "Shipping and port organisations", "Defence and coast-guard services"],
+    skills: ["Situational awareness and quick judgement", "Strict procedural discipline", "Clear radio and crew communication", "Physical and medical fitness"],
+    pros: ["High earnings once licensed and current", "Travel and international exposure", "Highly respected, structured profession"],
+    cons: ["Training and licensing are expensive", "Rosters, time-zone changes and time away from home", "Medical fitness must be maintained throughout the career"],
+  },
+  {
+    test: /chef|culinar|baker|hotel|hospitality|tourism|travel|event|catering|front office|housekeep|restaurant|resort|cruise/i,
+    lead: "A {name} works in the hospitality and tourism industry, where the product is the guest's experience and consistency is everything.",
+    duties: [
+      "Plan the day's service, staffing, stock and set-up.",
+      "Deliver the service or product to the property's quality standard.",
+      "Handle guest requests, complaints and special requirements on the spot.",
+      "Control cost, wastage, hygiene and safety standards.",
+      "Train and supervise junior staff during the shift.",
+    ],
+    sectors: ["Hotels, resorts and restaurant chains", "Airlines, cruise lines and railways catering", "Travel companies, tour operators and event firms", "Own restaurant, cloud kitchen or travel business"],
+    skills: ["Guest-handling and calm under pressure", "Operational planning and costing", "Team leadership on the floor", "Presentation and hygiene discipline"],
+    pros: ["Fast promotions for people who perform on the floor", "Genuine international placement opportunities", "Entrepreneurship is realistic after a few years"],
+    cons: ["Long shifts, weekends and festival duty", "Physically tiring and guest-facing pressure", "Entry pay is modest before supervisory roles"],
+  },
+  {
+    test: /farmer|agronom|horticultur|agricultur|soil|seed|plant|dairy|poultry|fisher|aqua|forest|apicultur|sericultur|food technolog|agri/i,
+    lead: "A {name} works with land, crops, livestock or food systems, applying scientific method to production, quality and supply.",
+    duties: [
+      "Assess soil, water, breed or crop conditions and plan the production cycle.",
+      "Apply scientific practices for inputs, disease control and yield improvement.",
+      "Monitor growth, quality and compliance with food-safety and export norms.",
+      "Advise farmers, cooperatives or company teams on better practice.",
+      "Record data, costs and results for the next cycle.",
+    ],
+    sectors: ["State agriculture and horticulture departments", "ICAR institutes and agricultural universities", "Agri-input, seed, dairy and food-processing companies", "Cooperatives, FPOs and own agri-enterprise"],
+    skills: ["Applied biology and field observation", "Data recording and analysis", "Extension work and farmer communication", "Practical, outdoor working ability"],
+    pros: ["Government scientist and officer routes through ICAR and state services", "Growing agri-tech and food-processing industry", "Strong scope for own enterprise on family land"],
+    cons: ["Field work in heat, rain and remote postings", "Outcomes depend on weather and market prices", "Corporate pay is lower than in urban sectors at entry"],
+  },
+  {
+    test: /veterinar|animal|livestock|zoo|wildlife/i,
+    lead: "A {name} works with animal health and production, combining clinical skill with public-health and food-safety responsibility.",
+    duties: [
+      "Examine and treat animals in clinics, farms or field camps.",
+      "Run vaccination, breeding and disease-surveillance programmes.",
+      "Advise owners and farms on nutrition, housing and hygiene.",
+      "Certify animal health for movement, sale or export.",
+      "Maintain treatment and drug records as per council rules.",
+    ],
+    sectors: ["State animal-husbandry departments", "Dairy, poultry and livestock companies", "Pet clinics and hospitals", "Wildlife parks, research institutes and NGOs"],
+    skills: ["Clinical handling of animals", "Diagnostic and surgical technique", "Physical stamina for field work", "Communication with farmers and pet owners"],
+    pros: ["Government veterinary officer posts across every district", "Rapidly growing urban pet-care market", "Meaningful work with animals and rural livelihoods"],
+    cons: ["Physically demanding and sometimes risky work", "Emergency and field calls at odd hours", "Rural postings are common in government service"],
+  },
+  {
+    test: /athlete|coach|sport|fitness|yoga|physical education|referee|umpire|gym/i,
+    lead: "A {name} works in sport and physical performance — training people, managing programmes and applying sports science to results.",
+    duties: [
+      "Assess fitness, technique or performance levels of athletes or clients.",
+      "Design training, conditioning and recovery programmes.",
+      "Supervise sessions, correct technique and prevent injury.",
+      "Track progress data and adjust the plan through the season.",
+      "Coordinate with physiotherapists, nutritionists and officials."
+    ],
+    sectors: ["Schools, colleges and sports academies", "Professional clubs, leagues and federations", "Fitness chains and personal-training practice", "Sports authorities and government sports bodies"],
+    skills: ["Sport-specific technical knowledge", "Motivation and coaching communication", "Anatomy, conditioning and injury awareness", "Personal fitness and discipline"],
+    pros: ["Active career doing what you enjoy", "Growing fitness and sports-science market in India", "Government and school posts are available with B.P.Ed."],
+    cons: ["Competitive playing careers are short and uncertain", "Early and late working hours around clients' schedules", "Pay outside cricket and top leagues remains modest"],
+  },
+  {
+    test: /special educator|audiolog|speech|rehabilit|prosthesis|clinical psycholog|psycholog|counsellor|counselor|social work/i,
+    lead: "A {name} supports people through difficulty — assessing needs, planning intervention and working patiently with individuals and families over time.",
+    duties: [
+      "Assess the person's condition, needs and support environment.",
+      "Prepare an individual intervention or care plan with measurable goals.",
+      "Run regular sessions and adjust the plan against progress.",
+      "Train families, teachers or caregivers to continue support at home.",
+      "Maintain case records and coordinate with doctors and institutions.",
+    ],
+    sectors: ["Special schools, inclusive schools and early-intervention centres", "Hospitals and rehabilitation centres", "NGOs, CSR programmes and government schemes", "Private practice and tele-therapy"],
+    skills: ["Empathy with firm professional boundaries", "Assessment tools and record keeping", "Patience across slow progress", "Family counselling and teamwork"],
+    pros: ["Deeply meaningful, visibly life-changing work", "Rising awareness has created strong demand", "RCI-registered practice allows independent clinics"],
+    cons: ["Emotionally heavy caseloads", "Progress can be slow and non-linear", "Pay in the NGO and school sector is modest"],
+  },
+  {
+    test: /teacher|professor|lecturer|principal|educator|tutor|librarian|academic/i,
+    lead: "A {name} teaches and guides learners, combining subject mastery with the classroom skill needed to make it land.",
+    duties: [
+      "Plan the syllabus, lessons and assessments for the term.",
+      "Teach classes and adapt the method to how different learners respond.",
+      "Set, conduct and evaluate tests and give useful feedback.",
+      "Support students pastorally and communicate with parents.",
+      "Keep up with curriculum changes, research and training.",
+    ],
+    sectors: ["Schools — government, aided and private", "Colleges and universities", "Coaching and ed-tech organisations", "Curriculum, assessment and teacher-training bodies"],
+    skills: ["Deep subject knowledge", "Explanation and classroom management", "Assessment design", "Patience and consistency"],
+    pros: ["Stable hours and long-term job security in the school system", "Direct influence on young lives", "Government posts through TET, NET and state exams"],
+    cons: ["Administrative and paperwork load", "Salary growth is slow in many private schools", "Large class sizes make individual attention hard"],
+  },
+  {
+    test: /musician|singer|dancer|actor|theatre|performer|choreograph|composer|conductor|instrument|artist|film maker|film director|producer|disk jockey|model/i,
+    lead: "A {name} performs or creates for an audience, building a career on years of practice, stage time and reputation rather than a single degree.",
+    duties: [
+      "Practise and rehearse daily to keep technique and stamina at performance level.",
+      "Prepare, interpret or compose material for the production or show.",
+      "Rehearse with the ensemble, director or crew before performance.",
+      "Perform live or on camera, adjusting to the audience and setting.",
+      "Build a portfolio, network and audience across platforms.",
+    ],
+    sectors: ["Theatre, film, TV and OTT productions", "Music, dance and cultural institutions", "Event, wedding and corporate performance circuits", "Teaching, academies and content platforms"],
+    skills: ["Mastery of the art form through sustained practice", "Stage presence and expression", "Collaboration with directors and co-performers", "Self-marketing and resilience"],
+    pros: ["Doing what you genuinely love, with a public identity", "Digital platforms allow direct audience earning", "Teaching provides steady income alongside performance"],
+    cons: ["Income is irregular, especially in the first years", "Highly competitive with no guaranteed entry path", "Physical wear and constant auditioning"],
+  },
+  {
+    test: /developer|programmer|software|data scien|data analyst|machine learning|artificial intelligence|cyber|network|cloud|database|web|app|it |information technolog|system analyst|game develop|blockchain|devops|tester|qa/i,
+    lead: "A {name} builds or protects digital systems — writing, testing and maintaining the software and infrastructure organisations run on.",
+    duties: [
+      "Understand the requirement and break it into technical tasks.",
+      "Write, review and test code or configuration to the team's standards.",
+      "Debug issues reported by users, monitoring or security tooling.",
+      "Deploy changes safely and document the system for the team.",
+      "Keep learning the frameworks, tools and threats that change every year.",
+    ],
+    sectors: ["IT services and product companies", "Start-ups and digital-first businesses", "Banks, telecom and public-sector IT divisions", "Freelance, contract and remote work worldwide"],
+    skills: ["Programming and problem-solving logic", "Data structures, databases and cloud basics", "Debugging patience and version control", "Clear communication in a team"],
+    pros: ["Highest volume of fresher hiring in India", "Remote and international work is normal", "Skills can be self-taught and proven through projects"],
+    cons: ["Technology churn means constant relearning", "Long hours during releases and incidents", "Entry-level competition is intense"],
+  },
+  {
+    test: /entrepreneur|businessperson|consultant|analyst|marketing|sales|human resource|hr |supply chain|logistic|operations|procurement|retail|brand|product manager/i,
+    lead: "A {name} works on the commercial side of an organisation — planning, selling, coordinating and improving how the business performs.",
+    duties: [
+      "Set targets and plan the activity needed to hit them.",
+      "Analyse market, cost or performance data and spot the gaps.",
+      "Coordinate teams, vendors and customers to get work moving.",
+      "Present proposals, reports and recommendations to leadership.",
+      "Review results and refine the process for the next cycle.",
+    ],
+    sectors: ["Corporates across FMCG, retail, manufacturing and services", "Consulting and market-research firms", "Start-ups and family businesses", "Own venture or independent consultancy"],
+    skills: ["Commercial judgement and numeracy", "Negotiation and presentation", "Stakeholder coordination", "Spreadsheets, CRM and analytics tools"],
+    pros: ["Fast career growth for performers", "Skills transfer across industries", "Direct route to entrepreneurship"],
+    cons: ["Target pressure is constant", "Travel and long hours in sales roles", "Performance is measured monthly, not annually"],
+  },
   {
     test: /engineer|technolog/i,
     duties: [
@@ -481,6 +738,10 @@ const GENERIC: Archetype = {
   cons: ["Entry can be competitive", "Continuing education is expected", "Early-career pay varies by employer"],
 };
 
+function article(name: string): string {
+  return /^[aeiou]/i.test(name.trim()) ? "An" : "A";
+}
+
 function archetypeFor(name: string): Archetype {
   return ARCHETYPES.find((a) => a.test.test(name)) ?? GENERIC;
 }
@@ -523,6 +784,9 @@ export function buildProfessionProfile(
 
   const summary =
     overlay?.summary ??
+    (arch.lead
+      ? `${arch.lead.replace(/^A \{name\}/, `${article(professionName)} {name}`).replace(/\{name\}/g, professionName)} In India this work sits inside the ${stream.stream} stream: students usually take ${ladder.after10} in Class 11–12, qualify through ${ladder.ug}, and specialise later through work experience or a master's. The sections below set out the study route, the entrance exams, the leading institutes in India and abroad, and the day-to-day reality of the job.`
+      : null) ??
     `A ${professionName} works within the ${stream.stream} field in India. The role applies the specialist training of this stream to real problems — in industry, in public service, in institutions or in independent practice. Students usually enter through the ${ladder.ug} route after Class 12, then specialise through work experience or a master's degree. This page brings together the study route, the entrance exams, the leading institutes and the day-to-day reality of the job, using the same exam and institute records published elsewhere on HBK Careers.`;
 
   const path: EducationRow[] = [

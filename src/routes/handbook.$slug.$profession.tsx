@@ -78,6 +78,22 @@ export const Route = createFileRoute("/handbook/$slug/$profession")({
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary" },
       ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Occupation",
+            name: p.name,
+            description: p.summary,
+            occupationalCategory: p.streamName,
+            occupationLocation: { "@type": "Country", name: "India" },
+            skills: p.skills.join(", "),
+            responsibilities: p.duties.join(" "),
+            educationRequirements: p.path.map((r) => `${r.stage}: ${r.options}`).join(" | "),
+          }),
+        },
+      ],
     };
   },
   component: ProfessionPage,
@@ -176,7 +192,7 @@ function ProfessionPage() {
               className="w-full border-2 border-[var(--ink)] bg-background px-2 py-2 text-xs"
             >
               <option value="">Choose…</option>
-              {siblings.map((p) => (
+              {Array.from(new Set(siblings)).map((p) => (
                 <option key={p} value={professionSlug(p)}>
                   {p}
                 </option>
