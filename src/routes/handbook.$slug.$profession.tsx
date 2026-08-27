@@ -105,7 +105,7 @@ export const Route = createFileRoute("/handbook/$slug/$profession")({
   notFoundComponent: () => (
     <>
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <h1 className="display-caps text-3xl">Profession not found</h1>
+        <h1 className="font-serif tracking-tight text-3xl">Profession not found</h1>
         <Link to="/handbook" className="mt-4 inline-block font-bold uppercase text-sm underline">
           ← Back to the India handbook
         </Link>
@@ -123,12 +123,12 @@ function ProfessionPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[var(--ink)] text-[var(--cream)]">
+      <section className="bg-sidebar text-sidebar-foreground">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <Link
             to="/handbook/$slug"
             params={{ slug }}
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide border-2 border-[var(--cream)] px-3 py-1.5 hover:bg-[oklch(0.96_0.022_95_/_12%)]"
+            className="inline-flex items-center gap-2 text-xs font-semibold rounded-full border border-sidebar-border px-3 py-1.5 hover:bg-sidebar-accent"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             {profile.streamName}
@@ -136,13 +136,13 @@ function ProfessionPage() {
           <div className="mt-5 flex items-start gap-4">
             <span className="text-4xl md:text-5xl">{streamEmoji(profile.streamName)}</span>
             <div>
-              <h1 className="display-caps text-4xl md:text-6xl">{profile.name}</h1>
-              <p className="mt-3 max-w-3xl text-sm md:text-base text-[oklch(0.96_0.022_95_/_75%)]">
+              <h1 className="font-serif tracking-tight text-4xl md:text-6xl">{profile.name}</h1>
+              <p className="mt-3 max-w-3xl text-sm md:text-base text-sidebar-foreground/75">
                 {overview?.tagline}
               </p>
             </div>
           </div>
-          <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-wide">
+          <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-semibold">
             {[
               `${profile.institutes.length} institutes`,
               `${profile.exams.length} entrance exams`,
@@ -150,7 +150,7 @@ function ProfessionPage() {
             ].map((chip, i) => (
               <span
                 key={chip}
-                className="px-3 py-1 border-2 border-[var(--cream)]"
+                className="px-3 py-1 rounded-full border border-sidebar-border"
                 style={{ background: BLOCK[i % BLOCK.length], color: "oklch(0.16 0.01 270)" }}
               >
                 {chip}
@@ -158,18 +158,18 @@ function ProfessionPage() {
             ))}
           </div>
         </div>
-        <div className="bar-stripes h-2 w-full" />
+        <div className="h-1.5 bar-stripes w-full" />
       </section>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 grid lg:grid-cols-[220px_1fr] gap-8">
         {/* Sticky section rail */}
         <aside className="lg:sticky lg:top-40 self-start">
-          <nav className="border-2 border-[var(--ink)] bg-card">
+          <nav className="rounded-xl border border-border bg-card">
             {SECTIONS.map((s, i) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="flex items-center gap-2 px-3 py-2.5 text-xs font-bold uppercase tracking-wide border-b-2 border-[var(--ink)] last:border-b-0 hover:bg-secondary"
+                className="flex items-center gap-2 px-3 py-2.5 text-xs font-semibold border-b border-border last:border-b-0 hover:bg-secondary"
               >
                 <s.icon className="h-3.5 w-3.5" style={{ color: BLOCK[i % BLOCK.length] }} />
                 {s.label}
@@ -178,7 +178,7 @@ function ProfessionPage() {
           </nav>
 
           {/* Jump to another profession */}
-          <div className="mt-4 border-2 border-[var(--ink)] bg-card p-3">
+          <div className="mt-4 rounded-xl border border-border bg-card p-3">
             <label className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-2">
               Another profession
             </label>
@@ -189,7 +189,7 @@ function ProfessionPage() {
                 setJump(v);
                 if (v) window.location.href = `/handbook/${slug}/${v}`;
               }}
-              className="w-full border-2 border-[var(--ink)] bg-background px-2 py-2 text-xs"
+              className="w-full rounded-xl border border-border bg-background px-2 py-2 text-xs"
             >
               <option value="">Choose…</option>
               {Array.from(new Set(siblings)).map((p) => (
@@ -219,7 +219,7 @@ function ProfessionPage() {
               {profile.sectors.map((s, i) => (
                 <div
                   key={s}
-                  className="border-2 border-[var(--ink)] bg-card p-4 text-sm font-semibold"
+                  className="rounded-xl border border-border bg-card p-4 text-sm font-semibold"
                 >
                   <span
                     className="inline-block h-3 w-8 mb-2"
@@ -282,7 +282,7 @@ function ProfessionPage() {
               {profile.duties.map((d, i) => (
                 <li key={i} className="flex gap-3 text-sm">
                   <span
-                    className="shrink-0 w-7 h-7 flex items-center justify-center border-2 border-[var(--ink)] font-display text-xs"
+                    className="shrink-0 w-7 h-7 flex items-center justify-center rounded-xl border border-border font-display text-xs"
                     style={{ background: BLOCK[i % BLOCK.length], color: "oklch(0.16 0.01 270)" }}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -295,13 +295,13 @@ function ProfessionPage() {
 
           <Section id="proscons" title="Pros & Cons" color={BLOCK[2]}>
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="border-2 border-[var(--ink)] bg-card p-4">
+              <div className="rounded-xl border border-border bg-card p-4">
                 <div className="flex items-center gap-2 font-display text-sm mb-3">
                   <ThumbsUp className="h-4 w-4" style={{ color: "var(--brand-3)" }} /> Pros
                 </div>
                 <BulletList items={profile.pros} />
               </div>
-              <div className="border-2 border-[var(--ink)] bg-card p-4">
+              <div className="rounded-xl border border-border bg-card p-4">
                 <div className="flex items-center gap-2 font-display text-sm mb-3">
                   <ThumbsDown className="h-4 w-4" style={{ color: "var(--brand-4)" }} /> Cons
                 </div>
@@ -311,8 +311,8 @@ function ProfessionPage() {
           </Section>
 
           {/* Fit check CTA */}
-          <section className="border-2 border-[var(--ink)] shadow-[6px_6px_0_var(--ink)] p-6 flex flex-wrap items-center gap-4 justify-between" style={{ background: "var(--brand-5)" }}>
-            <div className="text-[oklch(0.16_0.01_270)]">
+          <section className="rounded-xl border border-border shadow-[var(--shadow-card)] p-6 flex flex-wrap items-center gap-4 justify-between" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--card))" }}>
+            <div className="text-foreground">
               <div className="font-display text-xl">Are you fit for this career?</div>
               <p className="text-sm mt-1">
                 Take the free HBK psychometric test and see how {profile.name} matches your interests and aptitude.
@@ -320,14 +320,14 @@ function ProfessionPage() {
             </div>
             <Link
               to="/test"
-              className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold uppercase tracking-wide border-2 border-[var(--ink)] bg-[var(--ink)] text-[var(--cream)]"
+              className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-xl border border-border bg-sidebar text-sidebar-foreground"
             >
               <Brain className="h-4 w-4" /> Take the free test
             </Link>
           </section>
 
           {overview && (
-            <div className="border-2 border-dashed border-[var(--ink)] p-4">
+            <div className="rounded-xl border border-dashed border-border p-4">
               <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground mb-2">
                 Sources
               </div>
@@ -371,7 +371,7 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-44">
-      <h2 className="display-caps text-2xl md:text-3xl mb-4">
+      <h2 className="font-serif tracking-tight text-2xl md:text-3xl mb-4">
         <span className="inline-block h-4 w-10 mr-3 align-middle" style={{ background: color }} aria-hidden />
         {title}
       </h2>
@@ -382,7 +382,7 @@ function Section({
 
 function Panel({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="border-2 border-[var(--ink)] bg-card p-4">
+    <div className="rounded-xl border border-border bg-card p-4">
       <div className="font-display text-sm mb-3">{title}</div>
       {children}
     </div>
@@ -412,10 +412,10 @@ function BlockTable({
   linkColumn?: number;
 }) {
   return (
-    <div className="overflow-x-auto border-2 border-[var(--ink)] bg-card">
+    <div className="overflow-x-auto rounded-xl border border-border bg-card">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-[var(--ink)] text-[var(--cream)]">
+          <tr className="bg-sidebar text-sidebar-foreground">
             {head.map((h) => (
               <th key={h} className="text-left px-3 py-2 font-display text-xs uppercase tracking-wide">
                 {h}
@@ -425,7 +425,7 @@ function BlockTable({
         </thead>
         <tbody>
           {rows.map((r, i) => (
-            <tr key={i} className="border-t-2 border-[var(--ink)] align-top">
+            <tr key={i} className="border-t border-border align-top">
               {r.map((cell, j) => (
                 <td key={j} className="px-3 py-2">
                   {linkColumn === j && cell ? (

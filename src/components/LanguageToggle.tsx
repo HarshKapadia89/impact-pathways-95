@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 
@@ -19,18 +20,23 @@ function currentLng(raw: string | undefined): Lng {
 
 export function LanguageToggle() {
   const { i18n } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const now = currentLng(i18n.language);
   const nextIdx = (ORDER.indexOf(now) + 1) % ORDER.length;
   const next = ORDER[nextIdx];
+
   return (
     <Button
       variant="ghost"
       size="sm"
       onClick={() => i18n.changeLanguage(next)}
       className="font-medium"
-      title={`Switch to ${LABEL[next]}`}
+      title={mounted ? `Switch to ${LABEL[next]}` : undefined}
+      suppressHydrationWarning
     >
-      {LABEL[next]}
+      <span suppressHydrationWarning>{mounted ? LABEL[next] : ""}</span>
     </Button>
   );
 }
