@@ -276,7 +276,7 @@ function ProfessionsList({ items, q, slug }: { items: string[]; q: string; slug:
           key={`${p}-${i}`}
           to="/handbook/$slug/$profession"
           params={{ slug, profession: professionSlug(p) }}
-          className="group flex items-center justify-between gap-2 border-2 border-[var(--ink)] bg-card px-3 py-2.5 text-sm font-semibold transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--ink)]"
+          className="group flex items-center justify-between gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm font-semibold transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]"
         >
           <span>{p}</span>
           <span className="text-xs opacity-0 group-hover:opacity-100">→</span>
