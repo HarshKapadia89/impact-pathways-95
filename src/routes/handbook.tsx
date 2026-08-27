@@ -12,12 +12,12 @@ export const Route = createFileRoute("/handbook")({
       {
         name: "description",
         content:
-          "India-wide career guidance covering 20 streams: 935+ professions, 269+ entrance exams and 1,400+ top institutes across India.",
+          "India-wide career guidance covering 48 streams: 1,600+ professions, 490+ entrance exams and 1,900+ top institutes across India.",
       },
       { property: "og:title", content: "Career Guidance — India | HBK Careers" },
       {
         property: "og:description",
-        content: "Professions, entrance exams and ranked top institutes for 20 career streams.",
+        content: "Professions, entrance exams and ranked top institutes for 48 career streams.",
       },
     ],
   }),
@@ -75,8 +75,8 @@ function HandbookIndex() {
           </div>
           <h1 className="font-serif text-3xl md:text-5xl mt-2">
             {lang === "gu"
-              ? "20 પ્રવાહોમાં વ્યવસાયો, પ્રવેશ પરીક્ષાઓ અને ટોચની સંસ્થાઓ"
-              : "Professions, Entrance Exams & Top Institutes across 20 Streams"}
+              ? "48 પ્રવાહોમાં વ્યવસાયો, પ્રવેશ પરીક્ષાઓ અને ટોચની સંસ્થાઓ"
+              : "Professions, Entrance Exams & Top Institutes across 48 Streams"}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
             {lang === "gu"
@@ -87,7 +87,7 @@ function HandbookIndex() {
             <Stat n={totals.professions} label={lang === "gu" ? "વ્યવસાયો" : "professions"} />
             <Stat n={totals.exams} label={lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "entrance exams"} />
             <Stat n={totals.institutes} label={lang === "gu" ? "સંસ્થાઓ" : "top institutes"} />
-            <Stat n={20} label={lang === "gu" ? "પ્રવાહો" : "streams"} />
+            <Stat n={HANDBOOK_SUMMARIES.length} label={lang === "gu" ? "પ્રવાહો" : "streams"} />
           </div>
           <p className="mt-3 text-xs text-muted-foreground max-w-3xl leading-relaxed">
             {lang === "gu"
