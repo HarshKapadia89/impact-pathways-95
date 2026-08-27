@@ -1,0 +1,187 @@
+{
+ "stream": "Political Science and International Relations",
+ "professions": [
+  "Political Scientist",
+  "Political Analyst",
+  "Psephologist / Election Analyst",
+  "Political Campaign Strategist",
+  "Legislative Assistant",
+  "Policy Researcher",
+  "Public Policy Analyst",
+  "Think-Tank Research Associate",
+  "Diplomat",
+  "Foreign Service Officer",
+  "International Relations Analyst",
+  "Geopolitical Risk Analyst",
+  "Defence and Strategic Affairs Analyst",
+  "United Nations Programme Officer",
+  "Embassy Political Officer",
+  "Trade Policy Analyst",
+  "Human Rights Researcher",
+  "Conflict Resolution Specialist",
+  "International Development Consultant",
+  "Political Journalist",
+  "Government Relations Manager",
+  "Lobbying and Advocacy Specialist",
+  "Academic (Political Science)",
+  "Constitutional Affairs Researcher"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA (Hons) Political Science and International Relations.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "CUET-PG",
+   "fullName": "Common University Entrance Test (PG)",
+   "purpose": "MA Political Science, International Relations, Politics.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "UPSC CSE",
+   "fullName": "Civil Services Examination",
+   "purpose": "Indian Foreign Service and allied services.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "JNU Entrance (via CUET)",
+   "fullName": "JNU School of International Studies Admission",
+   "purpose": "MA and MPhil/PhD in international studies.",
+   "website": "jnu.ac.in"
+  },
+  {
+   "code": "UGC NET (Political Science)",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Lectureship and JRF.",
+   "website": "ugcnet.nta.nic.in"
+  },
+  {
+   "code": "TISSNET",
+   "fullName": "TISS National Entrance Test",
+   "purpose": "MA in Public Policy and Governance.",
+   "website": "tiss.edu"
+  },
+  {
+   "code": "Ashoka Aptitude Test",
+   "fullName": "Ashoka University Admission Assessment",
+   "purpose": "UG in Political Science and International Relations.",
+   "website": "ashoka.edu.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Jawaharlal Nehru University — School of International Studies",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "University of Delhi — Department of Political Science",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "St. Stephen's College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "ststephens.edu"
+  },
+  {
+   "rank": 4,
+   "name": "Lady Shri Ram College for Women, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "lsr.edu.in"
+  },
+  {
+   "rank": 5,
+   "name": "Hindu College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "hinducollege.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "Presidency University, Kolkata",
+   "category": "State University",
+   "entrance": "CUET",
+   "website": "presiuniv.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Jadavpur University — International Relations",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "jadavpuruniversity.in"
+  },
+  {
+   "rank": 8,
+   "name": "Ashoka University, Sonipat",
+   "category": "Private University",
+   "entrance": "Ashoka Aptitude Test",
+   "website": "ashoka.edu.in"
+  },
+  {
+   "rank": 9,
+   "name": "Tata Institute of Social Sciences — Public Policy",
+   "category": "Deemed University",
+   "entrance": "TISSNET",
+   "website": "tiss.edu"
+  },
+  {
+   "rank": 10,
+   "name": "Symbiosis School of International Studies, Pune",
+   "category": "Private University",
+   "entrance": "SET / SNAP",
+   "website": "ssis.edu.in"
+  },
+  {
+   "rank": 11,
+   "name": "Jamia Millia Islamia — Nelson Mandela Centre for Peace",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Banaras Hindu University — Political Science",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "University of Hyderabad — Department of Political Science",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "uohyd.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Gujarat University — Department of Political Science",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Indian Institute of Public Administration, New Delhi",
+   "category": "Autonomous Institute",
+   "entrance": "IIPA Selection",
+   "website": "iipa.org.in"
+  },
+  {
+   "rank": 16,
+   "name": "O. P. Jindal Global University — Jindal School of International Affairs",
+   "category": "Private University",
+   "entrance": "JSAT",
+   "website": "jgu.edu.in"
+  }
+ ]
+}

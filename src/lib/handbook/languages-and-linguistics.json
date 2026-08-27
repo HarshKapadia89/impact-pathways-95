@@ -1,0 +1,187 @@
+{
+ "stream": "Languages and Linguistics",
+ "professions": [
+  "Linguist",
+  "Computational Linguist",
+  "Translator",
+  "Interpreter",
+  "Conference Interpreter",
+  "Subtitling and Dubbing Specialist",
+  "Localisation Specialist",
+  "Language Teacher",
+  "Foreign Language Trainer",
+  "Content Writer",
+  "Technical Writer",
+  "Copy Editor",
+  "Proofreader",
+  "Lexicographer",
+  "Speech Data Annotator",
+  "Natural Language Processing Specialist",
+  "Sign Language Interpreter",
+  "Language Policy Researcher",
+  "Sanskrit Scholar",
+  "Indologist",
+  "Literary Critic",
+  "Publishing Editor",
+  "Voice-Over Artist",
+  "Diplomatic Language Officer"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA (Hons) in languages and linguistics.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "CUET-PG",
+   "fullName": "Common University Entrance Test (PG)",
+   "purpose": "MA Linguistics, Translation Studies and foreign languages.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "JNU (via CUET)",
+   "fullName": "JNU School of Language, Literature and Culture Studies Admission",
+   "purpose": "BA (Hons) and MA in foreign languages.",
+   "website": "jnu.ac.in"
+  },
+  {
+   "code": "EFLU Entrance",
+   "fullName": "English and Foreign Languages University Entrance Test",
+   "purpose": "UG and PG language programmes.",
+   "website": "efluniversity.ac.in"
+  },
+  {
+   "code": "UGC NET (Linguistics)",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Lectureship and JRF in linguistics and literature.",
+   "website": "ugcnet.nta.nic.in"
+  },
+  {
+   "code": "JLPT / DELF / Goethe",
+   "fullName": "International Language Proficiency Examinations",
+   "purpose": "Certified proficiency in Japanese, French and German.",
+   "website": "jlpt.jp"
+  },
+  {
+   "code": "CIIL Certification",
+   "fullName": "Central Institute of Indian Languages Programmes",
+   "purpose": "Indian language teaching and translation certification.",
+   "website": "ciil.org"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Jawaharlal Nehru University — School of Language, Literature and Culture Studies",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "English and Foreign Languages University (EFLU), Hyderabad",
+   "category": "Central University",
+   "entrance": "EFLU Entrance",
+   "website": "efluniversity.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "University of Delhi — Department of Linguistics",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Central Institute of Indian Languages (CIIL), Mysuru",
+   "category": "Government Institute",
+   "entrance": "CIIL Selection",
+   "website": "ciil.org"
+  },
+  {
+   "rank": 5,
+   "name": "Banaras Hindu University — Faculty of Sanskrit Vidya Dharma Vijnana",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "Aligarh Muslim University — Department of Linguistics",
+   "category": "Central University",
+   "entrance": "AMU Entrance",
+   "website": "amu.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "University of Hyderabad — Centre for Applied Linguistics and Translation Studies",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "uohyd.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Jamia Millia Islamia — Department of Foreign Languages",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Alliance Française (national network)",
+   "category": "Cultural Institute",
+   "entrance": "Institute Placement Test",
+   "website": "afindia.org"
+  },
+  {
+   "rank": 10,
+   "name": "Max Mueller Bhavan / Goethe-Institut (national network)",
+   "category": "Cultural Institute",
+   "entrance": "Institute Placement Test",
+   "website": "goethe.de"
+  },
+  {
+   "rank": 11,
+   "name": "Ramakrishna Mission Institute of Culture, Kolkata",
+   "category": "Autonomous Institute",
+   "entrance": "Institute Test",
+   "website": "sriramakrishna.org"
+  },
+  {
+   "rank": 12,
+   "name": "Deccan College Post-Graduate and Research Institute, Pune",
+   "category": "Deemed University",
+   "entrance": "Institute Test",
+   "website": "deccancollegepune.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "Savitribai Phule Pune University — Department of Linguistics",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "unipune.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Gujarat University — School of Languages",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Maharaja Sayajirao University of Baroda — Faculty of Arts",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Visva-Bharati University, Santiniketan — Bhasha Bhavana",
+   "category": "Central University",
+   "entrance": "University Test",
+   "website": "visvabharati.ac.in"
+  }
+ ]
+}

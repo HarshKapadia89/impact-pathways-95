@@ -1,0 +1,181 @@
+{
+ "stream": "Museology and Heritage",
+ "professions": [
+  "Museologist",
+  "Museum Curator",
+  "Museum Educator",
+  "Exhibition Designer",
+  "Collections Manager",
+  "Registrar (Museum)",
+  "Art Conservator",
+  "Paper Conservator",
+  "Textile Conservator",
+  "Archaeologist",
+  "Field Excavation Supervisor",
+  "Epigraphist",
+  "Numismatist",
+  "Archivist",
+  "Records Manager",
+  "Heritage Manager",
+  "Conservation Architect",
+  "Cultural Resource Manager",
+  "Heritage Tourism Officer",
+  "Art Historian",
+  "Gallery Manager",
+  "Art Appraiser",
+  "Auction House Specialist",
+  "Digital Heritage Specialist"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA History, Archaeology and Heritage Studies.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "CUET-PG",
+   "fullName": "Common University Entrance Test (PG)",
+   "purpose": "MA Museology, Archaeology and Conservation.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "NMI Entrance",
+   "fullName": "National Museum Institute Entrance Examination",
+   "purpose": "MA in Museology, Art History and Conservation.",
+   "website": "nmi.gov.in"
+  },
+  {
+   "code": "IGNCA / ASI Selection",
+   "fullName": "Archaeological Survey of India Institute of Archaeology Admission",
+   "purpose": "PG Diploma in Archaeology.",
+   "website": "asi.nic.in"
+  },
+  {
+   "code": "UGC NET (History / Museology)",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Lectureship and JRF.",
+   "website": "ugcnet.nta.nic.in"
+  },
+  {
+   "code": "SPA Entrance",
+   "fullName": "School of Planning and Architecture Admission",
+   "purpose": "M.Arch in Architectural Conservation.",
+   "website": "spa.ac.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "National Museum Institute, New Delhi",
+   "category": "Deemed University",
+   "entrance": "NMI Entrance",
+   "website": "nmi.gov.in"
+  },
+  {
+   "rank": 2,
+   "name": "Institute of Archaeology, Archaeological Survey of India, New Delhi",
+   "category": "Government Institute",
+   "entrance": "ASI Selection",
+   "website": "asi.nic.in"
+  },
+  {
+   "rank": 3,
+   "name": "Maharaja Sayajirao University of Baroda — Department of Museology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Banaras Hindu University — Department of AIHC and Archaeology",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Aligarh Muslim University — Department of Museology",
+   "category": "Central University",
+   "entrance": "AMU Entrance",
+   "website": "amu.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "University of Calcutta — Department of Museology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "caluniv.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Jiwaji University, Gwalior — Museology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "jiwaji.edu"
+  },
+  {
+   "rank": 8,
+   "name": "School of Planning and Architecture, New Delhi — Conservation",
+   "category": "Institute of National Importance",
+   "entrance": "SPA Entrance",
+   "website": "spa.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "CEPT University, Ahmedabad — Conservation and Regeneration",
+   "category": "Private University",
+   "entrance": "CEPT Admission",
+   "website": "cept.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Deccan College Post-Graduate and Research Institute, Pune",
+   "category": "Deemed University",
+   "entrance": "Institute Test",
+   "website": "deccancollegepune.ac.in"
+  },
+  {
+   "rank": 11,
+   "name": "Indira Gandhi National Centre for the Arts, New Delhi",
+   "category": "Autonomous Institute",
+   "entrance": "IGNCA Selection",
+   "website": "ignca.gov.in"
+  },
+  {
+   "rank": 12,
+   "name": "National Archives of India, New Delhi — School of Archival Studies",
+   "category": "Government Institute",
+   "entrance": "NAI Selection",
+   "website": "nationalarchives.nic.in"
+  },
+  {
+   "rank": 13,
+   "name": "Jamia Millia Islamia — Department of History and Culture",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "University of Delhi — Department of History",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Visva-Bharati University — Kala Bhavana",
+   "category": "Central University",
+   "entrance": "University Test",
+   "website": "visvabharati.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Christ University, Bengaluru — History and Archaeology",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  }
+ ]
+}

@@ -1,0 +1,207 @@
+{
+ "stream": "Mathematics and Statistics",
+ "professions": [
+  "Mathematician",
+  "Statistician",
+  "Applied Mathematician",
+  "Operations Research Analyst",
+  "Quantitative Analyst (Quant)",
+  "Risk Analyst",
+  "Data Analyst",
+  "Biostatistician",
+  "Econometrician",
+  "Survey Methodologist",
+  "Indian Statistical Service Officer",
+  "Cryptanalyst",
+  "Financial Modeller",
+  "Machine Learning Researcher",
+  "Actuarial Analyst",
+  "Demographer",
+  "Market Research Analyst",
+  "Business Intelligence Analyst",
+  "Mathematics Educator",
+  "Research Scientist (Mathematical Sciences)",
+  "Algorithm Engineer",
+  "Statistical Programmer (Clinical Trials)",
+  "Psychometrician",
+  "Supply Chain Analyst"
+ ],
+ "exams": [
+  {
+   "code": "ISI Admission Test",
+   "fullName": "Indian Statistical Institute Admission Test",
+   "purpose": "B.Stat, B.Math, M.Stat, M.Math at ISI.",
+   "website": "isical.ac.in"
+  },
+  {
+   "code": "CMI Entrance",
+   "fullName": "Chennai Mathematical Institute Entrance Examination",
+   "purpose": "B.Sc (Hons) Mathematics and Computer Science.",
+   "website": "cmi.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc / B.A (Hons) Mathematics and Statistics.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IIT JAM (MA / MS)",
+   "fullName": "Joint Admission Test for Masters",
+   "purpose": "M.Sc Mathematics and Statistics at IITs.",
+   "website": "jam.iitm.ac.in"
+  },
+  {
+   "code": "ISS",
+   "fullName": "Indian Statistical Service Examination",
+   "purpose": "Group A statistical officer posts in the Government of India.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "CSIR-UGC NET (Mathematical Sciences)",
+   "fullName": "CSIR-UGC National Eligibility Test",
+   "purpose": "JRF and lectureship in mathematical sciences.",
+   "website": "csirnet.nta.nic.in"
+  },
+  {
+   "code": "GATE MA / ST",
+   "fullName": "Graduate Aptitude Test in Engineering — Mathematics / Statistics",
+   "purpose": "PG and research admissions.",
+   "website": "gate.iitkgp.ac.in"
+  },
+  {
+   "code": "TIFR GS (Mathematics)",
+   "fullName": "TIFR Graduate School Admissions",
+   "purpose": "PhD in mathematics.",
+   "website": "univ.tifr.res.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Statistical Institute (ISI), Kolkata",
+   "category": "Institute of National Importance",
+   "entrance": "ISI Admission Test",
+   "website": "isical.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Indian Statistical Institute (ISI), Bengaluru",
+   "category": "Institute of National Importance",
+   "entrance": "ISI Admission Test",
+   "website": "isibang.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Chennai Mathematical Institute (CMI)",
+   "category": "Deemed University",
+   "entrance": "CMI Entrance",
+   "website": "cmi.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indian Institute of Science (IISc), Bengaluru — Mathematics",
+   "category": "Institute of National Importance",
+   "entrance": "JAM / GATE",
+   "website": "math.iisc.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Institute of Mathematical Sciences (IMSc), Chennai",
+   "category": "Research Institute",
+   "entrance": "JEST / NBHM",
+   "website": "imsc.res.in"
+  },
+  {
+   "rank": 6,
+   "name": "Harish-Chandra Research Institute, Prayagraj",
+   "category": "Research Institute",
+   "entrance": "NBHM / JEST",
+   "website": "hri.res.in"
+  },
+  {
+   "rank": 7,
+   "name": "St. Stephen's College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "ststephens.edu"
+  },
+  {
+   "rank": 8,
+   "name": "Hindu College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "hinducollege.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Madras Christian College, Chennai",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "mcc.edu.in"
+  },
+  {
+   "rank": 10,
+   "name": "Loyola College, Chennai — Statistics",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "loyolacollege.edu"
+  },
+  {
+   "rank": 11,
+   "name": "St. Xavier's College, Mumbai — Statistics",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "xaviers.edu"
+  },
+  {
+   "rank": 12,
+   "name": "Indian Institute of Technology (IIT), Bombay — Mathematics",
+   "category": "Institute of National Importance",
+   "entrance": "JAM",
+   "website": "math.iitb.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "Indian Institute of Technology (IIT), Kanpur — Mathematics and Statistics",
+   "category": "Institute of National Importance",
+   "entrance": "JAM",
+   "website": "iitk.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "University of Hyderabad — School of Mathematics and Statistics",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "uohyd.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Presidency University, Kolkata — Statistics",
+   "category": "State University",
+   "entrance": "CUET",
+   "website": "presiuniv.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Banaras Hindu University — Department of Statistics",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "Gujarat University — Department of Statistics",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 18,
+   "name": "Savitribai Phule Pune University — Department of Statistics",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "unipune.ac.in"
+  }
+ ]
+}

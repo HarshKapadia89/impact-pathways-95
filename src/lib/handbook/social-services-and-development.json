@@ -1,0 +1,187 @@
+{
+ "stream": "Social Services and Development",
+ "professions": [
+  "Social Worker",
+  "Medical and Psychiatric Social Worker",
+  "Community Development Officer",
+  "NGO Programme Manager",
+  "Development Sector Consultant",
+  "Project Coordinator (Development)",
+  "Monitoring and Evaluation Specialist",
+  "CSR Manager",
+  "Fundraising Manager",
+  "Grant Writer",
+  "Rural Development Officer",
+  "Child Protection Officer",
+  "Women Empowerment Programme Officer",
+  "Livelihoods Specialist",
+  "Microfinance Officer",
+  "Public Health Programme Officer",
+  "Disability Inclusion Specialist",
+  "Human Rights Advocate",
+  "Policy Advocacy Officer",
+  "Disaster Management Specialist",
+  "Counselling Social Worker",
+  "Volunteer Manager",
+  "Impact Assessment Analyst",
+  "UN / Multilateral Programme Associate"
+ ],
+ "exams": [
+  {
+   "code": "TISSNET",
+   "fullName": "Tata Institute of Social Sciences National Entrance Test",
+   "purpose": "MA Social Work and development programmes at TISS.",
+   "website": "tiss.edu"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BSW and BA Social Work at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "CUET-PG",
+   "fullName": "Common University Entrance Test (PG)",
+   "purpose": "MSW at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "DUET / DU MSW",
+   "fullName": "University of Delhi MSW Entrance",
+   "purpose": "MSW at the Department of Social Work, DU.",
+   "website": "du.ac.in"
+  },
+  {
+   "code": "IRMASAT",
+   "fullName": "IRMA Social Awareness Test",
+   "purpose": "PG Diploma in Rural Management at IRMA.",
+   "website": "irma.ac.in"
+  },
+  {
+   "code": "UGC NET (Social Work)",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Lectureship and JRF in social work.",
+   "website": "ugcnet.nta.nic.in"
+  },
+  {
+   "code": "Azim Premji University Entrance",
+   "fullName": "Azim Premji University National Entrance Test",
+   "purpose": "MA Development and Public Policy.",
+   "website": "azimpremjiuniversity.edu.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Tata Institute of Social Sciences (TISS), Mumbai",
+   "category": "Deemed University",
+   "entrance": "TISSNET",
+   "website": "tiss.edu"
+  },
+  {
+   "rank": 2,
+   "name": "Delhi School of Social Work, University of Delhi",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "dssw.du.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Institute of Rural Management Anand (IRMA)",
+   "category": "Private Institute",
+   "entrance": "IRMASAT / CAT",
+   "website": "irma.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Azim Premji University, Bengaluru",
+   "category": "Private University",
+   "entrance": "APU Entrance",
+   "website": "azimpremjiuniversity.edu.in"
+  },
+  {
+   "rank": 5,
+   "name": "Madras School of Social Work, Chennai",
+   "category": "Autonomous College",
+   "entrance": "Merit / Test",
+   "website": "mssw.in"
+  },
+  {
+   "rank": 6,
+   "name": "Loyola College, Chennai — Social Work",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "loyolacollege.edu"
+  },
+  {
+   "rank": 7,
+   "name": "Rajagiri College of Social Sciences, Kochi",
+   "category": "Autonomous College",
+   "entrance": "RCSS Entrance",
+   "website": "rajagiri.edu"
+  },
+  {
+   "rank": 8,
+   "name": "Jamia Millia Islamia — Department of Social Work",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Banaras Hindu University — Faculty of Social Sciences",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Christ University, Bengaluru — School of Social Sciences",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 11,
+   "name": "Gujarat Vidyapith, Ahmedabad — Social Work",
+   "category": "Deemed University",
+   "entrance": "University Test",
+   "website": "gujaratvidyapith.org"
+  },
+  {
+   "rank": 12,
+   "name": "Maharaja Sayajirao University of Baroda — Faculty of Social Work",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "National Institute of Rural Development and Panchayati Raj, Hyderabad",
+   "category": "Government Institute",
+   "entrance": "NIRDPR Test",
+   "website": "nirdpr.org.in"
+  },
+  {
+   "rank": 14,
+   "name": "Xavier Institute of Social Service, Ranchi",
+   "category": "Autonomous Institute",
+   "entrance": "XISS Entrance",
+   "website": "xiss.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Indian Institute of Health Management Research, Jaipur",
+   "category": "Deemed University",
+   "entrance": "IIHMR Entrance",
+   "website": "iihmr.edu.in"
+  },
+  {
+   "rank": 16,
+   "name": "Ambedkar University Delhi — School of Human Ecology",
+   "category": "State University",
+   "entrance": "CUET-PG",
+   "website": "aud.ac.in"
+  }
+ ]
+}

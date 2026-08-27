@@ -1,0 +1,203 @@
+{
+ "stream": "Sales and Business Development",
+ "professions": [
+  "Sales Executive",
+  "Field Sales Officer",
+  "Territory Sales Manager",
+  "Area Sales Manager",
+  "Regional Sales Head",
+  "National Sales Manager",
+  "Key Account Manager",
+  "Business Development Executive",
+  "Business Development Manager",
+  "Inside Sales Executive",
+  "Sales Development Representative",
+  "Enterprise Account Executive",
+  "Channel Partner Manager",
+  "Distribution Manager",
+  "Retail Store Manager",
+  "Modern Trade Manager",
+  "Pre-Sales Consultant",
+  "Solution Sales Engineer",
+  "Sales Operations Analyst",
+  "Sales Trainer",
+  "Customer Success Manager",
+  "Relationship Manager (Banking)",
+  "Medical Representative",
+  "Insurance Advisor",
+  "Export Sales Manager",
+  "Franchise Manager"
+ ],
+ "exams": [
+  {
+   "code": "CAT",
+   "fullName": "Common Admission Test",
+   "purpose": "MBA/PGP at IIMs and leading business schools.",
+   "website": "iimcat.ac.in"
+  },
+  {
+   "code": "XAT",
+   "fullName": "Xavier Aptitude Test",
+   "purpose": "MBA/PGDM at XLRI and associate institutes.",
+   "website": "xatonline.in"
+  },
+  {
+   "code": "CMAT",
+   "fullName": "Common Management Admission Test",
+   "purpose": "MBA at AICTE-approved institutes.",
+   "website": "cmat.nta.nic.in"
+  },
+  {
+   "code": "NMAT",
+   "fullName": "NMIMS Management Aptitude Test",
+   "purpose": "MBA at NMIMS and partner schools.",
+   "website": "mba.com/nmat"
+  },
+  {
+   "code": "SNAP",
+   "fullName": "Symbiosis National Aptitude Test",
+   "purpose": "MBA at Symbiosis institutes.",
+   "website": "snaptest.org"
+  },
+  {
+   "code": "IPMAT",
+   "fullName": "Integrated Programme in Management Aptitude Test",
+   "purpose": "Five-year integrated management programmes.",
+   "website": "iimidr.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BBA and B.Com programmes at central universities.",
+   "website": "cuet.nta.nic.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Management (IIM), Ahmedabad",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iima.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Indian Institute of Management (IIM), Bangalore",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iimb.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Indian Institute of Management (IIM), Calcutta",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iimcal.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indian Institute of Management (IIM), Lucknow",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iiml.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Indian Institute of Management (IIM), Indore",
+   "category": "Institute of National Importance",
+   "entrance": "CAT / IPMAT",
+   "website": "iimidr.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "XLRI Xavier School of Management, Jamshedpur",
+   "category": "Private Institute",
+   "entrance": "XAT",
+   "website": "xlri.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "SP Jain Institute of Management and Research, Mumbai",
+   "category": "Private Institute",
+   "entrance": "CAT / XAT",
+   "website": "spjimr.org"
+  },
+  {
+   "rank": 8,
+   "name": "Faculty of Management Studies (FMS), University of Delhi",
+   "category": "Central University",
+   "entrance": "CAT",
+   "website": "fms.edu"
+  },
+  {
+   "rank": 9,
+   "name": "Management Development Institute (MDI), Gurgaon",
+   "category": "Private Institute",
+   "entrance": "CAT",
+   "website": "mdi.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Narsee Monjee Institute of Management Studies (NMIMS), Mumbai",
+   "category": "Deemed University",
+   "entrance": "NMAT",
+   "website": "nmims.edu"
+  },
+  {
+   "rank": 11,
+   "name": "Symbiosis Institute of Business Management, Pune",
+   "category": "Private University",
+   "entrance": "SNAP",
+   "website": "sibm.edu"
+  },
+  {
+   "rank": 12,
+   "name": "Institute of Management Technology (IMT), Ghaziabad",
+   "category": "Private Institute",
+   "entrance": "CAT / XAT",
+   "website": "imt.edu"
+  },
+  {
+   "rank": 13,
+   "name": "Indian Institute of Management (IIM), Kozhikode",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iimk.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Nirma University — Institute of Management, Ahmedabad",
+   "category": "Private University",
+   "entrance": "CAT",
+   "website": "nirmauni.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "B. K. School of Professional and Management Studies, Ahmedabad",
+   "category": "State University",
+   "entrance": "CMAT",
+   "website": "bkschool.org.in"
+  },
+  {
+   "rank": 16,
+   "name": "Christ University, Bengaluru — School of Business",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 17,
+   "name": "Institute of Rural Management Anand (IRMA)",
+   "category": "Private Institute",
+   "entrance": "CAT / IRMASAT",
+   "website": "irma.ac.in"
+  },
+  {
+   "rank": 18,
+   "name": "Amity Business School, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  }
+ ]
+}

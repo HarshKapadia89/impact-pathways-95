@@ -1,0 +1,211 @@
+{
+ "stream": "Life Sciences and Environment",
+ "professions": [
+  "Biologist",
+  "Microbiologist",
+  "Biotechnologist",
+  "Molecular Biologist",
+  "Geneticist",
+  "Genetic Engineer",
+  "Bioinformatics Scientist",
+  "Biochemist",
+  "Immunologist",
+  "Marine Biologist",
+  "Wildlife Biologist",
+  "Conservation Scientist",
+  "Ecologist",
+  "Environmental Scientist",
+  "Environmental Impact Assessment Consultant",
+  "Sustainability and ESG Analyst",
+  "Climate Change Analyst",
+  "Air Quality Specialist",
+  "Water Resource Specialist",
+  "Waste Management Specialist",
+  "Forest Officer",
+  "Botanist",
+  "Zoologist",
+  "Toxicologist",
+  "Clinical Research Associate",
+  "Biostatistician",
+  "Renewable Energy Analyst",
+  "Environmental Educator"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc Life Sciences, Biotechnology, Environmental Science.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IISER Aptitude Test",
+   "fullName": "IISER Aptitude Test",
+   "purpose": "BS-MS in biological sciences.",
+   "website": "iiseradmission.in"
+  },
+  {
+   "code": "GAT-B",
+   "fullName": "Graduate Aptitude Test — Biotechnology",
+   "purpose": "M.Sc Biotechnology at DBT-supported universities.",
+   "website": "rcb.res.in"
+  },
+  {
+   "code": "IIT JAM (BT / BL)",
+   "fullName": "Joint Admission Test for Masters",
+   "purpose": "M.Sc Biotechnology and Biological Sciences at IITs.",
+   "website": "jam.iitm.ac.in"
+  },
+  {
+   "code": "CSIR-UGC NET (Life Sciences)",
+   "fullName": "CSIR-UGC National Eligibility Test",
+   "purpose": "JRF and lectureship in life sciences.",
+   "website": "csirnet.nta.nic.in"
+  },
+  {
+   "code": "ICMR JRF",
+   "fullName": "Indian Council of Medical Research Junior Research Fellowship",
+   "purpose": "Biomedical research fellowships.",
+   "website": "icmr.gov.in"
+  },
+  {
+   "code": "IFS",
+   "fullName": "Indian Forest Service Examination",
+   "purpose": "Entry into the Indian Forest Service.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "ICAR AIEEA",
+   "fullName": "ICAR All India Entrance Examination",
+   "purpose": "UG/PG in forestry and environmental sciences.",
+   "website": "icar.org.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Science (IISc), Bengaluru",
+   "category": "Institute of National Importance",
+   "entrance": "GATE / JAM",
+   "website": "iisc.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "National Centre for Biological Sciences (NCBS), Bengaluru",
+   "category": "TIFR Centre",
+   "entrance": "TIFR GS",
+   "website": "ncbs.res.in"
+  },
+  {
+   "rank": 3,
+   "name": "IISER Pune — Biology",
+   "category": "Institute of National Importance",
+   "entrance": "IISER Aptitude Test",
+   "website": "iiserpune.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Jawaharlal Nehru University — School of Life Sciences",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "University of Delhi — Department of Environmental Studies",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "Banaras Hindu University — Institute of Science",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "TERI School of Advanced Studies, New Delhi",
+   "category": "Deemed University",
+   "entrance": "TERI Entrance",
+   "website": "terisas.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Indian Institute of Forest Management (IIFM), Bhopal",
+   "category": "Government Institute",
+   "entrance": "CAT",
+   "website": "iifm.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Forest Research Institute (FRI), Dehradun",
+   "category": "Deemed University",
+   "entrance": "FRI Entrance",
+   "website": "fri.res.in"
+  },
+  {
+   "rank": 10,
+   "name": "Wildlife Institute of India, Dehradun",
+   "category": "Government Institute",
+   "entrance": "WII Entrance",
+   "website": "wii.gov.in"
+  },
+  {
+   "rank": 11,
+   "name": "Madurai Kamaraj University — School of Biological Sciences",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "mkuniversity.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Anna University — Centre for Environmental Studies",
+   "category": "State University",
+   "entrance": "TANCET",
+   "website": "annauniv.edu"
+  },
+  {
+   "rank": 13,
+   "name": "Amity Institute of Biotechnology, Noida",
+   "category": "Private University",
+   "entrance": "Amity JEE",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 14,
+   "name": "Vellore Institute of Technology — School of Bio Sciences",
+   "category": "Private University",
+   "entrance": "VITEEE",
+   "website": "vit.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Sardar Patel University, Vallabh Vidyanagar — Biosciences",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "spuvvn.edu"
+  },
+  {
+   "rank": 16,
+   "name": "Gujarat University — Department of Botany",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "University of Hyderabad — School of Life Sciences",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "uohyd.ac.in"
+  },
+  {
+   "rank": 18,
+   "name": "Bharathidasan University, Tiruchirappalli",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "bdu.ac.in"
+  }
+ ]
+}

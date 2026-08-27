@@ -1,0 +1,189 @@
+{
+ "stream": "Education and Training",
+ "professions": [
+  "Primary School Teacher",
+  "Secondary School Teacher",
+  "Senior Secondary Subject Teacher",
+  "Pre-Primary / Montessori Teacher",
+  "Special Educator",
+  "Assistant Professor",
+  "Academic Coordinator",
+  "School Principal",
+  "Curriculum Designer",
+  "Instructional Designer",
+  "Education Technology Specialist",
+  "E-Learning Content Developer",
+  "Corporate Trainer",
+  "Soft Skills Trainer",
+  "Career Counsellor",
+  "School Counsellor",
+  "Education Policy Analyst",
+  "Teacher Trainer",
+  "Academic Researcher",
+  "Examination and Assessment Specialist",
+  "Admissions Officer",
+  "Librarian",
+  "Educational Administrator",
+  "Language Trainer",
+  "Coaching Faculty",
+  "Vocational Skills Trainer"
+ ],
+ "exams": [
+  {
+   "code": "CTET",
+   "fullName": "Central Teacher Eligibility Test",
+   "purpose": "Eligibility for teaching in central government schools.",
+   "website": "ctet.nic.in"
+  },
+  {
+   "code": "State TET",
+   "fullName": "State Teacher Eligibility Test",
+   "purpose": "Eligibility for teaching in state government schools.",
+   "website": "tat.gseb.org"
+  },
+  {
+   "code": "UGC NET",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Assistant Professor eligibility and JRF.",
+   "website": "ugcnet.nta.nic.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.El.Ed and integrated B.A.-B.Ed programmes.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "B.Ed Entrance (State)",
+   "fullName": "State B.Ed Common Entrance Test",
+   "purpose": "Bachelor of Education admissions.",
+   "website": "gujarat-education.gov.in"
+  },
+  {
+   "code": "NCHM / RIE CEE",
+   "fullName": "Regional Institute of Education Common Entrance Examination",
+   "purpose": "Integrated teacher education at RIEs.",
+   "website": "cee.ncert.gov.in"
+  },
+  {
+   "code": "KVS / NVS Recruitment",
+   "fullName": "Kendriya and Navodaya Vidyalaya Teacher Recruitment",
+   "purpose": "Teaching posts in central school systems.",
+   "website": "kvsangathan.nic.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "National Council of Educational Research and Training (NCERT), New Delhi",
+   "category": "Government Institute",
+   "entrance": "RIE CEE",
+   "website": "ncert.nic.in"
+  },
+  {
+   "rank": 2,
+   "name": "Department of Education, University of Delhi (CIE)",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "cie.du.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Lady Shri Ram College for Women, University of Delhi — Elementary Education",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "lsr.edu.in"
+  },
+  {
+   "rank": 4,
+   "name": "Jamia Millia Islamia — Faculty of Education",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Tata Institute of Social Sciences — School of Education",
+   "category": "Deemed University",
+   "entrance": "TISSNET",
+   "website": "tiss.edu"
+  },
+  {
+   "rank": 6,
+   "name": "Azim Premji University, Bengaluru — School of Education",
+   "category": "Private University",
+   "entrance": "APU Entrance",
+   "website": "azimpremjiuniversity.edu.in"
+  },
+  {
+   "rank": 7,
+   "name": "Banaras Hindu University — Faculty of Education",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Regional Institute of Education, Ajmer",
+   "category": "Government Institute",
+   "entrance": "CEE",
+   "website": "riewa.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Regional Institute of Education, Bhopal",
+   "category": "Government Institute",
+   "entrance": "CEE",
+   "website": "riebhopal.nic.in"
+  },
+  {
+   "rank": 10,
+   "name": "Ambedkar University Delhi — School of Education Studies",
+   "category": "State University",
+   "entrance": "CUET-PG",
+   "website": "aud.ac.in"
+  },
+  {
+   "rank": 11,
+   "name": "Maharaja Sayajirao University of Baroda — Faculty of Education and Psychology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Gujarat Vidyapith, Ahmedabad — Education",
+   "category": "Deemed University",
+   "entrance": "University Test",
+   "website": "gujaratvidyapith.org"
+  },
+  {
+   "rank": 13,
+   "name": "Indira Gandhi National Open University (IGNOU), New Delhi",
+   "category": "Central University",
+   "entrance": "IGNOU B.Ed Entrance",
+   "website": "ignou.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Christ University, Bengaluru — School of Education",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 15,
+   "name": "SNDT Women's University, Mumbai — Education",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "sndt.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Amity Institute of Education, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  }
+ ]
+}

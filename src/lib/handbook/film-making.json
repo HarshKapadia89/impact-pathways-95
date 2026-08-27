@@ -1,0 +1,190 @@
+{
+ "stream": "Film Making",
+ "professions": [
+  "Film Director",
+  "Assistant Director",
+  "Screenwriter",
+  "Script Supervisor",
+  "Film Producer",
+  "Line Producer",
+  "Cinematographer",
+  "Camera Operator",
+  "Gaffer / Lighting Technician",
+  "Film Editor",
+  "Sound Designer",
+  "Sound Recordist",
+  "Sound Engineer",
+  "Music Composer",
+  "Production Designer",
+  "Art Director (Film)",
+  "Costume Designer",
+  "Make-up and Prosthetics Artist",
+  "Casting Director",
+  "Location Manager",
+  "Visual Effects Supervisor",
+  "Colourist",
+  "Documentary Filmmaker",
+  "Film Distributor",
+  "Film Festival Programmer",
+  "Film Critic",
+  "Content Producer (OTT)"
+ ],
+ "exams": [
+  {
+   "code": "FTII JET",
+   "fullName": "Film and Television Institute of India Joint Entrance Test",
+   "purpose": "PG diploma in direction, cinematography, editing and sound.",
+   "website": "ftii.ac.in"
+  },
+  {
+   "code": "SRFTI JET",
+   "fullName": "Satyajit Ray Film and Television Institute Entrance",
+   "purpose": "PG programmes in film and television.",
+   "website": "srfti.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA Film Studies and Mass Communication.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "JMI Entrance (AJK MCRC)",
+   "fullName": "Jamia Millia Islamia Mass Communication Entrance",
+   "purpose": "MA Mass Communication and film production.",
+   "website": "jmi.ac.in"
+  },
+  {
+   "code": "Whistling Woods Entrance",
+   "fullName": "Whistling Woods International Admission Test",
+   "purpose": "UG and PG filmmaking programmes.",
+   "website": "whistlingwoods.net"
+  },
+  {
+   "code": "NID DAT (Film and Video)",
+   "fullName": "National Institute of Design Aptitude Test",
+   "purpose": "M.Des Film and Video Communication.",
+   "website": "admissions.nid.edu"
+  },
+  {
+   "code": "IIMC Entrance",
+   "fullName": "Indian Institute of Mass Communication Entrance",
+   "purpose": "PG diploma in radio and television journalism.",
+   "website": "iimc.gov.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Film and Television Institute of India (FTII), Pune",
+   "category": "Institute of National Importance",
+   "entrance": "FTII JET",
+   "website": "ftii.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Satyajit Ray Film and Television Institute (SRFTI), Kolkata",
+   "category": "Institute of National Importance",
+   "entrance": "SRFTI JET",
+   "website": "srfti.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "AJK Mass Communication Research Centre, Jamia Millia Islamia",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Whistling Woods International, Mumbai",
+   "category": "Private Institute",
+   "entrance": "WWI Entrance",
+   "website": "whistlingwoods.net"
+  },
+  {
+   "rank": 5,
+   "name": "National Institute of Design (NID), Ahmedabad — Film and Video",
+   "category": "Institute of National Importance",
+   "entrance": "NID DAT",
+   "website": "nid.edu"
+  },
+  {
+   "rank": 6,
+   "name": "Indian Institute of Mass Communication (IIMC), New Delhi",
+   "category": "Government Institute",
+   "entrance": "IIMC Entrance",
+   "website": "iimc.gov.in"
+  },
+  {
+   "rank": 7,
+   "name": "L. V. Prasad Film and TV Academy, Chennai",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "lvprasadacademy.org"
+  },
+  {
+   "rank": 8,
+   "name": "Asian Academy of Film and Television, Noida",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "aaft.com"
+  },
+  {
+   "rank": 9,
+   "name": "Symbiosis Institute of Media and Communication, Pune",
+   "category": "Private University",
+   "entrance": "SET / SNAP",
+   "website": "simc.edu"
+  },
+  {
+   "rank": 10,
+   "name": "Manipal Institute of Communication, Manipal",
+   "category": "Deemed University",
+   "entrance": "MET",
+   "website": "manipal.edu"
+  },
+  {
+   "rank": 11,
+   "name": "Xavier Institute of Communications, Mumbai",
+   "category": "Private Institute",
+   "entrance": "XIC Entrance",
+   "website": "xaviercomm.org"
+  },
+  {
+   "rank": 12,
+   "name": "St. Xavier's College, Mumbai — Mass Media",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "xaviers.edu"
+  },
+  {
+   "rank": 13,
+   "name": "K. R. Narayanan National Institute of Visual Science and Arts, Kottayam",
+   "category": "State Institute",
+   "entrance": "Institute Test",
+   "website": "krnnivsa.org"
+  },
+  {
+   "rank": 14,
+   "name": "Government Film and Television Institute, Bengaluru",
+   "category": "State Institute",
+   "entrance": "State Selection",
+   "website": "gfti.karnataka.gov.in"
+  },
+  {
+   "rank": 15,
+   "name": "MIT School of Film and Television, Pune",
+   "category": "Private University",
+   "entrance": "Institute Test",
+   "website": "mitsft.edu.in"
+  },
+  {
+   "rank": 16,
+   "name": "Amity School of Communication, Noida — Film and TV",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  }
+ ]
+}
