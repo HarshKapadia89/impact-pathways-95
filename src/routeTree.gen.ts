@@ -42,6 +42,7 @@ import { Route as RTokenRouteImport } from './routes/r.$token'
 import { Route as HandbookSlugRouteImport } from './routes/handbook.$slug'
 import { Route as CareerStreamRouteImport } from './routes/career.$stream'
 import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
+import { Route as HandbookSlugIndexRouteImport } from './routes/handbook.$slug.index'
 import { Route as CareerStreamIndexRouteImport } from './routes/career.$stream.index'
 import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
@@ -213,6 +214,11 @@ const AdminCollegesRoute = AdminCollegesRouteImport.update({
   path: '/colleges',
   getParentRoute: () => AdminRoute,
 } as any)
+const HandbookSlugIndexRoute = HandbookSlugIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HandbookSlugRoute,
+} as any)
 const CareerStreamIndexRoute = CareerStreamIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -278,6 +284,7 @@ export interface FileRoutesByFullPath {
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/career/$stream/': typeof CareerStreamIndexRoute
+  '/handbook/$slug/': typeof HandbookSlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -302,7 +309,6 @@ export interface FileRoutesByTo {
   '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
   '/admin/colleges': typeof AdminCollegesRoute
-  '/handbook/$slug': typeof HandbookSlugRouteWithChildren
   '/r/$token': typeof RTokenRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
@@ -316,6 +322,7 @@ export interface FileRoutesByTo {
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/career/$stream': typeof CareerStreamIndexRoute
+  '/handbook/$slug': typeof HandbookSlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -357,6 +364,7 @@ export interface FileRoutesById {
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/career/$stream/': typeof CareerStreamIndexRoute
+  '/handbook/$slug/': typeof HandbookSlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -399,6 +407,7 @@ export interface FileRouteTypes {
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/career/$stream/'
+    | '/handbook/$slug/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -423,7 +432,6 @@ export interface FileRouteTypes {
     | '/success-stories'
     | '/teachers'
     | '/admin/colleges'
-    | '/handbook/$slug'
     | '/r/$token'
     | '/teacher/profile'
     | '/teacher/schools'
@@ -437,6 +445,7 @@ export interface FileRouteTypes {
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/career/$stream'
+    | '/handbook/$slug'
   id:
     | '__root__'
     | '/'
@@ -477,6 +486,7 @@ export interface FileRouteTypes {
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/career/$stream/'
+    | '/handbook/$slug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -744,6 +754,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCollegesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/handbook/$slug/': {
+      id: '/handbook/$slug/'
+      path: '/'
+      fullPath: '/handbook/$slug/'
+      preLoaderRoute: typeof HandbookSlugIndexRouteImport
+      parentRoute: typeof HandbookSlugRoute
+    }
     '/career/$stream/': {
       id: '/career/$stream/'
       path: '/'
@@ -819,10 +836,12 @@ const CareerRouteWithChildren =
 
 interface HandbookSlugRouteChildren {
   HandbookSlugProfessionRoute: typeof HandbookSlugProfessionRoute
+  HandbookSlugIndexRoute: typeof HandbookSlugIndexRoute
 }
 
 const HandbookSlugRouteChildren: HandbookSlugRouteChildren = {
   HandbookSlugProfessionRoute: HandbookSlugProfessionRoute,
+  HandbookSlugIndexRoute: HandbookSlugIndexRoute,
 }
 
 const HandbookSlugRouteWithChildren = HandbookSlugRoute._addFileChildren(
