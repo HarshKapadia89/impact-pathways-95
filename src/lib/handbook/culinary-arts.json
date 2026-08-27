@@ -1,0 +1,185 @@
+{
+ "stream": "Culinary Arts",
+ "professions": [
+  "Commis Chef",
+  "Chef de Partie",
+  "Sous Chef",
+  "Executive Chef",
+  "Pastry Chef",
+  "Bakery Chef",
+  "Chocolatier",
+  "Confectioner",
+  "Butcher / Garde Manger",
+  "Banquet Chef",
+  "Research and Development Chef",
+  "Private Chef",
+  "Cloud Kitchen Chef",
+  "Restaurant Owner",
+  "Restaurant Manager",
+  "Food and Beverage Manager",
+  "Catering Manager",
+  "Menu Designer",
+  "Food Stylist",
+  "Food Photographer",
+  "Food Blogger / Content Creator",
+  "Food Critic",
+  "Sommelier",
+  "Bartender / Mixologist",
+  "Barista",
+  "Culinary Instructor",
+  "Food Safety and Hygiene Officer",
+  "Food Product Development Specialist"
+ ],
+ "exams": [
+  {
+   "code": "NCHMCT JEE",
+   "fullName": "National Council for Hotel Management Joint Entrance Examination",
+   "purpose": "B.Sc Hospitality and Hotel Administration at IHMs.",
+   "website": "nchmjee.nta.nic.in"
+  },
+  {
+   "code": "IHM State CET",
+   "fullName": "State Institute of Hotel Management Entrance",
+   "purpose": "Diploma and degree culinary programmes.",
+   "website": "gujacpc.admissions.nic.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA / B.Sc Culinary Arts at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IHM-A Culinary Entrance",
+   "fullName": "Institute of Hotel Management Aurangabad Admission Test",
+   "purpose": "BA Culinary Arts programme.",
+   "website": "ihma.ac.in"
+  },
+  {
+   "code": "WGSHA Entrance",
+   "fullName": "Welcomgroup Graduate School of Hotel Administration Test",
+   "purpose": "BHM and Culinary Arts programmes.",
+   "website": "manipal.edu"
+  },
+  {
+   "code": "City & Guilds Certification",
+   "fullName": "City and Guilds International Culinary Certification",
+   "purpose": "Globally recognised culinary skill certification.",
+   "website": "cityandguilds.com"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Institute of Hotel Management (IHM), Pusa, New Delhi",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmpusa.net"
+  },
+  {
+   "rank": 2,
+   "name": "Institute of Hotel Management (IHM), Mumbai",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmctan.edu"
+  },
+  {
+   "rank": 3,
+   "name": "Institute of Hotel Management (IHM), Bengaluru",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmbangalore.kar.nic.in"
+  },
+  {
+   "rank": 4,
+   "name": "Institute of Hotel Management (IHM), Ahmedabad",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmahmedabad.com"
+  },
+  {
+   "rank": 5,
+   "name": "Welcomgroup Graduate School of Hotel Administration, Manipal",
+   "category": "Deemed University",
+   "entrance": "WGSHA Entrance",
+   "website": "manipal.edu"
+  },
+  {
+   "rank": 6,
+   "name": "Institute of Hotel Management, Aurangabad",
+   "category": "Private Institute",
+   "entrance": "IHM-A Entrance",
+   "website": "ihma.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Culinary Academy of India, Hyderabad",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "cai.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Institute of Bakery and Culinary Arts (IBCA), Gurugram",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "ibca.edu.in"
+  },
+  {
+   "rank": 9,
+   "name": "Academy of Pastry and Culinary Arts, Gurugram and Bengaluru",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "apcaindia.com"
+  },
+  {
+   "rank": 10,
+   "name": "Christ University, Bengaluru — Hotel Management",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 11,
+   "name": "Amity School of Hospitality, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 12,
+   "name": "Symbiosis School of Culinary Arts, Pune",
+   "category": "Private University",
+   "entrance": "SET",
+   "website": "sscapune.edu.in"
+  },
+  {
+   "rank": 13,
+   "name": "Indian Culinary Institute, Tirupati",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ici.nic.in"
+  },
+  {
+   "rank": 14,
+   "name": "Indian Culinary Institute, Noida",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ici.nic.in"
+  },
+  {
+   "rank": 15,
+   "name": "Institute of Hotel Management, Gwalior",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmgwalior.net"
+  },
+  {
+   "rank": 16,
+   "name": "Dr. Ambedkar Institute of Hotel Management, Chandigarh",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmchandigarh.org"
+  }
+ ]
+}

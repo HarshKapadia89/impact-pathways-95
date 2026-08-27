@@ -1,0 +1,203 @@
+{
+ "stream": "Animation, VFX and Graphics",
+ "professions": [
+  "2D Animator",
+  "3D Animator",
+  "Character Animator",
+  "Character Designer",
+  "Storyboard Artist",
+  "Concept Artist",
+  "Modelling Artist",
+  "Texturing Artist",
+  "Rigging Artist",
+  "Lighting and Rendering Artist",
+  "VFX Artist",
+  "Compositor",
+  "Rotoscoping Artist",
+  "Matchmove Artist",
+  "Motion Graphics Designer",
+  "Graphic Designer",
+  "Visual Designer",
+  "Game Artist",
+  "Game Designer",
+  "Unity / Unreal Developer",
+  "AR-VR Designer",
+  "UI Animator",
+  "Video Editor",
+  "Colour Grading Artist",
+  "Animation Director",
+  "Pipeline Technical Director"
+ ],
+ "exams": [
+  {
+   "code": "NID DAT",
+   "fullName": "National Institute of Design Design Aptitude Test",
+   "purpose": "B.Des with animation and film design specialisation.",
+   "website": "admissions.nid.edu"
+  },
+  {
+   "code": "UCEED",
+   "fullName": "Undergraduate Common Entrance Examination for Design",
+   "purpose": "B.Des at IITs and IIITDM.",
+   "website": "uceed.iitb.ac.in"
+  },
+  {
+   "code": "NIFT Entrance",
+   "fullName": "National Institute of Fashion Technology Entrance",
+   "purpose": "B.Des communication design.",
+   "website": "nift.ac.in"
+  },
+  {
+   "code": "CEED",
+   "fullName": "Common Entrance Examination for Design",
+   "purpose": "M.Des in animation, visual communication and interaction design.",
+   "website": "ceed.iitb.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.A / B.Sc animation and multimedia at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "MIT ID DAT",
+   "fullName": "MIT Institute of Design Aptitude Test",
+   "purpose": "UG and PG design programmes.",
+   "website": "mitid.edu.in"
+  },
+  {
+   "code": "Symbiosis SET Design",
+   "fullName": "Symbiosis Entrance Test (Design)",
+   "purpose": "B.Des at Symbiosis Institute of Design.",
+   "website": "set-test.org"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "National Institute of Design (NID), Ahmedabad",
+   "category": "Institute of National Importance",
+   "entrance": "NID DAT",
+   "website": "nid.edu"
+  },
+  {
+   "rank": 2,
+   "name": "Industrial Design Centre, IIT Bombay",
+   "category": "Institute of National Importance",
+   "entrance": "UCEED / CEED",
+   "website": "idc.iitb.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Department of Design, IIT Guwahati",
+   "category": "Institute of National Importance",
+   "entrance": "UCEED / CEED",
+   "website": "iitg.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Satyajit Ray Film and Television Institute, Kolkata",
+   "category": "Institute of National Importance",
+   "entrance": "SRFTI JET",
+   "website": "srfti.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Film and Television Institute of India (FTII), Pune",
+   "category": "Institute of National Importance",
+   "entrance": "FTII JET",
+   "website": "ftii.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "MIT Institute of Design, Pune",
+   "category": "Private University",
+   "entrance": "MIT ID DAT",
+   "website": "mitid.edu.in"
+  },
+  {
+   "rank": 7,
+   "name": "Symbiosis Institute of Design, Pune",
+   "category": "Private University",
+   "entrance": "SET Design",
+   "website": "sid.edu.in"
+  },
+  {
+   "rank": 8,
+   "name": "Srishti Manipal Institute of Art, Design and Technology, Bengaluru",
+   "category": "Deemed University",
+   "entrance": "Srishti Entrance",
+   "website": "srishtimanipalinstitute.in"
+  },
+  {
+   "rank": 9,
+   "name": "Whistling Woods International, Mumbai",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "whistlingwoods.net"
+  },
+  {
+   "rank": 10,
+   "name": "Arena Animation (national network)",
+   "category": "Private Training Institute",
+   "entrance": "Institute Counselling",
+   "website": "arena-multimedia.com"
+  },
+  {
+   "rank": 11,
+   "name": "MAAC (Maya Academy of Advanced Cinematics)",
+   "category": "Private Training Institute",
+   "entrance": "Institute Counselling",
+   "website": "maacindia.com"
+  },
+  {
+   "rank": 12,
+   "name": "Toonz Academy, Thiruvananthapuram",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "toonzacademy.com"
+  },
+  {
+   "rank": 13,
+   "name": "Amity School of Fine Arts, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 14,
+   "name": "Chandigarh University — Animation and VFX",
+   "category": "Private University",
+   "entrance": "CUCET",
+   "website": "cuchd.in"
+  },
+  {
+   "rank": 15,
+   "name": "Loyola College, Chennai — Visual Communication",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "loyolacollege.edu"
+  },
+  {
+   "rank": 16,
+   "name": "Gujarat University — Animation and Multimedia",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "Pearl Academy, Delhi and Mumbai",
+   "category": "Private Institute",
+   "entrance": "Pearl Entrance",
+   "website": "pearlacademy.com"
+  },
+  {
+   "rank": 18,
+   "name": "World University of Design, Sonipat",
+   "category": "Private University",
+   "entrance": "WUD Aptitude Test",
+   "website": "wud.ac.in"
+  }
+ ]
+}

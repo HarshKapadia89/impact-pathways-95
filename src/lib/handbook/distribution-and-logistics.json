@@ -1,0 +1,187 @@
+{
+ "stream": "Distribution and Logistics",
+ "professions": [
+  "Supply Chain Manager",
+  "Logistics Manager",
+  "Warehouse Manager",
+  "Inventory Planner",
+  "Demand Planner",
+  "Procurement Manager",
+  "Sourcing Specialist",
+  "Transport Manager",
+  "Fleet Manager",
+  "Last-Mile Delivery Manager",
+  "Freight Forwarder",
+  "Customs Broker",
+  "Export-Import Executive",
+  "Shipping Coordinator",
+  "Port Logistics Executive",
+  "Cold Chain Specialist",
+  "Supply Chain Analyst",
+  "Logistics Technology Consultant",
+  "Distribution Network Designer",
+  "Operations Executive (E-commerce)",
+  "Retail Supply Chain Manager",
+  "Materials Manager",
+  "Lean and Process Improvement Specialist",
+  "Third-Party Logistics (3PL) Account Manager"
+ ],
+ "exams": [
+  {
+   "code": "CAT",
+   "fullName": "Common Admission Test",
+   "purpose": "MBA in Operations and Supply Chain at IIMs.",
+   "website": "iimcat.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BBA in Logistics and Supply Chain Management.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "GATE (IN / ME / PI)",
+   "fullName": "Graduate Aptitude Test in Engineering",
+   "purpose": "M.Tech in Industrial and Operations Engineering.",
+   "website": "gate.iitkgp.ac.in"
+  },
+  {
+   "code": "NITIE / IIM Mumbai Admission",
+   "fullName": "IIM Mumbai (formerly NITIE) Admission Test",
+   "purpose": "PG in Industrial Engineering and Supply Chain.",
+   "website": "iimmumbai.ac.in"
+  },
+  {
+   "code": "CILT / CSCP Certification",
+   "fullName": "Chartered Institute of Logistics and Transport Certification",
+   "purpose": "Professional logistics credential.",
+   "website": "ciltindia.org"
+  },
+  {
+   "code": "IIFT Entrance",
+   "fullName": "Indian Institute of Foreign Trade Entrance",
+   "purpose": "MBA International Business with trade logistics focus.",
+   "website": "iift.ac.in"
+  },
+  {
+   "code": "IMU-CET",
+   "fullName": "Indian Maritime University Common Entrance Test",
+   "purpose": "Port and shipping management programmes.",
+   "website": "imu.edu.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Management (IIM), Mumbai (formerly NITIE)",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iimmumbai.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Indian Institute of Management (IIM), Ahmedabad",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iima.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Indian Institute of Foreign Trade (IIFT), New Delhi",
+   "category": "Deemed University",
+   "entrance": "IIFT Entrance",
+   "website": "iift.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indian Maritime University (IMU), Chennai",
+   "category": "Central University",
+   "entrance": "IMU-CET",
+   "website": "imu.edu.in"
+  },
+  {
+   "rank": 5,
+   "name": "Indian Institute of Materials Management, Navi Mumbai",
+   "category": "Professional Body",
+   "entrance": "IIMM Test",
+   "website": "iimm.org"
+  },
+  {
+   "rank": 6,
+   "name": "Chartered Institute of Logistics and Transport (CILT) India",
+   "category": "Professional Body",
+   "entrance": "CILT Certification",
+   "website": "ciltindia.org"
+  },
+  {
+   "rank": 7,
+   "name": "Symbiosis Institute of Operations Management, Nashik",
+   "category": "Private University",
+   "entrance": "SNAP",
+   "website": "siom.in"
+  },
+  {
+   "rank": 8,
+   "name": "Amity School of Business — Supply Chain, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 9,
+   "name": "Great Lakes Institute of Management, Chennai",
+   "category": "Private Institute",
+   "entrance": "CAT / XAT",
+   "website": "greatlakes.edu.in"
+  },
+  {
+   "rank": 10,
+   "name": "Loyola Institute of Business Administration, Chennai",
+   "category": "Private Institute",
+   "entrance": "CAT / XAT",
+   "website": "liba.edu"
+  },
+  {
+   "rank": 11,
+   "name": "Indian Institute of Logistics, Chennai",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "iil.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Institute of Rural Management Anand (IRMA)",
+   "category": "Private Institute",
+   "entrance": "IRMASAT / CAT",
+   "website": "irma.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "Nirma University — Institute of Management",
+   "category": "Private University",
+   "entrance": "CAT",
+   "website": "nirmauni.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Gujarat Technological University — Logistics Programmes",
+   "category": "State University",
+   "entrance": "CMAT",
+   "website": "gtu.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "National Institute of Industrial Engineering Programmes, Mumbai",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "iimmumbai.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Christ University, Bengaluru — Logistics and Supply Chain",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  }
+ ]
+}

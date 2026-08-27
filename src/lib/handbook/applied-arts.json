@@ -1,0 +1,201 @@
+{
+ "stream": "Applied Arts",
+ "professions": [
+  "Applied Artist",
+  "Commercial Illustrator",
+  "Visual Merchandiser",
+  "Typographer",
+  "Calligrapher",
+  "Printmaker",
+  "Mural Artist",
+  "Sculptor",
+  "Ceramic Artist",
+  "Textile Print Designer",
+  "Packaging Designer",
+  "Exhibition Designer",
+  "Set Designer",
+  "Advertising Art Director",
+  "Brand Identity Designer",
+  "Publication Designer",
+  "Editorial Illustrator",
+  "Comic and Graphic Novel Artist",
+  "Art Conservator",
+  "Art Curator",
+  "Art Educator",
+  "Studio Manager",
+  "Craft Entrepreneur",
+  "Signage and Environmental Graphics Designer"
+ ],
+ "exams": [
+  {
+   "code": "NID DAT",
+   "fullName": "National Institute of Design Design Aptitude Test",
+   "purpose": "B.Des in communication and applied arts.",
+   "website": "admissions.nid.edu"
+  },
+  {
+   "code": "UCEED",
+   "fullName": "Undergraduate Common Entrance Examination for Design",
+   "purpose": "B.Des at IITs.",
+   "website": "uceed.iitb.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BFA Applied Arts at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "BFA Entrance (State)",
+   "fullName": "State Fine Arts Entrance Examination",
+   "purpose": "Bachelor of Fine Arts admissions in state colleges.",
+   "website": "gujacpc.admissions.nic.in"
+  },
+  {
+   "code": "BHU UET (Fine Arts)",
+   "fullName": "Banaras Hindu University Undergraduate Entrance Test",
+   "purpose": "BFA at BHU Faculty of Visual Arts.",
+   "website": "bhu.ac.in"
+  },
+  {
+   "code": "JMI Entrance",
+   "fullName": "Jamia Millia Islamia Entrance Test",
+   "purpose": "BFA Applied Art at Jamia.",
+   "website": "jmi.ac.in"
+  },
+  {
+   "code": "CEED",
+   "fullName": "Common Entrance Examination for Design",
+   "purpose": "M.Des and PG applied arts specialisations.",
+   "website": "ceed.iitb.ac.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Sir J. J. Institute of Applied Art, Mumbai",
+   "category": "Government College",
+   "entrance": "State Entrance",
+   "website": "sirjjinstituteofappliedart.in"
+  },
+  {
+   "rank": 2,
+   "name": "Sir J. J. School of Art, Mumbai",
+   "category": "Government College",
+   "entrance": "State Entrance",
+   "website": "sirjjschoolofart.in"
+  },
+  {
+   "rank": 3,
+   "name": "College of Art, University of Delhi",
+   "category": "State College",
+   "entrance": "CUET / College Test",
+   "website": "collegeofart.du.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Faculty of Fine Arts, Maharaja Sayajirao University of Baroda",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Faculty of Visual Arts, Banaras Hindu University",
+   "category": "Central University",
+   "entrance": "BHU UET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "Jamia Millia Islamia — Faculty of Fine Arts",
+   "category": "Central University",
+   "entrance": "JMI Entrance",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Government College of Art and Craft, Kolkata",
+   "category": "Government College",
+   "entrance": "State Entrance",
+   "website": "gcac.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Kala Bhavana, Visva-Bharati University, Santiniketan",
+   "category": "Central University",
+   "entrance": "Visva-Bharati Test",
+   "website": "visvabharati.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "National Institute of Design (NID), Ahmedabad",
+   "category": "Institute of National Importance",
+   "entrance": "NID DAT",
+   "website": "nid.edu"
+  },
+  {
+   "rank": 10,
+   "name": "Chitrakala Parishath College of Fine Arts, Bengaluru",
+   "category": "Autonomous Institute",
+   "entrance": "Institute Test",
+   "website": "karnatakachitrakalaparishath.com"
+  },
+  {
+   "rank": 11,
+   "name": "Government College of Fine Arts, Chennai",
+   "category": "Government College",
+   "entrance": "State Entrance",
+   "website": "gcfachennai.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Amity School of Fine Arts, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 13,
+   "name": "Pearl Academy, Delhi",
+   "category": "Private Institute",
+   "entrance": "Pearl Entrance",
+   "website": "pearlacademy.com"
+  },
+  {
+   "rank": 14,
+   "name": "Indira Kala Sangeet Vishwavidyalaya, Khairagarh",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "iksvv.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "C. N. College of Fine Arts, Ahmedabad",
+   "category": "Affiliated College",
+   "entrance": "State Entrance",
+   "website": "cnfa.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Sophia College for Women, Mumbai — Applied Art",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "sophiacollegemumbai.com"
+  },
+  {
+   "rank": 17,
+   "name": "Rachana Sansad Academy of Applied Arts, Mumbai",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "rachanasansad.edu.in"
+  },
+  {
+   "rank": 18,
+   "name": "World University of Design, Sonipat",
+   "category": "Private University",
+   "entrance": "WUD Aptitude Test",
+   "website": "wud.ac.in"
+  }
+ ]
+}

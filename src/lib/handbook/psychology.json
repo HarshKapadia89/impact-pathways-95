@@ -1,0 +1,189 @@
+{
+ "stream": "Psychology",
+ "professions": [
+  "Clinical Psychologist",
+  "Counselling Psychologist",
+  "Child Psychologist",
+  "Educational Psychologist",
+  "School Counsellor",
+  "Career Counsellor",
+  "Organisational / I-O Psychologist",
+  "Sports Psychologist",
+  "Forensic Psychologist",
+  "Criminal Profiler",
+  "Neuropsychologist",
+  "Rehabilitation Psychologist",
+  "Health Psychologist",
+  "Social Psychologist",
+  "Developmental Psychologist",
+  "Psychometrician",
+  "Behaviour Therapist",
+  "Applied Behaviour Analysis (ABA) Therapist",
+  "Art Therapist",
+  "Music Therapist",
+  "Marriage and Family Therapist",
+  "Mental Health Programme Officer",
+  "UX Researcher (Psychology)",
+  "Human Resources Assessment Specialist",
+  "Psychology Educator",
+  "Research Psychologist"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA / B.Sc (Hons) Psychology at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "CUET-PG",
+   "fullName": "Common University Entrance Test (PG)",
+   "purpose": "MA / M.Sc Psychology.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "NIMHANS Entrance",
+   "fullName": "NIMHANS Entrance Examination",
+   "purpose": "M.Phil Clinical Psychology and PsyD programmes.",
+   "website": "nimhans.ac.in"
+  },
+  {
+   "code": "RCI M.Phil Entrance",
+   "fullName": "Rehabilitation Council of India Recognised Programme Entrance",
+   "purpose": "Licence-track clinical psychology training.",
+   "website": "rehabcouncil.nic.in"
+  },
+  {
+   "code": "TISSNET",
+   "fullName": "TISS National Entrance Test",
+   "purpose": "MA Applied Psychology and Counselling.",
+   "website": "tiss.edu"
+  },
+  {
+   "code": "UGC NET (Psychology)",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Lectureship and JRF.",
+   "website": "ugcnet.nta.nic.in"
+  },
+  {
+   "code": "Christ Entrance Test",
+   "fullName": "Christ University Entrance Test",
+   "purpose": "UG and PG psychology programmes.",
+   "website": "christuniversity.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "National Institute of Mental Health and Neurosciences (NIMHANS), Bengaluru",
+   "category": "Institute of National Importance",
+   "entrance": "NIMHANS Entrance",
+   "website": "nimhans.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Institute of Human Behaviour and Allied Sciences (IHBAS), Delhi",
+   "category": "Government Institute",
+   "entrance": "IHBAS Entrance",
+   "website": "ihbas.delhigovt.nic.in"
+  },
+  {
+   "rank": 3,
+   "name": "Central Institute of Psychiatry, Ranchi",
+   "category": "Government Institute",
+   "entrance": "CIP Entrance",
+   "website": "cipranchi.nic.in"
+  },
+  {
+   "rank": 4,
+   "name": "University of Delhi — Department of Psychology",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Lady Shri Ram College for Women, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "lsr.edu.in"
+  },
+  {
+   "rank": 6,
+   "name": "Jesus and Mary College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "jmc.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Christ University, Bengaluru — Department of Psychology",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 8,
+   "name": "Tata Institute of Social Sciences, Mumbai",
+   "category": "Deemed University",
+   "entrance": "TISSNET",
+   "website": "tiss.edu"
+  },
+  {
+   "rank": 9,
+   "name": "Ambedkar University Delhi — School of Human Studies",
+   "category": "State University",
+   "entrance": "CUET-PG",
+   "website": "aud.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Banaras Hindu University — Department of Psychology",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 11,
+   "name": "University of Hyderabad — Centre for Health Psychology",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "uohyd.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Maharaja Sayajirao University of Baroda — Department of Psychology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "Gujarat University — Department of Psychology",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Fergusson College, Pune — Psychology",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "fergusson.edu"
+  },
+  {
+   "rank": 15,
+   "name": "St. Xavier's College, Mumbai — Psychology",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "xaviers.edu"
+  },
+  {
+   "rank": 16,
+   "name": "Amity Institute of Psychology and Allied Sciences, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  }
+ ]
+}

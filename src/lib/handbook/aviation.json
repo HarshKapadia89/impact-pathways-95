@@ -1,0 +1,207 @@
+{
+ "stream": "Aviation",
+ "professions": [
+  "Commercial Airline Pilot",
+  "Co-Pilot / First Officer",
+  "Flight Instructor",
+  "Helicopter Pilot",
+  "Air Traffic Controller",
+  "Flight Dispatcher",
+  "Aircraft Maintenance Engineer",
+  "Avionics Engineer",
+  "Aeronautical Engineer",
+  "Aerospace Design Engineer",
+  "Aviation Safety Inspector",
+  "Airport Operations Manager",
+  "Ground Staff Executive",
+  "Aviation Meteorologist",
+  "Airline Revenue Analyst",
+  "Cargo and Freight Manager",
+  "Drone (UAS) Pilot",
+  "Drone Systems Engineer",
+  "Airline Rostering and Crew Planner",
+  "Aviation Security Officer",
+  "Flight Test Engineer",
+  "Aviation Regulatory Compliance Officer",
+  "Airline Customer Experience Manager",
+  "Simulator Instructor"
+ ],
+ "exams": [
+  {
+   "code": "DGCA CPL",
+   "fullName": "Commercial Pilot Licence Examination",
+   "purpose": "Licence to fly commercially in India after 200 flying hours.",
+   "website": "dgca.gov.in"
+  },
+  {
+   "code": "AME CET",
+   "fullName": "Aircraft Maintenance Engineering Common Entrance Test",
+   "purpose": "Admission to DGCA-approved AME institutes.",
+   "website": "amecet.in"
+  },
+  {
+   "code": "JEE Main",
+   "fullName": "Joint Entrance Examination (Main)",
+   "purpose": "B.Tech Aeronautical / Aerospace Engineering.",
+   "website": "jeemain.nta.nic.in"
+  },
+  {
+   "code": "AIAEE",
+   "fullName": "All India Aeronautical Engineering Entrance Exam",
+   "purpose": "B.Tech / diploma in aeronautical engineering.",
+   "website": "aeronauticalsociety.in"
+  },
+  {
+   "code": "NDA",
+   "fullName": "National Defence Academy Examination",
+   "purpose": "Air Force wing — flying branch entry after Class 12.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "AFCAT",
+   "fullName": "Air Force Common Admission Test",
+   "purpose": "Flying and ground duty officer entry in the Indian Air Force.",
+   "website": "afcat.cdac.in"
+  },
+  {
+   "code": "ATC Recruitment (AAI)",
+   "fullName": "Airports Authority of India Junior Executive (ATC)",
+   "purpose": "Air traffic control officer recruitment.",
+   "website": "aai.aero"
+  },
+  {
+   "code": "IGRUA Entrance",
+   "fullName": "Indira Gandhi Rashtriya Uran Akademi Entrance",
+   "purpose": "Integrated pilot training programme.",
+   "website": "igrua.gov.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indira Gandhi Rashtriya Uran Akademi (IGRUA), Amethi",
+   "category": "Government Flying Academy",
+   "entrance": "IGRUA Entrance",
+   "website": "igrua.gov.in"
+  },
+  {
+   "rank": 2,
+   "name": "National Flying Training Institute (NFTI), Gondia",
+   "category": "Government-backed Academy",
+   "entrance": "NFTI Selection",
+   "website": "nfti.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Rajiv Gandhi Academy of Aviation Technology, Thiruvananthapuram",
+   "category": "State Flying Academy",
+   "entrance": "Academy Test",
+   "website": "rgaat.kerala.gov.in"
+  },
+  {
+   "rank": 4,
+   "name": "Bombay Flying Club, Mumbai",
+   "category": "Flying Club",
+   "entrance": "Club Selection",
+   "website": "thebombayflyingclub.com"
+  },
+  {
+   "rank": 5,
+   "name": "Madhya Pradesh Flying Club, Indore",
+   "category": "Flying Club",
+   "entrance": "Club Selection",
+   "website": "mpflyingclub.com"
+  },
+  {
+   "rank": 6,
+   "name": "Indian Institute of Technology (IIT), Kanpur — Aerospace",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "iitk.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Indian Institute of Technology (IIT), Bombay — Aerospace",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "aero.iitb.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Indian Institute of Technology (IIT), Madras — Aerospace",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "ae.iitm.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Indian Institute of Space Science and Technology (IIST), Thiruvananthapuram",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "iist.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Madras Institute of Technology, Anna University",
+   "category": "State University",
+   "entrance": "TNEA",
+   "website": "mitindia.edu"
+  },
+  {
+   "rank": 11,
+   "name": "Hindustan Institute of Technology and Science, Chennai",
+   "category": "Private University",
+   "entrance": "HITSEEE",
+   "website": "hindustanuniv.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Institute of Aeronautical Engineering, Hyderabad",
+   "category": "Private College",
+   "entrance": "TS EAMCET",
+   "website": "iare.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "Hindustan Aviation Academy, Bengaluru",
+   "category": "AME Institute",
+   "entrance": "AME CET",
+   "website": "hindustanaviation.com"
+  },
+  {
+   "rank": 14,
+   "name": "School of Aviation Science and Technology, Delhi",
+   "category": "AME Institute",
+   "entrance": "AME CET",
+   "website": "sastdelhi.in"
+  },
+  {
+   "rank": 15,
+   "name": "Amity Institute of Aerospace Engineering, Noida",
+   "category": "Private University",
+   "entrance": "Amity JEE",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 16,
+   "name": "Civil Aviation Training College (CATC), Allahabad",
+   "category": "Government (AAI)",
+   "entrance": "AAI Recruitment",
+   "website": "aai.aero"
+  },
+  {
+   "rank": 17,
+   "name": "Rashtriya Raksha University — Aviation Studies",
+   "category": "Institute of National Importance",
+   "entrance": "RRU Entrance",
+   "website": "rru.ac.in"
+  },
+  {
+   "rank": 18,
+   "name": "Chandigarh University — Aerospace Engineering",
+   "category": "Private University",
+   "entrance": "CUCET",
+   "website": "cuchd.in"
+  }
+ ]
+}

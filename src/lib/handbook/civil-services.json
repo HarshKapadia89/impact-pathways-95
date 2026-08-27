@@ -1,0 +1,195 @@
+{
+ "stream": "Civil Services",
+ "professions": [
+  "Indian Administrative Service (IAS) Officer",
+  "Indian Police Service (IPS) Officer",
+  "Indian Foreign Service (IFS) Officer",
+  "Indian Revenue Service (IRS) Officer",
+  "Indian Forest Service Officer",
+  "Indian Audit and Accounts Service Officer",
+  "Indian Railway Management Service Officer",
+  "Indian Postal Service Officer",
+  "Indian Defence Accounts Service Officer",
+  "Indian Information Service Officer",
+  "State Civil Services Officer (Deputy Collector)",
+  "State Police Service Officer (DySP)",
+  "District Development Officer",
+  "Block Development Officer",
+  "Tehsildar",
+  "Municipal Commissioner",
+  "Sub-Divisional Magistrate",
+  "Public Policy Analyst",
+  "Section Officer (SSC CGL)",
+  "Assistant Commissioner (Customs and GST)",
+  "Assistant Audit Officer",
+  "Reserve Bank of India Grade B Officer",
+  "Public Sector Bank Probationary Officer",
+  "Parliamentary Assistant",
+  "Diplomatic Attaché",
+  "Government Policy Researcher"
+ ],
+ "exams": [
+  {
+   "code": "UPSC CSE",
+   "fullName": "Union Public Service Commission Civil Services Examination",
+   "purpose": "Recruitment to IAS, IPS, IFS and other All-India and central services.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "UPSC IFS",
+   "fullName": "Indian Forest Service Examination",
+   "purpose": "Recruitment to the Indian Forest Service.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "GPSC",
+   "fullName": "Gujarat Public Service Commission Examination",
+   "purpose": "Class 1 and 2 state services in Gujarat.",
+   "website": "gpsc.gujarat.gov.in"
+  },
+  {
+   "code": "State PSC",
+   "fullName": "State Public Service Commission Examinations",
+   "purpose": "Deputy Collector, DySP and allied state posts.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "SSC CGL",
+   "fullName": "Staff Selection Commission Combined Graduate Level",
+   "purpose": "Group B and C posts across central ministries.",
+   "website": "ssc.gov.in"
+  },
+  {
+   "code": "RBI Grade B",
+   "fullName": "Reserve Bank of India Grade B Officer Examination",
+   "purpose": "Officer entry into the central bank.",
+   "website": "rbi.org.in"
+  },
+  {
+   "code": "CAPF (AC)",
+   "fullName": "Central Armed Police Forces Assistant Commandant Examination",
+   "purpose": "Officer entry into CAPFs.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "IBPS PO",
+   "fullName": "Institute of Banking Personnel Selection Probationary Officer",
+   "purpose": "Officer entry into public sector banks.",
+   "website": "ibps.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Lal Bahadur Shastri National Academy of Administration, Mussoorie",
+   "category": "Government Training Academy",
+   "entrance": "UPSC CSE",
+   "website": "lbsnaa.gov.in"
+  },
+  {
+   "rank": 2,
+   "name": "Sardar Vallabhbhai Patel National Police Academy, Hyderabad",
+   "category": "Government Training Academy",
+   "entrance": "UPSC CSE",
+   "website": "svpnpa.gov.in"
+  },
+  {
+   "rank": 3,
+   "name": "Sushma Swaraj Institute of Foreign Service, New Delhi",
+   "category": "Government Training Academy",
+   "entrance": "UPSC CSE",
+   "website": "ssifs.mea.gov.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indira Gandhi National Forest Academy, Dehradun",
+   "category": "Government Training Academy",
+   "entrance": "UPSC IFS",
+   "website": "ignfa.gov.in"
+  },
+  {
+   "rank": 5,
+   "name": "Sardar Patel Institute of Public Administration (SPIPA), Ahmedabad",
+   "category": "State Institute",
+   "entrance": "SPIPA Entrance",
+   "website": "spipa.gujarat.gov.in"
+  },
+  {
+   "rank": 6,
+   "name": "Jamia Millia Islamia — Residential Coaching Academy",
+   "category": "Central University",
+   "entrance": "JMI RCA Test",
+   "website": "jmi.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Aligarh Muslim University — Residential Coaching Academy",
+   "category": "Central University",
+   "entrance": "AMU RCA Test",
+   "website": "amu.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Jawaharlal Nehru University — School of International Studies",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "University of Delhi — Department of Political Science",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Indian Institute of Public Administration, New Delhi",
+   "category": "Autonomous Institute",
+   "entrance": "IIPA Selection",
+   "website": "iipa.org.in"
+  },
+  {
+   "rank": 11,
+   "name": "Tata Institute of Social Sciences, Mumbai — Public Policy",
+   "category": "Deemed University",
+   "entrance": "TISSNET",
+   "website": "tiss.edu"
+  },
+  {
+   "rank": 12,
+   "name": "Indian School of Public Policy, New Delhi",
+   "category": "Private Institute",
+   "entrance": "ISPP Application",
+   "website": "ispp.org.in"
+  },
+  {
+   "rank": 13,
+   "name": "National Law School of India University, Bengaluru — Public Policy",
+   "category": "National Law University",
+   "entrance": "CLAT-PG",
+   "website": "nls.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Ashoka University — Political Science and Public Policy",
+   "category": "Private University",
+   "entrance": "Ashoka Aptitude Test",
+   "website": "ashoka.edu.in"
+  },
+  {
+   "rank": 15,
+   "name": "Gujarat National Law University, Gandhinagar",
+   "category": "National Law University",
+   "entrance": "CLAT",
+   "website": "gnlu.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Banaras Hindu University — Faculty of Social Sciences",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  }
+ ]
+}

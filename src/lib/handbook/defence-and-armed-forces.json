@@ -1,0 +1,194 @@
+{
+ "stream": "Defence and Armed Forces",
+ "professions": [
+  "Indian Army Officer",
+  "Indian Navy Officer",
+  "Indian Air Force Officer",
+  "Fighter Pilot",
+  "Navigating Officer",
+  "Submarine Officer",
+  "Combat Engineer",
+  "Artillery Officer",
+  "Armoured Corps Officer",
+  "Infantry Officer",
+  "Signals Officer",
+  "Army Education Corps Officer",
+  "Army Medical Corps Officer",
+  "Military Nursing Officer",
+  "Judge Advocate General (JAG) Officer",
+  "Defence Research Scientist (DRDO)",
+  "Assistant Commandant (CAPF)",
+  "Coast Guard Assistant Commandant",
+  "Territorial Army Officer",
+  "Defence Intelligence Officer",
+  "Logistics Officer",
+  "Naval Architect (Navy)",
+  "Aeronautical Engineer (IAF)",
+  "Military Aviation Technician",
+  "Defence Public Relations Officer"
+ ],
+ "exams": [
+  {
+   "code": "NDA and NA",
+   "fullName": "National Defence Academy and Naval Academy Examination",
+   "purpose": "Officer entry into Army, Navy and Air Force after Class 12.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "CDS",
+   "fullName": "Combined Defence Services Examination",
+   "purpose": "Officer entry into IMA, OTA, INA and AFA after graduation.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "AFCAT",
+   "fullName": "Air Force Common Admission Test",
+   "purpose": "Flying, technical and ground duty branches of the IAF.",
+   "website": "afcat.cdac.in"
+  },
+  {
+   "code": "INET",
+   "fullName": "Indian Navy Entrance Test",
+   "purpose": "Officer entry into the Indian Navy.",
+   "website": "joinindiannavy.gov.in"
+  },
+  {
+   "code": "TES / TGC",
+   "fullName": "Technical Entry Scheme / Technical Graduate Course",
+   "purpose": "Technical officer entry into the Indian Army.",
+   "website": "joinindianarmy.nic.in"
+  },
+  {
+   "code": "CAPF (AC)",
+   "fullName": "Central Armed Police Forces Assistant Commandant Examination",
+   "purpose": "Officer entry into BSF, CRPF, CISF, ITBP and SSB.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "Indian Coast Guard AC",
+   "fullName": "Indian Coast Guard Assistant Commandant Examination",
+   "purpose": "Officer entry into the Indian Coast Guard.",
+   "website": "joinindiancoastguard.cdac.in"
+  },
+  {
+   "code": "SSB Interview",
+   "fullName": "Services Selection Board Interview",
+   "purpose": "Five-day officer-like-qualities assessment for all officer entries.",
+   "website": "joinindianarmy.nic.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "National Defence Academy (NDA), Khadakwasla, Pune",
+   "category": "Government Academy",
+   "entrance": "NDA and NA (UPSC)",
+   "website": "nda.nic.in"
+  },
+  {
+   "rank": 2,
+   "name": "Indian Military Academy (IMA), Dehradun",
+   "category": "Government Academy",
+   "entrance": "CDS / TGC",
+   "website": "indianarmy.nic.in"
+  },
+  {
+   "rank": 3,
+   "name": "Officers Training Academy (OTA), Chennai",
+   "category": "Government Academy",
+   "entrance": "CDS (SSC)",
+   "website": "indianarmy.nic.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indian Naval Academy (INA), Ezhimala",
+   "category": "Government Academy",
+   "entrance": "NDA / INET",
+   "website": "joinindiannavy.gov.in"
+  },
+  {
+   "rank": 5,
+   "name": "Air Force Academy (AFA), Dundigal, Hyderabad",
+   "category": "Government Academy",
+   "entrance": "AFCAT / NDA",
+   "website": "indianairforce.nic.in"
+  },
+  {
+   "rank": 6,
+   "name": "Indian Coast Guard Academy, Mangaluru",
+   "category": "Government Academy",
+   "entrance": "Coast Guard AC",
+   "website": "indiancoastguard.gov.in"
+  },
+  {
+   "rank": 7,
+   "name": "Rashtriya Indian Military College (RIMC), Dehradun",
+   "category": "Government School",
+   "entrance": "RIMC Entrance",
+   "website": "rimc.gov.in"
+  },
+  {
+   "rank": 8,
+   "name": "Sainik Schools (national network)",
+   "category": "Government Schools",
+   "entrance": "AISSEE",
+   "website": "sainikschoolsociety.in"
+  },
+  {
+   "rank": 9,
+   "name": "Rashtriya Military Schools",
+   "category": "Government Schools",
+   "entrance": "RMS CET",
+   "website": "rashtriyamilitaryschools.edu.in"
+  },
+  {
+   "rank": 10,
+   "name": "Armed Forces Medical College (AFMC), Pune",
+   "category": "Government Medical College",
+   "entrance": "NEET-UG + AFMC Test",
+   "website": "afmc.nic.in"
+  },
+  {
+   "rank": 11,
+   "name": "Military College of Telecommunication Engineering, Mhow",
+   "category": "Government Institute",
+   "entrance": "Service Entry",
+   "website": "indianarmy.nic.in"
+  },
+  {
+   "rank": 12,
+   "name": "College of Military Engineering, Pune",
+   "category": "Government Institute",
+   "entrance": "Service Entry",
+   "website": "indianarmy.nic.in"
+  },
+  {
+   "rank": 13,
+   "name": "Defence Institute of Advanced Technology (DIAT), Pune",
+   "category": "Deemed University",
+   "entrance": "GATE / DIAT Test",
+   "website": "diat.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Rashtriya Raksha University, Gandhinagar",
+   "category": "Institute of National Importance",
+   "entrance": "RRU Entrance",
+   "website": "rru.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "National Forensic Sciences University, Gandhinagar",
+   "category": "Institute of National Importance",
+   "entrance": "NFSU CUET",
+   "website": "nfsu.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Army Institute of Technology, Pune",
+   "category": "Private Institute (Army Welfare)",
+   "entrance": "JEE Main",
+   "website": "aitpune.com"
+  }
+ ]
+}

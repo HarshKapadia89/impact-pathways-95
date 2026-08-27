@@ -1,0 +1,203 @@
+{
+ "stream": "Merchant Navy and Marine",
+ "professions": [
+  "Deck Cadet",
+  "Third Officer",
+  "Second Officer",
+  "Chief Officer",
+  "Ship Captain / Master Mariner",
+  "Marine Engineer",
+  "Fourth Engineer",
+  "Second Engineer",
+  "Chief Engineer",
+  "Electro-Technical Officer",
+  "Naval Architect",
+  "Ship Designer",
+  "Port Operations Manager",
+  "Harbour Pilot",
+  "Marine Surveyor",
+  "Ship Broker",
+  "Marine Insurance Surveyor",
+  "Maritime Lawyer",
+  "Dredging Engineer",
+  "Offshore Drilling Engineer",
+  "Marine Logistics Manager",
+  "Bunker Trader",
+  "Marine Safety and Compliance Officer",
+  "Cruise Ship Operations Executive",
+  "Maritime Trainer",
+  "Oceanographic Survey Officer"
+ ],
+ "exams": [
+  {
+   "code": "IMU-CET",
+   "fullName": "Indian Maritime University Common Entrance Test",
+   "purpose": "B.Tech Marine Engineering, B.Sc Nautical Science, DNS at IMU campuses.",
+   "website": "imu.edu.in"
+  },
+  {
+   "code": "JEE Main",
+   "fullName": "Joint Entrance Examination (Main)",
+   "purpose": "B.Tech Naval Architecture and Ocean Engineering.",
+   "website": "jeemain.nta.nic.in"
+  },
+  {
+   "code": "GATE NA",
+   "fullName": "GATE — Naval Architecture and Marine Engineering",
+   "purpose": "M.Tech and PSU recruitment in marine domains.",
+   "website": "gate.iitkgp.ac.in"
+  },
+  {
+   "code": "DGS Sponsorship Tests",
+   "fullName": "Directorate General of Shipping Approved Company Tests",
+   "purpose": "Shipping-company sponsored cadet entry.",
+   "website": "dgshipping.gov.in"
+  },
+  {
+   "code": "INET",
+   "fullName": "Indian Navy Entrance Test",
+   "purpose": "Officer entry into the Indian Navy.",
+   "website": "joinindiannavy.gov.in"
+  },
+  {
+   "code": "Merchant Navy TMISAT",
+   "fullName": "Tolani Maritime Institute Scholastic Aptitude Test",
+   "purpose": "Marine engineering and nautical technology admission.",
+   "website": "tolani.edu"
+  },
+  {
+   "code": "AMET Entrance",
+   "fullName": "Academy of Maritime Education and Training Entrance",
+   "purpose": "UG maritime programmes.",
+   "website": "ametuniv.ac.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Maritime University (IMU), Chennai",
+   "category": "Central University",
+   "entrance": "IMU-CET",
+   "website": "imu.edu.in"
+  },
+  {
+   "rank": 2,
+   "name": "IMU Kolkata Campus (Marine Engineering and Research Institute)",
+   "category": "Central University",
+   "entrance": "IMU-CET",
+   "website": "imu.edu.in"
+  },
+  {
+   "rank": 3,
+   "name": "IMU Mumbai Port Campus",
+   "category": "Central University",
+   "entrance": "IMU-CET",
+   "website": "imu.edu.in"
+  },
+  {
+   "rank": 4,
+   "name": "Tolani Maritime Institute, Pune",
+   "category": "Private Institute",
+   "entrance": "IMU-CET / TMISAT",
+   "website": "tolani.edu"
+  },
+  {
+   "rank": 5,
+   "name": "Training Ship Chanakya, Navi Mumbai",
+   "category": "Government Institute",
+   "entrance": "IMU-CET",
+   "website": "imu.edu.in"
+  },
+  {
+   "rank": 6,
+   "name": "Academy of Maritime Education and Training (AMET), Chennai",
+   "category": "Deemed University",
+   "entrance": "AMET Entrance",
+   "website": "ametuniv.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Indian Institute of Technology (IIT), Madras — Ocean Engineering",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "doe.iitm.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Indian Institute of Technology (IIT), Kharagpur — Ocean Engineering and Naval Architecture",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "iitkgp.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Cochin University of Science and Technology (CUSAT)",
+   "category": "State University",
+   "entrance": "CUSAT CAT",
+   "website": "cusat.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Coimbatore Marine College",
+   "category": "Private Institute",
+   "entrance": "IMU-CET",
+   "website": "coimbatoremarinecollege.com"
+  },
+  {
+   "rank": 11,
+   "name": "Maharashtra Academy of Naval Education and Training (MANET), Pune",
+   "category": "Private Institute",
+   "entrance": "IMU-CET",
+   "website": "manetpune.edu.in"
+  },
+  {
+   "rank": 12,
+   "name": "Great Eastern Institute of Maritime Studies, Lonavala",
+   "category": "Company Institute",
+   "entrance": "GEIMS Test",
+   "website": "geims.edu.in"
+  },
+  {
+   "rank": 13,
+   "name": "Anglo Eastern Maritime Academy, Karjat",
+   "category": "Company Institute",
+   "entrance": "Company Sponsorship",
+   "website": "angloeasterngroup.com"
+  },
+  {
+   "rank": 14,
+   "name": "Samundra Institute of Maritime Studies, Lonavala",
+   "category": "Company Institute",
+   "entrance": "Company Sponsorship",
+   "website": "simsindia.edu.in"
+  },
+  {
+   "rank": 15,
+   "name": "Vels University — School of Maritime Studies, Chennai",
+   "category": "Private University",
+   "entrance": "IMU-CET",
+   "website": "velsuniv.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Indian Institute of Port Management, Kolkata",
+   "category": "Government Institute",
+   "entrance": "Institute Test",
+   "website": "iipmkolkata.com"
+  },
+  {
+   "rank": 17,
+   "name": "National Institute of Technology (NIT), Surathkal — Applied Mechanics",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Main",
+   "website": "nitk.ac.in"
+  },
+  {
+   "rank": 18,
+   "name": "Andhra University College of Engineering — Marine Engineering",
+   "category": "State University",
+   "entrance": "AP EAPCET",
+   "website": "andhrauniversity.edu.in"
+  }
+ ]
+}

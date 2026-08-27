@@ -1,0 +1,203 @@
+{
+ "stream": "Allied Medicine",
+ "professions": [
+  "Radiographer",
+  "Radiology Technologist",
+  "Medical Laboratory Technologist",
+  "Operation Theatre Technologist",
+  "Anaesthesia Technologist",
+  "Dialysis Technologist",
+  "Cardiac Care Technologist",
+  "Perfusionist",
+  "Respiratory Therapist",
+  "Emergency Medical Technician",
+  "Optometrist",
+  "Audiologist",
+  "Speech Language Pathologist",
+  "Physiotherapist",
+  "Occupational Therapist",
+  "Prosthetics and Orthotics Specialist",
+  "Clinical Nutritionist",
+  "Dietitian",
+  "Nursing Officer",
+  "Critical Care Nurse",
+  "Medical Records Officer",
+  "Hospital Administrator",
+  "Clinical Research Coordinator",
+  "Pharmacovigilance Associate",
+  "Genetic Counsellor",
+  "Medical Imaging Applications Specialist"
+ ],
+ "exams": [
+  {
+   "code": "NEET-UG",
+   "fullName": "National Eligibility cum Entrance Test (UG)",
+   "purpose": "Several allied health UG programmes in medical colleges.",
+   "website": "neet.nta.nic.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc Allied Health Sciences at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "AIIMS Paramedical",
+   "fullName": "AIIMS B.Sc Paramedical Entrance",
+   "purpose": "B.Sc allied health courses at AIIMS.",
+   "website": "aiimsexams.ac.in"
+  },
+  {
+   "code": "JIPMER Allied Health",
+   "fullName": "JIPMER Allied Health Sciences Entrance",
+   "purpose": "B.Sc allied health at JIPMER.",
+   "website": "jipmer.edu.in"
+  },
+  {
+   "code": "PGIMER Entrance",
+   "fullName": "PGIMER Paramedical Entrance",
+   "purpose": "Allied health programmes at PGIMER Chandigarh.",
+   "website": "pgimer.edu.in"
+  },
+  {
+   "code": "State Paramedical CET",
+   "fullName": "State Paramedical Common Entrance Test",
+   "purpose": "State-quota allied health seats.",
+   "website": "gujacpc.admissions.nic.in"
+  },
+  {
+   "code": "IPU CET",
+   "fullName": "Guru Gobind Singh Indraprastha University CET",
+   "purpose": "Paramedical and allied health programmes.",
+   "website": "ipu.ac.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "All India Institute of Medical Sciences (AIIMS), New Delhi",
+   "category": "Institute of National Importance",
+   "entrance": "AIIMS Paramedical",
+   "website": "aiims.edu"
+  },
+  {
+   "rank": 2,
+   "name": "Post Graduate Institute of Medical Education and Research (PGIMER), Chandigarh",
+   "category": "Institute of National Importance",
+   "entrance": "PGIMER Entrance",
+   "website": "pgimer.edu.in"
+  },
+  {
+   "rank": 3,
+   "name": "Christian Medical College (CMC), Vellore",
+   "category": "Deemed University",
+   "entrance": "CMC Entrance",
+   "website": "cmch-vellore.edu"
+  },
+  {
+   "rank": 4,
+   "name": "JIPMER, Puducherry",
+   "category": "Institute of National Importance",
+   "entrance": "JIPMER Entrance",
+   "website": "jipmer.edu.in"
+  },
+  {
+   "rank": 5,
+   "name": "Sanjay Gandhi Postgraduate Institute of Medical Sciences, Lucknow",
+   "category": "Institute of National Importance",
+   "entrance": "SGPGI Entrance",
+   "website": "sgpgi.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "Manipal College of Health Professions, Manipal",
+   "category": "Deemed University",
+   "entrance": "MET",
+   "website": "manipal.edu"
+  },
+  {
+   "rank": 7,
+   "name": "Kasturba Medical College, Mangalore — Allied Health",
+   "category": "Deemed University",
+   "entrance": "MET",
+   "website": "manipal.edu"
+  },
+  {
+   "rank": 8,
+   "name": "SRM Institute of Science and Technology — Allied Health",
+   "category": "Private University",
+   "entrance": "SRMJEEE",
+   "website": "srmist.edu.in"
+  },
+  {
+   "rank": 9,
+   "name": "Amity Institute of Health Allied Sciences, Noida",
+   "category": "Private University",
+   "entrance": "Amity JEE",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 10,
+   "name": "Elite School of Optometry, Chennai",
+   "category": "Affiliated Institute",
+   "entrance": "Institute Test",
+   "website": "elite-eso.org"
+  },
+  {
+   "rank": 11,
+   "name": "All India Institute of Speech and Hearing (AIISH), Mysuru",
+   "category": "Government Institute",
+   "entrance": "AIISH Entrance",
+   "website": "aiishmysore.in"
+  },
+  {
+   "rank": 12,
+   "name": "Ali Yavar Jung National Institute of Speech and Hearing Disabilities, Mumbai",
+   "category": "Government Institute",
+   "entrance": "AYJNISHD Test",
+   "website": "ayjnihh.nic.in"
+  },
+  {
+   "rank": 13,
+   "name": "National Institute for Locomotor Disabilities, Kolkata",
+   "category": "Government Institute",
+   "entrance": "NILD Test",
+   "website": "niohkol.nic.in"
+  },
+  {
+   "rank": 14,
+   "name": "Institute of Liver and Biliary Sciences, New Delhi",
+   "category": "Government Institute",
+   "entrance": "ILBS Entrance",
+   "website": "ilbs.in"
+  },
+  {
+   "rank": 15,
+   "name": "B. J. Medical College, Ahmedabad — Paramedical",
+   "category": "Government College",
+   "entrance": "State CET",
+   "website": "bjmcabd.edu.in"
+  },
+  {
+   "rank": 16,
+   "name": "Gujarat University — Faculty of Medicine (Allied)",
+   "category": "State University",
+   "entrance": "State CET",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "Nizam's Institute of Medical Sciences, Hyderabad",
+   "category": "State Institute",
+   "entrance": "NIMS Entrance",
+   "website": "nims.edu.in"
+  },
+  {
+   "rank": 18,
+   "name": "Sri Ramachandra Institute of Higher Education and Research, Chennai",
+   "category": "Deemed University",
+   "entrance": "SRIHER Entrance",
+   "website": "sriramachandra.edu.in"
+  }
+ ]
+}

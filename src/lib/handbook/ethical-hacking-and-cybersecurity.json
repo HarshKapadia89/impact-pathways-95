@@ -1,0 +1,223 @@
+{
+ "stream": "Ethical Hacking and Cybersecurity",
+ "professions": [
+  "Ethical Hacker",
+  "Penetration Tester",
+  "Bug Bounty Hunter",
+  "Red Team Operator",
+  "Blue Team Analyst",
+  "Security Operations Centre (SOC) Analyst",
+  "Threat Intelligence Analyst",
+  "Malware Analyst",
+  "Digital Forensics Investigator",
+  "Incident Response Specialist",
+  "Cyber Crime Investigator",
+  "Application Security Engineer",
+  "Cloud Security Engineer",
+  "Network Security Engineer",
+  "Security Architect",
+  "Cryptographer",
+  "Governance, Risk and Compliance (GRC) Analyst",
+  "Information Security Auditor",
+  "Vulnerability Assessment Analyst",
+  "Identity and Access Management Specialist",
+  "OT / SCADA Security Specialist",
+  "Mobile Security Researcher",
+  "DevSecOps Engineer",
+  "Chief Information Security Officer (CISO)",
+  "Cyber Law Consultant",
+  "Security Awareness Trainer"
+ ],
+ "exams": [
+  {
+   "code": "JEE Main",
+   "fullName": "Joint Entrance Examination (Main)",
+   "purpose": "B.Tech in Computer Science / Cyber Security at NITs, IIITs and state colleges.",
+   "website": "jeemain.nta.nic.in"
+  },
+  {
+   "code": "JEE Advanced",
+   "fullName": "Joint Entrance Examination (Advanced)",
+   "purpose": "B.Tech Computer Science and allied branches at the IITs.",
+   "website": "jeeadv.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc / B.C.A in Cyber Security and Digital Forensics at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "GATE CS",
+   "fullName": "Graduate Aptitude Test in Engineering — Computer Science",
+   "purpose": "M.Tech in Information Security and research admissions.",
+   "website": "gate.iitkgp.ac.in"
+  },
+  {
+   "code": "NIMCET",
+   "fullName": "NIT MCA Common Entrance Test",
+   "purpose": "MCA with security electives at participating NITs.",
+   "website": "nimcet.in"
+  },
+  {
+   "code": "CEH",
+   "fullName": "Certified Ethical Hacker",
+   "purpose": "Industry certification for penetration testing roles.",
+   "website": "eccouncil.org"
+  },
+  {
+   "code": "OSCP",
+   "fullName": "Offensive Security Certified Professional",
+   "purpose": "Hands-on offensive security certification valued by red teams.",
+   "website": "offsec.com"
+  },
+  {
+   "code": "CISSP",
+   "fullName": "Certified Information Systems Security Professional",
+   "purpose": "Senior-level security management certification.",
+   "website": "isc2.org"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Technology (IIT), Kanpur — C3i Centre",
+   "category": "Institutes of National Importance",
+   "entrance": "JEE Advanced / GATE",
+   "website": "iitk.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Indian Institute of Technology (IIT), Madras",
+   "category": "Institutes of National Importance",
+   "entrance": "JEE Advanced / GATE",
+   "website": "iitm.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Indian Institute of Technology (IIT), Bombay",
+   "category": "Institutes of National Importance",
+   "entrance": "JEE Advanced / GATE",
+   "website": "iitb.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indian Institute of Technology (IIT), Delhi",
+   "category": "Institutes of National Importance",
+   "entrance": "JEE Advanced / GATE",
+   "website": "home.iitd.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Indian Institute of Information Technology (IIIT), Allahabad",
+   "category": "IIITs",
+   "entrance": "JEE Main",
+   "website": "iiita.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "IIIT Hyderabad — Centre for Security, Theory and Algorithms",
+   "category": "IIITs",
+   "entrance": "UGEE / JEE Main",
+   "website": "iiit.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "National Forensic Sciences University (NFSU), Gandhinagar",
+   "category": "Central University",
+   "entrance": "NFSU CUET",
+   "website": "nfsu.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Sardar Patel University of Police, Security and Criminal Justice, Jodhpur",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "policeuniversity.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Rashtriya Raksha University, Gandhinagar",
+   "category": "Institute of National Importance",
+   "entrance": "RRU Entrance",
+   "website": "rru.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Amity Institute of Information Technology, Noida",
+   "category": "Private University",
+   "entrance": "Amity JEE",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 11,
+   "name": "VIT Vellore — School of Computer Science and Engineering",
+   "category": "Private University",
+   "entrance": "VITEEE",
+   "website": "vit.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "SRM Institute of Science and Technology, Chennai",
+   "category": "Private University",
+   "entrance": "SRMJEEE",
+   "website": "srmist.edu.in"
+  },
+  {
+   "rank": 13,
+   "name": "Manipal Institute of Technology, Manipal",
+   "category": "Private University",
+   "entrance": "MET",
+   "website": "manipal.edu"
+  },
+  {
+   "rank": 14,
+   "name": "Symbiosis Institute of Technology, Pune",
+   "category": "Private University",
+   "entrance": "SET",
+   "website": "sitpune.edu.in"
+  },
+  {
+   "rank": 15,
+   "name": "Institute of Informatics and Communication, University of Delhi",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "iic.du.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Jawaharlal Nehru University — School of Computer and Systems Sciences",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "Anna University, Chennai",
+   "category": "State University",
+   "entrance": "TNEA",
+   "website": "annauniv.edu"
+  },
+  {
+   "rank": 18,
+   "name": "Gujarat Technological University, Ahmedabad",
+   "category": "State University",
+   "entrance": "GUJCET / ACPC",
+   "website": "gtu.ac.in"
+  },
+  {
+   "rank": 19,
+   "name": "Nirma University, Ahmedabad",
+   "category": "Private University",
+   "entrance": "JEE Main",
+   "website": "nirmauni.ac.in"
+  },
+  {
+   "rank": 20,
+   "name": "C-DAC Advanced Computing Training School",
+   "category": "Government Training Institute",
+   "entrance": "C-CAT",
+   "website": "cdac.in"
+  }
+ ]
+}

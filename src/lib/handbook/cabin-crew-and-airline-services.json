@@ -1,0 +1,179 @@
+{
+ "stream": "Cabin Crew and Airline Services",
+ "professions": [
+  "Cabin Crew / Flight Attendant",
+  "Senior Cabin Crew",
+  "Cabin Crew Trainer",
+  "In-Flight Services Manager",
+  "Airport Customer Service Agent",
+  "Check-in Executive",
+  "Boarding Gate Executive",
+  "Ground Handling Supervisor",
+  "Baggage Services Executive",
+  "Airline Reservation and Ticketing Agent",
+  "Airport Lounge Manager",
+  "Airline Sales Executive",
+  "Cargo Handling Executive",
+  "Aviation Security Screener",
+  "Duty Manager (Airport)",
+  "Ramp Coordinator",
+  "Passenger Experience Executive",
+  "Airline Grooming and Etiquette Trainer",
+  "Travel Consultant",
+  "Corporate Travel Executive",
+  "Private Jet Cabin Attendant",
+  "Cruise Hospitality Executive"
+ ],
+ "exams": [
+  {
+   "code": "Airline Cabin Crew Recruitment",
+   "fullName": "Airline Walk-in and Assessment Rounds",
+   "purpose": "Direct recruitment by Indian and Gulf carriers.",
+   "website": "careers.airindia.com"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BBA / B.Sc in Aviation Management and Airline Services.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IATA Cabin Crew Certification",
+   "fullName": "IATA Cabin Crew Training Programme",
+   "purpose": "Globally recognised cabin crew credential.",
+   "website": "iata.org"
+  },
+  {
+   "code": "AAI Junior Executive",
+   "fullName": "Airports Authority of India Recruitment",
+   "purpose": "Airport operations and customer service roles.",
+   "website": "aai.aero"
+  },
+  {
+   "code": "Frankfinn / Institute Aptitude Test",
+   "fullName": "Aviation Institute Aptitude Test",
+   "purpose": "Diploma in cabin crew and hospitality.",
+   "website": "frankfinn.com"
+  },
+  {
+   "code": "NCHMCT JEE",
+   "fullName": "National Council for Hotel Management JEE",
+   "purpose": "Hospitality base for in-flight service careers.",
+   "website": "nchmjee.nta.nic.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indira Gandhi Rashtriya Uran Akademi (IGRUA), Amethi",
+   "category": "Government Academy",
+   "entrance": "IGRUA Selection",
+   "website": "igrua.gov.in"
+  },
+  {
+   "rank": 2,
+   "name": "Frankfinn Institute of Air Hostess Training (national network)",
+   "category": "Private Institute",
+   "entrance": "Institute Aptitude Test",
+   "website": "frankfinn.com"
+  },
+  {
+   "rank": 3,
+   "name": "Air Hostess Academy (AHA), Delhi",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "ahaworld.com"
+  },
+  {
+   "rank": 4,
+   "name": "Universal Aviation Academy, Chennai",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "universalaviation.in"
+  },
+  {
+   "rank": 5,
+   "name": "Rajiv Gandhi Memorial College of Aeronautics, Jaipur",
+   "category": "Private College",
+   "entrance": "Institute Test",
+   "website": "rgmca.com"
+  },
+  {
+   "rank": 6,
+   "name": "Amity School of Hospitality, Noida — Aviation Management",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 7,
+   "name": "Christ University, Bengaluru — Tourism and Aviation",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 8,
+   "name": "Institute of Hotel Management, Pusa, New Delhi",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmpusa.net"
+  },
+  {
+   "rank": 9,
+   "name": "Institute of Hotel Management, Ahmedabad",
+   "category": "Government Institute",
+   "entrance": "NCHMCT JEE",
+   "website": "ihmahmedabad.com"
+  },
+  {
+   "rank": 10,
+   "name": "Jain University, Bengaluru — Aviation Management",
+   "category": "Deemed University",
+   "entrance": "University Test",
+   "website": "jainuniversity.ac.in"
+  },
+  {
+   "rank": 11,
+   "name": "Chandigarh University — Airlines and Airport Management",
+   "category": "Private University",
+   "entrance": "CUCET",
+   "website": "cuchd.in"
+  },
+  {
+   "rank": 12,
+   "name": "Lovely Professional University — Aviation",
+   "category": "Private University",
+   "entrance": "LPUNEST",
+   "website": "lpu.in"
+  },
+  {
+   "rank": 13,
+   "name": "Rashtriya Raksha University — Aviation Services",
+   "category": "Institute of National Importance",
+   "entrance": "RRU Entrance",
+   "website": "rru.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Garware Institute of Career Education, University of Mumbai",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "mu.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Wingsss College of Aviation Technology, Pune",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "wingsss.com"
+  },
+  {
+   "rank": 16,
+   "name": "Avlon Shiksha Niketan, Kolkata",
+   "category": "Private Institute",
+   "entrance": "Institute Test",
+   "website": "avlon.in"
+  }
+ ]
+}

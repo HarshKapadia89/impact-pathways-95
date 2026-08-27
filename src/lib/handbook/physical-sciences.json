@@ -1,0 +1,209 @@
+{
+ "stream": "Physical Sciences",
+ "professions": [
+  "Physicist",
+  "Astrophysicist",
+  "Cosmologist",
+  "Nuclear Physicist",
+  "Particle Physicist",
+  "Condensed Matter Physicist",
+  "Quantum Computing Researcher",
+  "Optical Scientist",
+  "Materials Scientist",
+  "Nanotechnologist",
+  "Chemist",
+  "Analytical Chemist",
+  "Organic Chemistry Researcher",
+  "Physical Chemist",
+  "Polymer Scientist",
+  "Spectroscopy Specialist",
+  "Radiation Safety Officer",
+  "Medical Physicist",
+  "Meteorologist",
+  "Space Scientist",
+  "Instrumentation Scientist",
+  "Laboratory Manager",
+  "Science Communicator",
+  "Patent Analyst (Physical Sciences)",
+  "Research and Development Scientist",
+  "Physics Educator"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc Physics / Chemistry at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IISER Aptitude Test",
+   "fullName": "IISER Aptitude Test",
+   "purpose": "BS-MS dual degree in physical sciences.",
+   "website": "iiseradmission.in"
+  },
+  {
+   "code": "NEST",
+   "fullName": "National Entrance Screening Test",
+   "purpose": "Integrated M.Sc at NISER and CEBS Mumbai.",
+   "website": "nestexam.in"
+  },
+  {
+   "code": "IIT JAM",
+   "fullName": "Joint Admission Test for Masters",
+   "purpose": "M.Sc Physics / Chemistry at IITs and IISc.",
+   "website": "jam.iitm.ac.in"
+  },
+  {
+   "code": "JEST",
+   "fullName": "Joint Entrance Screening Test",
+   "purpose": "PhD and integrated PhD in physics and theoretical computer science.",
+   "website": "jest.org.in"
+  },
+  {
+   "code": "CSIR-UGC NET",
+   "fullName": "CSIR-UGC National Eligibility Test",
+   "purpose": "Junior Research Fellowship and lectureship in physical sciences.",
+   "website": "csirnet.nta.nic.in"
+  },
+  {
+   "code": "GATE PH / CY",
+   "fullName": "Graduate Aptitude Test in Engineering — Physics / Chemistry",
+   "purpose": "M.Tech, research and PSU entry.",
+   "website": "gate.iitkgp.ac.in"
+  },
+  {
+   "code": "TIFR GS",
+   "fullName": "TIFR Graduate School Admissions",
+   "purpose": "PhD in physics and chemistry at TIFR centres.",
+   "website": "univ.tifr.res.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Science (IISc), Bengaluru",
+   "category": "Institute of National Importance",
+   "entrance": "KVPY / JEE Advanced / GATE",
+   "website": "iisc.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Tata Institute of Fundamental Research (TIFR), Mumbai",
+   "category": "Deemed University",
+   "entrance": "TIFR GS",
+   "website": "tifr.res.in"
+  },
+  {
+   "rank": 3,
+   "name": "IISER Pune",
+   "category": "Institute of National Importance",
+   "entrance": "IISER Aptitude Test",
+   "website": "iiserpune.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "IISER Kolkata",
+   "category": "Institute of National Importance",
+   "entrance": "IISER Aptitude Test",
+   "website": "iiserkol.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "IISER Mohali",
+   "category": "Institute of National Importance",
+   "entrance": "IISER Aptitude Test",
+   "website": "iisermohali.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "National Institute of Science Education and Research (NISER), Bhubaneswar",
+   "category": "Institute of National Importance",
+   "entrance": "NEST",
+   "website": "niser.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "St. Stephen's College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "ststephens.edu"
+  },
+  {
+   "rank": 8,
+   "name": "Hindu College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "hinducollege.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Miranda House, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "mirandahouse.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "St. Xavier's College, Mumbai",
+   "category": "Autonomous College",
+   "entrance": "Merit / College Test",
+   "website": "xaviers.edu"
+  },
+  {
+   "rank": 11,
+   "name": "Loyola College, Chennai",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "loyolacollege.edu"
+  },
+  {
+   "rank": 12,
+   "name": "Fergusson College, Pune",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "fergusson.edu"
+  },
+  {
+   "rank": 13,
+   "name": "Presidency University, Kolkata",
+   "category": "State University",
+   "entrance": "PUBDET / CUET",
+   "website": "presiuniv.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Indian Institute of Technology (IIT), Kanpur — Physics",
+   "category": "Institute of National Importance",
+   "entrance": "IIT JAM",
+   "website": "iitk.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Jawaharlal Nehru University — School of Physical Sciences",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Banaras Hindu University — Department of Physics",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "University of Hyderabad — School of Physics",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "uohyd.ac.in"
+  },
+  {
+   "rank": 18,
+   "name": "Sardar Vallabhbhai National Institute of Technology, Surat",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Main / IIT JAM",
+   "website": "svnit.ac.in"
+  }
+ ]
+}

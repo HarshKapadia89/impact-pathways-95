@@ -1,0 +1,189 @@
+{
+ "stream": "Geography and Earth Sciences",
+ "professions": [
+  "Geographer",
+  "Geologist",
+  "Geophysicist",
+  "Hydrogeologist",
+  "Seismologist",
+  "Volcanologist",
+  "Palaeontologist",
+  "Mineralogist",
+  "Petroleum Geologist",
+  "Mining Geologist",
+  "Soil Scientist",
+  "Glaciologist",
+  "Oceanographer",
+  "Meteorologist",
+  "Climate Scientist",
+  "GIS Analyst",
+  "Remote Sensing Specialist",
+  "Cartographer",
+  "Urban and Regional Planner",
+  "Land Surveyor",
+  "Geospatial Data Scientist",
+  "Disaster Risk Analyst",
+  "Environmental Geologist",
+  "Geotechnical Engineer",
+  "Geography Educator",
+  "Groundwater Consultant"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BA / B.Sc Geography and Geology.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IIT JAM (GG)",
+   "fullName": "Joint Admission Test for Masters — Geology",
+   "purpose": "M.Sc / M.Tech Geology and Applied Geology.",
+   "website": "jam.iitm.ac.in"
+  },
+  {
+   "code": "GATE (GG)",
+   "fullName": "Graduate Aptitude Test in Engineering — Geology and Geophysics",
+   "purpose": "PG and GSI/ONGC recruitment.",
+   "website": "gate.iitkgp.ac.in"
+  },
+  {
+   "code": "UPSC Geo-Scientist",
+   "fullName": "Combined Geo-Scientist Examination",
+   "purpose": "Geologist and Scientist posts in GSI and CGWB.",
+   "website": "upsc.gov.in"
+  },
+  {
+   "code": "CSIR-UGC NET (Earth Sciences)",
+   "fullName": "CSIR-UGC National Eligibility Test",
+   "purpose": "JRF and lectureship in earth sciences.",
+   "website": "csirnet.nta.nic.in"
+  },
+  {
+   "code": "IIRS / ISRO Programmes",
+   "fullName": "Indian Institute of Remote Sensing Admission",
+   "purpose": "PG diploma and M.Tech in geoinformatics.",
+   "website": "iirs.gov.in"
+  },
+  {
+   "code": "UGC NET (Geography)",
+   "fullName": "UGC National Eligibility Test",
+   "purpose": "Lectureship and JRF in geography.",
+   "website": "ugcnet.nta.nic.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Technology (IIT), Kharagpur — Geology and Geophysics",
+   "category": "Institute of National Importance",
+   "entrance": "JAM / GATE",
+   "website": "iitkgp.ac.in"
+  },
+  {
+   "rank": 2,
+   "name": "Indian Institute of Technology (IIT), Bombay — Earth Sciences",
+   "category": "Institute of National Importance",
+   "entrance": "JAM / GATE",
+   "website": "iitb.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "Indian Institute of Technology (IIT), Roorkee — Earth Sciences",
+   "category": "Institute of National Importance",
+   "entrance": "JAM / GATE",
+   "website": "iitr.ac.in"
+  },
+  {
+   "rank": 4,
+   "name": "Indian School of Mines (IIT ISM), Dhanbad",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced / JAM",
+   "website": "iitism.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Indian Institute of Remote Sensing (IIRS), Dehradun",
+   "category": "ISRO Institute",
+   "entrance": "IIRS Admission",
+   "website": "iirs.gov.in"
+  },
+  {
+   "rank": 6,
+   "name": "Wadia Institute of Himalayan Geology, Dehradun",
+   "category": "Research Institute",
+   "entrance": "CSIR NET / Institute Test",
+   "website": "wihg.res.in"
+  },
+  {
+   "rank": 7,
+   "name": "National Geophysical Research Institute, Hyderabad",
+   "category": "CSIR Laboratory",
+   "entrance": "CSIR NET",
+   "website": "ngri.res.in"
+  },
+  {
+   "rank": 8,
+   "name": "University of Delhi — Department of Geology",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 9,
+   "name": "Banaras Hindu University — Department of Geology",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "bhu.ac.in"
+  },
+  {
+   "rank": 10,
+   "name": "Jawaharlal Nehru University — Centre for the Study of Regional Development",
+   "category": "Central University",
+   "entrance": "CUET-PG",
+   "website": "jnu.ac.in"
+  },
+  {
+   "rank": 11,
+   "name": "University of Madras — Department of Geography",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "unom.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Maharaja Sayajirao University of Baroda — Department of Geology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 13,
+   "name": "Savitribai Phule Pune University — Department of Geography",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "unipune.ac.in"
+  },
+  {
+   "rank": 14,
+   "name": "Aligarh Muslim University — Department of Geography",
+   "category": "Central University",
+   "entrance": "AMU Entrance",
+   "website": "amu.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Presidency University, Kolkata — Geology",
+   "category": "State University",
+   "entrance": "CUET",
+   "website": "presiuniv.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Osmania University, Hyderabad — Department of Geology",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "osmania.ac.in"
+  }
+ ]
+}

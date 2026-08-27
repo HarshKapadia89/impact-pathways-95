@@ -1,0 +1,201 @@
+{
+ "stream": "Nutrition, Fitness and Wellness",
+ "professions": [
+  "Clinical Dietitian",
+  "Sports Nutritionist",
+  "Public Health Nutritionist",
+  "Food Scientist",
+  "Nutrition Researcher",
+  "Weight Management Consultant",
+  "Paediatric Nutritionist",
+  "Personal Fitness Trainer",
+  "Strength and Conditioning Coach",
+  "Group Fitness Instructor",
+  "Yoga Instructor",
+  "Yoga Therapist",
+  "Pilates Instructor",
+  "Exercise Physiologist",
+  "Sports Physiotherapist",
+  "Wellness Coach",
+  "Corporate Wellness Consultant",
+  "Spa and Wellness Manager",
+  "Ayurveda Wellness Consultant",
+  "Naturopathy Practitioner",
+  "Mental Wellness Facilitator",
+  "Fitness Content Creator",
+  "Gym Operations Manager",
+  "Community Health Worker"
+ ],
+ "exams": [
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc Nutrition, Food Science and Dietetics.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "NEET-UG",
+   "fullName": "National Eligibility cum Entrance Test (UG)",
+   "purpose": "BNYS (Naturopathy and Yogic Sciences) and BAMS.",
+   "website": "neet.nta.nic.in"
+  },
+  {
+   "code": "RD Exam",
+   "fullName": "Registered Dietitian Examination (IDA)",
+   "purpose": "Licence to practise as a Registered Dietitian in India.",
+   "website": "idaindia.com"
+  },
+  {
+   "code": "SAI NSNIS Diploma",
+   "fullName": "Sports Authority of India NSNIS Diploma Entrance",
+   "purpose": "Diploma in sports coaching and conditioning.",
+   "website": "nsnis.org"
+  },
+  {
+   "code": "ACSM / NSCA Certification",
+   "fullName": "International Fitness Certifications",
+   "purpose": "Globally recognised trainer certification.",
+   "website": "acsm.org"
+  },
+  {
+   "code": "Yoga Certification Board Exam",
+   "fullName": "Yoga Certification Board (Ministry of Ayush)",
+   "purpose": "Certified yoga instructor and therapist levels.",
+   "website": "yogacertificationboard.nic.in"
+  },
+  {
+   "code": "ICAR AIEEA",
+   "fullName": "ICAR All India Entrance Examination",
+   "purpose": "Food and nutrition programmes in agricultural universities.",
+   "website": "icar.org.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Lady Irwin College, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "ladyirwin.edu.in"
+  },
+  {
+   "rank": 2,
+   "name": "Institute of Home Economics, University of Delhi",
+   "category": "Central University College",
+   "entrance": "CUET-UG",
+   "website": "ihe.du.ac.in"
+  },
+  {
+   "rank": 3,
+   "name": "National Institute of Nutrition (ICMR), Hyderabad",
+   "category": "Research Institute",
+   "entrance": "ICMR Selection",
+   "website": "nin.res.in"
+  },
+  {
+   "rank": 4,
+   "name": "SNDT Women's University, Mumbai",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "sndt.ac.in"
+  },
+  {
+   "rank": 5,
+   "name": "Sir Vithaldas Thackersey College of Home Science, Mumbai",
+   "category": "Affiliated College",
+   "entrance": "Merit",
+   "website": "svt.edu.in"
+  },
+  {
+   "rank": 6,
+   "name": "Avinashilingam Institute for Home Science, Coimbatore",
+   "category": "Deemed University",
+   "entrance": "Institute Test",
+   "website": "avinuty.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "Maharaja Sayajirao University of Baroda — Faculty of Family and Community Sciences",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "msubaroda.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Amity Institute of Food Technology, Noida",
+   "category": "Private University",
+   "entrance": "Amity JEE",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 9,
+   "name": "Manipal Academy of Higher Education — Nutrition",
+   "category": "Deemed University",
+   "entrance": "MET",
+   "website": "manipal.edu"
+  },
+  {
+   "rank": 10,
+   "name": "Netaji Subhas National Institute of Sports (NSNIS), Patiala",
+   "category": "Government Institute",
+   "entrance": "NSNIS Entrance",
+   "website": "nsnis.org"
+  },
+  {
+   "rank": 11,
+   "name": "Lakshmibai National Institute of Physical Education (LNIPE), Gwalior",
+   "category": "Deemed University",
+   "entrance": "LNIPE Entrance",
+   "website": "lnipe.edu.in"
+  },
+  {
+   "rank": 12,
+   "name": "Morarji Desai National Institute of Yoga, New Delhi",
+   "category": "Government Institute",
+   "entrance": "MDNIY Test",
+   "website": "yogamdniy.nic.in"
+  },
+  {
+   "rank": 13,
+   "name": "Kaivalyadhama Yoga Institute, Lonavala",
+   "category": "Autonomous Institute",
+   "entrance": "Institute Test",
+   "website": "kdham.com"
+  },
+  {
+   "rank": 14,
+   "name": "S-VYASA Yoga University, Bengaluru",
+   "category": "Deemed University",
+   "entrance": "SVYASA Test",
+   "website": "svyasa.edu.in"
+  },
+  {
+   "rank": 15,
+   "name": "Gujarat Ayurved University, Jamnagar",
+   "category": "State University",
+   "entrance": "NEET / University Test",
+   "website": "ayurveduniversity.edu.in"
+  },
+  {
+   "rank": 16,
+   "name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
+   "category": "Institute of National Importance",
+   "entrance": "NIFTEM Entrance",
+   "website": "niftem.ac.in"
+  },
+  {
+   "rank": 17,
+   "name": "Symbiosis School of Sports Sciences, Pune",
+   "category": "Private University",
+   "entrance": "SET",
+   "website": "sssspune.edu.in"
+  },
+  {
+   "rank": 18,
+   "name": "Christ University, Bengaluru — Life Sciences",
+   "category": "Deemed University",
+   "entrance": "CUET / Christ Test",
+   "website": "christuniversity.in"
+  }
+ ]
+}

@@ -1,0 +1,185 @@
+{
+ "stream": "Actuarial Sciences",
+ "professions": [
+  "Actuarial Analyst",
+  "Trainee Actuary",
+  "Consulting Actuary",
+  "Life Insurance Actuary",
+  "General Insurance Actuary",
+  "Health Insurance Actuary",
+  "Pension Actuary",
+  "Reinsurance Pricing Analyst",
+  "Reserving Actuary",
+  "Capital Modelling Analyst",
+  "Enterprise Risk Manager",
+  "Catastrophe Modelling Analyst",
+  "Underwriting Analyst",
+  "Insurance Product Manager",
+  "Solvency and Regulatory Reporting Analyst",
+  "Investment Actuary",
+  "Actuarial Data Scientist",
+  "Claims Analytics Specialist",
+  "Appointed Actuary",
+  "Actuarial Systems Developer",
+  "Employee Benefits Consultant",
+  "Insurance Risk Auditor"
+ ],
+ "exams": [
+  {
+   "code": "ACET",
+   "fullName": "Actuarial Common Entrance Test",
+   "purpose": "Entry to the Institute of Actuaries of India student membership.",
+   "website": "actuariesindia.org"
+  },
+  {
+   "code": "IAI Core Principles",
+   "fullName": "Institute of Actuaries of India Core Examinations",
+   "purpose": "CS, CM, CB series toward Associateship.",
+   "website": "actuariesindia.org"
+  },
+  {
+   "code": "IFoA Examinations",
+   "fullName": "Institute and Faculty of Actuaries (UK) Examinations",
+   "purpose": "Globally recognised actuarial qualification.",
+   "website": "actuaries.org.uk"
+  },
+  {
+   "code": "SOA Exams",
+   "fullName": "Society of Actuaries (US) Examinations",
+   "purpose": "US actuarial credentialling route.",
+   "website": "soa.org"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "B.Sc Actuarial Science / Statistics.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "IIT JAM (MS)",
+   "fullName": "Joint Admission Test for Masters — Mathematical Statistics",
+   "purpose": "M.Sc statistics as an actuarial base.",
+   "website": "jam.iitm.ac.in"
+  },
+  {
+   "code": "NMIMS NPAT",
+   "fullName": "NMIMS Programs After Twelfth",
+   "purpose": "B.Sc Actuarial Science at NMIMS.",
+   "website": "nmims.edu"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Institute of Actuaries of India, Mumbai",
+   "category": "Professional Body",
+   "entrance": "ACET",
+   "website": "actuariesindia.org"
+  },
+  {
+   "rank": 2,
+   "name": "NMIMS School of Mathematical Sciences, Mumbai",
+   "category": "Deemed University",
+   "entrance": "NPAT",
+   "website": "nmims.edu"
+  },
+  {
+   "rank": 3,
+   "name": "Amity School of Insurance, Banking and Actuarial Science, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 4,
+   "name": "Christ University, Bengaluru — B.Sc Actuarial Science",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 5,
+   "name": "Bishop Heber College, Tiruchirappalli",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "bhc.edu.in"
+  },
+  {
+   "rank": 6,
+   "name": "Indian Statistical Institute (ISI), Kolkata",
+   "category": "Institute of National Importance",
+   "entrance": "ISI Admission Test",
+   "website": "isical.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "University of Madras — Department of Statistics",
+   "category": "State University",
+   "entrance": "University Test",
+   "website": "unom.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "Symbiosis Statistical Institute, Pune",
+   "category": "Private University",
+   "entrance": "SET",
+   "website": "ssi.edu.in"
+  },
+  {
+   "rank": 9,
+   "name": "Narsee Monjee College of Commerce and Economics, Mumbai",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "nmcollege.in"
+  },
+  {
+   "rank": 10,
+   "name": "Institute of Insurance and Risk Management, Hyderabad",
+   "category": "Autonomous Institute",
+   "entrance": "IIRM Entrance",
+   "website": "iirmworld.org.in"
+  },
+  {
+   "rank": 11,
+   "name": "National Insurance Academy, Pune",
+   "category": "Autonomous Institute",
+   "entrance": "CAT / NIA Test",
+   "website": "niapune.org.in"
+  },
+  {
+   "rank": 12,
+   "name": "St. Xavier's College, Mumbai — Statistics",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "xaviers.edu"
+  },
+  {
+   "rank": 13,
+   "name": "Loyola College, Chennai — Statistics",
+   "category": "Autonomous College",
+   "entrance": "Merit",
+   "website": "loyolacollege.edu"
+  },
+  {
+   "rank": 14,
+   "name": "Gujarat University — Department of Statistics",
+   "category": "State University",
+   "entrance": "Merit",
+   "website": "gujaratuniversity.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "University of Delhi — Department of Statistics",
+   "category": "Central University",
+   "entrance": "CUET",
+   "website": "du.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Manipal Academy of Higher Education — Statistics",
+   "category": "Deemed University",
+   "entrance": "MET",
+   "website": "manipal.edu"
+  }
+ ]
+}

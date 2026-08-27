@@ -1,0 +1,193 @@
+{
+ "stream": "Entrepreneurship",
+ "professions": [
+  "Founder / Start-up Entrepreneur",
+  "Co-Founder",
+  "Small Business Owner",
+  "Family Business Successor",
+  "Social Entrepreneur",
+  "Agri-Entrepreneur",
+  "D2C Brand Founder",
+  "E-commerce Seller",
+  "Franchise Owner",
+  "Product Manager (Start-up)",
+  "Growth Lead",
+  "Start-up Operations Manager",
+  "Venture Capital Analyst",
+  "Angel Investment Associate",
+  "Incubation Manager",
+  "Start-up Mentor",
+  "Business Consultant",
+  "Innovation Manager",
+  "Fundraising and Investor Relations Lead",
+  "Business Analyst (Start-up)",
+  "Chief of Staff",
+  "Community Manager",
+  "Co-working Space Operator",
+  "Freelance Professional"
+ ],
+ "exams": [
+  {
+   "code": "CAT",
+   "fullName": "Common Admission Test",
+   "purpose": "MBA/PGP at IIMs and leading business schools.",
+   "website": "iimcat.ac.in"
+  },
+  {
+   "code": "XAT",
+   "fullName": "Xavier Aptitude Test",
+   "purpose": "MBA/PGDM at XLRI and associate institutes.",
+   "website": "xatonline.in"
+  },
+  {
+   "code": "CMAT",
+   "fullName": "Common Management Admission Test",
+   "purpose": "MBA at AICTE-approved institutes.",
+   "website": "cmat.nta.nic.in"
+  },
+  {
+   "code": "NMAT",
+   "fullName": "NMIMS Management Aptitude Test",
+   "purpose": "MBA at NMIMS and partner schools.",
+   "website": "mba.com/nmat"
+  },
+  {
+   "code": "SNAP",
+   "fullName": "Symbiosis National Aptitude Test",
+   "purpose": "MBA at Symbiosis institutes.",
+   "website": "snaptest.org"
+  },
+  {
+   "code": "IPMAT",
+   "fullName": "Integrated Programme in Management Aptitude Test",
+   "purpose": "Five-year integrated management programmes.",
+   "website": "iimidr.ac.in"
+  },
+  {
+   "code": "CUET-UG",
+   "fullName": "Common University Entrance Test (UG)",
+   "purpose": "BBA and B.Com programmes at central universities.",
+   "website": "cuet.nta.nic.in"
+  },
+  {
+   "code": "NEAT / Startup India Programmes",
+   "fullName": "Government Start-up Support Programmes",
+   "purpose": "Seed funding, incubation and mentorship for founders.",
+   "website": "startupindia.gov.in"
+  }
+ ],
+ "institutes": [
+  {
+   "rank": 1,
+   "name": "Indian Institute of Management (IIM), Ahmedabad — CIIE",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "ciie.co"
+  },
+  {
+   "rank": 2,
+   "name": "Indian School of Business (ISB), Hyderabad",
+   "category": "Private Institute",
+   "entrance": "GMAT / GRE",
+   "website": "isb.edu"
+  },
+  {
+   "rank": 3,
+   "name": "Entrepreneurship Development Institute of India (EDII), Ahmedabad",
+   "category": "Autonomous Institute",
+   "entrance": "EDII Entrance",
+   "website": "ediindia.org"
+  },
+  {
+   "rank": 4,
+   "name": "NMIMS Anil Surendra Modi School of Commerce, Mumbai",
+   "category": "Deemed University",
+   "entrance": "NPAT",
+   "website": "nmims.edu"
+  },
+  {
+   "rank": 5,
+   "name": "Symbiosis Centre for Management Studies, Pune",
+   "category": "Private University",
+   "entrance": "SET",
+   "website": "scmspune.ac.in"
+  },
+  {
+   "rank": 6,
+   "name": "Xavier School of Management (XLRI), Jamshedpur",
+   "category": "Private Institute",
+   "entrance": "XAT",
+   "website": "xlri.ac.in"
+  },
+  {
+   "rank": 7,
+   "name": "IIT Madras — Nirmaan Incubator",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "nirmaan.iitm.ac.in"
+  },
+  {
+   "rank": 8,
+   "name": "IIT Bombay — Society for Innovation and Entrepreneurship (SINE)",
+   "category": "Institute of National Importance",
+   "entrance": "JEE Advanced",
+   "website": "sineiitb.org"
+  },
+  {
+   "rank": 9,
+   "name": "Indian Institute of Management (IIM), Bangalore — NSRCEL",
+   "category": "Institute of National Importance",
+   "entrance": "CAT",
+   "website": "nsrcel.org"
+  },
+  {
+   "rank": 10,
+   "name": "Ashoka University — Young India Fellowship",
+   "category": "Private University",
+   "entrance": "YIF Application",
+   "website": "ashoka.edu.in"
+  },
+  {
+   "rank": 11,
+   "name": "Nirma University — Institute of Management",
+   "category": "Private University",
+   "entrance": "CAT",
+   "website": "nirmauni.ac.in"
+  },
+  {
+   "rank": 12,
+   "name": "Christ University, Bengaluru — Entrepreneurship",
+   "category": "Deemed University",
+   "entrance": "Christ Entrance",
+   "website": "christuniversity.in"
+  },
+  {
+   "rank": 13,
+   "name": "Amity Centre for Entrepreneurship Development, Noida",
+   "category": "Private University",
+   "entrance": "Amity Test",
+   "website": "amity.edu"
+  },
+  {
+   "rank": 14,
+   "name": "Institute of Rural Management Anand (IRMA)",
+   "category": "Private Institute",
+   "entrance": "CAT / IRMASAT",
+   "website": "irma.ac.in"
+  },
+  {
+   "rank": 15,
+   "name": "Gujarat Technological University — Innovation Council",
+   "category": "State University",
+   "entrance": "GTU Admission",
+   "website": "gtu.ac.in"
+  },
+  {
+   "rank": 16,
+   "name": "Tata Institute of Social Sciences — Social Entrepreneurship",
+   "category": "Deemed University",
+   "entrance": "TISSNET",
+   "website": "tiss.edu"
+  }
+ ]
+}
