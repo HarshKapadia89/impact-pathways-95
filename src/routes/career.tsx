@@ -51,7 +51,7 @@ function CareerIndex() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="poster-hero border-b-4 border-ink">
+      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
             <MapPin className="h-3.5 w-3.5" />
@@ -83,7 +83,7 @@ function CareerIndex() {
             <Stat label={lang === "gu" ? "ITI કેન્દ્રો" : "ITI centres"} value={`${GUJ_COLLEGE_STATS.iti}+`} />
           </div>
 
-          <div className="mt-6 inline-flex items-start gap-2 text-xs text-muted-foreground bg-card/60 border-2 border-border rounded-md px-3 py-2 max-w-3xl">
+          <div className="mt-6 inline-flex items-start gap-2 text-xs text-muted-foreground bg-card/60 border border-border rounded-md px-3 py-2 max-w-3xl">
             <Sparkles className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
             <span>
               {lang === "gu" ? (
@@ -169,7 +169,7 @@ function CareerIndex() {
           {/* Categories */}
           <div className="mt-8 space-y-10">
             {filteredCategories.length === 0 ? (
-              <div className="rounded-2xl border-2 border-border bg-card p-10 text-center text-muted-foreground">
+              <div className="rounded-2xl border border-border bg-card p-10 text-center text-muted-foreground">
                 {lang === "gu" ? "કોઈ પરિણામ મળ્યું નથી." : "No results found."}
               </div>
             ) : (
@@ -191,7 +191,7 @@ function CareerIndex() {
         </p>
         <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {ENTRANCE_EXAMS.map((e) => (
-            <div key={e.code} className="rounded-xl border-2 border-border bg-card p-4">
+            <div key={e.code} className="rounded-xl border border-border bg-card p-4">
               <div className="font-medium text-foreground">{e.code}</div>
               <div className="text-xs text-muted-foreground mt-1">{e.for}</div>
               <div className="text-xs text-muted-foreground mt-2 inline-flex items-center gap-1">
@@ -277,15 +277,15 @@ function CareerIndex() {
 
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 pb-14">
-        <div className="rounded-2xl border-2 border-border bg-primary/5 p-8 flex flex-wrap items-center justify-between gap-3">
+        <div className="rounded-2xl border border-border bg-primary/5 p-8 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-xl">
               {lang === "gu" ? "હજી અનિશ્ચિત છો કે કયો પ્રવાહ પસંદ કરવો?" : "Still unsure which stream to pick?"}
             </div>
             <div className="text-sm text-muted-foreground mt-1 max-w-2xl">
               {lang === "gu"
-                ? "મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો — તમારા RIASEC, અભિરુચિ અને બહુવિધ બુદ્ધિના આધારે ગુજરાત-કેન્દ્રિત ભલામણો."
-                : "Take the psychometric test and get a 20-page personalised report — Gujarat-focused recommendations based on your RIASEC, aptitude and multiple-intelligences profile."}
+                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો — તમારા RIASEC, અભિરુચિ અને બહુવિધ બુદ્ધિના આધારે ગુજરાત-કેન્દ્રિત ભલામણો."
+                : "Take the free psychometric test and get a 20-page personalised report — Gujarat-focused recommendations based on your RIASEC, aptitude and multiple-intelligences profile."}
             </div>
           </div>
           <Link
@@ -304,7 +304,7 @@ function CareerIndex() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border-2 border-border bg-card px-3 py-2.5">
+    <div className="rounded-xl border border-border bg-card px-3 py-2.5">
       <div className="text-lg md:text-xl font-serif text-foreground">{value}</div>
       <div className="text-[11px] uppercase tracking-wide text-muted-foreground mt-0.5">{label}</div>
     </div>
@@ -317,7 +317,7 @@ function ResourceCard({ title, sub, url }: { title: string; sub: string; url: st
       href={`https://${url}`}
       target="_blank"
       rel="noreferrer"
-      className="block rounded-xl border-2 border-border bg-card p-4 hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition-all"
+      className="block rounded-xl border border-border bg-card p-4 hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition-all"
     >
       <div className="font-medium text-foreground">{title}</div>
       <div className="text-xs text-muted-foreground mt-1">{sub}</div>
@@ -332,7 +332,7 @@ function ResourceCard({ title, sub, url }: { title: string; sub: string; url: st
 function CategorySection({ cat, lang }: { cat: CategoryGroup; lang: "en" | "gu" }) {
   return (
     <div>
-      <div className="flex items-start justify-between flex-wrap gap-3 border-b-2 border-border pb-3">
+      <div className="flex items-start justify-between flex-wrap gap-3 border-b border-border pb-3">
         <div>
           <h3 className="font-serif text-xl md:text-2xl flex items-center gap-2">
             <span className="text-2xl">{cat.emoji}</span>
@@ -355,7 +355,7 @@ function CategorySection({ cat, lang }: { cat: CategoryGroup; lang: "en" | "gu" 
         {cat.colleges.map((c) => (
           <article
             key={c.name + c.city}
-            className="rounded-xl border-2 border-border bg-card p-4 hover:border-primary/30 transition-colors"
+            className="rounded-xl border border-border bg-card p-4 hover:border-primary/30 transition-colors"
           >
             <div className="flex items-start justify-between gap-2">
               <div className="font-medium text-foreground leading-snug">{c.name}</div>
@@ -422,7 +422,7 @@ function CategorySection({ cat, lang }: { cat: CategoryGroup; lang: "en" | "gu" 
                 key={sid}
                 to="/career/$stream"
                 params={{ stream: s.id }}
-                className="text-xs rounded-full border-2 border-border bg-card px-2.5 py-0.5 hover:border-primary/40 hover:text-primary"
+                className="text-xs rounded-full border border-border bg-card px-2.5 py-0.5 hover:border-primary/40 hover:text-primary"
               >
                 {s.emoji} {lang === "gu" ? s.nameGu : s.name}
               </Link>

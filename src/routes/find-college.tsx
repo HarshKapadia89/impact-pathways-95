@@ -197,7 +197,7 @@ function FindCollegePage() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="poster-hero border-b-4 border-ink">
+      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
             <Search className="h-3.5 w-3.5" />
@@ -215,7 +215,7 @@ function FindCollegePage() {
       </section>
 
       {/* SEARCH + FILTERS */}
-      <section className="border-b-2 border-border bg-card sticky top-[57px] z-30">
+      <section className="border-b border-border bg-card sticky top-[57px] z-30">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 space-y-3">
           {/* Search bar */}
           <div className="relative">
@@ -230,7 +230,7 @@ function FindCollegePage() {
                   ? "દા.ત. IIT, MBBS, Ahmedabad, Engineering, NID..."
                   : "e.g. IIT, MBBS, Ahmedabad, Engineering, NID..."
               }
-              className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border-2 border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
             {query && (
               <button
@@ -351,7 +351,7 @@ function FindCollegePage() {
               const meta = CATEGORIES.find((c) => c.id === catId);
               return (
                 <div key={catId}>
-                  <h2 className="font-serif text-xl md:text-2xl flex items-center gap-2 border-b-2 border-border pb-2">
+                  <h2 className="font-serif text-xl md:text-2xl flex items-center gap-2 border-b border-border pb-2">
                     <span className="text-2xl">{meta?.emoji ?? "🎓"}</span>
                     {meta?.label ?? catId}
                     <span className="text-xs text-muted-foreground font-sans font-normal">
@@ -372,7 +372,7 @@ function FindCollegePage() {
 
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 pb-14">
-        <div className="rounded-2xl border-2 border-border bg-primary/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-3">
+        <div className="rounded-2xl border border-border bg-primary/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-lg md:text-xl">
               {lang === "gu"
@@ -381,8 +381,8 @@ function FindCollegePage() {
             </div>
             <div className="text-sm text-muted-foreground mt-1">
               {lang === "gu"
-                ? "મનો-યોગ્યતા ટેસ્ટ આપો — તમારા RIASEC + અભિરુચિ આધારિત ભલામણો."
-                : "Take the aptitude test — RIASEC + interest-based recommendations."}
+                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો — તમારા RIASEC + અભિરુચિ આધારિત ભલામણો."
+                : "Take the free aptitude test — RIASEC + interest-based recommendations."}
             </div>
           </div>
           <Link
@@ -418,7 +418,7 @@ function FilterSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full pl-8 pr-3 py-2 text-xs rounded-md border-2 border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none truncate"
+        className="w-full pl-8 pr-3 py-2 text-xs rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 appearance-none truncate"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -432,7 +432,7 @@ function FilterSelect({
 
 function CollegeCard({ c, lang }: { c: UnifiedCollege; lang: "en" | "gu" }) {
   return (
-    <article className="rounded-xl border-2 border-border bg-card p-4 hover:border-primary/30 hover:shadow-[var(--shadow-card)] transition-all">
+    <article className="rounded-xl border border-border bg-card p-4 hover:border-primary/30 hover:shadow-[var(--shadow-card)] transition-all">
       <div className="flex items-start justify-between gap-2">
         <div className="font-medium text-foreground leading-snug">{c.name}</div>
         <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${typeBadge(c.type)}`}>

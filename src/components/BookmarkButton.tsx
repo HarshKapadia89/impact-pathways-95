@@ -85,7 +85,7 @@ export function BookmarkButton(props: Props) {
         : "text-muted-foreground hover:text-primary hover:bg-accent/10"
       : saved
       ? "border border-primary/40 bg-primary/10 text-primary"
-      : "border-2 border-border bg-card hover:bg-muted text-foreground";
+      : "border border-border bg-card hover:bg-muted text-foreground";
 
   return (
     <button onClick={onClick} className={`${base} ${sizing} ${variants}`} aria-pressed={saved}>

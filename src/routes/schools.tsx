@@ -173,7 +173,7 @@ function Schools() {
         className="max-w-sm"
       />
 
-      <div className="rounded-xl border-2 border-border bg-card overflow-hidden">
+      <div className="rounded-xl border border-border bg-card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-muted/50 text-muted-foreground">
@@ -200,7 +200,7 @@ function Schools() {
                 </tr>
               ) : (
                 filtered.map((r) => (
-                  <tr key={r.id} className="border-t-2 border-border hover:bg-muted/30">
+                  <tr key={r.id} className="border-t border-border hover:bg-muted/30">
                     <td className="px-4 py-3 font-medium text-foreground">{r.name}</td>
                     <td className="px-4 py-3 text-muted-foreground">{r.village || "—"}</td>
                     <td className="px-4 py-3 text-muted-foreground">{r.district || "—"}</td>
@@ -288,7 +288,7 @@ function Schools() {
             />
 
             {importRows.length > 0 && (
-              <div className="border-2 border-border rounded-lg max-h-72 overflow-auto">
+              <div className="border border-border rounded-lg max-h-72 overflow-auto">
                 <table className="w-full text-sm">
                   <thead className="bg-muted/50 text-muted-foreground sticky top-0">
                     <tr>
@@ -299,7 +299,7 @@ function Schools() {
                   </thead>
                   <tbody>
                     {importRows.map((r, i) => (
-                      <tr key={i} className="border-t-2 border-border">
+                      <tr key={i} className="border-t border-border">
                         <td className="px-3 py-2">{r.name}</td>
                         <td className="px-3 py-2 text-muted-foreground">{r.village || "—"}</td>
                         <td className="px-3 py-2 text-right tabular-nums">{r.num_students}</td>

@@ -86,7 +86,7 @@ function buildSteps(stream: Stream, path: CareerPath, lang: "en" | "gu"): Step[]
 export function CareerRoadmap({ stream, path, lang }: Props) {
   const steps = buildSteps(stream, path, lang);
   return (
-    <div className="rounded-2xl border-2 border-border bg-card p-6">
+    <div className="rounded-2xl border border-border bg-card p-6">
       <h2 className="font-serif text-xl flex items-center gap-2">
         <TrendingUp className="h-4 w-4 text-primary" />
         {lang === "gu" ? "કારકિર્દી રોડમેપ" : "Your career roadmap"}

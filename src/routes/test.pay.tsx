@@ -82,7 +82,7 @@ function PayPage() {
 
         <div className="mt-4 grid md:grid-cols-5 gap-8">
           {/* Left — pay card */}
-          <div className="md:col-span-3 rounded-2xl border-2 border-border bg-card p-6 md:p-8">
+          <div className="md:col-span-3 rounded-2xl border border-border bg-card p-6 md:p-8">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
               <IndianRupee className="h-3.5 w-3.5" /> Step 1 — Payment
             </div>
@@ -92,7 +92,7 @@ function PayPage() {
             </p>
 
             {/* Price summary */}
-            <div className="mt-6 rounded-xl border-2 border-border bg-background p-5">
+            <div className="mt-6 rounded-xl border border-border bg-background p-5">
               <div className="flex items-baseline justify-between">
                 <div>
                   <div className="text-xs text-muted-foreground">Test fee</div>
@@ -113,14 +113,14 @@ function PayPage() {
               </div>
 
               {!couponApplied && (
-                <div className="mt-5 border-t-2 border-border pt-5">
+                <div className="mt-5 border-t border-border pt-5">
                   <div className="text-xs text-muted-foreground">Have a coupon code?</div>
                   <div className="mt-2 flex gap-2">
                     <input
                       value={coupon}
                       onChange={(e) => setCoupon(e.target.value)}
                       placeholder="Enter coupon (e.g. HBK1000)"
-                      className="flex-1 rounded-md border-2 border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
                     <button
                       onClick={applyCoupon}
@@ -138,11 +138,11 @@ function PayPage() {
             </div>
 
             {/* QR */}
-            <div className="mt-6 rounded-xl border-2 border-border bg-background p-5 flex flex-col sm:flex-row items-center gap-5">
+            <div className="mt-6 rounded-xl border border-border bg-background p-5 flex flex-col sm:flex-row items-center gap-5">
               <img
                 src={paymentQR}
                 alt="HBK Careers payment QR (HDFC PayZapp)"
-                className="w-48 rounded-lg border-2 border-border bg-white"
+                className="w-48 rounded-lg border border-border bg-white"
               />
               <div className="text-sm flex-1">
                 <div className="font-serif text-lg">Scan to pay ₹{price.toLocaleString("en-IN")}</div>
@@ -165,7 +165,7 @@ function PayPage() {
                   value={utr}
                   onChange={(e) => setUtr(e.target.value)}
                   placeholder="e.g. 432189765012"
-                  className="mt-1 w-full rounded-md border-2 border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono tracking-wider"
+                  className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono tracking-wider"
                 />
               </label>
               <p className="text-[11px] text-muted-foreground mt-2">
@@ -184,7 +184,7 @@ function PayPage() {
 
           {/* Right — summary */}
           <aside className="md:col-span-2 space-y-4">
-            <div className="rounded-2xl border-2 border-border bg-card p-5">
+            <div className="rounded-2xl border border-border bg-card p-5">
               <div className="text-xs uppercase tracking-widest text-accent">Order summary</div>
               <div className="mt-3 text-sm space-y-2">
                 <div className="flex justify-between">
@@ -199,7 +199,7 @@ function PayPage() {
                   <span className="text-muted-foreground">Assessment</span>
                   <span className="font-medium">RIASEC + MI + Aptitude</span>
                 </div>
-                <div className="flex justify-between border-t-2 border-border pt-2 mt-2">
+                <div className="flex justify-between border-t border-border pt-2 mt-2">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span>₹{FULL_PRICE.toLocaleString("en-IN")}</span>
                 </div>
@@ -209,14 +209,14 @@ function PayPage() {
                     <span>− ₹{(FULL_PRICE - DISCOUNTED_PRICE).toLocaleString("en-IN")}</span>
                   </div>
                 )}
-                <div className="flex justify-between font-serif text-lg border-t-2 border-border pt-2 mt-2">
+                <div className="flex justify-between font-serif text-lg border-t border-border pt-2 mt-2">
                   <span>Total</span>
                   <span className="text-primary">₹{price.toLocaleString("en-IN")}</span>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-2xl border-2 border-border bg-muted/30 p-5">
+            <div className="rounded-2xl border border-border bg-muted/30 p-5">
               <div className="flex items-start gap-3">
                 <ShieldCheck className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div className="text-xs text-muted-foreground">

@@ -58,12 +58,12 @@ function ForSchoolsPage() {
     toast.success(L("Request sent. We'll be in touch within 2 working days.", "વિનંતી મોકલી. 2 કાર્યદિવસમાં સંપર્ક કરીશું."));
   };
 
-  const input = "w-full px-3 py-2 text-sm rounded-md border-2 border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30";
+  const input = "w-full px-3 py-2 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30";
 
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="poster-hero border-b-4 border-ink">
+      <section className="bg-gradient-to-br from-primary/15 via-background to-accent/15 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-14">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
             <Building2 className="h-3.5 w-3.5" />
@@ -82,7 +82,7 @@ function ForSchoolsPage() {
             <a href="#demo" className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:opacity-90">
               {L("Book a demo", "ડેમો બુક કરો")}
             </a>
-            <a href="#what-you-get" className="border-2 border-border bg-background px-6 py-3 rounded-md text-sm font-medium hover:bg-muted">
+            <a href="#what-you-get" className="border border-border bg-background px-6 py-3 rounded-md text-sm font-medium hover:bg-muted">
               {L("See what's included", "શું શામેલ છે જુઓ")}
             </a>
           </div>
@@ -103,7 +103,7 @@ function ForSchoolsPage() {
             { icon: Building2, t: L("School Dashboard", "શાળા ડેશબોર્ડ"), d: L("Cohort-level analytics: who needs intervention, popular streams, parent engagement.", "ગ્રુપ-સ્તરનું વિશ્લેષણ: કોને હસ્તક્ષેપ જરૂર, લોકપ્રિય સ્ટ્રીમ, વાલી જોડાણ.") },
             { icon: Headphones, t: L("Ongoing Support", "સતત સહાય"), d: L("Year-round access to our team for student queries, college choices and exam guidance.", "વિદ્યાર્થી પ્રશ્નો, કોલેજ પસંદગી અને પરીક્ષા માર્ગદર્શન માટે વાર્ષિક સહાય.") },
           ].map((f) => (
-            <div key={f.t} className="rounded-xl border-2 border-border bg-card p-5">
+            <div key={f.t} className="rounded-xl border border-border bg-card p-5">
               <f.icon className="h-6 w-6 text-primary" />
               <div className="font-medium mt-3">{f.t}</div>
               <div className="text-sm text-muted-foreground mt-1">{f.d}</div>
@@ -163,7 +163,7 @@ function ForSchoolsPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="#demo" className={`mt-6 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-md text-sm font-medium ${tier.highlight ? "bg-primary text-primary-foreground hover:opacity-90" : "border-2 border-border hover:bg-muted"}`}>
+                <a href="#demo" className={`mt-6 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-md text-sm font-medium ${tier.highlight ? "bg-primary text-primary-foreground hover:opacity-90" : "border border-border hover:bg-muted"}`}>
                   {L("Contact for pricing", "ભાવ માટે સંપર્ક કરો")}
                 </a>
               </div>
@@ -188,7 +188,7 @@ function ForSchoolsPage() {
             </div>
           </div>
         ) : (
-          <form onSubmit={submit} className="mt-6 rounded-xl border-2 border-border bg-card p-6 space-y-4">
+          <form onSubmit={submit} className="mt-6 rounded-xl border border-border bg-card p-6 space-y-4">
             <div className="grid md:grid-cols-2 gap-3">
               <Field label={L("School name *", "શાળાનું નામ *")}><input required className={input} value={form.school_name} onChange={(e) => setForm({ ...form, school_name: e.target.value })} /></Field>
               <Field label={L("City", "શહેર")}><input className={input} value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} /></Field>

@@ -61,7 +61,7 @@ function Sessions() {
         <p className="mt-1 text-muted-foreground text-sm">{t("sessions.subtitle")}</p>
       </header>
 
-      <div className="rounded-xl border-2 border-border bg-card overflow-hidden">
+      <div className="rounded-xl border border-border bg-card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-muted/50 text-muted-foreground">
@@ -89,7 +89,7 @@ function Sessions() {
                 </tr>
               ) : (
                 rows.map((r) => (
-                  <tr key={r.id} className="border-t-2 border-border hover:bg-muted/30">
+                  <tr key={r.id} className="border-t border-border hover:bg-muted/30">
                     <td className="px-4 py-3">{format(new Date(r.scheduled_date), "d MMM yyyy")}</td>
                     <td className="px-4 py-3 font-medium">{r.schools?.name || "—"}</td>
                     <td className="px-4 py-3 text-muted-foreground">

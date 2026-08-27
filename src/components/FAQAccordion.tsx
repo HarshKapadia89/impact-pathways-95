@@ -15,22 +15,22 @@ export function FAQAccordion({
   const defaultItems: QA[] =
     lang === "gu"
       ? [
-          { q: "આ પ્લેટફોર્મ કોના માટે છે?", a: "ધોરણ 6 થી 12 ના વિદ્યાર્થીઓ, તેમના માતા-પિતા અને શાળાઓ માટે — H B કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા સંચાલિત." },
+          { q: "શું આ ખરેખર મફત છે?", a: "હા. કોઈ લૉગિન, કોઈ ક્રેડિટ કાર્ડ, કોઈ છુપાયેલા ચાર્જ નથી. H B કાપડિયા ન્યૂ હાઈ સ્કૂલ દ્વારા સંપૂર્ણ મફત." },
           { q: "ટેસ્ટમાં કેટલો સમય લાગે છે?", a: "લગભગ 25 મિનિટ. તમે ગમે ત્યારે રોકાઈ શકો છો અને ફરી શરૂ કરી શકો છો." },
           { q: "રિપોર્ટ કેવી રીતે મળે?", a: "ટેસ્ટ પૂરો થતા જ સ્ક્રીન પર. તમે PDF ડાઉનલોડ કરી શકો છો અથવા ઈમેલ કરી શકો છો." },
           { q: "કયા ધોરણ માટે છે?", a: "ધોરણ 6 થી 12. પ્રશ્નો અને રિપોર્ટ ગ્રેડ પ્રમાણે અલગ-અલગ હોય છે." },
           { q: "શું ગુજરાતીમાં ઉપલબ્ધ છે?", a: "હા — પ્રશ્નો, રિપોર્ટ અને સલાહકાર સારાંશ બધું ગુજરાતી અને અંગ્રેજી બંનેમાં." },
           { q: "શું મારી માહિતી સુરક્ષિત છે?", a: "હા. અમે કોઈ ડેટા વેચતા નથી. તમારી માહિતી ફક્ત તમારો રિપોર્ટ બનાવવા માટે વપરાય છે." },
-          { q: "શું શાળાઓ માટે ગ્રુપ વર્ઝન છે?", a: "હા — 'For Schools' પેજ પરથી કોન્ટેક્ટ કરો. અમે સંપૂર્ણ ઓનબોર્ડિંગ સપોર્ટ આપીએ છીએ." },
+          { q: "શું શાળાઓ માટે ગ્રુપ વર્ઝન છે?", a: "હા — 'For Schools' પેજ પરથી કોન્ટેક્ટ કરો. અમે મફત ઓનબોર્ડિંગ આપીએ છીએ." },
         ]
       : [
-          { q: "Who is this platform for?", a: "Students in grades 6 to 12, their parents, and schools — run by The H B Kapadia New High School, Ahmedabad." },
+          { q: "Is this actually free?", a: "Yes. No login, no credit card, no hidden charges. Completely free, funded by The H B Kapadia New High School, Ahmedabad." },
           { q: "How long does the test take?", a: "About 25 minutes. You can pause anytime and resume from where you left off." },
           { q: "How do I get the report?", a: "It appears on screen the moment you finish. You can download the PDF or email it to yourself and your parents." },
           { q: "Which grades is it for?", a: "Grades 6 to 12. The questions and the report adapt to the grade band you select." },
           { q: "Is it available in Gujarati?", a: "Yes — questions, the 20-page report and the Career Counsellor summary are all available in both Gujarati and English." },
           { q: "Is my data safe?", a: "Yes. We never sell or share data. Your responses are used only to generate your report." },
-          { q: "Is there a version for schools?", a: "Yes — visit the 'For Schools' page. We offer full onboarding support, bulk reports and counsellor dashboards." },
+          { q: "Is there a version for schools?", a: "Yes — visit the 'For Schools' page. We offer free onboarding, bulk reports and counsellor dashboards." },
           { q: "What's the science behind it?", a: "We combine three validated frameworks: Holland's RIASEC interest model, Gardner's Multiple Intelligences and a 5-domain aptitude battery aligned with NCERT." },
         ];
 

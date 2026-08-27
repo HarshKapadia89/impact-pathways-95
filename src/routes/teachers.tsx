@@ -102,7 +102,7 @@ function Teachers() {
         </Button>
       </header>
 
-      <div className="rounded-xl border-2 border-border bg-card overflow-hidden">
+      <div className="rounded-xl border border-border bg-card overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-muted/50 text-muted-foreground">
             <tr>
@@ -128,7 +128,7 @@ function Teachers() {
               </tr>
             ) : (
               rows.map((r) => (
-                <tr key={r.id} className="border-t-2 border-border hover:bg-muted/30">
+                <tr key={r.id} className="border-t border-border hover:bg-muted/30">
                   <td className="px-4 py-3 font-medium">{r.full_name}</td>
                   <td className="px-4 py-3 text-muted-foreground">{r.phone || "—"}</td>
                   <td className="px-4 py-3 text-muted-foreground">{r.employee_code || "—"}</td>

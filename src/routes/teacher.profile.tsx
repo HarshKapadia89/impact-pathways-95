@@ -32,7 +32,7 @@ function ProfilePage() {
         <p className="text-sm text-muted-foreground">{displayEmail}</p>
       </header>
 
-      <div className="rounded-xl bg-card border-2 border-border divide-y divide-border">
+      <div className="rounded-xl bg-card border border-border divide-y divide-border">
         {teacher?.phone && <Row icon={Phone} label="Phone" value={teacher.phone} />}
         {teacher?.email && <Row icon={Mail} label="Email" value={teacher.email} />}
         {teacher?.base_village && (

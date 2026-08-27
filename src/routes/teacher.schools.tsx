@@ -106,11 +106,11 @@ function MySchools() {
       </header>
 
       {loadingRows ? (
-        <div className="rounded-xl bg-card border-2 border-border p-6 text-center text-sm text-muted-foreground">
+        <div className="rounded-xl bg-card border border-border p-6 text-center text-sm text-muted-foreground">
           {t("common.loading")}
         </div>
       ) : schools.length === 0 ? (
-        <div className="rounded-xl bg-card border-2 border-border p-6 text-center text-sm text-muted-foreground">
+        <div className="rounded-xl bg-card border border-border p-6 text-center text-sm text-muted-foreground">
           {t("teacher.noSessions")}
         </div>
       ) : (
@@ -121,7 +121,7 @@ function MySchools() {
                 <Link
                   to="/teacher/school/$schoolId"
                   params={{ schoolId: school.id }}
-                  className="block rounded-xl bg-card border-2 border-border p-4 active:scale-[0.99] transition shadow-[var(--shadow-soft)]"
+                  className="block rounded-xl bg-card border border-border p-4 active:scale-[0.99] transition shadow-[var(--shadow-soft)]"
                 >
                   <div className="flex items-start gap-3">
                     <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">

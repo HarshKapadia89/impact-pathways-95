@@ -55,7 +55,7 @@ export function HowItWorks({ lang }: { lang: "en" | "gu" }) {
         {steps.map((s, i) => (
           <div
             key={s.n}
-            className="relative rounded-2xl border-2 border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition"
+            className="relative rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition"
           >
             <div
               className="absolute -top-3 -left-3 h-10 w-10 rounded-xl flex items-center justify-center font-serif text-sm font-bold text-white shadow-md"

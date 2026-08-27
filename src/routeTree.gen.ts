@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VisionRouteImport } from './routes/vision'
 import { Route as TestRouteImport } from './routes/test'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
@@ -48,11 +47,6 @@ import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.se
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
 import { Route as CareerStreamPathRouteImport } from './routes/career.$stream.$path'
 
-const VisionRoute = VisionRouteImport.update({
-  id: '/vision',
-  path: '/vision',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TestRoute = TestRouteImport.update({
   id: '/test',
   path: '/test',
@@ -262,7 +256,6 @@ export interface FileRoutesByFullPath {
   '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
   '/test': typeof TestRouteWithChildren
-  '/vision': typeof VisionRoute
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
@@ -301,7 +294,6 @@ export interface FileRoutesByTo {
   '/sessions': typeof SessionsRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
-  '/vision': typeof VisionRoute
   '/admin/colleges': typeof AdminCollegesRoute
   '/handbook/$slug': typeof HandbookSlugRoute
   '/r/$token': typeof RTokenRoute
@@ -341,7 +333,6 @@ export interface FileRoutesById {
   '/success-stories': typeof SuccessStoriesRoute
   '/teachers': typeof TeachersRoute
   '/test': typeof TestRouteWithChildren
-  '/vision': typeof VisionRoute
   '/admin/colleges': typeof AdminCollegesRoute
   '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRoute
@@ -383,7 +374,6 @@ export interface FileRouteTypes {
     | '/success-stories'
     | '/teachers'
     | '/test'
-    | '/vision'
     | '/admin/colleges'
     | '/career/$stream'
     | '/handbook/$slug'
@@ -422,7 +412,6 @@ export interface FileRouteTypes {
     | '/sessions'
     | '/success-stories'
     | '/teachers'
-    | '/vision'
     | '/admin/colleges'
     | '/handbook/$slug'
     | '/r/$token'
@@ -461,7 +450,6 @@ export interface FileRouteTypes {
     | '/success-stories'
     | '/teachers'
     | '/test'
-    | '/vision'
     | '/admin/colleges'
     | '/career/$stream'
     | '/handbook/$slug'
@@ -502,7 +490,6 @@ export interface RootRouteChildren {
   SuccessStoriesRoute: typeof SuccessStoriesRoute
   TeachersRoute: typeof TeachersRoute
   TestRoute: typeof TestRouteWithChildren
-  VisionRoute: typeof VisionRoute
   RTokenRoute: typeof RTokenRoute
   TeacherProfileRoute: typeof TeacherProfileRoute
   TeacherSchoolsRoute: typeof TeacherSchoolsRoute
@@ -514,13 +501,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vision': {
-      id: '/vision'
-      path: '/vision'
-      fullPath: '/vision'
-      preLoaderRoute: typeof VisionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/test': {
       id: '/test'
       path: '/test'
@@ -867,7 +847,6 @@ const rootRouteChildren: RootRouteChildren = {
   SuccessStoriesRoute: SuccessStoriesRoute,
   TeachersRoute: TeachersRoute,
   TestRoute: TestRouteWithChildren,
-  VisionRoute: VisionRoute,
   RTokenRoute: RTokenRoute,
   TeacherProfileRoute: TeacherProfileRoute,
   TeacherSchoolsRoute: TeacherSchoolsRoute,

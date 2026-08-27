@@ -188,7 +188,7 @@ function Reports() {
         <p className="text-muted-foreground text-sm">{t("common.loading")}</p>
       ) : (
         <>
-          <div className="rounded-xl border-2 border-border bg-card p-6">
+          <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="font-serif text-xl mb-4">{t("reports.impactReport")}</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <Stat label={t("overview.schools")} value={snap.schools} />
@@ -198,8 +198,8 @@ function Reports() {
             </div>
           </div>
 
-          <div className="rounded-xl border-2 border-border bg-card overflow-hidden">
-            <div className="px-5 py-4 border-b-2 border-border font-serif text-lg">
+          <div className="rounded-xl border border-border bg-card overflow-hidden">
+            <div className="px-5 py-4 border-b border-border font-serif text-lg">
               By Program
             </div>
             <table className="w-full text-sm">
@@ -212,7 +212,7 @@ function Reports() {
               </thead>
               <tbody>
                 {snap.byProgram.map((p) => (
-                  <tr key={p.name} className="border-t-2 border-border">
+                  <tr key={p.name} className="border-t border-border">
                     <td className="px-4 py-2">{p.name}</td>
                     <td className="px-4 py-2 text-right tabular-nums">{p.sessions}</td>
                     <td className="px-4 py-2 text-right tabular-nums">{p.students_reached}</td>

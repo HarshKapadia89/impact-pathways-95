@@ -6,14 +6,14 @@ import { GraduationCap, Heart, Globe, Shield, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About HBK Careers — Career Guidance from H B Kapadia New High School, Ahmedabad" },
+      { title: "About HBK Careers — Free Career Guidance from H B Kapadia New High School, Ahmedabad" },
       {
         name: "description",
         content:
-          "HBK Careers is a career-discovery platform built by The H B Kapadia New High School, Ahmedabad — bilingual psychometric tests, 1,400+ colleges and a 20-page personalised report.",
+          "HBK Careers is a free career-discovery platform built by The H B Kapadia New High School, Ahmedabad — bilingual psychometric tests, 1,400+ colleges and a 20-page personalised report.",
       },
       { property: "og:title", content: "About — HBK Careers" },
-      { property: "og:description", content: "Built by educators, not edtech. Career guidance for every Gujarat student." },
+      { property: "og:description", content: "Built by educators, not edtech. Free career guidance for every Gujarat student." },
       { property: "og:url", content: "https://hbkcareers.org/about" },
     ],
     links: [{ rel: "canonical", href: "https://hbkcareers.org/about" }],
@@ -28,11 +28,11 @@ function AboutPage() {
   const values = [
     {
       icon: Heart,
-      title: lang === "gu" ? "દરેક માટે ખુલ્લું" : "Open to every student",
+      title: lang === "gu" ? "મફત હંમેશા" : "Free, always",
       desc:
         lang === "gu"
-          ? "ગુજરાતના દરેક વિદ્યાર્થી માટે સમાન access — શહેર હોય કે ગામ."
-          : "Equal access for every student in Gujarat — city or village, board or medium.",
+          ? "કોઈ paywall નહીં. કોઈ લૉગિન નહીં. દરેક વિદ્યાર્થી માટે સમાન access."
+          : "No paywalls. No login walls. Equal access for every student in Gujarat.",
     },
     {
       icon: Globe,
@@ -76,8 +76,8 @@ function AboutPage() {
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             {lang === "gu"
-              ? "HBK Careers The H B Kapadia New High School, અમદાવાદ દ્વારા બનાવાયેલ છે — 1925 થી ગુજરાતના વિદ્યાર્થીઓને ભણાવનાર શાળા. અમે જોયું કે ધોરણ 10 પછી મોટાભાગના નિર્ણયો ડર, દબાણ અથવા અધૂરી માહિતી પર લેવાય છે. તેથી અમે આ બનાવ્યું — દ્વિભાષી, વૈજ્ઞાનિક અને વિદ્યાર્થી-કેન્દ્રિત."
-              : "HBK Careers is built by The H B Kapadia New High School, Ahmedabad — a school that has been teaching Gujarat's students since 1925. We noticed that most decisions after Class 10 are made out of fear, family pressure, or incomplete information. So we built this — bilingual, student-first, and grounded in real psychometric science."}
+              ? "HBK Careers The H B Kapadia New High School, અમદાવાદ દ્વારા બનાવાયેલ છે — 1925 થી ગુજરાતના વિદ્યાર્થીઓને ભણાવનાર શાળા. અમે જોયું કે ધોરણ 10 પછી મોટાભાગના નિર્ણયો ડર, દબાણ અથવા અધૂરી માહિતી પર લેવાય છે. તેથી અમે આ બનાવ્યું — મફત, દ્વિભાષી, અને વૈજ્ઞાનિક."
+              : "HBK Careers is built by The H B Kapadia New High School, Ahmedabad — a school that has been teaching Gujarat's students since 1925. We noticed that most decisions after Class 10 are made out of fear, family pressure, or incomplete information. So we built this — free, bilingual, and grounded in real psychometric science."}
           </p>
         </div>
       </section>
@@ -86,7 +86,7 @@ function AboutPage() {
         <h2 className="font-serif text-2xl md:text-3xl mb-8">{lang === "gu" ? "અમારા મૂલ્યો" : "What we stand for"}</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border-2 border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
+            <div key={v.title} className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
               <div className="h-10 w-10 rounded-xl flex items-center justify-center" style={{ background: "color-mix(in oklab, var(--accent) 15%, transparent)" }}>
                 <v.icon className="h-5 w-5 text-accent" />
               </div>
@@ -99,7 +99,7 @@ function AboutPage() {
 
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-14 text-center">
         <h2 className="font-serif text-2xl md:text-3xl">
-          {lang === "gu" ? "તમારી દિશા શોધો" : "Find your direction"}
+          {lang === "gu" ? "તમારી દિશા શોધો — મફત" : "Find your direction — free"}
         </h2>
         <div className="mt-6 flex flex-wrap gap-3 justify-center">
           <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">

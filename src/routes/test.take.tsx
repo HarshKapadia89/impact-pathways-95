@@ -304,14 +304,14 @@ function TakeTest() {
             </div>
             <div className="flex gap-2">
               <button onClick={acceptResume} className="text-xs px-3 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">{t.resumeYes}</button>
-              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border-2 border-border bg-card hover:bg-muted">{t.resumeNo}</button>
+              <button onClick={declineResume} className="text-xs px-3 py-2 rounded-md border border-border bg-card hover:bg-muted">{t.resumeNo}</button>
             </div>
           </div>
         )}
 
         <div className="mt-6 space-y-6">
           {pageItems.map((item, idx) => (
-            <div key={item.id} className="rounded-xl border-2 border-border bg-card p-5">
+            <div key={item.id} className="rounded-xl border border-border bg-card p-5">
               <div className="flex items-start gap-3">
                 <span className="text-xs text-muted-foreground mt-0.5 shrink-0">
                   {page * PAGE_SIZE + idx + 1}.
@@ -368,7 +368,7 @@ function TakeTest() {
           <button
             onClick={prev}
             disabled={section === 0 && page === 0}
-            className="inline-flex items-center gap-1 text-sm px-4 py-2 rounded-md border-2 border-border bg-card hover:bg-muted disabled:opacity-40"
+            className="inline-flex items-center gap-1 text-sm px-4 py-2 rounded-md border border-border bg-card hover:bg-muted disabled:opacity-40"
           >
             <ChevronLeft className="h-4 w-4" /> {t.back}
           </button>
@@ -546,7 +546,7 @@ function Result({
   return (
     <PublicLayout>
       <section className="max-w-4xl mx-auto px-4 md:px-8 py-10">
-        <div className="rounded-2xl border-2 border-border p-6 md:p-8">
+        <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/10 to-accent/10 p-6 md:p-8">
           <div className="text-xs text-muted-foreground">Complete ✓</div>
           <h1 className="font-serif text-3xl md:text-4xl mt-1">Your direction is ready</h1>
           <p className="text-sm text-muted-foreground mt-2">
@@ -571,7 +571,7 @@ function Result({
                 <Link
                   to="/r/$token"
                   params={{ token: reportToken }}
-                  className="inline-flex items-center gap-2 border-2 border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+                  className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
                 >
                   <Link2 className="h-4 w-4" /> Open shareable web report
                 </Link>
@@ -590,7 +590,7 @@ function Result({
                       /* user cancelled */
                     }
                   }}
-                  className="inline-flex items-center gap-2 border-2 border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+                  className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
                 >
                   <Share2 className="h-4 w-4" /> Share with parent
                 </button>
@@ -598,7 +598,7 @@ function Result({
             )}
             <Link
               to="/test"
-              className="inline-flex items-center gap-2 border-2 border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
+              className="inline-flex items-center gap-2 border border-border bg-card px-4 py-2.5 rounded-md text-sm hover:bg-muted"
             >
               <RefreshCcw className="h-4 w-4" /> Retake
             </Link>
@@ -620,7 +620,7 @@ function Result({
                   key={sid}
                   to="/career/$stream"
                   params={{ stream: sid }}
-                  className="rounded-xl border-2 border-border bg-card p-5 hover:shadow-[var(--shadow-card)]"
+                  className="rounded-xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)]"
                 >
                   <div className="text-xs text-muted-foreground">{i === 0 ? "Primary" : "Secondary"}</div>
                   <div className="text-3xl mt-2">{s.emoji}</div>
@@ -646,7 +646,7 @@ function Result({
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-card border-2 border-border p-4">
+    <div className="rounded-xl bg-card border border-border p-4">
       <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{label}</div>
       <div className="mt-1 font-serif text-xl text-foreground">{value}</div>
     </div>

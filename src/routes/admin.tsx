@@ -90,7 +90,7 @@ function AdminOverview() {
               <Link
                 key={t.to}
                 to={t.to}
-                className="group rounded-2xl border-2 border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
+                className="group rounded-2xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
               >
                 <div className="flex items-start justify-between">
                   <Icon className="h-6 w-6 text-primary" />
@@ -118,7 +118,7 @@ function AdminOverview() {
               <Link
                 key={t.to}
                 to={t.to}
-                className="group rounded-2xl border-2 border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
+                className="group rounded-2xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] transition-shadow"
               >
                 <div className="flex items-start justify-between">
                   <Icon className="h-6 w-6 text-primary" />

@@ -59,7 +59,7 @@ export function ThemeSwitcher({ lang = "en" as "en" | "gu" }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className="inline-flex items-center justify-center h-9 w-9 rounded-md border-2 border-border bg-card hover:bg-muted transition-colors"
+        className="inline-flex items-center justify-center h-9 w-9 rounded-md border border-border bg-card hover:bg-muted transition-colors"
         aria-label={lang === "gu" ? "રંગ બદલો" : "Change colors"}
       >
         <Palette className="h-4 w-4 text-primary" />
@@ -73,7 +73,7 @@ export function ThemeSwitcher({ lang = "en" as "en" | "gu" }) {
             className="flex items-center gap-2 cursor-pointer"
           >
             <span
-              className="h-5 w-5 rounded-full border-2 border-border shrink-0"
+              className="h-5 w-5 rounded-full border border-border shrink-0"
               style={{ background: t.swatch }}
               aria-hidden
             />

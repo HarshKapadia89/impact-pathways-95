@@ -192,7 +192,7 @@ function DashboardPage() {
 
   return (
     <PublicLayout>
-      <section className="border-b-2 border-border to-accent/5">
+      <section className="border-b border-border bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-10">
           <div className="text-xs uppercase tracking-widest text-accent flex items-center gap-1.5">
             <Sparkles className="h-3.5 w-3.5" /> My Dashboard
@@ -213,7 +213,7 @@ function DashboardPage() {
                   className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-sm transition ${
                     active
                       ? "bg-primary text-primary-foreground shadow-sm"
-                      : "bg-card border-2 border-border hover:bg-muted"
+                      : "bg-card border border-border hover:bg-muted"
                   }`}
                 >
                   <t.icon className="h-4 w-4" />
@@ -285,7 +285,7 @@ function DashboardPage() {
 function ReportTab({ row, token }: { row: SubmissionRow; token: string }) {
   return (
     <div className="grid md:grid-cols-3 gap-5">
-      <div className="md:col-span-2 rounded-2xl border-2 border-border bg-card p-6">
+      <div className="md:col-span-2 rounded-2xl border border-border bg-card p-6">
         <div className="text-xs uppercase tracking-widest text-accent">Your latest report</div>
         <h2 className="font-serif text-2xl mt-2">20-page personalised PDF</h2>
         <div className="mt-4 grid sm:grid-cols-3 gap-3">
@@ -304,13 +304,13 @@ function ReportTab({ row, token }: { row: SubmissionRow; token: string }) {
           <Link
             to="/r/$token"
             params={{ token }}
-            className="inline-flex items-center gap-2 border-2 border-border bg-background px-4 py-2 rounded-md text-sm hover:bg-muted"
+            className="inline-flex items-center gap-2 border border-border bg-background px-4 py-2 rounded-md text-sm hover:bg-muted"
           >
             <Download className="h-4 w-4" /> Download PDF
           </Link>
           <Link
             to="/test"
-            className="inline-flex items-center gap-2 border-2 border-border bg-background px-4 py-2 rounded-md text-sm hover:bg-muted"
+            className="inline-flex items-center gap-2 border border-border bg-background px-4 py-2 rounded-md text-sm hover:bg-muted"
           >
             Retake test
           </Link>
@@ -336,7 +336,7 @@ function ReportTab({ row, token }: { row: SubmissionRow; token: string }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-background border-2 border-border p-4">
+    <div className="rounded-xl bg-background border border-border p-4">
       <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</div>
       <div className="font-serif text-lg mt-1">{value}</div>
     </div>
@@ -356,7 +356,7 @@ function CareersTab({ items, onRemove }: { items: SavedCareer[]; onRemove: (c: S
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       {items.map((c) => (
-        <div key={`${c.stream}/${c.pathKey}`} className="rounded-xl border-2 border-border bg-card p-5 flex items-start gap-3">
+        <div key={`${c.stream}/${c.pathKey}`} className="rounded-xl border border-border bg-card p-5 flex items-start gap-3">
           <Star className="h-4 w-4 text-accent mt-1 shrink-0" />
           <div className="flex-1 min-w-0">
             <div className="font-serif text-base">{c.title}</div>
@@ -396,7 +396,7 @@ function CollegesTab({ items, onRemove }: { items: SavedCollege[]; onRemove: (c:
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       {items.map((c) => (
-        <div key={c.id} className="rounded-xl border-2 border-border bg-card p-5 flex items-start gap-3">
+        <div key={c.id} className="rounded-xl border border-border bg-card p-5 flex items-start gap-3">
           <School className="h-4 w-4 text-primary mt-1 shrink-0" />
           <div className="flex-1 min-w-0">
             <div className="font-serif text-base truncate">{c.name}</div>
@@ -432,7 +432,7 @@ function RoadmapTab({ steps, onToggle }: { steps: RoadmapStep[]; onToggle: (id: 
           >
             {s.done && <span className="h-2 w-2 bg-primary-foreground rounded-full" />}
           </button>
-          <div className="rounded-xl border-2 border-border bg-card p-4">
+          <div className="rounded-xl border border-border bg-card p-4">
             <div className="text-[10px] uppercase tracking-widest text-accent">
               {s.yearOffset === 0 ? "Now" : `+${s.yearOffset} year${s.yearOffset === 1 ? "" : "s"}`}
             </div>
@@ -473,7 +473,7 @@ function ChecklistTab({
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && submit()}
           placeholder="Add a goal for the next 90 days…"
-          className="flex-1 rounded-md border-2 border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+          className="flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
         />
         <button
           onClick={submit}
@@ -486,7 +486,7 @@ function ChecklistTab({
         {items.map((c) => (
           <li
             key={c.id}
-            className="flex items-start gap-3 rounded-xl border-2 border-border bg-card p-3"
+            className="flex items-start gap-3 rounded-xl border border-border bg-card p-3"
           >
             <input
               type="checkbox"

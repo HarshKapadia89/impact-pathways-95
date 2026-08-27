@@ -134,7 +134,7 @@ function SchoolDetail() {
         <ArrowLeft className="h-4 w-4" /> {t("common.back")}
       </Link>
 
-      <header className="rounded-xl bg-card border-2 border-border p-5 shadow-[var(--shadow-soft)]">
+      <header className="rounded-xl bg-card border border-border p-5 shadow-[var(--shadow-soft)]">
         <div className="flex items-start gap-3">
           <div className="h-12 w-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
             <SchoolIcon className="h-6 w-6" />
@@ -167,7 +167,7 @@ function SchoolDetail() {
       <section>
         <h2 className="font-serif text-lg mb-3">{t("teacher.startSession")}</h2>
         {programs.length === 0 ? (
-          <div className="rounded-xl bg-card border-2 border-border p-4 text-sm text-muted-foreground text-center">
+          <div className="rounded-xl bg-card border border-border p-4 text-sm text-muted-foreground text-center">
             No programs assigned for this school.
           </div>
         ) : (
