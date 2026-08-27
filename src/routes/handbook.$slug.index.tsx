@@ -264,7 +264,8 @@ function SourcesFooter({ overview }: { overview: HandbookOverview }) {
 function ProfessionsList({ items, q, slug }: { items: string[]; q: string; slug: string }) {
   const filtered = useMemo(() => {
     const t = q.trim().toLowerCase();
-    return t ? items.filter((p) => p.toLowerCase().includes(t)) : items;
+    const uniq = Array.from(new Set(items));
+    return t ? uniq.filter((p) => p.toLowerCase().includes(t)) : uniq;
   }, [items, q]);
   if (!filtered.length)
     return <div className="text-sm text-muted-foreground py-8 text-center">No matches.</div>;

@@ -192,7 +192,7 @@ function ProfessionPage() {
               className="w-full border-2 border-[var(--ink)] bg-background px-2 py-2 text-xs"
             >
               <option value="">Choose…</option>
-              {siblings.map((p) => (
+              {Array.from(new Set(siblings)).map((p) => (
                 <option key={p} value={professionSlug(p)}>
                   {p}
                 </option>
