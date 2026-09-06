@@ -1,5 +1,4 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import type { ReactNode } from "react";
 import {
   Compass,
@@ -25,34 +24,43 @@ import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
+import { useLang, translator } from "@/lib/lang";
 
 const NAV = [
-  { to: "/", label: { en: "Home", gu: "મુખ્ય" }, icon: Sparkles },
-  { to: "/career", label: { en: "Gujarat", gu: "ગુજરાત" }, icon: Compass },
-  { to: "/handbook", label: { en: "India", gu: "ભારત" }, icon: BookOpen },
-  { to: "/find-college", label: { en: "Colleges", gu: "કોલેજો" }, icon: Search },
-  { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી" }, icon: Library },
-  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ" }, icon: Award },
-  { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ" }, icon: FileCheck },
-  { to: "/test", label: { en: "Aptitude", gu: "ટેસ્ટ" }, icon: Brain },
-  { to: "/dashboard", label: { en: "Dashboard", gu: "ડેશબોર્ડ" }, icon: LayoutDashboard },
-  { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમ" }, icon: FileText },
+  { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
+  { to: "/career", label: { en: "Gujarat", gu: "ગુજરાત", hi: "गुजरात", mr: "गुजरात" }, icon: Compass },
+  { to: "/handbook", label: { en: "India", gu: "ભારત", hi: "भारत", mr: "भारत" }, icon: BookOpen },
+  { to: "/find-college", label: { en: "Colleges", gu: "કૉલેજ", hi: "कॉलेज", mr: "कॉलेज" }, icon: Search },
+  {
+    to: "/career-library",
+    label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" },
+    icon: Library,
+  },
+  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
+  { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ", hi: "परीक्षाएँ", mr: "परीक्षा" }, icon: FileCheck },
+  { to: "/test", label: { en: "Aptitude", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, icon: Brain },
+  { to: "/dashboard", label: { en: "Dashboard", gu: "ડૅશબોર્ડ", hi: "डैशबोर्ड", mr: "डॅशबोर्ड" }, icon: LayoutDashboard },
+  { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમે", hi: "रिज़्यूमे", mr: "रेझ्युमे" }, icon: FileText },
 ];
 
 const FOOTER_EXTRA = [
-  { to: "/about", label: { en: "About", gu: "વિશે" }, icon: Info },
-  { to: "/parents", label: { en: "For Parents", gu: "માતા-પિતા માટે" }, icon: Heart },
-  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતા" }, icon: Trophy },
-  { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો" }, icon: HelpCircle },
-  { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે" }, icon: Building2 },
+  { to: "/about", label: { en: "About", gu: "અમારા વિશે", hi: "हमारे बारे में", mr: "आमच्याविषयी" }, icon: Info },
+  { to: "/parents", label: { en: "For Parents", gu: "વાલીઓ માટે", hi: "अभिभावकों के लिए", mr: "पालकांसाठी" }, icon: Heart },
+  {
+    to: "/success-stories",
+    label: { en: "Success Stories", gu: "સફળતાની વાતો", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" },
+    icon: Trophy,
+  },
+  { to: "/faq", label: { en: "FAQ", gu: "વારંવાર પુછાતા પ્રશ્નો", hi: "अक्सर पूछे सवाल", mr: "नेहमीचे प्रश्न" }, icon: HelpCircle },
+  { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે", hi: "स्कूलों के लिए", mr: "शाळांसाठी" }, icon: Building2 },
 ];
 
 const ACTIVE_PILL =
   "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 65%, var(--primary)))";
 
 export function PublicLayout({ children }: { children: ReactNode }) {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
+  const t = translator(lang);
   const location = useLocation();
   const [open, setOpen] = useState(false);
 
@@ -99,7 +107,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.18em] whitespace-nowrap"
                     style={{ color: "var(--accent)" }}
                   >
-                    {lang === "gu" ? "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર" : "Student Guidance Hub"}
+                    {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
                   </div>
                 </div>
               </Link>
@@ -135,7 +143,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                         }}
                       />
                       <Icon className="relative h-4 w-4" />
-                      <span className="relative">{item.label[lang]}</span>
+                      <span className="relative">{t(item.label)}</span>
                     </Link>
                   );
                 }
@@ -148,7 +156,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     }`}
                   >
                     <Icon className="h-4 w-4" style={isResume ? { color: "var(--accent)" } : undefined} />
-                    {item.label[lang]}
+                    {t(item.label)}
                   </Link>
                 );
               })}
@@ -176,7 +184,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                       style={active ? { background: ACTIVE_PILL } : undefined}
                     >
                       <Icon className="h-4 w-4" />
-                      {item.label[lang]}
+                      {t(item.label)}
                     </Link>
                   );
                 })}
@@ -193,35 +201,41 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           <div>
             <div className="font-serif text-lg mb-2">HBK Careers</div>
             <p className="text-sidebar-foreground/70 text-xs leading-relaxed">
-              {lang === "gu"
-                ? "ધ એચ બી કાપડિયા ન્યૂ હાઈ સ્કૂલ, અમદાવાદ દ્વારા ગુજરાતના વિદ્યાર્થીઓ માટે મફત કારકિર્દી માર્ગદર્શન."
-                : "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad."}
+              {t({
+                en: "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad.",
+                gu: "ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ તરફથી ગુજરાતના વિદ્યાર્થીઓ માટે નિઃશુલ્ક કારકિર્દી માર્ગદર્શન.",
+                hi: "द एच. बी. कापड़िया न्यू हाई स्कूल, अहमदाबाद द्वारा विद्यार्थियों के लिए निःशुल्क करियर मार्गदर्शन।",
+                mr: "द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद यांच्याकडून विद्यार्थ्यांसाठी मोफत करिअर मार्गदर्शन.",
+              })}
             </p>
             <div className="mt-5">
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sidebar-foreground/60 mb-1.5">
-                {lang === "gu" ? "ભાષા" : "Language"}
+                {t({ en: "Language", gu: "ભાષા", hi: "भाषा", mr: "भाषा" })}
               </div>
               <LanguageToggle />
             </div>
           </div>
           <div>
-            <div className="font-medium mb-2">{lang === "gu" ? "વિભાગો" : "Sections"}</div>
+            <div className="font-medium mb-2">{t({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
             <ul className="space-y-1 text-sidebar-foreground/70 text-xs">
               {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
                 <li key={n.to}>
                   <Link to={n.to} className="hover:text-sidebar-foreground">
-                    {n.label[lang]}
+                    {t(n.label)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <div className="font-medium mb-2">{lang === "gu" ? "ઉપયોગ" : "Usage"}</div>
+            <div className="font-medium mb-2">{t({ en: "Usage", gu: "ઉપયોગ", hi: "उपयोग", mr: "वापर" })}</div>
             <p className="text-sidebar-foreground/70 text-xs leading-relaxed">
-              {lang === "gu"
-                ? "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે મફત છે. કોઈ લૉગિન જરૂરી નથી."
-                : "All content and tests are completely free. No login required."}
+              {t({
+                en: "All content and tests are completely free. No login required.",
+                gu: "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે નિઃશુલ્ક છે. લૉગિન કરવાની જરૂર નથી.",
+                hi: "सारी जानकारी और टेस्ट पूरी तरह निःशुल्क हैं। लॉगिन ज़रूरी नहीं है।",
+                mr: "सर्व माहिती आणि चाचण्या पूर्णपणे मोफत आहेत. लॉगिन करण्याची गरज नाही.",
+              })}
             </p>
           </div>
         </div>
