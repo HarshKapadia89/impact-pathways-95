@@ -1,4 +1,5 @@
-import { import { Lang } from "@/lib/lang";
+import { Lang } from "@/lib/lang";
+import {
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
   Sparkles,

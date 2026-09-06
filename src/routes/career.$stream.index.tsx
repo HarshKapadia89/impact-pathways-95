@@ -1,4 +1,5 @@
-import { import { useLang } from "@/lib/lang";
+import { useLang } from "@/lib/lang";
+import {
 import { createFileRoute, getRouteApi, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { pathSlug, type Stream } from "@/lib/careerData";

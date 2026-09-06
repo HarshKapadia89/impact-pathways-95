@@ -1,4 +1,5 @@
-import { import { useLang } from "@/lib/lang";
+import { useLang } from "@/lib/lang";
+import {
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
