@@ -81,6 +81,8 @@ function TestIntro() {
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
   const initialLang: Lang = toLang(i18n.language);
   const [testLang, setTestLang] = useState<Lang>(initialLang);
+  // Page + form copy follows the chosen test language.
+  const lang: Lang = testLang;
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
@@ -212,7 +214,7 @@ function TestIntro() {
                 Introductory offer · ₹2,500 <span className="line-through opacity-60">₹2,500</span> →{" "}
                 <span className="font-semibold">₹1,500</span> with code <span className="font-mono">HBK1000</span>
               </div>
-              <OfflineStatus lang="en" />
+              <OfflineStatus lang={lang === "en" ? "en" : "gu"} />
             </div>
             <h1 className="mt-4 font-serif text-4xl md:text-6xl leading-tight">
               {tp("heroTitle", lang)}
