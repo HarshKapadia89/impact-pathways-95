@@ -25,7 +25,7 @@ export function LanguageToggle() {
           <span suppressHydrationWarning>{mounted ? LANG_LABEL[now] : ""}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="min-w-40">
+      <DropdownMenuContent align="end" className="min-w-40">
         {LANGS.map((l) => (
           <DropdownMenuItem
             key={l}
