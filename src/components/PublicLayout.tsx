@@ -117,13 +117,16 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 </div>
               </Link>
 
-              <button
-                onClick={() => setOpen((v) => !v)}
-                className="lg:hidden ml-auto p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
-                aria-label="Menu"
-              >
-                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
+              <div className="ml-auto flex items-center gap-1">
+                <LanguageToggle />
+                <button
+                  onClick={() => setOpen((v) => !v)}
+                  className="lg:hidden p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
+                  aria-label="Menu"
+                >
+                  {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
+              </div>
             </div>
 
             {/* Row 2 — nav pills */}
@@ -213,12 +216,6 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 mr: "द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद यांच्याकडून विद्यार्थ्यांसाठी मोफत करिअर मार्गदर्शन.",
               })}
             </p>
-            <div className="mt-5">
-              <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sidebar-foreground/60 mb-1.5">
-                {t({ en: "Language", gu: "ભાષા", hi: "भाषा", mr: "भाषा" })}
-              </div>
-              <LanguagePicker />
-            </div>
           </div>
           <div>
             <div className="font-medium mb-2">{t({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
