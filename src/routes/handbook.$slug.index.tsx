@@ -1,4 +1,4 @@
-import { Lang, useLang } from "@/lib/lang";
+import { Lang, useLang, pick } from "@/lib/lang";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
@@ -164,7 +164,7 @@ function StreamDetail() {
                   }`}
                 >
                   <Icon className="h-4 w-4" />
-                  {t.label[lang]}
+                  {pick(t.label, lang)}
                   <span
                     className={`ml-1 text-xs px-1.5 py-0.5 rounded ${
                       active ? "bg-primary/15 text-primary" : "bg-muted text-muted-foreground"

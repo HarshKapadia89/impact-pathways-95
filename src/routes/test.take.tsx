@@ -318,7 +318,7 @@ function TakeTest() {
                   {page * PAGE_SIZE + idx + 1}.
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm md:text-base text-foreground">{item.text[meta.language] ?? item.text.en}</p>
+                  <p className="text-sm md:text-base text-foreground">{(item.text as Record<string, string>)[meta.language] ?? item.text.en}</p>
 
                   {current.type === "likert" ? (
                     <div className="mt-4 grid grid-cols-5 gap-1.5">
@@ -334,7 +334,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {o.label[meta.language] ?? o.label.en}
+                            {(o.label as Record<string, string>)[meta.language] ?? o.label.en}
                           </button>
                         );
                       })}
@@ -353,7 +353,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {String.fromCharCode(65 + i)}. {o[meta.language] ?? o.en}
+                            {String.fromCharCode(65 + i)}. {(o as Record<string, string>)[meta.language] ?? o.en}
                           </button>
                         );
                       })}

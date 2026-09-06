@@ -1,4 +1,3 @@
-import type { Lang } from "@/lib/lang";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";

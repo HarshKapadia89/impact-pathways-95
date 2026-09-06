@@ -1,4 +1,4 @@
-import { useLang } from "@/lib/lang";
+import { useLang, type Lang } from "@/lib/lang";
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
