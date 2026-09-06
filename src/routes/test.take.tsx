@@ -1,3 +1,4 @@
+import { Lang } from "@/lib/lang";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -22,7 +23,6 @@ import { toast } from "sonner";
 import { assessResponseQuality } from "@/lib/responseQuality";
 import { fetchInterpretation, type AIInterpretation } from "@/lib/aiInterpretation";
 import { AIInterpretationPanel } from "@/components/AIInterpretationPanel";
-import type { Lang } from "@/lib/lang";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({

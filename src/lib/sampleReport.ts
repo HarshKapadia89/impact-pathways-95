@@ -1,3 +1,4 @@
+import { Lang } from "@/lib/lang";
 // Generates a real sample PDF using the production report generator,
 // with a realistic Grade-10 student answer set. Used on the test intro page
 // so visitors can preview an actual student report before taking the test.
@@ -11,7 +12,6 @@ import {
   type AptitudeItem,
 } from "./psychometricData";
 import { generatePsychometricPDF } from "./psychometricReport";
-import type { Lang } from "@/lib/lang";
 
 // Realistic answer profile for a sample Science-leaning grade-10 student.
 // Each category gets a target Likert value (1-5); answers are deterministic.

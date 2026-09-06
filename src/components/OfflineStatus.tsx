@@ -1,3 +1,4 @@
+import { Lang } from "@/lib/lang";
 /**
  * Small badge that shows offline state and number of pending submissions
  * waiting to be synced to the server. Renders nothing when online with no queue.
@@ -5,7 +6,6 @@
 import { useEffect, useState } from "react";
 import { Wifi, WifiOff, RefreshCcw, CloudUpload } from "lucide-react";
 import { onPendingChange, flushQueue } from "@/lib/offlineSync";
-import type { Lang } from "@/lib/lang";
 
 export function OfflineStatus({ lang = "en" }: { lang?: Lang }) {
   const [online, setOnline] = useState(true);

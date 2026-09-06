@@ -1,7 +1,7 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { Quote, Sparkles, ArrowRight, Star } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({

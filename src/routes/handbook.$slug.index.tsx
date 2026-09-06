@@ -1,3 +1,4 @@
+import { Lang, useLang } from "@/lib/lang";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
@@ -9,7 +10,6 @@ import {
 import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
 import { professionSlug } from "@/lib/professionData";
 import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, Sparkles, BookOpen } from "lucide-react";
-import { Lang, useLang } from "@/lib/lang";
 
 type TabKey = "professions" | "exams" | "institutes";
 

@@ -1,7 +1,7 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({

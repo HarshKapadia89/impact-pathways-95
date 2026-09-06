@@ -1,7 +1,7 @@
+import { Lang } from "@/lib/lang";
 // Trilingual report strings (English, Hindi, Gujarati).
 // English is the authoritative source; hi/gu are AI-translated in REPORT_XLATE.
 import { REPORT_XLATE } from "./psychometricReportXlate";
-import type { Lang } from "@/lib/lang";
 
 export type ReportLang = Lang;
 

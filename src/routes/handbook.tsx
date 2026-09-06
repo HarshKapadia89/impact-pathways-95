@@ -1,9 +1,9 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import { BookOpen, ArrowRight, Search } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/handbook")({
   head: () => ({

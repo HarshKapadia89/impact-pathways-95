@@ -1,6 +1,6 @@
+import { useLang } from "@/lib/lang";
 import { Link } from "@tanstack/react-router";
 import { Brain, ArrowRight } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 export function StickyMobileCTA() {
   const lang = useLang();

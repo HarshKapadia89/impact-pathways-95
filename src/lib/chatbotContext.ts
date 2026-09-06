@@ -1,4 +1,4 @@
-import type { Lang } from "@/lib/lang";
+import { Lang } from "@/lib/lang";
 // Reads the saved psychometric report (if any) and formats it as compact context
 // for HBK Career Counsellor.
 

@@ -1,10 +1,9 @@
+import { import { useLang } from "@/lib/lang";
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import {
-import { useLang } from "@/lib/lang";
   Building2, Check, Sparkles, Users, BarChart3, BookOpen, Headphones, Send,
 } from "lucide-react";
 

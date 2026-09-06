@@ -1,10 +1,10 @@
+import { useLang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
 import { FileText, Download, Plus, Trash2, Save } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/profile-builder")({
   head: () => ({

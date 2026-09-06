@@ -1,3 +1,4 @@
+import { Lang } from "@/lib/lang";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -31,7 +32,6 @@ import sampleRiasec from "@/assets/sample-report-riasec.jpg";
 import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
 import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
-import type { Lang } from "@/lib/lang";
 
 type VibeId = "investigator" | "creator" | "builder" | "leader";
 const VIBE_IDS: VibeId[] = ["investigator", "creator", "builder", "leader"];

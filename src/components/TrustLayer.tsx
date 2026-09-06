@@ -1,8 +1,7 @@
+import { import { Lang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
-import {
-import { Lang } from "@/lib/lang";
   School,
   FileText,
   BookOpen,

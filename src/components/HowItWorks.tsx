@@ -1,6 +1,6 @@
+import { Lang } from "@/lib/lang";
 import { Link } from "@tanstack/react-router";
 import { Brain, FileText, Compass, ArrowRight } from "lucide-react";
-import { Lang } from "@/lib/lang";
 
 export function HowItWorks({ lang }: { lang: Lang }) {
   const T = {

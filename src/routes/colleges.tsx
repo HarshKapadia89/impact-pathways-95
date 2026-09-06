@@ -1,10 +1,10 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { Search, MapPin, Globe, GraduationCap, Building2, Filter } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 type College = Tables<"colleges">;
 

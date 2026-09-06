@@ -1,3 +1,4 @@
+import { translator, useLang } from "@/lib/lang";
 import { Link, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import {
@@ -24,7 +25,6 @@ import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
-import { useLang, translator } from "@/lib/lang";
 
 const NAV = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },

@@ -1,3 +1,4 @@
+import { LANGS, LANG_LABEL, toLang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Globe, Check } from "lucide-react";
@@ -8,7 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LANGS, LANG_LABEL, toLang } from "@/lib/lang";
 
 export function LanguageToggle() {
   const { i18n } = useTranslation();

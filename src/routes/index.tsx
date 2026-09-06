@@ -1,3 +1,4 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
@@ -7,7 +8,6 @@ import { VibeQuizCard } from "@/components/VibeQuizCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { STREAMS } from "@/lib/careerData";
 import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/")({
   head: () => ({

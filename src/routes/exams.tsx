@@ -1,9 +1,9 @@
+import { useLang } from "@/lib/lang";
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
 import { Search, Calendar, ExternalLink, FileCheck, X, Filter } from "lucide-react";
-import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/exams")({
   head: () => ({

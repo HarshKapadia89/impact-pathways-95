@@ -1,6 +1,6 @@
+import { Lang } from "@/lib/lang";
 import { GraduationCap, BookOpen, FileCheck2, Briefcase, TrendingUp, Award, Rocket, School } from "lucide-react";
 import type { CareerPath, Stream } from "@/lib/careerData";
-import type { Lang } from "@/lib/lang";
 
 type Props = { stream: Stream; path: CareerPath; lang: Lang };
 
