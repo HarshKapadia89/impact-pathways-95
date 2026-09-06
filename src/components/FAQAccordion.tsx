@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { Lang } from "@/lib/lang";
 
 type QA = { q: string; a: string };
 
@@ -8,7 +9,7 @@ export function FAQAccordion({
   items,
   showHeader = true,
 }: {
-  lang: "en" | "gu";
+  lang: Lang;
   items?: QA[];
   showHeader?: boolean;
 }) {

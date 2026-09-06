@@ -11,6 +11,7 @@ import {
   Brain,
 } from "lucide-react";
 import {
+import { useLang } from "@/lib/lang";
   loadReport,
   buildReportContext,
   type SavedReport,
@@ -36,7 +37,7 @@ const SUGGESTIONS_POST = [
 
 export function CareerChatbot() {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.startsWith("gu") ? "gu" : "en";
+  const lang = useLang();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");

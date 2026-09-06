@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Brain, FileText, Compass, ArrowRight } from "lucide-react";
+import { Lang } from "@/lib/lang";
 
-export function HowItWorks({ lang }: { lang: "en" | "gu" }) {
+export function HowItWorks({ lang }: { lang: Lang }) {
   const T = {
     eyebrow: lang === "gu" ? "કેવી રીતે કામ કરે છે" : "How it works",
     title: lang === "gu" ? "ત્રણ સ્ટેપમાં તમારી દિશા" : "Your direction in 3 steps",
