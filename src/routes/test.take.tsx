@@ -440,6 +440,14 @@ function Result({
   const band = useMemo(() => gradeToBand(meta.grade), [meta.grade]);
   const marksPerQ = Math.max(1, meta.marksPerQ ?? 1);
   const report = useMemo(() => buildReport(riasec, mi, apt, aptItems, band), [riasec, mi, apt, aptItems, band]);
+  const aptCorrect = useMemo(
+    () => Object.values(report.aptitude).reduce((n, c) => n + c.correct, 0),
+    [report],
+  );
+  const aptTotal = useMemo(
+    () => Object.values(report.aptitude).reduce((n, c) => n + c.total, 0),
+    [report],
+  );
   const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
   const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
   const [reportToken, setReportToken] = useState<string>("");
