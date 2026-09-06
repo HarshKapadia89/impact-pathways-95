@@ -31,7 +31,7 @@ import { useState } from "react";
 const NAV = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
   { to: "/career", label: { en: "Gujarat", gu: "ગુજરાત", hi: "गुजरात", mr: "गुजरात" }, icon: Compass },
-  { to: "/handbook", label: { en: "India", gu: "ભારત", hi: "भारत", mr: "भारत" }, icon: BookOpen },
+  
   { to: "/find-college", label: { en: "Colleges", gu: "કૉલેજ", hi: "कॉलेज", mr: "कॉलेज" }, icon: Search },
   {
     to: "/career-library",
