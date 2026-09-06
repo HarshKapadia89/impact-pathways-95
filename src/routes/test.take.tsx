@@ -54,9 +54,13 @@ interface PaymentMeta {
 }
 
 
-// Marathi question copy is not authored yet — fall back to Hindi (same script), then English.
-function ql(obj: Record<string, string>, lang: string): string {
-  return obj[lang] ?? (lang === "mr" ? obj.hi : undefined) ?? obj.en;
+function ql(obj: Record<string, string>, lang: string, mrKey?: string): string {
+  if (lang === "mr") {
+    const m = mrKey ? MR_ITEM_TEXT[mrKey] ?? MR_OPTION_TEXT[mrKey] ?? MR_LIKERT[mrKey] : undefined;
+    if (m) return m;
+    return obj.hi ?? obj.en;
+  }
+  return obj[lang] ?? obj.en;
 }
 
 const PAGE_SIZE = 6;

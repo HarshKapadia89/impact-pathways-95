@@ -2,6 +2,7 @@ import { Lang } from "@/lib/lang";
 // Trilingual report strings (English, Hindi, Gujarati).
 // English is the authoritative source; hi/gu are AI-translated in REPORT_XLATE.
 import { REPORT_XLATE } from "./psychometricReportXlate";
+import { MR_REPORT } from "./psychometricMarathi";
 
 export type ReportLang = Lang;
 
@@ -228,14 +229,17 @@ const EN: Record<string, string> = {
 function tr(key: string, lang: ReportLang): string {
   const en = EN[key];
   if (lang === "en") return en ?? key;
+  if (lang === "mr") {
+    const m = MR_REPORT[key];
+    if (m) return m;
+  }
   const x = REPORT_XLATE[key];
   if (!x) return en ?? key;
-  return (lang === "hi" ? x.hi : x.gu) || en || key;
+  return (lang === "hi" || lang === "mr" ? x.hi : x.gu) || en || key;
 }
 
 export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
-  // Marathi report copy is not authored yet — fall back to Hindi (same script).
-  const language: ReportLang = requested === "mr" ? "hi" : requested;
+  const language: ReportLang = requested;
   const T = (k: string) => tr(k, language);
   const SECTIONS = [
     T("sec1"), T("sec2"), T("sec3"), T("sec4"), T("sec5"), T("sec6"),
@@ -245,7 +249,7 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
   ];
   const PAGE_LABEL = T("page");
   const OF_LABEL = T("of");
-  const genOn = language === "hi" ? "इस दिन तैयार:" : language === "gu" ? "તૈયાર કરવાની તારીખ:" : "Generated on";
+  const genOn = (language === "hi" || language === "mr") ? "इस दिन तैयार:" : language === "gu" ? "તૈયાર કરવાની તારીખ:" : "Generated on";
   const meta = (grade: string, age: string, lang: string) =>
     language === "hi"
       ? `कक्षा ${grade}  ·  आयु ${age}  ·  भाषा: ${lang}`
@@ -288,7 +292,7 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
     snapTopStreams: T("snapTopStreams"),
     snapBoth: T("snapBoth"),
     snapAptOverall: (pct) =>
-      language === "hi" ? `(कुल ${pct}%)` : language === "gu" ? `(કુલ ${pct}%)` : `(overall ${pct}%)`,
+      (language === "hi" || language === "mr") ? `(कुल ${pct}%)` : language === "gu" ? `(કુલ ${pct}%)` : `(overall ${pct}%)`,
 
     riasecIntro: T("riasecIntro"),
     riasec: {
@@ -300,7 +304,7 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
       C: { name: T("C_name"), description: T("C_desc") },
     },
     riasecYourCode: (code) =>
-      language === "hi" ? `आपका हॉलैंड कोड: ${code}` : language === "gu" ? `તમારો હોલેન્ડ કોડ: ${code}` : `Your Holland code: ${code}`,
+      (language === "hi" || language === "mr") ? `आपका हॉलैंड कोड: ${code}` : language === "gu" ? `તમારો હોલેન્ડ કોડ: ${code}` : `Your Holland code: ${code}`,
     riasecCodeText: T("riasecCodeText"),
 
     miIntro: T("miIntro"),
@@ -345,14 +349,14 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
     primary: T("primary"),
     secondary: T("secondary"),
     coreSubjects: (s) =>
-      language === "hi" ? `मुख्य विषय: ${s}` : language === "gu" ? `મુખ્ય વિષયો: ${s}` : `Core subjects: ${s}`,
+      (language === "hi" || language === "mr") ? `मुख्य विषय: ${s}` : language === "gu" ? `મુખ્ય વિષયો: ${s}` : `Core subjects: ${s}`,
 
     topPaths: T("topPaths"),
-    pathStream: (s) => (language === "hi" ? `स्ट्रीम: ${s}` : language === "gu" ? `સ્ટ્રીમ: ${s}` : `Stream: ${s}`),
+    pathStream: (s) => ((language === "hi" || language === "mr") ? `स्ट्रीम: ${s}` : language === "gu" ? `સ્ટ્રીમ: ${s}` : `Stream: ${s}`),
     pathSalary: (s) =>
-      language === "hi" ? `औसत शुरुआती वेतन: ${s}` : language === "gu" ? `સરેરાશ પ્રારંભિક પગાર: ${s}` : `Avg starting salary: ${s}`,
+      (language === "hi" || language === "mr") ? `औसत शुरुआती वेतन: ${s}` : language === "gu" ? `સરેરાશ પ્રારંભિક પગાર: ${s}` : `Avg starting salary: ${s}`,
     pathExams: (s) =>
-      language === "hi" ? `प्रवेश परीक्षाएँ: ${s}` : language === "gu" ? `પ્રવેશ પરીક્ષાઓ: ${s}` : `Entrance exams: ${s}`,
+      (language === "hi" || language === "mr") ? `प्रवेश परीक्षाएँ: ${s}` : language === "gu" ? `પ્રવેશ પરીક્ષાઓ: ${s}` : `Entrance exams: ${s}`,
 
     examsIntro: (n) =>
       language === "hi"
@@ -373,13 +377,13 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
     glossaryItems: [
       ["RIASEC", T("gl_riasec")],
       ["MI", T("gl_mi")],
-      [language === "hi" ? "एप्टिट्यूड" : language === "gu" ? "એપ્ટિટ્યુડ" : "Aptitude", T("gl_apt")],
-      [language === "hi" ? "स्ट्रीम" : language === "gu" ? "સ્ટ્રીમ" : "Stream", T("gl_stream")],
-      [language === "hi" ? "हॉलैंड कोड" : language === "gu" ? "હોલેન્ડ કોડ" : "Holland code", T("gl_code")],
+      [(language === "hi" || language === "mr") ? "एप्टिट्यूड" : language === "gu" ? "એપ્ટિટ્યુડ" : "Aptitude", T("gl_apt")],
+      [(language === "hi" || language === "mr") ? "स्ट्रीम" : language === "gu" ? "સ્ટ્રીમ" : "Stream", T("gl_stream")],
+      [(language === "hi" || language === "mr") ? "हॉलैंड कोड" : language === "gu" ? "હોલેન્ડ કોડ" : "Holland code", T("gl_code")],
     ],
     closingDisclaimer: T("closingDisclaimer"),
 
-    footerName: (name) => `${name || (language === "hi" ? "छात्र" : language === "gu" ? "વિદ્યાર્થી" : "Student")} · HBK Careers Report`,
+    footerName: (name) => `${name || ((language === "hi" || language === "mr") ? "छात्र" : language === "gu" ? "વિદ્યાર્થી" : "Student")} · HBK Careers Report`,
     pageOf: (page, total) => `${PAGE_LABEL} ${page} ${OF_LABEL} ${total}`,
     page: PAGE_LABEL,
     of: OF_LABEL,
