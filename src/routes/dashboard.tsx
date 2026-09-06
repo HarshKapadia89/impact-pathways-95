@@ -357,7 +357,7 @@ function CareersTab({ items, onRemove }: { items: SavedCareer[]; onRemove: (c: S
       <EmptyState
         title="No saved careers yet"
         desc="Browse handbook profiles and tap Save to keep them here."
-        href="/handbook"
+        href="/career-library"
         cta="Browse careers"
       />
     );
