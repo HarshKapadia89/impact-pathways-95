@@ -49,7 +49,7 @@ export const Route = createFileRoute("/handbook/$slug/")({
   notFoundComponent: () => (
     <div className="max-w-3xl mx-auto px-4 py-20 text-center">
       <h1 className="font-serif text-3xl">Stream not found</h1>
-      <Link to="/handbook" className="text-primary mt-4 inline-block">
+      <Link to="/career-library" className="text-primary mt-4 inline-block">
         ← Back to handbook
       </Link>
     </div>
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/handbook/$slug/")({
   errorComponent: ({ error }) => (
     <div className="max-w-3xl mx-auto px-4 py-20 text-center">
       <p>Something went wrong: {error.message}</p>
-      <Link to="/handbook" className="text-primary mt-4 inline-block">
+      <Link to="/career-library" className="text-primary mt-4 inline-block">
         ← Back
       </Link>
     </div>
@@ -110,7 +110,7 @@ function StreamDetail() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
           <div className="flex items-center justify-between gap-3 print:hidden">
             <Link
-              to="/handbook"
+              to="/career-library"
               className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="h-3.5 w-3.5" /> {t4(lang, "All streams", "બધા પ્રવાહો")}

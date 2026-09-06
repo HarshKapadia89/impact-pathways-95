@@ -106,7 +106,7 @@ export const Route = createFileRoute("/handbook/$slug/$profession")({
     <>
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
         <h1 className="font-serif tracking-tight text-3xl">Profession not found</h1>
-        <Link to="/handbook" className="mt-4 inline-block font-bold uppercase text-sm underline">
+        <Link to="/career-library" className="mt-4 inline-block font-bold uppercase text-sm underline">
           ← Back to the India handbook
         </Link>
       </div>

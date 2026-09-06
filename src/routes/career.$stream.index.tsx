@@ -184,7 +184,7 @@ function StreamDetail() {
             </div>
           </div>
           <Link
-            to="/handbook"
+            to="/career-library"
             className="bg-card border border-border px-4 py-2 rounded-md text-sm font-medium hover:bg-muted"
           >
             {t4(lang, "Open Handbook", "હેન્ડબુક ખોલો")} →
