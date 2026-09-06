@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { useLang } from "@/lib/lang";
@@ -37,7 +36,6 @@ export const Route = createFileRoute("/faq")({
 });
 
 function FAQPage() {
-  const { i18n } = useTranslation();
   const lang = useLang();
   return (
     <PublicLayout>

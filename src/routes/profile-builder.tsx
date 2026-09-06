@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
@@ -43,7 +42,6 @@ const EMPTY: Profile = {
 const STORAGE_KEY = "hbk-student-profile";
 
 function ProfileBuilderPage() {
-  const { i18n } = useTranslation();
   const lang = useLang();
   const [p, setP] = useState<Profile>(EMPTY);
 

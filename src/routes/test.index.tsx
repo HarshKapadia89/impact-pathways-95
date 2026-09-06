@@ -31,6 +31,7 @@ import sampleRiasec from "@/assets/sample-report-riasec.jpg";
 import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
 import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
+import type { Lang } from "@/lib/lang";
 
 type VibeId = "investigator" | "creator" | "builder" | "leader";
 const VIBE_IDS: VibeId[] = ["investigator", "creator", "builder", "leader"];
@@ -76,12 +77,12 @@ function TestIntro() {
   const { i18n } = useTranslation();
   const { vibe } = Route.useSearch() as { vibe?: VibeId };
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
-  const initialLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
+  const initialLang: Lang = i18n.language?.startsWith("hi")
     ? "hi"
     : i18n.language?.startsWith("gu")
       ? "gu"
       : "en";
-  const [testLang, setTestLang] = useState<"en" | "hi" | "gu">(initialLang);
+  const [testLang, setTestLang] = useState<Lang>(initialLang);
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");

@@ -5,8 +5,9 @@
 import { useEffect, useState } from "react";
 import { Wifi, WifiOff, RefreshCcw, CloudUpload } from "lucide-react";
 import { onPendingChange, flushQueue } from "@/lib/offlineSync";
+import type { Lang } from "@/lib/lang";
 
-export function OfflineStatus({ lang = "en" }: { lang?: "en" | "gu" }) {
+export function OfflineStatus({ lang = "en" }: { lang?: Lang }) {
   const [online, setOnline] = useState(true);
   const [pending, setPending] = useState(0);
   const [syncing, setSyncing] = useState(false);

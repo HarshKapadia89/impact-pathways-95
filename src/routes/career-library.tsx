@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import professionIndex from "@/lib/professionIndex.json";
@@ -36,7 +35,6 @@ const STREAM_NAME_BY_SLUG: Record<string, string> = Object.fromEntries(
 );
 
 function CareerLibraryPage() {
-  const { i18n } = useTranslation();
   const lang = useLang();
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState<string>("");

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { Link } from "@tanstack/react-router";
 import {
   MessageCircle,
@@ -36,7 +35,6 @@ const SUGGESTIONS_POST = [
 ];
 
 export function CareerChatbot() {
-  const { i18n } = useTranslation();
   const lang = useLang();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);

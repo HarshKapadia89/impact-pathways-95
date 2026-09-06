@@ -1,3 +1,4 @@
+import type { Lang } from "@/lib/lang";
 // Reads the saved psychometric report (if any) and formats it as compact context
 // for HBK Career Counsellor.
 
@@ -7,7 +8,7 @@ export interface SavedReport {
   name: string;
   grade: string;
   age?: string;
-  language: "en" | "hi" | "gu";
+  language: Lang;
   riasecTop: string[];
   riasec: Record<string, number>;
   miTop: string[];

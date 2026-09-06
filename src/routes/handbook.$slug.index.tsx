@@ -1,5 +1,4 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
 import {
   HANDBOOK_SUMMARY_BY_SLUG,
@@ -67,7 +66,6 @@ export const Route = createFileRoute("/handbook/$slug/")({
 function StreamDetail() {
   const { stream } = Route.useLoaderData() as { stream: HandbookStream };
   const { slug } = Route.useParams();
-  const { i18n } = useTranslation();
   const lang = useLang();
   const [tab, setTab] = useState<TabKey>("professions");
   const [query, setQuery] = useState("");

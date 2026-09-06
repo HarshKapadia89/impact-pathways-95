@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { STREAMS, ENTRANCE_EXAMS } from "@/lib/careerData";
 import { GUJ_COLLEGES, GUJ_COLLEGE_STATS, type CategoryGroup } from "@/lib/gujaratColleges";
@@ -38,7 +37,6 @@ export const Route = createFileRoute("/career")({
 });
 
 function CareerIndex() {
-  const { i18n } = useTranslation();
   const lang = useLang();
 
   const [activeCat, setActiveCat] = useState<string>("all");
@@ -330,7 +328,7 @@ function ResourceCard({ title, sub, url }: { title: string; sub: string; url: st
   );
 }
 
-function CategorySection({ cat, lang }: { cat: CategoryGroup; lang: "en" | "gu" }) {
+function CategorySection({ cat, lang }: { cat: CategoryGroup; lang: Lang }) {
   return (
     <div>
       <div className="flex items-start justify-between flex-wrap gap-3 border-b border-border pb-3">

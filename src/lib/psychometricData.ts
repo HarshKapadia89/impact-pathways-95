@@ -1,3 +1,4 @@
+import type { Lang } from "@/lib/lang";
 // Psychometric test bank — RIASEC + Multiple Intelligences + Aptitude.
 // Bilingual (English / Gujarati) for the on-screen test UI; reports are English-only.
 //
@@ -8,7 +9,7 @@
 //           Selection logic in test.take.tsx serves only items matching the
 //           student's grade band — ~24 questions per attempt.
 
-export type Lang = "en" | "hi" | "gu";
+export type Lang = Lang;
 export type GradeBand = "6-8" | "9-10" | "11-12";
 export type AptitudeCategory =
   | "Numerical"

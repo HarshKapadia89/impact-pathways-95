@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -27,7 +26,6 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { i18n } = useTranslation();
   const lang = useLang();
   const T = {
     hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
@@ -38,7 +37,6 @@ const STREAM_OPTIONS = [
 ] as const;
 
 function CollegesPage() {
-  const { i18n } = useTranslation();
   const lang = useLang();
   const [data, setData] = useState<College[]>([]);
   const [loading, setLoading] = useState(true);

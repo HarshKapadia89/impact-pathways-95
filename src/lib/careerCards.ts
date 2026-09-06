@@ -1,3 +1,4 @@
+import type { Lang } from "@/lib/lang";
 // Additional per-career "career card" details layered on top of careerData.ts.
 // Sourced from the national Career Card format (personal competencies, work
 // environment, national institutes, distance/online options, loans, role model,
@@ -6,7 +7,7 @@
 // Everything here is prose — strings are stored per language.
 // Language fallback: hi → en, gu → en.
 
-export type Lang = "en" | "hi" | "gu";
+export type Lang = Lang;
 export type T = Partial<Record<Lang, string>> & { en: string };
 export type TList = Partial<Record<Lang, string[]>> & { en: string[] };
 

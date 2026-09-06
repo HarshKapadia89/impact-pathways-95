@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import { assessResponseQuality } from "@/lib/responseQuality";
 import { fetchInterpretation, type AIInterpretation } from "@/lib/aiInterpretation";
 import { AIInterpretationPanel } from "@/components/AIInterpretationPanel";
+import type { Lang } from "@/lib/lang";
 
 export const Route = createFileRoute("/test/take")({
   head: () => ({
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/test/take")({
   component: TakeTest,
 });
 
-type UILang = "en" | "hi" | "gu";
+type UILang = Lang;
 interface Meta {
   name: string;
   grade: string;
@@ -57,7 +58,7 @@ const DRAFT_KEY = "hbk-test-draft-v1";
 
 // Chrome strings for the test-taking flow, keyed by the language chosen on /test.
 const T: Record<
-  "en" | "hi" | "gu",
+  Lang,
   {
     part1: string;
     part2: string;
