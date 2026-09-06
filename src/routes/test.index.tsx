@@ -1,4 +1,6 @@
 import { Lang, toLang } from "@/lib/lang";
+import { tp } from "@/lib/testPageStrings";
+import { useLang } from "@/lib/lang";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -213,24 +215,24 @@ function TestIntro() {
               <OfflineStatus lang="en" />
             </div>
             <h1 className="mt-4 font-serif text-4xl md:text-6xl leading-tight">
-              Discover your career DNA in 20 minutes.
+              {tp("heroTitle", lang)}
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl">
-              A research-grade psychometric assessment combining RIASEC interests, Gardner's Multiple Intelligences, and a grade-banded aptitude battery — designed for Indian students in grades 6–12. Get a personalised 20-page report mapped to streams, colleges and careers.
+              {tp("heroSub", lang)}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#start"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium hover:opacity-90"
               >
-                Take the test — ₹1,500
+                {tp("ctaTake", lang)}
                 <ChevronRight className="h-4 w-4" />
               </a>
               <a
                 href="#sample"
                 className="inline-flex items-center gap-2 border border-border bg-card rounded-md px-5 py-3 text-sm font-medium hover:bg-muted"
               >
-                See sample report
+                {tp("ctaSample", lang)}
               </a>
             </div>
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
@@ -596,15 +598,15 @@ function TestIntro() {
       {/* START FORM */}
       <section id="start" className="max-w-6xl mx-auto px-4 md:px-8 py-16 grid md:grid-cols-5 gap-10">
         <div className="md:col-span-2">
-          <div className="text-xs uppercase tracking-widest text-accent">Begin</div>
-          <h2 className="font-serif text-3xl md:text-4xl mt-2">Ready when you are.</h2>
+          <div className="text-xs uppercase tracking-widest text-accent">{tp("begin", lang)}</div>
+          <h2 className="font-serif text-3xl md:text-4xl mt-2">{tp("ready", lang)}</h2>
           <p className="text-muted-foreground mt-3 text-sm">
-            It takes 15–25 minutes. Find a quiet spot, answer honestly, and you'll have your full PDF report the moment you finish.
+            {tp("readySub", lang)}
           </p>
           <div className="mt-5 rounded-xl border border-accent/30 bg-accent/5 p-4 text-sm">
-            <div className="font-medium text-foreground">₹1,500 per student (intro)</div>
+            <div className="font-medium text-foreground">{tp("priceLine", lang)}</div>
             <div className="text-xs text-muted-foreground mt-1">
-              Use coupon <span className="font-mono font-semibold">HBK1000</span> at checkout to unlock the introductory price.
+              {tp("couponLine", lang)}
             </div>
           </div>
         </div>
@@ -641,65 +643,65 @@ function TestIntro() {
                 })}
               </div>
               <p className="mt-2 text-[11px] text-muted-foreground">
-                Questions, options and your final PDF report will all be in this language. To change it later you must retake the test.
+                {tp("langNote", lang)}
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
 
-              <Field label="Full name" value={name} onChange={setName} placeholder="e.g. Aarav Patel" />
-              <Field label="School name *" value={school} onChange={setSchool} placeholder="e.g. Delhi Public School" />
-              <Field label="Grade *" value={grade} onChange={setGrade} placeholder="6 to 12" />
-              <Field label="Age" value={age} onChange={setAge} placeholder="11 to 18" type="number" />
+              <Field label={tp("fName", lang)} value={name} onChange={setName} placeholder={tp("fNamePh", lang)} />
+              <Field label={tp("fSchool", lang)} value={school} onChange={setSchool} placeholder={tp("fSchoolPh", lang)} />
+              <Field label={tp("fGrade", lang)} value={grade} onChange={setGrade} placeholder={tp("fGradePh", lang)} />
+              <Field label={tp("fAge", lang)} value={age} onChange={setAge} placeholder={tp("fAgePh", lang)} type="number" />
               <Field
-                label="Mobile number *"
+                label={tp("fMobile", lang)}
                 value={mobile}
                 onChange={setMobile}
-                placeholder="10-digit Indian mobile"
+                placeholder={tp("fMobilePh", lang)}
                 type="tel"
                 inputMode="numeric"
                 maxLength={10}
               />
               <Field
-                label="Email ID *"
+                label={tp("fEmail", lang)}
                 value={email}
                 onChange={setEmail}
                 placeholder="you@example.com"
                 type="email"
               />
               <Field
-                label="Parent's email (optional)"
+                label={tp("fParent", lang)}
                 value={parentEmail}
                 onChange={setParentEmail}
-                placeholder="parent@example.com — for sharing the report"
+                placeholder={tp("fParentPh", lang)}
                 type="email"
               />
             </div>
             {(school.length > 0 && !schoolValid) && (
-              <p className="mt-3 text-xs text-destructive">Please enter your school name.</p>
+              <p className="mt-3 text-xs text-destructive">{tp("errSchool", lang)}</p>
             )}
             {(mobile.length > 0 && !mobileValid) && (
-              <p className="mt-1 text-xs text-destructive">Enter a valid 10-digit Indian mobile number.</p>
+              <p className="mt-1 text-xs text-destructive">{tp("errMobile", lang)}</p>
             )}
             {(email.length > 0 && !emailValid) && (
-              <p className="mt-1 text-xs text-destructive">Enter a valid email address.</p>
+              <p className="mt-1 text-xs text-destructive">{tp("errEmail", lang)}</p>
             )}
             {(parentEmail.length > 0 && !parentEmailValid) && (
-              <p className="mt-1 text-xs text-destructive">Enter a valid parent email address (or leave blank).</p>
+              <p className="mt-1 text-xs text-destructive">{tp("errParent", lang)}</p>
             )}
             <button
               onClick={start}
               disabled={!canContinue}
               className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium hover:opacity-90 disabled:opacity-40"
             >
-              Continue to payment <ChevronRight className="h-4 w-4" />
+              {tp("continue", lang)} <ChevronRight className="h-4 w-4" />
             </button>
             <p className="text-[11px] text-muted-foreground mt-3">
-              By continuing, you agree to our terms. Your responses stay private and your report will be sent to your email and mobile.
+              {tp("terms", lang)}
             </p>
             <div className="mt-4 text-xs text-muted-foreground">
-              Have questions?{" "}
+              {tp("questions", lang)}{" "}
               <Link to="/" className="underline">
-                Read more about HBK Careers
+                {tp("readMore", lang)}
               </Link>
               .
             </div>
