@@ -1,0 +1,1006 @@
+{
+ "slug": "career-readiness",
+ "title": "Career Readiness — Resume, Interview, LinkedIn",
+ "emoji": "🎯",
+ "tagline": "Shine Bright: Build Your Career Launchpad!",
+ "intro": "Hello, future leaders and innovators! Even if you're still in school, it's never too early to start thinking about your future career. Understanding how to present yourself professionally through a strong resume, ace an interview, and build a digital presence on platforms like LinkedIn can open up incredible opportunities, whether for internships, college applications, or your first job. This lesson will equip you with essential skills to stand out and confidently pursue your dreams, preparing you for success long before you even graduate.",
+ "outcomes": [
+  "By the end you can understand the purpose and key components of a well-structured resume, even for school-aged achievements.",
+  "By the end you can identify effective strategies to prepare for and confidently perform in various interview scenarios, including college admissions or part-time roles.",
+  "By the end you can create a basic professional profile on platforms like LinkedIn to network and explore career paths.",
+  "By the end you can articulate your strengths and experiences clearly and concisely, both in writing and verbally.",
+  "By the end you can differentiate between formal and informal communication styles crucial for professional interactions."
+ ],
+ "lessons": [
+  {
+   "slug": "building-your-first-resume",
+   "title": "Building your first resume",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Your resume is like your personal marketing brochure – it tells people what you're good at and what you've achieved. Even as a student, having one ready helps you apply for internships, scholarships, or even volunteer opportunities.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand Resume Basics",
+     "task": "Read through resume components like contact info, education, skills, and experience."
+    },
+    {
+     "day": 2,
+     "focus": "List Your Experiences",
+     "task": "Jot down all your school projects, volunteer work, clubs, and sports activities."
+    },
+    {
+     "day": 3,
+     "focus": "Highlight Your Skills",
+     "task": "Think about skills you've gained, like teamwork, leadership, or computer proficiency."
+    },
+    {
+     "day": 4,
+     "focus": "Choose a Template",
+     "task": "Find a clean, simple resume template online (e.g., Google Docs templates) and start filling it in."
+    },
+    {
+     "day": 5,
+     "focus": "Draft Your First Version",
+     "task": "Complete a full draft of your resume, focusing on clear and concise language."
+    },
+    {
+     "day": 6,
+     "focus": "Review and Refine",
+     "task": "Check for spelling, grammar, and formatting errors. Make sure it's easy to read."
+    },
+    {
+     "day": 7,
+     "focus": "Get Feedback",
+     "task": "Ask a parent, teacher, or mentor to review your resume and offer suggestions."
+    }
+   ],
+   "notes": [
+    "Keep your resume to one page, especially for early career stages.",
+    "Use clear, easy-to-read fonts like Arial or Calibri, size 10-12.",
+    "Always list your most recent education or experience first.",
+    "Include your full name, phone number, email, and city/state.",
+    "Highlight academic achievements like board exam scores or distinctions.",
+    "Use action verbs to describe your roles and accomplishments.",
+    "Proofread meticulously for any typos or grammatical errors.",
+    "Save your resume as a PDF to ensure formatting stays consistent."
+   ],
+   "caseStudies": [
+    {
+     "title": "The College Student Who Landed Google",
+     "who": "Ishita Gupta",
+     "country": "India",
+     "story": "Ishita, a computer science student from VIT Vellore, used a clean, project-focused resume to highlight her coding skills and participation in hackathons. Her resume concisely showcased her passion for technology, leading to an interview and ultimately an internship at Google India. She focused on 'what' she built and 'how' it worked.",
+     "takeaway": "Even without traditional job experience, highlight relevant projects and skills to show your potential."
+    },
+    {
+     "title": "From High School Intern to NASA",
+     "who": "Ananya S.P. Ramakrishnan",
+     "country": "USA",
+     "story": "Ananya, while still in high school, applied for a NASA internship using a resume that detailed her science fair projects, leadership in school clubs, and specific technical skills she taught herself. Her resume wasn't long but was impactful, demonstrating initiative and a strong interest in STEM. This led to her being accepted into the highly competitive NASA L'SPACE Academy.",
+     "takeaway": "Your resume is a story of your initiative; showcase how you've actively pursued your interests."
+    }
+   ],
+   "practice": "Create your very first resume draft using a simple online template. Focus on listing all your academic details, school projects, volunteer work, and skills. Ask a family member or teacher to review it for clarity.",
+   "quiz": [
+    {
+     "q": "Why is it important for students to have a resume?",
+     "a": "A resume helps students apply for internships, scholarships, volunteer work, and future jobs by showcasing their skills and achievements."
+    },
+    {
+     "q": "What is the recommended length for a student's resume?",
+     "a": "For students and early career individuals, a resume should ideally be kept to one page to ensure it's concise and easy to read."
+    },
+    {
+     "q": "What kind of font should you use on a resume?",
+     "a": "Use clear, professional, and easy-to-read fonts like Arial, Calibri, or Times New Roman, typically in size 10-12."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Google Docs Resume Templates",
+     "url": "https://docs.google.com/document/templates"
+    },
+    {
+     "label": "Resume Building Guide",
+     "url": "https://www.coursera.org/articles/how-to-build-a-resume"
+    },
+    {
+     "label": "NCERT: Vocational Education Resources",
+     "url": "https://ncert.nic.in/pdf/publication/misc_publication/ve_final.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "writing-achievement-bullet-points",
+   "title": "Writing achievement bullet points",
+   "minutes": 30,
+   "level": "Builder",
+   "why": "Instead of just listing duties, powerful achievement bullet points show 'how' you made an impact and 'what' the results were. This makes your resume stand out and convinces people you can deliver real value.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand the STAR Method",
+     "task": "Learn about Situation, Task, Action, Result and how it applies to bullet points."
+    },
+    {
+     "day": 2,
+     "focus": "Identify Your Experiences",
+     "task": "List 3-5 key experiences from your school, clubs, or projects."
+    },
+    {
+     "day": 3,
+     "focus": "Brainstorm Actions",
+     "task": "For each experience, think of strong action verbs you used (e.g., 'managed', 'developed', 'led')."
+    },
+    {
+     "day": 4,
+     "focus": "Quantify Your Impact",
+     "task": "Try to add numbers, percentages, or specific results to your brainstormed actions."
+    },
+    {
+     "day": 5,
+     "focus": "Draft Bullet Points",
+     "task": "Write 2-3 achievement bullet points for each of your chosen experiences."
+    },
+    {
+     "day": 6,
+     "focus": "Refine for Clarity",
+     "task": "Review your bullet points: Are they concise? Do they start with an action verb? Do they show results?"
+    },
+    {
+     "day": 7,
+     "focus": "Practice with New Examples",
+     "task": "Take a new school project and try writing achievement bullets for it using what you've learned."
+    }
+   ],
+   "notes": [
+    "Start each bullet point with a strong action verb (e.g., 'Developed', 'Managed', 'Led').",
+    "Focus on accomplishments and results, not just responsibilities.",
+    "Quantify your achievements whenever possible with numbers or percentages.",
+    "Use the 'STAR' method (Situation, Task, Action, Result) mentally to structure your thoughts.",
+    "Tailor bullet points to the specific opportunity you're applying for.",
+    "Keep them concise and to the point, typically one to two lines.",
+    "Avoid generic statements; be specific about your contributions.",
+    "Proofread carefully for impact, grammar, and consistency."
+   ],
+   "caseStudies": [
+    {
+     "title": "Student's Resume Stands Out for STEM Scholarship",
+     "who": "Priya Sharma",
+     "country": "India",
+     "story": "Priya, applying for a scholarship to study engineering, transformed her resume. Instead of 'participated in science club', she wrote: 'Designed and built a working model of a solar-powered water pump, reducing estimated water usage for school garden by 20%.' This quantified impact impressed the scholarship committee.",
+     "takeaway": "Quantifying your achievements with numbers makes your contributions more tangible and impressive."
+    },
+    {
+     "title": "Winning Internship with Impactful Volunteering",
+     "who": "Malala Yousafzai",
+     "country": "Pakistan / Global",
+     "story": "While Malala's early work wasn't for internships, her impact-driven communication style is exemplary. If she were writing a resume, instead of 'spoke about girls' education', it might be 'Advocated for girls' right to education, directly impacting international policy and mobilizing millions globally through public speaking and media engagements.'",
+     "takeaway": "Focus on the 'so what?' of your actions – what change or impact did you create?"
+    }
+   ],
+   "practice": "Take three activities from your current resume or school life (e.g., leading a project, volunteering, scoring well in a subject). For each, write 2-3 achievement bullet points using action verbs and trying to quantify the impact.",
+   "quiz": [
+    {
+     "q": "What is the main difference between a duty and an achievement bullet point?",
+     "a": "A duty describes what you were responsible for, while an achievement describes what you accomplished and the positive impact or results of your actions."
+    },
+    {
+     "q": "Why is it important to use action verbs at the start of your bullet points?",
+     "a": "Action verbs make your bullet points more dynamic and demonstrate your initiative and capability, immediately drawing the reader's attention to your contributions."
+    },
+    {
+     "q": "Give an example of how to quantify an achievement for a school project.",
+     "a": "Instead of 'Helped with school annual day', write: 'Managed a team of 5 students to organize the Annual Day cultural program, leading to 100% participation from relevant classes and positive feedback from attendees.'"
+    }
+   ],
+   "resources": [
+    {
+     "label": "Khan Academy: Resumes, Action Verbs, and Quantifying",
+     "url": "https://www.khanacademy.org/college-admissions/applying-for-financial-aid/financial-aid-basics/a/resumes"
+    },
+    {
+     "label": "MIT Career Guide: Writing Strong Bullet Points",
+     "url": "https://career-handbook.mit.edu/resumes/resume-guide/how-to-write-strong-bullet-points"
+    },
+    {
+     "label": "TED Talk: The Power of Vulnerability (about telling your story)",
+     "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability"
+    }
+   ]
+  },
+  {
+   "slug": "cover-letters-and-emails-that-get-replies",
+   "title": "Cover letters and emails that get replies",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "A great cover letter or email is your chance to tell your unique story and explain why you're perfect for an opportunity, beyond what your resume says. It's how you connect personally and stand out from the crowd, making people want to reply to you.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand the Purpose",
+     "task": "Learn why cover letters are important and what they should achieve."
+    },
+    {
+     "day": 2,
+     "focus": "Structure Your Letter",
+     "task": "Familiarize yourself with the standard format: Introduction, Body Paragraphs, Conclusion."
+    },
+    {
+     "day": 3,
+     "focus": "Research the Opportunity",
+     "task": "Spend 30 minutes researching a hypothetical internship or volunteer role you're interested in."
+    },
+    {
+     "day": 4,
+     "focus": "Draft an Engaging Opening",
+     "task": "Write an opening paragraph that grabs attention and states your purpose clearly."
+    },
+    {
+     "day": 5,
+     "focus": "Connect Your Skills",
+     "task": "Write body paragraphs linking your experiences (from resume) to the specific requirements of the role."
+    },
+    {
+     "day": 6,
+     "focus": "Craft a Strong Closing",
+     "task": "Write a professional closing that reiterates interest and includes a call to action."
+    },
+    {
+     "day": 7,
+     "focus": "Proofread and Personalize",
+     "task": "Review for grammar, spelling, and tone. Ensure it sounds like 'you' and is specifically for the role."
+    }
+   ],
+   "notes": [
+    "Always personalize your letter to the recipient and the specific opportunity.",
+    "Clearly state what you are applying for and why you are interested in the opening paragraph.",
+    "Highlight 2-3 key skills or experiences that directly relate to the opportunity.",
+    "Tell a brief story or provide an example to illustrate your points.",
+    "Keep it concise, typically one page, and professional in tone.",
+    "Express enthusiasm and explain why you are a good 'fit' for their team or mission.",
+    "End with a clear call to action, expressing your eagerness for an interview.",
+    "Proofread meticulously – errors can create a poor impression."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Student Who Wrote to Sundar Pichai",
+     "who": "Chloe Bridgewater (age 7)",
+     "country": "UK",
+     "story": "While an extreme example, Chloe's handwritten letter to Google's CEO, Sundar Pichai, outlining her skills (like drawing and spelling) and ambition to work at Google, received a genuine reply from Pichai himself. It showcased genuine interest and personality, even if unconventional.",
+     "takeaway": "Authenticity and genuine interest, even in a simple form, can capture attention."
+    },
+    {
+     "title": "Getting a Tech Internship with a Passionate Letter",
+     "who": "Ankit Sharma",
+     "country": "India",
+     "story": "Ankit, a student from Delhi, wanted an internship at a small tech startup. His cover letter didn't just list his coding projects; he explained *why* he was passionate about that specific startup's mission to improve local transport. He even suggested a small feature they could add. This demonstrated initiative and genuine engagement.",
+     "takeaway": "Show you've researched the organization and are genuinely excited about their work, offering specific ideas if appropriate."
+    }
+   ],
+   "practice": "Choose a dream internship, volunteer role, or even a scholarship you'd like to apply for. Write a cover letter for it, focusing on how your unique experiences and skills make you a great fit, beyond what's on your resume.",
+   "quiz": [
+    {
+     "q": "What is the primary purpose of a cover letter?",
+     "a": "The primary purpose of a cover letter is to introduce yourself, express your interest in a specific opportunity, and explain why you are a good fit, expanding on points from your resume."
+    },
+    {
+     "q": "Why is it important to personalize your cover letter?",
+     "a": "Personalizing your cover letter shows that you've done your research, are genuinely interested in the specific role and organization, and haven't sent a generic template."
+    },
+    {
+     "q": "What should be included in the closing paragraph of a cover letter?",
+     "a": "The closing paragraph should reiterate your interest, thank the reader for their time, and include a call to action, such as expressing your eagerness for an interview."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Purdue OWL: Writing the Cover Letter",
+     "url": "https://owl.purdue.edu/owl/job_search_writing/cover_letters/index.html"
+    },
+    {
+     "label": "Coursera: Professional Email Writing Tips",
+     "url": "https://www.coursera.org/articles/how-to-write-a-professional-email"
+    },
+    {
+     "label": "NPTEL: Soft Skills - Email Etiquette",
+     "url": "https://nptel.ac.in/courses/109104030"
+    }
+   ]
+  },
+  {
+   "slug": "linkedin-profile-for-students",
+   "title": "LinkedIn profile for students",
+   "minutes": 30,
+   "level": "Builder",
+   "why": "LinkedIn is like your professional online identity card – it helps you connect with mentors, explore career paths, and even find internships. Building a profile early helps you network and discover opportunities you might not hear about elsewhere, preparing you for the professional world.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Create Basic Profile",
+     "task": "Sign up for LinkedIn, add your name, and a professional profile picture."
+    },
+    {
+     "day": 2,
+     "focus": "Add Education",
+     "task": "Fill in your current school, course (e.g., Class 11, Science Stream), and expected graduation year."
+    },
+    {
+     "day": 3,
+     "focus": "Craft a Headline & Summary",
+     "task": "Write a short, engaging headline and a brief 'About' summary highlighting your interests and goals."
+    },
+    {
+     "day": 4,
+     "focus": "List Experiences & Projects",
+     "task": "Add any volunteer work, school projects, club leadership, or achievements like academic awards."
+    },
+    {
+     "day": 5,
+     "focus": "Showcase Skills",
+     "task": "Add 5-10 relevant skills (e.g., 'Teamwork', 'Public Speaking', 'Microsoft Office')."
+    },
+    {
+     "day": 6,
+     "focus": "Start Connecting",
+     "task": "Connect with teachers, family members who are professionals, and school alumni."
+    },
+    {
+     "day": 7,
+     "focus": "Explore Groups & Companies",
+     "task": "Join a few professional groups related to your interests or follow companies you admire."
+    }
+   ],
+   "notes": [
+    "Use a professional, clear headshot as your profile picture.",
+    "Your headline should describe who you are and what you aspire to be.",
+    "Write an 'About' section that tells your story and career interests.",
+    "List your education, including your school and academic achievements.",
+    "Add relevant experience, even if it's volunteer work or school projects.",
+    "Showcase skills that align with your career interests (e.g., coding, design, communication).",
+    "Connect with teachers, mentors, family members, and school alumni.",
+    "Customize your public profile URL for a cleaner look (linkedin.com/in/yourname)."
+   ],
+   "caseStudies": [
+    {
+     "title": "Student Lands Internship Through LinkedIn Networking",
+     "who": "Rohan Patel",
+     "country": "India",
+     "story": "Rohan, a commerce student, used LinkedIn to connect with alumni from his school who were working in finance. He respectfully asked for informational interviews. One such connection later notified him of an unpaid internship opening at their firm, which Rohan successfully secured, giving him invaluable early experience.",
+     "takeaway": "LinkedIn is powerful for building your network and discovering hidden opportunities through connections."
+    },
+    {
+     "title": "High Schooler Finds Mentors for STEM Research",
+     "who": "Catherine Li",
+     "country": "USA",
+     "story": "Catherine, passionate about bioinformatics, used LinkedIn to search for university professors and researchers in her field. She reached out with polite, well-researched messages, asking for advice or potential mentorship. This led to her connecting with a professor who guided her through a small research project, greatly boosting her college applications.",
+     "takeaway": "Use LinkedIn to identify and respectfully connect with mentors in your desired field."
+    }
+   ],
+   "practice": "Create your LinkedIn profile, focusing on adding a professional photo, your educational details, and a brief 'About' section. Connect with at least five people you know professionally (teachers, family friends).",
+   "quiz": [
+    {
+     "q": "Why should a student have a LinkedIn profile?",
+     "a": "A LinkedIn profile helps students build a professional online presence, connect with mentors, explore career paths, find internships, and stay informed about industry trends."
+    },
+    {
+     "q": "What kind of photo should you use for your LinkedIn profile?",
+     "a": "You should use a clear, professional headshot where you are smiling and looking approachable, ideally against a simple background."
+    },
+    {
+     "q": "Who are good people for students to connect with on LinkedIn?",
+     "a": "Students should connect with their teachers, school alumni, family members who are professionals, and any mentors or individuals they admire in their fields of interest."
+    }
+   ],
+   "resources": [
+    {
+     "label": "LinkedIn for Students: Getting Started",
+     "url": "https://university.linkedin.com/linkedin-for-students"
+    },
+    {
+     "label": "NPTEL: Social Media for Career Growth",
+     "url": "https://nptel.ac.in/courses/109104030"
+    },
+    {
+     "label": "MIT Career Guide: LinkedIn Profile Tips",
+     "url": "https://career-handbook.mit.edu/networking/linkedin-profile"
+    }
+   ]
+  },
+  {
+   "slug": "building-a-portfolio-of-work",
+   "title": "Building a portfolio of work",
+   "minutes": 45,
+   "level": "Advanced",
+   "why": "A portfolio is a collection of your best work that truly shows what you can do, not just what you say you can do. For creative fields like design, writing, or coding, it's often more important than a resume, proving your skills in a practical, impactful way.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand Portfolio Types",
+     "task": "Research different types of portfolios (digital, physical, specific to your field)."
+    },
+    {
+     "day": 2,
+     "focus": "Identify Your Best Work",
+     "task": "List 3-5 school projects, art pieces, essays, or code you are most proud of."
+    },
+    {
+     "day": 3,
+     "focus": "Curate & Refine",
+     "task": "Select the absolute best pieces that showcase your skills and potential."
+    },
+    {
+     "day": 4,
+     "focus": "Document Your Process",
+     "task": "For each piece, write a short description: the problem, your role, your actions, and the outcome."
+    },
+    {
+     "day": 5,
+     "focus": "Choose a Platform",
+     "task": "Explore free portfolio platforms like Google Sites, Behance (for creatives), or GitHub (for coders)."
+    },
+    {
+     "day": 6,
+     "focus": "Build & Organize",
+     "task": "Upload your curated work and descriptions, ensuring easy navigation."
+    },
+    {
+     "day": 7,
+     "focus": "Share & Get Feedback",
+     "task": "Share your portfolio link with a mentor or teacher and ask for constructive criticism."
+    }
+   ],
+   "notes": [
+    "Include only your best work that clearly demonstrates your skills and potential.",
+    "For each piece, provide context: the challenge, your role, and the final outcome.",
+    "Explain your thought process and what you learned from the project.",
+    "Use a clean, professional, and easy-to-navigate platform (e.g., Google Sites, Behance, GitHub).",
+    "Tailor your portfolio to the type of opportunities you are seeking.",
+    "Keep it updated with new projects and improved versions of old ones.",
+    "Include a brief 'About Me' section and contact information.",
+    "Get feedback from teachers or professionals in your desired field."
+   ],
+   "caseStudies": [
+    {
+     "title": "Fashion Designer's Breakthrough with Digital Portfolio",
+     "who": "Anjali Singh",
+     "country": "India",
+     "story": "Anjali, an aspiring fashion designer, used Instagram and a simple Google Sites page as her portfolio. She showcased her sketches, fabric choices, and even photos of garments she had stitched for school events or friends. This visual evidence of her talent helped her secure a design internship during her college break, even before formal design school.",
+     "takeaway": "Visual fields demand visual proof; a well-presented portfolio speaks louder than words."
+    },
+    {
+     "title": "High School Coder Gets Mentorship through GitHub",
+     "who": "Linus Torvalds (early work ethos)",
+     "country": "Finland / Global",
+     "story": "While not a student portfolio, Linus Torvalds, creator of Linux, famously shared his early coding work (the Linux kernel) openly. This transparency and tangible output allowed others to see his capabilities, contribute, and eventually build a global phenomenon. For students, sharing code on platforms like GitHub demonstrates ability and passion.",
+     "takeaway": "For coding, a GitHub profile with real projects is a powerful portfolio, showcasing your ability to build and solve problems."
+    }
+   ],
+   "practice": "Identify three pieces of your best work (e.g., a strong essay, a science project report, a piece of art, a small coding project). Choose a free online platform (like Google Sites or a simple blog) and create an initial 'page' for one of these pieces, including a description of your process and learning.",
+   "quiz": [
+    {
+     "q": "What is the primary purpose of a portfolio?",
+     "a": "A portfolio serves as a collection of your best work, demonstrating your practical skills, creativity, and abilities through tangible examples, rather than just describing them."
+    },
+    {
+     "q": "Why is context important for each piece in your portfolio?",
+     "a": "Context helps the viewer understand the problem you were solving, your role, your thought process, the actions you took, and the ultimate outcome or lessons learned from the project."
+    },
+    {
+     "q": "Name two types of free platforms where a student can build a digital portfolio.",
+     "a": "Students can build digital portfolios using platforms like Google Sites, Behance (for creative work), or GitHub (for coding projects)."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Google Sites: Create Your Portfolio",
+     "url": "https://sites.google.com/"
+    },
+    {
+     "label": "Behance: Online Portfolio Platform (Creative)",
+     "url": "https://www.behance.net/"
+    },
+    {
+     "label": "GitHub: Showcase Your Code Projects",
+     "url": "https://github.com/"
+    }
+   ]
+  },
+  {
+   "slug": "finding-internships-and-volunteering",
+   "title": "Finding internships and volunteering",
+   "minutes": 35,
+   "level": "Builder",
+   "why": "Internships and volunteering are like mini-adventures into the real world of work! They help you discover what you like (and dislike) before you commit to a career path, and they build your skills and network even before you finish school.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand why",
+     "task": "Research what an 'internship' and 'volunteering' mean for students your age."
+    },
+    {
+     "day": 2,
+     "focus": "Identify interests",
+     "task": "List 3-5 areas you are passionate about (e.g., animals, technology, helping others)."
+    },
+    {
+     "day": 3,
+     "focus": "Local search",
+     "task": "Search online for NGOs, hospitals, or small businesses near you that might need help."
+    },
+    {
+     "day": 4,
+     "focus": "Online platforms",
+     "task": "Explore websites like Internshala (India) or Idealist (global) for opportunities."
+    },
+    {
+     "day": 5,
+     "focus": "Skill mapping",
+     "task": "Think about what skills you have (e.g., good with computers, speak multiple languages) and how they could be useful."
+    },
+    {
+     "day": 6,
+     "focus": "Draft outreach",
+     "task": "Write a short email draft explaining your interest in volunteering/interning somewhere."
+    },
+    {
+     "day": 7,
+     "focus": "Family/Friends",
+     "task": "Talk to family or family friends about where they work and if they know of opportunities."
+    }
+   ],
+   "notes": [
+    "Volunteering builds empathy, teamwork, and problem-solving skills.",
+    "Internships offer practical experience in a specific field.",
+    "Start by exploring local opportunities in your community first.",
+    "Online platforms like Internshala and LinkedIn are great for finding openings.",
+    "Tailor your application or inquiry to each specific organization.",
+    "Don't be afraid to reach out directly to companies or NGOs you admire.",
+    "Even small tasks like organizing events or helping with social media count.",
+    "Focus on learning and contributing, not just adding to your resume."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Tech Innovator's Early Start",
+     "who": "Mark Zuckerberg",
+     "country": "USA",
+     "story": "Before Facebook, Mark Zuckerberg interned at a company called Intel and later worked on various programming projects, like Synapse Media Player (an MP3 player with AI features) in high school. These early experiences honed his coding skills and understanding of tech products.",
+     "takeaway": "Early involvement in projects or internships, even in high school, can lay the foundation for future innovations."
+    },
+    {
+     "title": "Inspiring Change Through Volunteering",
+     "who": "Malala Yousafzai",
+     "country": "Pakistan",
+     "story": "Malala Yousafzai began advocating for girls' education at a very young age, initially through a blog for the BBC. While not a formal internship, her consistent volunteering of her voice and time for a cause led to global recognition and the Nobel Peace Prize.",
+     "takeaway": "Volunteering for a cause you deeply believe in can lead to significant impact and personal growth."
+    }
+   ],
+   "practice": "Identify one local NGO, school, or small business in your area. Research their work and draft a short email expressing your interest in volunteering or learning more about their operations, even if it's just for a few hours a week. (Don't send it yet!)",
+   "quiz": [
+    {
+     "q": "What is the main difference between an internship and volunteering?",
+     "a": "An internship typically offers structured work experience in a specific field, often with a learning focus and sometimes payment, while volunteering involves freely giving your time for a cause without pay."
+    },
+    {
+     "q": "Why is it important for students to consider internships or volunteering?",
+     "a": "It's important because it helps students gain real-world experience, explore different career paths, develop valuable skills, and build a network before making big career decisions."
+    },
+    {
+     "q": "Name two types of organizations where you could look for volunteering opportunities.",
+     "a": "You could look for volunteering opportunities at local NGOs, animal shelters, hospitals, schools, or community centers."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Internshala - India Internships",
+     "url": "https://internshala.com/"
+    },
+    {
+     "label": "Idealist - Global Volunteering & Internships",
+     "url": "https://www.idealist.org/"
+    },
+    {
+     "label": "NPTEL - Internships & Career Guidance",
+     "url": "https://nptel.ac.in/"
+    }
+   ]
+  },
+  {
+   "slug": "interview-preparation-basics",
+   "title": "Interview preparation basics",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Interviews are your chance to shine and show who you truly are beyond your resume. Being prepared helps you feel confident, answer questions clearly, and make a strong impression, increasing your chances of getting that opportunity.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Research the role",
+     "task": "Read the job description or volunteer role details carefully, noting key skills needed."
+    },
+    {
+     "day": 2,
+     "focus": "Research the organization",
+     "task": "Visit the company/NGO website. Understand their mission, values, and recent news."
+    },
+    {
+     "day": 3,
+     "focus": "Common questions",
+     "task": "List 5 common interview questions (e.g., 'Tell me about yourself')."
+    },
+    {
+     "day": 4,
+     "focus": "Draft answers",
+     "task": "Write down bullet points for your answers to the common questions identified yesterday."
+    },
+    {
+     "day": 5,
+     "focus": "Practice aloud",
+     "task": "Practice answering questions aloud in front of a mirror or a family member."
+    },
+    {
+     "day": 6,
+     "focus": "Dress for success",
+     "task": "Plan what you would wear for a professional (even virtual) interview."
+    },
+    {
+     "day": 7,
+     "focus": "Questions for them",
+     "task": "Prepare 2-3 thoughtful questions to ask the interviewer at the end."
+    }
+   ],
+   "notes": [
+    "Thoroughly research the company/organization and the specific role.",
+    "Understand their mission, values, and any recent news.",
+    "Prepare answers for common questions like 'Tell me about yourself' and 'Why this role?'.",
+    "Practice your answers aloud to improve fluency and confidence.",
+    "Dress professionally, even for virtual interviews.",
+    "Arrive on time (or log in early for virtual meetings).",
+    "Maintain eye contact, listen actively, and speak clearly.",
+    "Always prepare a few thoughtful questions to ask the interviewer."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Student Who Researched Deeply",
+     "who": "Ananya Sharma (fictionalized, common student experience)",
+     "country": "India",
+     "story": "Ananya was applying for an internship at a tech startup. She not only understood the job description but also read the founder's recent interviews, understood their product, and even found a recent news article about their expansion. In the interview, she mentioned these details, impressing the interviewer with her genuine interest.",
+     "takeaway": "In-depth research about the company goes beyond basic information and shows a genuine interest."
+    },
+    {
+     "title": "The Power of Mock Interviews",
+     "who": "Sundar Pichai",
+     "country": "India/USA",
+     "story": "Even successful leaders like Sundar Pichai (CEO of Google) would have undergone extensive preparation for high-stakes interviews, including internal promotions. Practicing answers, refining communication, and anticipating questions are crucial steps for anyone, regardless of their experience level, to perform at their best.",
+     "takeaway": "Practice is not just for beginners; even top professionals benefit from rehearsing for crucial conversations."
+    }
+   ],
+   "practice": "Record yourself answering the question 'Tell me about yourself' for 1-2 minutes. Watch it back and note one thing you did well and one thing you could improve.",
+   "quiz": [
+    {
+     "q": "Why is it important to research the organization before an interview?",
+     "a": "Researching the organization helps you understand its mission and values, tailor your answers to show how you fit, and ask informed questions, demonstrating genuine interest."
+    },
+    {
+     "q": "What should you do if you don't know the answer to an interview question?",
+     "a": "If you don't know the answer, it's okay to admit you don't know but offer to find out, or explain your thought process if it's a problem-solving question, rather than staying silent."
+    },
+    {
+     "q": "Name two important things to do during a virtual interview.",
+     "a": "During a virtual interview, ensure you have a quiet background, good lighting, stable internet, maintain eye contact with the camera, and dress professionally."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: The skill of self-introduction",
+     "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation"
+    },
+    {
+     "label": "Khan Academy - Interview Tips",
+     "url": "https://www.khanacademy.org/college-admissions/applying-to-college/interviewing-for-college/a/interviewing-for-college"
+    },
+    {
+     "label": "NPTEL - Communication Skills",
+     "url": "https://nptel.ac.in/courses/109104030"
+    }
+   ]
+  },
+  {
+   "slug": "answering-behavioural-questions-star",
+   "title": "Answering behavioural questions (STAR)",
+   "minutes": 30,
+   "level": "Builder",
+   "why": "Behavioural questions ask about your past experiences to predict your future behaviour. The STAR method helps you tell clear, impactful stories that showcase your skills, making it easier for interviewers to see your potential.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand STAR",
+     "task": "Learn what S.T.A.R. stands for (Situation, Task, Action, Result)."
+    },
+    {
+     "day": 2,
+     "focus": "Identify key skills",
+     "task": "List 3 skills important for your desired role (e.g., teamwork, problem-solving)."
+    },
+    {
+     "day": 3,
+     "focus": "Brainstorm experiences",
+     "task": "Recall 1-2 school projects, volunteering, or home situations where you used one of those skills."
+    },
+    {
+     "day": 4,
+     "focus": "Draft STAR story 1",
+     "task": "Outline one experience using the S.T.A.R. framework (Situation, Task, Action, Result)."
+    },
+    {
+     "day": 5,
+     "focus": "Draft STAR story 2",
+     "task": "Outline a second experience using the S.T.A.R. framework for a different skill."
+    },
+    {
+     "day": 6,
+     "focus": "Practice speaking",
+     "task": "Practice telling your STAR stories aloud, focusing on clarity and conciseness."
+    },
+    {
+     "day": 7,
+     "focus": "Refine Results",
+     "task": "Ensure the 'Result' part of your stories is clear and highlights the positive outcome."
+    }
+   ],
+   "notes": [
+    "S.T.A.R. stands for Situation, Task, Action, Result.",
+    "Situation: Describe the background or context of the event.",
+    "Task: Explain your responsibility or role in that situation.",
+    "Action: Detail the specific steps you took to address the task.",
+    "Result: Share the outcome of your actions and what you learned.",
+    "Choose examples that highlight relevant skills for the job.",
+    "Focus on 'I' statements to emphasize your personal contribution.",
+    "Quantify results whenever possible (e.g., 'improved sales by 10%')."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Successful Problem Solver",
+     "who": "Indra Nooyi",
+     "country": "India/USA",
+     "story": "Indra Nooyi, former CEO of PepsiCo, often speaks about her ability to solve complex problems. When faced with challenges like changing consumer tastes, she used the STAR approach naturally by outlining the market 'Situation', her 'Task' to innovate, the 'Actions' of diversifying products, and the 'Result' of sustainable growth for PepsiCo.",
+     "takeaway": "Thinking about your experiences as a sequence of challenges, actions, and results helps you articulate your problem-solving skills clearly."
+    },
+    {
+     "title": "Student Leader's Teamwork Example",
+     "who": "Rahul Kumar (fictionalized, common student experience)",
+     "country": "India",
+     "story": "Rahul, a school prefect, was asked in an interview about a time he worked in a team. He described a 'Situation' where his class had to organize the annual fete, his 'Task' to manage the food stalls, the 'Actions' he took like delegating roles and coordinating with vendors, and the 'Result' of a successful event that raised significant funds for charity.",
+     "takeaway": "Even school projects and leadership roles can provide excellent STAR examples to demonstrate skills like teamwork and leadership."
+    }
+   ],
+   "practice": "Think about a time you faced a challenge in a school project or during a personal task. Use the STAR method to write down your story: Situation, Task, Action, Result.",
+   "quiz": [
+    {
+     "q": "What does the 'A' in the STAR method stand for, and what should it describe?",
+     "a": "The 'A' stands for Action, and it should describe the specific steps YOU took to address the situation or complete the task."
+    },
+    {
+     "q": "Why is it important to include the 'Result' in your STAR answer?",
+     "a": "Including the 'Result' is crucial because it shows the impact of your actions and what you achieved, providing evidence of your capabilities and success."
+    },
+    {
+     "q": "Give an example of a behavioral question an interviewer might ask.",
+     "a": "An interviewer might ask, 'Tell me about a time you had to work with someone difficult' or 'Describe a situation where you failed and what you learned from it.'"
+    }
+   ],
+   "resources": [
+    {
+     "label": "Coursera - Interviewing Skills",
+     "url": "https://www.coursera.org/courses?query=interview%20skills"
+    },
+    {
+     "label": "Harvard Business Review - Behavioral Interview Tips",
+     "url": "https://hbr.org/2012/03/ace-the-behavioral-interview"
+    },
+    {
+     "label": "MIT Career Advising - STAR Method",
+     "url": "https://capd.mit.edu/resources/career-development/job-search-strategies/interviews/behavioral-interviews/"
+    }
+   ]
+  },
+  {
+   "slug": "networking-and-informational-interviews",
+   "title": "Networking and informational interviews",
+   "minutes": 45,
+   "level": "Advanced",
+   "why": "Networking isn't just about finding jobs; it's about building relationships. Informational interviews help you explore careers, gain insights from professionals, and open doors to opportunities you might not find otherwise.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Define 'Networking'",
+     "task": "Understand networking as building connections, not just asking for favours."
+    },
+    {
+     "day": 2,
+     "focus": "Identify your circle",
+     "task": "List 5 family friends or relatives who work in fields that interest you."
+    },
+    {
+     "day": 3,
+     "focus": "LinkedIn profile basics",
+     "task": "If old enough, start creating a basic LinkedIn profile with your academic details (if applicable)."
+    },
+    {
+     "day": 4,
+     "focus": "Craft an outreach message",
+     "task": "Write a short, polite message requesting an 'informational interview' (a chat to learn)."
+    },
+    {
+     "day": 5,
+     "focus": "Prepare questions",
+     "task": "List 3-5 open-ended questions to ask in an informational interview (e.g., 'What's a typical day like?')."
+    },
+    {
+     "day": 6,
+     "focus": "Practice conversation",
+     "task": "Practice introducing yourself and your interest concisely."
+    },
+    {
+     "day": 7,
+     "focus": "Follow-up notes",
+     "task": "Draft a thank-you note template for after an informational interview."
+    }
+   ],
+   "notes": [
+    "Networking is building genuine relationships, not just collecting contacts.",
+    "Start with your existing circle: family, friends, teachers, alumni.",
+    "LinkedIn is a professional platform for connecting with people in various fields.",
+    "An informational interview is a casual chat to learn about a career or industry.",
+    "Prepare thoughtful questions for informational interviews.",
+    "Always send a thank-you note after any networking conversation.",
+    "Be curious, polite, and respectful of people's time.",
+    "You don't have to be an adult to start networking; build connections now."
+   ],
+   "caseStudies": [
+    {
+     "title": "From Informational Interview to First Job",
+     "who": "Ankita Singh (fictionalized, common experience)",
+     "country": "India",
+     "story": "Ankita was interested in digital marketing but didn't know anyone in the field. She used LinkedIn to find a senior marketer from her city, sent a polite request for an informational interview, and ended up having a 30-minute chat. The marketer, impressed by her curiosity, later recommended her for a junior role at his company.",
+     "takeaway": "Informational interviews can lead to unexpected opportunities and mentorship if you approach them with genuine curiosity."
+    },
+    {
+     "title": "The Power of a Strong Network",
+     "who": "Sheryl Sandberg",
+     "country": "USA",
+     "story": "Sheryl Sandberg, former COO of Meta (Facebook), built a formidable network throughout her career, from her time at Google to her role at Facebook. Her ability to connect with influential leaders and maintain those relationships was crucial for her professional growth and impact.",
+     "takeaway": "A strong professional network is a valuable asset that supports career progression and opens doors throughout your entire career."
+    }
+   ],
+   "practice": "Identify one adult you know (a teacher, family friend, parent's colleague) whose profession interests you. Prepare 3 questions you would ask them to learn about their job. (You don't have to contact them yet).",
+   "quiz": [
+    {
+     "q": "What is the primary goal of an informational interview?",
+     "a": "The primary goal of an informational interview is to gather insights about a career path or industry from someone working in it, helping you explore possibilities and gain knowledge."
+    },
+    {
+     "q": "Why is it important to send a thank-you note after networking?",
+     "a": "Sending a thank-you note shows professionalism, gratitude, and leaves a positive lasting impression, strengthening the relationship you've just built."
+    },
+    {
+     "q": "How can LinkedIn be useful for students interested in careers?",
+     "a": "LinkedIn can be useful for students to learn about different careers, follow companies, and potentially connect with professionals for informational interviews or mentorship."
+    }
+   ],
+   "resources": [
+    {
+     "label": "LinkedIn Learning (Free courses)",
+     "url": "https://www.linkedin.com/learning/me/home"
+    },
+    {
+     "label": "TED Talk: The Power of Networking",
+     "url": "https://www.ted.com/talks/carla_harris_how_to_find_your_inner_leader"
+    },
+    {
+     "label": "Khan Academy - Building a Network",
+     "url": "https://www.khanacademy.org/college-admissions/applying-to-college/starting-your-college-application/a/building-a-network"
+    }
+   ]
+  },
+  {
+   "slug": "workplace-etiquette-for-first-jobs",
+   "title": "Workplace etiquette for first jobs",
+   "minutes": 25,
+   "level": "Starter",
+   "why": "Good workplace etiquette makes you a valued team member. It helps you fit in, build positive relationships, and shows your professionalism, setting you up for success in any work environment, from an office to a volunteer project.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Punctuality matters",
+     "task": "Calculate how much travel time you would need to be 15 minutes early for a hypothetical job."
+    },
+    {
+     "day": 2,
+     "focus": "Professional communication",
+     "task": "Practice writing a polite, professional email to a senior about completing a task."
+    },
+    {
+     "day": 3,
+     "focus": "Active listening",
+     "task": "Observe how actively you listen in conversations today, noting distractions."
+    },
+    {
+     "day": 4,
+     "focus": "Respectful interactions",
+     "task": "Think about how to address colleagues and seniors respectfully (e.g., 'Sir/Ma'am' or names, depending on culture)."
+    },
+    {
+     "day": 5,
+     "focus": "Dress code awareness",
+     "task": "Research common dress codes for professional environments in India."
+    },
+    {
+     "day": 6,
+     "focus": "Teamwork focus",
+     "task": "Reflect on a time you helped a classmate. How did it benefit the group?"
+    },
+    {
+     "day": 7,
+     "focus": "Seek feedback",
+     "task": "Mentally prepare how you would ask for feedback on your performance politely."
+    }
+   ],
+   "notes": [
+    "Punctuality is crucial: always arrive on time or a few minutes early.",
+    "Dress appropriately for the work environment; when in doubt, be more formal.",
+    "Communicate clearly and respectfully, both verbally and in writing.",
+    "Listen actively when others are speaking, showing you value their input.",
+    "Be a team player; offer help and support your colleagues.",
+    "Take initiative and show a willingness to learn new things.",
+    "Maintain a positive attitude and be open to constructive feedback.",
+    "Respect privacy and confidentiality of workplace information."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Intern Who Became Indispensable",
+     "who": "Sakshi Gupta (fictionalized, common experience)",
+     "country": "India",
+     "story": "Sakshi started her first internship uncertain, but she always arrived early, listened intently, asked thoughtful questions, and always offered to help with any task, big or small. Her positive attitude and willingness to learn, even beyond her core duties, made her an invaluable part of the team, leading to a full-time offer.",
+     "takeaway": "A positive attitude, punctuality, and a proactive approach can make you stand out and lead to bigger opportunities."
+    },
+    {
+     "title": "Google's Culture of Respect and Collaboration",
+     "who": "Google (Company Culture)",
+     "country": "USA",
+     "story": "Google is known for its strong workplace culture that encourages respect, collaboration, and open communication. Employees are encouraged to provide feedback, treat each other fairly, and work together on projects. This emphasis on positive etiquette contributes to their innovation and success.",
+     "takeaway": "Companies that foster a culture of respect and clear communication often see higher productivity and employee satisfaction."
+    }
+   ],
+   "practice": "Observe conversations around you today. Notice when someone speaks, how others listen, and what makes a conversation productive. Try to apply active listening in your next family discussion.",
+   "quiz": [
+    {
+     "q": "Why is punctuality important in a workplace?",
+     "a": "Punctuality is important because it shows respect for your colleagues' time, demonstrates reliability, and indicates your professionalism and commitment to your work."
+    },
+    {
+     "q": "What is one simple way to show respect to your seniors or colleagues?",
+     "a": "One simple way to show respect is to listen actively when they are speaking, make eye contact, and avoid interrupting."
+    },
+    {
+     "q": "Why should you be open to feedback in your first job?",
+     "a": "Being open to feedback in your first job shows a willingness to learn and improve, which is crucial for growth and helps you integrate better into the team and adapt to expectations."
+    }
+   ],
+   "resources": [
+    {
+     "label": "NCERT - Professional Ethics",
+     "url": "https://ncert.nic.in/textbook.php?kech1=0-8"
+    },
+    {
+     "label": "Coursera - Business Communication",
+     "url": "https://www.coursera.org/courses?query=business%20communication"
+    },
+    {
+     "label": "TED Talk: How to make stress your friend",
+     "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend"
+    }
+   ]
+  }
+ ]
+}

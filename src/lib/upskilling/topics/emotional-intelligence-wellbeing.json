@@ -1,0 +1,1006 @@
+{
+ "slug": "emotional-intelligence-wellbeing",
+ "title": "Emotional Intelligence & Mental Wellbeing",
+ "emoji": "💚",
+ "tagline": "Mastering your emotions for a happy, healthy life!",
+ "intro": "Hey champions! Life is like a thrilling cricket match with ups and downs, right? Just like you train your body to be strong, it's super important to train your mind and feelings too. This lesson is all about understanding your emotions, managing stress, and building mental strength so you can shine brightly in school, with friends, and in everything you do. Let's learn to navigate life's challenges with a calm mind and a strong heart!",
+ "outcomes": [
+  "By the end of this lesson, you can identify different emotions in yourself and others.",
+  "By the end of this lesson, you can use simple strategies to manage stress during exams or tough times.",
+  "By the end of this lesson, you can understand how to build healthier relationships with friends and family.",
+  "By the end of this lesson, you can recognise when you or someone you know might need support for their mental wellbeing.",
+  "By the end of this lesson, you can practice self-care habits to stay positive and resilient."
+ ],
+ "lessons": [
+  {
+   "slug": "what-emotional-intelligence-means",
+   "title": "What emotional intelligence means",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Understanding Emotional Intelligence (EQ) helps you know yourself better, manage your feelings, and build stronger relationships with friends, family, and teachers. It's a superpower for navigating school life, preparing for board exams, and even your future career!",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Introduction to EQ",
+     "task": "Read about what EQ is and why it's important. Think about a time when understanding someone's feelings helped you."
+    },
+    {
+     "day": 2,
+     "focus": "Self-awareness",
+     "task": "Identify 3 emotions you felt today. What caused them? Write them down in a 'feelings journal'."
+    },
+    {
+     "day": 3,
+     "focus": "Self-management",
+     "task": "Recall a recent challenge. How did you react? How could you have reacted differently using self-control?"
+    },
+    {
+     "day": 4,
+     "focus": "Social awareness",
+     "task": "Observe a conversation between two people. Try to guess their emotions based on their body language and tone."
+    },
+    {
+     "day": 5,
+     "focus": "Relationship management",
+     "task": "Think about a disagreement you had. How could you have communicated your feelings more clearly and listened better?"
+    },
+    {
+     "day": 6,
+     "focus": "EQ in daily life",
+     "task": "Look for examples of good EQ in movies, TV shows, or books. How do characters manage emotions?"
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and apply",
+     "task": "Summarize what EQ means to you in your own words. Plan one small way to practice EQ this week."
+    }
+   ],
+   "notes": [
+    "Emotional Intelligence (EQ) is your ability to understand and manage your own emotions and to understand and influence the emotions of others.",
+    "It involves five key components: self-awareness, self-regulation, motivation, empathy, and social skills.",
+    "EQ is different from IQ (Intelligence Quotient), which measures academic intelligence and logical reasoning.",
+    "While IQ helps you get into a good college, EQ helps you succeed in life and build meaningful connections.",
+    "People with high EQ can handle stress better, resolve conflicts peacefully, and inspire others.",
+    "Developing EQ is a lifelong journey, not a destination; it improves with practice and self-reflection.",
+    "Knowing your emotions and how they affect your thoughts and actions is the first step towards better EQ.",
+    "High EQ helps you make better decisions, whether it's choosing friends or managing project deadlines."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Power of Self-Awareness in Leadership",
+     "who": "Indra Nooyi",
+     "country": "India/USA",
+     "story": "Indra Nooyi, former CEO of PepsiCo, often speaks about the importance of empathy and self-awareness in her leadership style. She recalls writing letters to the parents of her executives, thanking them for raising such wonderful children. This practice showed her deep understanding of what motivates people and builds strong relationships.",
+     "takeaway": "Recognizing and appreciating the human side of people, including yourself, is crucial for effective leadership and strong relationships."
+    },
+    {
+     "title": "EQ in Healthcare: The 'Surgeon's Heart'",
+     "who": "Dr. Vivek Murthy",
+     "country": "USA",
+     "story": "Dr. Vivek Murthy, former U.S. Surgeon General, advocates for loneliness as a public health issue and emphasizes compassion in medicine. He believes that healthcare isn't just about science; it's about connecting with patients as human beings, understanding their fears and hopes, and communicating with empathy.",
+     "takeaway": "EQ is vital in professions like healthcare, where understanding and connecting with others can profoundly impact outcomes and well-being."
+    }
+   ],
+   "practice": "For one week, keep a 'Mood Journal'. Each evening, write down 3 emotions you felt that day, what caused them, and how you reacted. This builds self-awareness.",
+   "quiz": [
+    {
+     "q": "What is the main difference between IQ and EQ?",
+     "a": "IQ measures your academic and logical intelligence, while EQ measures your ability to understand and manage emotions in yourself and others."
+    },
+    {
+     "q": "Name two benefits of having high emotional intelligence.",
+     "a": "Two benefits are better relationships and improved stress management."
+    },
+    {
+     "q": "Which component of EQ involves understanding others' feelings?",
+     "a": "Empathy and social awareness are the components that involve understanding others' feelings."
+    }
+   ],
+   "resources": [
+    {
+     "label": "What is Emotional Intelligence?",
+     "url": "https://www.psychologytoday.com/us/basics/emotional-intelligence"
+    },
+    {
+     "label": "TED-Ed: The power of emotional intelligence",
+     "url": "https://ed.ted.com/lessons/the-power-of-emotional-intelligence-travis-bradberry"
+    },
+    {
+     "label": "NPTEL: Emotional Intelligence (Course Modules)",
+     "url": "https://nptel.ac.in/courses/110105072"
+    }
+   ]
+  },
+  {
+   "slug": "naming-and-understanding-emotions",
+   "title": "Naming and understanding emotions",
+   "minutes": 30,
+   "level": "Builder",
+   "why": "Being able to name your emotions precisely helps you understand why you feel a certain way and communicate your needs clearly. This skill is crucial for personal growth, conflict resolution, and maintaining your mental peace during tough study sessions or family discussions.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Emotion vocabulary",
+     "task": "Learn 5 new emotion words beyond 'happy', 'sad', 'angry'. Use a 'Feelings Wheel' as a guide."
+    },
+    {
+     "day": 2,
+     "focus": "Body signals",
+     "task": "When you feel an emotion, notice where you feel it in your body. (e.g., butterflies for anxiety, tight shoulders for stress)."
+    },
+    {
+     "day": 3,
+     "focus": "Tracing feelings",
+     "task": "Pick one strong emotion you felt today. What was the exact trigger? What thought came before the feeling?"
+    },
+    {
+     "day": 4,
+     "focus": "Emotion intensity",
+     "task": "Rate your emotions on a scale of 1-10. Is it mild annoyance (3) or intense rage (9)? What makes it stronger/weaker?"
+    },
+    {
+     "day": 5,
+     "focus": "Communicating feelings",
+     "task": "Practice using 'I feel...' statements. E.g., 'I feel frustrated when the WiFi is slow' instead of 'The WiFi is terrible!'"
+    },
+    {
+     "day": 6,
+     "focus": "Identifying others' feelings",
+     "task": "Watch a short video clip without sound. Try to identify the characters' emotions from their facial expressions and body language."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and expand",
+     "task": "Add 2 more nuanced emotion words to your vocabulary. How has naming feelings helped you this week?"
+    }
+   ],
+   "notes": [
+    "Emotions are complex internal states that arise in response to our experiences and thoughts.",
+    "There are basic emotions (like joy, sadness, anger, fear) and many nuanced emotions (like exasperation, contentment, awe).",
+    "Learning a wider vocabulary for emotions helps you understand yourself more deeply.",
+    "Our bodies often give us clues about our emotions before our minds fully process them.",
+    "Identifying the specific trigger for an emotion helps us understand and manage it better.",
+    "Emotions are neither 'good' nor 'bad'; they are information. All emotions are valid.",
+    "Communicating your feelings clearly using 'I statements' reduces misunderstandings with others.",
+    "The ability to differentiate between similar emotions (e.g., annoyance vs. anger) is a sign of high self-awareness."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Importance of Emotional Literacy in Children",
+     "who": "Yale Center for Emotional Intelligence (Marc Brackett)",
+     "country": "USA",
+     "story": "Dr. Marc Brackett and his team at Yale developed the 'RULER' approach to social and emotional learning, helping students 'Recognize, Understand, Label, Express, and Regulate' emotions. Studies show students in RULER schools have better academic performance, fewer behavioral problems, and stronger social skills.",
+     "takeaway": "Teaching children and teens to name and understand their emotions from an early age significantly improves their overall well-being and success."
+    },
+    {
+     "title": "From 'Just Angry' to Specific Feelings: A Cricketer's Journey",
+     "who": "Virat Kohli",
+     "country": "India",
+     "story": "Virat Kohli, the Indian cricket captain, has openly spoken about how he learned to manage his aggressive emotions on the field. Initially, he might have just felt 'angry'. Over time, through self-reflection and coaching, he learned to differentiate between feelings like 'frustration', 'determination', or 'disappointment', allowing him to channel his energy more effectively and positively.",
+     "takeaway": "Precisely naming emotions helps athletes and individuals understand the root cause of their feelings, enabling better emotional regulation and performance."
+    }
+   ],
+   "practice": "Find an 'Emotion Wheel' online (search 'Plutchik's Wheel of Emotions'). For each strong emotion you feel this week, try to locate it on the wheel and find the most specific word for it.",
+   "quiz": [
+    {
+     "q": "Why is it important to have a rich vocabulary for emotions?",
+     "a": "A rich vocabulary allows you to understand your feelings more deeply, communicate them more precisely, and better manage them."
+    },
+    {
+     "q": "What is an 'I statement' and how does it help?",
+     "a": "An 'I statement' (e.g., 'I feel sad when...') expresses your feelings without blaming others, leading to clearer communication and less conflict."
+    },
+    {
+     "q": "Are some emotions inherently 'bad'?",
+     "a": "No, all emotions are valid and serve as information. It's how we choose to react to them that can be constructive or destructive."
+    }
+   ],
+   "resources": [
+    {
+     "label": "The Feelings Wheel (Plutchik)",
+     "url": "https://www.psychologytools.com/download/the-feelings-wheel/"
+    },
+    {
+     "label": "NAMI: Emotional Literacy",
+     "url": "https://www.nami.org/Blogs/NAMI-Blog/November-2018/Emotional-Literacy-The-ABCs-of-Understanding-Your-E"
+    },
+    {
+     "label": "Khan Academy: Why understanding emotions is important",
+     "url": "https://www.khanacademy.org/college-careers-more/career-success/emotional-intelligence-at-work/v/understanding-emotions"
+    }
+   ]
+  },
+  {
+   "slug": "managing-anger-and-frustration",
+   "title": "Managing anger and frustration",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Learning to manage anger and frustration is vital for your peace of mind and your relationships. Uncontrolled anger can damage friendships, lead to regretful actions, and even impact your focus during exams. This lesson helps you handle these strong emotions constructively.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Identifying triggers",
+     "task": "Think about the last 3 times you felt angry or frustrated. What exactly triggered those feelings? Write them down."
+    },
+    {
+     "day": 2,
+     "focus": "Physical warning signs",
+     "task": "Notice how your body feels when anger or frustration starts. (e.g., clenched jaw, fast heartbeat, heat). This is your 'amber light'."
+    },
+    {
+     "day": 3,
+     "focus": "The 'Pause' technique",
+     "task": "When you feel anger rising, try taking 5 deep breaths before reacting. Practice this in a minor frustrating situation."
+    },
+    {
+     "day": 4,
+     "focus": "Distraction strategies",
+     "task": "Identify 2 healthy distractions for when you're frustrated (e.g., listen to music, go for a walk, draw, play a quick game)."
+    },
+    {
+     "day": 5,
+     "focus": "Communicating assertively",
+     "task": "Role-play with a family member or friend how you would calmly express your frustration using 'I statements' about a minor issue."
+    },
+    {
+     "day": 6,
+     "focus": "Problem-solving focus",
+     "task": "When frustration hits, shift your focus from the problem to a possible solution. Brainstorm 2 solutions for a small problem."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and reinforce",
+     "task": "Review your triggers and successful coping strategies. Commit to using one strategy regularly this week."
+    }
+   ],
+   "notes": [
+    "Anger and frustration are normal human emotions, often signals that something isn't right or a boundary has been crossed.",
+    "Unmanaged anger can lead to impulsive decisions, strained relationships, and negative health impacts.",
+    "Recognizing your physical warning signs (the 'anger meter') is key to intervening early.",
+    "Taking a 'pause' (deep breaths, counting) gives your brain time to switch from emotional reaction to rational thought.",
+    "Healthy coping mechanisms include exercise, talking to a trusted person, creative expression, or engaging in hobbies.",
+    "Venting aggressively often escalates the situation; constructive communication focuses on solutions.",
+    "Learning to differentiate between feeling angry and acting aggressively is crucial for emotional maturity.",
+    "If anger consistently leads to harm (physical or emotional), professional help is advisable."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Mindful Approach to Dealing with Disappointment",
+     "who": "Google's 'Search Inside Yourself' program",
+     "country": "USA",
+     "story": "Google, through its 'Search Inside Yourself' program, teaches mindfulness techniques to its employees. These practices help individuals observe their emotions, like frustration during a coding bug or anger during a project setback, without immediately reacting. This mindful pause allows for a more considered, productive response rather than impulsive outburst.",
+     "takeaway": "Mindfulness techniques, like deep breathing and observing emotions, can significantly improve how you manage anger and frustration in challenging situations."
+    },
+    {
+     "title": "Channelling Frustration into Focus: The Chess Grandmaster",
+     "who": "Viswanathan Anand",
+     "country": "India",
+     "story": "Viswanathan Anand, India's first Grandmaster in chess, is known for his calm demeanor even under immense pressure. He has spoken about moments of frustration during complex games. Instead of letting it derail him, he channels that energy into deeper analysis, focusing on the board and potential moves. This controlled emotional response is a hallmark of his success.",
+     "takeaway": "High-performers learn to transform negative emotions like frustration into focused energy, directing it towards problem-solving rather than letting it consume them."
+    }
+   ],
+   "practice": "The next time you feel a surge of anger or frustration, try the 'Stop, Breathe, Think' technique: STOP what you're doing, take 3 deep BREATHS, and THINK about what's really bothering you before reacting.",
+   "quiz": [
+    {
+     "q": "What is a 'trigger' for anger?",
+     "a": "A trigger is the specific event, thought, or situation that causes you to feel angry or frustrated."
+    },
+    {
+     "q": "Name two healthy ways to cope with anger.",
+     "a": "Two healthy ways are taking deep breaths and talking about your feelings calmly with a trusted person."
+    },
+    {
+     "q": "Why is it important to recognize your body's warning signs of anger?",
+     "a": "Recognizing warning signs allows you to intervene early with coping strategies before anger escalates and leads to impulsive actions."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO: Managing stress (incl. anger tips)",
+     "url": "https://www.who.int/news-room/feature-stories/detail/who-releases-new-guide-on-stress-management"
+    },
+    {
+     "label": "Mind UK: Anger management",
+     "url": "https://www.mind.org.uk/information-support/types-of-mental-health-problems/anger-management/"
+    },
+    {
+     "label": "CyberDost: Managing Digital Frustrations",
+     "url": "https://cybercrime.gov.in/Webform/CyberAwareness.aspx"
+    }
+   ]
+  },
+  {
+   "slug": "handling-stress-and-pressure",
+   "title": "Handling stress and pressure",
+   "minutes": 45,
+   "level": "Builder",
+   "why": "School life, especially board exams and college applications, comes with its share of stress and pressure. Learning to handle these feelings effectively means you can perform your best, stay healthy, and enjoy your journey without feeling overwhelmed. It's a skill for life, not just school!",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Identifying stressors",
+     "task": "List 3 things that cause you the most stress right now (e.g., exams, homework, social issues, future plans)."
+    },
+    {
+     "day": 2,
+     "focus": "Stress signals",
+     "task": "Recognize how stress affects you physically (headaches, sleep issues), mentally (worry, focus), and emotionally (irritability)."
+    },
+    {
+     "day": 3,
+     "focus": "Breathing techniques",
+     "task": "Practice a simple breathing exercise (e.g., 4-7-8 method) for 5 minutes. Try it when you feel a little stressed."
+    },
+    {
+     "day": 4,
+     "focus": "Time management",
+     "task": "Plan your next day using a simple to-do list. Prioritize tasks and schedule short breaks to reduce last-minute pressure."
+    },
+    {
+     "day": 5,
+     "focus": "Healthy habits",
+     "task": "Ensure you get 7-8 hours of sleep tonight. Avoid screens an hour before bed. Notice the difference in your energy."
+    },
+    {
+     "day": 6,
+     "focus": "Seeking support",
+     "task": "Identify one trusted person (parent, teacher, friend) you can talk to if stress becomes too much. You don't have to talk, just identify."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and plan",
+     "task": "Choose one stress-management strategy that worked best for you this week and commit to practicing it regularly."
+    }
+   ],
+   "notes": [
+    "Stress is your body's natural reaction to challenges and demands, preparing you for action.",
+    "While some stress can be motivating (eustress), chronic stress can be harmful to your physical and mental health.",
+    "Recognize your personal stress signals, whether they are physical (e.g., stomach ache), emotional (e.g., anxiety), or behavioral (e.g., procrastination).",
+    "Effective time management, like breaking tasks into smaller steps, reduces feeling overwhelmed by large projects or exams.",
+    "Prioritizing self-care – adequate sleep, healthy food, and physical activity – builds your resilience to stress.",
+    "Learning relaxation techniques, such as deep breathing or meditation, can calm your nervous system instantly.",
+    "It's okay to ask for help; talking to friends, family, or a counsellor can provide new perspectives and support.",
+    "Developing a 'growth mindset' helps you view challenges as opportunities to learn rather than insurmountable obstacles."
+   ],
+   "caseStudies": [
+    {
+     "title": "Resilience in the Face of Sporting Pressure",
+     "who": "Mary Kom",
+     "country": "India",
+     "story": "Mary Kom, the Indian Olympic boxer, faced immense pressure throughout her career, from societal expectations to intense competition. She consistently spoke about her rigorous training, strict discipline, and mental fortitude as key to handling this pressure. Her focus on preparation and breaking down her goals allowed her to perform under extreme scrutiny.",
+     "takeaway": "Disciplined preparation, setting clear goals, and maintaining mental focus are powerful tools to manage high-stakes pressure and perform effectively."
+    },
+    {
+     "title": "Mindfulness for Student Stress Reduction",
+     "who": "MIT (Massachusetts Institute of Technology)",
+     "country": "USA",
+     "story": "MIT, known for its demanding academic environment, offers various wellness programs, including mindfulness and meditation courses, to help students manage stress. Research from similar university programs shows that students who practice mindfulness report lower stress levels, improved focus, and better emotional regulation, especially during exam periods.",
+     "takeaway": "Even in highly competitive environments, integrating mindfulness and relaxation techniques can significantly improve a student's ability to cope with academic stress."
+    }
+   ],
+   "practice": "Create a 'Stress-Buster Box' for yourself. Fill it with small items that help you relax or distract you positively (e.g., a favorite book, a stress ball, a drawing pad, a gratitude journal). Use it when you feel overwhelmed.",
+   "quiz": [
+    {
+     "q": "What is the difference between 'good stress' (eustress) and 'bad stress' (distress)?",
+     "a": "Good stress is motivating and helps you perform, while bad stress is overwhelming and harms your well-being."
+    },
+    {
+     "q": "Name three physical signs that you might be experiencing stress.",
+     "a": "Three physical signs could be headaches, difficulty sleeping, and muscle tension."
+    },
+    {
+     "q": "Why is 'self-care' important when managing stress?",
+     "a": "Self-care activities like good sleep, healthy eating, and exercise build your resilience and help your body and mind recover from stress."
+    }
+   ],
+   "resources": [
+    {
+     "label": "NCERT: Managing Stress (PDF)",
+     "url": "https://ncert.nic.in/pdf/publication/otherpublications/stress_management.pdf"
+    },
+    {
+     "label": "WHO: Doing What Matters in Times of Stress",
+     "url": "https://www.who.int/publications/i/item/9789240003927"
+    },
+    {
+     "label": "Khan Academy: Stress Management (Video series)",
+     "url": "https://www.khanacademy.org/science/health-care-system/health-care-delivery/public-health-and-you/v/stress-management-101-understanding-stress"
+    }
+   ]
+  },
+  {
+   "slug": "empathy-and-perspective-taking",
+   "title": "Empathy and perspective-taking",
+   "minutes": 35,
+   "level": "Advanced",
+   "why": "Developing empathy allows you to truly connect with others, understand their feelings, and resolve conflicts peacefully. This skill helps you build strong friendships, collaborate effectively on projects, and become a more compassionate leader in your community and beyond.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Defining empathy",
+     "task": "Read about what empathy truly means (cognitive vs. emotional empathy). How is it different from sympathy?"
+    },
+    {
+     "day": 2,
+     "focus": "Active listening",
+     "task": "Today, when someone speaks to you, focus intently on listening to understand, not just to reply. Ask clarifying questions."
+    },
+    {
+     "day": 3,
+     "focus": "Walking in their shoes",
+     "task": "Think about a recent disagreement. Try to describe the situation from the other person's point of view, considering their possible feelings."
+    },
+    {
+     "day": 4,
+     "focus": "Observing body language",
+     "task": "Observe people in a public place (e.g., school corridor, bus stop). Try to guess their feelings based purely on their non-verbal cues."
+    },
+    {
+     "day": 5,
+     "focus": "Challenging assumptions",
+     "task": "When someone acts in a way you don't understand, pause before judging. Consider 2-3 alternative reasons for their behavior."
+    },
+    {
+     "day": 6,
+     "focus": "Practicing compassion",
+     "task": "Perform a small act of kindness for someone without expecting anything in return. Notice how it feels."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and apply",
+     "task": "Write down how practicing empathy changed a interaction this week. Plan how to integrate empathy more into your daily life."
+    }
+   ],
+   "notes": [
+    "Empathy is the ability to understand and share the feelings of another person, seeing things from their perspective.",
+    "It's different from sympathy, which is feeling pity or sorrow for someone, but not necessarily understanding their experience.",
+    "Cognitive empathy (perspective-taking) is understanding someone's thoughts and feelings intellectually.",
+    "Emotional empathy (affective empathy) is feeling what another person feels, experiencing a similar emotion.",
+    "Active listening, where you fully concentrate on what someone is saying, is foundational to developing empathy.",
+    "Challenging your own assumptions and biases helps you open your mind to different perspectives.",
+    "Empathy fosters stronger relationships, reduces conflict, and promotes compassion in all areas of life.",
+    "Practicing empathy daily, even in small ways, can lead to a more inclusive and understanding community."
+   ],
+   "caseStudies": [
+    {
+     "title": "Empathy in Design Thinking: The Toilet Project",
+     "who": "IDEO (Design Company)",
+     "country": "USA",
+     "story": "IDEO, a renowned design company, often uses 'design thinking' which heavily relies on empathy. In a project to design better sanitation solutions for developing countries, their team spent days living in communities, observing people's daily routines, fears, and frustrations related to toilets. This deep empathetic understanding led to innovative, user-centered designs that were actually adopted and maintained.",
+     "takeaway": "Putting yourself in others' shoes and truly understanding their challenges is essential for creating solutions that genuinely meet their needs."
+    },
+    {
+     "title": "The Power of Perspective-Taking in Peacebuilding",
+     "who": "Mahatma Gandhi",
+     "country": "India",
+     "story": "Mahatma Gandhi's philosophy of non-violence (Ahimsa) and Satyagraha was deeply rooted in empathy and understanding his opponents' perspectives, even when disagreeing strongly with their actions. He believed in understanding the root causes of conflict and appealing to the humanity in all individuals, leading to transformative social change.",
+     "takeaway": "Empathy and perspective-taking are powerful tools not just for personal relationships, but for resolving large-scale conflicts and building a more peaceful society."
+    }
+   ],
+   "practice": "For a day, consciously try to observe the 'unseen challenges' of people around you – the street vendor, your school's security guard, a classmate. Imagine what their day might be like and how they might be feeling. This builds perspective-taking.",
+   "quiz": [
+    {
+     "q": "What is the key difference between empathy and sympathy?",
+     "a": "Empathy is understanding and sharing someone's feelings, while sympathy is feeling pity or sorrow for them."
+    },
+    {
+     "q": "How does active listening contribute to empathy?",
+     "a": "Active listening helps you truly understand what another person is communicating, both verbally and non-verbally, which is the foundation of empathy."
+    },
+    {
+     "q": "Give one example of how perspective-taking can improve a friendship.",
+     "a": "If a friend cancels plans, perspective-taking means considering they might be having a difficult day or dealing with family issues, rather than immediately feeling personally offended."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: The power of empathy",
+     "url": "https://www.ted.com/talks/roman_krznaric_the_power_of_empathy"
+    },
+    {
+     "label": "Greater Good Science Center: What is Empathy?",
+     "url": "https://greatergood.berkeley.edu/topic/empathy/definition"
+    },
+    {
+     "label": "Khan Academy: Developing Empathy",
+     "url": "https://www.khanacademy.org/college-careers-more/career-success/emotional-intelligence-at-work/v/developing-empathy"
+    }
+   ]
+  },
+  {
+   "slug": "healthy-friendships-and-boundaries",
+   "title": "Healthy friendships and boundaries",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Friends are like family you choose, and healthy friendships make school and life so much more fun! Understanding boundaries helps you protect your time, energy, and feelings, ensuring these bonds stay strong and respectful.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is a healthy friendship?",
+     "task": "List 3 qualities you value most in a friend and 3 qualities you offer as a friend."
+    },
+    {
+     "day": 2,
+     "focus": "Identifying red flags",
+     "task": "Think about a past friendship. Were there any 'red flags'? What did they feel like?"
+    },
+    {
+     "day": 3,
+     "focus": "What are boundaries?",
+     "task": "Define what a personal boundary means to you. Give one example related to schoolwork or personal space."
+    },
+    {
+     "day": 4,
+     "focus": "Setting boundaries with friends",
+     "task": "Imagine a friend always wants to copy your homework. How would you politely set a boundary?"
+    },
+    {
+     "day": 5,
+     "focus": "Communicating boundaries",
+     "task": "Practice saying 'no' firmly but kindly in front of a mirror to a hypothetical request."
+    },
+    {
+     "day": 6,
+     "focus": "Respecting others' boundaries",
+     "task": "Observe how people around you communicate boundaries. How do you respond when a friend says 'no'?"
+    },
+    {
+     "day": 7,
+     "focus": "Review & apply",
+     "task": "Reflect on one interaction this week where you could have set or respected a boundary better."
+    }
+   ],
+   "notes": [
+    "Healthy friendships involve mutual respect, trust, support, and open communication.",
+    "A true friend celebrates your successes and supports you through challenges.",
+    "Boundaries are personal limits that protect your well-being and relationships.",
+    "They define what you are comfortable with and what you are not.",
+    "Setting boundaries means clearly communicating your needs and expectations.",
+    "It's okay to say 'no' to requests that make you uncomfortable or drain your energy.",
+    "Respecting others' boundaries is as important as setting your own.",
+    "Healthy relationships thrive when boundaries are understood and honored by all."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Power of an 'I' Statement",
+     "who": "Brené Brown",
+     "country": "USA",
+     "story": "Dr. Brené Brown, a research professor known for her work on vulnerability and courage, emphasizes the importance of 'I' statements in setting boundaries. Instead of 'You always make me feel bad,' she suggests 'I feel hurt when that happens.' This focuses on your feelings, not blaming others, making communication easier and less defensive.",
+     "takeaway": "Using 'I' statements helps you express your needs and set boundaries without attacking or blaming others."
+    },
+    {
+     "title": "Indian Family Dynamics & Boundaries",
+     "who": "Many Indian youth",
+     "country": "India",
+     "story": "In Indian society, communal bonds are strong, and personal space can sometimes feel blurred, especially within families and close friends. Many young people learn to navigate balancing family expectations with their personal aspirations and the need for individual space, which involves gently establishing their own boundaries as they grow.",
+     "takeaway": "Navigating boundaries in close-knit communities involves balancing cultural values with personal needs for space and individuality."
+    }
+   ],
+   "practice": "Choose one friendship where you feel a boundary might be helpful (e.g., about homework, shared belongings, or your time). Think about how you would gently communicate your need using an 'I' statement, and practice saying it to yourself.",
+   "quiz": [
+    {
+     "q": "What is one key characteristic of a healthy friendship?",
+     "a": "One key characteristic is mutual respect, where both friends value each other's opinions and feelings."
+    },
+    {
+     "q": "Why are boundaries important in friendships?",
+     "a": "Boundaries are important because they protect your personal space, time, and emotional well-being, ensuring the friendship remains healthy and balanced."
+    },
+    {
+     "q": "Give an example of an 'I' statement when setting a boundary.",
+     "a": "An example is: 'I feel overwhelmed when I have to share my notes right before a test, so I prefer to study alone first.'"
+    }
+   ],
+   "resources": [
+    {
+     "label": "Brené Brown on Boundaries",
+     "url": "https://brenebrown.com/articles/2021/03/17/the-power-of-when-and-how-to-set-boundaries/"
+    },
+    {
+     "label": "What are Boundaries? - KidsHealth",
+     "url": "https://kidshealth.org/en/teens/boundaries.html"
+    },
+    {
+     "label": "NCERT: Understanding Friendships in Adolescence (Chapter Reference)",
+     "url": "https://ncert.nic.in/textbook.php?lehs1=1-9"
+    }
+   ]
+  },
+  {
+   "slug": "dealing-with-comparison-and-social-media",
+   "title": "Dealing with comparison and social media",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Social media often shows only the 'highlight reel' of others' lives, making it easy to fall into the trap of comparison. Learning to manage this helps protect your self-esteem and focus on your unique journey, not someone else's curated perfect image.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understanding social media's impact",
+     "task": "Reflect: How does scrolling through social media usually make you feel?"
+    },
+    {
+     "day": 2,
+     "focus": "The 'highlight reel' effect",
+     "task": "Think of something you posted. Was it a perfect moment, or did it show a full, complex situation?"
+    },
+    {
+     "day": 3,
+     "focus": "Identifying comparison triggers",
+     "task": "Notice which accounts or types of posts most often make you compare yourself negatively."
+    },
+    {
+     "day": 4,
+     "focus": "Mindful social media use",
+     "task": "Set a timer for 15 minutes. Use social media and note how you feel before, during, and after."
+    },
+    {
+     "day": 5,
+     "focus": "Curating your feed",
+     "task": "Unfollow or mute 3 accounts that make you feel bad about yourself."
+    },
+    {
+     "day": 6,
+     "focus": "Focusing on self-growth",
+     "task": "List 3 things you are genuinely proud of about yourself or your efforts, regardless of what others are doing."
+    },
+    {
+     "day": 7,
+     "focus": "Digital detox planning",
+     "task": "Plan a 1-hour or half-day 'digital detox' where you avoid screens entirely."
+    }
+   ],
+   "notes": [
+    "Social media often presents an idealized, incomplete version of reality.",
+    "Comparing your 'behind-the-scenes' to someone else's 'highlight reel' is unfair and unhealthy.",
+    "The comparison trap can lead to feelings of inadequacy, anxiety, and low self-esteem.",
+    "Mindful social media use involves being aware of your emotions while scrolling.",
+    "Curating your feed by unfollowing negative accounts can significantly improve your mood.",
+    "Focus on your own progress and achievements, celebrating your unique strengths.",
+    "Digital detoxes can help reset your perspective and reduce screen fatigue.",
+    "Your worth is not defined by likes, followers, or the perfect image others project."
+   ],
+   "caseStudies": [
+    {
+     "title": "Body Image & Instagram",
+     "who": "Instagram (Meta)",
+     "country": "Global",
+     "story": "Internal research by Instagram, reported by The Wall Street Journal in 2021, found that the platform's visual nature contributes to body image issues, especially among teenage girls. One slide noted, 'We make body image issues worse for one in three teen girls.' This highlights the direct link between social media use and mental well-being.",
+     "takeaway": "Social media platforms themselves acknowledge their potential negative impact on self-image, especially for young users."
+    },
+    {
+     "title": "Aamir Khan's 'Like' Problem",
+     "who": "Aamir Khan",
+     "country": "India",
+     "story": "Even celebrities like Aamir Khan have spoken about the pressure of social media. He mentioned in interviews how he doesn't chase 'likes' or constant social media presence, choosing to engage authentically or not at all, to avoid getting trapped in the validation cycle and maintain focus on his work and family.",
+     "takeaway": "Focusing on genuine engagement and personal priorities can help reduce the pressure to constantly seek validation online."
+    }
+   ],
+   "practice": "For the next three days, before you open any social media app, ask yourself: 'Why am I opening this app right now?' and 'How do I want to feel after using it?' If the answer isn't positive, consider doing something else instead.",
+   "quiz": [
+    {
+     "q": "What is the 'highlight reel' effect on social media?",
+     "a": "The 'highlight reel' effect is when people only share their best, most perfect moments online, leading others to believe their lives are constantly perfect."
+    },
+    {
+     "q": "How can comparing yourself to others on social media negatively affect you?",
+     "a": "It can lead to feelings of inadequacy, lower self-esteem, anxiety, and a constant sense that you're not good enough or doing enough."
+    },
+    {
+     "q": "What is one practical step to deal with social media comparison?",
+     "a": "One practical step is to unfollow or mute accounts that consistently make you feel bad about yourself, to curate a more positive feed."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: The Social Dilemma (Trailer)",
+     "url": "https://www.youtube.com/watch?v=uaaC57tcciM"
+    },
+    {
+     "label": "Common Sense Media: Social Media and Mental Health",
+     "url": "https://www.commonsensemedia.org/social-media"
+    },
+    {
+     "label": "WHO: Social Media and Youth Mental Health",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health"
+    }
+   ]
+  },
+  {
+   "slug": "asking-for-help-without-shame",
+   "title": "Asking for help without shame",
+   "minutes": 30,
+   "level": "Starter",
+   "why": "Everyone needs help sometimes – whether it's with studies, feelings, or a tricky situation. Asking for help isn't a sign of weakness; it's a sign of strength and self-awareness, showing you're brave enough to seek solutions and support.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understanding 'shame' around help",
+     "task": "List 2 reasons why you (or others) might feel ashamed to ask for help."
+    },
+    {
+     "day": 2,
+     "focus": "Help as strength, not weakness",
+     "task": "Think of a time someone helped you. How did it benefit you? Did you judge them for asking?"
+    },
+    {
+     "day": 3,
+     "focus": "Identifying trusted sources",
+     "task": "Name 3 people in your life (family, teacher, friend, counsellor) you trust to ask for help."
+    },
+    {
+     "day": 4,
+     "focus": "Practicing how to ask",
+     "task": "Role-play asking for help from a teacher with a specific subject topic. What words would you use?"
+    },
+    {
+     "day": 5,
+     "focus": "Small steps in asking",
+     "task": "Ask a classmate for clarification on a small point in a lesson or for a pen. Notice how it feels."
+    },
+    {
+     "day": 6,
+     "focus": "Handling rejection gracefully",
+     "task": "Imagine someone can't help. How would you react without feeling disheartened?"
+    },
+    {
+     "day": 7,
+     "focus": "Reflecting on seeking support",
+     "task": "Recall a time you hesitated to ask for help. What was the outcome of not asking?"
+    }
+   ],
+   "notes": [
+    "Asking for help is a sign of courage and self-awareness, not weakness.",
+    "Everyone faces challenges and needs support at different times.",
+    "Shame often comes from a fear of being judged or seen as incapable.",
+    "Identify trusted individuals: parents, teachers, counsellors, older siblings, close friends.",
+    "Be specific about what you need help with to make it easier for others to assist.",
+    "It's okay if someone can't help; it's not a reflection on you.",
+    "Practice asking for small things first to build confidence.",
+    "Accessing support systems can significantly improve your well-being and outcomes."
+   ],
+   "caseStudies": [
+    {
+     "title": "Mental Health Advocates in India",
+     "who": "Deepika Padukone",
+     "country": "India",
+     "story": "Bollywood actress Deepika Padukone openly spoke about her struggle with depression and founded The Live Love Laugh Foundation. Her brave act of sharing her story encouraged countless Indians to seek help for mental health issues, reducing the stigma associated with asking for professional support.",
+     "takeaway": "Even successful individuals face challenges, and speaking up about them can inspire others to seek necessary help."
+    },
+    {
+     "title": "Learning to Ask for Academic Support",
+     "who": "Sal Khan (Khan Academy)",
+     "country": "USA",
+     "story": "Sal Khan started Khan Academy by tutoring his cousins remotely. They weren't ashamed to admit they needed help, and this open communication allowed him to create a personalized learning experience that has since helped millions globally. His platform is built on the premise of making academic help accessible and shame-free.",
+     "takeaway": "Openly admitting where you need help can lead to innovative solutions and better learning outcomes for yourself and others."
+    }
+   ],
+   "practice": "This week, identify one small academic question you have (e.g., about a concept in Science, a Math problem). Ask your teacher or a knowledgeable classmate for help. Pay attention to how you feel after you've asked and received the help.",
+   "quiz": [
+    {
+     "q": "Why might someone feel ashamed to ask for help?",
+     "a": "Someone might feel ashamed due to fear of being judged, appearing weak, or feeling like they should be able to handle everything on their own."
+    },
+    {
+     "q": "How can asking for help be seen as a strength?",
+     "a": "Asking for help shows strength because it demonstrates self-awareness, courage to address a challenge, and a proactive approach to finding solutions."
+    },
+    {
+     "q": "Who are some trusted individuals you can approach for help in school?",
+     "a": "Trusted individuals include your teachers, school counsellor, a senior student, or a parent/guardian."
+    }
+   ],
+   "resources": [
+    {
+     "label": "The Live Love Laugh Foundation",
+     "url": "https://www.thelivelovelaughfoundation.org/"
+    },
+    {
+     "label": "TED Talk: Why We All Need to Practice Emotional First Aid",
+     "url": "https://www.ted.com/talks/guy_winch_why_we_all_need_to_practice_emotional_first_aid"
+    },
+    {
+     "label": "NCERT: Adolescent Education Programme (Mental Health Support)",
+     "url": "https://ncert.nic.in/pdf/programme_activity/Adolescence_Education.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "mindfulness-and-breathing-practices",
+   "title": "Mindfulness and breathing practices",
+   "minutes": 25,
+   "level": "Starter",
+   "why": "In our busy lives, our minds often jump from one thought to another. Mindfulness helps you focus on the present moment, reducing stress and improving concentration, while simple breathing exercises can quickly calm your body and mind, especially before exams or tough situations.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is mindfulness?",
+     "task": "Watch a short video on mindfulness. Try sitting quietly for 1 minute, noticing 3 sounds around you."
+    },
+    {
+     "day": 2,
+     "focus": "The power of breath",
+     "task": "Practice 3 deep 'belly breaths.' Feel your stomach rise and fall. Do this for 2 minutes."
+    },
+    {
+     "day": 3,
+     "focus": "Mindful eating",
+     "task": "Eat a small snack (like a raisin or a small piece of chocolate) slowly, noticing its smell, texture, and taste."
+    },
+    {
+     "day": 4,
+     "focus": "Body scan quick check",
+     "task": "Sit for 2 minutes. Notice sensations in your feet, then legs, then stomach, all the way up to your head."
+    },
+    {
+     "day": 5,
+     "focus": "Square breathing",
+     "task": "Practice 'square breathing': Inhale 4, Hold 4, Exhale 4, Hold 4. Repeat 3-4 times."
+    },
+    {
+     "day": 6,
+     "focus": "Mindful walking",
+     "task": "Walk for 5 minutes, paying close attention to each step, the feeling of your feet on the ground, and your surroundings."
+    },
+    {
+     "day": 7,
+     "focus": "Integrating into daily life",
+     "task": "Choose one mindful practice (e.g., breathing, mindful eating) and try to incorporate it into your day."
+    }
+   ],
+   "notes": [
+    "Mindfulness is paying attention to the present moment without judgment.",
+    "It helps reduce stress, improve focus, and enhance emotional regulation.",
+    "Breathing exercises are powerful tools to calm your nervous system quickly.",
+    "Deep 'belly breaths' (diaphragmatic breathing) activate your body's relaxation response.",
+    "Mindful eating helps you appreciate food and listen to your body's hunger cues.",
+    "A 'body scan' helps you connect with your physical sensations and release tension.",
+    "Practices like 'square breathing' can be used anywhere, anytime to recenter yourself.",
+    "Regular short mindfulness practices are more effective than infrequent long ones."
+   ],
+   "caseStudies": [
+    {
+     "title": "Mindfulness in Schools Project (MiSP)",
+     "who": "MiSP",
+     "country": "UK",
+     "story": "The Mindfulness in Schools Project (MiSP) is a non-profit that has trained thousands of teachers across the UK and globally to deliver mindfulness courses to students. Research on their programs shows improvements in attention, emotional regulation, and well-being among students who practice mindfulness.",
+     "takeaway": "Mindfulness can be effectively taught in schools to help students manage stress and improve their focus."
+    },
+    {
+     "title": "Yoga and Pranayama for Students",
+     "who": "Art of Living Foundation",
+     "country": "India (Global)",
+     "story": "The Art of Living Foundation, founded by Sri Sri Ravi Shankar, promotes yoga and pranayama (breathing techniques) globally, with many programs specifically for youth. Students learn 'Sudarshan Kriya' and other breathing exercises, which have been shown to reduce anxiety and improve mental clarity, helping them cope with academic pressure.",
+     "takeaway": "Traditional Indian practices like pranayama offer powerful tools for stress reduction and mental well-being for students."
+    }
+   ],
+   "practice": "Before your next study session or a challenging task, take 3 minutes to practice 'square breathing' (Inhale 4, Hold 4, Exhale 4, Hold 4). Notice if you feel calmer or more focused as you begin your work.",
+   "quiz": [
+    {
+     "q": "What is the core idea of mindfulness?",
+     "a": "The core idea of mindfulness is to pay attention to the present moment and your immediate experiences without judging them."
+    },
+    {
+     "q": "How can breathing exercises help you when you feel stressed?",
+     "a": "Breathing exercises, especially deep belly breaths, can help calm your nervous system, slow your heart rate, and reduce feelings of anxiety and stress."
+    },
+    {
+     "q": "Give one example of a simple mindfulness practice you can do daily.",
+     "a": "One simple practice is mindful eating, where you slowly eat a piece of food, paying full attention to its smell, taste, and texture."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Headspace (Basics of Meditation)",
+     "url": "https://www.headspace.com/meditation/mindfulness"
+    },
+    {
+     "label": "Guided Breathing Exercises - Calm",
+     "url": "https://www.calm.com/breathe"
+    },
+    {
+     "label": "TED Talk: All it takes is 10 mindful minutes",
+     "url": "https://www.ted.com/talks/andy_puddicombe_all_it_takes_is_10_mindful_minutes"
+    }
+   ]
+  },
+  {
+   "slug": "resilience-bouncing-back",
+   "title": "Resilience: bouncing back",
+   "minutes": 35,
+   "level": "Builder",
+   "why": "Life is full of ups and downs, like a cricket match with good and bad overs. Resilience is your ability to bounce back from setbacks, learn from them, and keep moving forward stronger than before. It's a superpower that helps you face challenges like board exams or new school environments with courage.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is resilience?",
+     "task": "Write down a definition of resilience in your own words. Why is it important?"
+    },
+    {
+     "day": 2,
+     "focus": "Recalling a setback",
+     "task": "Think of a time you faced a small setback (e.g., bad test score, disagreement). How did you react?"
+    },
+    {
+     "day": 3,
+     "focus": "Learning from failures",
+     "task": "What lessons did you learn from that setback? How did it make you stronger?"
+    },
+    {
+     "day": 4,
+     "focus": "Identifying support systems",
+     "task": "List 3 people who support you when things are tough. How do they help you bounce back?"
+    },
+    {
+     "day": 5,
+     "focus": "Positive self-talk",
+     "task": "When you face a challenge, what positive phrases can you tell yourself instead of negative ones?"
+    },
+    {
+     "day": 6,
+     "focus": "Problem-solving skills",
+     "task": "Break down a current small challenge (e.g., a difficult assignment) into smaller, manageable steps."
+    },
+    {
+     "day": 7,
+     "focus": "Practicing gratitude",
+     "task": "List 3 things you are grateful for today. This helps shift focus from problems to positives."
+    }
+   ],
+   "notes": [
+    "Resilience is the ability to adapt and recover from stress, adversity, or failure.",
+    "It's not about avoiding challenges, but about how you respond to them.",
+    "Every setback is an opportunity for learning and growth.",
+    "Strong support systems (family, friends, mentors) are crucial for building resilience.",
+    "Positive self-talk and a growth mindset help reframe challenges as solvable problems.",
+    "Problem-solving skills enable you to break down big issues into smaller, manageable steps.",
+    "Self-care, including good sleep, nutrition, and exercise, supports your emotional resilience.",
+    "Gratitude practices can shift your perspective and foster a more optimistic outlook."
+   ],
+   "caseStudies": [
+    {
+     "title": "Facing Rejection to Build an Empire",
+     "who": "J.K. Rowling",
+     "country": "UK",
+     "story": "Before 'Harry Potter' became a global phenomenon, J.K. Rowling faced numerous rejections from publishers. She was a single mother living on state benefits, yet she persevered, believing in her story. Her resilience through poverty and rejection led to one of the most beloved book series of all time.",
+     "takeaway": "Even amidst significant personal challenges and professional rejections, resilience can lead to extraordinary success."
+    },
+    {
+     "title": "Bouncing Back from Examination Setbacks",
+     "who": "Many UPSC Aspirants",
+     "country": "India",
+     "story": "The UPSC Civil Services Examination is one of India's toughest, with success rates often below 0.2%. Many aspirants spend years preparing, facing multiple failures before finally succeeding or choosing alternative paths. Their stories often highlight immense resilience, perseverance, and the ability to learn from each attempt.",
+     "takeaway": "In highly competitive environments, resilience helps individuals learn from repeated failures and either achieve their goal or adapt to new ones."
+    }
+   ],
+   "practice": "Think about a small challenge you faced recently (e.g., getting a lower mark than expected, a small argument). Instead of dwelling on it, write down 2-3 specific things you learned from it and one positive action you can take next time.",
+   "quiz": [
+    {
+     "q": "What is the main idea behind resilience?",
+     "a": "Resilience is the ability to recover quickly from difficulties, setbacks, or challenges, and to grow stronger from those experiences."
+    },
+    {
+     "q": "How can learning from failures contribute to resilience?",
+     "a": "Learning from failures helps you understand what went wrong, adapt your approach, and develop new strategies, making you better equipped for future challenges."
+    },
+    {
+     "q": "Name two ways you can build your personal resilience.",
+     "a": "Two ways to build resilience are maintaining a strong support system (friends, family) and practicing positive self-talk to reframe challenges."
+    }
+   ],
+   "resources": [
+    {
+     "label": "American Psychological Association: Building Your Resilience",
+     "url": "https://www.apa.org/topics/resilience"
+    },
+    {
+     "label": "Greater Good Science Center: What is Resilience?",
+     "url": "https://greatergood.berkeley.edu/topic/resilience/definition"
+    },
+    {
+     "label": "TED Talk: The psychology of post-traumatic growth",
+     "url": "https://www.ted.com/talks/stephen_joseph_the_psychology_of_post_traumatic_growth"
+    }
+   ]
+  }
+ ]
+}

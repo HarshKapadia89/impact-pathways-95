@@ -20,6 +20,7 @@ import {
   Trophy,
   Info,
   Library,
+  Rocket,
 } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
@@ -38,6 +39,7 @@ const NAV = [
   },
   { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
   { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ", hi: "परीक्षाएँ", mr: "परीक्षा" }, icon: FileCheck },
+  { to: "/upskill", label: { en: "Upskill", gu: "અપસ્કિલ", hi: "अपस्किल", mr: "अपस्किल" }, icon: Rocket },
   { to: "/test", label: { en: "Aptitude", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, icon: Brain },
   { to: "/dashboard", label: { en: "Dashboard", gu: "ડૅશબોર્ડ", hi: "डैशबोर्ड", mr: "डॅशबोर्ड" }, icon: LayoutDashboard },
   { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમે", hi: "रिज़्यूमे", mr: "रेझ्युमे" }, icon: FileText },
@@ -106,6 +108,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   <div
                     className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.18em] whitespace-nowrap"
                     style={{ color: "var(--accent)" }}
+                    suppressHydrationWarning
                   >
                     {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
                   </div>

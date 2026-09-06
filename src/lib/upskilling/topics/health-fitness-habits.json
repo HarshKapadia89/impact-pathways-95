@@ -1,0 +1,1006 @@
+{
+ "slug": "health-fitness-habits",
+ "title": "Health, Fitness & Habit Building",
+ "emoji": "🏃",
+ "tagline": "Fuel Your Mind & Body: Habits for a Healthy Life",
+ "intro": "Hello young achievers! Life can sometimes feel like a race, especially with school, exams, and all your amazing activities. But just like a well-tuned car needs good fuel and regular care, your body and mind need attention to perform their best. This module will help you understand how simple daily choices can build incredible habits for a healthy, happy, and successful future, both in school and beyond.",
+ "outcomes": [
+  "Identify key pillars of physical and mental health relevant to your daily life.",
+  "Understand the science behind habit formation and why it's crucial for long-term well-being.",
+  "Learn practical strategies to incorporate healthy eating, physical activity, and mindfulness into your routine.",
+  "Develop personalized plans to build and sustain positive habits that support your academic and personal goals.",
+  "Recognize the importance of good sleep and digital wellness for overall health and productivity."
+ ],
+ "lessons": [
+  {
+   "slug": "how-habits-are-formed",
+   "title": "How habits are formed",
+   "minutes": 30,
+   "level": "Starter",
+   "why": "Understanding how habits work is like having a secret superpower! It helps you build good study habits, stay fit, and even manage your screen time better, making your daily life smoother and more successful.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Introduction to Habits",
+     "task": "Watch the TED Talk by Matt Cutts on 'Try something new for 30 days' to get inspired about habit formation."
+    },
+    {
+     "day": 2,
+     "focus": "The Habit Loop",
+     "task": "Read about the 'Cue-Routine-Reward' loop. Identify one small daily action you do without thinking."
+    },
+    {
+     "day": 3,
+     "focus": "Identify a Cue",
+     "task": "Pick one desired new habit (e.g., studying 15 mins). What existing cue can you link it to (e.g., coming home from school)?"
+    },
+    {
+     "day": 4,
+     "focus": "Define the Routine",
+     "task": "Clearly define the simple action for your new habit. Make it super easy to start, like 'open textbook to one page'."
+    },
+    {
+     "day": 5,
+     "focus": "Choose a Reward",
+     "task": "What small, immediate reward will you give yourself after completing your habit (e.g., 5 minutes of music, a small treat)?"
+    },
+    {
+     "day": 6,
+     "focus": "Practice & Track",
+     "task": "Attempt your chosen habit for the first time today, focusing on linking the cue, routine, and reward. Jot it down in a notebook."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect & Refine",
+     "task": "Review your first habit attempt. Did it feel natural? What can you adjust to make it easier or more rewarding?"
+    }
+   ],
+   "notes": [
+    "Habits are automatic behaviours triggered by specific cues.",
+    "The habit loop has three parts: Cue, Routine, and Reward.",
+    "A Cue is a trigger that tells your brain to go into automatic mode.",
+    "The Routine is the behaviour itself, what you do.",
+    "The Reward helps your brain decide if this loop is worth remembering for the future.",
+    "To build new habits, identify a clear cue, a simple routine, and a satisfying reward.",
+    "Start small; make new habits so easy you can't say no.",
+    "Consistency is more important than perfection when forming habits."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Power of Habit: Charles Duhigg's Insights",
+     "who": "Charles Duhigg",
+     "country": "USA",
+     "story": "Journalist Charles Duhigg wrote 'The Power of Habit,' detailing how habits shape our lives, from individuals to large corporations. He popularised the 'habit loop' concept, explaining how companies like Procter & Gamble used it to sell products like Febreze by linking it to a reward of a clean-smelling room.",
+     "takeaway": "Understanding the habit loop (cue-routine-reward) can help you intentionally design better habits."
+    },
+    {
+     "title": "Tiny Habits: BJ Fogg's Approach",
+     "who": "B.J. Fogg",
+     "country": "USA",
+     "story": "Dr. B.J. Fogg, a Stanford professor, teaches 'Tiny Habits,' a method where you start with incredibly small actions (like flossing one tooth) to build momentum. He emphasizes making habits easy to do and celebrating small successes immediately after completing them.",
+     "takeaway": "Starting with very small, 'tiny' habits makes them much easier to stick to and grow over time."
+    }
+   ],
+   "practice": "Choose one small, positive habit you want to start this week (e.g., reading 5 pages, drinking a glass of water, doing 5 squats). Identify its cue, routine, and reward. Practice it daily and track your progress in a simple notebook.",
+   "quiz": [
+    {
+     "q": "What are the three main components of a habit loop?",
+     "a": "The three main components are the Cue (trigger), the Routine (the action), and the Reward (what your brain gets from the action)."
+    },
+    {
+     "q": "Why is starting a new habit 'small' important?",
+     "a": "Starting small makes the habit less daunting, easier to perform consistently, and increases the likelihood of sticking with it until it becomes automatic."
+    },
+    {
+     "q": "Can bad habits be broken using the habit loop concept?",
+     "a": "Yes, by identifying the cue and reward of a bad habit, you can try to replace the 'routine' with a new, positive action that provides a similar reward."
+    }
+   ],
+   "resources": [
+    {
+     "label": "The Power of Habit by Charles Duhigg",
+     "url": "https://charlesduhigg.com/the-power-of-habit/"
+    },
+    {
+     "label": "Tiny Habits Method by B.J. Fogg",
+     "url": "https://www.tinyhabits.com/"
+    },
+    {
+     "label": "TED Talk: Try something new for 30 days - Matt Cutts",
+     "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days"
+    }
+   ]
+  },
+  {
+   "slug": "designing-a-morning-routine",
+   "title": "Designing a morning routine",
+   "minutes": 35,
+   "level": "Builder",
+   "why": "A great morning routine sets a positive tone for your entire day! It can boost your focus for school, reduce stress before exams, and give you a head start on your goals, making you feel more in control.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Observe Current Mornings",
+     "task": "Track your current morning from waking up until you leave for school/start studies. Note down timings and activities."
+    },
+    {
+     "day": 2,
+     "focus": "Identify Ideal Activities",
+     "task": "Brainstorm 3-5 positive activities you'd like to include (e.g., hydrate, light exercise, review notes, meditate, plan day)."
+    },
+    {
+     "day": 3,
+     "focus": "Time Allocation",
+     "task": "Estimate how much time each ideal activity would take. Consider adding a buffer for unexpected delays."
+    },
+    {
+     "day": 4,
+     "focus": "Sequencing & Start Time",
+     "task": "Arrange your chosen activities in a logical order. Calculate your ideal wake-up time by working backward from when you need to be ready."
+    },
+    {
+     "day": 5,
+     "focus": "Trial Run Prep",
+     "task": "Prepare for tomorrow's morning: lay out clothes, pack your bag, decide on breakfast, set your alarm away from your bed."
+    },
+    {
+     "day": 6,
+     "focus": "First Trial Run",
+     "task": "Execute your new morning routine. Don't aim for perfection, just try to follow the plan. Note what worked and what didn't."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect & Adjust",
+     "task": "Review your first attempt. Are there activities that need more or less time? Does the order feel right? Make adjustments for next week."
+    }
+   ],
+   "notes": [
+    "A structured morning routine brings order and purpose to your day.",
+    "Waking up earlier than necessary gives you time, not just for tasks, but for peace.",
+    "Hydration is crucial; start with a glass of water to kickstart your metabolism.",
+    "Incorporate a mix of physical, mental, and mindfulness activities.",
+    "Planning your day in the morning reduces stress and increases productivity.",
+    "Avoid screen time immediately after waking up to protect your focus.",
+    "Consistency is key; even a few minutes daily build strong habits.",
+    "Be flexible; your routine should serve you, not be a rigid prison."
+   ],
+   "caseStudies": [
+    {
+     "title": "Oprah Winfrey's Mindful Mornings",
+     "who": "Oprah Winfrey",
+     "country": "USA",
+     "story": "Media mogul Oprah Winfrey consistently shares her disciplined morning routine. It often includes meditation, journaling, and light exercise before starting her demanding work schedule. She attributes much of her success and centeredness to this consistent practice.",
+     "takeaway": "Even busy and successful individuals prioritize morning routines for mental clarity and productivity."
+    },
+    {
+     "title": "Tim Cook's Early Start",
+     "who": "Tim Cook",
+     "country": "USA",
+     "story": "The CEO of Apple, Tim Cook, is famously an early riser, often waking up around 3:45 AM. He checks emails, works out, and grabs a coffee before many others even begin their day. This allows him to tackle complex challenges before the office officially opens.",
+     "takeaway": "An early start can provide valuable uninterrupted time for focus and preparing for the day's challenges."
+    }
+   ],
+   "practice": "For the next 5 days, commit to waking up 15 minutes earlier than usual. Use this extra time for one calming or productive activity, like reading a short book, stretching, or making a to-do list for school. Track how you feel each day.",
+   "quiz": [
+    {
+     "q": "Why is it recommended to avoid screen time immediately after waking up?",
+     "a": "Avoiding screen time helps protect your focus, prevents immediate distraction, and allows your brain to wake up naturally without being bombarded by information."
+    },
+    {
+     "q": "What is a good first step to designing a new morning routine?",
+     "a": "A good first step is to observe your current morning habits and identify what you already do, how much time it takes, and what you'd like to change or add."
+    },
+    {
+     "q": "How can a morning routine help with stress before exams?",
+     "a": "A structured morning routine can reduce stress by giving you dedicated time for calm activities, reviewing notes, and mentally preparing, which builds confidence and reduces last-minute rush."
+    }
+   ],
+   "resources": [
+    {
+     "label": "The 'Miracle Morning' by Hal Elrod summary",
+     "url": "https://www.youtube.com/watch?v=F01z-b4_yZg"
+    },
+    {
+     "label": "Harvard Health: The power of a morning routine",
+     "url": "https://www.health.harvard.edu/blog/the-power-of-a-morning-routine-202210212836"
+    },
+    {
+     "label": "Art of Living: Meditation for students",
+     "url": "https://www.artofliving.org/in-en/meditation-students"
+    }
+   ]
+  },
+  {
+   "slug": "sleep-the-study-superpower",
+   "title": "Sleep: the study superpower",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Think of sleep as your brain's maintenance crew and memory booster! Getting enough quality sleep helps you learn faster, remember more for exams, stay focused in class, and even improve your mood, making you a super-student.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand Sleep Needs",
+     "task": "Read about the recommended sleep hours for teenagers (usually 8-10 hours). Reflect on your own average sleep duration."
+    },
+    {
+     "day": 2,
+     "focus": "Track Your Sleep",
+     "task": "For tonight, note down your bedtime and wake-up time. Also, observe how you feel during the day (alert, tired, irritable)."
+    },
+    {
+     "day": 3,
+     "focus": "Identify Sleep Disruptors",
+     "task": "Think about what keeps you from sleeping well (e.g., late-night phone use, caffeine, noisy environment, stress)."
+    },
+    {
+     "day": 4,
+     "focus": "Create a Wind-Down Routine",
+     "task": "Design a 30-60 minute pre-sleep routine (e.g., reading a book, warm bath, listening to calming music, no screens)."
+    },
+    {
+     "day": 5,
+     "focus": "Optimize Your Sleep Environment",
+     "task": "Ensure your bedroom is dark, quiet, and cool. Can you make any small improvements today?"
+    },
+    {
+     "day": 6,
+     "focus": "Practice Sleep Hygiene",
+     "task": "Today, try to stick to your planned bedtime and wake-up time, and follow your wind-down routine. Avoid large meals or heavy exercise close to bedtime."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect & Adjust",
+     "task": "Review your sleep tracking and experience. Did the wind-down routine help? What adjustments can you make for better sleep next week?"
+    }
+   ],
+   "notes": [
+    "Teenagers need 8-10 hours of sleep per night for optimal health and performance.",
+    "Sleep helps consolidate memories and process information learned during the day.",
+    "Lack of sleep impairs concentration, problem-solving, and decision-making skills.",
+    "Establish a consistent sleep schedule, even on weekends, to regulate your body clock.",
+    "Create a relaxing bedtime routine to signal to your body that it's time to sleep.",
+    "Avoid screens (phones, tablets, TV) for at least an hour before bed; blue light disrupts melatonin production.",
+    "Ensure your sleep environment is dark, quiet, cool, and comfortable.",
+    "Caffeine and heavy meals close to bedtime can interfere with sleep quality."
+   ],
+   "caseStudies": [
+    {
+     "title": "NASA's Power Nap Study",
+     "who": "NASA (National Aeronautics and Space Administration)",
+     "country": "USA",
+     "story": "NASA conducted a study that found a 26-minute nap improved pilot performance by 34% and alertness by 54%. This showed the significant impact even short periods of sleep can have on cognitive function and productivity.",
+     "takeaway": "Strategic short naps can significantly boost alertness and performance, even for demanding tasks like flying."
+    },
+    {
+     "title": "Matthew Walker: Why We Sleep",
+     "who": "Matthew Walker",
+     "country": "UK",
+     "story": "Dr. Matthew Walker, a professor of Neuroscience and Psychology at UC Berkeley, is a leading sleep scientist and author of 'Why We Sleep.' He extensively researches and explains how sleep deprivation severely impacts memory, learning, immune function, and overall health, emphasizing sleep as fundamental for well-being.",
+     "takeaway": "Sleep is not optional; it is fundamental for learning, memory, health, and emotional regulation."
+    }
+   ],
+   "practice": "For the next seven days, commit to putting your phone away (or switching it to 'Do Not Disturb' and placing it out of reach) 30 minutes before your planned bedtime. Replace screen time with reading a physical book or listening to calming music. Note any changes in how quickly you fall asleep or how rested you feel.",
+   "quiz": [
+    {
+     "q": "How does sleep impact your memory and learning?",
+     "a": "During sleep, your brain actively processes and consolidates memories from the day, moving them from short-term to long-term storage, which is crucial for learning and recall during exams."
+    },
+    {
+     "q": "What is 'sleep hygiene'?",
+     "a": "Sleep hygiene refers to a set of practices and habits necessary to have good nighttime sleep quality and full daytime alertness, including consistent schedules, good sleep environment, and healthy daily routines."
+    },
+    {
+     "q": "Why should teenagers avoid screens before bed?",
+     "a": "Screens emit blue light which can suppress the production of melatonin, a hormone that signals to your body that it's time to sleep, thus making it harder to fall asleep and impacting sleep quality."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO: Adolescent health guidelines - Sleep",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-health-in-india"
+    },
+    {
+     "label": "NCERT: Benefits of good sleep for students",
+     "url": "https://ncert.nic.in/pdf/publication/miscpublications/health_wellbeing.pdf"
+    },
+    {
+     "label": "TED Talk: Why we sleep - Matthew Walker",
+     "url": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower"
+    }
+   ]
+  },
+  {
+   "slug": "nutrition-basics-for-teenagers",
+   "title": "Nutrition basics for teenagers",
+   "minutes": 45,
+   "level": "Starter",
+   "why": "Good nutrition is like fuel for your brain and body! Eating well helps you concentrate better in class, gives you energy for sports and studies, keeps you healthy to fight off sickness, and supports your growth during these important years.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Balanced Plate Concept",
+     "task": "Learn about the five food groups (grains, proteins, fruits, vegetables, dairy/alternatives). Visualize what a balanced meal looks like."
+    },
+    {
+     "day": 2,
+     "focus": "Hydration Heroes",
+     "task": "Understand the importance of water. Track your water intake today – how many glasses do you drink?"
+    },
+    {
+     "day": 3,
+     "focus": "Smart Snacking",
+     "task": "Identify common unhealthy snacks you eat. Brainstorm 3-5 healthier alternatives (e.g., fruit, nuts, chana, dahi)."
+    },
+    {
+     "day": 4,
+     "focus": "Label Reading 101",
+     "task": "Pick up a packaged food item at home (e.g., biscuits, chips). Read its nutrition label for sugar, fat, and sodium content."
+    },
+    {
+     "day": 5,
+     "focus": "Meal Planning Prep",
+     "task": "Think about tomorrow's meals (breakfast, lunch, dinner, snacks). How can you incorporate more fruits, vegetables, or whole grains?"
+    },
+    {
+     "day": 6,
+     "focus": "Mindful Eating Day",
+     "task": "Today, try to eat slowly and pay attention to your hunger and fullness cues. Notice the taste and texture of your food."
+    },
+    {
+     "day": 7,
+     "focus": "Review & Set Goals",
+     "task": "Reflect on your eating habits this week. Set one realistic nutrition goal for the coming week (e.g., 'eat one fruit daily', 'drink 8 glasses of water')."
+    }
+   ],
+   "notes": [
+    "A balanced diet includes a variety of foods from all major food groups.",
+    "Water is essential for energy, focus, and digestion; aim for 8-10 glasses daily.",
+    "Prioritize whole grains (roti, brown rice) over refined grains (white bread, maida).",
+    "Include plenty of fruits and vegetables for vitamins, minerals, and fiber.",
+    "Choose lean proteins (dal, eggs, chicken, paneer) for growth and muscle repair.",
+    "Limit sugary drinks, processed foods, and excessive fried items.",
+    "Healthy fats (nuts, seeds, avocado) are important in moderation.",
+    "Listen to your body's hunger and fullness cues; avoid overeating or skipping meals."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Blue Zones Diet",
+     "who": "Dan Buettner (National Geographic Explorer)",
+     "country": "Global (Japan, Italy, Costa Rica, etc.)",
+     "story": "Dan Buettner identified 'Blue Zones' – areas where people live significantly longer and healthier lives. A common thread among these populations is a diet rich in plant-based foods, whole grains, and legumes, with meat consumed sparingly, highlighting the power of traditional, wholesome eating.",
+     "takeaway": "Adopting a largely plant-based, whole-food diet can contribute to long-term health and vitality."
+    },
+    {
+     "title": "Akshaya Patra Foundation's Mid-day Meal Scheme",
+     "who": "Akshaya Patra Foundation",
+     "country": "India",
+     "story": "Akshaya Patra provides nutritious, wholesome mid-day meals to millions of schoolchildren across India. This initiative not only combats hunger but also improves attendance, concentration, and learning outcomes for students, demonstrating the direct link between nutrition and educational success.",
+     "takeaway": "Access to regular, nutritious meals significantly boosts children's health, attendance, and academic performance."
+    }
+   ],
+   "practice": "For the next three days, pack your own school snack using healthy options like an apple, a handful of almonds, or some roasted chana. Avoid buying processed snacks from the school canteen or outside. Observe if you feel more energetic and less sluggish during the afternoon.",
+   "quiz": [
+    {
+     "q": "Name three food groups that should be part of a balanced meal.",
+     "a": "Three essential food groups are fruits and vegetables, grains (preferably whole grains), and proteins (like dal, paneer, eggs)."
+    },
+    {
+     "q": "Why is hydration important for teenagers, especially during exams?",
+     "a": "Proper hydration is crucial as it helps maintain concentration, improves cognitive function, regulates body temperature, and prevents headaches, all of which are vital for performing well during exams."
+    },
+    {
+     "q": "What is one easy way to reduce unhealthy fats and sugars in your diet?",
+     "a": "One easy way is to significantly reduce or avoid sugary drinks like sodas and packaged juices, and limit fried foods and highly processed snacks."
+    }
+   ],
+   "resources": [
+    {
+     "label": "My Plate - Indian Dietary Guidelines",
+     "url": "https://www.nin.res.in/dietaryguidelines_NIN_2023.html"
+    },
+    {
+     "label": "WHO: Healthy diet for adolescents",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-health-in-india"
+    },
+    {
+     "label": "Khan Academy: Nutrition for a healthy life",
+     "url": "https://www.khanacademy.org/science/health-and-medicine/human-anatomy-and-physiology/nutrition-in-humans/v/nutrition-overview"
+    }
+   ]
+  },
+  {
+   "slug": "daily-movement-and-fitness-at-home",
+   "title": "Daily movement and fitness at home",
+   "minutes": 30,
+   "level": "Starter",
+   "why": "Moving your body daily isn't just for athletes; it's vital for your brain too! Regular physical activity boosts your mood, improves focus for studies, reduces stress, and keeps you strong and healthy, all from the comfort of your home.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Identify Current Activity",
+     "task": "For one day, track how much time you spend sitting vs. moving. Use your phone's step tracker if available, or just estimate."
+    },
+    {
+     "day": 2,
+     "focus": "Explore Home Exercises",
+     "task": "Watch a short online video (e.g., YouTube) for beginner home workouts – look for bodyweight exercises like squats, planks, push-ups."
+    },
+    {
+     "day": 3,
+     "focus": "Set a Micro-Movement Goal",
+     "task": "Choose one small movement goal: 10 minutes of walking, 5 minutes of stretching, or 10 squats throughout the day."
+    },
+    {
+     "day": 4,
+     "focus": "Integrate Movement Breaks",
+     "task": "During your study time, take a 5-minute movement break every hour (e.g., walk around the house, do some jumping jacks)."
+    },
+    {
+     "day": 5,
+     "focus": "Try a Short Workout",
+     "task": "Attempt a 10-15 minute guided home workout video. Don't worry about perfection, just try your best."
+    },
+    {
+     "day": 6,
+     "focus": "Active Chores / Play",
+     "task": "Engage in an active chore (e.g., sweeping, gardening) or play an active game with family/friends at home for at least 20 minutes."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect & Plan",
+     "task": "Review your week's activity. What felt good? What can you realistically stick with? Plan one consistent movement activity for next week."
+    }
+   ],
+   "notes": [
+    "Aim for at least 60 minutes of moderate-to-vigorous physical activity most days of the week.",
+    "Even short bursts of movement throughout the day add up and are beneficial.",
+    "Bodyweight exercises (squats, lunges, planks) are excellent for building strength at home.",
+    "Stretching improves flexibility and helps prevent muscle stiffness, especially from sitting.",
+    "Movement breaks during study time can boost focus and reduce fatigue.",
+    "Walking, dancing, and playing active games are great ways to incorporate movement.",
+    "Listen to your body; start slow and gradually increase intensity and duration.",
+    "Consistency is more important than intense, infrequent workouts."
+   ],
+   "caseStudies": [
+    {
+     "title": "Michelle Obama's 'Let's Move!' Campaign",
+     "who": "Michelle Obama",
+     "country": "USA",
+     "story": "As First Lady, Michelle Obama launched 'Let's Move!' to tackle childhood obesity by encouraging healthier eating and increased physical activity among young people. The campaign promoted simple ways to integrate movement into daily life, including at home and in schools.",
+     "takeaway": "Simple, consistent movement and healthy eating are crucial for combating childhood obesity and promoting well-being."
+    },
+    {
+     "title": "Yoga in Indian Schools",
+     "who": "Various Indian Schools & Institutions",
+     "country": "India",
+     "story": "Many schools across India, often following CBSE guidelines, integrate daily yoga and physical education into their curriculum. This practice helps students improve flexibility, concentration, and reduce stress, showing how traditional home-based fitness can be a powerful educational tool.",
+     "takeaway": "Integrating mindful movement like yoga into daily routines can significantly enhance physical and mental well-being for students."
+    }
+   ],
+   "practice": "Choose one type of bodyweight exercise (e.g., squats, planks, push-ups adapted to knees). Do 3 sets of 10-15 repetitions (or hold plank for 20-30 seconds) every day for five days this week. You can split these sets throughout the day. Notice if you feel stronger or more energetic.",
+   "quiz": [
+    {
+     "q": "How much physical activity is generally recommended for teenagers daily?",
+     "a": "Teenagers should aim for at least 60 minutes of moderate-to-vigorous physical activity most days of the week for optimal health benefits."
+    },
+    {
+     "q": "Name two benefits of taking movement breaks during study time.",
+     "a": "Movement breaks can help improve concentration by giving your brain a rest, reduce physical fatigue, and boost your mood, making long study sessions more effective."
+    },
+    {
+     "q": "What are some simple bodyweight exercises you can do at home without equipment?",
+     "a": "Simple bodyweight exercises include squats, lunges, push-ups (on knees or full), planks, crunches, and jumping jacks, all of which can be done anywhere."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO: Physical activity for children and adolescents",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+     "label": "Fitness Blender: Free home workout videos",
+     "url": "https://www.fitnessblender.com/videos?filter=workout%20length%3A10-20%20minutes"
+    },
+    {
+     "label": "Yoga for Kids & Teens: Free resources",
+     "url": "https://www.doyogawithme.com/yoga-kids-teens"
+    }
+   ]
+  },
+  {
+   "slug": "posture-and-screen-ergonomics",
+   "title": "Posture and screen ergonomics",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Good posture isn't just about looking confident; it prevents aches, pains, and even serious health issues later. Learning screen ergonomics helps you study and play comfortably without straining your eyes or back.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understand good posture",
+     "task": "Watch a video on ideal sitting posture and try it at your study desk for 15 minutes."
+    },
+    {
+     "day": 2,
+     "focus": "Desk setup check",
+     "task": "Review your study desk and chair. Adjust your screen height so the top third is at eye level."
+    },
+    {
+     "day": 3,
+     "focus": "Sitting habits",
+     "task": "Set a timer to check your posture every 30 minutes during a study session. Correct yourself gently."
+    },
+    {
+     "day": 4,
+     "focus": "Ergonomics for phone/tablet",
+     "task": "Observe how you hold your phone/tablet. Practice holding it at eye level instead of looking down for 15 minutes."
+    },
+    {
+     "day": 5,
+     "focus": "Micro-breaks",
+     "task": "Learn 2-3 simple stretches for neck and shoulders. Take a 2-minute stretch break every hour while using screens."
+    },
+    {
+     "day": 6,
+     "focus": "Walking posture",
+     "task": "Pay attention to your walking posture for 15 minutes. Stand tall, shoulders back, chin parallel to the ground."
+    },
+    {
+     "day": 7,
+     "focus": "Review and refine",
+     "task": "Reflect on improvements in your posture and screen habits. Note one area to focus on next week."
+    }
+   ],
+   "notes": [
+    "Sit with your feet flat on the floor, knees at a 90-degree angle.",
+    "Ensure your back is supported, with shoulders relaxed and back.",
+    "Keep your computer screen arm's length away and the top third at eye level.",
+    "Use an external keyboard and mouse if using a laptop for extended periods.",
+    "Take a 20-second break every 20 minutes to look at something 20 feet away (20-20-20 rule).",
+    "Avoid 'tech neck' by holding your phone at eye level.",
+    "Stand and stretch for 5-10 minutes for every hour of sitting.",
+    "Invest in a good chair if possible, or use a cushion for lower back support."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Rise of 'Text Neck'",
+     "who": "Dr. Kenneth Hansraj",
+     "country": "USA",
+     "story": "Dr. Kenneth Hansraj, a spinal surgeon in New York, published a study in 2014 showing how looking down at phones increases pressure on the spine significantly. He found that tilting your head forward 15 degrees can add 12 kg of pressure, while a 60-degree tilt adds 27 kg – the weight of a small child. This excessive strain contributes to 'text neck' and early wear and tear on the spine.",
+     "takeaway": "Maintaining a neutral head position while using devices is crucial to protect your spine from unnecessary strain."
+    },
+    {
+     "title": "Ergonomics in the Workplace",
+     "who": "Google (Alphabet Inc.)",
+     "country": "USA",
+     "story": "Google is well-known for providing its employees with state-of-the-art ergonomic workstations, including adjustable desks, ergonomic chairs, and external monitors. They understand that comfortable and healthy employees are more productive and experience fewer injuries. This investment in ergonomics is part of their broader wellness strategy.",
+     "takeaway": "Companies like Google prioritize ergonomics because they know it directly impacts health, productivity, and long-term well-being."
+    }
+   ],
+   "practice": "Set up your study space for optimal posture and screen ergonomics. Take a photo before and after, then practice maintaining this setup for a week.",
+   "quiz": [
+    {
+     "q": "What is the 20-20-20 rule for eye care?",
+     "a": "Every 20 minutes, look at something 20 feet away for 20 seconds to reduce eye strain."
+    },
+    {
+     "q": "How high should your computer screen be?",
+     "a": "The top third of your screen should be at eye level so your neck remains in a neutral position."
+    },
+    {
+     "q": "Why is good posture important for students?",
+     "a": "Good posture prevents back and neck pain, improves focus, and reduces fatigue during long study sessions."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Mayo Clinic: Office ergonomics",
+     "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/office-ergonomics/art-20046169"
+    },
+    {
+     "label": "Ted-Ed: Why sitting is bad for you",
+     "url": "https://www.youtube.com/watch?v=A2nrQ8j065w"
+    },
+    {
+     "label": "Spinal surgeon explains 'text neck'",
+     "url": "https://www.spine-health.com/blog/modern-spine-ailment-text-neck"
+    }
+   ]
+  },
+  {
+   "slug": "hydration-and-eye-care",
+   "title": "Hydration and eye care",
+   "minutes": 30,
+   "level": "Starter",
+   "why": "Water is essential for every body function, including keeping your eyes healthy and brain sharp for studying. Proper eye care is crucial in our screen-heavy world to prevent strain and maintain good vision.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Track water intake",
+     "task": "Keep a small notebook or use an app to track how many glasses of water you drink today."
+    },
+    {
+     "day": 2,
+     "focus": "Early morning hydration",
+     "task": "Drink a glass of water right after waking up. It kickstarts your metabolism."
+    },
+    {
+     "day": 3,
+     "focus": "Carry a water bottle",
+     "task": "Fill a reusable water bottle and keep it with you throughout the school day. Refill it twice."
+    },
+    {
+     "day": 4,
+     "focus": "Eye exercises",
+     "task": "Learn 2-3 simple eye exercises (e.g., blinking, palming, focusing near/far) and do them for 5 minutes."
+    },
+    {
+     "day": 5,
+     "focus": "Healthy eye foods",
+     "task": "Identify 3 foods rich in Vitamin A or Omega-3 (e.g., carrots, spinach, fish) and try to include one in your meal today."
+    },
+    {
+     "day": 6,
+     "focus": "Screen break reminder",
+     "task": "Set a timer to remind yourself to take a screen break and do the 20-20-20 rule twice during a study session."
+    },
+    {
+     "day": 7,
+     "focus": "Review and plan",
+     "task": "Reflect on your hydration and eye care habits. Plan how to consistently drink more water and protect your eyes next week."
+    }
+   ],
+   "notes": [
+    "Aim for 8-10 glasses (2-3 litres) of water daily, more if active or in hot weather.",
+    "Carry a reusable water bottle to encourage consistent hydration.",
+    "Drink water even when you don't feel thirsty, as thirst is a sign of mild dehydration.",
+    "Incorporate water-rich foods like fruits and vegetables into your diet.",
+    "Practice the 20-20-20 rule regularly to reduce digital eye strain.",
+    "Ensure good lighting when reading or using screens to reduce glare.",
+    "Blink frequently to keep your eyes moist, especially while using digital devices.",
+    "Consider regular eye check-ups, especially if you spend many hours on screens."
+   ],
+   "caseStudies": [
+    {
+     "title": "Dehydration's Impact on Cognitive Function",
+     "who": "University of East London Study",
+     "country": "UK",
+     "story": "A 2012 study by the University of East London found that even mild dehydration can impair cognitive performance. Participants who hadn't had water performed worse on tasks requiring attention and memory compared to those who were adequately hydrated. This highlights water's critical role in brain function.",
+     "takeaway": "Staying well-hydrated is crucial for sharp focus, better memory, and overall cognitive performance in school."
+    },
+    {
+     "title": "Combating Digital Eye Strain in the IT Hub",
+     "who": "Narayana Nethralaya",
+     "country": "India",
+     "story": "Narayana Nethralaya, a leading eye hospital in Bengaluru, India's IT capital, has seen a significant increase in patients suffering from Digital Eye Strain (DES) due to prolonged screen use. They actively educate patients on ergonomic practices, frequent breaks, and lubricating eye drops, recognizing the widespread impact of technology on eye health.",
+     "takeaway": "Recognize that prolonged screen time can harm your eyes, and proactive measures like breaks and proper posture are essential."
+    }
+   ],
+   "practice": "Keep a water bottle beside you all day and set hourly reminders to take a few sips. Practice the 20-20-20 rule every time you use a screen for more than 30 minutes.",
+   "quiz": [
+    {
+     "q": "What are two signs of mild dehydration?",
+     "a": "Thirst, dry mouth, reduced urine output, or fatigue can be signs of mild dehydration."
+    },
+    {
+     "q": "Name two foods that are good for eye health.",
+     "a": "Carrots, spinach, kale, sweet potatoes, eggs, and fatty fish (like salmon) are good for eye health."
+    },
+    {
+     "q": "How does blinking help your eyes?",
+     "a": "Blinking helps spread tears across your eyes, keeping them moist and clean, which prevents dryness and irritation."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO: Healthy diet for children and adolescents",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet-for-children-and-adolescents"
+    },
+    {
+     "label": "American Academy of Ophthalmology: Eye exercises",
+     "url": "https://www.aao.org/eye-health/tips-prevention/eye-gym-can-exercises-improve-eyesight"
+    },
+    {
+     "label": "Harvard Health: The importance of hydration",
+     "url": "https://www.health.harvard.edu/staying-healthy/the-importance-of-hydration"
+    }
+   ]
+  },
+  {
+   "slug": "managing-exam-season-health",
+   "title": "Managing exam-season health",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Exam season is stressful, and often health takes a backseat, but this can actually hurt your performance. Learning to manage your physical and mental well-being during exams ensures you perform your best and avoid burnout.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Sleep schedule check",
+     "task": "Track your sleep for the next two nights. Aim for 7-9 hours, even during exam prep."
+    },
+    {
+     "day": 2,
+     "focus": "Balanced meal planning",
+     "task": "Plan your meals for one day, ensuring they include complex carbs, protein, and fruits/vegetables. Avoid sugary snacks."
+    },
+    {
+     "day": 3,
+     "focus": "Mindful breaks",
+     "task": "Integrate 10-15 minute non-screen breaks into your study schedule (e.g., stretching, walking, listening to music)."
+    },
+    {
+     "day": 4,
+     "focus": "Hydration strategy",
+     "task": "Keep a water bottle next to your study desk and finish at least 2 litres throughout your study day."
+    },
+    {
+     "day": 5,
+     "focus": "Stress reduction technique",
+     "task": "Practice a short mindfulness exercise or deep breathing technique for 5 minutes before studying."
+    },
+    {
+     "day": 6,
+     "focus": "Light exercise",
+     "task": "Take a 20-minute brisk walk or do some simple home exercises to boost energy and clear your head."
+    },
+    {
+     "day": 7,
+     "focus": "Exam day simulation",
+     "task": "Simulate an exam morning: wake up early, have a good breakfast, and review a topic without cramming. Reflect on how you felt."
+    }
+   ],
+   "notes": [
+    "Prioritize sleep; 7-9 hours helps consolidate memory and reduces stress.",
+    "Eat regular, balanced meals. Avoid skipping meals and excessive caffeine/sugar.",
+    "Stay hydrated with water; it's vital for brain function and energy.",
+    "Incorporate short physical activity breaks (15-30 minutes) daily to de-stress and re-energize.",
+    "Practice mindfulness or deep breathing to calm nerves and improve focus.",
+    "Plan for breaks in your study schedule – they prevent burnout and improve retention.",
+    "Avoid late-night cramming sessions; they often lead to fatigue and poorer recall.",
+    "Communicate your stress to a trusted adult or friend; don't bottle it up."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Sleep-Deprived Student vs. Academic Performance",
+     "who": "Journal of Sleep Research",
+     "country": "International",
+     "story": "Numerous studies, including those published in the Journal of Sleep Research, consistently show a strong correlation between adequate sleep and academic performance. Students who maintain consistent sleep patterns during exam periods tend to achieve higher grades, have better memory recall, and experience less stress compared to those who pull all-nighters.",
+     "takeaway": "Sacrificing sleep for studying is counterproductive; prioritize sleep for better memory and performance during exams."
+    },
+    {
+     "title": "CBSE's Initiatives for Student Well-being",
+     "who": "CBSE (Central Board of Secondary Education)",
+     "country": "India",
+     "story": "The CBSE regularly issues advisories and provides counselling services for students during board exams. They emphasize the importance of a balanced routine, including adequate sleep, nutrition, and stress management techniques, through helplines and resources on their website to support student mental and physical health during high-stakes periods.",
+     "takeaway": "Even examination boards recognize that your well-being is as important as your preparation during exams."
+    }
+   ],
+   "practice": "Create a 'health-first' study timetable for your upcoming exams. Include specific times for meals, sleep, short exercise, and mindful breaks. Stick to it for a week.",
+   "quiz": [
+    {
+     "q": "Why is it important to get enough sleep during exam season?",
+     "a": "Adequate sleep helps consolidate memories, improves focus, reduces stress, and enhances overall cognitive function, leading to better exam performance."
+    },
+    {
+     "q": "Name two food groups that should be part of your exam-season diet.",
+     "a": "Complex carbohydrates (like whole grains), lean proteins, and fruits/vegetables are essential for sustained energy and brain health."
+    },
+    {
+     "q": "What is one quick way to de-stress during a study break?",
+     "a": "Deep breathing exercises, a short walk, listening to calming music, or stretching can quickly help de-stress."
+    }
+   ],
+   "resources": [
+    {
+     "label": "NCERT: Stress Management Guide",
+     "url": "https://ncert.nic.in/pdf/publication/misc/Exam%20Stress%20Booklet_English.pdf"
+    },
+    {
+     "label": "WHO: Adolescent mental health",
+     "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health"
+    },
+    {
+     "label": "Khan Academy: Test prep for all ages",
+     "url": "https://www.khanacademy.org/test-prep"
+    }
+   ]
+  },
+  {
+   "slug": "sports-teamwork-and-discipline",
+   "title": "Sports, teamwork and discipline",
+   "minutes": 35,
+   "level": "Builder",
+   "why": "Sports are not just about physical fitness; they teach invaluable life skills like teamwork, leadership, and discipline. These qualities are crucial for success in school, future careers, and personal life, helping you navigate challenges effectively.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Identify a sport",
+     "task": "Think about a sport you enjoy or want to try. Research its basic rules for 15 minutes."
+    },
+    {
+     "day": 2,
+     "focus": "Teamwork observation",
+     "task": "Watch a sports match (cricket, football, basketball) and observe how players communicate and support each other."
+    },
+    {
+     "day": 3,
+     "focus": "Personal discipline",
+     "task": "Identify one small area in your studies or daily routine where you can apply more discipline (e.g., studying at a fixed time)."
+    },
+    {
+     "day": 4,
+     "focus": "Leadership in sports",
+     "task": "Read about a sports captain (e.g., MS Dhoni, Virat Kohli, Sunil Chhetri) and identify their leadership qualities."
+    },
+    {
+     "day": 5,
+     "focus": "Physical activity",
+     "task": "Engage in 30 minutes of moderate physical activity, mimicking a sport (e.g., running, skipping, playing catch)."
+    },
+    {
+     "day": 6,
+     "focus": "Goal setting",
+     "task": "Set a small, achievable fitness goal for yourself (e.g., do 10 push-ups, run 1 km without stopping) for the next month."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and plan",
+     "task": "Reflect on how sports skills can apply to academics. Plan how to join a school team or club next term."
+    }
+   ],
+   "notes": [
+    "Regular physical activity through sports improves physical and mental health.",
+    "Team sports teach communication, collaboration, and conflict resolution skills.",
+    "Discipline learned in sports (e.g., practice, punctuality) translates to academic success.",
+    "Sports help develop leadership qualities, resilience, and problem-solving abilities.",
+    "Experiencing wins and losses in sports builds character and teaches perseverance.",
+    "Physical activity reduces stress and improves mood, essential for overall well-being.",
+    "Teamwork skills are highly valued in schools, universities, and future workplaces.",
+    "Joining a sports team fosters a sense of belonging and expands your social circle."
+   ],
+   "caseStudies": [
+    {
+     "title": "India's 'Captain Cool' and Strategic Leadership",
+     "who": "MS Dhoni",
+     "country": "India",
+     "story": "Mahendra Singh Dhoni, former captain of the Indian cricket team, is renowned for his calm demeanor, strategic thinking, and ability to lead under pressure. He nurtured young talent and built a cohesive team that won multiple ICC trophies, demonstrating how individual discipline and team synergy lead to monumental success.",
+     "takeaway": "Great leadership and discipline, like Dhoni's, can unite a team and achieve extraordinary results, on and off the field."
+    },
+    {
+     "title": "The Impact of Sports on Youth Development",
+     "who": "UNICEF",
+     "country": "International",
+     "story": "UNICEF actively promotes sports for development, recognizing its role in teaching children and adolescents valuable life skills. Through various programs, they use sports to foster teamwork, respect, leadership, and discipline, especially in challenging environments, helping young people build resilience and social cohesion.",
+     "takeaway": "International organizations like UNICEF use sports as a powerful tool to develop essential life skills beyond just physical health."
+    }
+   ],
+   "practice": "Identify a small team-based task at home or school (e.g., group project, cleaning up a common area). Take initiative to organize and delegate tasks, focusing on collaboration.",
+   "quiz": [
+    {
+     "q": "Name two life skills learned through playing team sports.",
+     "a": "Teamwork, communication, leadership, problem-solving, discipline, and perseverance are all learned through team sports."
+    },
+    {
+     "q": "How does discipline in sports help in academics?",
+     "a": "Discipline developed in sports, such as consistent practice and time management, can be applied to academic studies, leading to better focus and results."
+    },
+    {
+     "q": "Why is physical activity important for mental health?",
+     "a": "Physical activity releases endorphins, which reduce stress, improve mood, and enhance cognitive function, contributing to better mental health."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Youth.gov: Benefits of Sport Participation",
+     "url": "https://youth.gov/youth-topics/positive-youth-development/sport-participation"
+    },
+    {
+     "label": "Ted Talk: The power of sports to change the world",
+     "url": "https://www.ted.com/talks/harish_iyer_the_power_of_sports_to_change_the_world"
+    },
+    {
+     "label": "NPTEL: Sports Psychology basics",
+     "url": "https://nptel.ac.in/courses/109106093"
+    }
+   ]
+  },
+  {
+   "slug": "tracking-habits-and-staying-consistent",
+   "title": "Tracking habits and staying consistent",
+   "minutes": 45,
+   "level": "Builder",
+   "why": "Building good habits is like constructing a strong foundation for your future success. Tracking them helps you see your progress, stay motivated, and build consistency, which is key to achieving your academic and personal goals.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Identify a small habit",
+     "task": "Choose one small, easy habit you want to build (e.g., drink one glass of water, read for 10 minutes)."
+    },
+    {
+     "day": 2,
+     "focus": "Choose a tracking method",
+     "task": "Decide how you'll track your habit: a simple notebook, a calendar, or a free habit tracking app."
+    },
+    {
+     "day": 3,
+     "focus": "Start tracking",
+     "task": "Perform your chosen habit and mark it down on your tracker. Make it satisfying!"
+    },
+    {
+     "day": 4,
+     "focus": "Review progress",
+     "task": "Look at your tracker. Celebrate your progress and identify any obstacles you faced."
+    },
+    {
+     "day": 5,
+     "focus": "The 'never miss twice' rule",
+     "task": "If you missed your habit yesterday, make sure to do it today, even if it's a small amount. Don't break the chain twice."
+    },
+    {
+     "day": 6,
+     "focus": "Habit stacking",
+     "task": "Connect your new habit to an existing one (e.g., 'After I brush my teeth, I will drink a glass of water')."
+    },
+    {
+     "day": 7,
+     "focus": "Reflect and expand",
+     "task": "Reflect on your consistency. If successful, consider adding another small habit next week."
+    }
+   ],
+   "notes": [
+    "Start with one small, achievable habit to build momentum.",
+    "Make your habit obvious, attractive, easy, and satisfying (OASIS principle).",
+    "Track your progress daily; seeing your 'streak' provides motivation.",
+    "Don't aim for perfection; aim for consistency (e.g., 'never miss twice' rule).",
+    "Use 'habit stacking' by linking a new habit to an existing one.",
+    "Reward yourself for consistency, even with small, healthy rewards.",
+    "Be patient; building strong habits takes time and repetition (often 66 days, not 21).",
+    "Reflect regularly on why you want this habit to stay motivated."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Power of Atomic Habits",
+     "who": "James Clear",
+     "country": "USA",
+     "story": "Author James Clear's book 'Atomic Habits' emphasizes that small, consistent improvements (atomic habits) lead to remarkable results over time. He advocates for focusing on systems rather than goals and using habit tracking as a core strategy for self-improvement, which has helped millions worldwide transform their lives.",
+     "takeaway": "Focus on making tiny, incremental changes daily, and track them, to achieve significant long-term success."
+    },
+    {
+     "title": "Dabbawalas of Mumbai: A Case Study in Consistency",
+     "who": "Mumbai Dabbawalas",
+     "country": "India",
+     "story": "The Mumbai Dabbawalas are famous for their almost perfect delivery system, consistently delivering thousands of home-cooked meals across Mumbai with remarkable accuracy and punctuality. Their success is attributed to a disciplined process, strong teamwork, and a relentless focus on consistency and accuracy, even amidst city chaos.",
+     "takeaway": "Even in complex systems, unwavering consistency and adherence to a clear process lead to extraordinary results."
+    }
+   ],
+   "practice": "Choose one habit you want to build (e.g., exercising for 15 mins, studying a specific subject) and use a simple habit tracker (a calendar or an app like 'Loop Habit Tracker') to track it daily for the next two weeks.",
+   "quiz": [
+    {
+     "q": "Why is it important to start with a small, easy habit?",
+     "a": "Starting small builds momentum and confidence, making it easier to stick with the habit and gradually increase its intensity or duration."
+    },
+    {
+     "q": "What is 'habit stacking'?",
+     "a": "Habit stacking is connecting a new habit to an existing one, like 'After I finish dinner, I will read a book for 10 minutes,' to make the new habit easier to remember and integrate."
+    },
+    {
+     "q": "How does tracking help with consistency?",
+     "a": "Tracking makes your progress visible, provides positive feedback, creates a visual 'streak' that you don't want to break, and keeps you accountable, all of which boost motivation and consistency."
+    }
+   ],
+   "resources": [
+    {
+     "label": "James Clear: Atomic Habits Resources",
+     "url": "https://jamesclear.com/atomic-habits"
+    },
+    {
+     "label": "Coursera: Learning How to Learn (free audit)",
+     "url": "https://www.coursera.org/learn/learning-how-to-learn"
+    },
+    {
+     "label": "Ted Talk: How to build a habit",
+     "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1006 @@
+{
+ "slug": "entrepreneurship-innovation",
+ "title": "Entrepreneurship & Innovation",
+ "emoji": "🚀",
+ "tagline": "Create, Innovate, Inspire: Turn Your Ideas Into Impact!",
+ "intro": "Namaste, young innovators! Have you ever looked at a problem around you, whether at school or in your community, and thought, \"There must be a better way!\"? That spark, that desire to create something new and valuable, is the heart of entrepreneurship and innovation. From building a better app to starting a small business that helps others, this journey is about bringing your unique ideas to life and making a positive difference in the world, just like our Indian tech startups or global changemakers.",
+ "outcomes": [
+  "By the end you can identify real-world problems and brainstorm creative solutions.",
+  "By the end you can understand the basic steps involved in turning an idea into a venture.",
+  "By the end you can appreciate the mindset of an entrepreneur: resilience, learning, and adaptability.",
+  "By the end you can recognize how innovation impacts daily life, from UPI payments to space exploration.",
+  "By the end you can differentiate between invention and innovation and their roles in progress."
+ ],
+ "lessons": [
+  {
+   "slug": "the-entrepreneurial-mindset",
+   "title": "The entrepreneurial mindset",
+   "minutes": 30,
+   "level": "Starter",
+   "why": "This lesson helps you think like an innovator, seeing opportunities where others see challenges. It's about developing courage, creativity, and a 'can-do' attitude, which are valuable for success in any field, not just starting a business.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understanding Curiosity",
+     "task": "Observe something new around you today, then list 3 questions you have about it."
+    },
+    {
+     "day": 2,
+     "focus": "Embracing Problem-Solving",
+     "task": "Identify a small problem in your school or home and brainstorm 2-3 simple solutions."
+    },
+    {
+     "day": 3,
+     "focus": "Learning from Failure",
+     "task": "Recall a time you tried something new and it didn't work out. Write down one positive lesson you learned."
+    },
+    {
+     "day": 4,
+     "focus": "Taking Initiative",
+     "task": "Volunteer for a small task today, either at home, school, or in your community."
+    },
+    {
+     "day": 5,
+     "focus": "Cultivating Resilience",
+     "task": "Think about a goal you have. What obstacles might come up? How will you overcome them?"
+    },
+    {
+     "day": 6,
+     "focus": "Networking & Learning",
+     "task": "Talk to an adult you admire about how they solve problems at work or in their daily life."
+    },
+    {
+     "day": 7,
+     "focus": "Reflecting on Growth",
+     "task": "Review your notes from the week. How has your way of thinking about challenges changed?"
+    }
+   ],
+   "notes": [
+    "An entrepreneurial mindset sees opportunities, not just problems.",
+    "It involves curiosity, constantly asking 'Why?' and 'What if?'.",
+    "Resilience is key; learn from setbacks and keep moving forward.",
+    "Take initiative; don't wait for permission to start something.",
+    "Embrace uncertainty and adapt to new situations.",
+    "Think critically and solve problems creatively.",
+    "Collaboration is powerful; work with others to achieve more.",
+    "Continuous learning is a cornerstone of this mindset."
+   ],
+   "caseStudies": [
+    {
+     "title": "A small idea for big connectivity",
+     "who": "Vijay Shekhar Sharma (Paytm)",
+     "country": "India",
+     "story": "Vijay Shekhar Sharma, from a small town in UP, started Paytm to make mobile payments easy for everyone in India. He faced many challenges, including doubts about digital payments, but his persistence and belief in his vision transformed how millions transact daily, especially with UPI.",
+     "takeaway": "Even simple ideas, when pursued with determination, can solve massive national problems and change lives."
+    },
+    {
+     "title": "From garage to global tech giant",
+     "who": "Steve Jobs (Apple)",
+     "country": "USA",
+     "story": "Steve Jobs co-founded Apple in his garage, driven by a passion to make technology accessible and beautiful. He famously embraced 'think different,' leading to iconic products like the iPhone and Mac, despite facing numerous failures and being fired from his own company.",
+     "takeaway": "Vision, persistence, and challenging the status quo can lead to revolutionary innovations and global impact."
+    }
+   ],
+   "practice": "Choose a common annoyance you or your friends face at school (e.g., forgotten homework, finding study partners, organizing notes). Spend 15 minutes brainstorming 3-5 unconventional solutions for it. Don't worry if they sound crazy!",
+   "quiz": [
+    {
+     "q": "What is the core difference between an 'entrepreneurial mindset' and a 'fixed mindset'?",
+     "a": "An entrepreneurial mindset believes abilities can grow and welcomes challenges as opportunities to learn, unlike a fixed mindset that sees abilities as static and avoids challenges."
+    },
+    {
+     "q": "Why is 'learning from failure' important for an entrepreneur?",
+     "a": "Learning from failure provides valuable insights, helps refine strategies, and builds resilience, making future attempts more likely to succeed."
+    },
+    {
+     "q": "How does curiosity play a role in developing an entrepreneurial mindset?",
+     "a": "Curiosity drives individuals to question the status quo, discover unmet needs, and explore new possibilities, which are essential for innovation."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: How to build your creative confidence",
+     "url": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence"
+    },
+    {
+     "label": "Khan Academy: Entrepreneurship basics",
+     "url": "https://www.khanacademy.org/college-career-and-more/start-your-own-business/v/entrepreneurship-intro"
+    },
+    {
+     "label": "MIT OpenCourseWare: Entrepreneurship 101",
+     "url": "https://ocw.mit.edu/courses/15-390-new-enterprises/"
+    }
+   ]
+  },
+  {
+   "slug": "finding-problems-worth-solving",
+   "title": "Finding problems worth solving",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Great businesses don't start with great ideas; they start with solving real problems that people care about. This lesson helps you spot issues that truly matter, turning observations into opportunities for positive change.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Everyday Observation",
+     "task": "For 15 minutes, quietly observe people in your school or home. Note down 3 things that seem inefficient or cause slight frustration."
+    },
+    {
+     "day": 2,
+     "focus": "Personal Pain Points",
+     "task": "List 3 problems you personally face regularly that you wish had a better solution."
+    },
+    {
+     "day": 3,
+     "focus": "Community Challenges",
+     "task": "Think about your local neighborhood or city. What are 2 major problems that affect many people there?"
+    },
+    {
+     "day": 4,
+     "focus": "News & Trends",
+     "task": "Read a newspaper or watch a news channel. Identify one problem discussed that impacts society widely (e.g., environment, health, education)."
+    },
+    {
+     "day": 5,
+     "focus": "Problem Validation",
+     "task": "Pick one problem from your list. Ask 3 different people if they also experience this problem and how they currently deal with it."
+    },
+    {
+     "day": 6,
+     "focus": "Impact & Scale",
+     "task": "For your chosen problem, think: How many people does this affect? How significant is the impact on their daily lives?"
+    },
+    {
+     "day": 7,
+     "focus": "Prioritizing Problems",
+     "task": "Review all the problems you found. Choose the 'best' one that feels most urgent and impactful to you, explaining why."
+    }
+   ],
+   "notes": [
+    "Start with problems, not just ideas or solutions.",
+    "Look for 'pain points' – things that frustrate or inconvenience people.",
+    "Observe your surroundings actively; problems are often hidden in plain sight.",
+    "Personal experiences are great starting points for identifying problems.",
+    "Talk to others to validate if a problem is widespread and truly bothers them.",
+    "A 'worthwhile' problem affects many people and has significant impact.",
+    "Avoid problems that are too niche or easily solved by existing means.",
+    "Understanding *why* a problem exists helps in finding better solutions."
+   ],
+   "caseStudies": [
+    {
+     "title": "Affordable education for millions",
+     "who": "Byju Raveendran (BYJU'S)",
+     "country": "India",
+     "story": "Byju Raveendran, noticing the struggles of students preparing for competitive exams and the limitations of traditional teaching, started BYJU'S. He aimed to make quality education accessible and engaging through technology, solving the problem of rote learning and lack of personalized attention for millions.",
+     "takeaway": "Identifying a widespread educational pain point and leveraging technology can democratize learning and create a massive impact."
+    },
+    {
+     "title": "Connecting the world's knowledge",
+     "who": "Larry Page & Sergey Brin (Google)",
+     "country": "USA",
+     "story": "Larry Page and Sergey Brin observed the problem of finding relevant information on the burgeoning internet. They developed an algorithm (PageRank) to organize and prioritize web pages, creating Google to solve the chaos of information overload and make it easily searchable.",
+     "takeaway": "Solving a core user problem like information retrieval with a smarter approach can transform an entire industry and become indispensable."
+    }
+   ],
+   "practice": "For one day, carry a small notebook and pen. Every time you or someone around you says 'I wish...' or 'This is so annoying...', jot it down. At the end of the day, review your list and pick the top 3 problems you'd be most excited to solve.",
+   "quiz": [
+    {
+     "q": "Why is it better to start with a problem rather than an idea?",
+     "a": "Starting with a problem ensures you are addressing a genuine need, increasing the chances that your eventual solution will be valuable and adopted by users."
+    },
+    {
+     "q": "What does it mean for a problem to be 'worth solving'?",
+     "a": "A problem is 'worth solving' if it affects a significant number of people, causes substantial pain or inconvenience, and currently lacks an effective or accessible solution."
+    },
+    {
+     "q": "How can observing daily life help you find problems?",
+     "a": "Observing daily life allows you to notice inefficiencies, frustrations, and unmet needs that people encounter regularly, which are often the roots of good problems to solve."
+    }
+   ],
+   "resources": [
+    {
+     "label": "NPTEL: Introduction to Innovation & Entrepreneurship",
+     "url": "https://nptel.ac.in/courses/110107080"
+    },
+    {
+     "label": "Coursera: Identifying and developing great opportunities",
+     "url": "https://www.coursera.org/learn/developing-great-opportunities"
+    },
+    {
+     "label": "NCERT: Social Science textbooks (for societal problems)",
+     "url": "https://ncert.nic.in/textbook.php"
+    }
+   ]
+  },
+  {
+   "slug": "customer-discovery-talking-to-users",
+   "title": "Customer discovery: talking to users",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "You can't solve a problem effectively unless you truly understand the people who have it. Talking to potential users helps you confirm if the problem is real, how severe it is, and what they really need, preventing you from building something nobody wants.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understanding 'User'",
+     "task": "Define who your potential 'user' is for a problem you identified last week. Describe them in 3 sentences."
+    },
+    {
+     "day": 2,
+     "focus": "Crafting Questions",
+     "task": "Write down 5 open-ended questions about their experience with the problem, avoiding 'yes/no' answers."
+    },
+    {
+     "day": 3,
+     "focus": "Active Listening Practice",
+     "task": "Listen carefully to a conversation today without interrupting. Note down key points the speaker emphasized."
+    },
+    {
+     "day": 4,
+     "focus": "Informal Interviews",
+     "task": "Talk to one friend or family member about a small problem they face. Focus on listening more than talking."
+    },
+    {
+     "day": 5,
+     "focus": "Identifying Needs",
+     "task": "From your talk, what unmet needs or frustrations did your friend/family member express regarding the problem?"
+    },
+    {
+     "day": 6,
+     "focus": "Synthesizing Insights",
+     "task": "Compare the insights from different people. Are there common themes? Any surprises?"
+    },
+    {
+     "day": 7,
+     "focus": "Refining Problem Statement",
+     "task": "Based on user conversations, refine your problem statement. Does it feel more accurate now?"
+    }
+   ],
+   "notes": [
+    "Customer discovery is about listening, not selling your idea.",
+    "Talk to potential users to understand their 'pain points' deeply.",
+    "Ask open-ended questions (e.g., 'Tell me about...', 'How do you currently...?').",
+    "Avoid leading questions that suggest a solution; let them speak freely.",
+    "Listen for emotions and real-life examples, not just opinions.",
+    "Look for patterns across multiple conversations.",
+    "The goal is to validate the problem, not your solution.",
+    "Users might not know what they want, but they know what bothers them."
+   ],
+   "caseStudies": [
+    {
+     "title": "Revolutionizing school transport for safety",
+     "who": "Safe Bus (Indian startup)",
+     "country": "India",
+     "story": "Safe Bus founders identified a major pain point for Indian parents: anxiety about their children's safety and whereabouts during school commutes. Through extensive discussions with parents and school administrators, they understood the deep need for real-time tracking and communication, leading them to develop a robust IoT-based solution.",
+     "takeaway": "Deep empathy and direct engagement with users (parents and schools) are crucial to build trust and tailor solutions to critical safety concerns."
+    },
+    {
+     "title": "The early days of Airbnb",
+     "who": "Brian Chesky & Joe Gebbia (Airbnb)",
+     "country": "USA",
+     "story": "When Airbnb was struggling, its founders manually went to their users' (hosts') homes in New York City. They talked to them, took professional photos of their listings, and personally understood their challenges and needs. This direct customer interaction revealed critical insights that helped them refine their product and attract more users.",
+     "takeaway": "Directly engaging with and observing users in their environment can uncover deep insights essential for product improvement and growth."
+    }
+   ],
+   "practice": "Identify a problem you care about (e.g., students forgetting their water bottles). Find three students (or teachers/parents) who might face this problem. Ask them questions like: 'Tell me about a time you forgot your water bottle. How did it make you feel? What did you do?' Don't offer solutions yet, just listen!",
+   "quiz": [
+    {
+     "q": "What is the primary goal of customer discovery?",
+     "a": "The primary goal of customer discovery is to deeply understand users' problems, needs, and behaviors, validating whether a problem truly exists and is worth solving."
+    },
+    {
+     "q": "Why should you ask open-ended questions during customer interviews?",
+     "a": "Open-ended questions encourage users to share detailed experiences and insights in their own words, providing richer, more authentic information than simple 'yes/no' answers."
+    },
+    {
+     "q": "What's the danger of talking about your solution too early during customer discovery?",
+     "a": "Talking about your solution too early can lead to biased feedback, as users might tell you what they think you want to hear instead of genuinely sharing their problems and needs."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: The first 20 hours -- how to learn anything",
+     "url": "https://www.ted.com/talks/josh_kaufman_the_first_20_hours_how_to_learn_anything"
+    },
+    {
+     "label": "RBI: Financial Literacy (Understanding consumer needs in finance)",
+     "url": "https://rbi.org.in/Scripts/PublicationReportDetails.aspx?ID=605"
+    },
+    {
+     "label": "Cyberdost: Understanding online user behavior (for digital product ideas)",
+     "url": "https://cybercrime.gov.in/Webform/CyberAware.aspx"
+    }
+   ]
+  },
+  {
+   "slug": "building-a-simple-prototype-mvp",
+   "title": "Building a simple prototype (MVP)",
+   "minutes": 45,
+   "level": "Builder",
+   "why": "Instead of spending months building a perfect product, an MVP (Minimum Viable Product) lets you test your core idea quickly and cheaply. It's about learning what users actually want by giving them a simple version of your solution, before investing too much time and rupees.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Core Problem & Solution",
+     "task": "Revisit your chosen problem. What is the single most important thing your solution must do to solve it?"
+    },
+    {
+     "day": 2,
+     "focus": "MVP Definition",
+     "task": "Brainstorm 3-5 essential features for your initial solution. What can you absolutely NOT live without?"
+    },
+    {
+     "day": 3,
+     "focus": "Sketching the Idea",
+     "task": "Draw a simple flowchart or 3-panel storyboard showing how a user would interact with your solution."
+    },
+    {
+     "day": 4,
+     "focus": "Material Brainstorm",
+     "task": "List simple, everyday materials you could use to 'build' your MVP (e.g., paper, cardboard, drawings, existing apps)."
+    },
+    {
+     "day": 5,
+     "focus": "Building the MVP",
+     "task": "Spend 20-30 minutes creating a very basic, non-functional model or 'sketch' of your solution using your chosen materials."
+    },
+    {
+     "day": 6,
+     "focus": "User Feedback Plan",
+     "task": "Who would you show your MVP to? What 2-3 questions would you ask them to get feedback?"
+    },
+    {
+     "day": 7,
+     "focus": "Refining the MVP",
+     "task": "Based on imagined feedback (or actual, if you tested it), how would you improve your MVP? What would you add or remove?"
+    }
+   ],
+   "notes": [
+    "An MVP (Minimum Viable Product) is the simplest version of your solution.",
+    "Its purpose is to test your core idea with real users quickly.",
+    "Focus on solving the absolute core problem, not adding all features.",
+    "MVPs can be sketches, mockups, landing pages, or basic software.",
+    "Don't aim for perfection; aim for learning.",
+    "Get feedback early and often from potential users.",
+    "The 'viable' part means it must deliver enough value to attract initial users.",
+    "This iterative approach saves time, effort, and money."
+   ],
+   "caseStudies": [
+    {
+     "title": "Building a global education platform with simple tools",
+     "who": "Sal Khan (Khan Academy)",
+     "country": "USA",
+     "story": "Sal Khan started Khan Academy by simply uploading math tutorials he made for his cousins to YouTube. This was his MVP: a free, accessible way to learn. He didn't build a complex platform first; he started with basic video lessons, saw the demand, and then expanded.",
+     "takeaway": "A powerful MVP can be built using existing, simple tools to test demand and gather initial user feedback before complex development."
+    },
+    {
+     "title": "Zappos: Testing an online shoe store without inventory",
+     "who": "Nick Swinmurn (Zappos)",
+     "country": "USA",
+     "story": "Before building a huge warehouse and inventory system, Zappos founder Nick Swinmurn tested his idea for an online shoe store by going to local shoe shops, taking pictures of their inventory, and posting them online. When a customer ordered, he'd buy the shoes from the store and ship them. This proved the market demand before any major investment.",
+     "takeaway": "An MVP doesn't need to be fully functional; sometimes, simulating the core experience can validate demand and reduce initial risk significantly."
+    }
+   ],
+   "practice": "Take the problem you discussed with users. Design a 'paper prototype' of your solution. For example, if it's an app, draw screens on separate pieces of paper and 'walk through' the user experience by moving from one paper screen to the next. If it's a physical product, use cardboard, clay, or Lego blocks to build a rough model. Show it to someone and ask them to interact with it, gathering their feedback.",
+   "quiz": [
+    {
+     "q": "What does MVP stand for, and what is its main purpose?",
+     "a": "MVP stands for Minimum Viable Product, and its main purpose is to quickly test a core business idea with real users to gather feedback and validate assumptions with minimal resources."
+    },
+    {
+     "q": "Why is it important to build an MVP rather than a full-featured product right away?",
+     "a": "Building an MVP helps save time and money by avoiding building features no one wants, allowing for early user feedback and iterative improvements based on actual needs."
+    },
+    {
+     "q": "Can an MVP be non-digital, like a service or a physical model?",
+     "a": "Yes, an MVP can absolutely be non-digital; it could be a service offered manually, a simple physical model, a landing page, or even just a set of mockups, as long as it delivers core value to test key assumptions."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Coursera: Prototyping and user testing",
+     "url": "https://www.coursera.org/learn/prototyping-user-testing"
+    },
+    {
+     "label": "MIT OpenCourseWare: User Interface Design and Implementation",
+     "url": "https://ocw.mit.edu/courses/6-831-user-interface-design-and-implementation-fall-2011/"
+    },
+    {
+     "label": "TED Talk: Got a wicked problem? First, tell me how you make toast.",
+     "url": "https://www.ted.com/talks/tom_wujec_got_a_wicked_problem_first_tell_me_how_you_make_toast"
+    }
+   ]
+  },
+  {
+   "slug": "business-models-made-simple",
+   "title": "Business models made simple",
+   "minutes": 30,
+   "level": "Starter",
+   "why": "A business model isn't just about making money; it's about how you create, deliver, and capture value. Understanding this helps you think about sustainability and how your solution can reach many people while staying strong.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is Value?",
+     "task": "Think about your favorite product or service. What 'value' does it bring to you (e.g., saves time, makes you happy, solves a need)?"
+    },
+    {
+     "day": 2,
+     "focus": "Who Pays?",
+     "task": "For your favorite product, who actually pays for it? Is it you, or someone else (e.g., parents, advertisers)?"
+    },
+    {
+     "day": 3,
+     "focus": "How Money is Made",
+     "task": "List 3 different ways companies you know make money (e.g., selling products, subscriptions, ads)."
+    },
+    {
+     "day": 4,
+     "focus": "Key Resources",
+     "task": "What are the most important things (people, tech, money) a company needs to deliver its value?"
+    },
+    {
+     "day": 5,
+     "focus": "Channels to Customers",
+     "task": "How does your favorite product or service reach its customers (e.g., online, shops, friends)?"
+    },
+    {
+     "day": 6,
+     "focus": "Simplified Model for Your Idea",
+     "task": "For your MVP idea, identify: Who is your customer? What value do you offer? How will you eventually make money (even if it's just a thought)?"
+    },
+    {
+     "day": 7,
+     "focus": "Reflecting on Sustainability",
+     "task": "How can your chosen solution continue to provide value and stay afloat in the long run? What makes it sustainable?"
+    }
+   ],
+   "notes": [
+    "A business model describes how an organization creates, delivers, and captures value.",
+    "It answers key questions: Who are your customers? What problem do you solve?",
+    "How do you deliver your solution to customers?",
+    "What key activities and resources do you need?",
+    "How do you make money (revenue streams)?",
+    "What are your main costs?",
+    "Value Proposition: The unique value you offer to customers.",
+    "Understanding your business model helps ensure long-term viability."
+   ],
+   "caseStudies": [
+    {
+     "title": "A billion cups of chai, a simple model",
+     "who": "Chai Point",
+     "country": "India",
+     "story": "Chai Point identified a common daily need in India: a consistent, hygienic, and convenient cup of chai. Their business model focuses on both B2C (outlets, delivery) and B2B (chai dispensers for offices), offering a standardized product with multiple revenue streams, creating a strong presence in urban India.",
+     "takeaway": "A clear understanding of customer needs and diverse channels for delivery can turn a simple everyday product into a successful business."
+    },
+    {
+     "title": "Open-source software, big business",
+     "who": "Red Hat",
+     "country": "USA",
+     "story": "Red Hat built a highly successful business model around open-source software (Linux). Instead of selling the software itself, they sold subscriptions for support, training, and consulting services for enterprise clients. This innovative model proved that you can 'give away' your product and still build a multi-billion dollar company.",
+     "takeaway": "Innovative business models can find ways to monetize even 'free' products by providing essential services and support around them."
+    }
+   ],
+   "practice": "Choose a well-known Indian company (e.g., Zomato, Reliance Jio, a local grocery store). Identify their main customer, the value they offer, and at least two ways they make money. Write these down in a short paragraph.",
+   "quiz": [
+    {
+     "q": "What is the core idea behind a 'business model'?",
+     "a": "The core idea behind a business model is a plan for how a company creates, delivers, and captures value, outlining how it will make money and sustain itself."
+    },
+    {
+     "q": "What is a 'value proposition' in a business model?",
+     "a": "A value proposition describes the unique benefits and value that a company offers to its specific customer segment, addressing their problems or satisfying their needs."
+    },
+    {
+     "q": "Name two common revenue streams an entrepreneur might consider.",
+     "a": "Two common revenue streams are direct sales (selling products or services directly) and subscription models (customers pay a recurring fee for access or service)."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Khan Academy: Business Model Canvas",
+     "url": "https://www.khanacademy.org/college-career-and-more/start-your-own-business/v/bmc-intro"
+    },
+    {
+     "label": "NPTEL: Business Model Innovation",
+     "url": "https://nptel.ac.in/courses/110107127"
+    },
+    {
+     "label": "Coursera: Developing your business model",
+     "url": "https://www.coursera.org/learn/business-model"
+    }
+   ]
+  },
+  {
+   "slug": "pricing-and-unit-economics-basics",
+   "title": "Pricing and unit economics basics",
+   "minutes": 35,
+   "level": "Builder",
+   "why": "Understanding how to price your product or service and knowing its 'unit economics' is crucial. It tells you if your business can actually make a profit and grow, ensuring you don't sell at a loss.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Cost Types",
+     "task": "List all costs (fixed, variable) for a hypothetical lemonade stand business, differentiating between them."
+    },
+    {
+     "day": 2,
+     "focus": "Unit Cost Calculation",
+     "task": "Calculate the cost to make one cup of lemonade, including ingredients, cup, and a tiny share of rent/equipment."
+    },
+    {
+     "day": 3,
+     "focus": "Pricing Strategies",
+     "task": "Research three different pricing strategies (e.g., cost-plus, value-based, competitive) and note their pros and cons."
+    },
+    {
+     "day": 4,
+     "focus": "Revenue per Unit",
+     "task": "Decide a selling price for your lemonade based on your costs and chosen strategy, then calculate potential revenue per unit."
+    },
+    {
+     "day": 5,
+     "focus": "Profit per Unit",
+     "task": "Calculate the profit you would make on each cup of lemonade sold (revenue per unit - cost per unit)."
+    },
+    {
+     "day": 6,
+     "focus": "Break-Even Point",
+     "task": "Estimate how many cups of lemonade you need to sell to cover all your fixed costs."
+    },
+    {
+     "day": 7,
+     "focus": "Scenario Analysis",
+     "task": "Think about what happens to your profit if ingredient prices rise or if you sell more cups."
+    }
+   ],
+   "notes": [
+    "Fixed costs (e.g., rent) don't change with how much you produce, while variable costs (e.g., raw materials) do.",
+    "Unit cost is the total cost incurred by a company to produce, store, and sell one unit of a product.",
+    "Pricing strategies include cost-plus (add markup to cost), value-based (price based on perceived value), and competitive (match rivals).",
+    "Revenue per unit is the money you earn from selling one item.",
+    "Profit per unit is the revenue per unit minus the cost per unit; it shows how much you gain on each sale.",
+    "Gross margin is the revenue minus the cost of goods sold, expressed as a percentage.",
+    "Unit economics is the direct revenues and costs associated with a business's primary unit.",
+    "Understanding unit economics helps you know if your business model is sustainable and scalable."
+   ],
+   "caseStudies": [
+    {
+     "title": "Jio's Disruptive Pricing Strategy",
+     "who": "Reliance Jio Infocomm Ltd.",
+     "country": "India",
+     "story": "When Jio launched in 2016, it offered free voice calls and extremely cheap data for months, then introduced highly competitive pricing plans. This strategy rapidly acquired millions of customers, disrupting the Indian telecom market. The low unit cost of data for Jio (due to new infrastructure) allowed them to price aggressively.",
+     "takeaway": "Disruptive pricing, based on a lower unit cost or a different business model, can quickly capture market share."
+    },
+    {
+     "title": "Netflix's Subscription Model Success",
+     "who": "Netflix Inc.",
+     "country": "USA",
+     "story": "Netflix moved from DVD rentals to a streaming subscription model, offering unlimited content for a fixed monthly fee. Their unit economics revolve around the cost of content acquisition and delivery per subscriber. As their subscriber base grew, their average cost per subscriber (unit cost) for content decreased, allowing them to invest more and offer better value.",
+     "takeaway": "Subscription models can offer predictable revenue, and scaling customers can improve unit economics by spreading fixed costs."
+    }
+   ],
+   "practice": "Choose a common school canteen item (e.g., a samosa or a packet of juice). Research its ingredient costs and other associated expenses (e.g., packaging, vendor's profit margin if applicable). Calculate its estimated unit cost and suggest a fair selling price for students, explaining your pricing strategy.",
+   "quiz": [
+    {
+     "q": "What is the difference between a fixed cost and a variable cost?",
+     "a": "Fixed costs like rent or machinery purchase do not change regardless of how much you produce, while variable costs like raw materials change directly with the quantity produced."
+    },
+    {
+     "q": "Why is calculating 'profit per unit' important?",
+     "a": "Profit per unit tells you exactly how much money your business makes on each single product or service sold, which is essential for understanding your profitability and pricing decisions."
+    },
+    {
+     "q": "What is 'unit economics' in simple terms?",
+     "a": "Unit economics refers to the revenues and costs associated with an individual unit of a business, helping you see if each sale is financially healthy and sustainable."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Khan Academy: Cost Accounting Basics",
+     "url": "https://www.khanacademy.org/economics-finance-domain/core-finance/accounting-and-financial-reporting/cost-accounting/v/fixed-and-variable-costs-managerial-accounting"
+    },
+    {
+     "label": "RBI: How to Price Your Product (Small Business)",
+     "url": "https://rbi.org.in/commonman/English/Scripts/PressReleases.aspx?Id=1406"
+    },
+    {
+     "label": "NPTEL: Cost Analysis for Business Decisions",
+     "url": "https://nptel.ac.in/courses/110/105/110105080/"
+    }
+   ]
+  },
+  {
+   "slug": "marketing-and-storytelling-for-a-venture",
+   "title": "Marketing and storytelling for a venture",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Having a great product isn't enough; people need to know about it and feel a connection. Effective marketing and compelling storytelling help you reach your audience, build trust, and convince them why your idea matters.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Target Audience",
+     "task": "Define who your ideal customer is for your hypothetical lemonade stand (age, interests, where they hang out)."
+    },
+    {
+     "day": 2,
+     "focus": "Unique Selling Proposition (USP)",
+     "task": "What makes your lemonade special? (e.g., organic, secret recipe, helps charity) Write it down in one sentence."
+    },
+    {
+     "day": 3,
+     "focus": "Brand Story",
+     "task": "Develop a simple story for your lemonade stand: why you started it, what problem it solves, what feeling it creates."
+    },
+    {
+     "day": 4,
+     "focus": "Marketing Channels",
+     "task": "Brainstorm 3-5 ways you could tell people about your lemonade (e.g., posters, social media, word-of-mouth)."
+    },
+    {
+     "day": 5,
+     "focus": "Crafting a Message",
+     "task": "Write a short slogan or a 15-second 'ad script' for your lemonade, incorporating your story and USP."
+    },
+    {
+     "day": 6,
+     "focus": "Visual Branding",
+     "task": "Sketch a logo or design for your lemonade stand sign/poster that matches your brand story."
+    },
+    {
+     "day": 7,
+     "focus": "Storytelling Practice",
+     "task": "Tell your lemonade stand story to a family member or friend, observing their reaction and interest."
+    }
+   ],
+   "notes": [
+    "Marketing is about communicating the value of your product or service to potential customers.",
+    "Identify your target audience to tailor your message effectively; who are you trying to reach?",
+    "A Unique Selling Proposition (USP) explains what makes your product better or different from competitors.",
+    "Storytelling creates an emotional connection, making your brand memorable and relatable.",
+    "Your brand story should convey your mission, values, and why your venture exists beyond just selling a product.",
+    "Marketing channels include digital (social media, websites) and traditional (flyers, events) methods.",
+    "Consistency in your message, tone, and visuals builds strong brand recognition.",
+    "Word-of-mouth marketing, where satisfied customers tell others, is often the most powerful."
+   ],
+   "caseStudies": [
+    {
+     "title": "Amul: The Taste of India's Enduring Story",
+     "who": "Amul",
+     "country": "India",
+     "story": "Amul's 'Utterly Butterly Delicious' campaign, featuring the iconic Amul Girl, has been running for decades. Their witty, topical advertisements tell a continuous story of Indian life, making the brand deeply ingrained in the national consciousness. It's more than just butter; it's a part of shared cultural conversations.",
+     "takeaway": "Consistent, relatable storytelling over a long period can build immense brand loyalty and cultural significance."
+    },
+    {
+     "title": "Airbnb: Belong Anywhere",
+     "who": "Airbnb Inc.",
+     "country": "USA",
+     "story": "Airbnb started by renting air mattresses. Their marketing shifted from cheap stays to the idea of 'belonging anywhere' – connecting travelers with local experiences and unique accommodations. This emotional storytelling resonated deeply, positioning them as more than just a booking site, but a community facilitator.",
+     "takeaway": "Focus on the experience and emotion your product provides, not just its features, to create a powerful story."
+    }
+   ],
+   "practice": "Pick a product or service you use regularly (e.g., your favorite snack, a phone app, a school club). Identify its target audience, its unique selling proposition, and then craft a 3-4 sentence 'origin story' or 'why it matters' narrative for it. How would you market it to new users?",
+   "quiz": [
+    {
+     "q": "What is the primary goal of marketing for a new venture?",
+     "a": "The primary goal of marketing is to create awareness, attract potential customers, and persuade them that your product or service offers unique value and solves their problem."
+    },
+    {
+     "q": "Why is 'storytelling' important in marketing?",
+     "a": "Storytelling helps create an emotional connection with your audience, making your brand more memorable, relatable, and trustworthy than simply listing features or benefits."
+    },
+    {
+     "q": "What is a 'Unique Selling Proposition' (USP)?",
+     "a": "A USP is the unique benefit or feature that differentiates your product or service from competitors, clearly explaining why a customer should choose you over others."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: Simon Sinek - Start with Why",
+     "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action"
+    },
+    {
+     "label": "NPTEL: Marketing Management",
+     "url": "https://nptel.ac.in/courses/110/105/110105081/"
+    },
+    {
+     "label": "Coursera: Introduction to Marketing (University of Pennsylvania)",
+     "url": "https://www.coursera.org/learn/marketing"
+    }
+   ]
+  },
+  {
+   "slug": "pitching-your-idea",
+   "title": "Pitching your idea",
+   "minutes": 30,
+   "level": "Advanced",
+   "why": "Whether you're asking for investment, convincing teammates, or selling to customers, being able to clearly and compellingly present your idea is a superpower. A good pitch can open doors and bring your vision to life.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "The Problem",
+     "task": "Clearly define the problem your venture solves. Who has this problem and why is it painful for them?"
+    },
+    {
+     "day": 2,
+     "focus": "The Solution",
+     "task": "Describe your solution simply and effectively. How does it directly address the identified problem?"
+    },
+    {
+     "day": 3,
+     "focus": "Target Market & USP",
+     "task": "Who is your specific audience? What makes your solution unique or better than existing options?"
+    },
+    {
+     "day": 4,
+     "focus": "Business Model Basics",
+     "task": "How will your venture make money? What are the key revenue streams?"
+    },
+    {
+     "day": 5,
+     "focus": "Team & Vision",
+     "task": "Who is behind the idea and what is the big picture vision for the future of your venture?"
+    },
+    {
+     "day": 6,
+     "focus": "Crafting the Pitch",
+     "task": "Combine all points into a 3-minute pitch script. Focus on clarity, conciseness, and impact."
+    },
+    {
+     "day": 7,
+     "focus": "Practice & Feedback",
+     "task": "Deliver your pitch to a family member or friend and ask for honest feedback on clarity and persuasiveness."
+    }
+   ],
+   "notes": [
+    "A pitch is a concise presentation of your business idea, usually to potential investors, partners, or customers.",
+    "Start with the problem: clearly articulate the pain point or need you are addressing.",
+    "Present your solution: explain how your product or service solves that problem effectively.",
+    "Highlight your unique value proposition: what makes your idea special or better than alternatives?",
+    "Discuss your market: who are your target customers and how big is the opportunity?",
+    "Outline your business model: how will your venture generate revenue and sustain itself?",
+    "Introduce your team: show why you (and your team) are the right people to make this happen.",
+    "Practice makes perfect: rehearse your pitch to ensure it is smooth, confident, and within time limits."
+   ],
+   "caseStudies": [
+    {
+     "title": "Oyo Rooms' Early Pitch to Investors",
+     "who": "Ritesh Agarwal (Oyo Rooms)",
+     "country": "India",
+     "story": "Ritesh Agarwal, a young college dropout, pitched his idea of affordable, standardized budget accommodation in India. His pitches focused on the massive untapped market for reliable budget hotels and his vision to organize this fragmented sector. He won funding from Venture Nursery and later Sequoia Capital and SoftBank, scaling rapidly.",
+     "takeaway": "Clearly identifying a huge market need and presenting a scalable solution can attract significant investment, even for young founders."
+    },
+    {
+     "title": "Canva's Visual Pitch Deck",
+     "who": "Melanie Perkins (Canva)",
+     "country": "Australia",
+     "story": "Melanie Perkins spent years pitching Canva, a simple graphic design tool, to over 100 investors. Her pitch decks were famously visual and simple, demonstrating the 'magic' of Canva itself by using it to create the presentation. This effectively showed, not just told, the power of her product.",
+     "takeaway": "Use your product or a visual demonstration within your pitch to illustrate its value and make it memorable."
+    }
+   ],
+   "practice": "Imagine you have an idea for a new school app that solves a common student problem (e.g., managing homework, finding study groups, campus navigation). Develop a 2-minute 'elevator pitch' that clearly explains the problem, your solution, and why it's beneficial. Present it to a parent or teacher.",
+   "quiz": [
+    {
+     "q": "What is the very first thing you should communicate in a pitch?",
+     "a": "The very first thing to communicate is the problem you are solving, as it immediately grabs attention and establishes the need for your solution."
+    },
+    {
+     "q": "Why is it important to know your audience when pitching?",
+     "a": "Knowing your audience allows you to tailor your message, highlight aspects most relevant to them, and address their specific concerns or interests, making your pitch more persuasive."
+    },
+    {
+     "q": "What is an 'elevator pitch'?",
+     "a": "An elevator pitch is a very short, concise summary of your idea that can be delivered in the time it takes to ride an elevator (usually 30-60 seconds), designed to spark interest for a longer conversation."
+    }
+   ],
+   "resources": [
+    {
+     "label": "MIT OpenCourseWare: Pitching to Investors",
+     "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-fall-2004/resources/lecture-14-pitching-to-investors/"
+    },
+    {
+     "label": "TED Talk: How to make a great pitch",
+     "url": "https://www.ted.com/playlists/371/how_to_make_a_great_pitch"
+    },
+    {
+     "label": "NPTEL: Entrepreneurship - Developing and Executing Ideas",
+     "url": "https://nptel.ac.in/courses/110/106/110106141/"
+    }
+   ]
+  },
+  {
+   "slug": "failure-iteration-and-pivots",
+   "title": "Failure, iteration and pivots",
+   "minutes": 35,
+   "level": "Builder",
+   "why": "The path to success is rarely straight. Learning from mistakes, making small improvements (iteration), and sometimes completely changing direction (pivoting) are crucial skills. Embracing 'failure' as a learning opportunity helps you grow stronger and build better ventures.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Learning from Mistakes",
+     "task": "Recall a time you tried something new and it didn't go as planned. What did you learn from it?"
+    },
+    {
+     "day": 2,
+     "focus": "Iteration Concept",
+     "task": "Think about your school project. What's one small improvement (iteration) you could make to it based on feedback?"
+    },
+    {
+     "day": 3,
+     "focus": "Identifying a Need for Change",
+     "task": "Imagine your lemonade stand isn't selling well. List 3 reasons why it might not be working."
+    },
+    {
+     "day": 4,
+     "focus": "The Pivot Idea",
+     "task": "If your lemonade isn't selling, what's a completely different (but related) product you could sell instead? (e.g., iced tea, pakoras)."
+    },
+    {
+     "day": 5,
+     "focus": "Gathering Feedback",
+     "task": "Ask 3 friends for honest feedback on your lemonade stand idea. What did they like, what didn't they?"
+    },
+    {
+     "day": 6,
+     "focus": "Making Decisions",
+     "task": "Based on feedback, decide if you would iterate (improve lemonade) or pivot (change product) and explain why."
+    },
+    {
+     "day": 7,
+     "focus": "Resilience Mindset",
+     "task": "Write down three positive affirmations about facing challenges and not giving up."
+    }
+   ],
+   "notes": [
+    "Failure is not the end; it's an opportunity to learn and grow.",
+    "Iteration means making small, continuous improvements to a product or process based on feedback.",
+    "A 'pivot' is a fundamental change in a business strategy or product to test a new, unproven hypothesis.",
+    "Listen to customer feedback carefully; it's invaluable for understanding what's working and what's not.",
+    "Don't be afraid to change direction if the initial plan isn't working – that's often a sign of wisdom.",
+    "Many successful companies today started with a different idea and pivoted to their current success.",
+    "The lean startup methodology emphasizes building, measuring, and learning in rapid cycles.",
+    "Embrace a growth mindset: view challenges and setbacks as opportunities for development."
+   ],
+   "caseStudies": [
+    {
+     "title": "Jugaad Innovation: India's Philosophy of Adaptability",
+     "who": "Indian Entrepreneurs (various)",
+     "country": "India",
+     "story": "Jugaad is an Indian term referring to an innovative fix or a frugal, flexible approach to problem-solving. This mindset encourages making the most of available resources and constantly adapting to challenges. It reflects the iterative nature of problem-solving, where quick, temporary fixes often lead to long-term sustainable solutions.",
+     "takeaway": "Embrace a flexible, 'Jugaad' mindset to solve problems resourcefully and adapt quickly when things don't go as planned."
+    },
+    {
+     "title": "YouTube's Pivot from Dating Site",
+     "who": "Chad Hurley, Steve Chen, Jawed Karim (YouTube)",
+     "country": "USA",
+     "story": "YouTube initially launched as a video dating website called 'Tune In Hook Up'. When this idea failed to gain traction, the founders observed people were using their platform to share non-dating videos. They quickly pivoted to a general video-sharing platform, which became the global phenomenon we know today.",
+     "takeaway": "Be open to changing your core idea (pivoting) if your initial concept isn't working and you spot a different, more promising user need."
+    }
+   ],
+   "practice": "Think about a project you recently completed at school. Identify one aspect that didn't go perfectly. Instead of seeing it as a 'failure', list three specific lessons you learned from it and two concrete ways you would 'iterate' (improve) if you were to do the project again.",
+   "quiz": [
+    {
+     "q": "What does 'iteration' mean in entrepreneurship?",
+     "a": "Iteration means making small, continuous improvements to a product or process based on feedback and learning, rather than trying to perfect it in one go."
+    },
+    {
+     "q": "Why would an entrepreneur decide to 'pivot' their business idea?",
+     "a": "An entrepreneur pivots when their original idea isn't gaining traction, isn't solving the right problem, or when market feedback suggests a fundamentally different approach would be more successful."
+    },
+    {
+     "q": "How can 'failure' be a positive thing for an entrepreneur?",
+     "a": "'Failure' is positive because it provides valuable lessons, highlights areas for improvement, and encourages a willingness to adapt, ultimately leading to stronger, more resilient ventures."
+    }
+   ],
+   "resources": [
+    {
+     "label": "TED Talk: The Power of Vulnerability (Brene Brown - embracing imperfection)",
+     "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability"
+    },
+    {
+     "label": "Coursera: The Lean Startup (Eric Ries concept)",
+     "url": "https://www.coursera.org/lecture/wharton-entrepreneurship-specialization/the-lean-startup-approach-T0E4d"
+    },
+    {
+     "label": "MIT OpenCourseWare: Disciplined Entrepreneurship (Lesson on Pivoting)",
+     "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-fall-2004/resources/lecture-10-business-model-design-and-pivoting/"
+    }
+   ]
+  },
+  {
+   "slug": "student-startups-and-school-incubation",
+   "title": "Student startups and school incubation",
+   "minutes": 45,
+   "level": "Starter",
+   "why": "Your school can be a fantastic launchpad for your entrepreneurial dreams! Learning about student startups and school incubation programs shows you how to start a venture right from your classroom and get support to turn your ideas into reality.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Identifying Problems",
+     "task": "List 3-5 problems you or your friends face at school that could be solved with a simple product or service."
+    },
+    {
+     "day": 2,
+     "focus": "Brainstorming Solutions",
+     "task": "For one of those problems, brainstorm 2-3 simple solutions that you, as a student, could create."
+    },
+    {
+     "day": 3,
+     "focus": "Mini Business Idea",
+     "task": "Choose one solution and outline it as a simple mini-venture. What is it? Who needs it? How would it work?"
+    },
+    {
+     "day": 4,
+     "focus": "Researching School Support",
+     "task": "Find out if your school or any local schools have an entrepreneurship club, innovation lab, or a teacher who supports student ideas."
+    },
+    {
+     "day": 5,
+     "focus": "Incubation Concept",
+     "task": "Research what an 'incubation center' does for startups and how it helps them grow."
+    },
+    {
+     "day": 6,
+     "focus": "Student Entrepreneur Examples",
+     "task": "Find one example of a successful student-run business or school project that became a real venture."
+    },
+    {
+     "day": 7,
+     "focus": "My Next Step",
+     "task": "Write down one concrete step you can take this week to explore your mini-venture idea or seek support."
+    }
+   ],
+   "notes": [
+    "Student startups are businesses or projects initiated and run by students, often while they are still in school.",
+    "Entrepreneurship clubs and innovation labs in schools provide resources, mentorship, and a platform for students.",
+    "School incubation programs offer structured support like workspace, guidance, and sometimes seed funding for student ventures.",
+    "Starting small and solving a problem within your immediate community (school, neighborhood) is a great way to begin.",
+    "Many schools encourage 'design thinking' challenges where students develop solutions for real-world problems.",
+    "Mentorship from teachers, local entrepreneurs, or parents can be invaluable for student ventures.",
+    "Learning entrepreneurial skills early helps develop problem-solving, creativity, and leadership abilities.",
+    "Don't wait for the 'perfect' idea; start with a small problem and iterate as you learn."
+   ],
+   "caseStudies": [
+    {
+     "title": "Kidovators: Nurturing Young Innovators",
+     "who": "Dinesh Singh (Kidovators)",
+     "country": "India",
+     "story": "Dinesh Singh founded Kidovators while still a student, aiming to foster innovation and entrepreneurship skills in children. His venture provides platforms, workshops, and competitions for young minds to develop problem-solving abilities and creative thinking, embodying the spirit of student-led initiatives.",
+     "takeaway": "Even as students, you can create ventures that empower other students and foster crucial skills."
+    },
+    {
+     "title": "Facebook's Humble Harvard Dorm Beginnings",
+     "who": "Mark Zuckerberg (Facebook)",
+     "country": "USA",
+     "story": "Facebook famously started in Mark Zuckerberg's Harvard dormitory room. What began as 'TheFacebook' for students to connect on campus quickly grew to encompass other universities and eventually the world. This shows how a student project, addressing a specific community's need, can scale globally.",
+     "takeaway": "A simple idea solving a local problem, even from a dorm room, can have massive global potential if executed well."
+    }
+   ],
+   "practice": "Look around your school. Identify one common problem students face (e.g., managing lunch queues, finding lost items, recycling). Brainstorm a simple, practical solution that you or a small team of students could implement or create. How would you start this 'mini-venture' within the school?",
+   "quiz": [
+    {
+     "q": "What is the main benefit of a 'student startup' program in schools?",
+     "a": "Student startup programs provide a safe, supportive environment for students to experiment with business ideas, learn entrepreneurial skills, and receive guidance from experienced mentors."
+    },
+    {
+     "q": "Why is it good for students to try solving problems within their school community?",
+     "a": "It's good because students intimately understand these problems, making it easier to develop relevant solutions, get immediate feedback, and test ideas in a familiar, accessible environment."
+    },
+    {
+     "q": "What kind of support might a 'school incubation' program offer to a student venture?",
+     "a": "A school incubation program might offer physical workspace, access to mentors (teachers/local entrepreneurs), workshops on business skills, and sometimes even small initial funding or resources to develop prototypes."
+    }
+   ],
+   "resources": [
+    {
+     "label": "NITI Aayog (Govt. of India): Atal Innovation Mission (AIM)",
+     "url": "https://aim.gov.in/"
+    },
+    {
+     "label": "MIT OpenCourseWare: Entrepreneurship 101: Who is your customer?",
+     "url": "https://ocw.mit.edu/courses/15-390-new-enterprises-fall-2004/resources/lecture-3-who-is-your-customer/"
+    },
+    {
+     "label": "Coursera: Entrepreneurship for All (Babson College)",
+     "url": "https://www.coursera.org/learn/entrepreneurship-for-all"
+    }
+   ]
+  }
+ ]
+}
