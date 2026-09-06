@@ -29,6 +29,13 @@ function registerFonts(doc: jsPDF) {
   doc.addFont("NotoSansDevanagari-Bold.ttf", FONT_HI, "bold");
 }
 
+// Gujarati/Devanagari Noto fonts have no Latin glyphs, so route Latin-only
+// strings (English titles, dates, numbers) through the Latin font.
+const INDIC = /[\u0A80-\u0AFF\u0900-\u097F]/;
+function fontFor(text: string, lang: Lang) {
+  return INDIC.test(text) ? bodyFont(lang) : FONT_LATIN;
+}
+
 function bodyFont(lang: Lang) {
   if (lang === "gu") return FONT_GU;
   if (lang === "hi" || lang === "mr") return FONT_HI;
@@ -153,7 +160,7 @@ export function generateUpskillCertificate(input: CertificateInput): jsPDF {
   const titleLines = doc.splitTextToSize(input.title, W - 80) as string[];
   let y = 117;
   for (const line of titleLines.slice(0, 2)) {
-    center(line, y, 16, "bold", INDIGO);
+    center(line, y, 16, "bold", INDIGO, fontFor(line, lang));
     y += 8;
   }
 
@@ -179,6 +186,7 @@ export function generateUpskillCertificate(input: CertificateInput): jsPDF {
     doc.setFont(font, "normal");
     doc.setFontSize(8);
     doc.setTextColor(...MUTED);
+    doc.setFont(fontFor(label, lang), "normal");
     const l = doc.splitTextToSize(label, boxW - 6) as string[];
     doc.text(l[0], x + boxW / 2, boxY + 15.5, { align: "center" });
     x += boxW + gap;
@@ -198,7 +206,11 @@ export function generateUpskillCertificate(input: CertificateInput): jsPDF {
   doc.setFont(font, "normal");
   doc.setFontSize(9);
   doc.setTextColor(...INK);
-  doc.text(`${c.issued}: ${date}`, 22, H - 24);
+  doc.setFont(bodyFont(lang), "normal");
+  doc.text(`${c.issued}:`, 22, H - 24);
+  const issuedW = doc.getTextWidth(`${c.issued}: `);
+  doc.setFont(FONT_LATIN, "normal");
+  doc.text(date, 22 + issuedW, H - 24);
   doc.setFontSize(7.5);
   doc.setTextColor(...MUTED);
   const noteLines = doc.splitTextToSize(c.note, 150) as string[];
