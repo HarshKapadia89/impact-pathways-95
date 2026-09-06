@@ -23,7 +23,7 @@ import {
   Rocket,
   CalendarCheck,
 } from "lucide-react";
-import { LanguagePicker } from "./LanguagePicker";
+import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
