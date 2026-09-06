@@ -4,12 +4,12 @@ import type { Lang } from "@/lib/lang";
 type E = Record<Lang, string>;
 
 export const US: Record<string, E> = {
-  hub: { en: "Skill Studio", gu: "સ્કિલ સ્ટુડિયો", hi: "स्किल स्टूडियो", mr: "स्किल स्टुडिओ" },
+  hub: { en: "LevelUp Lab", gu: "લેવલઅપ લેબ", hi: "लेवलअप लॅब", mr: "लेवलअप लॅब" },
   hubTitle: {
-    en: "Skill Studio",
-    gu: "સ્કિલ સ્ટુડિયો",
-    hi: "स्किल स्टूडियो",
-    mr: "स्किल स्टुडिओ",
+    en: "LevelUp Lab",
+    gu: "લેવલઅપ લેબ",
+    hi: "लेवलअप लॅब",
+    mr: "लेवलअप लॅब",
   },
   hubKicker: {
     en: "Skills school never taught you",

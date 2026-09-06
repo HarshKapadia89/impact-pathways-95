@@ -18,13 +18,13 @@ import { Search, ArrowRight, Clock, Sparkles, CheckCircle2, Trophy } from "lucid
 export const Route = createFileRoute("/upskill/")({
   head: () => ({
     meta: [
-      { title: "Skill Studio — Time Management, Communication & Life Skills | HBK Careers" },
+      { title: "LevelUp Lab — Time Management, Communication & Life Skills | HBK Careers" },
       {
         name: "description",
         content:
           "15 skill tracks and 150 free lessons for Indian students: time management, personality development, communication, money skills, AI literacy and more — each with a 7-day plan, notes and real case studies.",
       },
-      { property: "og:title", content: "Skill Studio for Students | HBK Careers" },
+      { property: "og:title", content: "LevelUp Lab for Students | HBK Careers" },
       {
         property: "og:description",
         content: "150 free lessons on life and career skills, each with a 7-day study plan, notes and global case studies.",
