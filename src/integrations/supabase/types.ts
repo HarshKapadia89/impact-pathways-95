@@ -140,6 +140,69 @@ export type Database = {
         }
         Relationships: []
       }
+      counsellor_bookings: {
+        Row: {
+          admin_note: string | null
+          chosen_profession: string | null
+          created_at: string
+          email: string | null
+          grade: string | null
+          holland_code: string | null
+          id: string
+          message: string | null
+          mobile: string
+          mode: string
+          preferred_date: string
+          preferred_slot: string
+          report_token: string | null
+          school_name: string | null
+          status: string
+          student_name: string
+          top_stream: string | null
+          updated_at: string
+        }
+        Insert: {
+          admin_note?: string | null
+          chosen_profession?: string | null
+          created_at?: string
+          email?: string | null
+          grade?: string | null
+          holland_code?: string | null
+          id?: string
+          message?: string | null
+          mobile: string
+          mode?: string
+          preferred_date: string
+          preferred_slot: string
+          report_token?: string | null
+          school_name?: string | null
+          status?: string
+          student_name: string
+          top_stream?: string | null
+          updated_at?: string
+        }
+        Update: {
+          admin_note?: string | null
+          chosen_profession?: string | null
+          created_at?: string
+          email?: string | null
+          grade?: string | null
+          holland_code?: string | null
+          id?: string
+          message?: string | null
+          mobile?: string
+          mode?: string
+          preferred_date?: string
+          preferred_slot?: string
+          report_token?: string | null
+          school_name?: string | null
+          status?: string
+          student_name?: string
+          top_stream?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       learning_outcomes: {
         Row: {
           created_at: string
