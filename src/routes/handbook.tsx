@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
@@ -70,28 +71,22 @@ function HandbookIndex() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
             <BookOpen className="h-3.5 w-3.5" />
-            {lang === "gu" ? "કારકિર્દી માર્ગદર્શન — ભારત" : "Career Guidance — India"}
+            {t4(lang, "Career Guidance — India", "કારકિર્દી માર્ગદર્શન — ભારત")}
           </div>
           <h1 className="font-serif text-3xl md:text-5xl mt-2">
-            {lang === "gu"
-              ? "48 પ્રવાહોમાં વ્યવસાયો, પ્રવેશ પરીક્ષાઓ અને ટોચની સંસ્થાઓ"
-              : "Professions, Entrance Exams & Top Institutes across 48 Streams"}
+            {t4(lang, "Professions, Entrance Exams & Top Institutes across 48 Streams", "48 પ્રવાહોમાં વ્યવસાયો, પ્રવેશ પરીક્ષાઓ અને ટોચની સંસ્થાઓ")}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
-            {lang === "gu"
-              ? "દરેક પ્રવાહ માટે વ્યાવસાયિક માર્ગો, મુખ્ય પ્રવેશ પરીક્ષાઓ અને ભારતની ટોચની સંસ્થાઓની વિગતવાર સૂચિ."
-              : "Detailed reference list of career paths, major entrance exams and India's top-ranked institutes for every stream."}
+            {t4(lang, "Detailed reference list of career paths, major entrance exams and India's top-ranked institutes for every stream.", "દરેક પ્રવાહ માટે વ્યાવસાયિક માર્ગો, મુખ્ય પ્રવેશ પરીક્ષાઓ અને ભારતની ટોચની સંસ્થાઓની વિગતવાર સૂચિ.")}
           </p>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <Stat n={totals.professions} label={lang === "gu" ? "વ્યવસાયો" : "professions"} />
-            <Stat n={totals.exams} label={lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "entrance exams"} />
-            <Stat n={totals.institutes} label={lang === "gu" ? "સંસ્થાઓ" : "top institutes"} />
-            <Stat n={HANDBOOK_SUMMARIES.length} label={lang === "gu" ? "પ્રવાહો" : "streams"} />
+            <Stat n={totals.professions} label={t4(lang, "professions", "વ્યવસાયો")} />
+            <Stat n={totals.exams} label={t4(lang, "entrance exams", "પ્રવેશ પરીક્ષાઓ")} />
+            <Stat n={totals.institutes} label={t4(lang, "top institutes", "સંસ્થાઓ")} />
+            <Stat n={HANDBOOK_SUMMARIES.length} label={t4(lang, "streams", "પ્રવાહો")} />
           </div>
           <p className="mt-3 text-xs text-muted-foreground max-w-3xl leading-relaxed">
-            {lang === "gu"
-              ? "© HBK Careers. અધિકૃત નિયમનકારી અને પરીક્ષા સંસ્થાઓના જાહેર સ્ત્રોતોમાંથી HBK દ્વારા સંકલિત — AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC ગુજરાત અને સંબંધિત મંત્રાલયો. દરેક પ્રવાહ પૃષ્ઠના તળિયે વિગતવાર સ્ત્રોતો સૂચિબદ્ધ છે."
-              : "© HBK Careers. Compiled in-house from public sources — official regulators and exam bodies including AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC Gujarat and the relevant ministries. Detailed sources are listed at the bottom of every stream page."}
+            {t4(lang, "© HBK Careers. Compiled in-house from public sources — official regulators and exam bodies including AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC Gujarat and the relevant ministries. Detailed sources are listed at the bottom of every stream page.", "© HBK Careers. અધિકૃત નિયમનકારી અને પરીક્ષા સંસ્થાઓના જાહેર સ્ત્રોતોમાંથી HBK દ્વારા સંકલિત — AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC ગુજરાત અને સંબંધિત મંત્રાલયો. દરેક પ્રવાહ પૃષ્ઠના તળિયે વિગતવાર સ્ત્રોતો સૂચિબદ્ધ છે.")}
           </p>
         </div>
       </section>
@@ -101,7 +96,7 @@ function HandbookIndex() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             type="search"
-            placeholder={lang === "gu" ? "પ્રવાહ શોધો…" : "Search streams…"}
+            placeholder={t4(lang, "Search streams…", "પ્રવાહ શોધો…")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full pl-9 pr-3 py-2.5 text-sm rounded-md border border-border bg-card focus:outline-none focus:border-primary"
@@ -110,7 +105,7 @@ function HandbookIndex() {
 
         {filtered.length === 0 ? (
           <p className="text-sm text-muted-foreground py-12 text-center">
-            {lang === "gu" ? "કોઈ પ્રવાહ મળ્યો નથી." : "No streams matched your search."}
+            {t4(lang, "No streams matched your search.", "કોઈ પ્રવાહ મળ્યો નથી.")}
           </p>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -127,19 +122,19 @@ function HandbookIndex() {
                 <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
                   <span>
                     <strong className="text-foreground">{s.professionsCount}</strong>{" "}
-                    {lang === "gu" ? "વ્યવસાયો" : "professions"}
+                    {t4(lang, "professions", "વ્યવસાયો")}
                   </span>
                   <span>
                     <strong className="text-foreground">{s.examsCount}</strong>{" "}
-                    {lang === "gu" ? "પરીક્ષાઓ" : "exams"}
+                    {t4(lang, "exams", "પરીક્ષાઓ")}
                   </span>
                   <span>
                     <strong className="text-foreground">{s.institutesCount}</strong>{" "}
-                    {lang === "gu" ? "સંસ્થાઓ" : "institutes"}
+                    {t4(lang, "institutes", "સંસ્થાઓ")}
                   </span>
                 </div>
                 <div className="mt-3 inline-flex items-center gap-1 text-sm text-primary opacity-80 group-hover:opacity-100">
-                  {lang === "gu" ? "વિગતો જુઓ" : "View details"}
+                  {t4(lang, "View details", "વિગતો જુઓ")}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>
               </Link>

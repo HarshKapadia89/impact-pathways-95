@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { Lang, pick } from "@/lib/lang";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
@@ -160,23 +161,19 @@ export function VibeQuizCard({ lang }: { lang: Lang }) {
   const txt = pick(meta, lang);
 
   const T = {
-    eyebrow: lang === "gu" ? "60 સેકન્ડમાં મજાનો ટેસ્ટ" : "60-second vibe check",
-    title: lang === "gu" ? "તમારી vibe શું છે?" : "What's your vibe?",
+    eyebrow: t4(lang, "60-second vibe check", "60 સેકન્ડમાં મજાનો ટેસ્ટ"),
+    title: t4(lang, "What's your vibe?", "તમારી vibe શું છે?"),
     sub:
-      lang === "gu"
-        ? "5 ઝડપી પ્રશ્નો. તરત રિઝલ્ટ. પછી 25-મિનિટનો ઊંડો ટેસ્ટ આપો."
-        : "5 quick questions. Instant vibe. Then dive into the deep 25-min test.",
-    start: lang === "gu" ? "વાઇબ ચેક શરૂ કરો" : "Start vibe check",
-    skip: lang === "gu" ? "પૂરો ટેસ્ટ આપો" : "Skip to full test",
-    question: lang === "gu" ? "પ્રશ્ન" : "Question",
-    of: lang === "gu" ? "માંથી" : "of",
-    yourVibe: lang === "gu" ? "તમારી vibe છે" : "Your vibe is",
-    matchPrefix: lang === "gu" ? "મેચ થાય છે:" : "Matches:",
+      t4(lang, "5 quick questions. Instant vibe. Then dive into the deep 25-min test.", "5 ઝડપી પ્રશ્નો. તરત રિઝલ્ટ. પછી 25-મિનિટનો ઊંડો ટેસ્ટ આપો."),
+    start: t4(lang, "Start vibe check", "વાઇબ ચેક શરૂ કરો"),
+    skip: t4(lang, "Skip to full test", "પૂરો ટેસ્ટ આપો"),
+    question: t4(lang, "Question", "પ્રશ્ન"),
+    of: t4(lang, "of", "માંથી"),
+    yourVibe: t4(lang, "Your vibe is", "તમારી vibe છે"),
+    matchPrefix: t4(lang, "Matches:", "મેચ થાય છે:"),
     takeFull:
-      lang === "gu"
-        ? "પૂરો 25-મિનિટનો ટેસ્ટ આપો — મફત રિપોર્ટ"
-        : "Take the full 25-min test → Free report",
-    retake: lang === "gu" ? "ફરી ચેક કરો" : "Retake",
+      t4(lang, "Take the full 25-min test → Free report", "પૂરો 25-મિનિટનો ટેસ્ટ આપો — મફત રિપોર્ટ"),
+    retake: t4(lang, "Retake", "ફરી ચેક કરો"),
   };
 
   function answer(vibe: Vibe) {

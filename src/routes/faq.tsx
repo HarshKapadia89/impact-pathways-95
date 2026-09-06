@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -41,12 +42,10 @@ function FAQPage() {
     <PublicLayout>
       <div className="max-w-3xl mx-auto px-4 md:px-8 pt-14 text-center">
         <h1 className="font-serif text-4xl md:text-5xl">
-          {lang === "gu" ? "વારંવાર પૂછાતા પ્રશ્નો" : "Frequently asked questions"}
+          {t4(lang, "Frequently asked questions", "વારંવાર પૂછાતા પ્રશ્નો")}
         </h1>
         <p className="mt-3 text-muted-foreground">
-          {lang === "gu"
-            ? "વિદ્યાર્થીઓ, માતા-પિતા અને શાળાઓ તરફથી"
-            : "From students, parents and schools across Gujarat."}
+          {t4(lang, "From students, parents and schools across Gujarat.", "વિદ્યાર્થીઓ, માતા-પિતા અને શાળાઓ તરફથી")}
         </p>
       </div>
       <FAQAccordion lang={lang} showHeader={false} />

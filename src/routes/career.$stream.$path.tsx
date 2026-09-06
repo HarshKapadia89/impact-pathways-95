@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -303,7 +304,7 @@ function PathDetail() {
   const raw = i18n.language ?? "en";
   const lang: Lang = raw.startsWith("gu") ? "gu" : raw.startsWith("hi") ? "hi" : "en";
   // Legacy en/gu callers below still work because "hi" cleanly falls back to "en" strings.
-  const langLegacy = (lang === "gu" ? "gu" : "en") as Lang;
+  const langLegacy = (t4(lang, "en", "gu")) as Lang;
   const extras = pickExtras(stream, path);
   const exams = relatedExams(path);
   const card = getCareerCard(pathSlug(path.title));
@@ -363,7 +364,7 @@ function PathDetail() {
               />
               <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
                 <MapPin className="h-3 w-3" />
-                {lang === "gu" ? "ગુજરાત-કેન્દ્રિત" : "Gujarat-focused"}
+                {t4(lang, "Gujarat-focused", "ગુજરાત-કેન્દ્રિત")}
               </span>
             </div>
           </div>
@@ -398,25 +399,25 @@ function PathDetail() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
-              {lang === "gu" ? "અવધિ" : "Duration"}
+              {t4(lang, "Duration", "અવધિ")}
             </div>
             <div className="mt-1 font-medium">{path.duration}</div>
           </div>
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
-              {lang === "gu" ? "પાત્રતા" : "Eligibility"}
+              {t4(lang, "Eligibility", "પાત્રતા")}
             </div>
             <div className="mt-1 font-medium text-sm">{path.eligibility}</div>
           </div>
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
-              {lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "Entrance exams"}
+              {t4(lang, "Entrance exams", "પ્રવેશ પરીક્ષાઓ")}
             </div>
             <div className="mt-1 font-medium text-sm">{path.entranceExams.join(", ")}</div>
           </div>
           <div className="rounded-xl border border-border bg-card p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">
-              {lang === "gu" ? "સરેરાશ પગાર" : "Avg salary"}
+              {t4(lang, "Avg salary", "સરેરાશ પગાર")}
             </div>
             <div className="mt-1 font-medium">{path.avgSalary}</div>
           </div>
@@ -428,7 +429,7 @@ function PathDetail() {
         <div className="rounded-2xl border border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <BookOpen className="h-4 w-4 text-primary" />
-            {lang === "gu" ? "તમે શું ભણશો" : "What you'll study"}
+            {t4(lang, "What you'll study", "તમે શું ભણશો")}
           </h2>
           <ul className="mt-3 space-y-2 text-sm">
             {extras.whatYoullStudy.map((s, i) => (
@@ -446,7 +447,7 @@ function PathDetail() {
         <div className="rounded-2xl border border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <Briefcase className="h-4 w-4 text-primary" />
-            {lang === "gu" ? "દિવસ કેવો રહેશે" : "What a typical day looks like"}
+            {t4(lang, "What a typical day looks like", "દિવસ કેવો રહેશે")}
           </h2>
           <ul className="mt-3 grid md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {extras.dayInLife.map((s, i) => (
@@ -668,7 +669,7 @@ function PathDetail() {
         <div className="rounded-2xl border border-border bg-card p-6">
           <h2 className="font-serif text-lg flex items-center gap-2">
             <Building2 className="h-4 w-4 text-primary" />
-            {lang === "gu" ? "ગુજરાતની ટોચની કોલેજો" : "Top colleges in Gujarat"}
+            {t4(lang, "Top colleges in Gujarat", "ગુજરાતની ટોચની કોલેજો")}
           </h2>
           <ul className="mt-3 space-y-1.5 text-sm">
             {path.topColleges.map((c) => (
@@ -681,7 +682,7 @@ function PathDetail() {
         <div className="rounded-2xl border border-border bg-card p-6">
           <h2 className="font-serif text-lg flex items-center gap-2">
             <GraduationCap className="h-4 w-4 text-primary" />
-            {lang === "gu" ? "કારકિર્દી ભૂમિકાઓ" : "Career roles"}
+            {t4(lang, "Career roles", "કારકિર્દી ભૂમિકાઓ")}
           </h2>
           <div className="mt-3 flex flex-wrap gap-1.5">
             {path.careers.map((c) => (
@@ -701,7 +702,7 @@ function PathDetail() {
         <div className="rounded-2xl border border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <TrendingUp className="h-4 w-4 text-primary" />
-            {lang === "gu" ? "કારકિર્દી પ્રગતિ" : "Career growth path"}
+            {t4(lang, "Career growth path", "કારકિર્દી પ્રગતિ")}
           </h2>
           <ol className="mt-3 space-y-2 text-sm">
             {extras.growthPath.map((s, i) => (
@@ -725,7 +726,7 @@ function PathDetail() {
           <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6">
             <h2 className="font-serif text-xl flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-primary" />
-              {lang === "gu" ? "ગુજરાતમાં કેમ?" : "Why study this in Gujarat?"}
+              {t4(lang, "Why study this in Gujarat?", "ગુજરાતમાં કેમ?")}
             </h2>
             <ul className="mt-3 grid md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
               {extras.whyGujarat.map((s, i) => (
@@ -744,7 +745,7 @@ function PathDetail() {
         <div className="rounded-2xl border border-border bg-card p-6">
           <h2 className="font-serif text-xl flex items-center gap-2">
             <IndianRupee className="h-4 w-4 text-primary" />
-            {lang === "gu" ? "શિષ્યવૃત્તિ અને નાણાકીય સહાય" : "Scholarships & financial aid"}
+            {t4(lang, "Scholarships & financial aid", "શિષ્યવૃત્તિ અને નાણાકીય સહાય")}
           </h2>
           <ul className="mt-3 space-y-2 text-sm">
             {extras.scholarships.map((s, i) => (
@@ -761,7 +762,7 @@ function PathDetail() {
       {exams.length > 0 && (
         <section className={`${sectionClass} pb-8`}>
           <h2 className="font-serif text-xl mb-3">
-            {lang === "gu" ? "પ્રવેશ પરીક્ષાઓની માહિતી" : "Entrance exam quick links"}
+            {t4(lang, "Entrance exam quick links", "પ્રવેશ પરીક્ષાઓની માહિતી")}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {exams.map((e) => (
@@ -778,7 +779,7 @@ function PathDetail() {
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">{e.for}</div>
                 <div className="text-xs text-muted-foreground mt-2">
-                  {lang === "gu" ? "ક્યારે" : "When"}: {e.when}
+                  {t4(lang, "When", "ક્યારે")}: {e.when}
                 </div>
                 <div className="text-xs text-primary mt-2 break-all">{e.website}</div>
               </a>
@@ -792,7 +793,7 @@ function PathDetail() {
         <section className={`${sectionClass} pb-8`}>
           <h2 className="font-serif text-xl mb-3 flex items-center gap-2">
             <HelpCircle className="h-5 w-5 text-primary" />
-            {lang === "gu" ? "વારંવાર પૂછાતા પ્રશ્નો" : "Frequently asked questions"}
+            {t4(lang, "Frequently asked questions", "વારંવાર પૂછાતા પ્રશ્નો")}
           </h2>
           <div className="space-y-3">
             {extras.faqs.map((f, i) => (
@@ -814,7 +815,7 @@ function PathDetail() {
       {/* Other paths in this stream */}
       <section className={`${sectionClass} pb-8`}>
         <h2 className="font-serif text-xl mb-3">
-          {lang === "gu" ? "આ જ પ્રવાહના બીજા માર્ગો" : "Other paths in this stream"}
+          {t4(lang, "Other paths in this stream", "આ જ પ્રવાહના બીજા માર્ગો")}
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {stream.paths
@@ -840,19 +841,17 @@ function PathDetail() {
         <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-lg">
-              {lang === "gu" ? "આ માર્ગ તમારા માટે છે?" : "Is this path right for you?"}
+              {t4(lang, "Is this path right for you?", "આ માર્ગ તમારા માટે છે?")}
             </div>
             <div className="text-sm text-muted-foreground mt-1">
-              {lang === "gu"
-                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો."
-                : "Take the free psychometric test and get a 20-page personalised report."}
+              {t4(lang, "Take the free psychometric test and get a 20-page personalised report.", "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો.")}
             </div>
           </div>
           <Link
             to="/test"
             className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90"
           >
-            {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"}
+            {t4(lang, "Take the test", "ટેસ્ટ આપો")}
           </Link>
         </div>
       </section>

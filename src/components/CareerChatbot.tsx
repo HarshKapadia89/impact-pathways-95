@@ -15,24 +15,13 @@ import {
   buildReportContext,
   type SavedReport,
 } from "@/lib/chatbotContext";
+import { cb, CHAT_SUGGESTIONS_PRE, CHAT_SUGGESTIONS_POST } from "@/lib/chatbotStrings";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
 const STORAGE_KEY = "hbk-chatbot-history";
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-career`;
 
-const SUGGESTIONS_PRE = [
-  "I just finished Class 10 — Science, Commerce or Arts?",
-  "What's the difference between JEE, GUJCET and CUET?",
-  "I love drawing — are there real careers in design?",
-  "How does this aptitude test actually work?",
-];
-const SUGGESTIONS_POST = [
-  "Explain my RIASEC code in simple words",
-  "Best colleges in Gujarat for my profile",
-  "Make a 90-day study plan based on my report",
-  "Which entrance exams should I target?",
-];
 
 export function CareerChatbot() {
   const lang = useLang();
@@ -101,14 +90,15 @@ export function CareerChatbot() {
         },
         body: JSON.stringify({
           messages: next,
+          lang,
           reportContext: report ? buildReportContext(report) : null,
         }),
       });
 
       if (!resp.ok || !resp.body) {
-        let msg = "Something went wrong. Please try again.";
-        if (resp.status === 429) msg = "Too many messages — please wait a moment.";
-        if (resp.status === 402) msg = "AI credits are exhausted on this workspace.";
+        let msg = cb("errGeneric", lang);
+        if (resp.status === 429) msg = cb("errRate", lang);
+        if (resp.status === 402) msg = cb("errCredits", lang);
         try {
           const j = await resp.json();
           if (j?.error) msg = j.error;
@@ -149,7 +139,7 @@ export function CareerChatbot() {
       }
     } catch (e) {
       console.error(e);
-      upsert("Network error. Please check your connection and retry.");
+      upsert(cb("errNetwork", lang));
     } finally {
       setLoading(false);
     }
@@ -160,7 +150,7 @@ export function CareerChatbot() {
     try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
   };
 
-  const suggestions = report ? SUGGESTIONS_POST : SUGGESTIONS_PRE;
+  const suggestions = report ? CHAT_SUGGESTIONS_POST[lang] : CHAT_SUGGESTIONS_PRE[lang];
 
   return (
     <>
@@ -174,7 +164,7 @@ export function CareerChatbot() {
           <MessageCircle className="h-6 w-6" />
           <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-accent animate-pulse" />
           <span className="absolute right-full mr-3 whitespace-nowrap rounded-md bg-foreground text-background text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            {lang === "gu" ? "કારકિર્દી સહાયક" : "Career counsellor"}
+            {cb("fabTip", lang)}
           </span>
         </button>
       )}
@@ -189,16 +179,10 @@ export function CareerChatbot() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="font-serif text-sm leading-tight">
-                {lang === "gu" ? "HBK કારકિર્દી સહાયક" : "HBK Career Counsellor"}
+                {cb("title", lang)}
               </div>
               <div className="text-[11px] text-muted-foreground truncate">
-                {report
-                  ? lang === "gu"
-                    ? `તમારા રિપોર્ટ સાથે · ${report.name}`
-                    : `Personalised for ${report.name}`
-                  : lang === "gu"
-                    ? "પૂછો — હું મદદ કરીશ"
-                    : "Ask anything about careers"}
+                {report ? `${cb("subReport", lang)} ${report.name}` : cb("subAsk", lang)}
               </div>
             </div>
             {messages.length > 0 && (
@@ -232,9 +216,7 @@ export function CareerChatbot() {
             <div className="px-4 py-2 border-b border-border bg-accent/10 text-[11px] flex items-center gap-2">
               <Brain className="h-3.5 w-3.5 text-accent" />
               <Link to="/test" onClick={() => setOpen(false)} className="underline hover:text-foreground">
-                {lang === "gu"
-                  ? "વ્યક્તિગત જવાબો માટે મફત ટેસ્ટ આપો →"
-                  : "Take the free aptitude test for personalised answers →"}
+                {cb("takeTest", lang)}
               </Link>
             </div>
           )}
@@ -244,12 +226,10 @@ export function CareerChatbot() {
             {messages.length === 0 && (
               <div className="space-y-3">
                 <div className="rounded-2xl bg-muted px-3 py-2.5 text-sm">
-                  {lang === "gu"
-                    ? "નમસ્તે! 👋 હું HBK કારકિર્દી સહાયક છું. ધોરણ, રુચિ, કોલેજ, પ્રવેશ પરીક્ષા — કંઈપણ પૂછો."
-                    : "Hi! 👋 I'm your HBK career counsellor. Ask me about streams, colleges, exams, scholarships, study plans — or just say what's on your mind."}
+                  {cb("greeting", lang)}
                 </div>
                 <div className="text-[11px] text-muted-foreground uppercase tracking-wide">
-                  {lang === "gu" ? "આનાથી શરૂ કરો" : "Try asking"}
+                  {cb("tryAsking", lang)}
                 </div>
                 <div className="flex flex-col gap-1.5">
                   {suggestions.map((s) => (
@@ -279,7 +259,7 @@ export function CareerChatbot() {
                 >
                   {m.content || (
                     <span className="inline-flex items-center gap-1 text-muted-foreground">
-                      <Loader2 className="h-3 w-3 animate-spin" /> thinking…
+                      <Loader2 className="h-3 w-3 animate-spin" /> {cb("thinking", lang)}
                     </span>
                   )}
                 </div>
@@ -289,7 +269,7 @@ export function CareerChatbot() {
             {loading && messages[messages.length - 1]?.role === "user" && (
               <div className="flex justify-start">
                 <div className="bg-muted rounded-2xl rounded-bl-sm px-3 py-2 text-sm inline-flex items-center gap-1 text-muted-foreground">
-                  <Loader2 className="h-3 w-3 animate-spin" /> thinking…
+                  <Loader2 className="h-3 w-3 animate-spin" /> {cb("thinking", lang)}
                 </div>
               </div>
             )}
@@ -310,7 +290,7 @@ export function CareerChatbot() {
                 }
               }}
               placeholder={
-                lang === "gu" ? "તમારો પ્રશ્ન લખો…" : "Ask about streams, exams, colleges…"
+                cb("placeholder", lang)
               }
               rows={1}
               className="flex-1 resize-none rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 max-h-32"
@@ -325,9 +305,7 @@ export function CareerChatbot() {
             </button>
           </form>
           <div className="px-3 pb-2 text-[10px] text-muted-foreground text-center">
-            {lang === "gu"
-              ? "સલાહકાર જવાબો માર્ગદર્શન માટે છે — મહત્વના નિર્ણયો માટે શિક્ષક/વાલી સાથે ચર્ચા કરો."
-              : "Career Counsellor guidance is for orientation — verify big decisions with a teacher/parent."}
+            {cb("disclaimer", lang)}
           </div>
         </div>
       )}

@@ -149,9 +149,18 @@ Deno.serve(async (req) => {
       2,
     );
 
+    const LANG_NAME: Record<string, string> = {
+      en: "English",
+      gu: "Gujarati (ગુજરાતી script)",
+      hi: "Hindi (देवनागरी script)",
+      mr: "Marathi (देवनागरी script)",
+    };
+    const langName = LANG_NAME[String((body as { lang?: string }).lang)] ?? "English";
+    const langLine = `\n\nOUTPUT LANGUAGE: write every narrative, rationale, suggestion and talking point in ${langName}. Keep stream slugs, exam names and college names unchanged. This overrides any earlier instruction to write in English.`;
+
     const payload = {
       messages: [
-        { role: "system", content: SYSTEM_PROMPT },
+        { role: "system", content: `${SYSTEM_PROMPT}${langLine}` },
         {
           role: "user",
           content: `Here is the student's deterministic test data. Produce the interpretation by calling submit_interpretation.\n\n${userContent}`,

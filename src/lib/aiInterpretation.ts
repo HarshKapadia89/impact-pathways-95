@@ -26,6 +26,7 @@ export async function fetchInterpretation(input: {
   report: ScoreReport;
   quality: QualityReport;
   deterministicStreams: string[];
+  lang?: string;
 }): Promise<InterpretationResponse> {
   const { data, error } = await supabase.functions.invoke("interpret-report", { body: input });
   if (error) throw error;

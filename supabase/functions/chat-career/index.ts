@@ -11,7 +11,7 @@ You help students (Grades 8–12) and their parents in Gujarat, India figure out
 
 Style:
 - Conversational, encouraging, never preachy. Short paragraphs, bullet points, bold key terms.
-- Match the user's language: reply in English by default, switch to simple Gujarati (Gujarati script) if the user writes in Gujarati or asks for it. You may mix when helpful.
+- LANGUAGE IS MANDATORY: reply ONLY in the language named in the "Reply language" line below, in that language's own script, even if the student writes in a different language. Keep exam/course names (JEE, NEET, B.Tech) in English.
 - Ask 1 focused follow-up question when the user is vague. Don't interrogate.
 - Be specific to India / Gujarat: mention real exams (JEE, NEET, GUJCET, CLAT, NIFT, NID, NATA, CA Foundation, CUET, NDA, etc.), real colleges (IITs, NITs, IIMs, NID, NIFT, NLU, AIIMS, BJ Medical, LD Engineering, CEPT, MS University, IIT Gandhinagar, IIM Ahmedabad, GLS, Nirma, PDEU, etc.) and realistic salary ranges in INR.
 - Cover all streams fairly: Science (PCM/PCB), Commerce, Arts/Humanities, Vocational, Design, Performing Arts, Sports, Defence, etc. Don't push only engineering/medical.
@@ -32,13 +32,21 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    const { messages, reportContext } = await req.json();
+    const { messages, reportContext, lang } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
+    const LANG_NAME: Record<string, string> = {
+      en: "English",
+      gu: "Gujarati (ગુજરાતી script)",
+      hi: "Hindi (देवनागरी script)",
+      mr: "Marathi (देवनागरी script)",
+    };
+    const langLine = `\n\nReply language: ${LANG_NAME[String(lang)] ?? "English"}. Write every sentence of every reply in this language.`;
+
     const sys = reportContext
-      ? `${SYSTEM_PROMPT}\n\nThe student has completed the psychometric test. Use this report:\n${reportContext}`
-      : `${SYSTEM_PROMPT}\n\nThe student has NOT yet taken the psychometric test. If relevant, gently encourage taking it from the "Aptitude Test" tab — it's free and gives a 20-page personalised report.`;
+      ? `${SYSTEM_PROMPT}${langLine}\n\nThe student has completed the psychometric test. Use this report:\n${reportContext}`
+      : `${SYSTEM_PROMPT}${langLine}\n\nThe student has NOT yet taken the psychometric test. If relevant, gently encourage taking it from the "Aptitude Test" tab — it's free and gives a 20-page personalised report.`;
 
     const response = await fetch(
       "https://ai.gateway.lovable.dev/v1/chat/completions",

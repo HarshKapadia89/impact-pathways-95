@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -45,10 +46,10 @@ function ExamsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
             <FileCheck className="h-3.5 w-3.5" />
-            {lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "Entrance Exams"}
+            {t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}
           </div>
           <h1 className="font-serif text-3xl md:text-5xl mt-3">
-            {lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "Entrance Exams"}
+            {t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
             {lang === "gu"
@@ -66,7 +67,7 @@ function ExamsPage() {
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder={lang === "gu" ? "દા.ત. JEE, NEET, CUET..." : "e.g. JEE, NEET, CUET, design..."}
+              placeholder={t4(lang, "e.g. JEE, NEET, CUET, design...", "દા.ત. JEE, NEET, CUET...")}
               className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
             {q && (
@@ -77,17 +78,17 @@ function ExamsPage() {
           </div>
           <div className="grid grid-cols-3 gap-2">
             <select value={field} onChange={(e) => setField(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
-              <option value="all">{lang === "gu" ? "બધાં ક્ષેત્રો" : "All fields"}</option>
+              <option value="all">{t4(lang, "All fields", "બધાં ક્ષેત્રો")}</option>
               {fields.map((f) => <option key={f} value={f}>{f}</option>)}
             </select>
             <select value={level} onChange={(e) => setLevel(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
-              <option value="all">{lang === "gu" ? "બધાં ધોરણ" : "All levels"}</option>
+              <option value="all">{t4(lang, "All levels", "બધાં ધોરણ")}</option>
               <option value="Class 12 / UG">Class 12 / UG</option>
               <option value="PG">PG</option>
               <option value="Diploma">Diploma</option>
             </select>
             <select value={scope} onChange={(e) => setScope(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
-              <option value="all">{lang === "gu" ? "બધાં પ્રદેશો" : "All scope"}</option>
+              <option value="all">{t4(lang, "All scope", "બધાં પ્રદેશો")}</option>
               <option value="Gujarat">Gujarat</option>
               <option value="National">National</option>
             </select>
@@ -95,12 +96,12 @@ function ExamsPage() {
           <div className="flex items-center justify-between text-xs">
             <div className="text-muted-foreground">
               <span className="font-semibold text-foreground">{results.length}</span>{" "}
-              {lang === "gu" ? "પરીક્ષાઓ" : "exams"}
-              {activeFilters > 0 && <span className="ml-2 text-primary">({activeFilters} {lang === "gu" ? "ફિલ્ટર" : "filter(s)"})</span>}
+              {t4(lang, "exams", "પરીક્ષાઓ")}
+              {activeFilters > 0 && <span className="ml-2 text-primary">({activeFilters} {t4(lang, "filter(s)", "ફિલ્ટર")})</span>}
             </div>
             {activeFilters > 0 && (
               <button onClick={clearAll} className="text-primary hover:underline inline-flex items-center gap-1">
-                <X className="h-3 w-3" /> {lang === "gu" ? "સાફ કરો" : "Clear all"}
+                <X className="h-3 w-3" /> {t4(lang, "Clear all", "સાફ કરો")}
               </button>
             )}
           </div>
@@ -111,7 +112,7 @@ function ExamsPage() {
         {results.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-card p-12 text-center">
             <Filter className="h-8 w-8 text-muted-foreground mx-auto" />
-            <div className="font-medium mt-3">{lang === "gu" ? "કોઈ પરિણામ નથી" : "No exams match"}</div>
+            <div className="font-medium mt-3">{t4(lang, "No exams match", "કોઈ પરિણામ નથી")}</div>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-4">
@@ -121,7 +122,7 @@ function ExamsPage() {
                   <div>
                     <h2 className="font-serif text-lg leading-snug">{e.name}</h2>
                     <div className="text-xs text-muted-foreground mt-0.5">{e.fullName}</div>
-                    <div className="text-[11px] text-muted-foreground mt-0.5">{lang === "gu" ? "આયોજક" : "By"}: {e.conductedBy}</div>
+                    <div className="text-[11px] text-muted-foreground mt-0.5">{t4(lang, "By", "આયોજક")}: {e.conductedBy}</div>
                   </div>
                   <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${e.scope === "Gujarat" ? "bg-primary/15 text-primary" : "bg-accent/30 text-accent-foreground"}`}>
                     {e.scope}
@@ -131,8 +132,8 @@ function ExamsPage() {
                   <Calendar className="h-3 w-3" /> {e.typicalMonth}
                 </div>
                 <div className="mt-2 text-xs text-foreground/85 bg-muted/40 rounded p-2 space-y-1">
-                  <div><span className="font-medium">{lang === "gu" ? "પાત્રતા:" : "Eligibility:"} </span>{e.eligibility}</div>
-                  <div><span className="font-medium">{lang === "gu" ? "પેટર્ન:" : "Pattern:"} </span>{e.pattern}</div>
+                  <div><span className="font-medium">{t4(lang, "Eligibility:", "પાત્રતા:")} </span>{e.eligibility}</div>
+                  <div><span className="font-medium">{t4(lang, "Pattern:", "પેટર્ન:")} </span>{e.pattern}</div>
                 </div>
                 <div className="mt-3 flex items-center gap-1.5 flex-wrap">
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-secondary text-secondary-foreground">{e.field}</span>
@@ -151,11 +152,11 @@ function ExamsPage() {
       <section className="max-w-7xl mx-auto px-4 md:px-8 pb-14">
         <div className="rounded-2xl border border-border bg-primary/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <div className="font-serif text-lg md:text-xl">{lang === "gu" ? "કયા ક્ષેત્રમાં જવું?" : "Not sure which exam fits you?"}</div>
-            <div className="text-sm text-muted-foreground mt-1">{lang === "gu" ? "મફત મનો-યોગ્યતા ટેસ્ટ — RIASEC + અભિરુચિ આધારિત ભલામણો." : "Take the free aptitude test for personalised recommendations."}</div>
+            <div className="font-serif text-lg md:text-xl">{t4(lang, "Not sure which exam fits you?", "કયા ક્ષેત્રમાં જવું?")}</div>
+            <div className="text-sm text-muted-foreground mt-1">{t4(lang, "Take the free aptitude test for personalised recommendations.", "મફત મનો-યોગ્યતા ટેસ્ટ — RIASEC + અભિરુચિ આધારિત ભલામણો.")}</div>
           </div>
           <Link to="/test" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90">
-            {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"}
+            {t4(lang, "Take the test", "ટેસ્ટ આપો")}
           </Link>
         </div>
       </section>

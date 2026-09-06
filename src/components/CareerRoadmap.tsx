@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { Lang } from "@/lib/lang";
 import { GraduationCap, BookOpen, FileCheck2, Briefcase, TrendingUp, Award, Rocket, School } from "lucide-react";
 import type { CareerPath, Stream } from "@/lib/careerData";
@@ -13,7 +14,7 @@ type Step = {
 };
 
 function buildSteps(stream: Stream, path: CareerPath, lang: Lang): Step[] {
-  const t = (en: string, gu: string) => (lang === "gu" ? gu : en);
+  const t = (en: string, gu: string) => t4(lang, en, gu);
   const exams = path.entranceExams.join(", ");
   const baseSalary = path.avgSalary;
   // crude salary band derivation
@@ -90,12 +91,10 @@ export function CareerRoadmap({ stream, path, lang }: Props) {
     <div className="rounded-2xl border border-border bg-card p-6">
       <h2 className="font-serif text-xl flex items-center gap-2">
         <TrendingUp className="h-4 w-4 text-primary" />
-        {lang === "gu" ? "કારકિર્દી રોડમેપ" : "Your career roadmap"}
+        {t4(lang, "Your career roadmap", "કારકિર્દી રોડમેપ")}
       </h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        {lang === "gu"
-          ? "ધોરણ 8 થી વરિષ્ઠ ભૂમિકા સુધીના તબક્કા."
-          : "Stage-by-stage path from Class 8 to senior roles."}
+        {t4(lang, "Stage-by-stage path from Class 8 to senior roles.", "ધોરણ 8 થી વરિષ્ઠ ભૂમિકા સુધીના તબક્કા.")}
       </p>
 
       <ol className="mt-6 relative">
@@ -112,7 +111,7 @@ export function CareerRoadmap({ stream, path, lang }: Props) {
               <p className="text-sm text-foreground/80 mt-1">{s.detail}</p>
               {s.salary && (
                 <div className="mt-1 inline-block text-xs rounded-md bg-accent/20 text-accent-foreground px-2 py-0.5">
-                  {lang === "gu" ? "પગાર" : "Salary"}: {s.salary}
+                  {t4(lang, "Salary", "પગાર")}: {s.salary}
                 </div>
               )}
             </li>
