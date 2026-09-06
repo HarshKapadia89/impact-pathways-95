@@ -4,41 +4,51 @@ import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
-import { Search, Calendar, ExternalLink, FileCheck, X, Filter } from "lucide-react";
+import { Search, Calendar, FileCheck, X, Filter, ArrowRight, Building2 } from "lucide-react";
 
 export const Route = createFileRoute("/exams")({
   head: () => ({
     meta: [
-      { title: "Entrance Exams — JEE, NEET, GUJCET, CUET & More | HBK Careers" },
-      { name: "description", content: "Complete guide to entrance exams for Indian students: JEE, NEET, GUJCET, CUET, CLAT, NID, NIFT, CAT and more. Eligibility, pattern, dates." },
+      { title: "100 Entrance Exams — JEE, NEET, GUJCET, CUET & More | HBK Careers" },
+      { name: "description", content: "Directory of 100 Indian entrance exams after Class 10, Class 12 and graduation. Stream, qualifying level, conducting body, exam months and the route each exam opens." },
       { property: "og:title", content: "Entrance Exams Directory — HBK Careers" },
-      { property: "og:description", content: "Filter by field, level and scope. Gujarat-state and national entrance exams in one place." },
+      { property: "og:description", content: "Filter 100 entrance exams by stream, qualifying level and how realistic they are for your cohort." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ExamsPage,
 });
+
+const REALISTIC_ORDER = ["Yes", "Maybe", "No"];
 
 function ExamsPage() {
   const lang = useLang();
   const [q, setQ] = useState("");
   const [field, setField] = useState("all");
   const [level, setLevel] = useState("all");
-  const [scope, setScope] = useState("all");
+  const [realistic, setRealistic] = useState("all");
+
+  const fields = useMemo(() => Array.from(new Set(ENTRANCE_EXAMS.map((e) => e.field))).sort(), []);
+  const levels = useMemo(() => Array.from(new Set(ENTRANCE_EXAMS.map((e) => e.level))).sort(), []);
 
   const results = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return ENTRANCE_EXAMS.filter((e) => {
       if (field !== "all" && e.field !== field) return false;
       if (level !== "all" && e.level !== level) return false;
-      if (scope !== "all" && e.scope !== scope) return false;
+      if (realistic !== "all" && e.realistic !== realistic) return false;
       if (!needle) return true;
-      return [e.name, e.fullName, e.conductedBy, e.eligibility, ...e.forStreams].join(" ").toLowerCase().includes(needle);
+      return [e.name, e.stream, e.conductedBy, e.qualifyingLevel, e.routeOpens, e.notes].join(" ").toLowerCase().includes(needle);
+    }).sort((a, b) => {
+      const ra = REALISTIC_ORDER.indexOf(a.realistic);
+      const rb = REALISTIC_ORDER.indexOf(b.realistic);
+      return (ra < 0 ? 9 : ra) - (rb < 0 ? 9 : rb);
     });
-  }, [q, field, level, scope]);
+  }, [q, field, level, realistic]);
 
-  const activeFilters = (q ? 1 : 0) + (field !== "all" ? 1 : 0) + (level !== "all" ? 1 : 0) + (scope !== "all" ? 1 : 0);
-  const clearAll = () => { setQ(""); setField("all"); setLevel("all"); setScope("all"); };
-  const fields = Array.from(new Set(ENTRANCE_EXAMS.map((e) => e.field)));
+  const activeFilters = (q ? 1 : 0) + (field !== "all" ? 1 : 0) + (level !== "all" ? 1 : 0) + (realistic !== "all" ? 1 : 0);
+  const clearAll = () => { setQ(""); setField("all"); setLevel("all"); setRealistic("all"); };
 
   return (
     <PublicLayout>
@@ -52,9 +62,8 @@ function ExamsPage() {
             {t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
-            {lang === "gu"
-              ? `${ENTRANCE_EXAMS.length}+ ભારતીય પ્રવેશ પરીક્ષાઓ — JEE, NEET, GUJCET, CUET, CAT, CLAT, NID અને વધુ. પાત્રતા, પેટર્ન અને તારીખો.`
-              : `${ENTRANCE_EXAMS.length}+ Indian entrance exams — JEE, NEET, GUJCET, CUET, CAT, CLAT, NID and more. Eligibility, pattern, dates.`}
+            {`${ENTRANCE_EXAMS.length} `}
+            {t4(lang, "exams after Class 10, Class 12 and graduation — who conducts them, when they are held and which route each one opens.", "ધોરણ 10, ધોરણ 12 અને સ્નાતક પછીની પરીક્ષાઓ — કોણ લે છે, ક્યારે થાય છે અને કયો રસ્તો ખૂલે છે.")}
           </p>
         </div>
       </section>
@@ -67,7 +76,7 @@ function ExamsPage() {
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder={t4(lang, "e.g. JEE, NEET, CUET, design...", "દા.ત. JEE, NEET, CUET...")}
+              placeholder={t4(lang, "e.g. JEE, NEET, ITI, design...", "દા.ત. JEE, NEET, ITI...")}
               className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
             {q && (
@@ -83,14 +92,13 @@ function ExamsPage() {
             </select>
             <select value={level} onChange={(e) => setLevel(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
               <option value="all">{t4(lang, "All levels", "બધાં ધોરણ")}</option>
-              <option value="Class 12 / UG">Class 12 / UG</option>
-              <option value="PG">PG</option>
-              <option value="Diploma">Diploma</option>
+              {levels.map((l) => <option key={l} value={l}>{l}</option>)}
             </select>
-            <select value={scope} onChange={(e) => setScope(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
-              <option value="all">{t4(lang, "All scope", "બધાં પ્રદેશો")}</option>
-              <option value="Gujarat">Gujarat</option>
-              <option value="National">National</option>
+            <select value={realistic} onChange={(e) => setRealistic(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+              <option value="all">{t4(lang, "Any fit", "કોઈપણ")}</option>
+              <option value="Yes">{t4(lang, "Good fit", "યોગ્ય")}</option>
+              <option value="Maybe">{t4(lang, "Maybe", "કદાચ")}</option>
+              <option value="No">{t4(lang, "Stretch", "મુશ્કેલ")}</option>
             </select>
           </div>
           <div className="flex items-center justify-between text-xs">
@@ -121,28 +129,28 @@ function ExamsPage() {
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <h2 className="font-serif text-lg leading-snug">{e.name}</h2>
-                    <div className="text-xs text-muted-foreground mt-0.5">{e.fullName}</div>
-                    <div className="text-[11px] text-muted-foreground mt-0.5">{t4(lang, "By", "આયોજક")}: {e.conductedBy}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{e.stream}</div>
+                    <div className="text-[11px] text-muted-foreground mt-0.5 inline-flex items-start gap-1">
+                      <Building2 className="h-3 w-3 mt-0.5 shrink-0" /> {e.conductedBy}
+                    </div>
                   </div>
-                  <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${e.scope === "Gujarat" ? "bg-primary/15 text-primary" : "bg-accent/30 text-accent-foreground"}`}>
-                    {e.scope}
+                  <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${e.realistic === "Yes" ? "bg-primary/15 text-primary" : e.realistic === "Maybe" ? "bg-accent/30 text-accent-foreground" : "bg-muted text-muted-foreground"}`}>
+                    {e.realistic === "Yes" ? t4(lang, "Good fit", "યોગ્ય") : e.realistic === "Maybe" ? t4(lang, "Maybe", "કદાચ") : t4(lang, "Stretch", "મુશ્કેલ")}
                   </span>
                 </div>
                 <div className="mt-3 text-xs inline-flex items-center gap-1 text-foreground/85">
                   <Calendar className="h-3 w-3" /> {e.typicalMonth}
                 </div>
                 <div className="mt-2 text-xs text-foreground/85 bg-muted/40 rounded p-2 space-y-1">
-                  <div><span className="font-medium">{t4(lang, "Eligibility:", "પાત્રતા:")} </span>{e.eligibility}</div>
-                  <div><span className="font-medium">{t4(lang, "Pattern:", "પેટર્ન:")} </span>{e.pattern}</div>
+                  <div><span className="font-medium">{t4(lang, "Qualifying level:", "પાત્રતા:")} </span>{e.qualifyingLevel}</div>
+                  <div className="inline-flex items-start gap-1"><ArrowRight className="h-3 w-3 mt-0.5 shrink-0" /><span><span className="font-medium">{t4(lang, "Opens:", "શું ખૂલે છે:")} </span>{e.routeOpens}</span></div>
+                  {e.notes && <div><span className="font-medium">{t4(lang, "Note:", "નોંધ:")} </span>{e.notes}</div>}
                 </div>
                 <div className="mt-3 flex items-center gap-1.5 flex-wrap">
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-secondary text-secondary-foreground">{e.field}</span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded border border-border">{e.level}</span>
-                  {e.forStreams.slice(0, 2).map((s) => <span key={s} className="text-[10px] px-1.5 py-0.5 rounded border border-border">{s}</span>)}
+                  <span className="text-[10px] px-1.5 py-0.5 rounded border border-border">{e.scope}</span>
                 </div>
-                <a href={`https://${e.website}`} target="_blank" rel="noreferrer" className="mt-3 text-xs text-primary inline-flex items-center gap-1 hover:underline">
-                  <ExternalLink className="h-3 w-3" /> {e.website}
-                </a>
               </article>
             ))}
           </div>
