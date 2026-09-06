@@ -3,6 +3,7 @@ import { Suspense, useEffect } from "react";
 
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/hooks/useAuth";
+import { AutoTranslate } from "@/components/AutoTranslate";
 import { Toaster } from "@/components/ui/sonner";
 import { bootstrapOffline } from "@/lib/offlineBoot";
 import { applyStoredTheme } from "@/components/ThemeSwitcher";
@@ -95,6 +96,7 @@ function RootComponent() {
   return (
     <Suspense fallback={null}>
       <AuthProvider>
+        <AutoTranslate />
         <Outlet />
         <Toaster richColors position="top-right" />
       </AuthProvider>
