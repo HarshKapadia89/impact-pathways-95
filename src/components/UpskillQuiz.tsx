@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, XCircle, RefreshCcw, Trophy } from "lucide-react";
 import type { Topic } from "@/lib/upskilling";
 import { UPSKILL_TOPICS } from "@/lib/upskilling";
 import { useLang } from "@/lib/lang";
 import { us } from "@/lib/upskillStrings";
+import { saveQuizResult, PASS_PCT } from "@/lib/upskillProgress";
 
 interface PoolItem {
   q: string;
@@ -71,7 +72,6 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
   const maxQ = Math.min(50, pool.length);
 
   const [count, setCount] = useState(Math.min(10, maxQ));
-  const [marks, setMarks] = useState(1);
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 100000));
   const [started, setStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -79,6 +79,12 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
 
   const questions = useMemo(() => buildQuestions(pool, count, seed), [pool, count, seed]);
   const correctCount = questions.reduce((n, q, i) => n + (answers[i] === q.correct ? 1 : 0), 0);
+
+  const pct = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
+
+  useEffect(() => {
+    if (submitted && topic) saveQuizResult(topic.slug, correctCount, questions.length);
+  }, [submitted, topic, correctCount, questions.length]);
 
   const restart = () => {
     setSeed(Math.floor(Math.random() * 100000));
@@ -99,38 +105,23 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
             {count} {t("quizQuestions")}
           </span>
         </div>
-        <input
-          type="range"
-          min={10}
-          max={maxQ}
-          step={5}
-          value={count}
-          onChange={(e) => setCount(Number(e.target.value))}
-          className="mt-3 w-full accent-[var(--primary)]"
-        />
-        <div className="flex justify-between text-[10px] text-muted-foreground">
-          <span>10</span>
-          <span>{maxQ}</span>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[10, 15, 20, 25, 30, 40, 50]
+            .filter((n) => n <= maxQ)
+            .map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setCount(n)}
+                className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
+                  count === n ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
         </div>
-
-        <div className="mt-5 text-xs font-semibold uppercase tracking-widest text-accent">{t("quizMarks")}</div>
-        <div className="mt-2 flex gap-2">
-          {[1, 2, 5].map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMarks(m)}
-              className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
-                marks === m ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
-              }`}
-            >
-              {m}
-            </button>
-          ))}
-        </div>
-        <p className="mt-2 text-[11px] text-muted-foreground">
-          {t("quizTotal")}: {count * marks}
-        </p>
+        <p className="mt-3 text-[11px] text-muted-foreground">{t("quizOneMark")}</p>
 
         <button
           onClick={() => setStarted(true)}
@@ -151,10 +142,13 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
             {t("quizScore")}
           </div>
           <div className="font-serif text-3xl mt-2">
-            {correctCount * marks} / {questions.length * marks}
+            {correctCount} / {questions.length}
           </div>
           <div className="text-xs text-muted-foreground mt-1">
-            {correctCount}/{questions.length} {t("quizCorrect")} · {Math.round((correctCount / questions.length) * 100)}%
+            {correctCount}/{questions.length} {t("quizCorrect")} · {pct}%
+          </div>
+          <div className={`mt-2 text-sm font-medium ${pct >= PASS_PCT ? "text-primary" : "text-destructive"}`}>
+            {pct >= PASS_PCT ? t("quizPassed") : t("quizFailed")}
           </div>
           <button onClick={restart} className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary hover:underline">
             <RefreshCcw className="h-4 w-4" />
@@ -167,7 +161,7 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
         {questions.map((q, i) => (
           <li key={i} className="rounded-xl border border-border p-4">
             <div className="text-[11px] text-muted-foreground">
-              {i + 1}. {q.source} · {marks} {t("quizMarksShort")}
+              {i + 1}. {q.source} · 1 {t("quizMarksShort")}
             </div>
             <div className="text-sm font-medium mt-1.5">{q.q}</div>
             <div className="mt-3 space-y-2">

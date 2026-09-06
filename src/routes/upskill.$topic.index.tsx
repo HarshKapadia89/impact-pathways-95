@@ -4,7 +4,8 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { useLang } from "@/lib/lang";
 import { us } from "@/lib/upskillStrings";
 import { getTopic, topicMinutes } from "@/lib/upskilling";
-import { getProgress, lessonKey } from "@/lib/upskillProgress";
+import { getProgress, lessonKey, getQuizResults, PASS_PCT, type QuizResult } from "@/lib/upskillProgress";
+import { UpskillCertificateCard } from "@/components/UpskillCertificateCard";
 import { ArrowLeft, ArrowRight, CheckCircle2, Circle, Clock } from "lucide-react";
 
 export const Route = createFileRoute("/upskill/$topic/")({
@@ -39,13 +40,17 @@ function TopicPage() {
   const lang = useLang();
   const t = (k: string) => us(k, lang);
   const [progress, setProgress] = useState<Record<string, number>>({});
+  const [quiz, setQuiz] = useState<QuizResult | undefined>(undefined);
 
   useEffect(() => {
-    const sync = () => setProgress(getProgress());
+    const sync = () => {
+      setProgress(getProgress());
+      setQuiz(getQuizResults()[topic.slug]);
+    };
     sync();
     window.addEventListener("hbk-upskill-change", sync);
     return () => window.removeEventListener("hbk-upskill-change", sync);
-  }, []);
+  }, [topic.slug]);
 
   const done = topic.lessons.filter((l) => progress[lessonKey(topic.slug, l.slug)]).length;
 
@@ -87,14 +92,32 @@ function TopicPage() {
           </ul>
         </div>
 
-        <Link
-          to="/upskill/$topic/quiz"
-          params={{ topic: topic.slug }}
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-medium hover:opacity-90"
-        >
-          {t("quizCta")}
-          <ArrowRight className="h-4 w-4" />
-        </Link>
+        <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-5">
+          <h2 className="font-serif text-lg">{t("quizChapter")}</h2>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t("quizChapterSub")}</p>
+          {quiz && (
+            <p className={`mt-3 text-sm font-medium ${quiz.pct >= PASS_PCT ? "text-primary" : "text-destructive"}`}>
+              {t("quizBest")}: {quiz.correct}/{quiz.total} ({quiz.pct}%) ·{" "}
+              {quiz.pct >= PASS_PCT ? t("quizPassed") : t("quizFailed")}
+            </p>
+          )}
+          <Link
+            to="/upskill/$topic/quiz"
+            params={{ topic: topic.slug }}
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-medium hover:opacity-90"
+          >
+            {t("quizChapter")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <UpskillCertificateCard
+          unlocked={done === topic.lessons.length && !!quiz && quiz.pct >= PASS_PCT}
+          title={topic.title}
+          lessons={topic.lessons.length}
+          hours={Math.max(1, Math.round(topicMinutes(topic) / 60))}
+          scoreText={quiz ? `${quiz.pct}%` : undefined}
+        />
 
         <h2 className="font-serif text-2xl mt-10">{t("lessons")}</h2>
         <ol className="mt-4 space-y-3">

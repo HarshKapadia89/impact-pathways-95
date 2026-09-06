@@ -74,6 +74,8 @@ export const Route = createFileRoute("/test/")({
 });
 
 
+const MARK_NOTE: Record<string, string> = {"en": "1 mark per question · MCQ · no negative marking", "hi": "प्रति प्रश्न 1 अंक · MCQ · कोई नकारात्मक अंक नहीं", "gu": "પ્રતિ પ્રશ્ન ૧ ગુણ · MCQ · નકારાત્મક ગુણ નહીં", "mr": "प्रति प्रश्न १ गुण · MCQ · ऋण गुण नाहीत"};
+
 const LEN_LABEL: Record<string, [string, string, string, string]> = {"en": ["Aptitude test length", "questions", "Marks per question", "Total marks"], "hi": ["योग्यता परीक्षा की लंबाई", "प्रश्न", "प्रति प्रश्न अंक", "कुल अंक"], "gu": ["યોગ્યતા ટેસ્ટની લંબાઈ", "પ્રશ્નો", "પ્રતિ પ્રશ્ન ગુણ", "કુલ ગુણ"], "mr": ["अ‍ॅप्टिट्यूड चाचणीची लांबी", "प्रश्न", "प्रति प्रश्न गुण", "एकूण गुण"]};
 
 function TestIntro() {
@@ -93,7 +95,6 @@ function TestIntro() {
   const [email, setEmail] = useState("");
   const [parentEmail, setParentEmail] = useState("");
   const [aptCount, setAptCount] = useState(25);
-  const [marksPerQ, setMarksPerQ] = useState(1);
 
   const mobileDigits = mobile.replace(/\D/g, "");
   const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
@@ -123,7 +124,7 @@ function TestIntro() {
         parent_email: parentEmail.trim() || null,
         vibe: vibe ?? null,
         aptCount,
-        marksPerQ,
+        marksPerQ: 1,
       }),
     );
     navigate({ to: "/test/pay" });
@@ -677,27 +678,8 @@ function TestIntro() {
                 <span>10</span>
                 <span>50</span>
               </div>
-              <div className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">
-                {LEN_LABEL[lang][2]}
-              </div>
-              <div className="mt-2 flex gap-2">
-                {[1, 2, 5].map((m) => (
-                  <button
-                    key={m}
-                    type="button"
-                    onClick={() => setMarksPerQ(m)}
-                    className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
-                      marksPerQ === m
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-background border-border hover:bg-muted"
-                    }`}
-                  >
-                    {m}
-                  </button>
-                ))}
-              </div>
-              <p className="mt-2 text-[11px] text-muted-foreground">
-                {LEN_LABEL[lang][3]}: {aptCount * marksPerQ}
+              <p className="mt-3 text-[11px] text-muted-foreground">
+                {MARK_NOTE[lang]} · {LEN_LABEL[lang][3]}: {aptCount}
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">

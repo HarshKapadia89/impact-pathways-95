@@ -12,7 +12,8 @@ import {
   topicMinutes,
   getLesson,
 } from "@/lib/upskilling";
-import { getProgress, lastLesson, badges as computeBadges, lessonKey } from "@/lib/upskillProgress";
+import { getProgress, lastLesson, badges as computeBadges, lessonKey, getQuizResults, PASS_PCT } from "@/lib/upskillProgress";
+import { UpskillCertificateCard } from "@/components/UpskillCertificateCard";
 import { Search, ArrowRight, Clock, Sparkles, CheckCircle2, Trophy } from "lucide-react";
 
 export const Route = createFileRoute("/upskill/")({
@@ -42,10 +43,13 @@ function UpskillHub() {
   const [query, setQuery] = useState("");
   const [progress, setProgress] = useState<Record<string, number>>({});
   const [resume, setResume] = useState<{ topic: string; lesson: string } | null>(null);
+  const [passed, setPassed] = useState(0);
 
   useEffect(() => {
     const sync = () => {
       setProgress(getProgress());
+      const results = getQuizResults();
+      setPassed(UPSKILL_TOPICS.filter((tp) => (results[tp.slug]?.pct ?? 0) >= PASS_PCT).length);
       const l = lastLesson();
       setResume(l ? { topic: l.topic, lesson: l.lesson } : null);
     };
@@ -84,6 +88,15 @@ function UpskillHub() {
             </div>
           ))}
         </div>
+
+        <UpskillCertificateCard
+          unlocked={passed >= TOTAL_TOPICS && doneCount >= TOTAL_LESSONS}
+          master
+          title={t("certMasterTitle")}
+          lessons={TOTAL_LESSONS}
+          hours={Math.round(TOTAL_MINUTES / 60)}
+          scoreText={`${passed}/${TOTAL_TOPICS}`}
+        />
 
         {doneCount > 0 && (
           <div className="mt-6 rounded-2xl border border-border bg-card p-5">

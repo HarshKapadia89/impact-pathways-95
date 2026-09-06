@@ -4,7 +4,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { useLang } from "@/lib/lang";
 import { us } from "@/lib/upskillStrings";
 import { getLesson } from "@/lib/upskilling";
-import { isDone, toggleLesson } from "@/lib/upskillProgress";
+import { isDone, toggleLesson, getDays, toggleDay, dayKey } from "@/lib/upskillProgress";
 import {
   ArrowLeft,
   ArrowRight,
@@ -16,6 +16,7 @@ import {
   Lightbulb,
   ListChecks,
   Printer,
+  ChevronDown,
 } from "lucide-react";
 
 export const Route = createFileRoute("/upskill/$topic/$lesson")({
@@ -50,11 +51,13 @@ function LessonPage() {
   const lang = useLang();
   const t = (k: string) => us(k, lang);
   const [done, setDone] = useState(false);
-  const [open, setOpen] = useState<Record<number, boolean>>({});
+  const [days, setDays] = useState<Record<string, number>>({});
+  const [openDay, setOpenDay] = useState<number | null>(1);
 
   useEffect(() => {
     setDone(isDone(topic.slug, lesson.slug));
-    setOpen({});
+    setDays(getDays());
+    setOpenDay(1);
   }, [topic.slug, lesson.slug]);
 
   const prev = index > 0 ? topic.lessons[index - 1] : undefined;
@@ -101,15 +104,83 @@ function LessonPage() {
             {t("plan")}
           </h2>
           <ol className="mt-4 space-y-3">
-            {lesson.studyPlan.map((d) => (
-              <li key={d.day} className="rounded-xl border border-border bg-card p-4">
-                <div className="text-[11px] uppercase tracking-wide text-primary font-semibold">
-                  {t("day")} {d.day}
-                </div>
-                <div className="text-sm font-medium mt-1">{d.focus}</div>
-                <p className="text-sm text-muted-foreground mt-1.5">{d.task}</p>
-              </li>
-            ))}
+            {lesson.studyPlan.map((d, di) => {
+              const isOpen = openDay === d.day;
+              const dayDone = !!days[dayKey(topic.slug, lesson.slug, d.day)];
+              const readText =
+                d.read ||
+                [lesson.notes[di * 2 % lesson.notes.length], lesson.notes[(di * 2 + 1) % lesson.notes.length]]
+                  .filter(Boolean)
+                  .join(" ");
+              const checks =
+                d.checkpoints && d.checkpoints.length
+                  ? d.checkpoints
+                  : [lesson.quiz[di % lesson.quiz.length]?.q].filter(Boolean) as string[];
+              return (
+                <li key={d.day} className="rounded-xl border border-border bg-card overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOpenDay(isOpen ? null : d.day)}
+                    className="w-full text-left p-4 flex items-start gap-3 hover:bg-muted/40 transition-colors"
+                  >
+                    <span className="shrink-0 mt-0.5">
+                      {dayDone ? (
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                      ) : (
+                        <Circle className="h-5 w-5 text-muted-foreground/50" />
+                      )}
+                    </span>
+                    <span className="flex-1">
+                      <span className="block text-[11px] uppercase tracking-wide text-primary font-semibold">
+                        {t("day")} {d.day}
+                      </span>
+                      <span className="block text-sm font-medium mt-0.5">{d.focus}</span>
+                    </span>
+                    <ChevronDown className={`h-4 w-4 text-muted-foreground shrink-0 mt-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {isOpen && (
+                    <div className="px-4 pb-4 space-y-4 border-t border-border pt-4">
+                      {readText && (
+                        <div>
+                          <div className="text-[11px] font-semibold uppercase tracking-widest text-accent">{t("read")}</div>
+                          <p className="mt-1.5 text-sm leading-relaxed whitespace-pre-line">{readText}</p>
+                        </div>
+                      )}
+                      <div>
+                        <div className="text-[11px] font-semibold uppercase tracking-widest text-accent">{t("doTask")}</div>
+                        <p className="mt-1.5 text-sm leading-relaxed">{d.task}</p>
+                      </div>
+                      {checks.length > 0 && (
+                        <div>
+                          <div className="text-[11px] font-semibold uppercase tracking-widest text-accent">{t("check")}</div>
+                          <ul className="mt-1.5 space-y-1.5">
+                            {checks.map((cq, ci) => (
+                              <li key={ci} className="flex gap-2 text-sm text-muted-foreground">
+                                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                                <span>{cq}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          toggleDay(topic.slug, lesson.slug, d.day);
+                          setDays(getDays());
+                        }}
+                        className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-medium transition-colors ${
+                          dayDone ? "bg-primary/10 text-primary border border-primary/40" : "bg-primary text-primary-foreground"
+                        }`}
+                      >
+                        <CheckCircle2 className="h-3.5 w-3.5" />
+                        {t("dayDone")}
+                      </button>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ol>
         </section>
 
@@ -156,25 +227,17 @@ function LessonPage() {
           <p className="mt-2 text-sm leading-relaxed">{lesson.practice}</p>
         </section>
 
-        <section className="mt-10">
-          <h2 className="font-serif text-2xl">{t("quiz")}</h2>
-          <div className="mt-4 space-y-3">
-            {lesson.quiz.map((q, i) => (
-              <div key={i} className="rounded-xl border border-border bg-card p-4">
-                <div className="text-sm font-medium">{q.q}</div>
-                {open[i] ? (
-                  <p className="text-sm text-muted-foreground mt-2">{q.a}</p>
-                ) : (
-                  <button
-                    onClick={() => setOpen((o) => ({ ...o, [i]: true }))}
-                    className="mt-2 text-xs text-primary hover:underline"
-                  >
-                    {t("showAnswer")}
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
+        <section className="mt-10 rounded-2xl border border-primary/30 bg-primary/5 p-5">
+          <h2 className="font-serif text-lg">{t("quizChapter")}</h2>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t("quizChapterSub")}</p>
+          <Link
+            to="/upskill/$topic/quiz"
+            params={{ topic: topic.slug }}
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-medium hover:opacity-90"
+          >
+            {t("quizChapter")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </section>
 
         <section className="mt-10">
