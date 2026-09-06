@@ -21,6 +21,7 @@ import {
   Info,
   Library,
   Rocket,
+  CalendarCheck,
 } from "lucide-react";
 import { LanguagePicker } from "./LanguagePicker";
 import { CareerChatbot } from "./CareerChatbot";
