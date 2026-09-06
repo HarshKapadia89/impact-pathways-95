@@ -4,6 +4,7 @@ import { Brain, ArrowRight } from "lucide-react";
 
 export function StickyMobileCTA() {
   const lang = useLang();
+  const t = translator(lang);
   return (
     <div className="lg:hidden fixed bottom-3 left-3 right-20 z-30 pointer-events-none">
       <Link
