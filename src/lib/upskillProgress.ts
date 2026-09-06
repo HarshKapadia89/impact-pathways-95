@@ -72,3 +72,80 @@ export function badges(total: number, totalLessons: number): Badge[] {
     { id: "q3", label: "100% complete", earned: pct >= 100 },
   ];
 }
+
+/* ---------------- Day-level progress, quiz results, learner name ---------------- */
+
+const DAY_KEY = "hbk-upskill-days-v1";
+const QUIZ_KEY = "hbk-upskill-quiz-v1";
+const NAME_KEY = "hbk-upskill-name-v1";
+
+export const PASS_PCT = 60;
+
+export type QuizResult = { correct: number; total: number; pct: number; at: number };
+
+function readJSON<T>(key: string, fallback: T): T {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJSON(key: string, value: unknown) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    window.dispatchEvent(new CustomEvent("hbk-upskill-change"));
+  } catch {
+    /* storage unavailable */
+  }
+}
+
+export const dayKey = (topic: string, lesson: string, day: number) => `${topic}/${lesson}#${day}`;
+
+export function getDays(): Record<string, number> {
+  return readJSON<Record<string, number>>(DAY_KEY, {});
+}
+
+export function toggleDay(topic: string, lesson: string, day: number): boolean {
+  const map = getDays();
+  const k = dayKey(topic, lesson, day);
+  if (map[k]) delete map[k];
+  else map[k] = Date.now();
+  writeJSON(DAY_KEY, map);
+  return !!map[k];
+}
+
+export function getQuizResults(): Record<string, QuizResult> {
+  return readJSON<Record<string, QuizResult>>(QUIZ_KEY, {});
+}
+
+export function saveQuizResult(topic: string, correct: number, total: number) {
+  const map = getQuizResults();
+  const pct = total ? Math.round((correct / total) * 100) : 0;
+  const prev = map[topic];
+  if (!prev || pct >= prev.pct) map[topic] = { correct, total, pct, at: Date.now() };
+  writeJSON(QUIZ_KEY, map);
+}
+
+export function topicPassed(topic: string): boolean {
+  const r = getQuizResults()[topic];
+  return !!r && r.pct >= PASS_PCT;
+}
+
+export function getLearnerName(): string {
+  try {
+    return localStorage.getItem(NAME_KEY) || "";
+  } catch {
+    return "";
+  }
+}
+
+export function setLearnerName(name: string) {
+  try {
+    localStorage.setItem(NAME_KEY, name);
+    window.dispatchEvent(new CustomEvent("hbk-upskill-change"));
+  } catch {
+    /* storage unavailable */
+  }
+}

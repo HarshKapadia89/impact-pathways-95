@@ -6,6 +6,10 @@ export interface StudyDay {
   day: number;
   focus: string;
   task: string;
+  /** Long-form study material for the day (optional; falls back to focus + task). */
+  read?: string;
+  /** Quick self-check prompts for the day. */
+  checkpoints?: string[];
 }
 
 export interface CaseStudy {

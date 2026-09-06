@@ -16,8 +16,8 @@ export const Route = createFileRoute("/upskill/$topic/quiz")({
     if (!loaderData) {
       return { meta: [{ title: "Quiz not found | HBK Careers" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${loaderData.topic.title} Quiz — 10 to 50 Questions | HBK Careers`;
-    const desc = `Test yourself on ${loaderData.topic.title}. Choose 10 to 50 questions, set marks per question and get an instant score.`;
+    const title = `${loaderData.topic.title} Chapter Test — MCQ | HBK Careers`;
+    const desc = `End-of-chapter MCQ test on ${loaderData.topic.title}. Choose 10 to 50 questions, 1 mark each, and get an instant score.`;
     return {
       meta: [
         { title: title.slice(0, 68) },
@@ -48,7 +48,7 @@ function TopicQuizPage() {
           {topic.emoji} {topic.title}
         </Link>
         <h1 className="font-serif text-3xl md:text-4xl mt-4">
-          {topic.title} — {us("quizTitle", lang)}
+          {topic.title} — {us("quizChapter", lang)}
         </h1>
         <div className="mt-6">
           <UpskillQuiz topic={topic} />
