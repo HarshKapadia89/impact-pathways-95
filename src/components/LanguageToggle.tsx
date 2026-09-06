@@ -1,42 +1,42 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Globe, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-// Cycle order: English → हिन्दी → ગુજરાતી → English
-const ORDER = ["en", "hi", "gu"] as const;
-type Lng = (typeof ORDER)[number];
-
-const LABEL: Record<Lng, string> = {
-  en: "English",
-  hi: "हिन्दी",
-  gu: "ગુજરાતી",
-};
-
-function currentLng(raw: string | undefined): Lng {
-  if (raw?.startsWith("hi")) return "hi";
-  if (raw?.startsWith("gu")) return "gu";
-  return "en";
-}
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { LANGS, LANG_LABEL, toLang } from "@/lib/lang";
 
 export function LanguageToggle() {
   const { i18n } = useTranslation();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const now = currentLng(i18n.language);
-  const nextIdx = (ORDER.indexOf(now) + 1) % ORDER.length;
-  const next = ORDER[nextIdx];
+  const now = toLang(i18n.language);
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={() => i18n.changeLanguage(next)}
-      className="font-medium"
-      title={mounted ? `Switch to ${LABEL[next]}` : undefined}
-      suppressHydrationWarning
-    >
-      <span suppressHydrationWarning>{mounted ? LABEL[next] : ""}</span>
-    </Button>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="font-medium gap-1.5" suppressHydrationWarning>
+          <Globe className="h-4 w-4" />
+          <span suppressHydrationWarning>{mounted ? LANG_LABEL[now] : ""}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start" className="min-w-40">
+        {LANGS.map((l) => (
+          <DropdownMenuItem
+            key={l}
+            onClick={() => i18n.changeLanguage(l)}
+            className="flex items-center justify-between gap-3"
+          >
+            <span>{LANG_LABEL[l]}</span>
+            {mounted && l === now ? <Check className="h-4 w-4" /> : null}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
