@@ -211,6 +211,7 @@ export function generateUpskillCertificate(input: CertificateInput): jsPDF {
   const issuedW = doc.getTextWidth(`${c.issued}: `);
   doc.setFont(FONT_LATIN, "normal");
   doc.text(date, 22 + issuedW, H - 24);
+  doc.setFont(bodyFont(lang), "normal");
   doc.setFontSize(7.5);
   doc.setTextColor(...MUTED);
   const noteLines = doc.splitTextToSize(c.note, 150) as string[];
