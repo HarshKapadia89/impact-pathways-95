@@ -73,6 +73,9 @@ export const Route = createFileRoute("/test/")({
   component: TestIntro,
 });
 
+
+const LEN_LABEL: Record<string, [string, string, string, string]> = {"en": ["Aptitude test length", "questions", "Marks per question", "Total marks"], "hi": ["योग्यता परीक्षा की लंबाई", "प्रश्न", "प्रति प्रश्न अंक", "कुल अंक"], "gu": ["યોગ્યતા ટેસ્ટની લંબાઈ", "પ્રશ્નો", "પ્રતિ પ્રશ્ન ગુણ", "કુલ ગુણ"], "mr": ["अ‍ॅप्टिट्यूड चाचणीची लांबी", "प्रश्न", "प्रति प्रश्न गुण", "एकूण गुण"]};
+
 function TestIntro() {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
@@ -89,6 +92,8 @@ function TestIntro() {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [parentEmail, setParentEmail] = useState("");
+  const [aptCount, setAptCount] = useState(25);
+  const [marksPerQ, setMarksPerQ] = useState(1);
 
   const mobileDigits = mobile.replace(/\D/g, "");
   const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
@@ -117,6 +122,8 @@ function TestIntro() {
         email: email.trim(),
         parent_email: parentEmail.trim() || null,
         vibe: vibe ?? null,
+        aptCount,
+        marksPerQ,
       }),
     );
     navigate({ to: "/test/pay" });
@@ -645,6 +652,52 @@ function TestIntro() {
               </div>
               <p className="mt-2 text-[11px] text-muted-foreground">
                 {tp("langNote", lang)}
+              </p>
+            </div>
+            {/* TEST LENGTH + MARKS */}
+            <div className="mb-5 rounded-xl border border-accent/30 bg-accent/5 p-4">
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <div className="text-xs font-semibold uppercase tracking-widest text-accent">
+                  {LEN_LABEL[lang][0]}
+                </div>
+                <div className="text-sm font-medium">
+                  {aptCount} {LEN_LABEL[lang][1]}
+                </div>
+              </div>
+              <input
+                type="range"
+                min={10}
+                max={50}
+                step={5}
+                value={aptCount}
+                onChange={(e) => setAptCount(Number(e.target.value))}
+                className="mt-3 w-full accent-[var(--primary)]"
+              />
+              <div className="flex justify-between text-[10px] text-muted-foreground">
+                <span>10</span>
+                <span>50</span>
+              </div>
+              <div className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">
+                {LEN_LABEL[lang][2]}
+              </div>
+              <div className="mt-2 flex gap-2">
+                {[1, 2, 5].map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => setMarksPerQ(m)}
+                    className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
+                      marksPerQ === m
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-background border-border hover:bg-muted"
+                    }`}
+                  >
+                    {m}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-2 text-[11px] text-muted-foreground">
+                {LEN_LABEL[lang][3]}: {aptCount * marksPerQ}
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">

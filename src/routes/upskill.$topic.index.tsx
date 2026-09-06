@@ -87,6 +87,15 @@ function TopicPage() {
           </ul>
         </div>
 
+        <Link
+          to="/upskill/$topic/quiz"
+          params={{ topic: topic.slug }}
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-medium hover:opacity-90"
+        >
+          {t("quizCta")}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+
         <h2 className="font-serif text-2xl mt-10">{t("lessons")}</h2>
         <ol className="mt-4 space-y-3">
           {topic.lessons.map((lesson, i) => {

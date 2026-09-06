@@ -45,6 +45,8 @@ interface Meta {
   mobile?: string;
   email?: string;
   parent_email?: string | null;
+  aptCount?: number;
+  marksPerQ?: number;
 }
 
 interface PaymentMeta {
@@ -226,7 +228,11 @@ function TakeTest() {
 
 
   const band = useMemo(() => gradeToBand(meta?.grade), [meta?.grade]);
-  const aptItems = useMemo<AptitudeItem[]>(() => aptitudeItemsForBand(band), [band]);
+  const aptCount = Math.min(50, Math.max(10, meta?.aptCount ?? 25));
+  const aptItems = useMemo<AptitudeItem[]>(
+    () => aptitudeItemsForBand(band).slice(0, aptCount),
+    [band, aptCount],
+  );
 
   const t = T[meta?.language ?? "en"];
   const sections = useMemo(
@@ -432,7 +438,16 @@ function Result({
 }) {
   const [downloading, setDownloading] = useState(false);
   const band = useMemo(() => gradeToBand(meta.grade), [meta.grade]);
+  const marksPerQ = Math.max(1, meta.marksPerQ ?? 1);
   const report = useMemo(() => buildReport(riasec, mi, apt, aptItems, band), [riasec, mi, apt, aptItems, band]);
+  const aptCorrect = useMemo(
+    () => Object.values(report.aptitude).reduce((n, c) => n + c.correct, 0),
+    [report],
+  );
+  const aptTotal = useMemo(
+    () => Object.values(report.aptitude).reduce((n, c) => n + c.total, 0),
+    [report],
+  );
   const recs = useMemo(() => recommendStreamsAccurate(report, 2), [report]);
   const careerRecs = useMemo(() => rankCareerPaths(report, recs, 8), [report, recs]);
   const [reportToken, setReportToken] = useState<string>("");
@@ -578,10 +593,11 @@ function Result({
           <p className="text-sm text-muted-foreground mt-2">
             {meta.name} · Grade {meta.grade || "—"} · Band {band}
           </p>
-          <div className="mt-6 grid sm:grid-cols-3 gap-3">
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <Stat label="RIASEC code" value={report.riasecTop.join("-")} />
             <Stat label="Top intelligence" value={report.miTop[0] ?? "—"} />
             <Stat label="Aptitude" value={`${report.aptitudeOverall}%`} />
+            <Stat label="Marks scored" value={`${aptCorrect * marksPerQ} / ${aptTotal * marksPerQ}`} />
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <button

@@ -4,12 +4,12 @@ import type { Lang } from "@/lib/lang";
 type E = Record<Lang, string>;
 
 export const US: Record<string, E> = {
-  hub: { en: "Skill Studio", gu: "સ્કિલ સ્ટુડિયો", hi: "स्किल स्टूडियो", mr: "स्किल स्टुडिओ" },
+  hub: { en: "LevelUp Lab", gu: "લેવલઅપ લેબ", hi: "लेवलअप लॅब", mr: "लेवलअप लॅब" },
   hubTitle: {
-    en: "Skill Studio",
-    gu: "સ્કિલ સ્ટુડિયો",
-    hi: "स्किल स्टूडियो",
-    mr: "स्किल स्टुडिओ",
+    en: "LevelUp Lab",
+    gu: "લેવલઅપ લેબ",
+    hi: "लेवलअप लॅब",
+    mr: "लेवलअप लॅब",
   },
   hubKicker: {
     en: "Skills school never taught you",
@@ -56,6 +56,25 @@ export const US: Record<string, E> = {
   min: { en: "min", gu: "મિનિટ", hi: "मिनट", mr: "मिनिटे" },
   print: { en: "Print / Save PDF", gu: "પ્રિન્ટ / PDF સાચવો", hi: "प्रिंट / PDF सेव करें", mr: "प्रिंट / PDF जतन करा" },
   badges: { en: "Badges", gu: "બેજ", hi: "बैज", mr: "बॅजेस" },
+  quizTitle: { en: "Scored quiz", gu: "ગુણાંકિત ક્વિઝ", hi: "अंकों वाली क्विज़", mr: "गुणांकित क्विझ" },
+  quizSub: {
+    en: "Pick how many questions and how many marks each question carries, then test yourself.",
+    gu: "કેટલા પ્રશ્નો અને દરેક પ્રશ્નના કેટલા ગુણ, તે પસંદ કરો અને તમારી જાતને ચકાસો.",
+    hi: "कितने प्रश्न और हर प्रश्न के कितने अंक — चुनें और खुद को परखें।",
+    mr: "किती प्रश्न आणि प्रत्येक प्रश्नाला किती गुण ते निवडा आणि स्वतःची चाचणी घ्या.",
+  },
+  quizLength: { en: "Quiz length", gu: "ક્વિઝની લંબાઈ", hi: "क्विज़ की लंबाई", mr: "क्विझची लांबी" },
+  quizQuestions: { en: "questions", gu: "પ્રશ્નો", hi: "प्रश्न", mr: "प्रश्न" },
+  quizMarks: { en: "Marks per question", gu: "પ્રતિ પ્રશ્ન ગુણ", hi: "प्रति प्रश्न अंक", mr: "प्रति प्रश्न गुण" },
+  quizMarksShort: { en: "marks", gu: "ગુણ", hi: "अंक", mr: "गुण" },
+  quizTotal: { en: "Total marks", gu: "કુલ ગુણ", hi: "कुल अंक", mr: "एकूण गुण" },
+  quizStart: { en: "Start quiz", gu: "ક્વિઝ શરૂ કરો", hi: "क्विज़ शुरू करें", mr: "क्विझ सुरू करा" },
+  quizSubmit: { en: "Submit and see marks", gu: "સબમિટ કરો અને ગુણ જુઓ", hi: "जमा करें और अंक देखें", mr: "सबमिट करा आणि गुण पाहा" },
+  quizScore: { en: "Your marks", gu: "તમારા ગુણ", hi: "आपके अंक", mr: "तुमचे गुण" },
+  quizCorrect: { en: "correct", gu: "સાચા", hi: "सही", mr: "बरोबर" },
+  quizRetry: { en: "Try a new set", gu: "નવો સેટ અજમાવો", hi: "नया सेट आज़माएँ", mr: "नवीन संच वापरा" },
+  quizCta: { en: "Take a scored quiz", gu: "ગુણાંકિત ક્વિઝ આપો", hi: "अंकों वाली क्विज़ दें", mr: "गुणांकित क्विझ द्या" },
+  quizMixed: { en: "Mixed quiz — all topics", gu: "મિશ્ર ક્વિઝ — બધા વિષયો", hi: "मिश्रित क्विज़ — सभी विषय", mr: "मिश्र क्विझ — सर्व विषय" },
   noResults: { en: "No lessons matched. Try another word.", gu: "કોઈ પાઠ મળ્યો નથી. બીજો શબ્દ અજમાવો.", hi: "कोई पाठ नहीं मिला। दूसरा शब्द आज़माएँ।", mr: "कोणताही धडा सापडला नाही. दुसरा शब्द वापरा." },
   englishNote: {
     en: "",
