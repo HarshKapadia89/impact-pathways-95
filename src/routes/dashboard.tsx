@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
+import { UpskillProgressCard } from "@/components/UpskillProgressCard";
 import { supabase } from "@/integrations/supabase/client";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
 import {
@@ -176,6 +177,9 @@ function DashboardPage() {
           <p className="text-[11px] text-muted-foreground mt-6">
             Already took the test on another device? Open your shareable report link to restore access.
           </p>
+          <div className="mt-8 text-left">
+            <UpskillProgressCard />
+          </div>
         </section>
       </PublicLayout>
     );
@@ -228,6 +232,10 @@ function DashboardPage() {
             })}
           </div>
         </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-8">
+        <UpskillProgressCard />
       </section>
 
       <section className="max-w-6xl mx-auto px-4 md:px-8 py-10">
