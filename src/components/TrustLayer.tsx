@@ -1,4 +1,4 @@
-import { Lang } from "@/lib/lang";
+import { Lang, translator } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
@@ -99,24 +99,39 @@ export function TrustLayer({ lang }: { lang: Lang }) {
     return () => clearInterval(t);
   }, []);
 
+  const tx = translator(lang);
   const T = {
-    title: lang === "gu" ? "ગુજરાતના વિદ્યાર્થીઓ અને શાળાઓ દ્વારા ભરોસાપાત્ર" : "Trusted by Gujarat students, parents and schools",
-    sub:
-      lang === "gu"
-        ? "વાસ્તવિક સંખ્યાઓ, વાસ્તવિક રિપોર્ટ — કોઈ માર્કેટિંગ ભપકો નહીં."
-        : "Real numbers, real reports — no marketing fluff.",
-    schoolsL: lang === "gu" ? "શાળાઓ ઓનબોર્ડ" : "Schools onboarded",
-    reportsL: lang === "gu" ? "રિપોર્ટ જનરેટ" : "Reports generated",
-    streamsL: lang === "gu" ? "કારકિર્દી પ્રવાહો" : "Career streams covered",
-    profL: lang === "gu" ? "વ્યવસાય પ્રોફાઇલ" : "Profession profiles",
-    sampleTitle: lang === "gu" ? "નમૂનો રિપોર્ટ જુઓ" : "See a real sample report",
-    sampleSub:
-      lang === "gu"
-        ? "ગ્રેડ-10 વિદ્યાર્થી માટે જનરેટ થયેલો વાસ્તવિક 20-પાનાનો PDF."
-        : "An actual 20-page PDF generated for a Grade-10 student profile.",
-    view: lang === "gu" ? "PDF જુઓ" : "View PDF",
-    download: lang === "gu" ? "ડાઉનલોડ કરો" : "Download",
-    featured: lang === "gu" ? "પ્રસિદ્ધિ" : "Recognition",
+    title: tx({
+      en: "Trusted by Gujarat students, parents and schools",
+      gu: "ગુજરાતના વિદ્યાર્થીઓ, વાલીઓ અને શાળાઓનો ભરોસો",
+      hi: "गुजरात के छात्रों, अभिभावकों और स्कूलों का भरोसा",
+      mr: "गुजरातमधील विद्यार्थी, पालक आणि शाळांचा विश्वास",
+    }),
+    sub: tx({
+      en: "Real numbers, real reports — no marketing fluff.",
+      gu: "વાસ્તવિક આંકડા, વાસ્તવિક રિપોર્ટ — કોઈ માર્કેટિંગ ભપકો નહીં.",
+      hi: "असली आँकड़े, असली रिपोर्ट — कोई मार्केटिंग दिखावा नहीं।",
+      mr: "खरे आकडे, खरे अहवाल — कोणताही मार्केटिंग देखावा नाही.",
+    }),
+    schoolsL: tx({ en: "Schools onboarded", gu: "જોડાયેલી શાળાઓ", hi: "जुड़े हुए स्कूल", mr: "जोडलेल्या शाळा" }),
+    reportsL: tx({ en: "Reports generated", gu: "તૈયાર થયેલા રિપોર્ટ", hi: "बनाई गई रिपोर्ट", mr: "तयार झालेले अहवाल" }),
+    streamsL: tx({ en: "Career streams covered", gu: "આવરી લેવાયેલા કારકિર્દી પ્રવાહો", hi: "शामिल करियर स्ट्रीम", mr: "समाविष्ट करिअर प्रवाह" }),
+    profL: tx({ en: "Profession profiles", gu: "વ્યવસાય પ્રોફાઇલ", hi: "पेशा प्रोफ़ाइल", mr: "व्यवसाय प्रोफाइल" }),
+    sampleTitle: tx({
+      en: "See a real sample report",
+      gu: "વાસ્તવિક નમૂનો રિપોર્ટ જુઓ",
+      hi: "असली नमूना रिपोर्ट देखें",
+      mr: "खरा नमुना अहवाल पाहा",
+    }),
+    sampleSub: tx({
+      en: "An actual 20-page PDF generated for a Grade-10 student profile.",
+      gu: "ધોરણ-10ના વિદ્યાર્થી માટે તૈયાર થયેલો વાસ્તવિક 20-પાનાનો PDF.",
+      hi: "कक्षा-10 के छात्र के लिए बनी वास्तविक 20-पृष्ठ PDF।",
+      mr: "इयत्ता-10 च्या विद्यार्थ्यासाठी तयार केलेली प्रत्यक्ष 20-पानी PDF.",
+    }),
+    view: tx({ en: "View PDF", gu: "PDF જુઓ", hi: "PDF देखें", mr: "PDF पाहा" }),
+    download: tx({ en: "Download", gu: "ડાઉનલોડ કરો", hi: "डाउनलोड करें", mr: "डाउनलोड करा" }),
+    featured: tx({ en: "Recognition", gu: "માન્યતા", hi: "मान्यता", mr: "मान्यता" }),
     media: ["Times of India", "NEP 2020 Aligned", "Gujarat State Board", "NCERT Aligned"],
   };
 
