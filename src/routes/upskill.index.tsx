@@ -18,13 +18,13 @@ import { Search, ArrowRight, Clock, Sparkles, CheckCircle2, Trophy } from "lucid
 export const Route = createFileRoute("/upskill/")({
   head: () => ({
     meta: [
-      { title: "Upskilling Hub — Time Management, Communication & Life Skills | HBK Careers" },
+      { title: "Skill Studio — Time Management, Communication & Life Skills | HBK Careers" },
       {
         name: "description",
         content:
           "15 skill tracks and 150 free lessons for Indian students: time management, personality development, communication, money skills, AI literacy and more — each with a 7-day plan, notes and real case studies.",
       },
-      { property: "og:title", content: "Upskilling Hub for Students | HBK Careers" },
+      { property: "og:title", content: "Skill Studio for Students | HBK Careers" },
       {
         property: "og:description",
         content: "150 free lessons on life and career skills, each with a 7-day study plan, notes and global case studies.",
@@ -64,7 +64,7 @@ function UpskillHub() {
       <section className="max-w-6xl mx-auto px-4 md:px-8 pt-12 pb-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent font-medium">
           <Sparkles className="h-3.5 w-3.5" />
-          {t("hubTitle")}
+          {t("hubKicker")}
         </div>
         <h1 className="font-serif text-4xl md:text-5xl mt-4 leading-tight">{t("hubTitle")}</h1>
         <p className="mt-4 text-muted-foreground max-w-3xl">{t("hubSub")}</p>

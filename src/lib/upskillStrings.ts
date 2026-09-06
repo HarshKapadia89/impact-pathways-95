@@ -4,12 +4,18 @@ import type { Lang } from "@/lib/lang";
 type E = Record<Lang, string>;
 
 export const US: Record<string, E> = {
-  hub: { en: "Upskill", gu: "અપસ્કિલ", hi: "अपस्किल", mr: "अपस्किल" },
+  hub: { en: "Skill Studio", gu: "સ્કિલ સ્ટુડિયો", hi: "स्किल स्टूडियो", mr: "स्किल स्टुडिओ" },
   hubTitle: {
-    en: "Upskilling Hub",
-    gu: "અપસ્કિલિંગ હબ",
-    hi: "अपस्किलिंग हब",
-    mr: "अपस्किलिंग हब",
+    en: "Skill Studio",
+    gu: "સ્કિલ સ્ટુડિયો",
+    hi: "स्किल स्टूडियो",
+    mr: "स्किल स्टुडिओ",
+  },
+  hubKicker: {
+    en: "Skills school never taught you",
+    gu: "શાળાએ ક્યારેય ન શીખવેલી કુશળતા",
+    hi: "जो स्कूल ने कभी नहीं सिखाया",
+    mr: "शाळेने कधीच न शिकवलेली कौशल्ये",
   },
   hubSub: {
     en: "Life and career skills your syllabus never taught you — time management, personality, communication, money sense, AI and more. Short lessons with a 7-day plan, notes and real global stories.",
