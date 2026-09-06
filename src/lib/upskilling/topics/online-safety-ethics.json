@@ -1,0 +1,1006 @@
+{
+ "slug": "online-safety-ethics",
+ "title": "Online Safety, Digital Citizenship & Ethics",
+ "emoji": "🛡️",
+ "tagline": "Be smart, safe, and kind online!",
+ "intro": "Hello, young digital explorers! We spend so much time online these days – for studies, fun, and connecting with friends. Just like we learn road safety, it's super important to learn 'online safety' too. This lesson will help you understand how to navigate the digital world responsibly, protect yourself, and become a great digital citizen.",
+ "outcomes": [
+  "By the end of this lesson, you can identify common online risks and scams.",
+  "By the end of this lesson, you can apply strategies to protect your personal information and privacy online.",
+  "By the end of this lesson, you can practice ethical behaviour and good manners in digital spaces.",
+  "By the end of this lesson, you can recognize the importance of digital well-being and balanced screen time.",
+  "By the end of this lesson, you can understand how to report cyberbullying or inappropriate content."
+ ],
+ "lessons": [
+  {
+   "slug": "your-digital-footprint",
+   "title": "Your digital footprint",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Your digital footprint is like a permanent tattoo of everything you do online. Understanding it helps you control your online image and protect your future opportunities, from college admissions to job interviews.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is it?",
+     "task": "Watch a short video explaining digital footprint. (e.g., Common Sense Media on YouTube)"
+    },
+    {
+     "day": 2,
+     "focus": "Search yourself",
+     "task": "Ask a parent to search your name online. Note what appears."
+    },
+    {
+     "day": 3,
+     "focus": "Social media check",
+     "task": "Review your social media profiles (if any) from a public perspective. What would a stranger see?"
+    },
+    {
+     "day": 4,
+     "focus": "Email history",
+     "task": "Check your old email IDs. Are there any dormant accounts you should close?"
+    },
+    {
+     "day": 5,
+     "focus": "Privacy settings",
+     "task": "Spend 15 minutes checking privacy settings on one social media app."
+    },
+    {
+     "day": 6,
+     "focus": "Future self",
+     "task": "Write down how you want your digital footprint to look in 5 years."
+    },
+    {
+     "day": 7,
+     "focus": "Clean-up plan",
+     "task": "Make a small list of one or two things you can do to improve your digital footprint."
+    }
+   ],
+   "notes": [
+    "Every click, post, photo, and comment you make online creates your digital footprint.",
+    "Your digital footprint is largely permanent and can be seen by colleges, employers, and others.",
+    "There are two types: active (what you share) and passive (data collected about you).",
+    "Think before you post: 'Would I be okay with my parents or future boss seeing this?'",
+    "Regularly review your privacy settings on all online platforms.",
+    "Untag yourself from photos you don't want associated with you.",
+    "Be careful about sharing personal information like your full address or school name.",
+    "A positive digital footprint can open doors for you in academics and career."
+   ],
+   "caseStudies": [
+    {
+     "title": "The College Admissions Scandal",
+     "who": "Students applying to Harvard",
+     "country": "USA",
+     "story": "In 2017, Harvard University revoked admissions offers to at least ten incoming freshmen after discovering offensive memes and posts they had shared in a private Facebook group. These posts, though in a private group, were eventually brought to the university's attention.",
+     "takeaway": "Even seemingly private online activities can have serious consequences for your future opportunities."
+    },
+    {
+     "title": "The Delhi Public School Cyberbullying Case",
+     "who": "Students of a prominent Delhi school",
+     "country": "India",
+     "story": "In 2020, a private Instagram group chat involving students from a Delhi Public School came to light. The chat contained highly offensive and misogynistic content targeted at female students. The incident led to police complaints, immense public outrage, and disciplinary action against the involved students, severely impacting their reputations and academic standing.",
+     "takeaway": "Your online actions, even in 'private' groups, can spread widely and cause real harm, affecting your reputation and legal standing."
+    }
+   ],
+   "practice": "Google your own name (and common variations) in incognito mode. See what information is publicly available about you. Then, check your main social media profile and review its privacy settings, ensuring only people you trust can see your posts.",
+   "quiz": [
+    {
+     "q": "What is the difference between an active and a passive digital footprint?",
+     "a": "An active digital footprint is data you intentionally share (posts, comments). A passive digital footprint is data collected about you without your direct input (website cookies, browsing history)."
+    },
+    {
+     "q": "Why is it important to think twice before posting something online?",
+     "a": "Because once something is online, it's very difficult to remove completely, and it can be seen by anyone, including future colleges or employers, impacting your reputation."
+    },
+    {
+     "q": "Name one tool you can use to check your own digital footprint.",
+     "a": "Searching your name on Google or other search engines is a good starting point."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Common Sense Media - Digital Footprint",
+     "url": "https://www.commonsensemedia.org/digital-footprint"
+    },
+    {
+     "label": "NCERT Digital Citizenship Manual (extracts)",
+     "url": "https://ncert.nic.in/pdf/publication/otherbooks/DigitalCitizenship.pdf"
+    },
+    {
+     "label": "Khan Academy - Digital Footprint Basics",
+     "url": "https://www.khanacademy.org/computing/digital-citizenship/digital-footprint"
+    }
+   ]
+  },
+  {
+   "slug": "passwords-and-account-security",
+   "title": "Passwords and account security",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Strong passwords and smart account security are your first line of defence against online theft and identity fraud. Protecting your accounts means protecting your personal information, money, and digital life.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Password strength",
+     "task": "Learn about the characteristics of a strong password (length, mix of characters)."
+    },
+    {
+     "day": 2,
+     "focus": "Common mistakes",
+     "task": "Identify common weak passwords and why they are easily guessed."
+    },
+    {
+     "day": 3,
+     "focus": "Password manager",
+     "task": "Explore what a password manager is and how it works (e.g., LastPass, Bitwarden)."
+    },
+    {
+     "day": 4,
+     "focus": "Two-Factor Authentication (2FA)",
+     "task": "Understand what 2FA is and why it's crucial for security."
+    },
+    {
+     "day": 5,
+     "focus": "Checking for breaches",
+     "task": "Learn how to check if your email has been part of a data breach (e.g., Have I Been Pwned?)."
+    },
+    {
+     "day": 6,
+     "focus": "Security updates",
+     "task": "Understand why keeping your software and apps updated is important for security."
+    },
+    {
+     "day": 7,
+     "focus": "Creating a plan",
+     "task": "Identify 3-5 accounts you use most and plan to update their passwords and enable 2FA."
+    }
+   ],
+   "notes": [
+    "A strong password should be at least 12 characters long and include a mix of uppercase letters, lowercase letters, numbers, and symbols.",
+    "Avoid using personal information like your name, birthdate, or school name in passwords.",
+    "Never use the same password for multiple accounts – if one account is compromised, they all are.",
+    "Consider using a reputable password manager to generate and store strong, unique passwords securely.",
+    "Enable Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA) on all important accounts for an extra layer of security.",
+    "Be wary of phishing attempts (fake emails/messages) asking for your password or personal details.",
+    "Regularly update your operating system, web browser, and all applications to patch security vulnerabilities.",
+    "If you suspect your account is compromised, change your password immediately and review recent activity."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Equifax Data Breach",
+     "who": "Equifax (credit reporting agency)",
+     "country": "USA",
+     "story": "In 2017, Equifax suffered a massive data breach due to a vulnerability in their software, affecting the personal information of 147 million people, including names, birthdates, addresses, and Social Security Numbers. This allowed criminals to potentially open new accounts or commit identity theft.",
+     "takeaway": "Even large companies can be vulnerable; it highlights the need for individuals to secure their own accounts and data where possible, and for companies to maintain robust security."
+    },
+    {
+     "title": "The Microsoft account hacks",
+     "who": "Microsoft users globally",
+     "country": "Global",
+     "story": "Reports often emerge of Microsoft accounts being compromised due to weak passwords, phishing attacks, or recycled passwords from other data breaches. In some instances, hackers gained access to emails, cloud storage (OneDrive), and even financial information linked to the accounts. Microsoft continually urges users to enable 2FA.",
+     "takeaway": "Using strong, unique passwords and enabling Two-Factor Authentication are critical steps to protect your personal digital accounts from hackers."
+    }
+   ],
+   "practice": "Pick your two most important online accounts (e.g., email and one social media). Change their passwords to something very strong and unique (at least 12 characters, mixed case, numbers, symbols). Then, enable Two-Factor Authentication (2FA) on both if you haven't already. (You might need a parent's help for this step).",
+   "quiz": [
+    {
+     "q": "What is the minimum recommended length for a strong password?",
+     "a": "At least 12 characters, ideally more."
+    },
+    {
+     "q": "Why should you use Two-Factor Authentication (2FA)?",
+     "a": "2FA adds an extra layer of security, requiring a second verification method (like a code from your phone) even if someone has your password, making it much harder for hackers to access your account."
+    },
+    {
+     "q": "What is a 'phishing' attempt?",
+     "a": "A phishing attempt is a deceptive message, usually an email or text, designed to trick you into revealing sensitive information like passwords or bank details by impersonating a trustworthy entity."
+    }
+   ],
+   "resources": [
+    {
+     "label": "CyberDost (MHA) - Password Security",
+     "url": "https://cyberdost.gov.in/passwords.html"
+    },
+    {
+     "label": "Google Safety Center - Password Protection",
+     "url": "https://safety.google/security/"
+    },
+    {
+     "label": "NIST - Digital Identity Guidelines (SP 800-63B, section 5.1.1.2)",
+     "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "privacy-settings-and-data-sharing",
+   "title": "Privacy settings and data sharing",
+   "minutes": 30,
+   "level": "Builder",
+   "why": "Understanding privacy settings and data sharing lets you decide who sees your information and how companies use it. This helps you protect your personal life, prevent unwanted advertising, and maintain control over your digital identity.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is data privacy?",
+     "task": "Watch a video explaining why personal data is valuable and how companies use it."
+    },
+    {
+     "day": 2,
+     "focus": "App permissions",
+     "task": "Review permissions for 2-3 apps on your phone. Do they need access to your camera, microphone, location?"
+    },
+    {
+     "day": 3,
+     "focus": "Social media privacy",
+     "task": "Explore privacy settings on your primary social media platform (e.g., Instagram, Snapchat, Facebook)."
+    },
+    {
+     "day": 4,
+     "focus": "Browser privacy",
+     "task": "Learn about browser privacy settings and how to clear cookies and browsing history."
+    },
+    {
+     "day": 5,
+     "focus": "Location sharing",
+     "task": "Check which apps or services have access to your location data."
+    },
+    {
+     "day": 6,
+     "focus": "Stronger passwords",
+     "task": "Change passwords for social media accounts to make them stronger."
+    },
+    {
+     "day": 7,
+     "focus": "Personal policy",
+     "task": "Write down 2-3 personal rules for sharing information online."
+    }
+   ],
+   "notes": [
+    "Your personal data (name, age, location, interests, photos) is valuable to companies for advertising and other purposes.",
+    "Regularly review and adjust privacy settings on social media, apps, and websites to control who sees your content.",
+    "Be cautious about granting apps excessive permissions, such as access to your microphone, camera, or location, if they don't truly need them.",
+    "Before clicking 'Accept All Cookies,' understand what data you're allowing websites to collect about your browsing habits.",
+    "Think twice before sharing very personal details online, even with friends; privacy settings can change or be misunderstood.",
+    "Consider using a VPN (Virtual Private Network) for added privacy, especially on public Wi-Fi.",
+    "Learn about data retention policies: how long companies keep your data, even after you delete an account.",
+    "In India, data protection laws like the Digital Personal Data Protection Act, 2023, aim to give individuals more control over their data."
+   ],
+   "caseStudies": [
+    {
+     "title": "Cambridge Analytica Data Scandal",
+     "who": "Facebook users & Cambridge Analytica",
+     "country": "USA / UK",
+     "story": "In 2018, it was revealed that Cambridge Analytica, a political consulting firm, harvested personal data from millions of Facebook profiles without consent. This data was then allegedly used to build psychological profiles of voters and influence political campaigns, leading to widespread public distrust and government investigations.",
+     "takeaway": "Your data, even indirectly collected, can be used in ways you never intended, highlighting the importance of understanding data sharing and privacy settings."
+    },
+    {
+     "title": "The 'Truecaller' Controversy in India",
+     "who": "Indian users of Truecaller",
+     "country": "India",
+     "story": "Truecaller, a popular caller ID app, faced scrutiny in India and globally regarding its privacy practices. Concerns arose about how it built its database by uploading users' entire phonebooks without explicit consent from all contacts, potentially exposing millions of private phone numbers. While Truecaller has since updated its policies, it highlighted how third-party apps can share your data.",
+     "takeaway": "Always review an app's privacy policy and permissions before installing, especially apps that ask for access to your contacts or other sensitive data."
+    }
+   ],
+   "practice": "Go to the privacy settings of your most used social media app (e.g., Instagram, Snapchat) and spend 15-20 minutes carefully reviewing each option. Adjust them to your comfort level, ensuring you understand who can see your posts, stories, and personal information.",
+   "quiz": [
+    {
+     "q": "Why is it important to review app permissions regularly?",
+     "a": "Reviewing app permissions ensures that apps only have access to the data they genuinely need, preventing unnecessary sharing of your location, contacts, or other sensitive information."
+    },
+    {
+     "q": "What is the primary purpose of privacy settings on social media?",
+     "a": "Privacy settings on social media allow you to control who can see your posts, profile information, and interact with you, thus managing your online visibility and safety."
+    },
+    {
+     "q": "What is one way companies use your personal data?",
+     "a": "Companies often use your personal data to tailor advertisements to your interests, improve their services, or for market research."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO - Protecting your privacy online",
+     "url": "https://www.who.int/news-room/feature-stories/detail/protecting-your-privacy-online"
+    },
+    {
+     "label": "RBI - Basic Data Privacy Tips",
+     "url": "https://rbi.org.in/Scripts/FAQView.aspx?Id=143"
+    },
+    {
+     "label": "Common Sense Media - Privacy and Internet Safety",
+     "url": "https://www.commonsensemedia.org/privacy-and-internet-safety"
+    }
+   ]
+  },
+  {
+   "slug": "spotting-misinformation-and-deepfakes",
+   "title": "Spotting misinformation and deepfakes",
+   "minutes": 45,
+   "level": "Advanced",
+   "why": "In today's digital world, misinformation and deepfakes can mislead you, influence your opinions, and even cause harm. Learning to spot them helps you make informed decisions and think critically, rather than being fooled by fake news or images.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "What is misinformation?",
+     "task": "Learn definitions of misinformation, disinformation, and malinformation with examples."
+    },
+    {
+     "day": 2,
+     "focus": "Types of fake news",
+     "task": "Identify common types of misleading content (clickbait, satire, manipulated content)."
+    },
+    {
+     "day": 3,
+     "focus": "Fact-checking tools",
+     "task": "Explore reputable fact-checking websites (e.g., Alt News, Boom Live, Snopes)."
+    },
+    {
+     "day": 4,
+     "focus": "Source reliability",
+     "task": "Practice evaluating news sources using criteria like author, date, and bias."
+    },
+    {
+     "day": 5,
+     "focus": "Introduction to Deepfakes",
+     "task": "Watch a video demonstrating what a deepfake is and how it works."
+    },
+    {
+     "day": 6,
+     "focus": "Spotting Deepfakes",
+     "task": "Learn visual and audio cues that can indicate a deepfake (e.g., unnatural blinking, strange voice). "
+    },
+    {
+     "day": 7,
+     "focus": "Critical consumption",
+     "task": "Develop a personal checklist for evaluating news and media before sharing."
+    }
+   ],
+   "notes": [
+    "Misinformation is false or inaccurate information, often shared without intent to harm; disinformation is intentionally misleading.",
+    "Deepfakes are highly realistic forged videos or audio created using AI, making it seem like someone said or did something they didn't.",
+    "Always check the source of information: Is it a reputable news organization, or an unknown social media account?",
+    "Look for multiple reliable sources confirming the same story before believing it.",
+    "Be suspicious of headlines that are highly emotional, sensational, or seem too good/bad to be true.",
+    "Reverse image search can help verify if a picture is old, out of context, or digitally altered.",
+    "For deepfakes, look for inconsistencies: unnatural facial movements, strange lighting, pixelation, or unusual voice tones.",
+    "Think critically: 'Who created this? Why? What evidence supports it?' before sharing anything online."
+   ],
+   "caseStudies": [
+    {
+     "title": "COVID-19 Misinformation 'Infodemic'",
+     "who": "WHO & global citizens",
+     "country": "Global",
+     "story": "During the COVID-19 pandemic, the World Health Organization (WHO) identified an 'infodemic' of misinformation spreading rapidly, leading to false cures, conspiracy theories, and public distrust in health authorities. This led to serious public health consequences, including vaccine hesitancy and adherence to dangerous unproven remedies.",
+     "takeaway": "Misinformation, especially during crises, can have real-world, dangerous impacts on public health and safety, making critical evaluation essential."
+    },
+    {
+     "title": "Deepfake of a Bollywood Actor",
+     "who": "Rashmika Mandanna (actress)",
+     "country": "India",
+     "story": "In 2023, a deepfake video of popular South Indian actress Rashmika Mandanna went viral, showing her in compromising clothing. The video, expertly manipulated using AI, caused significant distress to the actress and highlighted the growing threat of non-consensual deepfake pornography and identity abuse in India.",
+     "takeaway": "Deepfakes can be used to harm reputations, spread false narratives, and even facilitate harassment, requiring careful scrutiny of all digital media."
+    }
+   ],
+   "practice": "Find a news article or social media post that seems unusual or highly emotional. Use a fact-checking website (like Alt News or Boom Live for India, or Snopes globally) to verify its claims. If there's an image or video, try a reverse image/video search (e.g., Google Images, TinEye) to check its origin and authenticity.",
+   "quiz": [
+    {
+     "q": "What is the main difference between misinformation and disinformation?",
+     "a": "Misinformation is false information spread unintentionally, while disinformation is false information deliberately created and spread to deceive or cause harm."
+    },
+    {
+     "q": "Name two visual cues that might indicate a video is a deepfake.",
+     "a": "Unnatural or robotic facial expressions, lack of blinking, inconsistent lighting, or strange distortions around the edges of the face are common cues."
+    },
+    {
+     "q": "What is the first step you should take when you see a suspicious news headline?",
+     "a": "The first step is to check the source of the information and look for independent verification from multiple reputable news outlets."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO - Tackling Infodemic",
+     "url": "https://www.who.int/teams/risk-communication/infodemic-management"
+    },
+    {
+     "label": "Alt News (Indian Fact-checker)",
+     "url": "https://www.altnews.in/"
+    },
+    {
+     "label": "TED-Ed - How to spot fake news",
+     "url": "https://ed.ted.com/lessons/how-to-spot-fake-news-joanna-stern"
+    }
+   ]
+  },
+  {
+   "slug": "cyberbullying-prevention-and-response",
+   "title": "Cyberbullying: prevention and response",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Cyberbullying can hurt deeply and affect your confidence and well-being. Knowing how to prevent it and respond safely empowers you to protect yourself and others, ensuring a positive and respectful online environment for everyone.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Defining Cyberbullying",
+     "task": "Understand what cyberbullying is and its different forms (harassment, exclusion, impersonation)."
+    },
+    {
+     "day": 2,
+     "focus": "Impact of cyberbullying",
+     "task": "Learn about the emotional and psychological effects of cyberbullying on victims."
+    },
+    {
+     "day": 3,
+     "focus": "Prevention strategies",
+     "task": "Discuss how to maintain online privacy and think before posting to avoid being a target."
+    },
+    {
+     "day": 4,
+     "focus": "What to do if bullied",
+     "task": "Learn the 'Stop, Block, Tell' approach (don't respond, block the bully, tell a trusted adult)."
+    },
+    {
+     "day": 5,
+     "focus": "Helping others",
+     "task": "Understand your role as a bystander and how to support a friend who is being cyberbullied."
+    },
+    {
+     "day": 6,
+     "focus": "Reporting options",
+     "task": "Learn how to use reporting features on social media platforms and school reporting systems."
+    },
+    {
+     "day": 7,
+     "focus": "Online kindness",
+     "task": "Commit to one act of kindness or positive interaction online this week."
+    }
+   ],
+   "notes": [
+    "Cyberbullying is bullying that takes place over digital devices like cell phones, computers, and tablets.",
+    "It can include sending mean messages, spreading rumors, sharing embarrassing photos, or excluding someone online.",
+    "Never respond to cyberbullying; engaging often makes the situation worse.",
+    "Block the cyberbully immediately on all platforms to prevent further contact.",
+    "Save evidence (screenshots, messages) of cyberbullying; this is crucial for reporting.",
+    "Always tell a trusted adult – a parent, teacher, counsellor – if you or a friend are being cyberbullied.",
+    "Use the reporting tools available on social media platforms to report abusive content or users.",
+    "Be an Upstander, not a Bystander: Speak up or get help if you see someone else being cyberbullied."
+   ],
+   "caseStudies": [
+    {
+     "title": "Megan Meier Cyberbullying Case",
+     "who": "Megan Meier (teenager)",
+     "country": "USA",
+     "story": "In 2006, 13-year-old Megan Meier took her own life after being cyberbullied on MySpace by a fake online persona created by an adult neighbor and her daughter. The case brought widespread attention to the devastating consequences of online harassment and led to legal actions and awareness campaigns.",
+     "takeaway": "Cyberbullying has severe emotional consequences, and adults can also be perpetrators; it's crucial to report any form of online harassment immediately."
+    },
+    {
+     "title": "Suicide due to Blackmailing in Chennai",
+     "who": "Medical student in Chennai",
+     "country": "India",
+     "story": "In 2020, a medical student in Chennai died by suicide after allegedly being cyberbullied and blackmailed by unknown individuals who threatened to publish manipulated images and personal information online if she didn't pay money. This tragic incident highlighted the rise of online extortion and its severe impact, especially on young individuals in India.",
+     "takeaway": "Cyberbullying can involve blackmail and financial extortion, making it vital to never share personal or compromising information online and to seek help immediately if threatened."
+    }
+   ],
+   "practice": "Identify the 'Report' or 'Block' feature on your two most used social media apps. Practice (without actually reporting/blocking anyone) navigating to these options so you know exactly what to do if you ever need to use them. Discuss with a trusted adult who you would go to if you or a friend faced cyberbullying.",
+   "quiz": [
+    {
+     "q": "What is the first thing you should do if you are being cyberbullied?",
+     "a": "The first thing you should do is stop engaging with the cyberbully and block them on all platforms."
+    },
+    {
+     "q": "Why is it important to save evidence of cyberbullying?",
+     "a": "Saving evidence (like screenshots) provides proof of the cyberbullying, which is essential for reporting the incident to a trusted adult, school authorities, or even law enforcement."
+    },
+    {
+     "q": "Name one trusted adult you can tell if you or a friend are cyberbullied.",
+     "a": "You can tell a parent, guardian, teacher, school counsellor, or another trusted family member."
+    }
+   ],
+   "resources": [
+    {
+     "label": "CyberDost (MHA) - Cyberbullying",
+     "url": "https://cyberdost.gov.in/cyberbullying.html"
+    },
+    {
+     "label": "StopBullying.gov - Cyberbullying",
+     "url": "https://www.stopbullying.gov/cyberbullying/what-is-it"
+    },
+    {
+     "label": "UNICEF - What is cyberbullying?",
+     "url": "https://www.unicef.org/end-violence/what-is-cyberbullying"
+    }
+   ]
+  },
+  {
+   "slug": "online-scams-targeting-students",
+   "title": "Online scams targeting students",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "In our digital world, knowing about online scams is like having a superpower to protect your money and personal information. Learning to spot these tricks keeps you safe from fraudsters trying to take advantage of young people.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understanding scam types",
+     "task": "Read about common online scams affecting students (e.g., job scams, scholarship scams)."
+    },
+    {
+     "day": 2,
+     "focus": "Phishing detection",
+     "task": "Watch a video on how to identify phishing emails and messages, look for red flags."
+    },
+    {
+     "day": 3,
+     "focus": "UPI & payment scams",
+     "task": "Research how fraudsters use UPI for scams, like 'request money' tricks instead of 'send money'."
+    },
+    {
+     "day": 4,
+     "focus": "Social media scams",
+     "task": "Identify examples of fake giveaways or 'too good to be true' offers on platforms you use."
+    },
+    {
+     "day": 5,
+     "focus": "Creating strong passwords",
+     "task": "Review tips for creating unique and strong passwords and consider using a password manager."
+    },
+    {
+     "day": 6,
+     "focus": "Reporting scams",
+     "task": "Learn how to report an online scam to CyberDost or your bank."
+    },
+    {
+     "day": 7,
+     "focus": "Personal security check",
+     "task": "Review your social media privacy settings and update any weak passwords."
+    }
+   ],
+   "notes": [
+    "Be wary of unsolicited messages or calls asking for personal details like OTPs or bank account numbers.",
+    "Always verify the sender of an email or message, even if it looks legitimate.",
+    "Never click on suspicious links; hover over them first to see the real URL.",
+    "If an offer sounds too good to be true, it probably is a scam.",
+    "Legitimate organizations, banks, or government bodies will never ask for your password or OTP over the phone or email.",
+    "Use strong, unique passwords for all your online accounts and enable two-factor authentication.",
+    "Report any suspicious activity immediately to the concerned platform or cyber authorities.",
+    "Educate your family and friends about common scams to protect them too."
+   ],
+   "caseStudies": [
+    {
+     "title": "The 'Scholarship' Trap",
+     "who": "Students in India",
+     "country": "India",
+     "story": "Many Indian students have been targeted by fake scholarship offers. These scams often ask for a 'processing fee' or bank details to 'transfer the scholarship funds,' but no scholarship ever materializes, and the students lose their money.",
+     "takeaway": "Never pay money to receive a scholarship; legitimate scholarships do not ask for fees."
+    },
+    {
+     "title": "Nigerian Prince Email Scam",
+     "who": "Individuals worldwide",
+     "country": "Nigeria (originating point)",
+     "story": "This classic scam involves an email claiming a large sum of money needs to be transferred out of a country, and the recipient is promised a share if they help by sending a smaller 'advance fee' first. Millions have lost money to variations of this fraud over decades.",
+     "takeaway": "Be skeptical of unsolicited offers promising large sums of money for a small upfront payment."
+    }
+   ],
+   "practice": "Identify three suspicious emails or messages you have received this week (or create a hypothetical one based on common scams) and list the red flags for each. Practice reporting them mentally.",
+   "quiz": [
+    {
+     "q": "What is phishing?",
+     "a": "Phishing is a cyberattack where scammers try to trick you into revealing personal information like passwords or bank details by pretending to be a trustworthy entity, often through fake emails or websites."
+    },
+    {
+     "q": "Why should you never share your OTP (One Time Password)?",
+     "a": "An OTP is a crucial security code that authorizes transactions or account access, and sharing it allows scammers to complete fraudulent activities using your account, like making payments or transferring money."
+    },
+    {
+     "q": "What is one simple way to check if a website link is safe before clicking?",
+     "a": "You can hover your mouse cursor over the link (without clicking) to see the actual URL displayed, which often reveals if it's a legitimate site or a suspicious, misspelled address."
+    }
+   ],
+   "resources": [
+    {
+     "label": "CyberDost (Indian Cyber Crime Coordination Centre)",
+     "url": "https://cybercrime.gov.in/"
+    },
+    {
+     "label": "RBI (Reserve Bank of India) on Financial Awareness",
+     "url": "https://rbi.org.in/Scripts/FS_Awareness.aspx"
+    },
+    {
+     "label": "Common Scams to Avoid (FTC)",
+     "url": "https://consumer.ftc.gov/features/scam-alerts"
+    }
+   ]
+  },
+  {
+   "slug": "screen-time-and-digital-wellbeing",
+   "title": "Screen time and digital wellbeing",
+   "minutes": 40,
+   "level": "Builder",
+   "why": "Managing your screen time is vital for your health and happiness, just like eating well or exercising. Understanding digital wellbeing helps you use technology smartly, preventing eye strain, sleep problems, and even mental stress.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Understanding screen time impact",
+     "task": "Read about how excessive screen time affects physical and mental health (eyes, sleep, posture)."
+    },
+    {
+     "day": 2,
+     "focus": "Identifying digital distractions",
+     "task": "Monitor your own screen time for a day using your phone's built-in tracker or an app."
+    },
+    {
+     "day": 3,
+     "focus": "Setting boundaries",
+     "task": "Research practical tips for reducing screen time and setting 'tech-free' zones or times."
+    },
+    {
+     "day": 4,
+     "focus": "Digital detox benefits",
+     "task": "Watch a TED Talk or read an article on the benefits of taking a break from digital devices."
+    },
+    {
+     "day": 5,
+     "focus": "Blue light and sleep",
+     "task": "Learn about the impact of blue light on sleep and explore settings like 'night mode' on your devices."
+    },
+    {
+     "day": 6,
+     "focus": "Mindful tech use",
+     "task": "Practice mindful technology use by asking 'why am I picking up my phone?' before checking it."
+    },
+    {
+     "day": 7,
+     "focus": "Creating a personal plan",
+     "task": "Develop a personal digital wellbeing plan for the next week, including specific goals for screen time and breaks."
+    }
+   ],
+   "notes": [
+    "Excessive screen time can lead to eye strain, headaches, poor posture, and reduced physical activity.",
+    "Blue light emitted by screens can disrupt your sleep cycle, making it harder to fall asleep.",
+    "Constant digital stimulation can contribute to anxiety, stress, and difficulty concentrating.",
+    "Regularly taking short breaks (e.g., 20-20-20 rule for eyes) can mitigate physical discomfort.",
+    "Set clear boundaries for screen use, like 'no phones at the dinner table' or 'no screens an hour before bed'.",
+    "Use your device's built-in tools to monitor and manage your app usage and screen time.",
+    "Prioritize in-person interactions and outdoor activities over endless scrolling.",
+    "Remember that technology is a tool; learn to control it rather than letting it control you."
+   ],
+   "caseStudies": [
+    {
+     "title": "The 'Facebook Experiment' on Mood",
+     "who": "Researchers at Yale University",
+     "country": "USA",
+     "story": "A study published in the American Journal of Epidemiology in 2017 found that using Facebook extensively was associated with reduced well-being, including lower levels of happiness and life satisfaction.",
+     "takeaway": "Mindless scrolling on social media can negatively impact your mental well-being; use platforms intentionally."
+    },
+    {
+     "title": "Teen Screen Time and Mental Health",
+     "who": "Jean Twenge (Psychologist)",
+     "country": "USA",
+     "story": "Psychologist Jean Twenge's research, notably in her book 'iGen,' highlights a correlation between increased smartphone use among adolescents and a rise in mental health issues like depression and anxiety, emphasizing the importance of balancing digital and real-world interactions.",
+     "takeaway": "Balance your screen time with offline activities to protect your mental health and foster real-world connections."
+    }
+   ],
+   "practice": "Set a timer for 30 minutes. During this time, completely avoid checking your phone or any social media. Focus on a non-digital activity like reading a book, drawing, or talking to someone in person.",
+   "quiz": [
+    {
+     "q": "What is the 20-20-20 rule for eye strain?",
+     "a": "For every 20 minutes spent looking at a screen, you should look at something 20 feet away for 20 seconds to help reduce eye strain."
+    },
+    {
+     "q": "How does blue light from screens affect your sleep?",
+     "a": "Blue light suppresses the production of melatonin, a hormone that helps you sleep, making it harder to fall asleep and disrupting your natural sleep cycle."
+    },
+    {
+     "q": "Name one benefit of a 'digital detox'.",
+     "a": "A digital detox can improve focus, reduce stress and anxiety, enhance sleep quality, and encourage more real-world social interaction."
+    }
+   ],
+   "resources": [
+    {
+     "label": "WHO: Digital Health",
+     "url": "https://www.who.int/health-topics/digital-health"
+    },
+    {
+     "label": "Common Sense Media - Screen Time Tips",
+     "url": "https://www.commonsensemedia.org/screen-time"
+    },
+    {
+     "label": "Harvard Health Blog - Blue light has a dark side",
+     "url": "https://www.health.harvard.edu/staying-healthy/blue-light-has-a-dark-side"
+    }
+   ]
+  },
+  {
+   "slug": "copyright-plagiarism-and-fair-use",
+   "title": "Copyright, plagiarism and fair use",
+   "minutes": 45,
+   "level": "Builder",
+   "why": "Understanding copyright, plagiarism, and fair use is crucial for anyone creating or using content online. It teaches you to respect others' work, protect your own creations, and navigate the digital world ethically and legally, especially for school projects and future careers.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Introduction to copyright",
+     "task": "Read about what copyright is and what types of work it protects (e.g., books, music, art, software)."
+    },
+    {
+     "day": 2,
+     "focus": "Understanding plagiarism",
+     "task": "Learn about different forms of plagiarism and why it's considered unethical in academics and beyond."
+    },
+    {
+     "day": 3,
+     "focus": "Fair use principles",
+     "task": "Explore the concept of 'fair use' and its four factors, focusing on how it applies in educational settings."
+    },
+    {
+     "day": 4,
+     "focus": "Citing sources correctly",
+     "task": "Practice citing a few online sources (e.g., a Wikipedia article, a news report) using a standard citation style (e.g., MLA or APA basics)."
+    },
+    {
+     "day": 5,
+     "focus": "Creative Commons licenses",
+     "task": "Discover Creative Commons licenses as an alternative to full copyright and how to find CC-licensed content."
+    },
+    {
+     "day": 6,
+     "focus": "Protecting your own work",
+     "task": "Think about how you would want your original school projects or creative works to be protected online."
+    },
+    {
+     "day": 7,
+     "focus": "Ethical content creation",
+     "task": "Reflect on how to create content ethically, ensuring all borrowed elements are properly attributed or used within fair use guidelines."
+    }
+   ],
+   "notes": [
+    "Copyright protects original works of authorship like books, music, art, and software from unauthorized use.",
+    "Plagiarism is using someone else's words or ideas without giving them credit, presenting them as your own.",
+    "Always cite your sources, even when paraphrasing, to avoid plagiarism.",
+    "Fair Use allows limited use of copyrighted material without permission for purposes like education, criticism, and news reporting.",
+    "The four factors of Fair Use include purpose and character of use, nature of the copyrighted work, amount used, and effect on the market.",
+    "Creative Commons licenses offer creators a way to allow others to use their work under specific conditions.",
+    "Ignorance of copyright law is not an excuse for infringement.",
+    "When in doubt, always ask for permission or use public domain/royalty-free content."
+   ],
+   "caseStudies": [
+    {
+     "title": "George Harrison's 'My Sweet Lord' Plagiarism Case",
+     "who": "George Harrison (musician)",
+     "country": "UK/USA",
+     "story": "The former Beatle George Harrison was found guilty of 'subconscious plagiarism' for his hit song 'My Sweet Lord,' which was ruled to have substantially copied The Chiffons' earlier song 'He's So Fine.'",
+     "takeaway": "Even accidental or subconscious copying can lead to copyright infringement; always strive for originality."
+    },
+    {
+     "title": "Students Expelled for Plagiarism at Delhi University",
+     "who": "University Students",
+     "country": "India",
+     "story": "Several reports highlight cases where students at top Indian universities like Delhi University have faced severe penalties, including expulsion, for plagiarizing academic papers and dissertations, underscoring the strict stance against academic dishonesty.",
+     "takeaway": "Academic plagiarism has serious consequences, including suspension or expulsion from educational institutions."
+    }
+   ],
+   "practice": "Find an image online that you want to use for a school project. Determine if it's copyrighted, under Creative Commons, or public domain. If copyrighted, explain how you would either ask for permission, use it under fair use (if applicable), or find an alternative royalty-free image.",
+   "quiz": [
+    {
+     "q": "What is the main difference between copyright and plagiarism?",
+     "a": "Copyright is a legal right that protects creators' original works, while plagiarism is an ethical offense of using someone else's work without attribution, regardless of copyright status."
+    },
+    {
+     "q": "Can you use a small part of a copyrighted song in your school video project without permission?",
+     "a": "Possibly, under 'fair use' for educational purposes, but it depends on factors like how much you use, its impact on the original work's market, and whether you transform it."
+    },
+    {
+     "q": "What does a 'Creative Commons Attribution' (CC BY) license mean?",
+     "a": "It means you are free to use, share, and adapt the work, even commercially, as long as you give appropriate credit to the original creator."
+    }
+   ],
+   "resources": [
+    {
+     "label": "NCERT - Plagiarism and Academic Integrity",
+     "url": "https://ncert.nic.in/pdf/publication/monograph/plagiarism_final.pdf"
+    },
+    {
+     "label": "Creative Commons (CC) Licenses Explained",
+     "url": "https://creativecommons.org/licenses/"
+    },
+    {
+     "label": "Purdue OWL - Plagiarism Overview",
+     "url": "https://owl.purdue.edu/owl/research_and_citation/using_research/avoiding_plagiarism/index.html"
+    }
+   ]
+  },
+  {
+   "slug": "ethics-of-ai-and-technology",
+   "title": "Ethics of AI and technology",
+   "minutes": 40,
+   "level": "Advanced",
+   "why": "As AI and technology shape our future, understanding their ethical implications is paramount. It helps you think critically about privacy, bias, and control, preparing you to be a responsible user and even a creator in a world increasingly run by smart machines.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Defining AI ethics",
+     "task": "Read an introduction to the ethical dilemmas posed by Artificial Intelligence (e.g., job displacement, autonomous weapons)."
+    },
+    {
+     "day": 2,
+     "focus": "Bias in AI",
+     "task": "Explore how biases in training data can lead to unfair or discriminatory outcomes in AI systems (e.g., facial recognition)."
+    },
+    {
+     "day": 3,
+     "focus": "Privacy and data security",
+     "task": "Understand the ethical concerns around how AI uses and protects personal data, and the concept of 'surveillance capitalism'."
+    },
+    {
+     "day": 4,
+     "focus": "Accountability and decision-making",
+     "task": "Discuss who is responsible when an AI makes a harmful decision (e.g., self-driving car accident, medical diagnosis)."
+    },
+    {
+     "day": 5,
+     "focus": "The future of work and AI",
+     "task": "Research different perspectives on how AI will impact jobs and societal structures."
+    },
+    {
+     "day": 6,
+     "focus": "AI for good vs. misuse",
+     "task": "Identify examples of AI being used for positive social impact and potential risks of its misuse (e.g., deepfakes)."
+    },
+    {
+     "day": 7,
+     "focus": "Formulating personal principles",
+     "task": "Write down 2-3 ethical principles you believe AI systems should always adhere to."
+    }
+   ],
+   "notes": [
+    "AI ethics addresses the moral implications and societal impact of artificial intelligence systems.",
+    "Algorithmic bias occurs when AI systems reflect human biases present in their training data, leading to unfair results.",
+    "Privacy concerns arise from AI's ability to collect, analyze, and infer sensitive information about individuals.",
+    "Accountability in AI is complex; determining who is responsible for AI's errors or harms is a key challenge.",
+    "AI's impact on employment, requiring new skills and potentially displacing certain jobs, is a major ethical consideration.",
+    "Transparency (explainability) in AI is crucial; understanding how AI makes decisions helps build trust and identify biases.",
+    "The development of autonomous weapons systems raises profound ethical questions about human control and responsibility.",
+    "Ethical AI design should prioritize human well-being, fairness, safety, and respect for individual rights."
+   ],
+   "caseStudies": [
+    {
+     "title": "Amazon's Biased AI Recruiting Tool",
+     "who": "Amazon (company)",
+     "country": "USA",
+     "story": "Amazon developed an AI tool to streamline recruiting, but in 2018, they scrapped it because it showed bias against women. The AI had learned to penalize résumés that included the word 'women's' (as in 'women's chess club') because it was trained on historical data from a male-dominated tech industry.",
+     "takeaway": "AI systems are only as unbiased as the data they are trained on; careful design is essential to prevent discrimination."
+    },
+    {
+     "title": "Aadhaar System's Privacy Concerns",
+     "who": "Government of India / Indian citizens",
+     "country": "India",
+     "story": "India's Aadhaar unique identification system, while aiming to streamline public services, has faced significant ethical debates regarding privacy, data security, and potential for surveillance, leading to court cases and public discussions about balancing utility with individual rights.",
+     "takeaway": "Large-scale data collection by technology systems, even with good intentions, requires robust privacy safeguards and public oversight."
+    }
+   ],
+   "practice": "Watch a short documentary or read an article about a real-world application of AI (e.g., facial recognition, medical AI). Identify at least two ethical concerns raised by this application and suggest a way to mitigate one of them.",
+   "quiz": [
+    {
+     "q": "What is algorithmic bias?",
+     "a": "Algorithmic bias occurs when an AI system produces unfair or discriminatory outcomes because of prejudiced assumptions embedded in its design or training data."
+    },
+    {
+     "q": "Why is transparency important in AI systems?",
+     "a": "Transparency, or explainability, helps users and developers understand how an AI makes decisions, allowing them to identify and correct errors, biases, and ensure accountability."
+    },
+    {
+     "q": "Name one ethical concern related to AI and jobs.",
+     "a": "One major concern is the potential for widespread job displacement as AI automates tasks, requiring societies to adapt and retrain workforces for new roles."
+    }
+   ],
+   "resources": [
+    {
+     "label": "MIT OpenCourseWare - Ethics of AI",
+     "url": "https://ocw.mit.edu/courses/esd-74-the-ethics-of-artificial-intelligence-fall-2020/"
+    },
+    {
+     "label": "AI Ethics - Stanford Encyclopedia of Philosophy",
+     "url": "https://plato.stanford.edu/entries/ai-ethics/"
+    },
+    {
+     "label": "TED Talk: The dark secret at the heart of AI",
+     "url": "https://www.ted.com/talks/joy_buolamwini_the_dark_secret_at_the_heart_of_ai"
+    }
+   ]
+  },
+  {
+   "slug": "being-a-good-digital-citizen",
+   "title": "Being a good digital citizen",
+   "minutes": 35,
+   "level": "Starter",
+   "why": "Being a good digital citizen means you use technology responsibly, respectfully, and safely. It's about building a positive online presence, protecting yourself and others, and contributing constructively to the digital world, just like being a good citizen in your community.",
+   "studyPlan": [
+    {
+     "day": 1,
+     "focus": "Defining digital citizenship",
+     "task": "Read about the core tenets of digital citizenship: respect, educate, protect."
+    },
+    {
+     "day": 2,
+     "focus": "Online etiquette (Netiquette)",
+     "task": "Learn about rules for respectful communication online, including proper language and tone."
+    },
+    {
+     "day": 3,
+     "focus": "Recognizing cyberbullying",
+     "task": "Understand what cyberbullying is, its impact, and how to respond if you witness or experience it."
+    },
+    {
+     "day": 4,
+     "focus": "Privacy management",
+     "task": "Review your privacy settings on social media and other online platforms to control who sees your information."
+    },
+    {
+     "day": 5,
+     "focus": "Critical thinking and fake news",
+     "task": "Practice identifying fake news or misinformation by checking sources and looking for bias."
+    },
+    {
+     "day": 6,
+     "focus": "Leaving a positive digital footprint",
+     "task": "Reflect on your own online presence and consider what kind of digital footprint you want to leave behind."
+    },
+    {
+     "day": 7,
+     "focus": "Promoting positivity",
+     "task": "Identify one action you can take this week to contribute positively to an online community or support a friend online."
+    }
+   ],
+   "notes": [
+    "A good digital citizen is respectful, responsible, and safe in their online interactions.",
+    "Think before you post; once something is online, it's very difficult to remove.",
+    "Respect others' opinions and privacy, even if you disagree with them.",
+    "Never engage in cyberbullying; if you see it, report it and support the victim.",
+    "Use strong, unique passwords and enable two-factor authentication to protect your accounts.",
+    "Be critical of information you find online; verify facts from reputable sources before believing or sharing.",
+    "Manage your digital footprint by being mindful of what you share and your privacy settings.",
+    "Promote a positive and inclusive online environment by being kind and helpful to others."
+   ],
+   "caseStudies": [
+    {
+     "title": "The Dangers of Online Shaming (Monica Lewinsky)",
+     "who": "Monica Lewinsky (Public Figure)",
+     "country": "USA",
+     "story": "Monica Lewinsky became a global target of online shaming and cyberbullying during the late 1990s. Her experience highlights the severe psychological impact of widespread public ridicule and serves as a powerful reminder about empathy and the need for respectful online discourse.",
+     "takeaway": "Consider the human impact of your words online; online shaming can cause severe and lasting harm."
+    },
+    {
+     "title": "Sanjana's Fake News Fight",
+     "who": "Sanjana (Indian teenager)",
+     "country": "India",
+     "story": "Sanjana, a high school student in Mumbai, noticed her family WhatsApp group sharing misleading health remedies. She took the initiative to research reliable sources and politely shared factual information, helping her family members become more critical of forwarded messages.",
+     "takeaway": "Be a fact-checker and respectfully counter misinformation to protect your community."
+    }
+   ],
+   "practice": "Take one minute to critically evaluate a news headline or social media post you see online today. Ask yourself: Is this source credible? Is there any bias? Does it make me feel a strong emotion? Why?",
+   "quiz": [
+    {
+     "q": "What is 'netiquette'?",
+     "a": "Netiquette refers to the rules of polite and respectful behavior when communicating or interacting with others online, similar to etiquette in the real world."
+    },
+    {
+     "q": "Why is it important to think before you post something online?",
+     "a": "Once something is posted online, it can be permanent, widely shared, and difficult to control, potentially impacting your reputation and future opportunities."
+    },
+    {
+     "q": "What does 'digital footprint' mean?",
+     "a": "Your digital footprint is the trail of data you leave behind from your online activities, including websites visited, emails sent, and social media posts, which can be permanent and accessible."
+    }
+   ],
+   "resources": [
+    {
+     "label": "Common Sense Education - Digital Citizenship",
+     "url": "https://www.commonsense.org/education/digital-citizenship"
+    },
+    {
+     "label": "CyberDost (Government of India)",
+     "url": "https://cybercrime.gov.in/Webform/CyberAware.aspx"
+    },
+    {
+     "label": "UNESCO - Global Citizenship Education",
+     "url": "https://www.unesco.org/en/education/global-citizenship"
+    }
+   ]
+  }
+ ]
+}
