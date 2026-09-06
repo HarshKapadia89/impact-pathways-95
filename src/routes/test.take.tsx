@@ -593,7 +593,7 @@ function Result({
           <p className="text-sm text-muted-foreground mt-2">
             {meta.name} · Grade {meta.grade || "—"} · Band {band}
           </p>
-          <div className="mt-6 grid sm:grid-cols-3 gap-3">
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <Stat label="RIASEC code" value={report.riasecTop.join("-")} />
             <Stat label="Top intelligence" value={report.miTop[0] ?? "—"} />
             <Stat label="Aptitude" value={`${report.aptitudeOverall}%`} />
