@@ -53,6 +53,12 @@ interface PaymentMeta {
   paid_at: string;
 }
 
+
+// Marathi question copy is not authored yet — fall back to Hindi (same script), then English.
+function ql(obj: Record<string, string>, lang: string): string {
+  return obj[lang] ?? (lang === "mr" ? obj.hi : undefined) ?? obj.en;
+}
+
 const PAGE_SIZE = 6;
 const DRAFT_KEY = "hbk-test-draft-v1";
 
@@ -332,7 +338,7 @@ function TakeTest() {
                   {page * PAGE_SIZE + idx + 1}.
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm md:text-base text-foreground">{(item.text as Record<string, string>)[meta.language] ?? item.text.en}</p>
+                  <p className="text-sm md:text-base text-foreground">{ql(item.text as Record<string, string>, meta.language)}</p>
 
                   {current.type === "likert" ? (
                     <div className="mt-4 grid grid-cols-5 gap-1.5">
@@ -348,7 +354,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {(o.label as Record<string, string>)[meta.language] ?? o.label.en}
+                            {ql(o.label as Record<string, string>, meta.language)}
                           </button>
                         );
                       })}
@@ -367,7 +373,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {String.fromCharCode(65 + i)}. {(o as Record<string, string>)[meta.language] ?? o.en}
+                            {String.fromCharCode(65 + i)}. {ql(o as unknown as Record<string, string>, meta.language)}
                           </button>
                         );
                       })}
