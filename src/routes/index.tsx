@@ -67,9 +67,9 @@ function HomePage() {
       tone: "indigo" as const,
     },
     {
-      to: "/handbook" as const,
+      to: "/career-library" as const,
       icon: BookOpen,
-      title: t({ en: "Career Handbook", gu: "કારકિર્દી હેન્ડબુક", hi: "करियर हैंडबुक", mr: "करिअर हँडबुक" }),
+      title: t({ en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }),
       desc: t({
         en: "1,600+ professions and 1,900+ top institutes across 48 streams.",
         gu: "48 પ્રવાહોમાં 1,600+ વ્યવસાયો અને 1,900+ ટોચની સંસ્થાઓ.",

@@ -13,16 +13,16 @@ const PROFESSIONS = professionIndex as IndexRow[];
 export const Route = createFileRoute("/career-library")({
   head: () => ({
     meta: [
-      { title: "Career Library — A to Z Careers, Streams & Professions | HBK Careers" },
+      { title: "Career Library — A to Z Careers, Exams & Top Institutes in India | HBK Careers" },
       {
         name: "description",
         content:
-          "Browse 48 career streams and 1,600+ professions from A to Z. Search any career to see the study path, entrance exams, top institutes, salaries and growth ladder.",
+          "India-wide career library: browse 48 streams and 1,600+ professions from A to Z. Search any career to see the study path, entrance exams, top institutes, salaries and growth ladder.",
       },
-      { property: "og:title", content: "Career Library — A to Z Careers | HBK Careers" },
+      { property: "og:title", content: "Career Library — A to Z Careers across India | HBK Careers" },
       {
         property: "og:description",
-        content: "48 streams, 1,600+ professions, entrance exams and top institutes — searchable in one place.",
+        content: "48 streams, 1,600+ professions, 490+ entrance exams and 1,900+ top institutes across India — searchable in one place.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -213,6 +213,14 @@ function CareerLibraryPage() {
             </div>
           )}
         </div>
+
+        <p className="mt-12 text-xs text-muted-foreground max-w-3xl leading-relaxed border-t border-border pt-5">
+          {t4(
+            lang,
+            "© HBK Careers. Compiled in-house from public sources — official regulators and exam bodies including AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC Gujarat and the relevant ministries. Detailed sources are listed at the bottom of every stream page.",
+            "© HBK Careers. અધિકૃત નિયમનકારી અને પરીક્ષા સંસ્થાઓના જાહેર સ્ત્રોતોમાંથી HBK દ્વારા સંકલિત — AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC ગુજરાત અને સંબંધિત મંત્રાલયો. દરેક પ્રવાહ પૃષ્ઠના તળિયે વિગતવાર સ્ત્રોતો સૂચિબદ્ધ છે.",
+          )}
+        </p>
       </section>
     </PublicLayout>
   );

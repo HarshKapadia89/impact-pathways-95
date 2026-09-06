@@ -6,7 +6,7 @@ import {
   GraduationCap,
   Sparkles,
   Brain,
-  BookOpen,
+  
   Menu,
   X,
   Search,
