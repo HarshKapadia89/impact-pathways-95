@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export type Lang = Lang | "mr";
+export type Lang = "en" | "gu" | "hi" | "mr";
 
 export const LANGS: Lang[] = ["en", "gu", "hi", "mr"];
 

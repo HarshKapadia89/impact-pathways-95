@@ -6,7 +6,8 @@
 // Everything here is prose — strings are stored per language.
 // Language fallback: hi → en, gu → en.
 
-export type Lang = Lang;
+export type { Lang } from "@/lib/lang";
+import type { Lang } from "@/lib/lang";
 export type T = Partial<Record<Lang, string>> & { en: string };
 export type TList = Partial<Record<Lang, string[]>> & { en: string[] };
 

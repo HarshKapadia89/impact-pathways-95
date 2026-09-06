@@ -8,7 +8,8 @@
 //           Selection logic in test.take.tsx serves only items matching the
 //           student's grade band — ~24 questions per attempt.
 
-export type Lang = Lang;
+export type { Lang } from "@/lib/lang";
+import type { Lang } from "@/lib/lang";
 export type GradeBand = "6-8" | "9-10" | "11-12";
 export type AptitudeCategory =
   | "Numerical"
