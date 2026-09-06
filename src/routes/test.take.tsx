@@ -1,4 +1,5 @@
 import { Lang } from "@/lib/lang";
+import { MR_ITEM_TEXT, MR_OPTION_TEXT, MR_LIKERT } from "@/lib/psychometricMarathi";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -54,9 +55,13 @@ interface PaymentMeta {
 }
 
 
-// Marathi question copy is not authored yet — fall back to Hindi (same script), then English.
-function ql(obj: Record<string, string>, lang: string): string {
-  return obj[lang] ?? (lang === "mr" ? obj.hi : undefined) ?? obj.en;
+function ql(obj: Record<string, string>, lang: string, mrKey?: string): string {
+  if (lang === "mr") {
+    const m = mrKey ? MR_ITEM_TEXT[mrKey] ?? MR_OPTION_TEXT[mrKey] ?? MR_LIKERT[mrKey] : undefined;
+    if (m) return m;
+    return obj.hi ?? obj.en;
+  }
+  return obj[lang] ?? obj.en;
 }
 
 const PAGE_SIZE = 6;
@@ -338,7 +343,7 @@ function TakeTest() {
                   {page * PAGE_SIZE + idx + 1}.
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm md:text-base text-foreground">{ql(item.text as Record<string, string>, meta.language)}</p>
+                  <p className="text-sm md:text-base text-foreground">{ql(item.text as Record<string, string>, meta.language, item.id)}</p>
 
                   {current.type === "likert" ? (
                     <div className="mt-4 grid grid-cols-5 gap-1.5">
@@ -354,7 +359,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {ql(o.label as Record<string, string>, meta.language)}
+                            {ql(o.label as Record<string, string>, meta.language, String(o.value))}
                           </button>
                         );
                       })}
@@ -373,7 +378,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {String.fromCharCode(65 + i)}. {ql(o as unknown as Record<string, string>, meta.language)}
+                            {String.fromCharCode(65 + i)}. {ql(o as unknown as Record<string, string>, meta.language, `${item.id}::${i}`)}
                           </button>
                         );
                       })}

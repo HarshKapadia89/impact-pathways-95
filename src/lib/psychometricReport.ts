@@ -102,8 +102,8 @@ function safe(text: string): string {
 
 export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const { name, grade, age, report } = input;
-  // Marathi shares the Devanagari script with Hindi; report copy falls back to Hindi.
-  const language = input.language === "mr" ? "hi" : input.language;
+  // Marathi shares the Devanagari script with Hindi (same embedded font).
+  const language = input.language;
   const t: ReportStrings = getReportStrings(language);
   const recommendedStreams = recommendStreamsAccurate(report, 2);
   const topCareers = rankCareerPaths(report, recommendedStreams, 8);
@@ -119,7 +119,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // possible. The simplest reliable approach: in Gujarati mode set both the
   // font and rely on jsPDF's per-call setFont — every text() call below uses
   // font(weight) which auto-picks based on string content.
-  const PRIMARY_FONT = language === "gu" ? FONT_GU : language === "hi" ? FONT_HI : FONT_LATIN;
+  const PRIMARY_FONT = language === "gu" ? FONT_GU : (language === "hi" || language === "mr") ? FONT_HI : FONT_LATIN;
 
   function font(weight: "normal" | "bold" = "normal", forceLatin = false) {
     doc.setFont(forceLatin ? FONT_LATIN : PRIMARY_FONT, weight);
@@ -145,7 +145,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // digits render cleanly.
   function smartFont(text: string, weight: "normal" | "bold") {
     if (language === "gu" && hasGu(text)) doc.setFont(FONT_GU, weight);
-    else if (language === "hi" && hasHi(text)) doc.setFont(FONT_HI, weight);
+    else if ((language === "hi" || language === "mr") && hasHi(text)) doc.setFont(FONT_HI, weight);
     else doc.setFont(FONT_LATIN, weight);
   }
 
@@ -360,7 +360,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
   doc.text(
-    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : language === "hi" ? "हिन्दी" : t.langNameEn}`,
+    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : language === "hi" ? "हिन्दी" : language === "mr" ? "मराठी" : t.langNameEn}`,
     M,
     SPLIT + 46,
   );
