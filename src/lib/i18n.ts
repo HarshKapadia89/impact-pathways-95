@@ -291,10 +291,289 @@ const resources = {
   },
 };
 
-// Hindi placeholder — most Hindi copy is inlined per-page (career pages,
-// PDFs etc.). This entry exists so i18next accepts "hi" as a valid language.
-(resources as Record<string, unknown>).hi = { translation: {} };
-(resources as Record<string, unknown>).mr = { translation: {} };
+// Hindi and Marathi UI dictionaries (same keys as English).
+(resources as Record<string, unknown>).hi = { translation: {
+  "app": {
+    "name": "Outreach Mission Control",
+    "tagline": "The H B Kapadia New High School, Ahmedabad"
+  },
+  "nav": {
+    "overview": "अवलोकन",
+    "schools": "स्कूल",
+    "teachers": "शिक्षक",
+    "programs": "कार्यक्रम",
+    "sessions": "सत्र",
+    "reports": "रिपोर्ट",
+    "signOut": "साइन आउट"
+  },
+  "auth": {
+    "signIn": "साइन इन करें",
+    "signUp": "खाता बनाएं",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "fullName": "पूरा नाम",
+    "haveAccount": "क्या आपके पास पहले से खाता है?",
+    "noAccount": "क्या आपका खाता नहीं है?",
+    "signingIn": "साइन इन हो रहा है…",
+    "creating": "खाता बनाया जा रहा है…",
+    "welcome": "पुनः स्वागत है",
+    "getStarted": "अपना खाता सेट करें",
+    "firstUserNote": "पहला खाता सिस्टम एडमिनिस्ट्रेटर बनेगा।"
+  },
+  "overview": {
+    "title": "प्रभाव अवलोकन",
+    "subtitle": "स्कूलों, कार्यक्रमों और गांवों में आउटरीच का रीयल-टाइम दृश्य।",
+    "schools": "स्कूल",
+    "students": "पहुंचे गए छात्र",
+    "sessions": "दर्ज किए गए सत्र",
+    "teachers": "सक्रिय शिक्षक",
+    "programReach": "कार्यक्रम अनुसार पहुंच",
+    "recent": "हाल के सत्र",
+    "none": "अभी कोई डेटा नहीं है"
+  },
+  "schools": {
+    "title": "स्कूल",
+    "subtitle": "Dharampur और आसपास के गांवों की 428 स्कूलों की निर्देशिका।",
+    "add": "स्कूल जोड़ें",
+    "import": "Excel से आयात करें",
+    "name": "स्कूल का नाम",
+    "village": "गांव",
+    "students": "छात्र",
+    "district": "ज़िला",
+    "actions": "कार्रवाई",
+    "empty": "अभी कोई स्कूल नहीं है। एक जोड़ें या Excel से आयात करें।",
+    "importTitle": "Excel से स्कूल आयात करें",
+    "importHint": "इन कॉलमों वाली .xlsx फ़ाइल अपलोड करें: School Name, Village, Students, District (वैकल्पिक), Programs (वैकल्पिक)।",
+    "preview": "पूर्वावलोकन",
+    "confirmImport": "{{count}} स्कूल आयात करें",
+    "imported": "{{count}} स्कूल आयात किए गए।"
+  },
+  "teachers": {
+    "title": "शिक्षक",
+    "subtitle": "आउटरीच सत्र आयोजित करने वाले फील्ड शिक्षक।",
+    "add": "शिक्षक जोड़ें",
+    "name": "नाम",
+    "phone": "फ़ोन",
+    "code": "कर्मचारी कोड",
+    "baseVillage": "मूल गांव",
+    "empty": "अभी कोई शिक्षक नहीं हैं।"
+  },
+  "programs": {
+    "title": "कार्यक्रम",
+    "subtitle": "कार्यक्रमानुसार पाठ्यक्रम और सीखने के परिणाम।",
+    "modules": "मॉड्यूल",
+    "outcomes": "सीखने के परिणाम"
+  },
+  "sessions": {
+    "title": "सत्र",
+    "subtitle": "शिक्षकों द्वारा दर्ज किया गया प्रत्येक आउटरीच सत्र।",
+    "date": "तारीख",
+    "school": "स्कूल",
+    "teacher": "शिक्षक",
+    "program": "कार्यक्रम",
+    "present": "उपस्थित",
+    "status": "स्थिति",
+    "empty": "अभी कोई सत्र दर्ज नहीं किया गया है।"
+  },
+  "reports": {
+    "title": "रिपोर्ट",
+    "subtitle": "डोनर और CSR-तैयार प्रभाव रिपोर्ट।",
+    "downloadPdf": "PDF डाउनलोड करें",
+    "downloadExcel": "Excel डाउनलोड करें",
+    "impactReport": "आउटरीच प्रभाव रिपोर्ट"
+  },
+  "teacher": {
+    "appName": "Teacher Field App",
+    "nav": {
+      "today": "आज",
+      "schools": "स्कूल",
+      "sessions": "सत्र",
+      "profile": "प्रोफ़ाइल"
+    },
+    "greeting": "नमस्ते",
+    "todayTitle": "आज की योजना",
+    "todaySubtitle": "आज के लिए आपके निर्धारित सत्र।",
+    "upcoming": "आगामी",
+    "noSessions": "कोई सत्र निर्धारित नहीं है।",
+    "startSession": "सत्र शुरू करें",
+    "viewSchool": "स्कूल देखें",
+    "myAssignments": "मेरे आवंटित स्कूल",
+    "students": "छात्र",
+    "checkIn": "GPS चेक-इन",
+    "checkedIn": "चेक-इन पूर्ण",
+    "capturePhoto": "फ़ोटो लें",
+    "photoSaved": "फ़ोटो अपलोड हो गई",
+    "attendance": "उपस्थिति दर्ज करें",
+    "present": "उपस्थित",
+    "absent": "अनुपस्थित",
+    "skill": "कौशल (1–5)",
+    "sessionSummary": "सत्र का सारांश",
+    "summaryPlaceholder": "क्या पढ़ाया गया? मुख्य बातें, चुनौतियाँ…",
+    "markComplete": "पूर्ण चिह्नित करें",
+    "completed": "पूर्ण",
+    "scheduled": "निर्धारित",
+    "missed": "छूटा हुआ",
+    "locating": "आपका स्थान प्राप्त किया जा रहा है…",
+    "locationDenied": "स्थान की अनुमति अस्वीकृत।",
+    "photoFailed": "फ़ोटो अपलोड विफल रहा।",
+    "savedOffline": "सहेजा गया (ऑनलाइन होने पर सिंक होगा)।",
+    "backToSessions": "सत्रों पर वापस जाएं",
+    "noStudents": "इस स्कूल के लिए अभी कोई छात्र नहीं जोड़ा गया है।",
+    "addStudents": "इस स्कूल के छात्रों को आयात करने के लिए व्यवस्थापक से कहें।",
+    "notLinked": "आपका खाता अभी किसी शिक्षक प्रोफ़ाइल से लिंक नहीं है।"
+  },
+  "common": {
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "loading": "लोड हो रहा है…",
+    "search": "खोजें",
+    "all": "सभी",
+    "back": "वापस"
+  }
+} };
+(resources as Record<string, unknown>).mr = { translation: {
+  "app": {
+    "name": "आउटरीच मिशन कंट्रोल",
+    "tagline": "The H B Kapadia New High School, Ahmedabad"
+  },
+  "nav": {
+    "overview": "आढावा",
+    "schools": "शाळा",
+    "teachers": "शिक्षक",
+    "programs": "कार्यक्रम",
+    "sessions": "सत्रे",
+    "reports": "अहवाल",
+    "signOut": "साइन आउट करा"
+  },
+  "auth": {
+    "signIn": "साइन इन करा",
+    "signUp": "खाते तयार करा",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "fullName": "पूर्ण नाव",
+    "haveAccount": "आधीच खाते आहे का?",
+    "noAccount": "खाते नाही का?",
+    "signingIn": "साइन इन होत आहे…",
+    "creating": "खाते तयार केले जात आहे…",
+    "welcome": "पुन्हा स्वागत आहे",
+    "getStarted": "तुमचे खाते सेट अप करा",
+    "firstUserNote": "पहिले खाते हे सिस्टम ॲडमिनिस्ट्रेटर बनेल."
+  },
+  "overview": {
+    "title": "प्रभावाचा आढावा",
+    "subtitle": "शाळा, कार्यक्रम आणि गावांमधील आउटरीचचे रिअल-टाइम दृश्य.",
+    "schools": "शाळा",
+    "students": "पोहोचलेले विद्यार्थी",
+    "sessions": "नोंदवलेली सत्रे",
+    "teachers": "सक्रिय शिक्षक",
+    "programReach": "कार्यक्रमानुसार पोहोच",
+    "recent": "अलीकडील सत्रे",
+    "none": "अद्याप कोणताही डेटा उपलब्ध नाही"
+  },
+  "schools": {
+    "title": "शाळा",
+    "subtitle": "Dharampur आणि आसपासच्या गावांमधील 428 शाळांची सूची.",
+    "add": "शाळा जोडा",
+    "import": "Excel मधून इंपोर्ट करा",
+    "name": "शाळेचे नाव",
+    "village": "गाव",
+    "students": "विद्यार्थी",
+    "district": "जिल्हा",
+    "actions": "कृती",
+    "empty": "अद्याप एकही शाळा नाही. नवीन शाळा जोडा किंवा Excel मधून इंपोर्ट करा.",
+    "importTitle": "Excel मधून शाळा इंपोर्ट करा",
+    "importHint": "पुढील कॉलम असलेली .xlsx फाइल अपलोड करा: School Name, Village, Students, District (ऐच्छिक), Programs (ऐच्छिक).",
+    "preview": "पूर्वावलोकन",
+    "confirmImport": "{{count}} शाळा इंपोर्ट करा",
+    "imported": "{{count}} शाळा इंपोर्ट केल्या."
+  },
+  "teachers": {
+    "title": "शिक्षक",
+    "subtitle": "आउटरीच सत्रे घेणारे फील्ड शिक्षक.",
+    "add": "शिक्षक जोडा",
+    "name": "नाव",
+    "phone": "फोन",
+    "code": "कर्मचारी कोड",
+    "baseVillage": "मूळ गाव",
+    "empty": "अद्याप एकही शिक्षक नाही."
+  },
+  "programs": {
+    "title": "कार्यक्रम",
+    "subtitle": "कार्यक्रमानुसार अभ्यासक्रम आणि अध्ययन निष्पत्ती.",
+    "modules": "मॉड्यूल्स",
+    "outcomes": "अध्ययन निष्पत्ती"
+  },
+  "sessions": {
+    "title": "सत्रे",
+    "subtitle": "शिक्षकांनी नोंदवलेले प्रत्येक आउटरीच सत्र.",
+    "date": "दिनांक",
+    "school": "शाळा",
+    "teacher": "शिक्षक",
+    "program": "कार्यक्रम",
+    "present": "उपस्थित",
+    "status": "स्थिती",
+    "empty": "अद्याप कोणतीही सत्रे नोंदवलेली नाहीत."
+  },
+  "reports": {
+    "title": "अहवाल",
+    "subtitle": "देणगीदार आणि CSR साठी तयार प्रभाव अहवाल.",
+    "downloadPdf": "PDF डाउनलोड करा",
+    "downloadExcel": "Excel डाउनलोड करा",
+    "impactReport": "आउटरीच प्रभाव अहवाल"
+  },
+  "teacher": {
+    "appName": "शिक्षक फील्ड ॲप",
+    "nav": {
+      "today": "आज",
+      "schools": "शाळा",
+      "sessions": "सत्रे",
+      "profile": "प्रोफाइल"
+    },
+    "greeting": "नमस्ते",
+    "todayTitle": "आजचे नियोजन",
+    "todaySubtitle": "आजची तुमची नियोजित सत्रे.",
+    "upcoming": "आगामी",
+    "noSessions": "कोणतेही सत्र नियोजित नाही.",
+    "startSession": "सत्र सुरू करा",
+    "viewSchool": "शाळा पहा",
+    "myAssignments": "माझ्याकडे सोपवलेल्या शाळा",
+    "students": "विद्यार्थी",
+    "checkIn": "GPS चेक-इन",
+    "checkedIn": "चेक-इन पूर्ण झाले",
+    "capturePhoto": "फोटो काढा",
+    "photoSaved": "फोटो अपलोड केला",
+    "attendance": "हजेरी नोंदवा",
+    "present": "उपस्थित",
+    "absent": "अनुपस्थित",
+    "skill": "कौशल्य (1–5)",
+    "sessionSummary": "सत्राचा सारांश",
+    "summaryPlaceholder": "काय शिकवले? महत्त्वाचे क्षण, आव्हाने…",
+    "markComplete": "पूर्ण झाले म्हणून चिन्हांकित करा",
+    "completed": "पूर्ण झाले",
+    "scheduled": "नियोजित",
+    "missed": "राहिलेले",
+    "locating": "तुमचे स्थान शोधत आहे…",
+    "locationDenied": "स्थान (Location) परवानगी नाकारली.",
+    "photoFailed": "फोटो अपलोड अयशस्वी झाला.",
+    "savedOffline": "जतन केले (ऑनलाइन आल्यावर सिंक होईल).",
+    "backToSessions": "सत्रांकडे परत जा",
+    "noStudents": "या शाळेसाठी अद्याप कोणतेही विद्यार्थी जोडलेले नाहीत.",
+    "addStudents": "या शाळेसाठी विद्यार्थी इंपोर्ट करण्यास ॲडमिनला सांगा.",
+    "notLinked": "तुमचे खाते अद्याप शिक्षक प्रोफाइलशी जोडलेले नाही."
+  },
+  "common": {
+    "save": "जतन करा",
+    "cancel": "रद्द करा",
+    "delete": "हटवा",
+    "edit": "संपादित करा",
+    "loading": "लोड होत आहे…",
+    "search": "शोधा",
+    "all": "सर्व",
+    "back": "मागे"
+  }
+} };
 
 if (!i18n.isInitialized) {
   i18n

@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, getRouteApi, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -35,11 +36,11 @@ function StreamDetail() {
               to="/career"
               className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
             >
-              <ArrowLeft className="h-3.5 w-3.5" /> {lang === "gu" ? "બધા પ્રવાહો" : "All streams"}
+              <ArrowLeft className="h-3.5 w-3.5" /> {t4(lang, "All streams", "બધા પ્રવાહો")}
             </Link>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
               <MapPin className="h-3 w-3" />
-              {lang === "gu" ? "ગુજરાત-કેન્દ્રિત" : "Gujarat-focused"}
+              {t4(lang, "Gujarat-focused", "ગુજરાત-કેન્દ્રિત")}
             </span>
           </div>
           <div className="mt-4 flex items-start gap-4">
@@ -73,7 +74,7 @@ function StreamDetail() {
         <div className="rounded-2xl border border-primary/30 bg-primary/5 p-6">
           <div className="flex items-center gap-2 text-sm font-medium text-primary">
             <Sparkles className="h-4 w-4" />
-            {lang === "gu" ? "ગુજરાતની ખાસિયતો" : "Gujarat highlights"}
+            {t4(lang, "Gujarat highlights", "ગુજરાતની ખાસિયતો")}
           </div>
           <ul className="mt-3 grid md:grid-cols-2 gap-x-6 gap-y-2 text-sm text-foreground/90">
             {highlights.map((h, i) => (
@@ -88,7 +89,7 @@ function StreamDetail() {
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 pb-10">
         <h2 className="font-serif text-2xl md:text-3xl mb-6">
-          {lang === "gu" ? "કારકિર્દી માર્ગો" : "Career Paths"}
+          {t4(lang, "Career Paths", "કારકિર્દી માર્ગો")}
         </h2>
         <div className="space-y-5">
           {stream.paths.map((p) => (
@@ -104,13 +105,13 @@ function StreamDetail() {
               <div className="mt-4 grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <div className="text-xs uppercase tracking-wide text-muted-foreground inline-flex items-center gap-1">
-                    <Award className="h-3 w-3" /> {lang === "gu" ? "પાત્રતા" : "Eligibility"}
+                    <Award className="h-3 w-3" /> {t4(lang, "Eligibility", "પાત્રતા")}
                   </div>
                   <div className="mt-1">{p.eligibility}</div>
                 </div>
                 <div>
                   <div className="text-xs uppercase tracking-wide text-muted-foreground inline-flex items-center gap-1">
-                    <IndianRupee className="h-3 w-3" /> {lang === "gu" ? "પગાર શ્રેણી" : "Salary range"}
+                    <IndianRupee className="h-3 w-3" /> {t4(lang, "Salary range", "પગાર શ્રેણી")}
                   </div>
                   <div className="mt-1">{p.avgSalary}</div>
                 </div>
@@ -118,7 +119,7 @@ function StreamDetail() {
 
               <div className="mt-4">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground">
-                  {lang === "gu" ? "પ્રવેશ પરીક્ષાઓ" : "Entrance exams"}
+                  {t4(lang, "Entrance exams", "પ્રવેશ પરીક્ષાઓ")}
                 </div>
                 <div className="mt-1.5 flex flex-wrap gap-1.5">
                   {p.entranceExams.map((e) => (
@@ -131,7 +132,7 @@ function StreamDetail() {
 
               <div className="mt-4">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground inline-flex items-center gap-1">
-                  <Building2 className="h-3 w-3" /> {lang === "gu" ? "ગુજરાતની ટોચની કોલેજો" : "Top colleges (Gujarat)"}
+                  <Building2 className="h-3 w-3" /> {t4(lang, "Top colleges (Gujarat)", "ગુજરાતની ટોચની કોલેજો")}
                 </div>
                 <ul className="mt-1.5 grid md:grid-cols-2 gap-x-4 text-sm">
                   {p.topColleges.map((c) => (
@@ -144,7 +145,7 @@ function StreamDetail() {
 
               <div className="mt-4">
                 <div className="text-xs uppercase tracking-wide text-muted-foreground inline-flex items-center gap-1">
-                  <GraduationCap className="h-3 w-3" /> {lang === "gu" ? "કારકિર્દી ભૂમિકાઓ" : "Career roles"}
+                  <GraduationCap className="h-3 w-3" /> {t4(lang, "Career roles", "કારકિર્દી ભૂમિકાઓ")}
                 </div>
                 <div className="mt-1.5 flex flex-wrap gap-1.5">
                   {p.careers.map((c) => (
@@ -164,7 +165,7 @@ function StreamDetail() {
                   params={{ stream: stream.id, path: pathSlug(p.title) }}
                   className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                 >
-                  {lang === "gu" ? "વધુ વાંચો" : "Read more"}
+                  {t4(lang, "Read more", "વધુ વાંચો")}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
@@ -176,38 +177,34 @@ function StreamDetail() {
           <div>
             <div className="font-serif text-lg flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-primary" />
-              {lang === "gu" ? "ભારત-વ્યાપી સંદર્ભ જોઈએ છે?" : "Want India-wide reference?"}
+              {t4(lang, "Want India-wide reference?", "ભારત-વ્યાપી સંદર્ભ જોઈએ છે?")}
             </div>
             <div className="text-sm text-muted-foreground mt-1">
-              {lang === "gu"
-                ? "20 પ્રવાહોમાં 935+ વ્યવસાયો અને 1,400+ ટોચની ભારતીય સંસ્થાઓ માટે કારકિર્દી હેન્ડબુક જુઓ."
-                : "Browse the Career Handbook for 935+ professions and 1,400+ top Indian institutes across 20 streams."}
+              {t4(lang, "Browse the Career Handbook for 935+ professions and 1,400+ top Indian institutes across 20 streams.", "20 પ્રવાહોમાં 935+ વ્યવસાયો અને 1,400+ ટોચની ભારતીય સંસ્થાઓ માટે કારકિર્દી હેન્ડબુક જુઓ.")}
             </div>
           </div>
           <Link
             to="/handbook"
             className="bg-card border border-border px-4 py-2 rounded-md text-sm font-medium hover:bg-muted"
           >
-            {lang === "gu" ? "હેન્ડબુક ખોલો" : "Open Handbook"} →
+            {t4(lang, "Open Handbook", "હેન્ડબુક ખોલો")} →
           </Link>
         </div>
 
         <div className="mt-5 rounded-2xl border border-border bg-primary/5 p-6 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-xl">
-              {lang === "gu" ? "હજી અનિશ્ચિત છો?" : "Still unsure?"}
+              {t4(lang, "Still unsure?", "હજી અનિશ્ચિત છો?")}
             </div>
             <div className="text-sm text-muted-foreground">
-              {lang === "gu"
-                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો."
-                : "Take the free psychometric test and get a 20-page personalised report."}
+              {t4(lang, "Take the free psychometric test and get a 20-page personalised report.", "મફત મનો-યોગ્યતા ટેસ્ટ આપો અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ મેળવો.")}
             </div>
           </div>
           <Link
             to="/test"
             className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90"
           >
-            {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"}
+            {t4(lang, "Take the test", "ટેસ્ટ આપો")}
           </Link>
         </div>
       </section>

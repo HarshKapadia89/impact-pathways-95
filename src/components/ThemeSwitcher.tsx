@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import type { Lang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Palette, Check, Moon, Sun } from "lucide-react";
@@ -61,12 +62,12 @@ export function ThemeSwitcher({ lang = "en" as Lang }) {
     <DropdownMenu>
       <DropdownMenuTrigger
         className="inline-flex items-center justify-center h-9 w-9 rounded-md border border-border bg-card hover:bg-muted transition-colors"
-        aria-label={lang === "gu" ? "રંગ બદલો" : "Change colors"}
+        aria-label={t4(lang, "Change colors", "રંગ બદલો")}
       >
         <Palette className="h-4 w-4 text-primary" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel>{lang === "gu" ? "રંગ થીમ" : "Color theme"}</DropdownMenuLabel>
+        <DropdownMenuLabel>{t4(lang, "Color theme", "રંગ થીમ")}</DropdownMenuLabel>
         {THEMES.map((t) => (
           <DropdownMenuItem
             key={t.id}
@@ -87,8 +88,8 @@ export function ThemeSwitcher({ lang = "en" as Lang }) {
           {mode === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
           <span className="flex-1 text-sm">
             {mode === "light"
-              ? lang === "gu" ? "ડાર્ક મોડ" : "Dark mode"
-              : lang === "gu" ? "લાઇટ મોડ" : "Light mode"}
+              ? t4(lang, "Dark mode", "ડાર્ક મોડ")
+              : t4(lang, "Light mode", "લાઇટ મોડ")}
           </span>
         </DropdownMenuItem>
       </DropdownMenuContent>

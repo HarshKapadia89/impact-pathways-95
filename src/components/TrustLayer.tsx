@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { Lang, translator } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
@@ -197,7 +198,7 @@ export function TrustLayer({ lang }: { lang: Lang }) {
                 to="/test"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline px-2 py-2"
               >
-                {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"} →
+                {t4(lang, "Take the test", "ટેસ્ટ આપો")} →
               </Link>
             </div>
           </div>

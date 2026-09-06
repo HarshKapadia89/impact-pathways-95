@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
@@ -83,12 +84,10 @@ function CollegesPage() {
       <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <h1 className="font-serif text-3xl md:text-5xl">
-            {lang === "gu" ? "ગુજરાત કોલેજ ડિરેક્ટરી" : "Gujarat Colleges Directory"}
+            {t4(lang, "Gujarat Colleges Directory", "ગુજરાત કોલેજ ડિરેક્ટરી")}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
-            {lang === "gu"
-              ? "પ્રવાહ, જિલ્લો અને પ્રકાર પ્રમાણે શોધો. ફી, હોસ્ટેલ, સ્કોલરશિપ અને પ્રવેશ પરીક્ષાઓ સહિત."
-              : "Search by stream, district and type. Includes fees, hostel, scholarships and entrance exams."}
+            {t4(lang, "Search by stream, district and type. Includes fees, hostel, scholarships and entrance exams.", "પ્રવાહ, જિલ્લો અને પ્રકાર પ્રમાણે શોધો. ફી, હોસ્ટેલ, સ્કોલરશિપ અને પ્રવેશ પરીક્ષાઓ સહિત.")}
           </p>
         </div>
       </section>
@@ -101,7 +100,7 @@ function CollegesPage() {
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder={lang === "gu" ? "કોલેજ, શહેર શોધો…" : "Search college or city…"}
+              placeholder={t4(lang, "Search college or city…", "કોલેજ, શહેર શોધો…")}
               className="w-full pl-9 pr-3 py-2.5 rounded-md border border-input bg-background text-sm"
             />
           </div>
@@ -110,7 +109,7 @@ function CollegesPage() {
             onChange={(e) => setStream(e.target.value)}
             className="md:col-span-3 px-3 py-2.5 rounded-md border border-input bg-background text-sm"
           >
-            <option value="">{lang === "gu" ? "બધા પ્રવાહો" : "All streams"}</option>
+            <option value="">{t4(lang, "All streams", "બધા પ્રવાહો")}</option>
             {STREAM_OPTIONS.map((s) => (
               <option key={s} value={s}>
                 {s.charAt(0).toUpperCase() + s.slice(1)}
@@ -122,7 +121,7 @@ function CollegesPage() {
             onChange={(e) => setDistrict(e.target.value)}
             className="md:col-span-2 px-3 py-2.5 rounded-md border border-input bg-background text-sm"
           >
-            <option value="">{lang === "gu" ? "બધા જિલ્લા" : "All districts"}</option>
+            <option value="">{t4(lang, "All districts", "બધા જિલ્લા")}</option>
             {districts.map((d) => (
               <option key={d} value={d}>
                 {d}
@@ -134,7 +133,7 @@ function CollegesPage() {
             onChange={(e) => setType(e.target.value)}
             className="md:col-span-2 px-3 py-2.5 rounded-md border border-input bg-background text-sm"
           >
-            <option value="">{lang === "gu" ? "પ્રકાર" : "Type"}</option>
+            <option value="">{t4(lang, "Type", "પ્રકાર")}</option>
             {types.map((t) => (
               <option key={t} value={t}>
                 {t}
@@ -146,22 +145,18 @@ function CollegesPage() {
         <div className="mt-3 text-xs text-muted-foreground inline-flex items-center gap-1">
           <Filter className="h-3 w-3" />
           {loading
-            ? lang === "gu"
-              ? "લોડ થઈ રહ્યું છે…"
-              : "Loading…"
-            : `${filtered.length} ${lang === "gu" ? "કોલેજો" : "colleges"}`}
+            ? t4(lang, "Loading…", "લોડ થઈ રહ્યું છે…")
+            : `${filtered.length} ${t4(lang, "colleges", "કોલેજો")}`}
         </div>
 
         {!loading && data.length === 0 && (
           <div className="mt-6 rounded-xl border border-dashed border-border bg-card/50 p-8 text-center">
             <Building2 className="h-8 w-8 text-muted-foreground mx-auto" />
             <p className="mt-2 text-sm text-muted-foreground">
-              {lang === "gu"
-                ? "હજી કોલેજો ઉમેરાઈ નથી. એડમિન શરૂઆતનો ડેટા આયાત કરી શકે છે."
-                : "No colleges yet. An admin can seed the directory or import an Excel sheet."}
+              {t4(lang, "No colleges yet. An admin can seed the directory or import an Excel sheet.", "હજી કોલેજો ઉમેરાઈ નથી. એડમિન શરૂઆતનો ડેટા આયાત કરી શકે છે.")}
             </p>
             <Link to="/admin/colleges" className="mt-3 inline-block text-sm text-primary hover:underline">
-              {lang === "gu" ? "એડમિન પેજ" : "Open admin page"} →
+              {t4(lang, "Open admin page", "એડમિન પેજ")} →
             </Link>
           </div>
         )}

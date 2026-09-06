@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -134,15 +135,13 @@ function SuccessStoriesPage() {
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-20 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-xs text-primary font-medium mb-5">
             <Sparkles className="h-3.5 w-3.5" />
-            {lang === "gu" ? "ક્યાં છે અત્યારે?" : "Where they are now"}
+            {t4(lang, "Where they are now", "ક્યાં છે અત્યારે?")}
           </div>
           <h1 className="font-serif text-4xl md:text-6xl leading-tight">
-            {lang === "gu" ? "વાસ્તવિક વિદ્યાર્થી. વાસ્તવિક પાથ." : "Real students. Real paths."}
+            {t4(lang, "Real students. Real paths.", "વાસ્તવિક વિદ્યાર્થી. વાસ્તવિક પાથ.")}
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            {lang === "gu"
-              ? "ગુજરાતના વિદ્યાર્થીઓ જેમણે HBK Careers વાપરીને દિશા શોધી."
-              : "Gujarat students who used HBK Careers to find their direction — and made it happen."}
+            {t4(lang, "Gujarat students who used HBK Careers to find their direction — and made it happen.", "ગુજરાતના વિદ્યાર્થીઓ જેમણે HBK Careers વાપરીને દિશા શોધી.")}
           </p>
         </div>
       </section>
@@ -174,11 +173,11 @@ function SuccessStoriesPage() {
 
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-14 text-center">
         <h2 className="font-serif text-2xl md:text-3xl">
-          {lang === "gu" ? "તમારી વાર્તા આગળ છે." : "Your story is next."}
+          {t4(lang, "Your story is next.", "તમારી વાર્તા આગળ છે.")}
         </h2>
         <div className="mt-6">
           <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">
-            {lang === "gu" ? "મફત ટેસ્ટ આપો" : "Take the free test"} <ArrowRight className="h-4 w-4" />
+            {t4(lang, "Take the free test", "મફત ટેસ્ટ આપો")} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

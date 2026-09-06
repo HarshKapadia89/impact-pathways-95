@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang, type Lang } from "@/lib/lang";
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -200,10 +201,10 @@ function FindCollegePage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
             <Search className="h-3.5 w-3.5" />
-            {lang === "gu" ? "પૂર્ણ કોલેજ ડિરેક્ટરી" : "Full College Directory"}
+            {t4(lang, "Full College Directory", "પૂર્ણ કોલેજ ડિરેક્ટરી")}
           </div>
           <h1 className="font-serif text-3xl md:text-5xl mt-3">
-            {lang === "gu" ? "તમારી કોલેજ શોધો" : "Find Your College"}
+            {t4(lang, "Find Your College", "તમારી કોલેજ શોધો")}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
             {lang === "gu"
@@ -225,9 +226,7 @@ function FindCollegePage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={
-                lang === "gu"
-                  ? "દા.ત. IIT, MBBS, Ahmedabad, Engineering, NID..."
-                  : "e.g. IIT, MBBS, Ahmedabad, Engineering, NID..."
+                t4(lang, "e.g. IIT, MBBS, Ahmedabad, Engineering, NID...", "દા.ત. IIT, MBBS, Ahmedabad, Engineering, NID...")
               }
               className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
@@ -253,9 +252,9 @@ function FindCollegePage() {
                 setCityFilter("all");
               }}
               options={[
-                { value: "all", label: lang === "gu" ? "બધાં પ્રદેશો" : "All regions" },
+                { value: "all", label: t4(lang, "All regions", "બધાં પ્રદેશો") },
                 { value: "Gujarat", label: "Gujarat" },
-                { value: "India", label: lang === "gu" ? "બાકીનું ભારત" : "Rest of India" },
+                { value: "India", label: t4(lang, "Rest of India", "બાકીનું ભારત") },
               ]}
             />
             <FilterSelect
@@ -266,7 +265,7 @@ function FindCollegePage() {
                 setCityFilter("all");
               }}
               options={[
-                { value: "all", label: lang === "gu" ? "બધા રાજ્યો" : "All states" },
+                { value: "all", label: t4(lang, "All states", "બધા રાજ્યો") },
                 ...allStates.map((s) => ({ value: s, label: s })),
               ]}
             />
@@ -275,7 +274,7 @@ function FindCollegePage() {
               value={cityFilter}
               onChange={setCityFilter}
               options={[
-                { value: "all", label: lang === "gu" ? "બધાં શહેરો" : "All cities" },
+                { value: "all", label: t4(lang, "All cities", "બધાં શહેરો") },
                 ...allCities.map((c) => ({ value: c, label: c })),
               ]}
             />
@@ -284,7 +283,7 @@ function FindCollegePage() {
               value={category}
               onChange={setCategory}
               options={[
-                { value: "all", label: lang === "gu" ? "બધી શ્રેણીઓ" : "All categories" },
+                { value: "all", label: t4(lang, "All categories", "બધી શ્રેણીઓ") },
                 ...CATEGORIES.map((c) => ({ value: c.id, label: `${c.emoji} ${c.label}` })),
               ]}
             />
@@ -293,7 +292,7 @@ function FindCollegePage() {
               value={typeFilter}
               onChange={setTypeFilter}
               options={[
-                { value: "all", label: lang === "gu" ? "બધા પ્રકાર" : "All types" },
+                { value: "all", label: t4(lang, "All types", "બધા પ્રકાર") },
                 ...allTypes.map((t) => ({ value: t, label: t })),
               ]}
             />
@@ -302,12 +301,12 @@ function FindCollegePage() {
           {/* Result count + clear */}
           <div className="flex items-center justify-between text-xs">
             <div className="text-muted-foreground">
-              {lang === "gu" ? "પરિણામો" : "Results"}:{" "}
+              {t4(lang, "Results", "પરિણામો")}:{" "}
               <span className="font-semibold text-foreground">{results.length}</span>{" "}
-              {lang === "gu" ? "કોલેજો" : "colleges"}
+              {t4(lang, "colleges", "કોલેજો")}
               {activeFilterCount > 0 && (
                 <span className="ml-2 text-primary">
-                  ({activeFilterCount} {lang === "gu" ? "ફિલ્ટર સક્રિય" : "active filter(s)"})
+                  ({activeFilterCount} {t4(lang, "active filter(s)", "ફિલ્ટર સક્રિય")})
                 </span>
               )}
             </div>
@@ -317,7 +316,7 @@ function FindCollegePage() {
                 className="text-primary hover:underline inline-flex items-center gap-1"
               >
                 <X className="h-3 w-3" />
-                {lang === "gu" ? "બધાં ફિલ્ટર સાફ કરો" : "Clear all filters"}
+                {t4(lang, "Clear all filters", "બધાં ફિલ્ટર સાફ કરો")}
               </button>
             )}
           </div>
@@ -330,18 +329,16 @@ function FindCollegePage() {
           <div className="rounded-2xl border border-dashed border-border bg-card p-12 text-center">
             <Search className="h-8 w-8 text-muted-foreground mx-auto" />
             <div className="font-medium mt-3">
-              {lang === "gu" ? "કોઈ કોલેજ મળી નથી" : "No colleges match your search"}
+              {t4(lang, "No colleges match your search", "કોઈ કોલેજ મળી નથી")}
             </div>
             <p className="text-sm text-muted-foreground mt-1">
-              {lang === "gu"
-                ? "ફિલ્ટર બદલીને અથવા સાફ કરીને ફરી પ્રયાસ કરો."
-                : "Try changing or clearing the filters."}
+              {t4(lang, "Try changing or clearing the filters.", "ફિલ્ટર બદલીને અથવા સાફ કરીને ફરી પ્રયાસ કરો.")}
             </p>
             <button
               onClick={clearAll}
               className="mt-4 text-sm text-primary-foreground bg-primary px-4 py-2 rounded-md hover:opacity-90"
             >
-              {lang === "gu" ? "ફિલ્ટર સાફ કરો" : "Clear filters"}
+              {t4(lang, "Clear filters", "ફિલ્ટર સાફ કરો")}
             </button>
           </div>
         ) : (
@@ -374,21 +371,17 @@ function FindCollegePage() {
         <div className="rounded-2xl border border-border bg-primary/5 p-6 md:p-8 flex flex-wrap items-center justify-between gap-3">
           <div>
             <div className="font-serif text-lg md:text-xl">
-              {lang === "gu"
-                ? "પ્રવાહ વિશે હજી સ્પષ્ટ નથી?"
-                : "Not sure which stream is right for you?"}
+              {t4(lang, "Not sure which stream is right for you?", "પ્રવાહ વિશે હજી સ્પષ્ટ નથી?")}
             </div>
             <div className="text-sm text-muted-foreground mt-1">
-              {lang === "gu"
-                ? "મફત મનો-યોગ્યતા ટેસ્ટ આપો — તમારા RIASEC + અભિરુચિ આધારિત ભલામણો."
-                : "Take the free aptitude test — RIASEC + interest-based recommendations."}
+              {t4(lang, "Take the free aptitude test — RIASEC + interest-based recommendations.", "મફત મનો-યોગ્યતા ટેસ્ટ આપો — તમારા RIASEC + અભિરુચિ આધારિત ભલામણો.")}
             </div>
           </div>
           <Link
             to="/test"
             className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90"
           >
-            {lang === "gu" ? "ટેસ્ટ આપો" : "Take the test"}
+            {t4(lang, "Take the test", "ટેસ્ટ આપો")}
           </Link>
         </div>
       </section>
@@ -444,7 +437,7 @@ function CollegeCard({ c, lang }: { c: UnifiedCollege; lang: Lang }) {
         {c.established ? ` • Est. ${c.established}` : ""}
       </div>
       <div className="text-xs mt-2">
-        <span className="text-muted-foreground">{lang === "gu" ? "કોર્સ" : "Courses"}: </span>
+        <span className="text-muted-foreground">{t4(lang, "Courses", "કોર્સ")}: </span>
         <span className="text-foreground/85">{c.courses.slice(0, 4).join(" · ")}</span>
       </div>
       {c.feesRange && (

@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { Lang, useLang, pick } from "@/lib/lang";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
@@ -112,15 +113,15 @@ function StreamDetail() {
               to="/handbook"
               className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
             >
-              <ArrowLeft className="h-3.5 w-3.5" /> {lang === "gu" ? "બધા પ્રવાહો" : "All streams"}
+              <ArrowLeft className="h-3.5 w-3.5" /> {t4(lang, "All streams", "બધા પ્રવાહો")}
             </Link>
             <button
               onClick={() => window.print()}
               className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground border border-border rounded-md px-2.5 py-1.5 bg-card"
-              title={lang === "gu" ? "છાપો" : "Print"}
+              title={t4(lang, "Print", "છાપો")}
             >
               <Printer className="h-3.5 w-3.5" />
-              {lang === "gu" ? "છાપો / સાચવો" : "Print / Save"}
+              {t4(lang, "Print / Save", "છાપો / સાચવો")}
             </button>
           </div>
           <div className="mt-3 flex items-start gap-4">
@@ -133,9 +134,9 @@ function StreamDetail() {
                 </p>
               )}
               <p className="text-xs text-muted-foreground mt-2">
-                {stream.professions.length} {lang === "gu" ? "વ્યવસાયો" : "professions"} ·{" "}
-                {stream.exams.length} {lang === "gu" ? "પરીક્ષાઓ" : "exams"} ·{" "}
-                {stream.institutes.length} {lang === "gu" ? "સંસ્થાઓ" : "institutes"}
+                {stream.professions.length} {t4(lang, "professions", "વ્યવસાયો")} ·{" "}
+                {stream.exams.length} {t4(lang, "exams", "પરીક્ષાઓ")} ·{" "}
+                {stream.institutes.length} {t4(lang, "institutes", "સંસ્થાઓ")}
               </p>
             </div>
           </div>
@@ -178,7 +179,7 @@ function StreamDetail() {
           </div>
           <input
             type="search"
-            placeholder={lang === "gu" ? "આ વિભાગમાં શોધો…" : "Search in this section…"}
+            placeholder={t4(lang, "Search in this section…", "આ વિભાગમાં શોધો…")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="md:w-64 px-3 py-2 text-sm rounded-md border border-border bg-card focus:outline-none focus:border-primary"
@@ -373,10 +374,10 @@ function InstitutesList({
                 <tr className="bg-muted/50 text-xs uppercase tracking-wide text-muted-foreground">
                   <th className="text-left px-4 py-2.5 w-14">#</th>
                   <th className="text-left px-4 py-2.5">
-                    {lang === "gu" ? "સંસ્થા" : "Institute"}
+                    {t4(lang, "Institute", "સંસ્થા")}
                   </th>
                   <th className="text-left px-4 py-2.5 hidden md:table-cell">
-                    {lang === "gu" ? "પ્રવેશ" : "Entrance"}
+                    {t4(lang, "Entrance", "પ્રવેશ")}
                   </th>
                   <th className="text-left px-4 py-2.5 w-12"></th>
                 </tr>

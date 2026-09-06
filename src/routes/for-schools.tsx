@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/for-schools")({
 
 function ForSchoolsPage() {
   const lang = useLang();
-  const L = (en: string, gu: string) => (lang === "gu" ? gu : en);
+  const L = (en: string, gu: string) => t4(lang, en, gu);
 
   const [form, setForm] = useState({
     school_name: "", contact_person: "", role: "", email: "", phone: "", city: "",

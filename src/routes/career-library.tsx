@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
@@ -80,23 +81,19 @@ function CareerLibraryPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
             <Library className="h-3.5 w-3.5" />
-            {lang === "gu" ? "કારકિર્દી લાઇબ્રેરી" : "Career Library"}
+            {t4(lang, "Career Library", "કારકિર્દી લાઇબ્રેરી")}
           </div>
           <h1 className="font-serif text-3xl md:text-5xl mt-2">
-            {lang === "gu"
-              ? "A થી Z — દરેક કારકિર્દી, એક જગ્યાએ"
-              : "Every career, A to Z — in one place"}
+            {t4(lang, "Every career, A to Z — in one place", "A થી Z — દરેક કારકિર્દી, એક જગ્યાએ")}
           </h1>
           <p className="mt-3 text-muted-foreground max-w-3xl">
-            {lang === "gu"
-              ? "48 પ્રવાહો અને 1,600+ વ્યવસાયો શોધો — અભ્યાસ માર્ગ, પ્રવેશ પરીક્ષાઓ, ટોચની સંસ્થાઓ, પગાર અને વૃદ્ધિની સીડી સાથે."
-              : "Search 48 streams and 1,600+ professions — each with the study path, entrance exams, top institutes, salary bands and growth ladder."}
+            {t4(lang, "Search 48 streams and 1,600+ professions — each with the study path, entrance exams, top institutes, salary bands and growth ladder.", "48 પ્રવાહો અને 1,600+ વ્યવસાયો શોધો — અભ્યાસ માર્ગ, પ્રવેશ પરીક્ષાઓ, ટોચની સંસ્થાઓ, પગાર અને વૃદ્ધિની સીડી સાથે.")}
           </p>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <Stat n={HANDBOOK_SUMMARIES.length} label={lang === "gu" ? "પ્રવાહો" : "streams"} />
-            <Stat n={totals.professions} label={lang === "gu" ? "વ્યવસાયો" : "professions"} />
-            <Stat n={totals.exams} label={lang === "gu" ? "પરીક્ષાઓ" : "entrance exams"} />
-            <Stat n={totals.institutes} label={lang === "gu" ? "સંસ્થાઓ" : "top institutes"} />
+            <Stat n={HANDBOOK_SUMMARIES.length} label={t4(lang, "streams", "પ્રવાહો")} />
+            <Stat n={totals.professions} label={t4(lang, "professions", "વ્યવસાયો")} />
+            <Stat n={totals.exams} label={t4(lang, "entrance exams", "પરીક્ષાઓ")} />
+            <Stat n={totals.institutes} label={t4(lang, "top institutes", "સંસ્થાઓ")} />
           </div>
         </div>
       </section>
@@ -109,9 +106,7 @@ function CareerLibraryPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={
-              lang === "gu"
-                ? "કારકિર્દી શોધો — દા.ત. પાયલોટ, ડેટા સાયન્સ, શેફ…"
-                : "Search any career — e.g. pilot, data science, chef, ethical hacking…"
+              t4(lang, "Search any career — e.g. pilot, data science, chef, ethical hacking…", "કારકિર્દી શોધો — દા.ત. પાયલોટ, ડેટા સાયન્સ, શેફ…")
             }
             className="w-full pl-9 pr-3 py-3 text-sm rounded-xl border border-border bg-card focus:outline-none focus:border-primary"
           />
@@ -125,7 +120,7 @@ function CareerLibraryPage() {
               letter === "" ? "bg-primary text-primary-foreground border-primary" : "border-border bg-card hover:bg-muted"
             }`}
           >
-            {lang === "gu" ? "બધા" : "All"}
+            {t4(lang, "All", "બધા")}
           </button>
           {letters.map((l) => {
             const has = availableLetters.has(l);
@@ -152,7 +147,7 @@ function CareerLibraryPage() {
           <div className="mt-8">
             <h2 className="font-serif text-xl flex items-center gap-2">
               <GraduationCap className="h-4 w-4 text-accent" />
-              {lang === "gu" ? "મળતા વ્યવસાયો" : "Matching professions"}
+              {t4(lang, "Matching professions", "મળતા વ્યવસાયો")}
               <span className="text-xs text-muted-foreground font-sans">({professionHits.length})</span>
             </h2>
             <div className="mt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -176,12 +171,12 @@ function CareerLibraryPage() {
 
         <div className="mt-10">
           <h2 className="font-serif text-xl">
-            {lang === "gu" ? "કારકિર્દી પ્રવાહો" : "Career streams"}
+            {t4(lang, "Career streams", "કારકિર્દી પ્રવાહો")}
             <span className="ml-2 text-xs text-muted-foreground font-sans">({streams.length})</span>
           </h2>
           {streams.length === 0 ? (
             <p className="text-sm text-muted-foreground py-12 text-center">
-              {lang === "gu" ? "કોઈ પ્રવાહ મળ્યો નથી." : "No streams matched your search."}
+              {t4(lang, "No streams matched your search.", "કોઈ પ્રવાહ મળ્યો નથી.")}
             </p>
           ) : (
             <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -198,19 +193,19 @@ function CareerLibraryPage() {
                   <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
                     <span>
                       <strong className="text-foreground">{s.professionsCount}</strong>{" "}
-                      {lang === "gu" ? "વ્યવસાયો" : "professions"}
+                      {t4(lang, "professions", "વ્યવસાયો")}
                     </span>
                     <span>
                       <strong className="text-foreground">{s.examsCount}</strong>{" "}
-                      {lang === "gu" ? "પરીક્ષાઓ" : "exams"}
+                      {t4(lang, "exams", "પરીક્ષાઓ")}
                     </span>
                     <span>
                       <strong className="text-foreground">{s.institutesCount}</strong>{" "}
-                      {lang === "gu" ? "સંસ્થાઓ" : "institutes"}
+                      {t4(lang, "institutes", "સંસ્થાઓ")}
                     </span>
                   </div>
                   <div className="mt-3 inline-flex items-center gap-1 text-sm text-primary opacity-80 group-hover:opacity-100">
-                    {lang === "gu" ? "વ્યવસાયો ખોલો" : "Open professions"}
+                    {t4(lang, "Open professions", "વ્યવસાયો ખોલો")}
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
                 </Link>

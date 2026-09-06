@@ -182,7 +182,10 @@ function TakeTest() {
       return;
     }
     const raw2 = JSON.parse(raw) as Meta;
-    const lang: UILang = raw2.language === "hi" || raw2.language === "gu" ? raw2.language : "en";
+    const lang: UILang =
+      raw2.language === "hi" || raw2.language === "gu" || raw2.language === "mr"
+        ? raw2.language
+        : "en";
     const parsed = { ...raw2, language: lang };
     setMeta(parsed);
     setPayment(JSON.parse(pay) as PaymentMeta);
@@ -468,6 +471,7 @@ function Result({
       report,
       quality,
       deterministicStreams: recs,
+      lang: meta.language,
     })
       .then((res) => {
         setAiInterp(res.interpretation);
@@ -675,6 +679,7 @@ function Result({
         </div>
 
         <AIInterpretationPanel
+          lang={meta.language as Lang}
           state={aiState}
           interpretation={aiInterp}
           model={aiModel}

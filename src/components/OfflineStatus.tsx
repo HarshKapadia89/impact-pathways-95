@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { Lang } from "@/lib/lang";
 /**
  * Small badge that shows offline state and number of pending submissions
@@ -32,7 +33,7 @@ export function OfflineStatus({ lang = "en" }: { lang?: Lang }) {
     return (
       <div className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
         <Wifi className="h-3 w-3" />
-        {lang === "gu" ? "ઑનલાઇન" : "Online"}
+        {t4(lang, "Online", "ઑનલાઇન")}
       </div>
     );
   }
@@ -51,12 +52,12 @@ export function OfflineStatus({ lang = "en" }: { lang?: Lang }) {
       {!online ? (
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200">
           <WifiOff className="h-3 w-3" />
-          {lang === "gu" ? "ઑફલાઇન મોડ" : "Offline mode"}
+          {t4(lang, "Offline mode", "ઑફલાઇન મોડ")}
         </span>
       ) : (
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-100 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-200">
           <Wifi className="h-3 w-3" />
-          {lang === "gu" ? "ઑનલાઇન" : "Online"}
+          {t4(lang, "Online", "ઑનલાઇન")}
         </span>
       )}
       {pending > 0 && (
@@ -71,7 +72,7 @@ export function OfflineStatus({ lang = "en" }: { lang?: Lang }) {
               className="ml-1 inline-flex items-center gap-0.5 underline-offset-2 hover:underline disabled:opacity-50"
             >
               <RefreshCcw className={`h-3 w-3 ${syncing ? "animate-spin" : ""}`} />
-              {lang === "gu" ? "હવે સિંક કરો" : "Sync now"}
+              {t4(lang, "Sync now", "હવે સિંક કરો")}
             </button>
           )}
         </span>

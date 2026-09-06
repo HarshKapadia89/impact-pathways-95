@@ -1,3 +1,4 @@
+import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
@@ -55,7 +56,7 @@ function ProfileBuilderPage() {
   const save = () => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-      toast.success(lang === "gu" ? "સાચવ્યું" : "Saved to this device");
+      toast.success(t4(lang, "Saved to this device", "સાચવ્યું"));
     } catch {
       toast.error("Could not save");
     }
@@ -63,7 +64,7 @@ function ProfileBuilderPage() {
 
   const exportPDF = () => {
     if (!p.fullName.trim()) {
-      toast.error(lang === "gu" ? "પૂરું નામ ઉમેરો" : "Please enter your full name");
+      toast.error(t4(lang, "Please enter your full name", "પૂરું નામ ઉમેરો"));
       return;
     }
     const doc = new jsPDF({ unit: "pt", format: "a4" });
@@ -139,7 +140,7 @@ function ProfileBuilderPage() {
 
     const safe = p.fullName.replace(/[^a-z0-9]+/gi, "_");
     doc.save(`${safe || "resume"}_HBK.pdf`);
-    toast.success(lang === "gu" ? "PDF ડાઉનલોડ થયું" : "PDF downloaded");
+    toast.success(t4(lang, "PDF downloaded", "PDF ડાઉનલોડ થયું"));
   };
 
   const addEdu = () => setP({ ...p, education: [...p.education, { institution: "", qualification: "", year: "", grade: "" }] });
@@ -149,7 +150,7 @@ function ProfileBuilderPage() {
   const addAch = () => setP({ ...p, achievements: [...p.achievements, { title: "", detail: "" }] });
   const rmAch = (i: number) => setP({ ...p, achievements: p.achievements.filter((_, idx) => idx !== i) });
 
-  const L = (en: string, gu: string) => (lang === "gu" ? gu : en);
+  const L = (en: string, gu: string) => t4(lang, en, gu);
   const input = "w-full px-3 py-2 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30";
 
   return (
