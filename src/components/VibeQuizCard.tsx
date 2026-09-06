@@ -1,3 +1,4 @@
+import { Lang, pick } from "@/lib/lang";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
@@ -140,7 +141,7 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
+export function VibeQuizCard({ lang }: { lang: Lang }) {
   const [step, setStep] = useState(0); // -1 idle, 0..n questions, n result
   const [started, setStarted] = useState(false);
   const [scores, setScores] = useState<Record<Vibe, number>>({
@@ -156,7 +157,7 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
   const topVibe: Vibe = (Object.entries(scores) as [Vibe, number][])
     .sort((a, b) => b[1] - a[1])[0][0];
   const meta = VIBE_META[topVibe];
-  const txt = meta[lang];
+  const txt = pick(meta, lang);
 
   const T = {
     eyebrow: lang === "gu" ? "60 સેકન્ડમાં મજાનો ટેસ્ટ" : "60-second vibe check",
@@ -234,7 +235,7 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
                   >
                     <m.icon className="h-6 w-6 text-foreground" />
                     <div className="mt-3 font-serif text-base">
-                      {m[lang].name} {m.emoji}
+                      {pick(m, lang).name} {m.emoji}
                     </div>
                   </div>
                 );
@@ -265,7 +266,7 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
               />
             </div>
             <h3 className="font-serif text-2xl md:text-3xl leading-tight">
-              {QUESTIONS[step][lang]}
+              {pick(QUESTIONS[step], lang)}
             </h3>
             <div className="mt-6 grid sm:grid-cols-2 gap-3">
               {QUESTIONS[step].options.map((opt, i) => (
@@ -275,7 +276,7 @@ export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
                   className="text-left rounded-2xl border border-border bg-card hover:border-accent/60 hover:bg-accent/5 hover:-translate-y-0.5 transition p-4 group"
                 >
                   <span className="text-sm md:text-base font-medium group-hover:text-foreground">
-                    {opt[lang]}
+                    {pick(opt, lang)}
                   </span>
                 </button>
               ))}

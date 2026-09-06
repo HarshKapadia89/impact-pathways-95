@@ -294,6 +294,7 @@ const resources = {
 // Hindi placeholder — most Hindi copy is inlined per-page (career pages,
 // PDFs etc.). This entry exists so i18next accepts "hi" as a valid language.
 (resources as Record<string, unknown>).hi = { translation: {} };
+(resources as Record<string, unknown>).mr = { translation: {} };
 
 if (!i18n.isInitialized) {
   i18n
@@ -302,7 +303,7 @@ if (!i18n.isInitialized) {
     .init({
       resources,
       fallbackLng: "en",
-      supportedLngs: ["en", "hi", "gu"],
+      supportedLngs: ["en", "hi", "gu", "mr"],
       interpolation: { escapeValue: false },
       detection: {
         order: ["localStorage", "navigator"],

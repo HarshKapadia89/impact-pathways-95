@@ -1,6 +1,6 @@
+import { useLang } from "@/lib/lang";
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
 import { Search, Calendar, ExternalLink, FileCheck, X, Filter } from "lucide-react";
@@ -18,8 +18,7 @@ export const Route = createFileRoute("/exams")({
 });
 
 function ExamsPage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [q, setQ] = useState("");
   const [field, setField] = useState("all");
   const [level, setLevel] = useState("all");

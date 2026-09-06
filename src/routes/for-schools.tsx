@@ -1,6 +1,6 @@
+import { useLang } from "@/lib/lang";
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -21,8 +21,7 @@ export const Route = createFileRoute("/for-schools")({
 });
 
 function ForSchoolsPage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const L = (en: string, gu: string) => (lang === "gu" ? gu : en);
 
   const [form, setForm] = useState({

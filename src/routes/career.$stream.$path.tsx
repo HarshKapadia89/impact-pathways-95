@@ -303,7 +303,7 @@ function PathDetail() {
   const raw = i18n.language ?? "en";
   const lang: Lang = raw.startsWith("gu") ? "gu" : raw.startsWith("hi") ? "hi" : "en";
   // Legacy en/gu callers below still work because "hi" cleanly falls back to "en" strings.
-  const langLegacy = (lang === "gu" ? "gu" : "en") as "en" | "gu";
+  const langLegacy = (lang === "gu" ? "gu" : "en") as Lang;
   const extras = pickExtras(stream, path);
   const exams = relatedExams(path);
   const card = getCareerCard(pathSlug(path.title));

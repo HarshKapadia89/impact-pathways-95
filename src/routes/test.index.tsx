@@ -1,3 +1,4 @@
+import { Lang, toLang } from "@/lib/lang";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -76,12 +77,8 @@ function TestIntro() {
   const { i18n } = useTranslation();
   const { vibe } = Route.useSearch() as { vibe?: VibeId };
   const vibeMeta = vibe ? VIBE_BANNER[vibe] : null;
-  const initialLang: "en" | "hi" | "gu" = i18n.language?.startsWith("hi")
-    ? "hi"
-    : i18n.language?.startsWith("gu")
-      ? "gu"
-      : "en";
-  const [testLang, setTestLang] = useState<"en" | "hi" | "gu">(initialLang);
+  const initialLang: Lang = toLang(i18n.language);
+  const [testLang, setTestLang] = useState<Lang>(initialLang);
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
@@ -617,13 +614,14 @@ function TestIntro() {
             {/* LANGUAGE PICKER — drives the whole test + PDF */}
             <div className="mb-5 rounded-xl border border-primary/30 bg-primary/5 p-4">
               <div className="text-xs font-semibold uppercase tracking-widest text-primary">
-                Test language · परीक्षा की भाषा · પરીક્ષાની ભાષા
+                Test language · परीक्षा की भाषा · પરીક્ષાની ભાષા · परीक्षेची भाषा
               </div>
-              <div className="mt-3 grid grid-cols-3 gap-2">
+              <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {([
                   { id: "en", label: "English" },
                   { id: "hi", label: "हिन्दी" },
                   { id: "gu", label: "ગુજરાતી" },
+                  { id: "mr", label: "मराठी" },
                 ] as const).map((opt) => {
                   const active = testLang === opt.id;
                   return (

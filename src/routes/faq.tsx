@@ -1,5 +1,5 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { FAQAccordion } from "@/components/FAQAccordion";
 
@@ -36,8 +36,7 @@ export const Route = createFileRoute("/faq")({
 });
 
 function FAQPage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   return (
     <PublicLayout>
       <div className="max-w-3xl mx-auto px-4 md:px-8 pt-14 text-center">

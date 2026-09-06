@@ -1,3 +1,4 @@
+import { Lang } from "@/lib/lang";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/test/take")({
   component: TakeTest,
 });
 
-type UILang = "en" | "hi" | "gu";
+type UILang = Lang;
 interface Meta {
   name: string;
   grade: string;
@@ -52,12 +53,18 @@ interface PaymentMeta {
   paid_at: string;
 }
 
+
+// Marathi question copy is not authored yet — fall back to Hindi (same script), then English.
+function ql(obj: Record<string, string>, lang: string): string {
+  return obj[lang] ?? (lang === "mr" ? obj.hi : undefined) ?? obj.en;
+}
+
 const PAGE_SIZE = 6;
 const DRAFT_KEY = "hbk-test-draft-v1";
 
 // Chrome strings for the test-taking flow, keyed by the language chosen on /test.
 const T: Record<
-  "en" | "hi" | "gu",
+  Lang,
   {
     part1: string;
     part2: string;
@@ -114,6 +121,20 @@ const T: Record<
     back: "પાછળ",
     next: "આગળ",
     finish: "પૂર્ણ કરો",
+  },
+  mr: {
+    part1: "भाग 1: आवडी (RIASEC)",
+    part2: "भाग 2: बहुविध बुद्धिमत्ता",
+    part3: (b) => `भाग 3: अभिक्षमता (इयत्ता ${b})`,
+    progress: "प्रगती",
+    page: (n, t) => `पान ${n} / ${t}`,
+    resumeTitle: "मागील प्रयत्न पुढे सुरू ठेवायचा का?",
+    resumeBody: (c, w) => `आम्ही ${w} रोजीची ${c} उत्तरे जतन केली आहेत.`,
+    resumeYes: "पुढे सुरू ठेवा",
+    resumeNo: "नव्याने सुरू करा",
+    back: "मागे",
+    next: "पुढे",
+    finish: "पूर्ण करा",
   },
 };
 
@@ -317,7 +338,7 @@ function TakeTest() {
                   {page * PAGE_SIZE + idx + 1}.
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm md:text-base text-foreground">{item.text[meta.language] ?? item.text.en}</p>
+                  <p className="text-sm md:text-base text-foreground">{ql(item.text as Record<string, string>, meta.language)}</p>
 
                   {current.type === "likert" ? (
                     <div className="mt-4 grid grid-cols-5 gap-1.5">
@@ -333,7 +354,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {o.label[meta.language] ?? o.label.en}
+                            {ql(o.label as Record<string, string>, meta.language)}
                           </button>
                         );
                       })}
@@ -352,7 +373,7 @@ function TakeTest() {
                                 : "border-border bg-background hover:bg-muted"
                             }`}
                           >
-                            {String.fromCharCode(65 + i)}. {o[meta.language] ?? o.en}
+                            {String.fromCharCode(65 + i)}. {ql(o as unknown as Record<string, string>, meta.language)}
                           </button>
                         );
                       })}

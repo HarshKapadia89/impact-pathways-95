@@ -1,5 +1,5 @@
+import { useLang, translator } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { TrustLayer } from "@/components/TrustLayer";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -26,53 +26,68 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
+  const t = translator(lang);
   const T = {
-    hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",
-    hero2:
-      lang === "gu"
-        ? "ગ્રેડ 6–12 માટે મફત કારકિર્દી માર્ગદર્શન અને 20-પાનાનો વ્યક્તિગત રિપોર્ટ સાથેનો સાયકોમેટ્રિક ટેસ્ટ."
-        : "Free career guidance and a psychometric test with a 20-page personalised report — for grades 6 through 12.",
-    cta1: lang === "gu" ? "ટેસ્ટ આપો" : "Take the test",
-    cta2: lang === "gu" ? "કારકિર્દી માર્ગદર્શન" : "Career guidance",
-    sectionsTitle: lang === "gu" ? "શું અન્વેષણ કરશો?" : "What to explore",
-    streamsTitle: lang === "gu" ? "12 પછીના માર્ગો" : "Your paths after Class 12",
-    streamsSub:
-      lang === "gu"
-        ? "દરેક પ્રવાહ માટે વિગતવાર કારકિર્દી, પ્રવેશ પરીક્ષાઓ અને પગાર."
-        : "Deep guides on careers, entrance exams and salaries — per stream.",
+    hero1: t({ en: "Find your direction.", gu: "તમારી દિશા શોધો.", hi: "अपनी दिशा खोजें.", mr: "तुमची दिशा शोधा." }),
+    hero2: t({
+      en: "Free career guidance and a psychometric test with a 20-page personalised report — for grades 6 through 12.",
+      gu: "ધોરણ 6–12 માટે મફત કારકિર્દી માર્ગદર્શન અને 20-પાનાના વ્યક્તિગત રિપોર્ટ સાથેનો સાયકોમેટ્રિક ટેસ્ટ.",
+      hi: "कक्षा 6–12 के लिए मुफ़्त करियर मार्गदर्शन और 20-पृष्ठ की व्यक्तिगत रिपोर्ट वाला साइकोमेट्रिक टेस्ट।",
+      mr: "इयत्ता 6–12 साठी मोफत करिअर मार्गदर्शन आणि 20-पानी वैयक्तिक अहवालासह सायकोमेट्रिक चाचणी.",
+    }),
+    cta1: t({ en: "Take the test", gu: "ટેસ્ટ આપો", hi: "टेस्ट दें", mr: "चाचणी द्या" }),
+    cta2: t({ en: "Career guidance", gu: "કારકિર્દી માર્ગદર્શન", hi: "करियर मार्गदर्शन", mr: "करिअर मार्गदर्शन" }),
+    sectionsTitle: t({ en: "What to explore", gu: "શું અન્વેષણ કરશો?", hi: "क्या देखें", mr: "काय पाहावे" }),
+    streamsTitle: t({
+      en: "Your paths after Class 12",
+      gu: "ધોરણ 12 પછીના તમારા માર્ગો",
+      hi: "कक्षा 12 के बाद आपके रास्ते",
+      mr: "इयत्ता 12 नंतरचे तुमचे मार्ग",
+    }),
+    streamsSub: t({
+      en: "Deep guides on careers, entrance exams and salaries — per stream.",
+      gu: "દરેક પ્રવાહ માટે કારકિર્દી, પ્રવેશ પરીક્ષાઓ અને પગારની વિગતવાર માર્ગદર્શિકા.",
+      hi: "हर स्ट्रीम के लिए करियर, प्रवेश परीक्षाओं और वेतन की विस्तृत गाइड।",
+      mr: "प्रत्येक प्रवाहासाठी करिअर, प्रवेश परीक्षा आणि वेतनाची सविस्तर माहिती.",
+    }),
   };
 
   const tiles = [
     {
       to: "/career" as const,
       icon: Compass,
-      title: lang === "gu" ? "કારકિર્દી માર્ગદર્શન" : "Career Guidance",
-      desc:
-        lang === "gu"
-          ? "વિજ્ઞાન, વાણિજ્ય, માનવવિદ્યા, વ્યાવસાયિક — દરેક માટે વિગતવાર ગાઇડ."
-          : "Detailed guides for Science, Commerce, Humanities and Vocational paths.",
+      title: t({ en: "Career Guidance", gu: "કારકિર્દી માર્ગદર્શન", hi: "करियर मार्गदर्शन", mr: "करिअर मार्गदर्शन" }),
+      desc: t({
+        en: "Detailed guides for Science, Commerce, Humanities and Vocational paths.",
+        gu: "વિજ્ઞાન, વાણિજ્ય, માનવવિદ્યા અને વ્યાવસાયિક માર્ગો માટે વિગતવાર માર્ગદર્શિકા.",
+        hi: "विज्ञान, वाणिज्य, मानविकी और व्यावसायिक रास्तों के लिए विस्तृत गाइड।",
+        mr: "विज्ञान, वाणिज्य, मानव्यविद्या आणि व्यावसायिक मार्गांसाठी सविस्तर मार्गदर्शक.",
+      }),
       tone: "indigo" as const,
     },
     {
       to: "/handbook" as const,
       icon: BookOpen,
-      title: lang === "gu" ? "કારકિર્દી હેન્ડબુક" : "Career Handbook",
-      desc:
-        lang === "gu"
-          ? "20 પ્રવાહોમાં 935+ વ્યવસાયો અને 1,400+ ટોચની સંસ્થાઓ."
-          : "935+ professions and 1,400+ top institutes across 20 streams.",
+      title: t({ en: "Career Handbook", gu: "કારકિર્દી હેન્ડબુક", hi: "करियर हैंडबुक", mr: "करिअर हँडबुक" }),
+      desc: t({
+        en: "1,600+ professions and 1,900+ top institutes across 48 streams.",
+        gu: "48 પ્રવાહોમાં 1,600+ વ્યવસાયો અને 1,900+ ટોચની સંસ્થાઓ.",
+        hi: "48 स्ट्रीम में 1,600+ पेशे और 1,900+ शीर्ष संस्थान।",
+        mr: "48 प्रवाहांमध्ये 1,600+ व्यवसाय आणि 1,900+ आघाडीच्या संस्था.",
+      }),
       tone: "teal" as const,
     },
     {
       to: "/test" as const,
       icon: Brain,
-      title: lang === "gu" ? "મનો-યોગ્યતા ટેસ્ટ" : "Psychometric Test",
-      desc:
-        lang === "gu"
-          ? "RIASEC + MI + યોગ્યતા. દ્વિભાષી. 20-પાનાનો PDF રિપોર્ટ."
-          : "RIASEC + MI + Aptitude. Bilingual. Instant 20-page PDF report.",
+      title: t({ en: "Psychometric Test", gu: "મનો-યોગ્યતા ટેસ્ટ", hi: "साइकोमेट्रिक टेस्ट", mr: "सायकोमेट्रिक चाचणी" }),
+      desc: t({
+        en: "RIASEC + MI + Aptitude. Four languages. Instant 20-page PDF report.",
+        gu: "RIASEC + MI + યોગ્યતા. ચાર ભાષાઓ. તરત જ 20-પાનાનો PDF રિપોર્ટ.",
+        hi: "RIASEC + MI + योग्यता। चार भाषाएँ। तुरंत 20-पृष्ठ PDF रिपोर्ट।",
+        mr: "RIASEC + MI + अभिक्षमता. चार भाषा. लगेच 20-पानी PDF अहवाल.",
+      }),
       tone: "saffron" as const,
     },
   ];
@@ -95,7 +110,12 @@ function HomePage() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 text-xs font-semibold text-foreground mb-6">
               <GraduationCap className="h-3.5 w-3.5" style={{ color: "var(--accent)" }} />
-              {lang === "gu" ? "મફત • કોઈ લૉગિન જરૂરી નથી" : "Free • No login required"}
+              {t({
+                en: "Free • No login required",
+                gu: "મફત • લૉગિન જરૂરી નથી",
+                hi: "मुफ़्त • लॉगिन ज़रूरी नहीं",
+                mr: "मोफत • लॉगिन आवश्यक नाही",
+              })}
             </div>
             <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight">
               <span style={{ color: "var(--accent)" }}>{heroFirst}</span> <span>{heroRest}</span>
@@ -165,7 +185,7 @@ function HomePage() {
             to="/career"
             className="text-xs font-semibold rounded-full border border-border px-3.5 py-2 shrink-0 hover:bg-accent/10"
           >
-            {lang === "gu" ? "બધા જુઓ" : "View all"} →
+            {t({ en: "View all", gu: "બધા જુઓ", hi: "सभी देखें", mr: "सर्व पाहा" })} →
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -188,7 +208,7 @@ function HomePage() {
                   {lang === "gu" ? s.taglineGu : s.tagline}
                 </div>
                 <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold" style={{ color: "var(--accent)" }}>
-                  {lang === "gu" ? "ખોલો" : "Explore"}
+                  {t({ en: "Explore", gu: "ખોલો", hi: "देखें", mr: "पाहा" })}
                   <ArrowRight className="h-3.5 w-3.5" />
                 </div>
               </Link>

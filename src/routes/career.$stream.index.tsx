@@ -1,5 +1,5 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute, getRouteApi, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { pathSlug, type Stream } from "@/lib/careerData";
 import {
@@ -23,8 +23,7 @@ const streamRoute = getRouteApi("/career/$stream");
 
 function StreamDetail() {
   const { stream } = streamRoute.useLoaderData() as { stream: Stream };
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const highlights = lang === "gu" ? stream.gujaratHighlightsGu : stream.gujaratHighlights;
 
   return (

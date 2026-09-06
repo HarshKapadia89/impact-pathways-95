@@ -1,6 +1,6 @@
+import { useLang, type Lang } from "@/lib/lang";
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { GUJ_COLLEGES } from "@/lib/gujaratColleges";
 import { INDIA_COLLEGES, INDIA_STATES, type IndiaCollege } from "@/lib/indiaColleges";
@@ -108,8 +108,7 @@ function prettyCat(id: string) {
 }
 
 function FindCollegePage() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
 
   const ALL = useMemo(buildUnified, []);
 
@@ -430,7 +429,7 @@ function FilterSelect({
   );
 }
 
-function CollegeCard({ c, lang }: { c: UnifiedCollege; lang: "en" | "gu" }) {
+function CollegeCard({ c, lang }: { c: UnifiedCollege; lang: Lang }) {
   return (
     <article className="rounded-xl border border-border bg-card p-4 hover:border-primary/30 hover:shadow-[var(--shadow-card)] transition-all">
       <div className="flex items-start justify-between gap-2">

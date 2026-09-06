@@ -1,43 +1,58 @@
+import { Lang, translator } from "@/lib/lang";
 import { Link } from "@tanstack/react-router";
 import { Brain, FileText, Compass, ArrowRight } from "lucide-react";
 
-export function HowItWorks({ lang }: { lang: "en" | "gu" }) {
+export function HowItWorks({ lang }: { lang: Lang }) {
+  const t = translator(lang);
   const T = {
-    eyebrow: lang === "gu" ? "કેવી રીતે કામ કરે છે" : "How it works",
-    title: lang === "gu" ? "ત્રણ સ્ટેપમાં તમારી દિશા" : "Your direction in 3 steps",
-    sub:
-      lang === "gu"
-        ? "મિનિટોમાં શરૂ થાય છે. જીવનભર ઉપયોગી રહે છે."
-        : "Starts in minutes. Stays useful for years.",
-    cta: lang === "gu" ? "હમણાં શરૂ કરો" : "Start now",
+    eyebrow: t({ en: "How it works", gu: "કેવી રીતે કામ કરે છે", hi: "यह कैसे काम करता है", mr: "हे कसे चालते" }),
+    title: t({
+      en: "Your direction in 3 steps",
+      gu: "ત્રણ સ્ટેપમાં તમારી દિશા",
+      hi: "तीन चरणों में अपनी दिशा पाएँ",
+      mr: "तीन टप्प्यांत तुमची दिशा",
+    }),
+    sub: t({
+      en: "Starts in minutes. Stays useful for years.",
+      gu: "મિનિટોમાં શરૂ થાય છે. વર્ષો સુધી ઉપયોગી રહે છે.",
+      hi: "मिनटों में शुरू। वर्षों तक उपयोगी।",
+      mr: "काही मिनिटांत सुरू. वर्षानुवर्षे उपयुक्त.",
+    }),
+    cta: t({ en: "Start now", gu: "હમણાં શરૂ કરો", hi: "अभी शुरू करें", mr: "आत्ताच सुरू करा" }),
   };
   const steps = [
     {
       icon: Brain,
       n: "01",
-      title: lang === "gu" ? "ટેસ્ટ આપો" : "Take the test",
-      desc:
-        lang === "gu"
-          ? "60 દ્વિભાષી પ્રશ્નો. RIASEC + Multiple Intelligences + યોગ્યતા. 25 મિનિટ."
-          : "60 bilingual questions. RIASEC + Multiple Intelligences + Aptitude. ~25 minutes.",
+      title: t({ en: "Take the test", gu: "ટેસ્ટ આપો", hi: "टेस्ट दें", mr: "चाचणी द्या" }),
+      desc: t({
+        en: "60 questions in your language. RIASEC + Multiple Intelligences + Aptitude. ~25 minutes.",
+        gu: "તમારી ભાષામાં 60 પ્રશ્નો. RIASEC + મલ્ટિપલ ઇન્ટેલિજન્સ + યોગ્યતા. આશરે 25 મિનિટ.",
+        hi: "आपकी भाषा में 60 प्रश्न। RIASEC + मल्टीपल इंटेलिजेंस + योग्यता। लगभग 25 मिनट।",
+        mr: "तुमच्या भाषेत 60 प्रश्न. RIASEC + बहुविध बुद्धिमत्ता + अभिक्षमता. सुमारे 25 मिनिटे.",
+      }),
     },
     {
       icon: FileText,
       n: "02",
-      title: lang === "gu" ? "રિપોર્ટ મેળવો" : "Get your report",
-      desc:
-        lang === "gu"
-          ? "વ્યક્તિગત 20-પાનાનો PDF — ગ્રાફ, વ્યવસાય મેચ, અને 90-દિવસનો એક્શન પ્લાન."
-          : "Personalised 20-page PDF — graphs, career matches and a 90-day action plan.",
+      title: t({ en: "Get your report", gu: "રિપોર્ટ મેળવો", hi: "अपनी रिपोर्ट पाएँ", mr: "तुमचा अहवाल मिळवा" }),
+      desc: t({
+        en: "Personalised 20-page PDF — graphs, career matches and a 90-day action plan.",
+        gu: "વ્યક્તિગત 20-પાનાનો PDF — ગ્રાફ, વ્યવસાય મેચ અને 90-દિવસનો એક્શન પ્લાન.",
+        hi: "व्यक्तिगत 20-पृष्ठ PDF — ग्राफ़, करियर मैच और 90-दिन की कार्ययोजना।",
+        mr: "वैयक्तिक 20-पानी PDF — आलेख, करिअर जुळणी आणि 90-दिवसांची कृती योजना.",
+      }),
     },
     {
       icon: Compass,
       n: "03",
-      title: lang === "gu" ? "પાથ શોધો" : "Explore paths",
-      desc:
-        lang === "gu"
-          ? "મેચ થયેલા પ્રવાહો, કોલેજો, પ્રવેશ પરીક્ષાઓ અને શિષ્યવૃત્તિ સુધી ઊંડાણથી જાઓ."
-          : "Dive into matched streams, colleges, entrance exams and scholarships.",
+      title: t({ en: "Explore paths", gu: "માર્ગો શોધો", hi: "रास्ते खोजें", mr: "मार्ग शोधा" }),
+      desc: t({
+        en: "Dive into matched streams, colleges, entrance exams and scholarships.",
+        gu: "મેચ થયેલા પ્રવાહો, કોલેજો, પ્રવેશ પરીક્ષાઓ અને શિષ્યવૃત્તિમાં ઊંડા ઊતરો.",
+        hi: "मिलते-जुलते स्ट्रीम, कॉलेज, प्रवेश परीक्षाएँ और छात्रवृत्तियाँ देखें।",
+        mr: "जुळणारे प्रवाह, महाविद्यालये, प्रवेश परीक्षा आणि शिष्यवृत्ती पाहा.",
+      }),
     },
   ];
 

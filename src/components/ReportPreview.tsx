@@ -1,6 +1,7 @@
+import { Lang } from "@/lib/lang";
 import { Sparkles, BarChart3, Target, Map, BookOpen, GraduationCap, Brain, Heart } from "lucide-react";
 
-export function ReportPreview({ lang }: { lang: "en" | "gu" }) {
+export function ReportPreview({ lang }: { lang: Lang }) {
   const T = {
     eyebrow: lang === "gu" ? "રિપોર્ટની અંદર" : "Inside the report",
     title: lang === "gu" ? "20 પાનામાં શું છે?" : "What's inside your 20-page PDF",

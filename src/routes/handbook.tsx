@@ -1,6 +1,6 @@
+import { useLang } from "@/lib/lang";
 import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import { BookOpen, ArrowRight, Search } from "lucide-react";
@@ -44,8 +44,7 @@ function HandbookLayout() {
 }
 
 function HandbookIndex() {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [query, setQuery] = useState("");
 
   const totals = useMemo(() => {

@@ -1,7 +1,8 @@
+import { Lang } from "@/lib/lang";
 import { GraduationCap, BookOpen, FileCheck2, Briefcase, TrendingUp, Award, Rocket, School } from "lucide-react";
 import type { CareerPath, Stream } from "@/lib/careerData";
 
-type Props = { stream: Stream; path: CareerPath; lang: "en" | "gu" };
+type Props = { stream: Stream; path: CareerPath; lang: Lang };
 
 type Step = {
   icon: React.ComponentType<{ className?: string }>;
@@ -11,7 +12,7 @@ type Step = {
   salary?: string;
 };
 
-function buildSteps(stream: Stream, path: CareerPath, lang: "en" | "gu"): Step[] {
+function buildSteps(stream: Stream, path: CareerPath, lang: Lang): Step[] {
   const t = (en: string, gu: string) => (lang === "gu" ? gu : en);
   const exams = path.entranceExams.join(", ");
   const baseSalary = path.avgSalary;

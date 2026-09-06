@@ -1,5 +1,5 @@
+import { Lang, useLang, pick } from "@/lib/lang";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
 import {
   HANDBOOK_SUMMARY_BY_SLUG,
@@ -66,8 +66,7 @@ export const Route = createFileRoute("/handbook/$slug/")({
 function StreamDetail() {
   const { stream } = Route.useLoaderData() as { stream: HandbookStream };
   const { slug } = Route.useParams();
-  const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [tab, setTab] = useState<TabKey>("professions");
   const [query, setQuery] = useState("");
 
@@ -165,7 +164,7 @@ function StreamDetail() {
                   }`}
                 >
                   <Icon className="h-4 w-4" />
-                  {t.label[lang]}
+                  {pick(t.label, lang)}
                   <span
                     className={`ml-1 text-xs px-1.5 py-0.5 rounded ${
                       active ? "bg-primary/15 text-primary" : "bg-muted text-muted-foreground"
@@ -339,7 +338,7 @@ function InstitutesList({
 }: {
   items: import("@/lib/handbookData").HandbookInstitute[];
   q: string;
-  lang: "en" | "gu";
+  lang: Lang;
 }) {
   const groups = useMemo(() => {
     const t = q.trim().toLowerCase();

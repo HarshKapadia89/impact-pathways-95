@@ -1,3 +1,4 @@
+import type { Lang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Palette, Check, Moon, Sun } from "lucide-react";
 import {
@@ -30,7 +31,7 @@ export function applyStoredTheme() {
   document.documentElement.classList.toggle("dark", mode === "dark");
 }
 
-export function ThemeSwitcher({ lang = "en" as "en" | "gu" }) {
+export function ThemeSwitcher({ lang = "en" as Lang }) {
   const [theme, setTheme] = useState<ThemeId>("ocean");
   const [mode, setMode] = useState<"light" | "dark">("light");
 

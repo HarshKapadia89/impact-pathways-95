@@ -101,7 +101,9 @@ function safe(text: string): string {
 }
 
 export function generatePsychometricPDF(input: ReportInput): jsPDF {
-  const { name, grade, age, language, report } = input;
+  const { name, grade, age, report } = input;
+  // Marathi shares the Devanagari script with Hindi; report copy falls back to Hindi.
+  const language = input.language === "mr" ? "hi" : input.language;
   const t: ReportStrings = getReportStrings(language);
   const recommendedStreams = recommendStreamsAccurate(report, 2);
   const topCareers = rankCareerPaths(report, recommendedStreams, 8);
