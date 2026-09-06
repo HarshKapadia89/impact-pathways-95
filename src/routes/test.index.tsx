@@ -1,6 +1,5 @@
 import { Lang, toLang } from "@/lib/lang";
 import { tp } from "@/lib/testPageStrings";
-import { useLang } from "@/lib/lang";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
