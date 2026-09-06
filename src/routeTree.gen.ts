@@ -36,6 +36,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as UpskillIndexRouteImport } from './routes/upskill.index'
 import { Route as TestIndexRouteImport } from './routes/test.index'
 import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
+import { Route as UpskillQuizRouteImport } from './routes/upskill.quiz'
 import { Route as UpskillTopicRouteImport } from './routes/upskill.$topic'
 import { Route as TestTakeRouteImport } from './routes/test.take'
 import { Route as TestPayRouteImport } from './routes/test.pay'
@@ -49,6 +50,7 @@ import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
 import { Route as UpskillTopicIndexRouteImport } from './routes/upskill.$topic.index'
 import { Route as HandbookSlugIndexRouteImport } from './routes/handbook.$slug.index'
 import { Route as CareerStreamIndexRouteImport } from './routes/career.$stream.index'
+import { Route as UpskillTopicQuizRouteImport } from './routes/upskill.$topic.quiz'
 import { Route as UpskillTopicLessonRouteImport } from './routes/upskill.$topic.$lesson'
 import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
 import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
@@ -190,6 +192,11 @@ const TeacherIndexRoute = TeacherIndexRouteImport.update({
   path: '/teacher/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UpskillQuizRoute = UpskillQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => UpskillRoute,
+} as any)
 const UpskillTopicRoute = UpskillTopicRouteImport.update({
   id: '/$topic',
   path: '/$topic',
@@ -255,6 +262,11 @@ const CareerStreamIndexRoute = CareerStreamIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CareerStreamRoute,
 } as any)
+const UpskillTopicQuizRoute = UpskillTopicQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => UpskillTopicRoute,
+} as any)
 const UpskillTopicLessonRoute = UpskillTopicLessonRouteImport.update({
   id: '/$lesson',
   path: '/$lesson',
@@ -316,6 +328,7 @@ export interface FileRoutesByFullPath {
   '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
   '/upskill/$topic': typeof UpskillTopicRouteWithChildren
+  '/upskill/quiz': typeof UpskillQuizRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
   '/upskill/': typeof UpskillIndexRoute
@@ -324,6 +337,7 @@ export interface FileRoutesByFullPath {
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/upskill/$topic/$lesson': typeof UpskillTopicLessonRoute
+  '/upskill/$topic/quiz': typeof UpskillTopicQuizRoute
   '/career/$stream/': typeof CareerStreamIndexRoute
   '/handbook/$slug/': typeof HandbookSlugIndexRoute
   '/upskill/$topic/': typeof UpskillTopicIndexRoute
@@ -358,6 +372,7 @@ export interface FileRoutesByTo {
   '/teacher/sessions': typeof TeacherSessionsRoute
   '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
+  '/upskill/quiz': typeof UpskillQuizRoute
   '/teacher': typeof TeacherIndexRoute
   '/test': typeof TestIndexRoute
   '/upskill': typeof UpskillIndexRoute
@@ -366,6 +381,7 @@ export interface FileRoutesByTo {
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/upskill/$topic/$lesson': typeof UpskillTopicLessonRoute
+  '/upskill/$topic/quiz': typeof UpskillTopicQuizRoute
   '/career/$stream': typeof CareerStreamIndexRoute
   '/handbook/$slug': typeof HandbookSlugIndexRoute
   '/upskill/$topic': typeof UpskillTopicIndexRoute
@@ -406,6 +422,7 @@ export interface FileRoutesById {
   '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
   '/upskill/$topic': typeof UpskillTopicRouteWithChildren
+  '/upskill/quiz': typeof UpskillQuizRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
   '/upskill/': typeof UpskillIndexRoute
@@ -414,6 +431,7 @@ export interface FileRoutesById {
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/upskill/$topic/$lesson': typeof UpskillTopicLessonRoute
+  '/upskill/$topic/quiz': typeof UpskillTopicQuizRoute
   '/career/$stream/': typeof CareerStreamIndexRoute
   '/handbook/$slug/': typeof HandbookSlugIndexRoute
   '/upskill/$topic/': typeof UpskillTopicIndexRoute
@@ -455,6 +473,7 @@ export interface FileRouteTypes {
     | '/test/pay'
     | '/test/take'
     | '/upskill/$topic'
+    | '/upskill/quiz'
     | '/teacher/'
     | '/test/'
     | '/upskill/'
@@ -463,6 +482,7 @@ export interface FileRouteTypes {
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/upskill/$topic/$lesson'
+    | '/upskill/$topic/quiz'
     | '/career/$stream/'
     | '/handbook/$slug/'
     | '/upskill/$topic/'
@@ -497,6 +517,7 @@ export interface FileRouteTypes {
     | '/teacher/sessions'
     | '/test/pay'
     | '/test/take'
+    | '/upskill/quiz'
     | '/teacher'
     | '/test'
     | '/upskill'
@@ -505,6 +526,7 @@ export interface FileRouteTypes {
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/upskill/$topic/$lesson'
+    | '/upskill/$topic/quiz'
     | '/career/$stream'
     | '/handbook/$slug'
     | '/upskill/$topic'
@@ -544,6 +566,7 @@ export interface FileRouteTypes {
     | '/test/pay'
     | '/test/take'
     | '/upskill/$topic'
+    | '/upskill/quiz'
     | '/teacher/'
     | '/test/'
     | '/upskill/'
@@ -552,6 +575,7 @@ export interface FileRouteTypes {
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/upskill/$topic/$lesson'
+    | '/upskill/$topic/quiz'
     | '/career/$stream/'
     | '/handbook/$slug/'
     | '/upskill/$topic/'
@@ -782,6 +806,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeacherIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/upskill/quiz': {
+      id: '/upskill/quiz'
+      path: '/quiz'
+      fullPath: '/upskill/quiz'
+      preLoaderRoute: typeof UpskillQuizRouteImport
+      parentRoute: typeof UpskillRoute
+    }
     '/upskill/$topic': {
       id: '/upskill/$topic'
       path: '/$topic'
@@ -872,6 +903,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/career/$stream/'
       preLoaderRoute: typeof CareerStreamIndexRouteImport
       parentRoute: typeof CareerStreamRoute
+    }
+    '/upskill/$topic/quiz': {
+      id: '/upskill/$topic/quiz'
+      path: '/quiz'
+      fullPath: '/upskill/$topic/quiz'
+      preLoaderRoute: typeof UpskillTopicQuizRouteImport
+      parentRoute: typeof UpskillTopicRoute
     }
     '/upskill/$topic/$lesson': {
       id: '/upskill/$topic/$lesson'
@@ -988,11 +1026,13 @@ const TestRouteWithChildren = TestRoute._addFileChildren(TestRouteChildren)
 
 interface UpskillTopicRouteChildren {
   UpskillTopicLessonRoute: typeof UpskillTopicLessonRoute
+  UpskillTopicQuizRoute: typeof UpskillTopicQuizRoute
   UpskillTopicIndexRoute: typeof UpskillTopicIndexRoute
 }
 
 const UpskillTopicRouteChildren: UpskillTopicRouteChildren = {
   UpskillTopicLessonRoute: UpskillTopicLessonRoute,
+  UpskillTopicQuizRoute: UpskillTopicQuizRoute,
   UpskillTopicIndexRoute: UpskillTopicIndexRoute,
 }
 
@@ -1002,11 +1042,13 @@ const UpskillTopicRouteWithChildren = UpskillTopicRoute._addFileChildren(
 
 interface UpskillRouteChildren {
   UpskillTopicRoute: typeof UpskillTopicRouteWithChildren
+  UpskillQuizRoute: typeof UpskillQuizRoute
   UpskillIndexRoute: typeof UpskillIndexRoute
 }
 
 const UpskillRouteChildren: UpskillRouteChildren = {
   UpskillTopicRoute: UpskillTopicRouteWithChildren,
+  UpskillQuizRoute: UpskillQuizRoute,
   UpskillIndexRoute: UpskillIndexRoute,
 }
 

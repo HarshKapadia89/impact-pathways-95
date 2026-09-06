@@ -121,7 +121,17 @@ function UpskillHub() {
           </div>
         )}
 
-        <div className="mt-8 relative max-w-2xl">
+        <div className="mt-8">
+          <Link
+            to="/upskill/quiz"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-3 text-sm font-medium hover:opacity-90"
+          >
+            {t("quizCta")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="mt-6 relative max-w-2xl">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             value={query}
