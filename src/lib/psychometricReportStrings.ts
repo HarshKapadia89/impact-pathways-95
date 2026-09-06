@@ -233,7 +233,9 @@ function tr(key: string, lang: ReportLang): string {
   return (lang === "hi" ? x.hi : x.gu) || en || key;
 }
 
-export function getReportStrings(language: ReportLang = "en"): ReportStrings {
+export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
+  // Marathi report copy is not authored yet — fall back to Hindi (same script).
+  const language: ReportLang = requested === "mr" ? "hi" : requested;
   const T = (k: string) => tr(k, language);
   const SECTIONS = [
     T("sec1"), T("sec2"), T("sec3"), T("sec4"), T("sec5"), T("sec6"),
