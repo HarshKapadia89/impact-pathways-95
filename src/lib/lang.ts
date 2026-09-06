@@ -1,4 +1,3 @@
-import type { Lang } from "@/lib/lang";
 import { useTranslation } from "react-i18next";
 
 export type Lang = Lang | "mr";

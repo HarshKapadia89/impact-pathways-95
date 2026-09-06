@@ -1,4 +1,3 @@
-import { Lang } from "@/lib/lang";
 // Additional per-career "career card" details layered on top of careerData.ts.
 // Sourced from the national Career Card format (personal competencies, work
 // environment, national institutes, distance/online options, loans, role model,

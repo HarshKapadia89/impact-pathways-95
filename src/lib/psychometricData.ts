@@ -1,4 +1,3 @@
-import { Lang } from "@/lib/lang";
 // Psychometric test bank — RIASEC + Multiple Intelligences + Aptitude.
 // Bilingual (English / Gujarati) for the on-screen test UI; reports are English-only.
 //
