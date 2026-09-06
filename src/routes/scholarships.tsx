@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { SCHOLARSHIPS, type Scholarship } from "@/lib/scholarshipsData";
 import { Search, IndianRupee, Calendar, ExternalLink, GraduationCap, Filter, X } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/scholarships")({
   head: () => ({
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/scholarships")({
 
 function ScholarshipsPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [q, setQ] = useState("");
   const [scope, setScope] = useState<string>("all");
   const [level, setLevel] = useState<string>("all");

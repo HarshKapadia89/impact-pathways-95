@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { Heart, ShieldCheck, IndianRupee, Calendar, MessageSquare, ArrowRight } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/parents")({
   head: () => ({
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/parents")({
 
 function ParentsPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
 
   const cards = [
     {

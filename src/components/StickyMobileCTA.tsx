@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { Brain, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/lib/lang";
 
 export function StickyMobileCTA() {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.startsWith("gu") ? "gu" : "en";
+  const lang = useLang();
   return (
     <div className="lg:hidden fixed bottom-3 left-3 right-20 z-30 pointer-events-none">
       <Link

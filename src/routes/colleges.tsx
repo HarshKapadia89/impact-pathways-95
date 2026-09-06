@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { Search, MapPin, Globe, GraduationCap, Building2, Filter } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 type College = Tables<"colleges">;
 
@@ -38,7 +39,7 @@ const STREAM_OPTIONS = [
 
 function CollegesPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [data, setData] = useState<College[]>([]);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");

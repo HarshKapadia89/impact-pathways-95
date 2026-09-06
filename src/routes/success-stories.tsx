@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { Quote, Sparkles, ArrowRight, Star } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
@@ -125,7 +126,7 @@ const STORIES_GU = [
 
 function SuccessStoriesPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const stories = lang === "gu" ? STORIES_GU : STORIES_EN;
 
   return (

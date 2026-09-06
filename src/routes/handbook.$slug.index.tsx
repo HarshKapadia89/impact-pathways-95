@@ -10,6 +10,7 @@ import {
 import { getOverview, type HandbookOverview } from "@/lib/handbookOverviews";
 import { professionSlug } from "@/lib/professionData";
 import { ArrowLeft, Briefcase, FileText, Building2, ExternalLink, Printer, Sparkles, BookOpen } from "lucide-react";
+import { Lang, useLang } from "@/lib/lang";
 
 type TabKey = "professions" | "exams" | "institutes";
 
@@ -67,7 +68,7 @@ function StreamDetail() {
   const { stream } = Route.useLoaderData() as { stream: HandbookStream };
   const { slug } = Route.useParams();
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [tab, setTab] = useState<TabKey>("professions");
   const [query, setQuery] = useState("");
 
@@ -339,7 +340,7 @@ function InstitutesList({
 }: {
   items: import("@/lib/handbookData").HandbookInstitute[];
   q: string;
-  lang: "en" | "gu";
+  lang: Lang;
 }) {
   const groups = useMemo(() => {
     const t = q.trim().toLowerCase();

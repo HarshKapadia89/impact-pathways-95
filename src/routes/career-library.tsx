@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import professionIndex from "@/lib/professionIndex.json";
 import { Library, ArrowRight, Search, GraduationCap } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 type IndexRow = { n: string; s: string; p: string };
 const PROFESSIONS = professionIndex as IndexRow[];
@@ -36,7 +37,7 @@ const STREAM_NAME_BY_SLUG: Record<string, string> = Object.fromEntries(
 
 function CareerLibraryPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState<string>("");
 

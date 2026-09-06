@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
+import { Lang } from "@/lib/lang";
   Sparkles,
   ArrowRight,
   Zap,
@@ -140,7 +141,7 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-export function VibeQuizCard({ lang }: { lang: "en" | "gu" }) {
+export function VibeQuizCard({ lang }: { lang: Lang }) {
   const [step, setStep] = useState(0); // -1 idle, 0..n questions, n result
   const [started, setStarted] = useState(false);
   const [scores, setScores] = useState<Record<Vibe, number>>({

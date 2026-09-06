@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import {
+import { Lang } from "@/lib/lang";
   School,
   FileText,
   BookOpen,
@@ -65,7 +66,7 @@ const TESTIMONIALS = [
   },
 ];
 
-export function TrustLayer({ lang }: { lang: "en" | "gu" }) {
+export function TrustLayer({ lang }: { lang: Lang }) {
   const [counts, setCounts] = useState<Counts>(FALLBACK);
   const [idx, setIdx] = useState(0);
 

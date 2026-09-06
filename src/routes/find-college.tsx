@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { GUJ_COLLEGES } from "@/lib/gujaratColleges";
 import { INDIA_COLLEGES, INDIA_STATES, type IndiaCollege } from "@/lib/indiaColleges";
 import {
+import { useLang } from "@/lib/lang";
   Search,
   MapPin,
   Filter,
@@ -109,7 +110,7 @@ function prettyCat(id: string) {
 
 function FindCollegePage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
 
   const ALL = useMemo(buildUnified, []);
 

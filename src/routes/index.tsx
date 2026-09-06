@@ -8,6 +8,7 @@ import { VibeQuizCard } from "@/components/VibeQuizCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { STREAMS } from "@/lib/careerData";
 import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,7 +28,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const T = {
     hero1: lang === "gu" ? "તમારી દિશા શોધો." : "Find your direction.",
     hero2:

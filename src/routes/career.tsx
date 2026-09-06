@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { STREAMS, ENTRANCE_EXAMS } from "@/lib/careerData";
 import { GUJ_COLLEGES, GUJ_COLLEGE_STATS, type CategoryGroup } from "@/lib/gujaratColleges";
 import {
+import { useLang } from "@/lib/lang";
   MapPin,
   BookOpen,
   Sparkles,
@@ -38,7 +39,7 @@ export const Route = createFileRoute("/career")({
 
 function CareerIndex() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
 
   const [activeCat, setActiveCat] = useState<string>("all");
 

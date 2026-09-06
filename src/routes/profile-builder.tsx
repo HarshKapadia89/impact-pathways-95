@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
 import { FileText, Download, Plus, Trash2, Save } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 export const Route = createFileRoute("/profile-builder")({
   head: () => ({
@@ -43,7 +44,7 @@ const STORAGE_KEY = "hbk-student-profile";
 
 function ProfileBuilderPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const [p, setP] = useState<Profile>(EMPTY);
 
   useEffect(() => {

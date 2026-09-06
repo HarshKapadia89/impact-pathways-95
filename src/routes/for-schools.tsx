@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import {
+import { useLang } from "@/lib/lang";
   Building2, Check, Sparkles, Users, BarChart3, BookOpen, Headphones, Send,
 } from "lucide-react";
 
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/for-schools")({
 
 function ForSchoolsPage() {
   const { i18n } = useTranslation();
-  const lang = (i18n.language?.startsWith("gu") ? "gu" : "en") as "en" | "gu";
+  const lang = useLang();
   const L = (en: string, gu: string) => (lang === "gu" ? gu : en);
 
   const [form, setForm] = useState({
