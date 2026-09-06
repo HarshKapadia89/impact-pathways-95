@@ -1,6 +1,7 @@
-import { import type { Lang } from "@/lib/lang";
+import type { Lang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Palette, Check, Moon, Sun } from "lucide-react";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,

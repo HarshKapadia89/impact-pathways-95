@@ -1,4 +1,4 @@
-import { import type { Lang } from "@/lib/lang";
+import type { Lang } from "@/lib/lang";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
@@ -25,6 +25,7 @@ import {
   DEFAULT_DISTANCE,
   type Lang,
 } from "@/lib/careerCards";
+import {
   ArrowLeft,
   Clock,
   Award,

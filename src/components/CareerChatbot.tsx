@@ -1,5 +1,4 @@
 import { useLang } from "@/lib/lang";
-import {
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
@@ -11,6 +10,7 @@ import {
   Trash2,
   Brain,
 } from "lucide-react";
+import {
   loadReport,
   buildReportContext,
   type SavedReport,
