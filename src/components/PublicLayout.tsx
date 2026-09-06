@@ -108,6 +108,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   <div
                     className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.18em] whitespace-nowrap"
                     style={{ color: "var(--accent)" }}
+                    suppressHydrationWarning
                   >
                     {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
                   </div>
