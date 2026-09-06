@@ -26,7 +26,9 @@ const STORAGE_MODE = "hbk-mode-v1";
 
 export function applyStoredTheme() {
   if (typeof document === "undefined") return;
-  const theme = (localStorage.getItem(STORAGE_THEME) as ThemeId) || "ocean";
+  // Indigo & Amber is the site-wide default theme
+  const theme = "indigo";
+  localStorage.setItem(STORAGE_THEME, theme);
   const mode = localStorage.getItem(STORAGE_MODE) || "light";
   document.documentElement.setAttribute("data-theme", theme);
   document.documentElement.classList.toggle("dark", mode === "dark");
