@@ -25,7 +25,7 @@ export function UpskillProgressCard() {
     <div className="rounded-2xl border border-border bg-card p-5">
       <div className="flex items-center gap-2 text-sm font-medium">
         <Rocket className="h-4 w-4 text-accent" />
-        Upskilling
+        Skill Studio
       </div>
       <p className="text-sm text-muted-foreground mt-2">
         {done > 0
