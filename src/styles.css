@@ -276,7 +276,12 @@
   }
   h1, h2, h3, h4, .font-serif {
     font-family: var(--font-serif);
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -306,7 +311,7 @@
   --color-block-orange: var(--brand-4);
   --color-block-yellow: var(--brand-2);
   --color-block-violet: var(--brand-6);
-  --font-display: "Fraunces", "Georgia", ui-serif, serif;
+  --font-display: "Archivo", "Helvetica Neue", ui-sans-serif, sans-serif;
 }
 
 @utility block-card {
@@ -343,7 +348,29 @@
 
 @utility display-caps {
   font-family: var(--font-serif);
-  text-transform: none;
+  font-weight: 800;
+  text-transform: uppercase;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.02;
+}
+
+/* Dotted outline block, straight from the printed career card. */
+@utility card-dotted {
+  border: 2px dotted color-mix(in oklab, var(--primary) 45%, transparent);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+/* Sky-blue info panel used for highlight facts on the card. */
+@utility panel-sky {
+  background: color-mix(in oklab, var(--accent) 55%, var(--card));
+  color: var(--accent-foreground);
+  border-radius: var(--radius);
+}
+
+/* Solid maroon panel. */
+@utility panel-maroon {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius);
 }
