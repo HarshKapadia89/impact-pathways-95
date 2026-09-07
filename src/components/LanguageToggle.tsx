@@ -1,4 +1,4 @@
-import { LANGS, LANG_LABEL, toLang } from "@/lib/lang";
+import { LANGS, LANG_LABEL, toLang, persistLang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Globe, Check } from "lucide-react";
@@ -30,7 +30,7 @@ export function LanguageToggle() {
           <DropdownMenuItem
             key={l}
             onClick={() => {
-              localStorage.setItem("i18nextLng", l);
+              persistLang(l);
               i18n.changeLanguage(l);
               document.documentElement.lang = l;
             }}

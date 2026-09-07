@@ -1,4 +1,4 @@
-import { LANGS, LANG_LABEL, toLang } from "@/lib/lang";
+import { LANGS, LANG_LABEL, toLang, persistLang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -17,7 +17,11 @@ export function LanguagePicker() {
           <button
             key={l}
             type="button"
-            onClick={() => i18n.changeLanguage(l)}
+            onClick={() => {
+              persistLang(l);
+              i18n.changeLanguage(l);
+              document.documentElement.lang = l;
+            }}
             suppressHydrationWarning
             className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
               active

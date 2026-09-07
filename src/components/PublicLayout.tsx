@@ -68,10 +68,6 @@ export function PublicLayout({ children }: { children: ReactNode }) {
   const t = translator(lang);
   const location = useLocation();
   const [open, setOpen] = useState(false);
-  const [languageReady, setLanguageReady] = useState(false);
-  useEffect(() => setLanguageReady(true), []);
-  const safeLang = languageReady ? lang : "en";
-  const safeT = translator(safeLang);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
