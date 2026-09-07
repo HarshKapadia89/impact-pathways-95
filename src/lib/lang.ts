@@ -23,8 +23,13 @@ export function toLang(raw: string | undefined | null): Lang {
 /** Current UI language, one of en | gu | hi | mr. */
 export function useLang(): Lang {
   const { i18n } = useTranslation();
-  return toLang(i18n.language);
+  // Server renders English; switch to the saved language only after hydration
+  // so the first client render matches the SSR HTML.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
+  return hydrated ? toLang(i18n.language) : "en";
 }
+
 
 type Entry<T> = Partial<Record<Lang, T>> & { en: T };
 
