@@ -11,3 +11,5 @@ Disallow: /sessions
 Disallow: /schools
 Disallow: /teachers
 Disallow: /programs
+
+Sitemap: https://hbkcareers.org/sitemap.xml
