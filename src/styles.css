@@ -374,3 +374,6 @@
   color: var(--primary-foreground);
   border-radius: var(--radius);
 }
+
+/* HBK Careers design system theme — loaded last so its tokens take precedence. */
+@import "./design-system/hbk-career-brand-guidelines-4f1c39/design-system/styles/theme.css";
