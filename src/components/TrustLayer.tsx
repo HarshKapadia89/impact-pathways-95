@@ -2,31 +2,7 @@ import { t4 } from "@/lib/t4";
 import { Lang, translator } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { supabase } from "@/integrations/supabase/client";
-import {
-  School,
-  FileText,
-  BookOpen,
-  Layers,
-  Quote,
-  Download,
-  ChevronRight,
-  Award,
-} from "lucide-react";
-
-type Counts = {
-  schools: number;
-  reports: number;
-  streams: number;
-  professions: number;
-};
-
-const FALLBACK: Counts = {
-  schools: 419,
-  reports: 0,
-  streams: 20,
-  professions: 935,
-};
+import { FileText, Quote, Download, ChevronRight, Award } from "lucide-react";
 
 const TESTIMONIALS = [
   {
@@ -68,32 +44,7 @@ const TESTIMONIALS = [
 ];
 
 export function TrustLayer({ lang }: { lang: Lang }) {
-  const [counts, setCounts] = useState<Counts>(FALLBACK);
   const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [{ count: schools }, { count: reports }] = await Promise.all([
-          supabase.from("schools").select("*", { count: "exact", head: true }).eq("active", true),
-          supabase.from("psychometric_submissions").select("*", { count: "exact", head: true }),
-        ]);
-        if (cancelled) return;
-        setCounts({
-          schools: Math.max(schools ?? 0, FALLBACK.schools),
-          reports: Math.max(reports ?? 0, FALLBACK.reports),
-          streams: FALLBACK.streams,
-          professions: FALLBACK.professions,
-        });
-      } catch {
-        /* keep fallback */
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % TESTIMONIALS.length), 6000);
@@ -109,15 +60,11 @@ export function TrustLayer({ lang }: { lang: Lang }) {
       mr: "गुजरातमधील विद्यार्थी, पालक आणि शाळांचा विश्वास",
     }),
     sub: tx({
-      en: "Real numbers, real reports — no marketing fluff.",
-      gu: "વાસ્તવિક આંકડા, વાસ્તવિક રિપોર્ટ — કોઈ માર્કેટિંગ ભપકો નહીં.",
-      hi: "असली आँकड़े, असली रिपोर्ट — कोई मार्केटिंग दिखावा नहीं।",
-      mr: "खरे आकडे, खरे अहवाल — कोणताही मार्केटिंग देखावा नाही.",
+      en: "Real reports, real families — no marketing fluff.",
+      gu: "વાસ્તવિક રિપોર્ટ, વાસ્તવિક પરિવારો — કોઈ માર્કેટિંગ ભપકો નહીં.",
+      hi: "असली रिपोर्ट, असली परिवार — कोई मार्केटिंग दिखावा नहीं।",
+      mr: "खरे अहवाल, खरी कुटुंबे — कोणताही मार्केटिंग देखावा नाही.",
     }),
-    schoolsL: tx({ en: "Schools onboarded", gu: "જોડાયેલી શાળાઓ", hi: "जुड़े हुए स्कूल", mr: "जोडलेल्या शाळा" }),
-    reportsL: tx({ en: "Reports generated", gu: "તૈયાર થયેલા રિપોર્ટ", hi: "बनाई गई रिपोर्ट", mr: "तयार झालेले अहवाल" }),
-    streamsL: tx({ en: "Career streams covered", gu: "આવરી લેવાયેલા કારકિર્દી પ્રવાહો", hi: "शामिल करियर स्ट्रीम", mr: "समाविष्ट करिअर प्रवाह" }),
-    profL: tx({ en: "Profession profiles", gu: "વ્યવસાય પ્રોફાઇલ", hi: "पेशा प्रोफ़ाइल", mr: "व्यवसाय प्रोफाइल" }),
     sampleTitle: tx({
       en: "See a real sample report",
       gu: "વાસ્તવિક નમૂનો રિપોર્ટ જુઓ",
@@ -137,8 +84,6 @@ export function TrustLayer({ lang }: { lang: Lang }) {
   };
 
   const t = TESTIMONIALS[idx];
-  const fmt = (n: number) =>
-    n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k+` : n.toString();
 
   return (
     <section className="border-y border-border bg-card/40">
@@ -152,24 +97,6 @@ export function TrustLayer({ lang }: { lang: Lang }) {
           <p className="mt-2 text-sm text-muted-foreground">{T.sub}</p>
         </div>
 
-        {/* Counters */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { icon: School, value: fmt(counts.schools), label: T.schoolsL },
-            { icon: FileText, value: fmt(counts.reports), label: T.reportsL },
-            { icon: Layers, value: counts.streams.toString(), label: T.streamsL },
-            { icon: BookOpen, value: `${counts.professions}+`, label: T.profL },
-          ].map((c) => (
-            <div
-              key={c.label}
-              className="rounded-2xl border border-border bg-background p-5 text-center hover:shadow-[var(--shadow-card)] transition"
-            >
-              <c.icon className="h-5 w-5 mx-auto text-primary" />
-              <div className="mt-2 font-serif text-3xl md:text-4xl text-primary">{c.value}</div>
-              <div className="text-xs text-muted-foreground mt-1">{c.label}</div>
-            </div>
-          ))}
-        </div>
 
         {/* Sample report + testimonial */}
         <div className="mt-10 grid md:grid-cols-2 gap-5">

@@ -27,7 +27,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
-import { useEffect } from "react";
+
 
 const NAV = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
@@ -68,10 +68,6 @@ export function PublicLayout({ children }: { children: ReactNode }) {
   const t = translator(lang);
   const location = useLocation();
   const [open, setOpen] = useState(false);
-  const [languageReady, setLanguageReady] = useState(false);
-  useEffect(() => setLanguageReady(true), []);
-  const safeLang = languageReady ? lang : "en";
-  const safeT = translator(safeLang);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -117,7 +113,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     style={{ color: "var(--accent)" }}
                     suppressHydrationWarning
                   >
-                    {safeT({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
+                    {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
                   </div>
                 </div>
               </Link>
@@ -156,7 +152,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                         }}
                       />
                       <Icon className="relative h-4 w-4" />
-                      <span className="relative">{safeT(item.label)}</span>
+                      <span className="relative">{t(item.label)}</span>
                     </Link>
                   );
                 }
@@ -169,7 +165,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     }`}
                   >
                     <Icon className="h-4 w-4" style={isResume ? { color: "var(--accent)" } : undefined} />
-                    {safeT(item.label)}
+                    {t(item.label)}
                   </Link>
                 );
               })}
@@ -197,7 +193,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                       style={active ? { background: ACTIVE_PILL } : undefined}
                     >
                       <Icon className="h-4 w-4" />
-                      {safeT(item.label)}
+                      {t(item.label)}
                     </Link>
                   );
                 })}
@@ -214,7 +210,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           <div>
             <div className="font-serif text-lg mb-2">HBK Careers</div>
             <p className="text-sidebar-foreground/70 text-xs leading-relaxed">
-              {safeT({
+              {t({
                 en: "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad.",
                 gu: "ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ તરફથી ગુજરાતના વિદ્યાર્થીઓ માટે નિઃશુલ્ક કારકિર્દી માર્ગદર્શન.",
                 hi: "द एच. बी. कापड़िया न्यू हाई स्कूल, अहमदाबाद द्वारा विद्यार्थियों के लिए निःशुल्क करियर मार्गदर्शन।",
@@ -223,21 +219,21 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </p>
           </div>
           <div>
-            <div className="font-medium mb-2">{safeT({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
+            <div className="font-medium mb-2">{t({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
             <ul className="space-y-1 text-sidebar-foreground/70 text-xs">
               {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
                 <li key={n.to}>
                   <Link to={n.to} className="hover:text-sidebar-foreground">
-                    {safeT(n.label)}
+                    {t(n.label)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <div className="font-medium mb-2">{safeT({ en: "Usage", gu: "ઉપયોગ", hi: "उपयोग", mr: "वापर" })}</div>
+            <div className="font-medium mb-2">{t({ en: "Usage", gu: "ઉપયોગ", hi: "उपयोग", mr: "वापर" })}</div>
             <p className="text-sidebar-foreground/70 text-xs leading-relaxed">
-              {safeT({
+              {t({
                 en: "All content and tests are completely free. No login required.",
                 gu: "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે નિઃશુલ્ક છે. લૉગિન કરવાની જરૂર નથી.",
                 hi: "सारी जानकारी और टेस्ट पूरी तरह निःशुल्क हैं। लॉगिन ज़रूरी नहीं है।",

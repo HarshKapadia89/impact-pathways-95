@@ -12,6 +12,10 @@ import {
   CalendarCheck,
   School,
   ArrowRight,
+  LayoutDashboard,
+  Star,
+  Users,
+  Building2,
 } from "lucide-react";
 
 const TONES = ["--brand-1", "--brand-2", "--brand-3", "--brand-4", "--brand-5", "--brand-6"];
@@ -129,12 +133,56 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       icon: School,
       title: t({ en: "Find your college", gu: "તમારી કોલેજ શોધો", hi: "अपना कॉलेज खोजें", mr: "तुमचे महाविद्यालय शोधा" }),
       desc: t({
-        en: "Search colleges in Gujarat and across India by stream.",
-        gu: "પ્રવાહ મુજબ ગુજરાત અને આખા ભારતની કોલેજો શોધો.",
-        hi: "स्ट्रीम के अनुसार गुजरात और पूरे भारत के कॉलेज खोजें।",
-        mr: "प्रवाहानुसार गुजरात आणि संपूर्ण भारतातील महाविद्यालये शोधा.",
+        en: "Search 1,900+ colleges & universities by name, course, city, state, category and type.",
+        gu: "1,900+ કોલેજો અને યુનિવર્સિટીઓ નામ, કોર્સ, શહેર, રાજ્ય, કેટેગરી અને પ્રકાર મુજબ શોધો.",
+        hi: "1,900+ कॉलेज और विश्वविद्यालय नाम, कोर्स, शहर, राज्य, श्रेणी और प्रकार से खोजें।",
+        mr: "1,900+ महाविद्यालये आणि विद्यापीठे नाव, अभ्यासक्रम, शहर, राज्य, प्रकारानुसार शोधा.",
       }),
       to: "/find-college",
+    },
+    {
+      icon: LayoutDashboard,
+      title: t({ en: "Your student dashboard", gu: "તમારું વિદ્યાર્થી ડેશબોર્ડ", hi: "आपका स्टूडेंट डैशबोर्ड", mr: "तुमचे विद्यार्थी डॅशबोर्ड" }),
+      desc: t({
+        en: "Saved careers, bookmarks, test results and progress — all in one place.",
+        gu: "સાચવેલી કારકિર્દી, બુકમાર્ક્સ, ટેસ્ટ પરિણામો અને પ્રગતિ — બધું એક જગ્યાએ.",
+        hi: "सहेजे करियर, बुकमार्क, टेस्ट नतीजे और प्रगति — सब एक जगह।",
+        mr: "जतन केलेली करिअर्स, बुकमार्क, चाचणी निकाल आणि प्रगती — सर्व एकाच ठिकाणी.",
+      }),
+      to: "/dashboard",
+    },
+    {
+      icon: Star,
+      title: t({ en: "Success stories", gu: "સફળતાની વાર્તાઓ", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" }),
+      desc: t({
+        en: "Real students who found their path with HBK — and how they did it.",
+        gu: "HBK સાથે પોતાનો માર્ગ શોધનાર વાસ્તવિક વિદ્યાર્થીઓ — અને તેણે કેવી રીતે કર્યું.",
+        hi: "HBK से अपना रास्ता पाने वाले असली छात्र — और उन्होंने कैसे किया।",
+        mr: "HBK सोबत स्वतःचा मार्ग शोधणारे खरे विद्यार्थी — आणि त्यांनी ते कसे केले.",
+      }),
+      to: "/success-stories",
+    },
+    {
+      icon: Users,
+      title: t({ en: "For parents", gu: "વાલીઓ માટે", hi: "अभिभावकों के लिए", mr: "पालकांसाठी" }),
+      desc: t({
+        en: "Understand your child's report and support their career choice.",
+        gu: "તમારા બાળકનો રિપોર્ટ સમજો અને તેમની કારકિર્દી પસંદગીમાં સાથ આપો.",
+        hi: "अपने बच्चे की रिपोर्ट समझें और उसके करियर चुनाव में साथ दें।",
+        mr: "तुमच्या मुलाचा अहवाल समजून घ्या आणि त्यांच्या करिअर निवडीत साथ द्या.",
+      }),
+      to: "/parents",
+    },
+    {
+      icon: Building2,
+      title: t({ en: "For schools", gu: "શાળાઓ માટે", hi: "स्कूलों के लिए", mr: "शाळांसाठी" }),
+      desc: t({
+        en: "Run the test for a whole class and get batch-wise reports.",
+        gu: "આખા વર્ગ માટે ટેસ્ટ લો અને બેચ-વાઈઝ રિપોર્ટ મેળવો.",
+        hi: "पूरी कक्षा के लिए टेस्ट कराएँ और बैच-वार रिपोर्ट पाएँ।",
+        mr: "संपूर्ण वर्गासाठी चाचणी घ्या आणि बॅचनिहाय अहवाल मिळवा.",
+      }),
+      to: "/for-schools",
     },
   ];
 
