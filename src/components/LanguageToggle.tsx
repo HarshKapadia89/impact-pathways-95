@@ -29,7 +29,11 @@ export function LanguageToggle() {
         {LANGS.map((l) => (
           <DropdownMenuItem
             key={l}
-            onClick={() => i18n.changeLanguage(l)}
+            onClick={() => {
+              localStorage.setItem("i18nextLng", l);
+              i18n.changeLanguage(l);
+              document.documentElement.lang = l;
+            }}
             className="flex items-center justify-between gap-3"
           >
             <span>{LANG_LABEL[l]}</span>

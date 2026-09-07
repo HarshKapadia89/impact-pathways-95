@@ -6,6 +6,7 @@ import { us } from "@/lib/upskillStrings";
 import { getTopic, topicMinutes } from "@/lib/upskilling";
 import { getProgress, lessonKey, getQuizResults, PASS_PCT, type QuizResult } from "@/lib/upskillProgress";
 import { UpskillCertificateCard } from "@/components/UpskillCertificateCard";
+import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 import { ArrowLeft, ArrowRight, CheckCircle2, Circle, Clock } from "lucide-react";
 
 export const Route = createFileRoute("/upskill/$topic/")({
@@ -39,6 +40,7 @@ function TopicPage() {
   const { topic } = Route.useLoaderData();
   const lang = useLang();
   const t = (k: string) => us(k, lang);
+  const phrase = usePhraseTranslator(lang);
   const [progress, setProgress] = useState<Record<string, number>>({});
   const [quiz, setQuiz] = useState<QuizResult | undefined>(undefined);
 
@@ -63,9 +65,9 @@ function TopicPage() {
         </Link>
 
         <div className="mt-5 text-4xl">{topic.emoji}</div>
-        <h1 className="font-serif text-3xl md:text-4xl mt-3 leading-tight">{topic.title}</h1>
-        <p className="text-muted-foreground mt-2">{topic.tagline}</p>
-        <p className="mt-4 text-sm leading-relaxed">{topic.intro}</p>
+        <h1 className="font-serif text-3xl md:text-4xl mt-3 leading-tight">{phrase(topic.title)}</h1>
+        <p className="text-muted-foreground mt-2">{phrase(topic.tagline)}</p>
+        <p className="mt-4 text-sm leading-relaxed">{phrase(topic.intro)}</p>
         {t("englishNote") && <p className="mt-2 text-xs text-muted-foreground/80">{t("englishNote")}</p>}
 
         <div className="mt-6 flex flex-wrap gap-3 text-xs text-muted-foreground">
@@ -86,7 +88,7 @@ function TopicPage() {
             {topic.outcomes.map((o) => (
               <li key={o} className="flex gap-2 text-sm">
                 <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                <span>{o}</span>
+                <span>{phrase(o)}</span>
               </li>
             ))}
           </ul>
@@ -113,7 +115,7 @@ function TopicPage() {
 
         <UpskillCertificateCard
           unlocked={done === topic.lessons.length && !!quiz && quiz.pct >= PASS_PCT}
-          title={topic.title}
+          title={phrase(topic.title)}
           lessons={topic.lessons.length}
           hours={Math.max(1, Math.round(topicMinutes(topic) / 60))}
           scoreText={quiz ? `${quiz.pct}%` : undefined}
@@ -139,11 +141,11 @@ function TopicPage() {
                   </span>
                   <span className="flex-1">
                     <span className="text-sm font-medium">
-                      {i + 1}. {lesson.title}
+                      {i + 1}. {phrase(lesson.title)}
                     </span>
-                    <span className="block text-xs text-muted-foreground mt-1 line-clamp-2">{lesson.why}</span>
+                    <span className="block text-xs text-muted-foreground mt-1 line-clamp-2">{phrase(lesson.why)}</span>
                     <span className="mt-2 inline-flex items-center gap-3 text-[11px] text-muted-foreground">
-                      <span>{lesson.level}</span>
+                      <span>{phrase(lesson.level)}</span>
                       <span>{lesson.minutes} {t("min")}</span>
                     </span>
                   </span>

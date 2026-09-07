@@ -12,12 +12,12 @@ export const Route = createFileRoute("/upskill/quiz")({
       {
         name: "description",
         content:
-          "Take a mixed skills quiz across time management, communication, money skills, AI and more. Choose 10 to 50 questions, set marks per question and get an instant score.",
+          "Take a mixed skills quiz across time management, communication, money skills, AI and more. Choose 10 to 50 MCQs, each worth 1 mark, and get an instant score.",
       },
       { property: "og:title", content: "LevelUp Lab Quiz | HBK Careers" },
       {
         property: "og:description",
-        content: "Choose 10 to 50 questions, set marks per question, and score yourself on life and career skills.",
+        content: "Choose 10 to 50 MCQs worth 1 mark each and score yourself on life and career skills.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

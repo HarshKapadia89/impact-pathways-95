@@ -5,6 +5,7 @@ import { getTopic } from "@/lib/upskilling";
 import { useLang } from "@/lib/lang";
 import { us } from "@/lib/upskillStrings";
 import { ArrowLeft } from "lucide-react";
+import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 
 export const Route = createFileRoute("/upskill/$topic/quiz")({
   loader: ({ params }) => {
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/upskill/$topic/quiz")({
 function TopicQuizPage() {
   const { topic } = Route.useLoaderData();
   const lang = useLang();
+  const phrase = usePhraseTranslator(lang);
 
   return (
     <PublicLayout>
@@ -45,10 +47,10 @@ function TopicQuizPage() {
           className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
-          {topic.emoji} {topic.title}
+          {topic.emoji} {phrase(topic.title)}
         </Link>
         <h1 className="font-serif text-3xl md:text-4xl mt-4">
-          {topic.title} — {us("quizChapter", lang)}
+          {phrase(topic.title)} — {us("quizChapter", lang)}
         </h1>
         <div className="mt-6">
           <UpskillQuiz topic={topic} />

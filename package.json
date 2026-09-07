@@ -8,6 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "i18n:check": "node scripts/check-localization.mjs",
+    "i18n:translate:gu": "node scripts/translate-upskill.mjs gu",
+    "i18n:translate:hi": "node scripts/translate-upskill.mjs hi",
+    "i18n:translate:mr": "node scripts/translate-upskill.mjs mr",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

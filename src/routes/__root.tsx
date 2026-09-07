@@ -8,6 +8,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { bootstrapOffline } from "@/lib/offlineBoot";
 import { applyStoredTheme } from "@/components/ThemeSwitcher";
 import "@/lib/i18n";
+import i18n from "@/lib/i18n";
+import { toLang } from "@/lib/lang";
 
 function NotFoundComponent() {
   return (
@@ -92,6 +94,9 @@ function RootComponent() {
   useEffect(() => {
     applyStoredTheme();
     bootstrapOffline();
+    const saved = toLang(localStorage.getItem("i18nextLng") || navigator.language);
+    i18n.changeLanguage(saved);
+    document.documentElement.lang = saved;
   }, []);
   return (
     <Suspense fallback={null}>
