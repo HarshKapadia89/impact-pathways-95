@@ -23,6 +23,7 @@ import {
   Rocket,
   CalendarCheck,
 } from "lucide-react";
+import { Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
@@ -156,11 +157,11 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer data-no-translate className="border-t-4 border-accent/70 bg-sidebar text-sidebar-foreground mt-12">
+      <footer data-no-translate className="border-t-4 border-primary bg-hbk-purple text-highlight-foreground mt-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid md:grid-cols-3 gap-6 text-sm">
           <div>
-            <div className="font-serif text-lg mb-2">HBK Careers</div>
-            <p className="text-sidebar-foreground/70 text-xs leading-relaxed">
+            <Logotype size="sm" tone="inverse" className="mb-3" />
+            <p className="text-highlight-foreground/75 text-xs leading-relaxed">
               {t({
                 en: "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad.",
                 gu: "ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ તરફથી ગુજરાતના વિદ્યાર્થીઓ માટે નિઃશુલ્ક કારકિર્દી માર્ગદર્શન.",
@@ -170,11 +171,11 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </p>
           </div>
           <div>
-            <div className="font-medium mb-2">{t({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
-            <ul className="space-y-1 text-sidebar-foreground/70 text-xs">
+            <div className="font-display text-subheading mb-2">{t({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
+            <ul className="space-y-1 text-highlight-foreground/75 text-xs">
               {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
                 <li key={n.to}>
-                  <Link to={n.to} className="hover:text-sidebar-foreground">
+                  <Link to={n.to} className="hover:text-highlight-foreground">
                     {t(n.label)}
                   </Link>
                 </li>
@@ -182,8 +183,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </ul>
           </div>
           <div>
-            <div className="font-medium mb-2">{t({ en: "Usage", gu: "ઉપયોગ", hi: "उपयोग", mr: "वापर" })}</div>
-            <p className="text-sidebar-foreground/70 text-xs leading-relaxed">
+            <div className="font-display text-subheading mb-2">{t({ en: "Usage", gu: "ઉપયોગ", hi: "उपयोग", mr: "वापर" })}</div>
+            <p className="text-highlight-foreground/75 text-xs leading-relaxed">
               {t({
                 en: "All content and tests are completely free. No login required.",
                 gu: "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે નિઃશુલ્ક છે. લૉગિન કરવાની જરૂર નથી.",
@@ -193,8 +194,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </p>
           </div>
         </div>
-        <div className="border-t border-sidebar-border/30">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 text-[10px] text-sidebar-foreground/50">
+        <div className="border-t border-highlight-foreground/20">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 text-[10px] text-highlight-foreground/60">
             © {new Date().getFullYear()} The H B Kapadia New High School, Ahmedabad
           </div>
         </div>
