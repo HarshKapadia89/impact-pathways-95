@@ -60,15 +60,11 @@ export function TrustLayer({ lang }: { lang: Lang }) {
       mr: "गुजरातमधील विद्यार्थी, पालक आणि शाळांचा विश्वास",
     }),
     sub: tx({
-      en: "Real numbers, real reports — no marketing fluff.",
-      gu: "વાસ્તવિક આંકડા, વાસ્તવિક રિપોર્ટ — કોઈ માર્કેટિંગ ભપકો નહીં.",
-      hi: "असली आँकड़े, असली रिपोर्ट — कोई मार्केटिंग दिखावा नहीं।",
-      mr: "खरे आकडे, खरे अहवाल — कोणताही मार्केटिंग देखावा नाही.",
+      en: "Real reports, real families — no marketing fluff.",
+      gu: "વાસ્તવિક રિપોર્ટ, વાસ્તવિક પરિવારો — કોઈ માર્કેટિંગ ભપકો નહીં.",
+      hi: "असली रिपोर्ट, असली परिवार — कोई मार्केटिंग दिखावा नहीं।",
+      mr: "खरे अहवाल, खरी कुटुंबे — कोणताही मार्केटिंग देखावा नाही.",
     }),
-    schoolsL: tx({ en: "Schools onboarded", gu: "જોડાયેલી શાળાઓ", hi: "जुड़े हुए स्कूल", mr: "जोडलेल्या शाळा" }),
-    reportsL: tx({ en: "Reports generated", gu: "તૈયાર થયેલા રિપોર્ટ", hi: "बनाई गई रिपोर्ट", mr: "तयार झालेले अहवाल" }),
-    streamsL: tx({ en: "Career streams covered", gu: "આવરી લેવાયેલા કારકિર્દી પ્રવાહો", hi: "शामिल करियर स्ट्रीम", mr: "समाविष्ट करिअर प्रवाह" }),
-    profL: tx({ en: "Profession profiles", gu: "વ્યવસાય પ્રોફાઇલ", hi: "पेशा प्रोफ़ाइल", mr: "व्यवसाय प्रोफाइल" }),
     sampleTitle: tx({
       en: "See a real sample report",
       gu: "વાસ્તવિક નમૂનો રિપોર્ટ જુઓ",
@@ -88,8 +84,6 @@ export function TrustLayer({ lang }: { lang: Lang }) {
   };
 
   const t = TESTIMONIALS[idx];
-  const fmt = (n: number) =>
-    n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k+` : n.toString();
 
   return (
     <section className="border-y border-border bg-card/40">
