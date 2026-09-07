@@ -27,6 +27,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const NAV = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
@@ -67,6 +68,10 @@ export function PublicLayout({ children }: { children: ReactNode }) {
   const t = translator(lang);
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const [languageReady, setLanguageReady] = useState(false);
+  useEffect(() => setLanguageReady(true), []);
+  const safeLang = languageReady ? lang : "en";
+  const safeT = translator(safeLang);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -112,7 +117,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     style={{ color: "var(--accent)" }}
                     suppressHydrationWarning
                   >
-                    {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
+                    {safeT({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
                   </div>
                 </div>
               </Link>
@@ -151,7 +156,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                         }}
                       />
                       <Icon className="relative h-4 w-4" />
-                      <span className="relative">{t(item.label)}</span>
+                      <span className="relative">{safeT(item.label)}</span>
                     </Link>
                   );
                 }
@@ -164,7 +169,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                     }`}
                   >
                     <Icon className="h-4 w-4" style={isResume ? { color: "var(--accent)" } : undefined} />
-                    {t(item.label)}
+                    {safeT(item.label)}
                   </Link>
                 );
               })}
