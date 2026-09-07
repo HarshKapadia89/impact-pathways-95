@@ -135,7 +135,7 @@ function HomePage() {
                 mr: "भविष्य घडवूया, एकेका विद्यार्थ्यासोबत.",
               })}
             </p>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="mt-4 text-base md:text-lg text-highlight-foreground/85 max-w-xl leading-relaxed">
               {T.hero2}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
