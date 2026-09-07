@@ -103,24 +103,6 @@ export function TrustLayer({ lang }: { lang: Lang }) {
           <p className="mt-2 text-sm text-muted-foreground">{T.sub}</p>
         </div>
 
-        {/* Counters */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { icon: School, value: fmt(counts.schools), label: T.schoolsL },
-            { icon: FileText, value: fmt(counts.reports), label: T.reportsL },
-            { icon: Layers, value: counts.streams.toString(), label: T.streamsL },
-            { icon: BookOpen, value: `${counts.professions}+`, label: T.profL },
-          ].map((c) => (
-            <div
-              key={c.label}
-              className="rounded-2xl border border-border bg-background p-5 text-center hover:shadow-[var(--shadow-card)] transition"
-            >
-              <c.icon className="h-5 w-5 mx-auto text-primary" />
-              <div className="mt-2 font-serif text-3xl md:text-4xl text-primary">{c.value}</div>
-              <div className="text-xs text-muted-foreground mt-1">{c.label}</div>
-            </div>
-          ))}
-        </div>
 
         {/* Sample report + testimonial */}
         <div className="mt-10 grid md:grid-cols-2 gap-5">
