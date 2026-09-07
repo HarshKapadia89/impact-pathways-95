@@ -127,7 +127,15 @@ function HomePage() {
             <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight">
               <span style={{ color: "var(--accent)" }}>{heroFirst}</span> <span>{heroRest}</span>
             </h1>
-            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="mt-4 font-serif italic text-lg md:text-xl" style={{ color: "var(--accent)" }}>
+              {t({
+                en: "Building futures, one student at a time.",
+                gu: "ભવિષ્ય ઘડીએ, એક-એક વિદ્યાર્થી સાથે.",
+                hi: "भविष्य बनाते हैं, एक-एक विद्यार्थी के साथ।",
+                mr: "भविष्य घडवूया, एकेका विद्यार्थ्यासोबत.",
+              })}
+            </p>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
               {T.hero2}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
