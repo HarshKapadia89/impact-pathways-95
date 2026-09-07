@@ -9,7 +9,7 @@ import { bootstrapOffline } from "@/lib/offlineBoot";
 import { applyStoredTheme } from "@/components/ThemeSwitcher";
 import "@/lib/i18n";
 import i18n from "@/lib/i18n";
-import { toLang, persistLang } from "@/lib/lang";
+import { toLang, persistLang, getCookieLang } from "@/lib/lang";
 import { applyRequestLang } from "@/lib/langServer.functions";
 
 function NotFoundComponent() {
