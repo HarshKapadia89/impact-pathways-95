@@ -68,7 +68,7 @@
 
   /* Brand helper tokens — Maroon & Sky */
   --brand-1: oklch(0.38 0.115 27);   /* deep maroon */
-  --brand-2: oklch(0.85 0.078 225);  /* sky blue */
+  --brand-2: oklch(0.66 0.115 232);  /* sky blue */
   --brand-3: oklch(0.50 0.135 28);   /* brick red */
   --brand-4: oklch(0.72 0.155 55);   /* warm orange */
   --brand-5: oklch(0.62 0.095 215);  /* steel blue */
@@ -78,7 +78,7 @@
                    radial-gradient(900px 500px at -10% 110%, oklch(0.38 0.115 27 / 0.14), transparent 60%),
                    linear-gradient(180deg, oklch(0.975 0.018 82), oklch(0.945 0.028 82));
   --gradient-brand: linear-gradient(135deg, oklch(0.38 0.115 27), oklch(0.50 0.135 28));
-  --gradient-accent: linear-gradient(135deg, oklch(0.85 0.078 225), oklch(0.78 0.095 220));
+  --gradient-accent: linear-gradient(135deg, oklch(0.66 0.115 232), oklch(0.58 0.115 235));
 
   --shadow-glow-primary: 0 12px 40px -12px oklch(0.38 0.115 27 / 0.40);
   --shadow-glow-accent: 0 12px 40px -12px oklch(0.85 0.078 225 / 0.55);
@@ -94,8 +94,8 @@
   --primary-foreground: oklch(0.975 0.018 82);
 
   /* Sky blue — accent */
-  --accent: oklch(0.85 0.078 225);
-  --accent-foreground: oklch(0.32 0.09 28);
+  --accent: oklch(0.66 0.115 232);
+  --accent-foreground: oklch(0.98 0.012 82);
 
   --secondary: oklch(0.93 0.035 225);
   --secondary-foreground: oklch(0.38 0.115 27);
@@ -117,43 +117,43 @@
   --ring: oklch(0.38 0.115 27);
 
   --chart-1: oklch(0.38 0.115 27);
-  --chart-2: oklch(0.85 0.078 225);
+  --chart-2: oklch(0.66 0.115 232);
   --chart-3: oklch(0.50 0.135 28);
   --chart-4: oklch(0.72 0.155 55);
   --chart-5: oklch(0.62 0.095 215);
 
   --sidebar: oklch(0.34 0.10 27);
   --sidebar-foreground: oklch(0.96 0.020 82);
-  --sidebar-primary: oklch(0.85 0.078 225);
-  --sidebar-primary-foreground: oklch(0.30 0.08 28);
+  --sidebar-primary: oklch(0.66 0.115 232);
+  --sidebar-primary-foreground: oklch(0.98 0.012 82);
   --sidebar-accent: oklch(0.42 0.11 27);
   --sidebar-accent-foreground: oklch(0.96 0.020 82);
   --sidebar-border: oklch(0.46 0.10 27);
-  --sidebar-ring: oklch(0.85 0.078 225);
+  --sidebar-ring: oklch(0.66 0.115 232);
 }
 
 /* Career-card system is also served under the legacy theme id in use. */
 :root[data-theme="indigo"] {
   --brand-1: oklch(0.38 0.115 27);
-  --brand-2: oklch(0.85 0.078 225);
+  --brand-2: oklch(0.66 0.115 232);
   --brand-3: oklch(0.50 0.135 28);
   --primary: oklch(0.38 0.115 27);
-  --accent: oklch(0.85 0.078 225);
-  --accent-foreground: oklch(0.32 0.09 28);
+  --accent: oklch(0.66 0.115 232);
+  --accent-foreground: oklch(0.98 0.012 82);
   --secondary: oklch(0.93 0.035 225);
   --secondary-foreground: oklch(0.38 0.115 27);
   --ring: oklch(0.38 0.115 27);
   --sidebar: oklch(0.34 0.10 27);
-  --sidebar-primary: oklch(0.85 0.078 225);
-  --sidebar-primary-foreground: oklch(0.30 0.08 28);
+  --sidebar-primary: oklch(0.66 0.115 232);
+  --sidebar-primary-foreground: oklch(0.98 0.012 82);
   --sidebar-accent: oklch(0.42 0.11 27);
   --sidebar-border: oklch(0.46 0.10 27);
-  --sidebar-ring: oklch(0.85 0.078 225);
+  --sidebar-ring: oklch(0.66 0.115 232);
   --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.85 0.078 225 / 0.35), transparent 62%),
                    radial-gradient(900px 500px at -10% 110%, oklch(0.38 0.115 27 / 0.14), transparent 60%),
                    linear-gradient(180deg, oklch(0.975 0.018 82), oklch(0.945 0.028 82));
   --gradient-brand: linear-gradient(135deg, oklch(0.38 0.115 27), oklch(0.50 0.135 28));
-  --gradient-accent: linear-gradient(135deg, oklch(0.85 0.078 225), oklch(0.78 0.095 220));
+  --gradient-accent: linear-gradient(135deg, oklch(0.66 0.115 232), oklch(0.58 0.115 235));
   --shadow-glow-primary: 0 12px 40px -12px oklch(0.38 0.115 27 / 0.40);
   --shadow-glow-accent: 0 12px 40px -12px oklch(0.85 0.078 225 / 0.55);
 }
