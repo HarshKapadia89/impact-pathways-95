@@ -1,45 +1,81 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
+/* HBK Careers brand design system — canonical theme (tokens, type, radius, shadows). */
+@import "./design-system/hbk-career-brand-guidelines-4f1c39/design-system/styles/theme.css";
 
 /*
- * Outreach Program — Trust-driven, calm NGO design system.
- * Deep indigo + warm saffron accents. Serif headings (Fraunces).
- * All colors in oklch. Use semantic tokens only.
+ * App-level additions only. Colour, typography, radius and shadow values come
+ * from the HBK Careers design system above — never redefined here.
  */
 
+:root {
+  --radius: var(--radius-lg);
+
+  /* Surfaces the shadcn primitives expect, mapped onto brand tokens */
+  --card: var(--hbk-paper);
+  --card-foreground: var(--foreground);
+  --popover: var(--hbk-paper);
+  --popover-foreground: var(--foreground);
+  --secondary: var(--hbk-paper-soft);
+  --secondary-foreground: var(--hbk-ink);
+
+  /* Brand colour rotation used to differentiate sections */
+  --brand-1: var(--hbk-purple);
+  --brand-2: var(--hbk-lime);
+  --brand-3: var(--hbk-orange);
+  --brand-4: var(--hbk-amber);
+  --brand-5: var(--hbk-indigo);
+  --brand-6: var(--hbk-magenta);
+
+  --gradient-hero: linear-gradient(140deg, var(--hbk-purple), var(--hbk-indigo));
+  --gradient-brand: linear-gradient(135deg, var(--hbk-orange), var(--hbk-amber));
+  --gradient-accent: linear-gradient(135deg, var(--hbk-lime), var(--hbk-mint));
+
+  --shadow-glow-primary: var(--shadow-lift);
+  --shadow-glow-accent: var(--shadow-lift);
+  --shadow-glow-teal: var(--shadow-lift);
+  --shadow-card: var(--shadow-soft);
+
+  --chart-1: var(--hbk-purple);
+  --chart-2: var(--hbk-orange);
+  --chart-3: var(--hbk-lime);
+  --chart-4: var(--hbk-indigo);
+  --chart-5: var(--hbk-magenta);
+
+  --sidebar: var(--hbk-purple);
+  --sidebar-foreground: var(--hbk-paper);
+  --sidebar-primary: var(--hbk-lime);
+  --sidebar-primary-foreground: var(--hbk-ink);
+  --sidebar-accent: var(--hbk-lilac);
+  --sidebar-accent-foreground: var(--hbk-ink);
+  --sidebar-border: var(--hbk-lilac);
+  --sidebar-ring: var(--hbk-lime);
+
+  --ink: var(--foreground);
+  --cream: var(--background);
+}
+
+.dark {
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --secondary: var(--muted);
+  --secondary-foreground: var(--foreground);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --ink: var(--foreground);
+  --cream: var(--background);
+}
+
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -53,212 +89,21 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-serif: "Archivo", "Helvetica Neue", ui-sans-serif, sans-serif;
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --shadow-soft: 0 1px 2px oklch(0.3 0.08 28 / 0.06), 0 4px 14px oklch(0.3 0.08 28 / 0.07);
-  --shadow-card: 0 2px 4px oklch(0.3 0.08 28 / 0.07), 0 10px 24px oklch(0.3 0.08 28 / 0.08);
-}
 
-:root {
-  --radius: 0.375rem;
+  --color-ink: var(--foreground);
+  --color-cream: var(--background);
+  --color-block-pink: var(--brand-6);
+  --color-block-blue: var(--brand-1);
+  --color-block-green: var(--brand-2);
+  --color-block-orange: var(--brand-3);
+  --color-block-yellow: var(--brand-4);
+  --color-block-violet: var(--brand-1);
 
-  /* Warm cream page, deep maroon ink — from the career-card design system */
-  --background: oklch(0.965 0.020 82);
-  --foreground: oklch(0.28 0.055 30);
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-body);
 
-  /* Brand helper tokens — Maroon & Sky */
-  --brand-1: oklch(0.38 0.115 27);   /* deep maroon */
-  --brand-2: oklch(0.66 0.115 232);  /* sky blue */
-  --brand-3: oklch(0.50 0.135 28);   /* brick red */
-  --brand-4: oklch(0.72 0.155 55);   /* warm orange */
-  --brand-5: oklch(0.62 0.095 215);  /* steel blue */
-  --brand-6: oklch(0.55 0.145 20);   /* clay */
-
-  --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.85 0.078 225 / 0.35), transparent 62%),
-                   radial-gradient(900px 500px at -10% 110%, oklch(0.38 0.115 27 / 0.14), transparent 60%),
-                   linear-gradient(180deg, oklch(0.975 0.018 82), oklch(0.945 0.028 82));
-  --gradient-brand: linear-gradient(135deg, oklch(0.38 0.115 27), oklch(0.50 0.135 28));
-  --gradient-accent: linear-gradient(135deg, oklch(0.66 0.115 232), oklch(0.58 0.115 235));
-
-  --shadow-glow-primary: 0 12px 40px -12px oklch(0.38 0.115 27 / 0.40);
-  --shadow-glow-accent: 0 12px 40px -12px oklch(0.85 0.078 225 / 0.55);
-  --shadow-glow-teal: 0 12px 40px -12px oklch(0.62 0.095 215 / 0.40);
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.28 0.055 30);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.28 0.055 30);
-
-  /* Deep maroon — primary */
-  --primary: oklch(0.38 0.115 27);
-  --primary-foreground: oklch(0.975 0.018 82);
-
-  /* Sky blue — accent */
-  --accent: oklch(0.66 0.115 232);
-  --accent-foreground: oklch(0.98 0.012 82);
-
-  --secondary: oklch(0.93 0.035 225);
-  --secondary-foreground: oklch(0.38 0.115 27);
-
-  --muted: oklch(0.945 0.020 82);
-  --muted-foreground: oklch(0.50 0.045 32);
-
-  --destructive: oklch(0.55 0.20 27);
-  --destructive-foreground: oklch(0.975 0.018 82);
-
-  --success: oklch(0.58 0.13 155);
-  --success-foreground: oklch(0.975 0.018 82);
-
-  --warning: oklch(0.76 0.15 62);
-  --warning-foreground: oklch(0.28 0.055 30);
-
-  --border: oklch(0.89 0.022 60);
-  --input: oklch(0.90 0.022 60);
-  --ring: oklch(0.38 0.115 27);
-
-  --chart-1: oklch(0.38 0.115 27);
-  --chart-2: oklch(0.66 0.115 232);
-  --chart-3: oklch(0.50 0.135 28);
-  --chart-4: oklch(0.72 0.155 55);
-  --chart-5: oklch(0.62 0.095 215);
-
-  --sidebar: oklch(0.34 0.10 27);
-  --sidebar-foreground: oklch(0.96 0.020 82);
-  --sidebar-primary: oklch(0.66 0.115 232);
-  --sidebar-primary-foreground: oklch(0.98 0.012 82);
-  --sidebar-accent: oklch(0.42 0.11 27);
-  --sidebar-accent-foreground: oklch(0.96 0.020 82);
-  --sidebar-border: oklch(0.46 0.10 27);
-  --sidebar-ring: oklch(0.66 0.115 232);
-}
-
-/* Career-card system is also served under the legacy theme id in use. */
-:root[data-theme="indigo"] {
-  --brand-1: oklch(0.38 0.115 27);
-  --brand-2: oklch(0.66 0.115 232);
-  --brand-3: oklch(0.50 0.135 28);
-  --primary: oklch(0.38 0.115 27);
-  --accent: oklch(0.66 0.115 232);
-  --accent-foreground: oklch(0.98 0.012 82);
-  --secondary: oklch(0.93 0.035 225);
-  --secondary-foreground: oklch(0.38 0.115 27);
-  --ring: oklch(0.38 0.115 27);
-  --sidebar: oklch(0.34 0.10 27);
-  --sidebar-primary: oklch(0.66 0.115 232);
-  --sidebar-primary-foreground: oklch(0.98 0.012 82);
-  --sidebar-accent: oklch(0.42 0.11 27);
-  --sidebar-border: oklch(0.46 0.10 27);
-  --sidebar-ring: oklch(0.66 0.115 232);
-  --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.85 0.078 225 / 0.35), transparent 62%),
-                   radial-gradient(900px 500px at -10% 110%, oklch(0.38 0.115 27 / 0.14), transparent 60%),
-                   linear-gradient(180deg, oklch(0.975 0.018 82), oklch(0.945 0.028 82));
-  --gradient-brand: linear-gradient(135deg, oklch(0.38 0.115 27), oklch(0.50 0.135 28));
-  --gradient-accent: linear-gradient(135deg, oklch(0.66 0.115 232), oklch(0.58 0.115 235));
-  --shadow-glow-primary: 0 12px 40px -12px oklch(0.38 0.115 27 / 0.40);
-  --shadow-glow-accent: 0 12px 40px -12px oklch(0.85 0.078 225 / 0.55);
-}
-
-/* ===== Color theme variants — switched via <html data-theme="..."> ===== */
-:root[data-theme="emerald"] {
-  --brand-1: oklch(0.42 0.13 160);
-  --brand-2: oklch(0.80 0.14 85);
-  --brand-3: oklch(0.55 0.15 200);
-  --primary: oklch(0.42 0.13 160);
-  --accent: oklch(0.80 0.14 85);
-  --secondary-foreground: oklch(0.42 0.13 160);
-  --ring: oklch(0.42 0.13 160);
-  --sidebar-primary: oklch(0.80 0.14 85);
-  --sidebar-ring: oklch(0.80 0.14 85);
-  --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.80 0.14 85 / 0.22), transparent 60%),
-                   radial-gradient(900px 500px at -10% 110%, oklch(0.42 0.13 160 / 0.18), transparent 60%),
-                   linear-gradient(180deg, oklch(0.99 0.008 110), oklch(0.96 0.02 110));
-  --gradient-brand: linear-gradient(135deg, oklch(0.42 0.13 160), oklch(0.55 0.15 170));
-  --gradient-accent: linear-gradient(135deg, oklch(0.80 0.14 85), oklch(0.72 0.16 65));
-  --shadow-glow-primary: 0 12px 40px -12px oklch(0.42 0.13 160 / 0.35);
-  --shadow-glow-accent: 0 12px 40px -12px oklch(0.80 0.14 85 / 0.45);
-}
-
-:root[data-theme="rose"] {
-  --brand-1: oklch(0.45 0.16 0);
-  --brand-2: oklch(0.65 0.18 340);
-  --brand-3: oklch(0.62 0.15 30);
-  --primary: oklch(0.45 0.16 0);
-  --accent: oklch(0.65 0.18 340);
-  --secondary-foreground: oklch(0.45 0.16 0);
-  --ring: oklch(0.45 0.16 0);
-  --sidebar-primary: oklch(0.65 0.18 340);
-  --sidebar-ring: oklch(0.65 0.18 340);
-  --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.65 0.18 340 / 0.22), transparent 60%),
-                   radial-gradient(900px 500px at -10% 110%, oklch(0.45 0.16 0 / 0.18), transparent 60%),
-                   linear-gradient(180deg, oklch(0.99 0.008 350), oklch(0.96 0.02 350));
-  --gradient-brand: linear-gradient(135deg, oklch(0.45 0.16 0), oklch(0.55 0.18 350));
-  --gradient-accent: linear-gradient(135deg, oklch(0.65 0.18 340), oklch(0.72 0.16 320));
-  --shadow-glow-primary: 0 12px 40px -12px oklch(0.45 0.16 0 / 0.35);
-  --shadow-glow-accent: 0 12px 40px -12px oklch(0.65 0.18 340 / 0.45);
-}
-
-:root[data-theme="ocean"] {
-  --brand-1: oklch(0.40 0.14 235);
-  --brand-2: oklch(0.72 0.14 200);
-  --brand-3: oklch(0.62 0.15 150);
-  --primary: oklch(0.40 0.14 235);
-  --accent: oklch(0.72 0.14 200);
-  --secondary-foreground: oklch(0.40 0.14 235);
-  --ring: oklch(0.40 0.14 235);
-  --sidebar-primary: oklch(0.72 0.14 200);
-  --sidebar-ring: oklch(0.72 0.14 200);
-  --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.72 0.14 200 / 0.22), transparent 60%),
-                   radial-gradient(900px 500px at -10% 110%, oklch(0.40 0.14 235 / 0.18), transparent 60%),
-                   linear-gradient(180deg, oklch(0.99 0.008 220), oklch(0.96 0.02 220));
-  --gradient-brand: linear-gradient(135deg, oklch(0.40 0.14 235), oklch(0.50 0.16 250));
-  --gradient-accent: linear-gradient(135deg, oklch(0.72 0.14 200), oklch(0.65 0.16 215));
-  --shadow-glow-primary: 0 12px 40px -12px oklch(0.40 0.14 235 / 0.35);
-  --shadow-glow-accent: 0 12px 40px -12px oklch(0.72 0.14 200 / 0.45);
-}
-
-:root[data-theme="sunset"] {
-  --brand-1: oklch(0.50 0.18 30);
-  --brand-2: oklch(0.78 0.16 70);
-  --brand-3: oklch(0.62 0.18 350);
-  --primary: oklch(0.50 0.18 30);
-  --accent: oklch(0.78 0.16 70);
-  --secondary-foreground: oklch(0.50 0.18 30);
-  --ring: oklch(0.50 0.18 30);
-  --sidebar-primary: oklch(0.78 0.16 70);
-  --sidebar-ring: oklch(0.78 0.16 70);
-  --gradient-hero: radial-gradient(1100px 520px at 88% -10%, oklch(0.78 0.16 70 / 0.25), transparent 60%),
-                   radial-gradient(900px 500px at -10% 110%, oklch(0.50 0.18 30 / 0.20), transparent 60%),
-                   linear-gradient(180deg, oklch(0.99 0.01 60), oklch(0.96 0.025 50));
-  --gradient-brand: linear-gradient(135deg, oklch(0.50 0.18 30), oklch(0.60 0.20 45));
-  --gradient-accent: linear-gradient(135deg, oklch(0.78 0.16 70), oklch(0.72 0.18 50));
-  --shadow-glow-primary: 0 12px 40px -12px oklch(0.50 0.18 30 / 0.35);
-  --shadow-glow-accent: 0 12px 40px -12px oklch(0.78 0.16 70 / 0.45);
-}
-
-.dark {
-  --background: oklch(0.16 0.04 270);
-  --foreground: oklch(0.97 0.01 80);
-  --card: oklch(0.22 0.06 270);
-  --card-foreground: oklch(0.97 0.01 80);
-  --popover: oklch(0.22 0.06 270);
-  --popover-foreground: oklch(0.97 0.01 80);
-  --primary: oklch(0.78 0.15 60);
-  --primary-foreground: oklch(0.22 0.06 270);
-  --accent: oklch(0.78 0.15 60);
-  --accent-foreground: oklch(0.22 0.06 270);
-  --secondary: oklch(0.28 0.07 270);
-  --secondary-foreground: oklch(0.97 0.01 80);
-  --muted: oklch(0.28 0.07 270);
-  --muted-foreground: oklch(0.7 0.04 270);
-  --destructive: oklch(0.7 0.19 22);
-  --destructive-foreground: oklch(0.97 0.01 80);
-  --success: oklch(0.65 0.15 150);
-  --success-foreground: oklch(0.16 0.04 270);
-  --warning: oklch(0.78 0.15 60);
-  --warning-foreground: oklch(0.22 0.06 270);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.15 60);
+  --radius-2xl: 32px;
+  --radius-3xl: 40px;
 }
 
 @layer base {
@@ -266,22 +111,12 @@
     border-color: var(--color-border);
   }
   html {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
   }
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3, h4, .font-serif {
-    font-family: var(--font-serif);
-    font-weight: 800;
-    letter-spacing: -0.015em;
-  }
-  h1 {
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+  h1, h2, h3, h4, .font-serif, .font-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -290,40 +125,16 @@
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
-/* ===== Compatibility layer =====
-   Tokens/utilities introduced by the graphic-poster phase, remapped onto the
-   soft teal & cream system so existing markup keeps rendering correctly. */
-:root {
-  --ink: var(--foreground);
-  --cream: var(--background);
-}
-.dark {
-  --ink: var(--foreground);
-  --cream: var(--background);
-}
-
-@theme inline {
-  --color-ink: var(--foreground);
-  --color-cream: var(--background);
-  --color-block-pink: var(--brand-6);
-  --color-block-blue: var(--brand-1);
-  --color-block-green: var(--brand-3);
-  --color-block-orange: var(--brand-4);
-  --color-block-yellow: var(--brand-2);
-  --color-block-violet: var(--brand-6);
-  --font-display: "Archivo", "Helvetica Neue", ui-sans-serif, sans-serif;
-}
-
 @utility block-card {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
   background: var(--card);
 }
 
 @utility block-card-sm {
-  border: 1px solid var(--color-border);
-  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   background: var(--card);
 }
@@ -332,48 +143,42 @@
   transition: transform 150ms ease, box-shadow 150ms ease;
   &:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-lift);
   }
 }
 
 @utility bar-stripes {
   background-image: linear-gradient(
     90deg,
-    var(--brand-1),
-    var(--brand-2) 40%,
-    var(--brand-3) 70%,
-    var(--brand-4)
+    var(--hbk-purple),
+    var(--hbk-magenta) 35%,
+    var(--hbk-orange) 65%,
+    var(--hbk-lime)
   );
 }
 
 @utility display-caps {
-  font-family: var(--font-serif);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
 }
 
-/* Dotted outline block, straight from the printed career card. */
+/* Soft brand panel used for highlight facts. */
 @utility card-dotted {
-  border: 2px dotted color-mix(in oklab, var(--primary) 45%, transparent);
-  border-radius: var(--radius);
-  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
 }
 
-/* Sky-blue info panel used for highlight facts on the card. */
 @utility panel-sky {
-  background: color-mix(in oklab, var(--accent) 55%, var(--card));
+  background: var(--accent);
   color: var(--accent-foreground);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
 }
 
-/* Solid maroon panel. */
 @utility panel-maroon {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border-radius: var(--radius);
+  background: var(--highlight);
+  color: var(--highlight-foreground);
+  border-radius: var(--radius-lg);
 }
-
-/* HBK Careers design system theme — loaded last so its tokens take precedence. */
-@import "./design-system/hbk-career-brand-guidelines-4f1c39/design-system/styles/theme.css";
