@@ -9,7 +9,8 @@ import { bootstrapOffline } from "@/lib/offlineBoot";
 import { applyStoredTheme } from "@/components/ThemeSwitcher";
 import "@/lib/i18n";
 import i18n from "@/lib/i18n";
-import { toLang } from "@/lib/lang";
+import { toLang, persistLang } from "@/lib/lang";
+import { applyRequestLang } from "@/lib/langServer.functions";
 
 function NotFoundComponent() {
   return (
@@ -34,6 +35,8 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
+  loader: () => applyRequestLang(),
+  staleTime: Infinity,
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -94,8 +97,9 @@ function RootComponent() {
   useEffect(() => {
     applyStoredTheme();
     bootstrapOffline();
-    const saved = toLang(localStorage.getItem("i18nextLng") || navigator.language);
-    i18n.changeLanguage(saved);
+    const saved = toLang(localStorage.getItem("i18nextLng"));
+    persistLang(saved);
+    if (i18n.language !== saved) i18n.changeLanguage(saved);
     document.documentElement.lang = saved;
   }, []);
   return (
