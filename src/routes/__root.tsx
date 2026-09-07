@@ -9,7 +9,7 @@ import { bootstrapOffline } from "@/lib/offlineBoot";
 import { applyStoredTheme } from "@/components/ThemeSwitcher";
 import "@/lib/i18n";
 import i18n from "@/lib/i18n";
-import { toLang, persistLang } from "@/lib/lang";
+import { toLang, persistLang, getCookieLang } from "@/lib/lang";
 import { applyRequestLang } from "@/lib/langServer.functions";
 
 function NotFoundComponent() {
@@ -97,7 +97,9 @@ function RootComponent() {
   useEffect(() => {
     applyStoredTheme();
     bootstrapOffline();
-    const saved = toLang(localStorage.getItem("i18nextLng"));
+    // Prefer the cookie (mirrors SSR), then localStorage, then whatever i18n
+    // already initialized with — never force English over a saved choice.
+    const saved = getCookieLang() ?? toLang(localStorage.getItem("i18nextLng") || i18n.language);
     persistLang(saved);
     if (i18n.language !== saved) i18n.changeLanguage(saved);
     document.documentElement.lang = saved;
