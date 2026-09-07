@@ -18,7 +18,9 @@ type Dict = Record<string, string>;
 
 const cache = new Map<string, Dict>();
 const originals = new WeakMap<Text, string>();
+const originalAttributes = new WeakMap<Element, Map<string, string>>();
 const SKIP = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "CODE", "PRE"]);
+const ATTRIBUTES = ["aria-label", "title", "placeholder", "alt"] as const;
 
 function translateNode(node: Text, dict: Dict | null) {
   const parent = node.parentElement;
@@ -35,10 +37,35 @@ function translateNode(node: Text, dict: Dict | null) {
 
   const trimmed = source.trim();
   const hit = dict[trimmed];
-  if (!hit) return;
+  if (!hit) {
+    if (originals.has(node) && node.nodeValue !== source) node.nodeValue = source;
+    return;
+  }
   if (!originals.has(node)) originals.set(node, source);
   const next = source.replace(trimmed, hit);
   if (node.nodeValue !== next) node.nodeValue = next;
+}
+
+function translateAttributes(root: Node, dict: Dict | null) {
+  const elements: Element[] = [];
+  if (root instanceof Element) elements.push(root);
+  if (root instanceof Document || root instanceof Element) elements.push(...root.querySelectorAll("[aria-label], [title], [placeholder], [alt]"));
+  for (const element of elements) {
+    if (element.closest("[data-no-translate]")) continue;
+    let saved = originalAttributes.get(element);
+    for (const attribute of ATTRIBUTES) {
+      const current = element.getAttribute(attribute);
+      if (!current) continue;
+      const source = saved?.get(attribute) ?? current;
+      const next = dict?.[source.trim()] ?? source;
+      if (next !== current) element.setAttribute(attribute, next);
+      if (next !== source) {
+        saved ??= new Map();
+        saved.set(attribute, source);
+        originalAttributes.set(element, saved);
+      }
+    }
+  }
 }
 
 function sweep(root: Node, dict: Dict | null) {
@@ -49,6 +76,7 @@ function sweep(root: Node, dict: Dict | null) {
     current = walker.nextNode();
   }
   if (root.nodeType === Node.TEXT_NODE) translateNode(root as Text, dict);
+  translateAttributes(root, dict);
 }
 
 export function AutoTranslate() {
