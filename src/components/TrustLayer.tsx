@@ -44,32 +44,7 @@ const TESTIMONIALS = [
 ];
 
 export function TrustLayer({ lang }: { lang: Lang }) {
-  const [counts, setCounts] = useState<Counts>(FALLBACK);
   const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const [{ count: schools }, { count: reports }] = await Promise.all([
-          supabase.from("schools").select("*", { count: "exact", head: true }).eq("active", true),
-          supabase.from("psychometric_submissions").select("*", { count: "exact", head: true }),
-        ]);
-        if (cancelled) return;
-        setCounts({
-          schools: Math.max(schools ?? 0, FALLBACK.schools),
-          reports: Math.max(reports ?? 0, FALLBACK.reports),
-          streams: FALLBACK.streams,
-          professions: FALLBACK.professions,
-        });
-      } catch {
-        /* keep fallback */
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % TESTIMONIALS.length), 6000);
