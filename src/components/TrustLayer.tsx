@@ -2,31 +2,7 @@ import { t4 } from "@/lib/t4";
 import { Lang, translator } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { supabase } from "@/integrations/supabase/client";
-import {
-  School,
-  FileText,
-  BookOpen,
-  Layers,
-  Quote,
-  Download,
-  ChevronRight,
-  Award,
-} from "lucide-react";
-
-type Counts = {
-  schools: number;
-  reports: number;
-  streams: number;
-  professions: number;
-};
-
-const FALLBACK: Counts = {
-  schools: 419,
-  reports: 0,
-  streams: 20,
-  professions: 935,
-};
+import { FileText, Quote, Download, ChevronRight, Award } from "lucide-react";
 
 const TESTIMONIALS = [
   {
