@@ -6,20 +6,27 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { ReportPreview } from "@/components/ReportPreview";
 import { VibeQuizCard } from "@/components/VibeQuizCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { StatsBand } from "@/components/StatsBand";
+import { FeatureShowcase } from "@/components/FeatureShowcase";
 import { STREAMS } from "@/lib/careerData";
 import { Compass, Brain, ArrowRight, GraduationCap, BookOpen } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HBK Careers — Free Career Guidance & College Directory for Gujarat Students" },
+      { title: "HBK Careers — Free Career Test, 1,600+ Professions, Exams & Scholarships" },
       {
         name: "description",
         content:
-          "Free career guidance, Gujarat college directory, and a bilingual psychometric test for grades 6–12 with a detailed 20-page PDF report.",
+          "One free platform for grades 6–12: psychometric test with a 20-page report, 1,600+ professions, 100 entrance exams, 100 scholarships, 150 free skill lessons, resume builder and an AI counsellor — in English, Gujarati, Hindi and Marathi.",
       },
-      { property: "og:title", content: "HBK Careers — Career Discovery for Gujarat Students" },
-      { property: "og:description", content: "Free guidance, colleges, and a 20-page psychometric report." },
+      { property: "og:title", content: "HBK Careers — Find Your Direction, Free" },
+      {
+        property: "og:description",
+        content: "Free career test, 1,600+ professions, exams, scholarships and skill lessons — in 4 languages.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: HomePage,
@@ -111,10 +118,10 @@ function HomePage() {
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 text-xs font-semibold text-foreground mb-6">
               <GraduationCap className="h-3.5 w-3.5" style={{ color: "var(--accent)" }} />
               {t({
-                en: "Free • No login required",
-                gu: "મફત • લૉગિન જરૂરી નથી",
-                hi: "मुफ़्त • लॉगिन ज़रूरी नहीं",
-                mr: "मोफत • लॉगिन आवश्यक नाही",
+                en: "Free • No login • 4 languages • Grades 6–12",
+                gu: "મફત • લૉગિન વગર • 4 ભાષાઓ • ધોરણ 6–12",
+                hi: "मुफ़्त • बिना लॉगिन • 4 भाषाएँ • कक्षा 6–12",
+                mr: "मोफत • लॉगिन नाही • 4 भाषा • इयत्ता 6–12",
               })}
             </div>
             <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight">
@@ -165,6 +172,10 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <StatsBand lang={lang} />
+
+      <FeatureShowcase lang={lang} />
 
       <TrustLayer lang={lang} />
 
@@ -218,6 +229,42 @@ function HomePage() {
       </section>
 
 
+
+      {/* Final CTA band */}
+      <section className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
+        <div
+          className="rounded-3xl px-6 md:px-12 py-12 md:py-16 text-center text-primary-foreground shadow-[var(--shadow-glow-primary)]"
+          style={{
+            background:
+              "linear-gradient(135deg, var(--primary), color-mix(in oklab, var(--primary) 65%, var(--accent)))",
+          }}
+        >
+          <h2 className="font-serif text-3xl md:text-4xl leading-tight">
+            {t({
+              en: "Ready to find your direction?",
+              gu: "તમારી દિશા શોધવા તૈયાર છો?",
+              hi: "अपनी दिशा खोजने के लिए तैयार हैं?",
+              mr: "तुमची दिशा शोधायला तयार आहात?",
+            })}
+          </h2>
+          <p className="mt-3 text-sm md:text-base opacity-90 max-w-xl mx-auto">
+            {t({
+              en: "25 minutes. Your language. A 20-page report that shows the way.",
+              gu: "25 મિનિટ. તમારી ભાષા. 20-પાનાનો રિપોર્ટ જે માર્ગ બતાવે.",
+              hi: "25 मिनट। आपकी भाषा। 20-पृष्ठ की रिपोर्ट जो रास्ता दिखाए।",
+              mr: "25 मिनिटे. तुमची भाषा. मार्ग दाखवणारा 20-पानी अहवाल.",
+            })}
+          </p>
+          <Link
+            to="/test"
+            className="mt-7 inline-flex items-center gap-2 rounded-xl bg-card px-7 py-3.5 text-sm font-bold text-foreground shadow-lg transition-transform hover:-translate-y-0.5"
+          >
+            <Brain className="h-4 w-4" style={{ color: "var(--accent)" }} />
+            {T.cta1}
+            <ArrowRight className="h-4 w-4" style={{ color: "var(--accent)" }} />
+          </Link>
+        </div>
+      </section>
 
       <FAQAccordion lang={lang} />
     </PublicLayout>

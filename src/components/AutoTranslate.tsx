@@ -79,6 +79,8 @@ function sweep(root: Node, dict: Dict | null) {
   translateAttributes(root, dict);
 }
 
+let firstPassDone = false;
+
 export function AutoTranslate() {
   const lang = useLang();
 
@@ -86,6 +88,7 @@ export function AutoTranslate() {
     let cancelled = false;
     let observer: MutationObserver | null = null;
     let frame = 0;
+    let timer = 0;
     const pending: Node[] = [];
 
     const start = (dict: Dict | null) => {
@@ -112,19 +115,33 @@ export function AutoTranslate() {
       });
     };
 
+    const begin = (dict: Dict | null) => {
+      // On the very first pass, wait for React hydration of lazy route chunks
+      // to finish before touching the DOM, otherwise the sweep mutates
+      // not-yet-hydrated server HTML and triggers hydration mismatches.
+      if (firstPassDone) {
+        start(dict);
+        return;
+      }
+      firstPassDone = true;
+      timer = window.setTimeout(() => {
+        if (!cancelled) start(dict);
+      }, 1200);
+    };
+
     if (lang === "en") {
-      start(null);
+      begin(null);
     } else {
       const cached = cache.get(lang);
       if (cached) {
-        start(cached);
+        begin(cached);
       } else {
         fetch(`/auto/${lang}.json`)
           .then((r) => (r.ok ? r.json() : null))
           .then((dict: Dict | null) => {
             if (!dict || cancelled) return;
             cache.set(lang, dict);
-            start(dict);
+            begin(dict);
           })
           .catch(() => undefined);
       }
@@ -133,6 +150,7 @@ export function AutoTranslate() {
     return () => {
       cancelled = true;
       if (frame) cancelAnimationFrame(frame);
+      if (timer) clearTimeout(timer);
       observer?.disconnect();
     };
   }, [lang]);
