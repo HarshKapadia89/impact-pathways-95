@@ -1,4 +1,4 @@
-import { Lang, toLang } from "@/lib/lang";
+import { Lang, toLang, persistLang } from "@/lib/lang";
 import { tp } from "@/lib/testPageStrings";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
@@ -111,6 +111,7 @@ function TestIntro() {
     if (i18n.language !== testLang) {
       i18n.changeLanguage(testLang);
     }
+    persistLang(testLang);
     sessionStorage.setItem(
       "disha-test-meta",
       JSON.stringify({

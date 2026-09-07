@@ -3,6 +3,8 @@ import { HANDBOOK_SUMMARIES } from "@/lib/handbookData";
 import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
 import { SCHOLARSHIPS } from "@/lib/scholarshipsData";
 import { TOTAL_LESSONS } from "@/lib/upskilling";
+import { INDIA_COLLEGES } from "@/lib/indiaColleges";
+import { GUJ_COLLEGE_STATS } from "@/lib/gujaratColleges";
 import professionIndex from "@/lib/professionIndex.json";
 
 export function StatsBand({ lang }: { lang: Lang }) {
@@ -13,11 +15,12 @@ export function StatsBand({ lang }: { lang: Lang }) {
     { n: ENTRANCE_EXAMS.length, suffix: "", label: t({ en: "entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }) },
     { n: SCHOLARSHIPS.length, suffix: "", label: t({ en: "scholarships", gu: "શિષ્યવૃત્તિઓ", hi: "छात्रवृत्तियाँ", mr: "शिष्यवृत्त्या" }) },
     { n: TOTAL_LESSONS, suffix: "", label: t({ en: "free lessons", gu: "મફત પાઠ", hi: "मुफ़्त पाठ", mr: "मोफत धडे" }) },
+    { n: INDIA_COLLEGES.length + GUJ_COLLEGE_STATS.totalListed, suffix: "+", label: t({ en: "colleges & universities", gu: "કોલેજો અને યુનિવર્સિટીઓ", hi: "कॉलेज और विश्वविद्यालय", mr: "महाविद्यालये आणि विद्यापीठे" }) },
     { n: 4, suffix: "", label: t({ en: "languages", gu: "ભાષાઓ", hi: "भाषाएँ", mr: "भाषा" }) },
   ];
   return (
     <section className="border-y border-border bg-card">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6">
         {stats.map((s) => (
           <div key={s.label} className="text-center">
             <div className="font-serif text-3xl md:text-4xl" style={{ color: "var(--accent)" }}>
