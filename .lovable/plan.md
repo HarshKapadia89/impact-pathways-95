@@ -1,46 +1,44 @@
-# Powerful, Feature-Rich Landing Page
+# Powerful Visitor-First Landing Page
 
-Turn the homepage into a strong showcase of everything the platform offers — with real statistics, a complete feature showcase, and stronger calls to action. All existing sections keep working; we add and polish, not remove.
+Rebuild the homepage from a first-time visitor's point of view: within seconds they should see what the platform is, everything it offers, proof through real numbers, and one clear action — "Take the free test". All existing sections keep working; nothing is removed.
 
-## What changes on the homepage (`src/routes/index.tsx`)
+## Page flow (top to bottom)
 
-### 1. Live statistics band (new, right under the hero)
-A bold 4-stat strip showing real platform numbers, pulled from actual data sources so they never go stale:
-- 48 career streams (from the career library data)
-- 1,600+ professions (profession index)
-- 100 entrance exams and 100 scholarships (tracker data)
-- 150 free lessons across 15 skill tracks (LevelUp Lab)
-Plus supporting stats already implied by content: 4 languages, 20-page report, grades 6–12.
+### 1. Hero — "what is this and why should I care" in 5 seconds
+- One strong headline, sub-line, and primary CTA (Take the free test) + secondary (Explore careers).
+- Small trust strip inside the hero: Free • No login • 4 languages • Grades 6–12.
+- Right side keeps the tinted feature cards, upgraded with counts (1,600+ professions, 20-page report).
 
-### 2. Complete feature showcase (new section)
-A grid of 8–10 feature cards, each linking into the site, covering everything a visitor can do:
-- Psychometric test (RIASEC + Multiple Intelligences + Aptitude)
+### 2. Live statistics band (new)
+Bold animated-feel stat strip using real counts from the data (never hardcoded): 48 streams • 1,600+ professions • 1,900+ institutes • 100 entrance exams • 100 scholarships • 150 free lessons • 4 languages.
+
+### 3. "Everything you can do here" — full feature showcase (new)
+An 8–10 card grid, each card with icon, one-line benefit (visitor wording, not technical), and a link:
+- Psychometric & aptitude test
 - Instant 20-page PDF report in your language
-- Career Library (1,600+ professions, compare careers)
-- 100 entrance exams and 100 scholarships
-- LevelUp Lab (150 free lessons, quizzes, certificates)
+- Career Library — 1,600+ professions with compare
+- 100 entrance exams & 100 scholarships
+- LevelUp Lab — 150 free lessons, quizzes & certificates
 - Resume / profile builder
-- HBK Career Counsellor chatbot (4 languages)
-- Book a counsellor session
-- College finder / directory
-- Shareable report links for parents and teachers
+- HBK Career Counsellor — AI chatbot in 4 languages
+- Book a 1-on-1 counsellor session
+- College finder
+- Shareable report link for parents & teachers
 
-### 3. Stronger hero
-- Add a small stats row inside the hero (test takers-style trust numbers kept honest — only real counts like streams/professions/lessons).
-- Keep both existing CTAs; add a third subtle link "Explore all features" that scrolls to the showcase.
+### 4. Existing sections, polished and kept
+How it works (3 steps) → Report preview → Vibe quiz hook → Streams strip → FAQ — kept, with spacing/typography polish for flow.
 
-### 4. Trust + How-it-works + Report preview + Vibe quiz + Streams + FAQ
-These stay, but get spacing/typography polish so the page flows: hero → stats → features → how it works → report preview → vibe quiz → streams → FAQ → final CTA.
+### 5. Final CTA band (new, above the footer)
+Full-width closing banner: "Ready to find your direction?" + test CTA — no visitor reaches the footer without a clear next step.
 
-### 5. Final call-to-action band (new, above FAQ)
-A full-width closing section: "Ready to find your direction?" with the test CTA — so no visitor reaches the footer without an action.
-
-## Languages
-Every new string added in all four languages (English, Gujarati, Hindi, Marathi) using the existing `translator` pattern — the current language rule applies to all new content.
+## Visitor-first writing rules
+- Every heading written as a benefit ("Know what fits you in 25 minutes"), not a feature name.
+- One primary action repeated consistently: Take the free test.
+- All new strings in English, Gujarati, Hindi, Marathi via the existing `translator` pattern — the site-wide language rule applies.
 
 ## Technical details
-- All edits in `src/routes/index.tsx` (plus a small new `StatsBand` and `FeatureShowcase` component if the file gets long, kept in `src/components/`).
-- Counts computed from existing data modules (`professionIndex.json`, `careerData`, `scholarshipsData`, `entranceExamsData`, `upskilling`) — no hardcoded numbers that can drift.
-- Semantic design tokens only (existing `--brand-*`, `primary`, `accent`, card shadows); current Indigo & Amber theme and header untouched.
-- SEO: update the homepage head title/description to reflect the full platform (test + library + exams + scholarships + upskilling); keep a single H1.
-- Verified with a TypeScript check and a Playwright screenshot of the full page at desktop and mobile widths, in English and Hindi.
+- Edits in `src/routes/index.tsx` plus two new components (`StatsBand`, `FeatureShowcase`) in `src/components/` to keep the route readable.
+- Counts computed from existing modules (`professionIndex.json`, `careerData`, `scholarshipsData`, `entranceExamsData`, `upskilling`) so they stay accurate automatically.
+- Semantic design tokens only; current Indigo & Amber theme, header, and language dropdown untouched.
+- SEO: update homepage title/description to cover the full platform; keep a single H1.
+- Verified with TypeScript check and Playwright screenshots at desktop and mobile widths in English and Hindi.
