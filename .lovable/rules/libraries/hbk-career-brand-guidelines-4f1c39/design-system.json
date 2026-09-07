@@ -1,0 +1,1090 @@
+{
+  "meta": {
+    "name": "Joyful Library",
+    "package": "@ws-zpckci3kjekek0y84k4w/dead81d3-03b9-40ae-aa16-58aa67fab20d",
+    "version": "1.0.0",
+    "framework": "react",
+    "css_framework": "tailwind",
+    "starter_template": "custom_design_system",
+    "theme_files": [
+      "src/design-system/styles/theme.css"
+    ],
+    "source_type": "local",
+    "source_manifest": {
+      "#enrichment": "33ef3d9d9f82bdd03765f187dbeb100f17856f573135d47a5adf8ba6fe1f73ee",
+      ".dsignore": "7ef89e6963feb24d7dcaa3aeabf88b2a",
+      ".gitignore": "6059213806e442947666752f3db6bfdc",
+      ".lovable/meta.yaml": "86a17ac0d6b10fddfde4cdc325cb93a7",
+      ".lovable/plan/hbk-careers-design-system-starter-tokens-components-2026-09-07.md": "3c290fd06d6b56ae128b26b751606122",
+      ".lovable/sources.yaml": "1b62005cb01c2413aacc02b0f9500c65",
+      ".lovable/system.md": "0030d44ee9d8ac3b88e207d5b4dcf797",
+      "README.md": "d19675c449605f23c7cfa133c69b398b",
+      "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
+      "eslint.config.js": "07a67437fb1a45ab36d6de0145ff09de",
+      "lovable.toml": "9636c1bf32f9901bfba4eabb92981217",
+      "mockupPreviewPlugin.ts": "8024d439734f27417621536969f64db1",
+      "package.json": "0be31a84995782d9779d4c0f517c6195",
+      "public/favicon.png": "4d0c2a30d73c2bb77fc1710aa8d793ae",
+      "src/design-system/assets/logos/hbk-careers-color-source.png": "14a9fd00e6aff7be4b708552389f05ab",
+      "src/design-system/assets/logos/hbk-careers-color.png": "d1bc7986e64b64d046fe5d50021d77da",
+      "src/design-system/assets/logos/hbk-careers-purple-source.png": "2d23f955fef1a670fc8eddc40da6bb9d",
+      "src/design-system/assets/logos/hbk-careers-purple.png": "5cbd8339cd5eab0b871c913c0d0d18df",
+      "src/design-system/assets/logos/hbk-careers-white-source.png": "3d16cc333619b85601692df361121964",
+      "src/design-system/assets/logos/hbk-careers-white.png": "d1ae8346064255979bfaf419b22225e3",
+      "src/design-system/components/Accordion.tsx": "a8c362b2dc160485681dddb5347b40d9",
+      "src/design-system/components/Alert.tsx": "e32cd4a7ed18940782888f79cc518b31",
+      "src/design-system/components/ArrowIcon.tsx": "0fe23bf91797afff5ae237e8dd641caf",
+      "src/design-system/components/Avatar.tsx": "714811a1623c10c00320edcf23ea3910",
+      "src/design-system/components/Badge.tsx": "90c6e357cdff0c7265031b44ada32fd7",
+      "src/design-system/components/Breadcrumb.tsx": "c0ffe8f71f736b7aeb70f305beb225c1",
+      "src/design-system/components/Button.tsx": "42aadf8d68637bc47a5ecefe57ae9536",
+      "src/design-system/components/Callout.tsx": "b2723147f2921ea5daef417314e568b6",
+      "src/design-system/components/Card.tsx": "cf61325923a2aed5e2b9ca2dd46c3776",
+      "src/design-system/components/Checkbox.tsx": "e23969df915156ea414b125fd003f9ac",
+      "src/design-system/components/Divider.tsx": "67ed65aacb1e0d5f7064abd21b40ed7a",
+      "src/design-system/components/Field.tsx": "857aac149211ed2f2c61baeaaf55dd2c",
+      "src/design-system/components/Hero.tsx": "9bcf8062ed446f31588f4c4a08d783be",
+      "src/design-system/components/Input.tsx": "c079f67da1e45d6ca1022c08cca2c8fa",
+      "src/design-system/components/Label.tsx": "2397d54724f0b58794e76928751eece0",
+      "src/design-system/components/Logotype.tsx": "d02c7c1ae16e78e83187301da66f8589",
+      "src/design-system/components/Radio.tsx": "02bac2c724fdd5c43bb3b60ae19d7c4f",
+      "src/design-system/components/Section.tsx": "30c186e16c7a2aeb2311ef33eb62a38f",
+      "src/design-system/components/Select.tsx": "554faa4c7b0cdf615e4ca5639faa4357",
+      "src/design-system/components/Stat.tsx": "d0b08d47c9daa8fe5b4bd48d1057fbdd",
+      "src/design-system/components/Switch.tsx": "dd120fcf2716a997311d37bc428e3fb0",
+      "src/design-system/components/Tabs.tsx": "6d04c6597ddccb708fdc95412ff30e6a",
+      "src/design-system/components/Textarea.tsx": "3ed26a072342e048200f1e9382e23a11",
+      "src/design-system/index.ts": "31a9dc783f66e6595c96abdb41d5c487",
+      "src/design-system/lib/cn.ts": "360d325aa93b04e37d26af0435230ef3",
+      "src/design-system/styles/theme.css": "b3b53a37df71d441c45ecc6c950da47d",
+      "src/index.ts": "ab35d8f1c11e0b18cc3bb7f06af3d665",
+      "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
+      "src/routeTree.gen.ts": "c746b72abf9f7e2a977046bba75994ea",
+      "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
+      "src/routes/[__component].preview.$.tsx": "3a40af1fe37daff2e891175a6e6d4f99",
+      "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
+      "src/routes/__root.tsx": "d77637add5cdd454c26d88d7a7fd8411",
+      "src/routes/colors.tsx": "660b74fe3c97b850b8b642d73f0239b7",
+      "src/routes/components.tsx": "8718a867d71f67d6d0a70a4fc45180d1",
+      "src/routes/icons.tsx": "bfa15169bddce1a03c36cbae1152de6c",
+      "src/routes/index.tsx": "7eb49ec8d58f63ee87090e054ef01f04",
+      "src/routes/typography.tsx": "0b340f62be1157a4d4c22f0122a2c35f",
+      "src/showcase/ShowcaseShell.tsx": "45dc126b8a3f388c4aad1c7f270e0088",
+      "src/showcase/componentSections.tsx": "e8fc4038dfc07e4340fcfbca2cffb320",
+      "src/styles.css": "0f925c6fca12ee17930371a0a9ef4a09",
+      "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
+      "vite.config.ts": "91af6c68b258ce4dc198d753329905c4",
+      "wrangler.jsonc": "680b897d48e44bcc65fe437c29b38f3b"
+    },
+    "pipeline_version": 8
+  },
+  "tokens": {
+    "color": [
+      {
+        "name": "--hbk-orange",
+        "raw": "#e9652b",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-lime",
+        "raw": "#abca44",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-purple",
+        "raw": "#6a05cc",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-lilac",
+        "raw": "#c197fc",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-amber",
+        "raw": "#fcb349",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-green",
+        "raw": "#2f9124",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-mint",
+        "raw": "#e1f490",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-indigo",
+        "raw": "#4343c9",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-magenta",
+        "raw": "#da3fd3",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-ink",
+        "raw": "#14110f",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-ink-soft",
+        "raw": "#3d3733",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-slate",
+        "raw": "#6d635c",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-paper",
+        "raw": "#ffffff",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--hbk-paper-soft",
+        "raw": "#f7f4ef",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--muted",
+        "raw": "#f1ede7",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--primary-foreground",
+        "raw": "#ffffff",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--highlight-foreground",
+        "raw": "#ffffff",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--success-foreground",
+        "raw": "#ffffff",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--info-foreground",
+        "raw": "#ffffff",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--destructive",
+        "raw": "#c4331d",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--destructive-foreground",
+        "raw": "#ffffff",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--background",
+        "raw": "#100d1a",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--foreground",
+        "raw": "#f6f2ec",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--surface",
+        "raw": "#1a1526",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--surface-foreground",
+        "raw": "#f6f2ec",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--muted-foreground",
+        "raw": "#b3a9c2",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--border",
+        "raw": "#322a45",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--input",
+        "raw": "#322a45",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--primary",
+        "raw": "#f4763b",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--accent-foreground",
+        "raw": "#14110f",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--success",
+        "raw": "#58bd4b",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--warning-foreground",
+        "raw": "#1f1403",
+        "source": "src/design-system/styles/theme.css"
+      }
+    ],
+    "spacing": [
+      {
+        "name": "--text-display--letter-spacing",
+        "raw": "-0.02em",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-overline--letter-spacing",
+        "raw": "0.14em",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--spacing",
+        "raw": "0.25rem",
+        "source": "src/design-system/styles/theme.css"
+      }
+    ],
+    "typography": [
+      {
+        "name": "--hbk-line",
+        "raw": "#e3ded8",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--font-display",
+        "raw": "\"Noto Serif\", ui-serif, Georgia, serif",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--font-body",
+        "raw": "\"Helvena\", \"Helvetica Neue\", Helvetica, Arial, ui-sans-serif, sans-serif",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-display",
+        "raw": "3.5rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-display--line-height",
+        "raw": "1.04",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-title",
+        "raw": "2.25rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-title--line-height",
+        "raw": "1.1",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-heading",
+        "raw": "1.5rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-heading--line-height",
+        "raw": "1.25",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-subheading",
+        "raw": "1.125rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-subheading--line-height",
+        "raw": "1.4",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-body",
+        "raw": "1rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-body--line-height",
+        "raw": "1.6",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-caption",
+        "raw": "0.8125rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-caption--line-height",
+        "raw": "1.45",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-overline",
+        "raw": "0.6875rem",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--text-overline--line-height",
+        "raw": "1.2",
+        "source": "src/design-system/styles/theme.css"
+      }
+    ],
+    "radius": [
+      {
+        "name": "--radius-xs",
+        "raw": "2px",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--radius-sm",
+        "raw": "4px",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--radius-md",
+        "raw": "8px",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--radius-lg",
+        "raw": "16px",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--radius-xl",
+        "raw": "24px",
+        "source": "src/design-system/styles/theme.css"
+      }
+    ],
+    "shadow": [
+      {
+        "name": "--shadow-soft",
+        "raw": "0 1px 2px rgb(20 17 15 / 0.06), 0 8px 24px rgb(20 17 15 / 0.06)",
+        "source": "src/design-system/styles/theme.css"
+      },
+      {
+        "name": "--shadow-lift",
+        "raw": "0 2px 4px rgb(20 17 15 / 0.08), 0 16px 40px rgb(20 17 15 / 0.1)",
+        "source": "src/design-system/styles/theme.css"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "ArrowIcon",
+      "file": "src/design-system/components/ArrowIcon",
+      "import_path": "",
+      "props": [
+        {
+          "name": "direction",
+          "type": "enum",
+          "values": [
+            "up-right",
+            "right",
+            "up",
+            "down",
+            "down-right",
+            "left"
+          ],
+          "default": "up-right"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "default": "24"
+        },
+        {
+          "name": "weight",
+          "type": "enum",
+          "values": [
+            "regular",
+            "bold"
+          ],
+          "default": "regular"
+        },
+        {
+          "name": "label",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "file": "src/design-system/components/Button",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "accent",
+            "highlight",
+            "outline",
+            "ghost",
+            "link",
+            "destructive"
+          ],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "fullWidth",
+          "type": "enum",
+          "values": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "withArrow",
+          "type": "boolean"
+        },
+        {
+          "name": "loading",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "file": "src/design-system/components/Badge",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "neutral",
+            "primary",
+            "accent",
+            "highlight",
+            "success",
+            "warning",
+            "info",
+            "outline"
+          ],
+          "default": "neutral"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "withArrow",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "file": "src/design-system/components/Card",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "plain",
+            "surface",
+            "lifted",
+            "arrow",
+            "highlight"
+          ],
+          "default": "plain"
+        },
+        {
+          "name": "padding",
+          "type": "enum",
+          "values": [
+            "none",
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "CardHeader",
+      "file": "src/design-system/components/Card",
+      "import_path": ""
+    },
+    {
+      "name": "CardTitle",
+      "file": "src/design-system/components/Card",
+      "import_path": ""
+    },
+    {
+      "name": "CardDescription",
+      "file": "src/design-system/components/Card",
+      "import_path": ""
+    },
+    {
+      "name": "CardFooter",
+      "file": "src/design-system/components/Card",
+      "import_path": ""
+    },
+    {
+      "name": "Label",
+      "file": "src/design-system/components/Label",
+      "import_path": "",
+      "props": [
+        {
+          "name": "required",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Input",
+      "file": "src/design-system/components/Input",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "invalid",
+            "valid"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "file": "src/design-system/components/Textarea",
+      "import_path": "",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "invalid",
+            "valid"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "resize",
+          "type": "enum",
+          "values": [
+            "none",
+            "vertical"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "file": "src/design-system/components/Select",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "invalid",
+            "valid"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "file": "src/design-system/components/Checkbox",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Radio",
+      "file": "src/design-system/components/Radio",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "file": "src/design-system/components/Radio",
+      "import_path": "",
+      "props": [
+        {
+          "name": "legend",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "hideLegend",
+          "type": "boolean"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "flex items-start gap-2"
+        }
+      ]
+    },
+    {
+      "name": "Switch",
+      "file": "src/design-system/components/Switch",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Field",
+      "file": "src/design-system/components/Field",
+      "import_path": "",
+      "props": [
+        {
+          "name": "htmlFor",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "hint",
+          "type": "string"
+        },
+        {
+          "name": "error",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "type": "boolean"
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "file": "src/design-system/components/Alert",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger",
+            "neutral"
+          ],
+          "default": "info"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "file": "src/design-system/components/Avatar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "src",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "file": "src/design-system/components/Tabs",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "defaultValue",
+          "type": "string"
+        },
+        {
+          "name": "onValueChange",
+          "type": "function"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "flex gap-1 border-b border-border"
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "file": "src/design-system/components/Accordion",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "multiple",
+          "type": "boolean"
+        },
+        {
+          "name": "defaultOpen",
+          "type": "any"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "hbk-focus flex w-full items-center justify-between gap-4 py-4 text-left font-display text-subheading font-semibold"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "file": "src/design-system/components/Breadcrumb",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "flex flex-wrap items-center gap-2"
+        }
+      ]
+    },
+    {
+      "name": "Divider",
+      "file": "src/design-system/components/Divider",
+      "import_path": "",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "enum",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "subtle",
+            "strong",
+            "brand"
+          ],
+          "default": "subtle"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "font-body text-overline uppercase tracking-[0.14em] text-muted-foreground"
+        }
+      ]
+    },
+    {
+      "name": "Stat",
+      "file": "src/design-system/components/Stat",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "change",
+          "type": "string"
+        },
+        {
+          "name": "trend",
+          "type": "enum",
+          "values": [
+            "up",
+            "down",
+            "flat"
+          ],
+          "default": "up"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "font-body text-overline uppercase tracking-[0.14em] text-muted-foreground"
+        }
+      ]
+    },
+    {
+      "name": "Callout",
+      "file": "src/design-system/components/Callout",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "quote",
+            "brand",
+            "accent"
+          ],
+          "default": "quote"
+        },
+        {
+          "name": "attribution",
+          "type": "string"
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "mb-3 opacity-70"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "file": "src/design-system/components/Hero",
+      "import_path": "",
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "subtitle",
+          "type": "string"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "paper",
+            "brand",
+            "ink",
+            "accent"
+          ],
+          "default": "paper"
+        },
+        {
+          "name": "withArrowMotif",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "pointer-events-none absolute -right-16 -top-16 opacity-10"
+        }
+      ]
+    },
+    {
+      "name": "Section",
+      "file": "src/design-system/components/Section",
+      "import_path": "",
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "children",
+          "type": "any"
+        },
+        {
+          "name": "spacing",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "flex max-w-2xl flex-col gap-2"
+        }
+      ]
+    },
+    {
+      "name": "Logotype",
+      "file": "src/design-system/components/Logotype",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "brand",
+            "mono",
+            "inverse",
+            "purple"
+          ],
+          "default": "brand"
+        }
+      ]
+    }
+  ]
+}

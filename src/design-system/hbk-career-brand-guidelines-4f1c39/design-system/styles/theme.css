@@ -1,0 +1,197 @@
+/* HBK Careers — canonical theme entry.
+   Import this one file to receive the full design system theme.
+
+   Fonts: the display face (Noto Serif) must be loaded by the host app with a
+   <link> in the document head — a remote @import here is not resolvable by the
+   Tailwind v4 build. Add:
+   <link rel="stylesheet"
+     href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+   The body face (Helvena) is licensed; add an @font-face rule here once the
+   font files are supplied. */
+
+:root {
+  /* Brand primaries */
+  --hbk-orange: #e9652b;
+  --hbk-lime: #abca44;
+  --hbk-purple: #6a05cc;
+
+  /* Brand secondaries */
+  --hbk-lilac: #c197fc;
+  --hbk-amber: #fcb349;
+  --hbk-green: #2f9124;
+  --hbk-mint: #e1f490;
+  --hbk-indigo: #4343c9;
+  --hbk-magenta: #da3fd3;
+
+  /* Neutrals */
+  --hbk-ink: #14110f;
+  --hbk-ink-soft: #3d3733;
+  --hbk-slate: #6d635c;
+  --hbk-line: #e3ded8;
+  --hbk-paper: #ffffff;
+  --hbk-paper-soft: #f7f4ef;
+
+  /* Semantic surfaces */
+  --background: var(--hbk-paper);
+  --foreground: var(--hbk-ink);
+  --surface: var(--hbk-paper-soft);
+  --surface-foreground: var(--hbk-ink);
+  --muted: #f1ede7;
+  --muted-foreground: var(--hbk-slate);
+  --border: var(--hbk-line);
+  --input: var(--hbk-line);
+  --ring: var(--hbk-purple);
+
+  /* Semantic roles */
+  --primary: var(--hbk-orange);
+  --primary-foreground: #ffffff;
+  --accent: var(--hbk-lime);
+  --accent-foreground: var(--hbk-ink);
+  --highlight: var(--hbk-purple);
+  --highlight-foreground: #ffffff;
+  --success: var(--hbk-green);
+  --success-foreground: #ffffff;
+  --warning: var(--hbk-amber);
+  --warning-foreground: var(--hbk-ink);
+  --info: var(--hbk-indigo);
+  --info-foreground: #ffffff;
+  --destructive: #c4331d;
+  --destructive-foreground: #ffffff;
+}
+
+.dark {
+  --background: #100d1a;
+  --foreground: #f6f2ec;
+  --surface: #1a1526;
+  --surface-foreground: #f6f2ec;
+  --muted: #241d33;
+  --muted-foreground: #b3a9c2;
+  --border: #322a45;
+  --input: #322a45;
+  --ring: var(--hbk-lilac);
+
+  --primary: #f4763b;
+  --primary-foreground: #1a0e07;
+  --accent: var(--hbk-mint);
+  --accent-foreground: #14110f;
+  --highlight: var(--hbk-purple);
+  --highlight-foreground: #ffffff;
+  --success: #58bd4b;
+  --success-foreground: #08170a;
+  --warning: var(--hbk-amber);
+  --warning-foreground: #1f1403;
+  --info: var(--hbk-indigo);
+  --info-foreground: #ffffff;
+  --destructive: #f0654c;
+  --destructive-foreground: #1f0803;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Raw brand scale — use semantic tokens above in product code */
+  --color-brand-orange: var(--hbk-orange);
+  --color-brand-lime: var(--hbk-lime);
+  --color-brand-purple: var(--hbk-purple);
+  --color-brand-lilac: var(--hbk-lilac);
+  --color-brand-amber: var(--hbk-amber);
+  --color-brand-green: var(--hbk-green);
+  --color-brand-mint: var(--hbk-mint);
+  --color-brand-indigo: var(--hbk-indigo);
+  --color-brand-magenta: var(--hbk-magenta);
+
+  /* Typography */
+  --font-display: "Noto Serif", ui-serif, Georgia, serif;
+  --font-body: "Helvena", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, sans-serif;
+
+  --text-display: 3.5rem;
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.02em;
+  --text-title: 2.25rem;
+  --text-title--line-height: 1.1;
+  --text-heading: 1.5rem;
+  --text-heading--line-height: 1.25;
+  --text-subheading: 1.125rem;
+  --text-subheading--line-height: 1.4;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.45;
+  --text-overline: 0.6875rem;
+  --text-overline--line-height: 1.2;
+  --text-overline--letter-spacing: 0.14em;
+
+  /* 8pt rhythm: the base step is 4px, so every even utility (2, 4, 6, 8…)
+     lands on the 8pt grid. Prefer even steps. */
+  --spacing: 0.25rem;
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgb(20 17 15 / 0.06), 0 8px 24px rgb(20 17 15 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(20 17 15 / 0.08), 0 16px 40px rgb(20 17 15 / 0.1);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The arrow is the brand's core idea: a diagonal corner frame. */
+@utility hbk-arrow-frame {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 1rem;
+    inset-block-start: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    opacity: 0.4;
+  }
+}
+
+@utility hbk-focus {
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
