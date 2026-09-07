@@ -5,6 +5,7 @@ import { UPSKILL_TOPICS } from "@/lib/upskilling";
 import { useLang } from "@/lib/lang";
 import { us } from "@/lib/upskillStrings";
 import { saveQuizResult, PASS_PCT } from "@/lib/upskillProgress";
+import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 
 interface PoolItem {
   q: string;
@@ -68,6 +69,7 @@ function buildQuestions(pool: PoolItem[], count: number, seed: number): Question
 export function UpskillQuiz({ topic }: { topic?: Topic }) {
   const lang = useLang();
   const t = (k: string) => us(k, lang);
+  const phrase = usePhraseTranslator(lang);
   const pool = useMemo(() => buildPool(topic ? [topic] : UPSKILL_TOPICS), [topic]);
   const maxQ = Math.min(50, pool.length);
 
@@ -161,9 +163,9 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
         {questions.map((q, i) => (
           <li key={i} className="rounded-xl border border-border p-4">
             <div className="text-[11px] text-muted-foreground">
-              {i + 1}. {q.source} · 1 {t("quizMarksShort")}
+              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · 1 {t("quizMarksShort")}
             </div>
-            <div className="text-sm font-medium mt-1.5">{q.q}</div>
+            <div className="text-sm font-medium mt-1.5">{phrase(q.q)}</div>
             <div className="mt-3 space-y-2">
               {q.options.map((o, oi) => {
                 const chosen = answers[i] === oi;
@@ -185,7 +187,7 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
                     ) : submitted && chosen ? (
                       <XCircle className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
                     ) : null}
-                    <span>{o}</span>
+                    <span>{phrase(o)}</span>
                   </button>
                 );
               })}

@@ -4,6 +4,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { useLang } from "@/lib/lang";
 import { us } from "@/lib/upskillStrings";
 import { getLesson } from "@/lib/upskilling";
+import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 import { isDone, toggleLesson, getDays, toggleDay, dayKey } from "@/lib/upskillProgress";
 import {
   ArrowLeft,
@@ -50,6 +51,7 @@ function LessonPage() {
   const { topic, lesson, index } = Route.useLoaderData();
   const lang = useLang();
   const t = (k: string) => us(k, lang);
+  const phrase = usePhraseTranslator(lang);
   const [done, setDone] = useState(false);
   const [days, setDays] = useState<Record<string, number>>({});
   const [openDay, setOpenDay] = useState<number | null>(1);
@@ -72,13 +74,13 @@ function LessonPage() {
           </Link>
           <span>/</span>
           <Link to="/upskill/$topic" params={{ topic: topic.slug }} className="hover:text-foreground">
-            {topic.emoji} {topic.title}
+            {topic.emoji} {phrase(topic.title)}
           </Link>
         </div>
 
-        <h1 className="font-serif text-3xl md:text-4xl mt-4 leading-tight">{lesson.title}</h1>
+        <h1 className="font-serif text-3xl md:text-4xl mt-4 leading-tight">{phrase(lesson.title)}</h1>
         <div className="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-muted-foreground">
-          <span className="rounded-full border border-border px-2.5 py-1">{lesson.level}</span>
+          <span className="rounded-full border border-border px-2.5 py-1">{phrase(lesson.level)}</span>
           <span>{lesson.minutes} {t("min")}</span>
           <button
             onClick={() => typeof window !== "undefined" && window.print()}
@@ -95,7 +97,7 @@ function LessonPage() {
             <Lightbulb className="h-4 w-4 text-accent" />
             {t("why")}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed">{lesson.why}</p>
+          <p className="mt-2 text-sm leading-relaxed">{phrase(lesson.why)}</p>
         </section>
 
         <section className="mt-8">
@@ -134,7 +136,7 @@ function LessonPage() {
                       <span className="block text-[11px] uppercase tracking-wide text-primary font-semibold">
                         {t("day")} {d.day}
                       </span>
-                      <span className="block text-sm font-medium mt-0.5">{d.focus}</span>
+                      <span className="block text-sm font-medium mt-0.5">{phrase(d.focus)}</span>
                     </span>
                     <ChevronDown className={`h-4 w-4 text-muted-foreground shrink-0 mt-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                   </button>
@@ -143,12 +145,12 @@ function LessonPage() {
                       {readText && (
                         <div>
                           <div className="text-[11px] font-semibold uppercase tracking-widest text-accent">{t("read")}</div>
-                          <p className="mt-1.5 text-sm leading-relaxed whitespace-pre-line">{readText}</p>
+                          <p className="mt-1.5 text-sm leading-relaxed whitespace-pre-line">{phrase(readText)}</p>
                         </div>
                       )}
                       <div>
                         <div className="text-[11px] font-semibold uppercase tracking-widest text-accent">{t("doTask")}</div>
-                        <p className="mt-1.5 text-sm leading-relaxed">{d.task}</p>
+                        <p className="mt-1.5 text-sm leading-relaxed">{phrase(d.task)}</p>
                       </div>
                       {checks.length > 0 && (
                         <div>
@@ -157,7 +159,7 @@ function LessonPage() {
                             {checks.map((cq, ci) => (
                               <li key={ci} className="flex gap-2 text-sm text-muted-foreground">
                                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
-                                <span>{cq}</span>
+                                <span>{phrase(cq)}</span>
                               </li>
                             ))}
                           </ul>
@@ -193,7 +195,7 @@ function LessonPage() {
             {lesson.notes.map((n, i) => (
               <li key={i} className="flex gap-2.5 text-sm leading-relaxed">
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                <span>{n}</span>
+                <span>{phrase(n)}</span>
               </li>
             ))}
           </ul>
@@ -208,14 +210,14 @@ function LessonPage() {
             {lesson.caseStudies.map((c) => (
               <div key={c.title} className="rounded-2xl border border-border bg-card p-5">
                 <div className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                  {c.country}
-                  {c.who ? ` · ${c.who}` : ""}
+                  {phrase(c.country)}
+                  {c.who ? ` · ${phrase(c.who)}` : ""}
                 </div>
-                <h3 className="font-serif text-lg mt-1.5 leading-snug">{c.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{c.story}</p>
+                <h3 className="font-serif text-lg mt-1.5 leading-snug">{phrase(c.title)}</h3>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{phrase(c.story)}</p>
                 <p className="text-sm mt-3">
                   <span className="font-medium">{t("takeaway")}: </span>
-                  {c.takeaway}
+                  {phrase(c.takeaway)}
                 </p>
               </div>
             ))}
@@ -224,7 +226,7 @@ function LessonPage() {
 
         <section className="mt-10 rounded-2xl border border-accent/40 bg-accent/5 p-5">
           <h2 className="font-serif text-lg">{t("practice")}</h2>
-          <p className="mt-2 text-sm leading-relaxed">{lesson.practice}</p>
+          <p className="mt-2 text-sm leading-relaxed">{phrase(lesson.practice)}</p>
         </section>
 
         <section className="mt-10 rounded-2xl border border-primary/30 bg-primary/5 p-5">
@@ -253,7 +255,7 @@ function LessonPage() {
                 >
                   <ExternalLink className="h-3.5 w-3.5 mt-0.5 shrink-0" />
                   <span>
-                    {r.label}
+                    {phrase(r.label)}
                   </span>
                 </a>
               </li>
@@ -288,7 +290,7 @@ function LessonPage() {
               className="inline-flex items-center gap-2 text-sm hover:text-primary max-w-[45%]"
             >
               <ArrowLeft className="h-4 w-4 shrink-0" />
-              <span className="line-clamp-1">{prev.title}</span>
+              <span className="line-clamp-1">{phrase(prev.title)}</span>
             </Link>
           ) : (
             <span />
@@ -299,7 +301,7 @@ function LessonPage() {
               params={{ topic: topic.slug, lesson: next.slug }}
               className="inline-flex items-center gap-2 text-sm hover:text-primary max-w-[45%] text-right"
             >
-              <span className="line-clamp-1">{next.title}</span>
+              <span className="line-clamp-1">{phrase(next.title)}</span>
               <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
           ) : (

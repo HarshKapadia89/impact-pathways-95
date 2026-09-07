@@ -14,6 +14,7 @@ import {
 } from "@/lib/upskilling";
 import { getProgress, lastLesson, badges as computeBadges, lessonKey, getQuizResults, PASS_PCT } from "@/lib/upskillProgress";
 import { UpskillCertificateCard } from "@/components/UpskillCertificateCard";
+import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 import { Search, ArrowRight, Clock, Sparkles, CheckCircle2, Trophy } from "lucide-react";
 
 export const Route = createFileRoute("/upskill/")({
@@ -40,6 +41,7 @@ export const Route = createFileRoute("/upskill/")({
 function UpskillHub() {
   const lang = useLang();
   const t = (k: string) => us(k, lang);
+  const phrase = usePhraseTranslator(lang);
   const [query, setQuery] = useState("");
   const [progress, setProgress] = useState<Record<string, number>>({});
   const [resume, setResume] = useState<{ topic: string; lesson: string } | null>(null);
@@ -127,7 +129,7 @@ function UpskillHub() {
                 params={{ topic: resumeMeta.topic.slug, lesson: resumeMeta.lesson.slug }}
                 className="mt-4 inline-flex items-center gap-2 text-sm text-primary hover:underline"
               >
-                {t("continue")}: {resumeMeta.lesson.title}
+                {t("continue")}: {phrase(resumeMeta.lesson.title)}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             )}
@@ -169,8 +171,8 @@ function UpskillHub() {
                     >
                       <span className="text-sm">
                         <span className="mr-2">{h.emoji}</span>
-                        {h.lessonTitle}
-                        <span className="text-muted-foreground"> · {h.topicTitle}</span>
+                        {phrase(h.lessonTitle)}
+                        <span className="text-muted-foreground"> · {phrase(h.topicTitle)}</span>
                       </span>
                       <span className="text-[11px] text-muted-foreground shrink-0">
                         {h.minutes} {t("min")}
@@ -196,8 +198,8 @@ function UpskillHub() {
                 className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-sm transition-all"
               >
                 <div className="text-3xl">{topic.emoji}</div>
-                <h2 className="font-serif text-xl mt-3 leading-snug">{topic.title}</h2>
-                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">{topic.tagline}</p>
+                <h2 className="font-serif text-xl mt-3 leading-snug">{phrase(topic.title)}</h2>
+                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">{phrase(topic.tagline)}</p>
                 <div className="mt-4 flex items-center gap-3 text-[11px] text-muted-foreground">
                   <span>{topic.lessons.length} {t("lessons").toLowerCase()}</span>
                   <span className="inline-flex items-center gap-1">
