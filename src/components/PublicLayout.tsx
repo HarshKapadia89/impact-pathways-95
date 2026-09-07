@@ -60,9 +60,6 @@ const FOOTER_EXTRA = [
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે", hi: "स्कूलों के लिए", mr: "शाळांसाठी" }, icon: Building2 },
 ];
 
-const ACTIVE_PILL =
-  "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 65%, var(--primary)))";
-
 export function PublicLayout({ children }: { children: ReactNode }) {
   const lang = useLang();
   const t = translator(lang);
@@ -72,57 +69,26 @@ export function PublicLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header data-no-translate className="sticky top-0 z-40 px-2 md:px-4 pt-3 pb-2">
-        <div className="max-w-7xl mx-auto relative group">
-          {/* Floating glow background */}
-          <div
-            className="pointer-events-none absolute -inset-1 rounded-[2rem] blur-xl opacity-50 group-hover:opacity-75 transition duration-1000"
-            style={{
-              background:
-                "linear-gradient(90deg, color-mix(in oklab, var(--accent) 35%, transparent), color-mix(in oklab, var(--primary) 20%, transparent))",
-            }}
-          />
-
-          {/* Main glass bar — two rows: brand, then nav pills */}
-          <div
-            className="relative px-3 md:px-5 py-3 bg-card/70 backdrop-blur-2xl border border-white/40 rounded-3xl ring-1 ring-inset"
-            style={{
-              boxShadow: "0 8px 32px color-mix(in oklab, var(--accent) 12%, transparent)",
-              // @ts-expect-error custom prop accepted by Tailwind ring-color
-              "--tw-ring-color": "color-mix(in oklab, var(--accent) 30%, transparent)",
-            }}
-          >
+        <div className="max-w-7xl mx-auto">
+          {/* Main bar — two rows: brand, then nav pills */}
+          <div className="relative px-3 md:px-5 py-3 bg-surface border border-border rounded-xl shadow-soft">
             {/* Row 1 — brand */}
             <div className="flex items-center gap-3">
-              <Link to="/" className="flex items-center gap-2.5 shrink-0 pl-1">
-                <div
-                  className="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--primary)))",
-                    boxShadow: "0 0 18px color-mix(in oklab, var(--accent) 40%, transparent)",
-                  }}
+              <Link to="/" className="flex items-center gap-3 shrink-0 pl-1 hbk-focus rounded-md">
+                <Logotype size="sm" />
+                <span
+                  className="hidden sm:block text-overline text-muted-foreground whitespace-nowrap"
+                  suppressHydrationWarning
                 >
-                  <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-primary-foreground" />
-                </div>
-                <div className="leading-tight">
-                  <div className="font-serif text-base md:text-xl text-foreground tracking-tight whitespace-nowrap">
-                    HBK Careers
-                  </div>
-                  <div
-                    className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.18em] whitespace-nowrap"
-                    style={{ color: "var(--accent)" }}
-                    suppressHydrationWarning
-                  >
-                    {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
-                  </div>
-                </div>
+                  {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
+                </span>
               </Link>
 
               <div className="ml-auto flex items-center gap-1">
                 <LanguageToggle />
                 <button
                   onClick={() => setOpen((v) => !v)}
-                  className="lg:hidden p-2 rounded-full hover:bg-accent/10 text-foreground transition-all active:scale-90"
+                  className="lg:hidden p-2 rounded-md hover:bg-muted text-foreground transition-colors hbk-focus"
                   aria-label="Menu"
                 >
                   {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -131,40 +97,25 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </div>
 
             {/* Row 2 — nav pills */}
-            <nav className="hidden lg:flex flex-wrap items-center gap-1 mt-2.5">
+            <nav className="hidden lg:flex flex-wrap items-center gap-1 mt-3">
               {NAV.map((item) => {
                 const Icon = item.icon;
                 const active =
                   item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
                 const isResume = item.to === "/profile-builder";
-                if (active) {
-                  return (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="relative flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-primary-foreground whitespace-nowrap transition-all duration-300"
-                    >
-                      <div
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          background: ACTIVE_PILL,
-                          boxShadow: "0 4px 14px color-mix(in oklab, var(--accent) 35%, transparent)",
-                        }}
-                      />
-                      <Icon className="relative h-4 w-4" />
-                      <span className="relative">{t(item.label)}</span>
-                    </Link>
-                  );
-                }
                 return (
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap text-muted-foreground hover:text-foreground transition-all hover:bg-accent/10 ${
-                      isResume ? "border border-accent/30 font-semibold text-foreground hover:bg-accent/15" : ""
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-caption font-semibold whitespace-nowrap transition-colors hbk-focus ${
+                      active
+                        ? "bg-primary text-primary-foreground"
+                        : isResume
+                          ? "border border-border text-foreground hover:bg-muted"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     }`}
                   >
-                    <Icon className="h-4 w-4" style={isResume ? { color: "var(--accent)" } : undefined} />
+                    <Icon className="h-4 w-4" />
                     {t(item.label)}
                   </Link>
                 );
@@ -174,7 +125,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
           {/* Mobile menu */}
           {open && (
-            <div className="lg:hidden mt-2 rounded-2xl border border-white/40 bg-card/85 backdrop-blur-2xl shadow-[0_8px_32px_color-mix(in_oklab,var(--accent)_12%,transparent)] overflow-hidden">
+            <div className="lg:hidden mt-2 rounded-xl border border-border bg-surface shadow-soft overflow-hidden">
               <nav className="px-2 py-2 space-y-0.5">
                 {NAV.map((item) => {
                   const Icon = item.icon;
@@ -185,12 +136,11 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                       key={item.to}
                       to={item.to}
                       onClick={() => setOpen(false)}
-                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-md text-body transition-colors hbk-focus ${
                         active
-                          ? "text-primary-foreground font-semibold"
-                          : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+                          ? "bg-primary text-primary-foreground font-semibold"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       }`}
-                      style={active ? { background: ACTIVE_PILL } : undefined}
                     >
                       <Icon className="h-4 w-4" />
                       {t(item.label)}
@@ -202,6 +152,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
           )}
         </div>
       </header>
+
 
       <main className="flex-1">{children}</main>
 
