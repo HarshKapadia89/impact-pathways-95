@@ -340,7 +340,7 @@ function CounsellorPage() {
                 loading={submitting}
                 withArrow
               >
-                {pick(lang, { en: "Book my free session", gu: "મારું મફત સત્ર બુક કરો", hi: "मेरा मुफ़्त सत्र बुक करें", mr: "माझे मोफत सત્ર बुक करा" })}
+                {pick(lang, { en: "Book my free session", gu: "મારું મફત સત્ર બુક કરો", hi: "मेरा मुफ़्त सत्र बुक करें", mr: "माझे मोफत सत्र बुक करा" })}
               </Button>
             </Card>
             </form>
