@@ -1,201 +1,191 @@
 import { translator, useLang } from "@/lib/lang";
 import { Link, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { useState } from "react";
 import {
-  Compass,
-  GraduationCap,
-  Sparkles,
-  Brain,
-  
-  Menu,
-  X,
-  Search,
-  LayoutDashboard,
   Award,
+  Brain,
+  Building2,
+  CalendarCheck,
+  ChevronDown,
+  Compass,
   FileCheck,
   FileText,
-  Building2,
   Heart,
   HelpCircle,
-  Trophy,
-  Info,
+  LayoutDashboard,
   Library,
+  Menu,
   Rocket,
-  CalendarCheck,
+  Search,
+  Sparkles,
+  Trophy,
+  X,
 } from "lucide-react";
-import { Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { ArrowIcon, Button, Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
-import { useState } from "react";
 
-
-const NAV = [
+const PRIMARY_NAV = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
-  { to: "/career", label: { en: "Gujarat", gu: "ગુજરાત", hi: "गुजरात", mr: "गुजरात" }, icon: Compass },
-  
+  { to: "/test", label: { en: "Aptitude Test", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, icon: Brain },
+  { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }, icon: Library },
   { to: "/find-college", label: { en: "Colleges", gu: "કૉલેજ", hi: "कॉलेज", mr: "कॉलेज" }, icon: Search },
-  {
-    to: "/career-library",
-    label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" },
-    icon: Library,
-  },
-  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
-  { to: "/exams", label: { en: "Exams", gu: "પરીક્ષાઓ", hi: "परीक्षाएँ", mr: "परीक्षा" }, icon: FileCheck },
   { to: "/upskill", label: { en: "LevelUp Lab", gu: "લેવલઅપ લેબ", hi: "लेवलअप लॅब", mr: "लेवलअप लॅब" }, icon: Rocket },
-  { to: "/test", label: { en: "Aptitude", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, icon: Brain },
-  { to: "/dashboard", label: { en: "Dashboard", gu: "ડૅશબોર્ડ", hi: "डैशबोर्ड", mr: "डॅशबोर्ड" }, icon: LayoutDashboard },
-  { to: "/profile-builder", label: { en: "Resume", gu: "રિઝ્યુમે", hi: "रिज़्यूमे", mr: "रेझ्युमे" }, icon: FileText },
   { to: "/counsellor", label: { en: "Counsellor", gu: "માર્ગદર્શક", hi: "काउंसलर", mr: "समुपदेशक" }, icon: CalendarCheck },
 ];
 
-const FOOTER_EXTRA = [
-  { to: "/about", label: { en: "About", gu: "અમારા વિશે", hi: "हमारे बारे में", mr: "आमच्याविषयी" }, icon: Info },
+const TOOL_NAV = [
+  { to: "/career", label: { en: "Gujarat guidance", gu: "ગુજરાત માર્ગદર્શન", hi: "गुजरात मार्गदर्शन", mr: "गुजरात मार्गदर्शन" }, icon: Compass },
+  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
+  { to: "/exams", label: { en: "Entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }, icon: FileCheck },
+  { to: "/dashboard", label: { en: "Dashboard", gu: "ડૅશબોર્ડ", hi: "डैशबोर्ड", mr: "डॅशबोर्ड" }, icon: LayoutDashboard },
+  { to: "/profile-builder", label: { en: "Resume Builder", gu: "રિઝ્યુમે બિલ્ડર", hi: "रिज़्यूमे बिल्डर", mr: "रेझ्युमे बिल्डर" }, icon: FileText },
+];
+
+const FOOTER_NAV = [
+  { to: "/about", label: { en: "About", gu: "અમારા વિશે", hi: "हमारे बारे में", mr: "आमच्याविषयी" } },
   { to: "/parents", label: { en: "For Parents", gu: "વાલીઓ માટે", hi: "अभिभावकों के लिए", mr: "पालकांसाठी" }, icon: Heart },
-  {
-    to: "/success-stories",
-    label: { en: "Success Stories", gu: "સફળતાની વાતો", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" },
-    icon: Trophy,
-  },
-  { to: "/faq", label: { en: "FAQ", gu: "વારંવાર પુછાતા પ્રશ્નો", hi: "अक्सर पूछे सवाल", mr: "नेहमीचे प्रश्न" }, icon: HelpCircle },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે", hi: "स्कूलों के लिए", mr: "शाळांसाठी" }, icon: Building2 },
+  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતાની વાતો", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" }, icon: Trophy },
+  { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો", hi: "सवाल", mr: "प्रश्न" }, icon: HelpCircle },
 ];
 
 export function PublicLayout({ children }: { children: ReactNode }) {
   const lang = useLang();
   const t = translator(lang);
   const location = useLocation();
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const active = (to: string) => (to === "/" ? location.pathname === "/" : location.pathname.startsWith(to));
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header data-no-translate className="sticky top-0 z-40 px-2 md:px-4 pt-3 pb-2">
-        <div className="max-w-7xl mx-auto">
-          {/* Main bar — two rows: brand, then nav pills */}
-          <div className="relative px-3 md:px-5 py-3 bg-surface border border-border rounded-xl shadow-soft">
-            {/* Row 1 — brand */}
-            <div className="flex items-center gap-3">
-              <Link to="/" className="flex items-center gap-3 shrink-0 pl-1 hbk-focus rounded-md">
-                <Logotype size="sm" />
-                <span
-                  className="hidden sm:block text-overline text-muted-foreground whitespace-nowrap"
-                  suppressHydrationWarning
-                >
-                  {t({ en: "Student Guidance Hub", gu: "વિદ્યાર્થી માર્ગદર્શન કેન્દ્ર", hi: "छात्र मार्गदर्शन केंद्र", mr: "विद्यार्थी मार्गदर्शन केंद्र" })}
-                </span>
-              </Link>
+      <header data-no-translate className="sticky top-0 z-40 border-b border-border bg-background">
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <div className="flex h-16 items-center gap-4">
+            <Link to="/" className="brand-link rounded-md shrink-0" aria-label="HBK Careers home">
+              <Logotype size="md" />
+            </Link>
 
-              <div className="ml-auto flex items-center gap-1">
-                <LanguageToggle />
-                <button
-                  onClick={() => setOpen((v) => !v)}
-                  className="lg:hidden p-2 rounded-md hover:bg-muted text-foreground transition-colors hbk-focus"
-                  aria-label="Menu"
-                >
-                  {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </button>
-              </div>
-            </div>
-
-            {/* Row 2 — nav pills */}
-            <nav className="hidden lg:flex flex-wrap items-center gap-1 mt-3">
-              {NAV.map((item) => {
+            <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+              {PRIMARY_NAV.map((item) => {
                 const Icon = item.icon;
-                const active =
-                  item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
-                const isResume = item.to === "/profile-builder";
                 return (
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-caption font-semibold whitespace-nowrap transition-colors hbk-focus ${
-                      active
-                        ? "bg-primary text-primary-foreground"
-                        : isResume
-                          ? "border border-border text-foreground hover:bg-muted"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    }`}
+                    className={`brand-link flex items-center gap-2 rounded-md px-3 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-4 w-4" aria-hidden />
                     {t(item.label)}
                   </Link>
                 );
               })}
             </nav>
+
+            <div className="ml-auto flex items-center gap-1 lg:ml-0">
+              <LanguageToggle />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setMobileOpen((value) => !value)}
+                className="lg:hidden"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+              >
+                {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
+            </div>
           </div>
 
-          {/* Mobile menu */}
-          {open && (
-            <div className="lg:hidden mt-2 rounded-xl border border-border bg-surface shadow-soft overflow-hidden">
-              <nav className="px-2 py-2 space-y-0.5">
-                {NAV.map((item) => {
+          <div className="hidden items-center justify-between border-t border-border py-2 lg:flex">
+            <div className="flex items-center gap-1">
+              {TOOL_NAV.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link key={item.to} to={item.to} className={`brand-link flex items-center gap-2 rounded-md px-3 py-2 text-caption ${active(item.to) ? "bg-accent text-accent-foreground font-semibold" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
+                    <Icon className="h-4 w-4" aria-hidden />
+                    {t(item.label)}
+                  </Link>
+                );
+              })}
+            </div>
+            <p className="text-overline uppercase text-muted-foreground">
+              {t({ en: "Find the right direction", gu: "સાચી દિશા શોધો", hi: "सही दिशा खोजें", mr: "योग्य दिशा शोधा" })}
+            </p>
+          </div>
+
+          {mobileOpen && (
+            <nav className="border-t border-border py-4 lg:hidden" aria-label="Mobile navigation">
+              <div className="grid gap-1">
+                {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => {
                   const Icon = item.icon;
-                  const active =
-                    item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
                   return (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className={`flex items-center gap-3 px-3 py-2.5 rounded-md text-body transition-colors hbk-focus ${
-                        active
-                          ? "bg-primary text-primary-foreground font-semibold"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                      }`}
-                    >
-                      <Icon className="h-4 w-4" />
+                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className={`brand-link flex items-center gap-3 rounded-md px-3 py-3 text-body ${active(item.to) ? "bg-highlight text-highlight-foreground font-semibold" : "text-foreground hover:bg-muted"}`}>
+                      <Icon className="h-5 w-5" aria-hidden />
                       {t(item.label)}
                     </Link>
                   );
                 })}
-              </nav>
-            </div>
+              </div>
+              <Button variant="ghost" fullWidth onClick={() => setToolsOpen((value) => !value)} className="mt-2 justify-between" aria-expanded={toolsOpen}>
+                {t({ en: "About HBK Careers", gu: "HBK Careers વિશે", hi: "HBK Careers के बारे में", mr: "HBK Careers विषयी" })}
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+              {toolsOpen && (
+                <div className="grid gap-1 pt-2">
+                  {FOOTER_NAV.map((item) => (
+                    <Link key={item.to} to={item.to} onClick={() => setMobileOpen(false)} className="brand-link rounded-md px-3 py-2 text-caption text-muted-foreground hover:bg-muted hover:text-foreground">
+                      {t(item.label)}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </nav>
           )}
         </div>
       </header>
 
-
       <main className="flex-1">{children}</main>
 
-      <footer data-no-translate className="border-t-4 border-primary bg-hbk-purple text-highlight-foreground mt-12">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid md:grid-cols-3 gap-6 text-sm">
+      <footer data-no-translate className="mt-12 bg-highlight text-highlight-foreground">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
           <div>
-            <Logotype size="sm" tone="inverse" className="mb-3" />
-            <p className="text-highlight-foreground/75 text-xs leading-relaxed">
+            <Logotype size="md" tone="inverse" />
+            <p className="mt-4 max-w-sm text-caption text-highlight-foreground/80">
               {t({
-                en: "Free career guidance for students of Gujarat by The H B Kapadia New High School, Ahmedabad.",
-                gu: "ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ તરફથી ગુજરાતના વિદ્યાર્થીઓ માટે નિઃશુલ્ક કારકિર્દી માર્ગદર્શન.",
-                hi: "द एच. बी. कापड़िया न्यू हाई स्कूल, अहमदाबाद द्वारा विद्यार्थियों के लिए निःशुल्क करियर मार्गदर्शन।",
-                mr: "द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद यांच्याकडून विद्यार्थ्यांसाठी मोफत करिअर मार्गदर्शन.",
+                en: "Clear, practical career guidance for every student—built by The H B Kapadia New High School, Ahmedabad.",
+                gu: "દરેક વિદ્યાર્થી માટે સ્પષ્ટ અને વ્યવહારુ કારકિર્દી માર્ગદર્શન—ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ દ્વારા.",
+                hi: "हर विद्यार्थी के लिए स्पष्ट और व्यावहारिक करियर मार्गदर्शन—द एच. बी. कापड़िया न्यू हाई स्कूल, अहमदाबाद द्वारा।",
+                mr: "प्रत्येक विद्यार्थ्यासाठी स्पष्ट आणि व्यावहारिक करिअर मार्गदर्शन—द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद तर्फे.",
               })}
             </p>
           </div>
           <div>
-            <div className="font-display text-subheading mb-2">{t({ en: "Sections", gu: "વિભાગો", hi: "अनुभाग", mr: "विभाग" })}</div>
-            <ul className="space-y-1 text-highlight-foreground/75 text-xs">
-              {[...NAV.slice(1), ...FOOTER_EXTRA].map((n) => (
-                <li key={n.to}>
-                  <Link to={n.to} className="hover:text-highlight-foreground">
-                    {t(n.label)}
-                  </Link>
-                </li>
+            <h2 className="text-subheading">{t({ en: "Explore", gu: "અન્વેષણ", hi: "जानकारी", mr: "शोधा" })}</h2>
+            <ul className="mt-4 grid gap-3 text-caption text-highlight-foreground/80">
+              {[...PRIMARY_NAV.slice(1), ...TOOL_NAV.slice(1)].map((item) => (
+                <li key={item.to}><Link to={item.to} className="brand-link rounded-sm hover:text-highlight-foreground">{t(item.label)}</Link></li>
               ))}
             </ul>
           </div>
           <div>
-            <div className="font-display text-subheading mb-2">{t({ en: "Usage", gu: "ઉપયોગ", hi: "उपयोग", mr: "वापर" })}</div>
-            <p className="text-highlight-foreground/75 text-xs leading-relaxed">
-              {t({
-                en: "All content and tests are completely free. No login required.",
-                gu: "બધી માહિતી અને ટેસ્ટ સંપૂર્ણપણે નિઃશુલ્ક છે. લૉગિન કરવાની જરૂર નથી.",
-                hi: "सारी जानकारी और टेस्ट पूरी तरह निःशुल्क हैं। लॉगिन ज़रूरी नहीं है।",
-                mr: "सर्व माहिती आणि चाचण्या पूर्णपणे मोफत आहेत. लॉगिन करण्याची गरज नाही.",
-              })}
-            </p>
+            <h2 className="text-subheading">{t({ en: "Support", gu: "સહાય", hi: "सहायता", mr: "सहाय्य" })}</h2>
+            <ul className="mt-4 grid gap-3 text-caption text-highlight-foreground/80">
+              {FOOTER_NAV.map((item) => (
+                <li key={item.to}><Link to={item.to} className="brand-link rounded-sm hover:text-highlight-foreground">{t(item.label)}</Link></li>
+              ))}
+            </ul>
+            <Link to="/test" className="brand-link mt-6 inline-flex items-center gap-2 rounded-md bg-accent px-4 py-3 text-caption font-semibold text-accent-foreground">
+              {t({ en: "Start your assessment", gu: "મૂલ્યાંકન શરૂ કરો", hi: "मूल्यांकन शुरू करें", mr: "मूल्यांकन सुरू करा" })}
+              <ArrowIcon size={16} />
+            </Link>
           </div>
         </div>
         <div className="border-t border-highlight-foreground/20">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 text-[10px] text-highlight-foreground/60">
+          <div className="mx-auto max-w-7xl px-4 py-4 text-overline text-highlight-foreground/70 md:px-8">
             © {new Date().getFullYear()} The H B Kapadia New High School, Ahmedabad
           </div>
         </div>

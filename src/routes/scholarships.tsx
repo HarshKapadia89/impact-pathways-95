@@ -5,6 +5,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { SCHOLARSHIPS, DO_NOT_CIRCULATE, SCHOLARSHIP_PRIORITY_ORDER } from "@/lib/scholarshipsData";
 import { Search, IndianRupee, Calendar, ExternalLink, GraduationCap, Filter, X, AlertTriangle, Users } from "lucide-react";
+import { Badge, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/scholarships")({
   head: () => ({
@@ -61,16 +62,13 @@ function ScholarshipsPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
-            <GraduationCap className="h-3.5 w-3.5" />
-            {t4(lang, "Scholarships Directory", "શિષ્યવૃત્તિ ડિરેક્ટરી")}
-          </div>
-          <h1 className="font-serif text-3xl md:text-5xl mt-3">
+      <section className="bg-accent text-accent-foreground">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+          <Badge variant="highlight" withArrow>{t4(lang, "Scholarships Directory", "શિષ્યવૃત્તિ ડિરેક્ટરી")}</Badge>
+          <h1 className="font-display text-title md:text-display mt-6">
             {t4(lang, "Scholarships", "શિષ્યવૃત્તિ")}
           </h1>
-          <p className="mt-3 text-muted-foreground max-w-3xl">
+          <p className="mt-4 text-subheading max-w-3xl">
             {`${SCHOLARSHIPS.length} `}
             {t4(lang, "central, state, technical and private scholarships — with amount, income limit, portal and last date.", "કેન્દ્ર, રાજ્ય, ટેકનિકલ અને ખાનગી શિષ્યવૃત્તિઓ — રકમ, આવક મર્યાદા, પોર્ટલ અને છેલ્લી તારીખ સાથે.")}
           </p>
@@ -81,12 +79,12 @@ function ScholarshipsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 space-y-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
+            <Input
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder={t4(lang, "e.g. MYSY, NMMS, girls, pre-matric...", "દા.ત. MYSY, NMMS, ગર્લ્સ...")}
-              className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="pl-9 pr-9"
             />
             {q && (
               <button onClick={() => setQ("")} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-muted" aria-label="Clear">
@@ -95,18 +93,18 @@ function ScholarshipsPage() {
             )}
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <select value={state} onChange={(e) => setState(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+            <Select value={state} onChange={(e) => setState(e.target.value)} size="sm">
               <option value="all">{t4(lang, "All states", "બધાં રાજ્યો")}</option>
               {states.map((s) => <option key={s} value={s}>{s}</option>)}
-            </select>
-            <select value={group} onChange={(e) => setGroup(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+            </Select>
+            <Select value={group} onChange={(e) => setGroup(e.target.value)} size="sm">
               <option value="all">{t4(lang, "All categories", "બધી શ્રેણીઓ")}</option>
               {groups.map((g) => <option key={g} value={g}>{g}</option>)}
-            </select>
-            <select value={levelGroup} onChange={(e) => setLevelGroup(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+            </Select>
+            <Select value={levelGroup} onChange={(e) => setLevelGroup(e.target.value)} size="sm">
               <option value="all">{t4(lang, "All levels", "બધાં ધોરણ")}</option>
               {levels.map((l) => <option key={l} value={l}>{l}</option>)}
-            </select>
+            </Select>
           </div>
           <div className="flex items-center justify-between text-xs">
             <div className="text-muted-foreground">

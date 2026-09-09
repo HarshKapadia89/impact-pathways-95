@@ -5,6 +5,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
 import { Search, Calendar, FileCheck, X, Filter, ArrowRight, Building2 } from "lucide-react";
+import { Badge, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/exams")({
   head: () => ({
@@ -52,16 +53,13 @@ function ExamsPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-gradient-to-br from-accent/10 via-background to-primary/10 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
-            <FileCheck className="h-3.5 w-3.5" />
-            {t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}
-          </div>
-          <h1 className="font-serif text-3xl md:text-5xl mt-3">
+      <section className="bg-highlight text-highlight-foreground">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+          <Badge variant="accent" withArrow>{t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}</Badge>
+          <h1 className="font-display text-title md:text-display mt-6">
             {t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}
           </h1>
-          <p className="mt-3 text-muted-foreground max-w-3xl">
+          <p className="mt-4 text-subheading text-highlight-foreground/80 max-w-3xl">
             {`${ENTRANCE_EXAMS.length} `}
             {t4(lang, "exams after Class 10, Class 12 and graduation — who conducts them, when they are held and which route each one opens.", "ધોરણ 10, ધોરણ 12 અને સ્નાતક પછીની પરીક્ષાઓ — કોણ લે છે, ક્યારે થાય છે અને કયો રસ્તો ખૂલે છે.")}
           </p>
@@ -72,12 +70,12 @@ function ExamsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 space-y-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
+            <Input
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder={t4(lang, "e.g. JEE, NEET, ITI, design...", "દા.ત. JEE, NEET, ITI...")}
-              className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="pl-9 pr-9"
             />
             {q && (
               <button onClick={() => setQ("")} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-muted" aria-label="Clear">
@@ -86,20 +84,20 @@ function ExamsPage() {
             )}
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <select value={field} onChange={(e) => setField(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+            <Select value={field} onChange={(e) => setField(e.target.value)} size="sm">
               <option value="all">{t4(lang, "All fields", "બધાં ક્ષેત્રો")}</option>
               {fields.map((f) => <option key={f} value={f}>{f}</option>)}
-            </select>
-            <select value={level} onChange={(e) => setLevel(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+            </Select>
+            <Select value={level} onChange={(e) => setLevel(e.target.value)} size="sm">
               <option value="all">{t4(lang, "All levels", "બધાં ધોરણ")}</option>
               {levels.map((l) => <option key={l} value={l}>{l}</option>)}
-            </select>
-            <select value={realistic} onChange={(e) => setRealistic(e.target.value)} className="w-full px-3 py-2 text-xs rounded-md border border-border bg-background">
+            </Select>
+            <Select value={realistic} onChange={(e) => setRealistic(e.target.value)} size="sm">
               <option value="all">{t4(lang, "Any fit", "કોઈપણ")}</option>
               <option value="Yes">{t4(lang, "Good fit", "યોગ્ય")}</option>
               <option value="Maybe">{t4(lang, "Maybe", "કદાચ")}</option>
               <option value="No">{t4(lang, "Stretch", "મુશ્કેલ")}</option>
-            </select>
+            </Select>
           </div>
           <div className="flex items-center justify-between text-xs">
             <div className="text-muted-foreground">

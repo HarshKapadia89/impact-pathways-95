@@ -41,26 +41,23 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Outreach Mission Control — The H B Kapadia New High School, Ahmedabad" },
+      { title: "HBK Careers — Find Your Direction" },
       {
         name: "description",
         content:
-          "Mission control for The H B Kapadia New High School, Ahmedabad outreach program — managing 428 schools across Dharampur.",
+          "Career guidance, assessments, professions, colleges, exams, scholarships and skill-building for students in four languages.",
       },
       { name: "author", content: "The H B Kapadia New High School, Ahmedabad" },
-      { property: "og:title", content: "Outreach Mission Control — The H B Kapadia New High School, Ahmedabad" },
-      { property: "og:description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
+      { property: "og:title", content: "HBK Careers — Find Your Direction" },
+      { property: "og:description", content: "A complete career guidance platform for students in English, Gujarati, Hindi and Marathi." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Outreach Mission Control — The H B Kapadia New High School, Ahmedabad" },
-      { name: "description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
-      { name: "twitter:description", content: "Impact Compass is an app for managing educational outreach programs and tracking student impact." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97c7d7ef-1c14-4c94-ad29-cda8bb94e96d/id-preview-344737cc--e314d757-25ae-430b-a2ef-6530bea02d8b.lovable.app-1776978743326.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97c7d7ef-1c14-4c94-ad29-cda8bb94e96d/id-preview-344737cc--e314d757-25ae-430b-a2ef-6530bea02d8b.lovable.app-1776978743326.png" },
-      { name: "theme-color", content: "#111111" },
+      { name: "twitter:title", content: "HBK Careers — Find Your Direction" },
+      { name: "twitter:description", content: "A complete career guidance platform for students in four languages." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",

@@ -33,6 +33,7 @@ import sampleRiasec from "@/assets/sample-report-riasec.jpg";
 import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
 import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
+import { ArrowIcon, Badge } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 type VibeId = "investigator" | "creator" | "builder" | "leader";
 const VIBE_IDS: VibeId[] = ["investigator", "creator", "builder", "leader"];
@@ -196,8 +197,7 @@ function TestIntro() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
+      <section className="relative overflow-hidden bg-highlight text-highlight-foreground">
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
             {vibeMeta && (
@@ -217,30 +217,30 @@ function TestIntro() {
               </div>
             )}
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent font-medium">
+              <Badge variant="accent" withArrow>
                 <Sparkles className="h-3.5 w-3.5" />
                 Introductory offer · ₹2,500 <span className="line-through opacity-60">₹2,500</span> →{" "}
                 <span className="font-semibold">₹1,500</span> with code <span className="font-mono">HBK1000</span>
-              </div>
+              </Badge>
               <OfflineStatus lang={lang === "en" ? "en" : "gu"} />
             </div>
-            <h1 className="mt-4 font-serif text-4xl md:text-6xl leading-tight">
+            <h1 className="mt-6 font-display text-title md:text-display">
               {tp("heroTitle", lang)}
             </h1>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl">
+            <p className="mt-5 text-subheading text-highlight-foreground/80 max-w-xl">
               {tp("heroSub", lang)}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#start"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium hover:opacity-90"
+                className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground"
               >
                 {tp("ctaTake", lang)}
-                <ChevronRight className="h-4 w-4" />
+                <ArrowIcon size={18} />
               </a>
               <a
                 href="#sample"
-                className="inline-flex items-center gap-2 border border-border bg-card rounded-md px-5 py-3 text-sm font-medium hover:bg-muted"
+                className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-background px-6 text-subheading font-semibold text-foreground"
               >
                 {tp("ctaSample", lang)}
               </a>
