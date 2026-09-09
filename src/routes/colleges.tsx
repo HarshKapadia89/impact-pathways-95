@@ -165,7 +165,8 @@ function CollegesPage() {
 
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((c) => (
-            <Card as="article" key={c.id} variant="arrow" className="p-5">
+            <article key={c.id}>
+            <Card variant="arrow" className="h-full p-5">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-serif text-base leading-snug">{c.name}</h3>
                 {c.type && (
@@ -220,6 +221,7 @@ function CollegesPage() {
                 )}
               </div>
             </Card>
+            </article>
           ))}
         </div>
       </section>

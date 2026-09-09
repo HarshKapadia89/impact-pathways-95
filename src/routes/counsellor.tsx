@@ -228,7 +228,8 @@ function CounsellorPage() {
               </div>
             )}
 
-            <Card as="form" onSubmit={submit} variant="lifted" className="p-6 md:p-8 space-y-5">
+            <form onSubmit={submit}>
+            <Card variant="lifted" className="p-6 md:p-8 space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Student name *", gu: "વિદ્યાર્થીનું નામ *", hi: "विद्यार्थी का नाम *", mr: "विद्यार्थ्याचे नाव *" })}</span>
@@ -348,6 +349,7 @@ function CounsellorPage() {
                   : pick(lang, { en: "Book my free session", gu: "મારું મફત સત્ર બુક કરો", hi: "मेरा मुफ़्त सत्र बुक करें", mr: "माझे मोफत सत्र बुक करा" })}
               </button>
             </Card>
+            </form>
           </>
         )}
       </div>
