@@ -151,7 +151,7 @@ function SuccessStoriesPage() {
           {stories.map((s) => (
             <article
               key={s.name}
-              className="relative rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition overflow-hidden"
+              className="relative rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-lift transition overflow-hidden"
             >
               <Quote className="absolute -top-2 -right-2 h-20 w-20 text-accent/10" />
               <div className="flex items-center gap-1 text-amber-500">

@@ -666,7 +666,7 @@ function Result({
                   key={sid}
                   to="/career/$stream"
                   params={{ stream: sid }}
-                  className="rounded-xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)]"
+                  className="rounded-xl border border-border bg-card p-5 hover:shadow-lift"
                 >
                   <div className="text-xs text-muted-foreground">{i === 0 ? "Primary" : "Secondary"}</div>
                   <div className="text-3xl mt-2">{s.emoji}</div>

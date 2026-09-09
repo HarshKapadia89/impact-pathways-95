@@ -14,7 +14,7 @@ import {
   Sparkles,
   Brain,
 } from "lucide-react";
-import { Badge, Card, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { Badge, Button, Card, Input, Select, Textarea } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/counsellor")({
   head: () => ({
@@ -276,17 +276,16 @@ function CounsellorPage() {
                 <span className="text-sm font-medium">{pick(lang, { en: "Session mode", gu: "સત્રની રીત", hi: "सत्र का तरीका", mr: "सत्राची पद्धत" })}</span>
                 <div className="grid grid-cols-3 gap-2">
                   {MODES.map((m) => (
-                    <button
+                    <Button
                       type="button"
                       key={m.id}
                       onClick={() => setMode(m.id)}
-                      className={`rounded-xl border px-3 py-2.5 text-sm font-medium flex items-center justify-center gap-1.5 transition-colors ${
-                        mode === m.id ? "border-primary bg-primary/10 text-primary" : "border-border hover:bg-muted"
-                      }`}
+                      variant={mode === m.id ? "primary" : "outline"}
+                      size="sm"
                     >
                       <m.icon className="h-4 w-4" />
                       {pick(lang, m)}
-                    </button>
+                    </Button>
                   ))}
                 </div>
               </div>
@@ -298,31 +297,28 @@ function CounsellorPage() {
                 {professionOptions.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
                     {professionOptions.map((c) => (
-                      <button
+                      <Button
                         type="button"
                         key={c}
                         onClick={() => setProfession(c)}
-                        className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                          profession === c ? "border-primary bg-primary/10 text-primary font-medium" : "border-border hover:bg-muted"
-                        }`}
+                        variant={profession === c ? "primary" : "outline"}
+                        size="sm"
                       >
                         {c}
-                      </button>
+                      </Button>
                     ))}
-                    <button
+                    <Button
                       type="button"
                       onClick={() => setProfession("__other")}
-                      className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                        profession === "__other" ? "border-primary bg-primary/10 text-primary font-medium" : "border-border hover:bg-muted"
-                      }`}
+                      variant={profession === "__other" ? "primary" : "outline"}
+                      size="sm"
                     >
                       {pick(lang, { en: "Other…", gu: "અન્ય…", hi: "अन्य…", mr: "इतर…" })}
-                    </button>
+                    </Button>
                   </div>
                 ) : null}
                 {(profession === "__other" || professionOptions.length === 0) && (
-                  <input
-                    className={inputCls}
+                  <Input
                     value={customProfession}
                     onChange={(e) => setCustomProfession(e.target.value)}
                     placeholder={pick(lang, { en: "e.g. Software Engineer, Doctor, Designer…", gu: "દા.ત. સોફ્ટવેર એન્જિનિયર, ડૉક્ટર…", hi: "जैसे सॉफ्टवेयर इंजीनियर, डॉक्टर…", mr: "उदा. सॉफ्टवेअर इंजिनिअर, डॉक्टर…" })}
@@ -332,20 +328,20 @@ function CounsellorPage() {
 
               <label className="space-y-1.5 block">
                 <span className="text-sm font-medium">{pick(lang, { en: "Anything you want to ask? (optional)", gu: "કંઈ પૂછવું છે? (વૈકલ્પિક)", hi: "कुछ पूछना है? (वैकल्पिक)", mr: "काही विचारायचे आहे? (ऐच्छिक)" })}</span>
-                <textarea className={`${inputCls} min-h-24`} value={message} onChange={(e) => setMessage(e.target.value)} />
+                <Textarea value={message} onChange={(e) => setMessage(e.target.value)} />
               </label>
 
               {error && <p className="text-sm text-destructive">{error}</p>}
 
-              <button
+              <Button
                 type="submit"
-                disabled={submitting}
-                className="w-full rounded-xl bg-primary text-primary-foreground py-3 font-semibold text-sm hover:opacity-90 disabled:opacity-50"
+                fullWidth
+                size="lg"
+                loading={submitting}
+                withArrow
               >
-                {submitting
-                  ? pick(lang, { en: "Booking…", gu: "બુક થઈ રહ્યું છે…", hi: "बुक हो रहा है…", mr: "बुक होत आहे…" })
-                  : pick(lang, { en: "Book my free session", gu: "મારું મફત સત્ર બુક કરો", hi: "मेरा मुफ़्त सत्र बुक करें", mr: "माझे मोफत सत्र बुक करा" })}
-              </button>
+                {pick(lang, { en: "Book my free session", gu: "મારું મફત સત્ર બુક કરો", hi: "मेरा मुफ़्त सत्र बुक करें", mr: "माझे मोफत सत्र बुक करा" })}
+              </Button>
             </Card>
             </form>
           </>

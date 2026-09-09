@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { UpskillProgressCard } from "@/components/UpskillProgressCard";
+import { Card, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { supabase } from "@/integrations/supabase/client";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
 import {
@@ -342,15 +343,6 @@ function ReportTab({ row, token }: { row: SubmissionRow; token: string }) {
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl bg-background border border-border p-4">
-      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</div>
-      <div className="font-serif text-lg mt-1">{value}</div>
-    </div>
-  );
-}
-
 function CareersTab({ items, onRemove }: { items: SavedCareer[]; onRemove: (c: SavedCareer) => void }) {
   if (items.length === 0)
     return (
@@ -364,7 +356,7 @@ function CareersTab({ items, onRemove }: { items: SavedCareer[]; onRemove: (c: S
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       {items.map((c) => (
-        <div key={`${c.stream}/${c.pathKey}`} className="rounded-xl border border-border bg-card p-5 flex items-start gap-3">
+        <Card key={`${c.stream}/${c.pathKey}`} variant="plain" padding="sm" className="flex items-start gap-3">
           <Star className="h-4 w-4 text-accent mt-1 shrink-0" />
           <div className="flex-1 min-w-0">
             <div className="font-serif text-base">{c.title}</div>
@@ -385,7 +377,7 @@ function CareersTab({ items, onRemove }: { items: SavedCareer[]; onRemove: (c: S
               </button>
             </div>
           </div>
-        </div>
+        </Card>
       ))}
     </div>
   );
@@ -404,7 +396,7 @@ function CollegesTab({ items, onRemove }: { items: SavedCollege[]; onRemove: (c:
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       {items.map((c) => (
-        <div key={c.id} className="rounded-xl border border-border bg-card p-5 flex items-start gap-3">
+        <Card key={c.id} variant="plain" padding="sm" className="flex items-start gap-3">
           <School className="h-4 w-4 text-primary mt-1 shrink-0" />
           <div className="flex-1 min-w-0">
             <div className="font-serif text-base truncate">{c.name}</div>
@@ -418,7 +410,7 @@ function CollegesTab({ items, onRemove }: { items: SavedCollege[]; onRemove: (c:
               <Trash2 className="h-3 w-3" /> Remove
             </button>
           </div>
-        </div>
+        </Card>
       ))}
     </div>
   );

@@ -297,7 +297,7 @@ function ResourceCard({ title, sub, url }: { title: string; sub: string; url: st
       href={`https://${url}`}
       target="_blank"
       rel="noreferrer"
-      className="block rounded-xl border border-border bg-card p-4 hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition-all"
+      className="block rounded-xl border border-border bg-card p-4 hover:border-primary/40 hover:shadow-lift transition-all"
     >
       <div className="font-medium text-foreground">{title}</div>
       <div className="text-xs text-muted-foreground mt-1">{sub}</div>

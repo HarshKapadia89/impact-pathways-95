@@ -109,10 +109,10 @@ function HomePage() {
             <p className="mt-4 font-display text-title text-highlight">{t({ en: "Find your direction.", gu: "તમારી દિશા શોધો.", hi: "अपनी दिशा खोजें।", mr: "तुमची दिशा शोधा." })}</p>
             <p className="mt-6 max-w-xl text-subheading text-foreground">{t({ en: "Know your strengths. Explore every possibility. Build a clear plan for the future—with guidance made for students like you.", gu: "તમારી શક્તિઓ જાણો. દરેક શક્યતા શોધો. તમારા જેવા વિદ્યાર્થીઓ માટે બનાવેલા માર્ગદર્શન સાથે ભવિષ્યની સ્પષ્ટ યોજના બનાવો.", hi: "अपनी क्षमताएँ जानें। हर संभावना देखें। अपने जैसे विद्यार्थियों के लिए बनाए गए मार्गदर्शन से भविष्य की स्पष्ट योजना बनाएँ।", mr: "तुमच्या क्षमता जाणा. प्रत्येक शक्यता शोधा. तुमच्यासारख्या विद्यार्थ्यांसाठी तयार केलेल्या मार्गदर्शनासह भविष्याची स्पष्ट योजना बनवा." })}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/test" className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">
+              <Link to="/test" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 font-body text-subheading font-semibold text-primary-foreground transition-[background-color,color,border-color,box-shadow] hover:brightness-95 active:brightness-90">
                 <Brain className="h-5 w-5" aria-hidden />{t({ en: "Take the aptitude test", gu: "અભિરુચિ ટેસ્ટ આપો", hi: "एप्टीट्यूड टेस्ट दें", mr: "अ‍ॅप्टिट्यूड टेस्ट द्या" })}<ArrowIcon size={18} />
               </Link>
-              <Link to="/career-library" className="brand-link inline-flex h-12 items-center gap-2 rounded-md border border-border bg-background px-6 text-subheading font-semibold text-foreground">
+              <Link to="/career-library" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-6 font-body text-subheading font-semibold text-foreground transition-[background-color,color,border-color,box-shadow] hover:bg-muted">
                 {t({ en: "Explore careers", gu: "કારકિર્દી શોધો", hi: "करियर देखें", mr: "करिअर शोधा" })}<ArrowIcon size={18} />
               </Link>
             </div>

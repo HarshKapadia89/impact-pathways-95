@@ -121,7 +121,7 @@ function ExamsPage() {
         ) : (
           <div className="grid md:grid-cols-2 gap-4">
             {results.map((e) => (
-              <article key={e.id} className="rounded-xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition-all">
+              <article key={e.id} className="rounded-xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-lift transition-all">
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <h2 className="font-serif text-lg leading-snug">{e.name}</h2>
