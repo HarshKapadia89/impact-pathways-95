@@ -20,8 +20,6 @@
   --secondary: var(--hbk-paper-soft);
   --secondary-foreground: var(--hbk-ink);
 
-  --shadow-card: var(--shadow-soft);
-
   --chart-1: var(--hbk-purple);
   --chart-2: var(--hbk-orange);
   --chart-3: var(--hbk-lime);

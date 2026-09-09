@@ -2,6 +2,7 @@ import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
+import { Card } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { GraduationCap, Heart, Globe, Shield, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -74,13 +75,13 @@ function AboutPage() {
         <h2 className="font-serif text-2xl md:text-3xl mb-8">{t4(lang, "What we stand for", "અમારા મૂલ્યો")}</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] transition">
-              <div className="h-10 w-10 rounded-xl flex items-center justify-center" style={{ background: "color-mix(in oklab, var(--accent) 15%, transparent)" }}>
+            <Card key={v.title} variant="lifted" padding="md" className="transition-transform hover:-translate-y-1">
+              <div className="h-10 w-10 rounded-lg bg-accent/15 flex items-center justify-center">
                 <v.icon className="h-5 w-5 text-accent" />
               </div>
               <div className="mt-3 font-serif text-lg">{v.title}</div>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{v.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
