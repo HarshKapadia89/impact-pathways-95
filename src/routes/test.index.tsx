@@ -374,7 +374,7 @@ function TestIntro() {
                     document.getElementById("start")?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }, 80);
                 }}
-                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-card)] hover:ring-2 ${b.ring} bg-gradient-to-br ${b.tone} ${
+                className={`text-left rounded-2xl border bg-card p-6 ring-1 ring-transparent transition-all hover:-translate-y-1 hover:shadow-lift hover:ring-2 ${b.ring} bg-gradient-to-br ${b.tone} ${
                   b.highlight ? "border-primary/40" : "border-border"
                 }`}
               >

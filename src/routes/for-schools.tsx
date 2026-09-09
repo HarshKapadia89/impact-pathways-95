@@ -151,7 +151,7 @@ function ForSchoolsPage() {
                 ],
               },
             ].map((tier) => (
-              <div key={tier.name} className={`rounded-2xl border bg-card p-6 ${tier.highlight ? "border-primary shadow-[var(--shadow-card)] ring-1 ring-primary/30" : "border-border"}`}>
+              <div key={tier.name} className={`rounded-2xl border bg-card p-6 ${tier.highlight ? "border-primary shadow-lift ring-1 ring-primary/30" : "border-border"}`}>
                 {tier.highlight && <div className="text-[10px] uppercase tracking-wide bg-primary text-primary-foreground inline-block px-2 py-0.5 rounded mb-2">{L("Most chosen", "સૌથી પસંદગી")}</div>}
                 <div className="font-serif text-xl">{tier.name}</div>
                 <div className="text-xs text-muted-foreground mt-1 min-h-[2.5rem]">{tier.tagline}</div>

@@ -311,7 +311,7 @@ function ProfessionPage() {
           </Section>
 
           {/* Fit check CTA */}
-          <section className="rounded-xl border border-border shadow-[var(--shadow-card)] p-6 flex flex-wrap items-center gap-4 justify-between" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--card))" }}>
+          <section className="rounded-xl border border-border shadow-lift p-6 flex flex-wrap items-center gap-4 justify-between" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--card))" }}>
             <div className="text-foreground">
               <div className="font-display text-xl">Are you fit for this career?</div>
               <p className="text-sm mt-1">

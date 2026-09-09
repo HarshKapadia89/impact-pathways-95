@@ -118,7 +118,7 @@ export function FAQAccordion({
           <div
             key={i}
             className={`rounded-2xl border bg-card transition-all ${
-              open === i ? "border-accent/50 shadow-[var(--shadow-card)]" : "border-border"
+              open === i ? "border-accent/50 shadow-lift" : "border-border"
             }`}
           >
             <button

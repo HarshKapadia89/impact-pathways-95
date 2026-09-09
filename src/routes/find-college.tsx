@@ -420,7 +420,7 @@ function FilterSelect({
 
 function CollegeCard({ c, lang }: { c: UnifiedCollege; lang: Lang }) {
   return (
-    <article className="rounded-xl border border-border bg-card p-4 hover:border-primary/30 hover:shadow-[var(--shadow-card)] transition-all">
+    <article className="rounded-xl border border-border bg-card p-4 hover:border-primary/30 hover:shadow-lift transition-all">
       <div className="flex items-start justify-between gap-2">
         <div className="font-medium text-foreground leading-snug">{c.name}</div>
         <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded shrink-0 ${typeBadge(c.type)}`}>

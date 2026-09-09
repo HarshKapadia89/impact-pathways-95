@@ -234,7 +234,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
             </>
           );
           const cls =
-            "group rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-card)]";
+            "group rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-1 hover:shadow-lift";
           return f.to ? (
             <Link key={f.title} to={f.to} className={cls}>
               {inner}
