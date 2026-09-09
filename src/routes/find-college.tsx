@@ -216,8 +216,7 @@ function FindCollegePage() {
       <section className="border-b border-border bg-card sticky top-[57px] z-30">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 space-y-3">
           {/* Search bar */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <div>
             <Input
               autoFocus
               type="text"
@@ -226,7 +225,6 @@ function FindCollegePage() {
               placeholder={
                 t4(lang, "e.g. IIT, MBBS, Ahmedabad, Engineering, NID...", "દા.ત. IIT, MBBS, Ahmedabad, Engineering, NID...")
               }
-              className="pl-9 pr-9"
             />
             {query && (
               <button

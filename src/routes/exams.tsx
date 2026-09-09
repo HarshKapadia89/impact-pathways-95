@@ -68,14 +68,12 @@ function ExamsPage() {
 
       <section className="border-b border-border bg-card sticky top-[57px] z-30">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 space-y-3">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <div>
             <Input
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder={t4(lang, "e.g. JEE, NEET, ITI, design...", "દા.ત. JEE, NEET, ITI...")}
-              className="pl-9 pr-9"
             />
             {q && (
               <button onClick={() => setQ("")} className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-muted" aria-label="Clear">

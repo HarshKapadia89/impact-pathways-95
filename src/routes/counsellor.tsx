@@ -147,8 +147,6 @@ function CounsellorPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const inputCls = "w-full";
-
   return (
     <PublicLayout>
       <section className="bg-highlight text-highlight-foreground">
@@ -229,27 +227,27 @@ function CounsellorPage() {
             )}
 
             <form onSubmit={submit}>
-            <Card variant="lifted" className="p-6 md:p-8 space-y-5">
+            <Card variant="lifted" padding="lg" className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Student name *", gu: "વિદ્યાર્થીનું નામ *", hi: "विद्यार्थी का नाम *", mr: "विद्यार्थ्याचे नाव *" })}</span>
-                  <Input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} required />
+                  <Input value={name} onChange={(e) => setName(e.target.value)} required />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Mobile (WhatsApp) *", gu: "મોબાઇલ (WhatsApp) *", hi: "मोबाइल (WhatsApp) *", mr: "मोबाइल (WhatsApp) *" })}</span>
-                  <Input className={inputCls} value={mobile} onChange={(e) => setMobile(e.target.value)} inputMode="tel" placeholder="98765 43210" required />
+                  <Input value={mobile} onChange={(e) => setMobile(e.target.value)} inputMode="tel" placeholder="98765 43210" required />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Grade / Class", gu: "ધોરણ", hi: "कक्षा", mr: "इयत्ता" })}</span>
-                  <Input className={inputCls} value={grade} onChange={(e) => setGrade(e.target.value)} placeholder="10" />
+                  <Input value={grade} onChange={(e) => setGrade(e.target.value)} placeholder="10" />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "School", gu: "શાળા", hi: "स्कूल", mr: "शाळा" })}</span>
-                  <Input className={inputCls} value={school} onChange={(e) => setSchool(e.target.value)} />
+                  <Input value={school} onChange={(e) => setSchool(e.target.value)} />
                 </label>
                 <label className="space-y-1.5 sm:col-span-2">
                   <span className="text-sm font-medium">{pick(lang, { en: "Email (optional)", gu: "ઈમેઇલ (વૈકલ્પિક)", hi: "ईमेल (वैकल्पिक)", mr: "ईमेल (ऐच्छिक)" })}</span>
-                  <Input className={inputCls} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
               </div>
 
@@ -259,14 +257,14 @@ function CounsellorPage() {
                     <CalendarCheck className="h-4 w-4 text-primary" />
                     {pick(lang, { en: "Preferred date *", gu: "પસંદગીની તારીખ *", hi: "पसंदीदा तारीख *", mr: "पसंतीची तारीख *" })}
                   </span>
-                   <Input className={inputCls} type="date" min={minDate} value={date} onChange={(e) => setDate(e.target.value)} required />
+                   <Input type="date" min={minDate} value={date} onChange={(e) => setDate(e.target.value)} required />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium flex items-center gap-1.5">
                     <Clock className="h-4 w-4 text-primary" />
                     {pick(lang, { en: "Time slot", gu: "સમય", hi: "समय", mr: "वेळ" })}
                   </span>
-                  <Select className={inputCls} value={slot} onChange={(e) => setSlot(e.target.value)}>
+                  <Select value={slot} onChange={(e) => setSlot(e.target.value)}>
                     {SLOTS.map((s) => (
                       <option key={s.id} value={s.id}>{pick(lang, s)}</option>
                     ))}
