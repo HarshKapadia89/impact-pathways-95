@@ -75,10 +75,8 @@ function AboutPage() {
         <h2 className="font-serif text-2xl md:text-3xl mb-8">{t4(lang, "What we stand for", "અમારા મૂલ્યો")}</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {values.map((v) => (
-            <Card key={v.title} variant="lifted" padding="md" className="transition-transform hover:-translate-y-1">
-              <div className="h-10 w-10 rounded-lg bg-accent/15 flex items-center justify-center">
-                <v.icon className="h-5 w-5 text-accent" />
-              </div>
+            <Card key={v.title} variant="lifted" padding="md">
+              <v.icon className="h-5 w-5 text-accent" />
               <div className="mt-3 font-serif text-lg">{v.title}</div>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{v.desc}</p>
             </Card>
