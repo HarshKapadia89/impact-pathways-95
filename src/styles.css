@@ -20,21 +20,6 @@
   --secondary: var(--hbk-paper-soft);
   --secondary-foreground: var(--hbk-ink);
 
-  /* Brand colour rotation used to differentiate sections */
-  --brand-1: var(--hbk-purple);
-  --brand-2: var(--hbk-lime);
-  --brand-3: var(--hbk-orange);
-  --brand-4: var(--hbk-amber);
-  --brand-5: var(--hbk-indigo);
-  --brand-6: var(--hbk-magenta);
-
-  --gradient-hero: linear-gradient(140deg, var(--hbk-purple), var(--hbk-indigo));
-  --gradient-brand: linear-gradient(135deg, var(--hbk-orange), var(--hbk-amber));
-  --gradient-accent: linear-gradient(135deg, var(--hbk-lime), var(--hbk-mint));
-
-  --shadow-glow-primary: var(--shadow-lift);
-  --shadow-glow-accent: var(--shadow-lift);
-  --shadow-glow-teal: var(--shadow-lift);
   --shadow-card: var(--shadow-soft);
 
   --chart-1: var(--hbk-purple);
@@ -92,18 +77,8 @@
 
   --color-ink: var(--foreground);
   --color-cream: var(--background);
-  --color-block-pink: var(--brand-6);
-  --color-block-blue: var(--brand-1);
-  --color-block-green: var(--brand-2);
-  --color-block-orange: var(--brand-3);
-  --color-block-yellow: var(--brand-4);
-  --color-block-violet: var(--brand-1);
-
   --font-serif: var(--font-display);
   --font-sans: var(--font-body);
-
-  --radius-2xl: 32px;
-  --radius-3xl: 40px;
 }
 
 @layer base {
@@ -116,7 +91,7 @@
   h1, h2, h3, h4, .font-serif, .font-display {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 }
 
@@ -164,21 +139,10 @@
   line-height: 1.06;
 }
 
-/* Soft brand panel used for highlight facts. */
-@utility card-dotted {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-}
-
-@utility panel-sky {
-  background: var(--accent);
-  color: var(--accent-foreground);
-  border-radius: var(--radius-lg);
-}
-
-@utility panel-maroon {
-  background: var(--highlight);
-  color: var(--highlight-foreground);
-  border-radius: var(--radius-lg);
+@utility brand-link {
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }

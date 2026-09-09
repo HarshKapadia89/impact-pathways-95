@@ -17,6 +17,7 @@ import {
   Globe2,
   X,
 } from "lucide-react";
+import { Badge, Input } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/find-college")({
   head: () => ({
@@ -197,16 +198,13 @@ function FindCollegePage() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
-            <Search className="h-3.5 w-3.5" />
-            {t4(lang, "Full College Directory", "પૂર્ણ કોલેજ ડિરેક્ટરી")}
-          </div>
-          <h1 className="font-serif text-3xl md:text-5xl mt-3">
+      <section className="bg-accent text-accent-foreground">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+          <Badge variant="highlight" withArrow>{t4(lang, "Full College Directory", "પૂર્ણ કોલેજ ડિરેક્ટરી")}</Badge>
+          <h1 className="font-display text-title md:text-display mt-6">
             {t4(lang, "Find Your College", "તમારી કોલેજ શોધો")}
           </h1>
-          <p className="mt-3 text-muted-foreground max-w-3xl">
+          <p className="mt-4 text-subheading max-w-3xl">
             {lang === "gu"
               ? `ગુજરાતની ${totalGuj}+ અને ભારતભરની ${totalIndia}+ ટોચની કોલેજો — નામ, કોર્સ, શહેર, રાજ્ય અથવા શ્રેણી દ્વારા શોધો.`
               : `Search ${totalGuj}+ Gujarat colleges and ${totalIndia}+ premier institutes across India — by name, course, city, state, category or type.`}
@@ -218,9 +216,8 @@ function FindCollegePage() {
       <section className="border-b border-border bg-card sticky top-[57px] z-30">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 space-y-3">
           {/* Search bar */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
+          <div>
+            <Input
               autoFocus
               type="text"
               value={query}
@@ -228,7 +225,6 @@ function FindCollegePage() {
               placeholder={
                 t4(lang, "e.g. IIT, MBBS, Ahmedabad, Engineering, NID...", "દા.ત. IIT, MBBS, Ahmedabad, Engineering, NID...")
               }
-              className="w-full pl-9 pr-9 py-2.5 text-sm rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
             {query && (
               <button

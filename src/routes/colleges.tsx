@@ -6,6 +6,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { Search, MapPin, Globe, GraduationCap, Building2, Filter } from "lucide-react";
+import { Badge, Card, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 type College = Tables<"colleges">;
 
@@ -81,12 +82,13 @@ function CollegesPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-          <h1 className="font-serif text-3xl md:text-5xl">
+      <section className="bg-accent text-accent-foreground">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+          <Badge variant="highlight" withArrow>{t4(lang, "College Finder", "કોલેજ શોધ")}</Badge>
+          <h1 className="font-display text-title md:text-display mt-6">
             {t4(lang, "Gujarat Colleges Directory", "ગુજરાત કોલેજ ડિરેક્ટરી")}
           </h1>
-          <p className="mt-3 text-muted-foreground max-w-3xl">
+          <p className="mt-4 text-subheading max-w-3xl">
             {t4(lang, "Search by stream, district and type. Includes fees, hostel, scholarships and entrance exams.", "પ્રવાહ, જિલ્લો અને પ્રકાર પ્રમાણે શોધો. ફી, હોસ્ટેલ, સ્કોલરશિપ અને પ્રવેશ પરીક્ષાઓ સહિત.")}
           </p>
         </div>
@@ -94,20 +96,18 @@ function CollegesPage() {
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-8">
         <div className="rounded-2xl border border-border bg-card p-4 grid md:grid-cols-12 gap-3">
-          <div className="md:col-span-5 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
+          <div className="md:col-span-5">
+            <Input
               type="text"
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder={t4(lang, "Search college or city…", "કોલેજ, શહેર શોધો…")}
-              className="w-full pl-9 pr-3 py-2.5 rounded-md border border-input bg-background text-sm"
             />
           </div>
-          <select
+          <Select
             value={stream}
             onChange={(e) => setStream(e.target.value)}
-            className="md:col-span-3 px-3 py-2.5 rounded-md border border-input bg-background text-sm"
+            className="md:col-span-3"
           >
             <option value="">{t4(lang, "All streams", "બધા પ્રવાહો")}</option>
             {STREAM_OPTIONS.map((s) => (
@@ -115,11 +115,11 @@ function CollegesPage() {
                 {s.charAt(0).toUpperCase() + s.slice(1)}
               </option>
             ))}
-          </select>
-          <select
+          </Select>
+          <Select
             value={district}
             onChange={(e) => setDistrict(e.target.value)}
-            className="md:col-span-2 px-3 py-2.5 rounded-md border border-input bg-background text-sm"
+            className="md:col-span-2"
           >
             <option value="">{t4(lang, "All districts", "બધા જિલ્લા")}</option>
             {districts.map((d) => (
@@ -127,11 +127,11 @@ function CollegesPage() {
                 {d}
               </option>
             ))}
-          </select>
-          <select
+          </Select>
+          <Select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="md:col-span-2 px-3 py-2.5 rounded-md border border-input bg-background text-sm"
+            className="md:col-span-2"
           >
             <option value="">{t4(lang, "Type", "પ્રકાર")}</option>
             {types.map((t) => (
@@ -139,7 +139,7 @@ function CollegesPage() {
                 {t}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
 
         <div className="mt-3 text-xs text-muted-foreground inline-flex items-center gap-1">
@@ -163,7 +163,8 @@ function CollegesPage() {
 
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((c) => (
-            <article key={c.id} className="rounded-2xl border border-border bg-card p-5">
+            <article key={c.id}>
+            <Card variant="arrow" className="h-full">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-serif text-base leading-snug">{c.name}</h3>
                 {c.type && (
@@ -217,6 +218,7 @@ function CollegesPage() {
                   </a>
                 )}
               </div>
+            </Card>
             </article>
           ))}
         </div>

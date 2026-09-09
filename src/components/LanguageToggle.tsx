@@ -2,7 +2,7 @@ import { LANGS, LANG_LABEL, toLang, persistLang } from "@/lib/lang";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Globe, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +20,7 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="font-medium gap-1.5" suppressHydrationWarning>
+        <Button variant="ghost" size="sm" suppressHydrationWarning>
           <Globe className="h-4 w-4" />
           <span suppressHydrationWarning>{mounted ? LANG_LABEL[now] : ""}</span>
         </Button>

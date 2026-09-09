@@ -16,6 +16,7 @@ import { getProgress, lastLesson, badges as computeBadges, lessonKey, getQuizRes
 import { UpskillCertificateCard } from "@/components/UpskillCertificateCard";
 import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 import { Search, ArrowRight, Clock, Sparkles, CheckCircle2, Trophy } from "lucide-react";
+import { ArrowIcon, Badge, Card, Input, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/upskill/")({
   head: () => ({
@@ -67,27 +68,22 @@ function UpskillHub() {
 
   return (
     <PublicLayout>
-      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-12 pb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent font-medium">
-          <Sparkles className="h-3.5 w-3.5" />
-          {t("hubKicker")}
-        </div>
-        <h1 className="font-serif text-4xl md:text-5xl mt-4 leading-tight">{t("hubTitle")}</h1>
-        <p className="mt-4 text-muted-foreground max-w-3xl">{t("hubSub")}</p>
+      <section className="bg-accent text-accent-foreground">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <Badge variant="highlight" withArrow>{t("hubKicker")}</Badge>
+        <h1 className="font-display text-title md:text-display mt-6">{t("hubTitle")}</h1>
+        <p className="mt-4 text-subheading max-w-3xl">{t("hubSub")}</p>
         {t("englishNote") && (
           <p className="mt-2 text-xs text-muted-foreground/80">{t("englishNote")}</p>
         )}
 
-        <div className="mt-7 grid grid-cols-3 gap-3 max-w-lg">
+        <div className="mt-8 grid grid-cols-3 gap-6 max-w-xl">
           {[
             { n: TOTAL_TOPICS, l: t("topics") },
             { n: TOTAL_LESSONS, l: t("lessons") },
             { n: Math.round(TOTAL_MINUTES / 60), l: t("hours") },
           ].map((s) => (
-            <div key={s.l} className="rounded-xl border border-border bg-card p-4">
-              <div className="font-serif text-2xl">{s.n}</div>
-              <div className="text-[11px] text-muted-foreground mt-1">{s.l}</div>
-            </div>
+            <Stat key={s.l} value={s.n.toString()} label={s.l} />
           ))}
         </div>
 
@@ -146,13 +142,17 @@ function UpskillHub() {
           </Link>
         </div>
 
-        <div className="mt-6 relative max-w-2xl">
+        </div>
+      </section>
+      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-10 pb-8">
+        <div className="relative max-w-2xl">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <input
+          <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("searchPh")}
-            className="w-full rounded-xl border border-border bg-background pl-10 pr-3 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+            size="lg"
+            className="pl-10"
           />
         </div>
 
@@ -195,8 +195,9 @@ function UpskillHub() {
                 key={topic.slug}
                 to="/upskill/$topic"
                 params={{ topic: topic.slug }}
-                className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+                 className="group brand-link rounded-lg"
               >
+                <Card variant="arrow" padding="md" className="h-full">
                 <div className="text-3xl">{topic.emoji}</div>
                 <h2 className="font-serif text-xl mt-3 leading-snug">{phrase(topic.title)}</h2>
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-3">{phrase(topic.tagline)}</p>
@@ -215,8 +216,9 @@ function UpskillHub() {
                 </div>
                 <div className="mt-4 inline-flex items-center gap-1 text-sm text-primary">
                   {t("start")}
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                   <ArrowIcon size={16} />
                 </div>
+                </Card>
               </Link>
             );
           })}

@@ -6,30 +6,23 @@ import { TOTAL_LESSONS } from "@/lib/upskilling";
 import { INDIA_COLLEGES } from "@/lib/indiaColleges";
 import { GUJ_COLLEGE_STATS } from "@/lib/gujaratColleges";
 import professionIndex from "@/lib/professionIndex.json";
+import { Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export function StatsBand({ lang }: { lang: Lang }) {
   const t = translator(lang);
   const stats = [
-    { n: HANDBOOK_SUMMARIES.length, suffix: "", label: t({ en: "career streams", gu: "કારકિર્દી પ્રવાહો", hi: "करियर स्ट्रीम", mr: "करिअर प्रवाह" }) },
-    { n: professionIndex.length, suffix: "+", label: t({ en: "professions", gu: "વ્યવસાયો", hi: "पेशे", mr: "व्यवसाय" }) },
-    { n: ENTRANCE_EXAMS.length, suffix: "", label: t({ en: "entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }) },
-    { n: SCHOLARSHIPS.length, suffix: "", label: t({ en: "scholarships", gu: "શિષ્યવૃત્તિઓ", hi: "छात्रवृत्तियाँ", mr: "शिष्यवृत्त्या" }) },
-    { n: TOTAL_LESSONS, suffix: "", label: t({ en: "free lessons", gu: "મફત પાઠ", hi: "मुफ़्त पाठ", mr: "मोफत धडे" }) },
-    { n: INDIA_COLLEGES.length + GUJ_COLLEGE_STATS.totalListed, suffix: "+", label: t({ en: "colleges & universities", gu: "કોલેજો અને યુનિવર્સિટીઓ", hi: "कॉलेज और विश्वविद्यालय", mr: "महाविद्यालये आणि विद्यापीठे" }) },
-    { n: 4, suffix: "", label: t({ en: "languages", gu: "ભાષાઓ", hi: "भाषाएँ", mr: "भाषा" }) },
+    { value: HANDBOOK_SUMMARIES.length.toString(), label: t({ en: "career streams", gu: "કારકિર્દી પ્રવાહો", hi: "करियर स्ट्रीम", mr: "करिअर प्रवाह" }) },
+    { value: `${professionIndex.length.toLocaleString("en-IN")}+`, label: t({ en: "professions", gu: "વ્યવસાયો", hi: "पेशे", mr: "व्यवसाय" }) },
+    { value: ENTRANCE_EXAMS.length.toString(), label: t({ en: "entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }) },
+    { value: SCHOLARSHIPS.length.toString(), label: t({ en: "scholarships", gu: "શિષ્યવૃત્તિઓ", hi: "छात्रवृत्तियाँ", mr: "शिष्यवृत्त्या" }) },
+    { value: TOTAL_LESSONS.toString(), label: t({ en: "skill lessons", gu: "કુશળતા પાઠ", hi: "कौशल पाठ", mr: "कौशल्य धडे" }) },
+    { value: `${(INDIA_COLLEGES.length + GUJ_COLLEGE_STATS.totalListed).toLocaleString("en-IN")}+`, label: t({ en: "colleges", gu: "કોલેજો", hi: "कॉलेज", mr: "महाविद्यालये" }) },
+    { value: "4", label: t({ en: "languages", gu: "ભાષાઓ", hi: "भाषाएँ", mr: "भाषा" }) },
   ];
   return (
-    <section className="border-y border-border bg-card">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6">
-        {stats.map((s) => (
-          <div key={s.label} className="text-center">
-            <div className="font-serif text-3xl md:text-4xl" style={{ color: "var(--accent)" }}>
-              {s.n.toLocaleString("en-IN")}
-              {s.suffix}
-            </div>
-            <div className="mt-1 text-xs text-muted-foreground uppercase tracking-wider">{s.label}</div>
-          </div>
-        ))}
+    <section className="bg-accent text-accent-foreground">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-12 sm:grid-cols-4 md:px-8 lg:grid-cols-7">
+        {stats.map((item) => <Stat key={item.label} label={item.label} value={item.value} />)}
       </div>
     </section>
   );

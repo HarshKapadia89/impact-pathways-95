@@ -6,6 +6,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import professionIndex from "@/lib/professionIndex.json";
 import { Library, ArrowRight, Search, GraduationCap } from "lucide-react";
+import { ArrowIcon, Badge, Card, Input, Stat as BrandStat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 type IndexRow = { n: string; s: string; p: string };
 const PROFESSIONS = professionIndex as IndexRow[];
@@ -77,38 +78,36 @@ function CareerLibraryPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground">
-            <Library className="h-3.5 w-3.5" />
-            {t4(lang, "Career Library", "કારકિર્દી લાઇબ્રેરી")}
-          </div>
-          <h1 className="font-serif text-3xl md:text-5xl mt-2">
+      <section className="bg-highlight text-highlight-foreground">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+          <Badge variant="accent" withArrow>{t4(lang, "Career Library", "કારકિર્દી લાઇબ્રેરી")}</Badge>
+          <h1 className="font-display text-title md:text-display mt-6">
             {t4(lang, "Every career, A to Z — in one place", "A થી Z — દરેક કારકિર્દી, એક જગ્યાએ")}
           </h1>
-          <p className="mt-3 text-muted-foreground max-w-3xl">
+          <p className="mt-4 text-subheading text-highlight-foreground/80 max-w-3xl">
             {t4(lang, "Search 48 streams and 1,600+ professions — each with the study path, entrance exams, top institutes, salary bands and growth ladder.", "48 પ્રવાહો અને 1,600+ વ્યવસાયો શોધો — અભ્યાસ માર્ગ, પ્રવેશ પરીક્ષાઓ, ટોચની સંસ્થાઓ, પગાર અને વૃદ્ધિની સીડી સાથે.")}
           </p>
-          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <Stat n={HANDBOOK_SUMMARIES.length} label={t4(lang, "streams", "પ્રવાહો")} />
-            <Stat n={totals.professions} label={t4(lang, "professions", "વ્યવસાયો")} />
-            <Stat n={totals.exams} label={t4(lang, "entrance exams", "પરીક્ષાઓ")} />
-            <Stat n={totals.institutes} label={t4(lang, "top institutes", "સંસ્થાઓ")} />
+          <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+            <BrandStat value={HANDBOOK_SUMMARIES.length.toString()} label={t4(lang, "streams", "પ્રવાહો")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={totals.professions.toLocaleString()} label={t4(lang, "professions", "વ્યવસાયો")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={totals.exams.toLocaleString()} label={t4(lang, "entrance exams", "પરીક્ષાઓ")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={totals.institutes.toLocaleString()} label={t4(lang, "top institutes", "સંસ્થાઓ")} className="[&_p]:text-highlight-foreground" />
           </div>
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-8">
-        <div className="relative max-w-xl">
+        <div className="relative max-w-2xl">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <input
+          <Input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={
               t4(lang, "Search any career — e.g. pilot, data science, chef, ethical hacking…", "કારકિર્દી શોધો — દા.ત. પાયલોટ, ડેટા સાયન્સ, શેફ…")
             }
-            className="w-full pl-9 pr-3 py-3 text-sm rounded-xl border border-border bg-card focus:outline-none focus:border-primary"
+            size="lg"
+            className="pl-9"
           />
         </div>
 
@@ -150,19 +149,16 @@ function CareerLibraryPage() {
               {t4(lang, "Matching professions", "મળતા વ્યવસાયો")}
               <span className="text-xs text-muted-foreground font-sans">({professionHits.length})</span>
             </h2>
-            <div className="mt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="mt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {professionHits.map((r) => (
                 <Link
                   key={`${r.s}/${r.p}`}
                   to="/handbook/$slug/$profession"
                   params={{ slug: r.s, profession: r.p }}
                   preload="intent"
-                  className="rounded-xl border border-border bg-card px-4 py-3 hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition"
+                  className="brand-link rounded-lg"
                 >
-                  <div className="text-sm font-medium leading-snug">{r.n}</div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5">
-                    {streamEmoji(STREAM_NAME_BY_SLUG[r.s] ?? "")} {STREAM_NAME_BY_SLUG[r.s] ?? r.s}
-                  </div>
+                  <Card variant="arrow" padding="sm" className="h-full"><div className="text-body font-semibold leading-snug">{r.n}</div><div className="text-caption text-muted-foreground mt-1">{streamEmoji(STREAM_NAME_BY_SLUG[r.s] ?? "")} {STREAM_NAME_BY_SLUG[r.s] ?? r.s}</div></Card>
                 </Link>
               ))}
             </div>
@@ -186,8 +182,9 @@ function CareerLibraryPage() {
                   to="/handbook/$slug"
                   params={{ slug: s.slug }}
                   preload="intent"
-                  className="group rounded-2xl border border-border bg-card p-5 hover:shadow-[var(--shadow-card)] hover:border-primary/40 transition-all"
+                  className="group brand-link rounded-lg"
                 >
+                  <Card variant="arrow" padding="md" className="h-full">
                   <div className="text-3xl">{streamEmoji(s.stream)}</div>
                   <div className="mt-3 font-serif text-lg leading-snug">{s.stream}</div>
                   <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
@@ -206,8 +203,9 @@ function CareerLibraryPage() {
                   </div>
                   <div className="mt-3 inline-flex items-center gap-1 text-sm text-primary opacity-80 group-hover:opacity-100">
                     {t4(lang, "Open professions", "વ્યવસાયો ખોલો")}
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowIcon size={16} />
                   </div>
+                  </Card>
                 </Link>
               ))}
             </div>
@@ -226,10 +224,3 @@ function CareerLibraryPage() {
   );
 }
 
-function Stat({ n, label }: { n: number; label: string }) {
-  return (
-    <span className="text-muted-foreground">
-      <strong className="text-foreground tabular-nums">{n.toLocaleString()}</strong> {label}
-    </span>
-  );
-}

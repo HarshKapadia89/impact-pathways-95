@@ -14,6 +14,7 @@ import {
   Sparkles,
   Brain,
 } from "lucide-react";
+import { Badge, Card, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/counsellor")({
   head: () => ({
@@ -146,21 +147,15 @@ function CounsellorPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const inputCls =
-    "w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
-
   return (
     <PublicLayout>
-      <div className="mx-auto max-w-3xl px-4 py-10 md:py-14 space-y-8">
-        <header className="text-center space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-medium">
-            <Sparkles className="h-4 w-4" />
-            {pick(lang, { en: "Free 1:1 Session", gu: "મફત 1:1 સત્ર", hi: "मुफ़्त 1:1 सत्र", mr: "मोफत 1:1 सत्र" })}
-          </div>
-          <h1 className="font-serif text-3xl md:text-4xl">
+      <section className="bg-highlight text-highlight-foreground">
+        <header className="mx-auto max-w-4xl px-4 py-16 text-center md:px-8 md:py-20">
+          <Badge variant="accent" withArrow>{pick(lang, { en: "Free 1:1 Session", gu: "મફત 1:1 સત્ર", hi: "मुफ़्त 1:1 सत्र", mr: "मोफत 1:1 सत्र" })}</Badge>
+          <h1 className="mt-6 font-display text-title md:text-display">
             {pick(lang, { en: "Talk to a Career Counsellor", gu: "કારકિર્દી માર્ગદર્શક સાથે વાત કરો", hi: "करियर काउंसलर से बात करें", mr: "करिअर समुपदेशकाशी बोला" })}
           </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="mt-5 text-subheading text-highlight-foreground/80 max-w-2xl mx-auto">
             {pick(lang, {
               en: "Book a personal session. Our counsellor reviews your aptitude test results and helps you decide your stream, career and next steps.",
               gu: "વ્યક્તિગત સત્ર બુક કરો. અમારા માર્ગદર્શક તમારા ટેસ્ટના પરિણામો જોઈને પ્રવાહ, કારકિર્દી અને આગળના પગલાં નક્કી કરવામાં મદદ કરે છે.",
@@ -169,6 +164,8 @@ function CounsellorPage() {
             })}
           </p>
         </header>
+      </section>
+      <div className="mx-auto max-w-3xl px-4 py-10 md:py-14 space-y-8">
 
         {done ? (
           <div className="rounded-2xl border border-border bg-card p-8 text-center space-y-4 shadow-sm">
@@ -229,27 +226,28 @@ function CounsellorPage() {
               </div>
             )}
 
-            <form onSubmit={submit} className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm space-y-5">
+            <form onSubmit={submit}>
+            <Card variant="lifted" padding="lg" className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Student name *", gu: "વિદ્યાર્થીનું નામ *", hi: "विद्यार्थी का नाम *", mr: "विद्यार्थ्याचे नाव *" })}</span>
-                  <input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} required />
+                  <Input value={name} onChange={(e) => setName(e.target.value)} required />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Mobile (WhatsApp) *", gu: "મોબાઇલ (WhatsApp) *", hi: "मोबाइल (WhatsApp) *", mr: "मोबाइल (WhatsApp) *" })}</span>
-                  <input className={inputCls} value={mobile} onChange={(e) => setMobile(e.target.value)} inputMode="tel" placeholder="98765 43210" required />
+                  <Input value={mobile} onChange={(e) => setMobile(e.target.value)} inputMode="tel" placeholder="98765 43210" required />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "Grade / Class", gu: "ધોરણ", hi: "कक्षा", mr: "इयत्ता" })}</span>
-                  <input className={inputCls} value={grade} onChange={(e) => setGrade(e.target.value)} placeholder="10" />
+                  <Input value={grade} onChange={(e) => setGrade(e.target.value)} placeholder="10" />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium">{pick(lang, { en: "School", gu: "શાળા", hi: "स्कूल", mr: "शाळा" })}</span>
-                  <input className={inputCls} value={school} onChange={(e) => setSchool(e.target.value)} />
+                  <Input value={school} onChange={(e) => setSchool(e.target.value)} />
                 </label>
                 <label className="space-y-1.5 sm:col-span-2">
                   <span className="text-sm font-medium">{pick(lang, { en: "Email (optional)", gu: "ઈમેઇલ (વૈકલ્પિક)", hi: "ईमेल (वैकल्पिक)", mr: "ईमेल (ऐच्छिक)" })}</span>
-                  <input className={inputCls} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
               </div>
 
@@ -259,18 +257,18 @@ function CounsellorPage() {
                     <CalendarCheck className="h-4 w-4 text-primary" />
                     {pick(lang, { en: "Preferred date *", gu: "પસંદગીની તારીખ *", hi: "पसंदीदा तारीख *", mr: "पसंतीची तारीख *" })}
                   </span>
-                  <input className={inputCls} type="date" min={minDate} value={date} onChange={(e) => setDate(e.target.value)} required />
+                   <Input type="date" min={minDate} value={date} onChange={(e) => setDate(e.target.value)} required />
                 </label>
                 <label className="space-y-1.5">
                   <span className="text-sm font-medium flex items-center gap-1.5">
                     <Clock className="h-4 w-4 text-primary" />
                     {pick(lang, { en: "Time slot", gu: "સમય", hi: "समय", mr: "वेळ" })}
                   </span>
-                  <select className={inputCls} value={slot} onChange={(e) => setSlot(e.target.value)}>
+                  <Select value={slot} onChange={(e) => setSlot(e.target.value)}>
                     {SLOTS.map((s) => (
                       <option key={s.id} value={s.id}>{pick(lang, s)}</option>
                     ))}
-                  </select>
+                  </Select>
                 </label>
               </div>
 
@@ -348,6 +346,7 @@ function CounsellorPage() {
                   ? pick(lang, { en: "Booking…", gu: "બુક થઈ રહ્યું છે…", hi: "बुक हो रहा है…", mr: "बुक होत आहे…" })
                   : pick(lang, { en: "Book my free session", gu: "મારું મફત સત્ર બુક કરો", hi: "मेरा मुफ़्त सत्र बुक करें", mr: "माझे मोफत सत्र बुक करा" })}
               </button>
+            </Card>
             </form>
           </>
         )}
