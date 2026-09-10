@@ -139,6 +139,25 @@ function HomePage() {
         </Section>
       </div>
 
+      <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
+        <div className="grid items-stretch gap-6 md:grid-cols-2">
+          <img
+            src={brandGuidePoster.url}
+            alt="HBK Careers poster: we guide you toward the right career path"
+            loading="lazy"
+            className="h-full w-full rounded-xl object-cover shadow-lift"
+          />
+          <img
+            src={brandStudentArrow.url}
+            alt="Student with books in front of the HBK Careers arrow"
+            loading="lazy"
+            className="h-full w-full rounded-xl object-cover shadow-lift"
+          />
+        </div>
+      </section>
+
+
+
       <section className="bg-accent text-accent-foreground">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-8">
           <div>
