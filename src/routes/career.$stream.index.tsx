@@ -180,7 +180,7 @@ function StreamDetail() {
               {t4(lang, "Want India-wide reference?", "ભારત-વ્યાપી સંદર્ભ જોઈએ છે?")}
             </div>
             <div className="text-sm text-muted-foreground mt-1">
-              {t4(lang, "Browse the Career Handbook for 935+ professions and 1,400+ top Indian institutes across 20 streams.", "20 પ્રવાહોમાં 935+ વ્યવસાયો અને 1,400+ ટોચની ભારતીય સંસ્થાઓ માટે કારકિર્દી હેન્ડબુક જુઓ.")}
+              {t4(lang, "Browse the Career Library for 1,651 professions and 1,943 top Indian institutes across 48 streams.", "48 પ્રવાહોમાં 1,651 વ્યવસાયો અને 1,943 ટોચની ભારતીય સંસ્થાઓ માટે કારકિર્દી લાઇબ્રેરી જુઓ.")}
             </div>
           </div>
           <Link

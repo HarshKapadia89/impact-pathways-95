@@ -12,7 +12,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "HBK Careers is a free career-discovery platform built by The H B Kapadia New High School, Ahmedabad — bilingual psychometric tests, 1,400+ colleges and a 20-page personalised report.",
+          "HBK Careers is a free career-discovery platform built by The H B Kapadia New High School, Ahmedabad — four-language assessments, 1,651 professions and a personalised report.",
       },
       { property: "og:title", content: "About — HBK Careers" },
       { property: "og:description", content: "Built by educators, not edtech. Free career guidance for every Gujarat student." },

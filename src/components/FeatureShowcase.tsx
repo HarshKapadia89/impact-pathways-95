@@ -54,7 +54,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
     },
     {
       icon: Library,
-      title: t({ en: "Explore 1,600+ professions", gu: "1,600+ વ્યવસાયો શોધો", hi: "1,600+ पेशे देखें", mr: "1,600+ व्यवसाय पाहा" }),
+      title: t({ en: "Explore 1,651 professions", gu: "1,651 વ્યવસાયો શોધો", hi: "1,651 पेशे देखें", mr: "1,651 व्यवसाय पाहा" }),
       desc: t({
         en: "Deep guides per profession — and compare careers side by side.",
         gu: "દરેક વ્યવસાયની વિગતવાર માહિતી — અને કારકિર્દીની સરખામણી કરો.",
