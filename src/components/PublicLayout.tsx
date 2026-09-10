@@ -22,13 +22,17 @@ import {
   Trophy,
   X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { ArrowIcon, Button, Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { StatsBand } from "./StatsBand";
 
-const PRIMARY_NAV = [
+type NavLabel = { en: string; gu: string; hi: string; mr: string };
+type NavItem = { to: string; label: NavLabel; short?: NavLabel; icon?: LucideIcon };
+
+const PRIMARY_NAV: NavItem[] = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
   { to: "/test", label: { en: "Aptitude Test", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, short: { en: "Test", gu: "ટેસ્ટ", hi: "टेस्ट", mr: "टेस्ट" }, icon: Brain },
   { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }, short: { en: "Careers", gu: "કારકિર્દી", hi: "करियर", mr: "करिअर" }, icon: Library },
