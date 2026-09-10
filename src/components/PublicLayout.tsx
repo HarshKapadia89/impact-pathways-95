@@ -59,7 +59,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
-  const active = (to: string) => (to === "/" ? location.pathname === "/" : location.pathname.startsWith(to));
+  const active = (to: string) => (to === "/" ? location.pathname === "/" : location.pathname === to || location.pathname.startsWith(`${to}/`));
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -70,16 +70,16 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               <Logotype size="md" />
             </Link>
 
-            <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-              {PRIMARY_NAV.map((item) => {
+            <nav className="ml-auto hidden items-center gap-0.5 lg:flex" aria-label="Primary navigation">
+              {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => {
                 const Icon = item.icon;
                 return (
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`brand-link flex items-center gap-2 rounded-md px-3 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+                    className={`brand-link flex items-center gap-1.5 rounded-md px-2 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
                   >
-                    <Icon className="h-4 w-4" aria-hidden />
+                    <Icon className="hidden h-4 w-4 xl:block" aria-hidden />
                     {t(item.label)}
                   </Link>
                 );
@@ -101,22 +101,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="hidden items-center justify-between border-t border-border py-2 lg:flex">
-            <div className="flex items-center gap-1">
-              {TOOL_NAV.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link key={item.to} to={item.to} className={`brand-link flex items-center gap-2 rounded-md px-3 py-2 text-caption ${active(item.to) ? "bg-accent text-accent-foreground font-semibold" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
-                    <Icon className="h-4 w-4" aria-hidden />
-                    {t(item.label)}
-                  </Link>
-                );
-              })}
-            </div>
-            <p className="text-overline uppercase text-muted-foreground">
-              {t({ en: "Find the right direction", gu: "સાચી દિશા શોધો", hi: "सही दिशा खोजें", mr: "योग्य दिशा शोधा" })}
-            </p>
-          </div>
+
+
 
           {mobileOpen && (
             <nav className="border-t border-border py-4 lg:hidden" aria-label="Mobile navigation">
