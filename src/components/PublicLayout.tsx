@@ -22,27 +22,31 @@ import {
   Trophy,
   X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { ArrowIcon, Button, Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { StatsBand } from "./StatsBand";
 
-const PRIMARY_NAV = [
+type NavLabel = { en: string; gu: string; hi: string; mr: string };
+type NavItem = { to: string; label: NavLabel; short?: NavLabel; icon: LucideIcon };
+
+const PRIMARY_NAV: NavItem[] = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
-  { to: "/test", label: { en: "Aptitude Test", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, icon: Brain },
-  { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }, icon: Library },
+  { to: "/test", label: { en: "Aptitude Test", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, short: { en: "Test", gu: "ટેસ્ટ", hi: "टेस्ट", mr: "टेस्ट" }, icon: Brain },
+  { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }, short: { en: "Careers", gu: "કારકિર્દી", hi: "करियर", mr: "करिअर" }, icon: Library },
   { to: "/find-college", label: { en: "Colleges", gu: "કૉલેજ", hi: "कॉलेज", mr: "कॉलेज" }, icon: Search },
-  { to: "/upskill", label: { en: "LevelUp Lab", gu: "લેવલઅપ લેબ", hi: "लेवलअप लॅब", mr: "लेवलअप लॅब" }, icon: Rocket },
+  { to: "/upskill", label: { en: "LevelUp Lab", gu: "લેવલઅપ લેબ", hi: "लेवलअप लॅब", mr: "लेवलअप लॅब" }, short: { en: "LevelUp", gu: "લેવલઅપ", hi: "लेवलअप", mr: "लेवलअप" }, icon: Rocket },
   { to: "/counsellor", label: { en: "Counsellor", gu: "માર્ગદર્શક", hi: "काउंसलर", mr: "समुपदेशक" }, icon: CalendarCheck },
 ];
 
 const TOOL_NAV = [
-  { to: "/career", label: { en: "Gujarat guidance", gu: "ગુજરાત માર્ગદર્શન", hi: "गुजरात मार्गदर्शन", mr: "गुजरात मार्गदर्शन" }, icon: Compass },
+  { to: "/career", label: { en: "Gujarat guidance", gu: "ગુજરાત માર્ગદર્શન", hi: "गुजरात मार्गदर्शन", mr: "गुजरात मार्गदर्शन" }, short: { en: "Gujarat", gu: "ગુજરાત", hi: "गुजरात", mr: "गुजरात" }, icon: Compass },
   { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
-  { to: "/exams", label: { en: "Entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }, icon: FileCheck },
+  { to: "/exams", label: { en: "Entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }, short: { en: "Exams", gu: "પરીક્ષાઓ", hi: "परीक्षाएँ", mr: "परीक्षा" }, icon: FileCheck },
   { to: "/dashboard", label: { en: "Dashboard", gu: "ડૅશબોર્ડ", hi: "डैशबोर्ड", mr: "डॅशबोर्ड" }, icon: LayoutDashboard },
-  { to: "/profile-builder", label: { en: "Resume Builder", gu: "રિઝ્યુમે બિલ્ડર", hi: "रिज़्यूमे बिल्डर", mr: "रेझ्युमे बिल्डर" }, icon: FileText },
+  { to: "/profile-builder", label: { en: "Resume Builder", gu: "રિઝ્યુમે બિલ્ડર", hi: "रिज़्यूमे बिल्डर", mr: "रेझ्युमे बिल्डर" }, short: { en: "Resume", gu: "રિઝ્યુમે", hi: "रिज़्यूमे", mr: "रेझ्युमे" }, icon: FileText },
 ];
 
 const FOOTER_NAV = [
@@ -59,7 +63,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
-  const active = (to: string) => (to === "/" ? location.pathname === "/" : location.pathname.startsWith(to));
+  const active = (to: string) => (to === "/" ? location.pathname === "/" : location.pathname === to || location.pathname.startsWith(`${to}/`));
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -70,29 +74,25 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               <Logotype size="md" />
             </Link>
 
-            <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-              {PRIMARY_NAV.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`brand-link flex items-center gap-2 rounded-md px-3 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
-                  >
-                    <Icon className="h-4 w-4" aria-hidden />
-                    {t(item.label)}
-                  </Link>
-                );
-              })}
+            <nav className="ml-auto hidden items-center gap-0.5 xl:flex" aria-label="Primary navigation">
+              {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`brand-link whitespace-nowrap rounded-md px-2 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+                >
+                  {t(item.short ?? item.label)}
+                </Link>
+              ))}
             </nav>
 
-            <div className="ml-auto flex items-center gap-1 lg:ml-0">
+            <div className="ml-auto flex items-center gap-1 xl:ml-0">
               <LanguageToggle />
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setMobileOpen((value) => !value)}
-                className="lg:hidden"
+                className="xl:hidden"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
               >
@@ -101,25 +101,11 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="hidden items-center justify-between border-t border-border py-2 lg:flex">
-            <div className="flex items-center gap-1">
-              {TOOL_NAV.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link key={item.to} to={item.to} className={`brand-link flex items-center gap-2 rounded-md px-3 py-2 text-caption ${active(item.to) ? "bg-accent text-accent-foreground font-semibold" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
-                    <Icon className="h-4 w-4" aria-hidden />
-                    {t(item.label)}
-                  </Link>
-                );
-              })}
-            </div>
-            <p className="text-overline uppercase text-muted-foreground">
-              {t({ en: "Find the right direction", gu: "સાચી દિશા શોધો", hi: "सही दिशा खोजें", mr: "योग्य दिशा शोधा" })}
-            </p>
-          </div>
+
+
 
           {mobileOpen && (
-            <nav className="border-t border-border py-4 lg:hidden" aria-label="Mobile navigation">
+            <nav className="border-t border-border py-4 xl:hidden" aria-label="Mobile navigation">
               <div className="grid gap-1">
                 {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => {
                   const Icon = item.icon;
