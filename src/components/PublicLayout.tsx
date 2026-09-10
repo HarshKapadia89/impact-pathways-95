@@ -28,6 +28,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 import { StatsBand } from "./StatsBand";
+import { BrandArrows } from "./BrandArrows";
 
 type NavLabel = { en: string; gu: string; hi: string; mr: string };
 type NavItem = { to: string; label: NavLabel; short?: NavLabel; icon: LucideIcon };
@@ -163,6 +164,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 mr: "प्रत्येक विद्यार्थ्यासाठी स्पष्ट आणि व्यावहारिक करिअर मार्गदर्शन—द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद तर्फे.",
               })}
             </p>
+            <BrandArrows size={96} className="mt-6" />
           </div>
           <div>
             <h2 className="text-subheading">{t({ en: "Explore", gu: "અન્વેષણ", hi: "जानकारी", mr: "शोधा" })}</h2>
