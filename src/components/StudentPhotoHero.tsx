@@ -33,7 +33,7 @@ export function StudentPhotoHero({
       />
       <div className={`absolute inset-0 -z-10 ${brand ? "bg-highlight/70" : "bg-background/65 md:bg-transparent"}`} aria-hidden />
       <ArrowIcon size={280} weight="bold" className={`pointer-events-none absolute -right-16 -top-16 -z-10 ${brand ? "text-accent opacity-20" : "text-highlight opacity-10"}`} />
-      <div className="mx-auto flex min-h-[32rem] max-w-7xl items-center px-4 py-16 md:px-8">
+      <div className="mx-auto flex max-w-7xl items-center px-4 py-24 md:px-8">
         <div className="max-w-2xl">
           <Badge variant={brand ? "accent" : "highlight"} withArrow>{eyebrow}</Badge>
           <h1 className="mt-6 font-display text-display font-semibold">{title}</h1>

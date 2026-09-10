@@ -243,7 +243,7 @@ function TestIntro() {
               </a>
               <a
                 href="#sample"
-                className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-background px-6 text-subheading font-semibold text-foreground"
+                className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-accent px-6 text-subheading font-semibold text-accent-foreground"
               >
                 {tp("ctaSample", lang)}
               </a>

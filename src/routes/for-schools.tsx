@@ -70,7 +70,7 @@ function ForSchoolsPage() {
             )} actions={<><a href="#demo" className="brand-link hbk-focus inline-flex h-12 items-center rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">
               {L("Book a demo", "ડેમો બુક કરો")}
             </a>
-            <a href="#what-you-get" className="brand-link hbk-focus inline-flex h-12 items-center rounded-md border border-border bg-background px-6 text-subheading font-semibold text-foreground">
+            <a href="#what-you-get" className="brand-link hbk-focus inline-flex h-12 items-center rounded-md bg-accent px-6 text-subheading font-semibold text-accent-foreground">
               {L("See what's included", "શું શામેલ છે જુઓ")}
             </a></>} />
 
