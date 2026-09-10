@@ -77,7 +77,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`brand-link flex items-center gap-1.5 rounded-md px-2 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+                    className={`brand-link flex items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
                   >
                     <Icon className="hidden h-4 w-4 xl:block" aria-hidden />
                     {t(item.label)}
