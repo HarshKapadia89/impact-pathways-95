@@ -164,7 +164,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 mr: "प्रत्येक विद्यार्थ्यासाठी स्पष्ट आणि व्यावहारिक करिअर मार्गदर्शन—द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद तर्फे.",
               })}
             </p>
-            <BrandArrows size={96} className="mt-6" />
+            <BrandArrows width={300} className="mt-6" />
           </div>
           <div>
             <h2 className="text-subheading">{t({ en: "Explore", gu: "અન્વેષણ", hi: "जानकारी", mr: "शोधा" })}</h2>
