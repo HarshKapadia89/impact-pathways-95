@@ -42,19 +42,6 @@ function CareerLibraryPage() {
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState<string>("");
 
-  const totals = useMemo(
-    () =>
-      HANDBOOK_SUMMARIES.reduce(
-        (acc, s) => ({
-          professions: acc.professions + s.professionsCount,
-          exams: acc.exams + s.examsCount,
-          institutes: acc.institutes + s.institutesCount,
-        }),
-        { professions: 0, exams: 0, institutes: 0 },
-      ),
-    [],
-  );
-
   const q = query.trim().toLowerCase();
 
   const streams = useMemo(() => {

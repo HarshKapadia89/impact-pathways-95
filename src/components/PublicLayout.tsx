@@ -153,7 +153,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
       <StatsBand lang={lang} />
 
-      <footer data-no-translate className="mt-12 bg-highlight text-highlight-foreground">
+      <footer data-no-translate className="bg-highlight text-highlight-foreground">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
           <div>
             <Logotype size="md" tone="inverse" />
