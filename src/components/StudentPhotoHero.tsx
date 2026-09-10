@@ -30,9 +30,9 @@ export function StudentPhotoHero({
         alt={imageAlt}
         width={1536}
         height={1024}
-        className={`absolute inset-0 -z-20 h-full w-full object-cover object-right ${brand ? "mix-blend-luminosity opacity-35" : ""}`}
+        className={`absolute inset-0 -z-20 h-full w-full object-cover object-right ${brand ? "opacity-60" : ""}`}
       />
-      <div className={`absolute inset-0 -z-10 ${brand ? "bg-highlight/70" : "bg-background/65 md:bg-transparent"}`} aria-hidden />
+      <div className={`absolute inset-0 -z-10 ${brand ? "bg-gradient-to-r from-highlight/90 via-highlight/60 to-highlight/30" : "bg-background/65 md:bg-transparent"}`} aria-hidden />
       {!brand && (
         <ArrowIcon size={280} weight="bold" className="pointer-events-none absolute -right-16 -top-16 -z-10 text-highlight opacity-10" />
       )}

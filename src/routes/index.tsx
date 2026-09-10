@@ -106,14 +106,16 @@ function HomePage() {
           alt="Indian students discussing their future on a school campus"
           width={1536}
           height={1024}
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-right mix-blend-luminosity opacity-30"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-right opacity-60"
         />
-        <div className="absolute inset-0 -z-10 bg-highlight/75" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-highlight/90 via-highlight/60 to-highlight/30" aria-hidden />
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-28">
           <div className="max-w-5xl">
             <Badge variant="accent" withArrow>{t({ en: "HBK Careers · Grades 6–12 · Four languages", gu: "HBK Careers · ધોરણ 6–12 · ચાર ભાષાઓ", hi: "HBK Careers · कक्षा 6–12 · चार भाषाएँ", mr: "HBK Careers · इयत्ता 6–12 · चार भाषा" })}</Badge>
             <h1 className="mt-6 font-display text-display font-semibold leading-[1.05]">
-              {t({ en: "THE WORLD OF CAREERS, ALL IN ONE PLACE.", gu: "કારકિર્દીની દુનિયા, બધું એક જગ્યાએ.", hi: "करियर की दुनिया, सब एक जगह।", mr: "करिअरचा विश्व, सर्व एका ठिकाणी." })}
+              {t({ en: "THE WORLD OF CAREERS,", gu: "કારકિર્દીની દુનિયા,", hi: "करियर की दुनिया,", mr: "करिअरचा विश्व," })}
+              <br />
+              {t({ en: "ALL IN ONE PLACE.", gu: "બધું એક જગ્યાએ.", hi: "सब एक जगह।", mr: "सर्व एका ठिकाणी." })}
             </h1>
             <p className="mt-5 max-w-2xl text-subheading text-highlight-foreground/85">
               {t({ en: "Explore possibilities. Understand yourself. Make informed choices.", gu: "શક્યતાઓ શોધો. પોતાને સમજો. સભાન પસંદગી કરો.", hi: "संभावनाएँ देखें। खुद को समझें। सोच-समझकर चुनें।", mr: "शक्यता शोधा. स्वतःला समजा. जाणीवपूर्वक निवडा." })}
