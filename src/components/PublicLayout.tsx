@@ -30,7 +30,7 @@ import { StickyMobileCTA } from "./StickyMobileCTA";
 import { StatsBand } from "./StatsBand";
 
 type NavLabel = { en: string; gu: string; hi: string; mr: string };
-type NavItem = { to: string; label: NavLabel; short?: NavLabel; icon?: LucideIcon };
+type NavItem = { to: string; label: NavLabel; short?: NavLabel; icon: LucideIcon };
 
 const PRIMARY_NAV: NavItem[] = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
@@ -75,19 +75,15 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </Link>
 
             <nav className="ml-auto hidden items-center gap-0.5 lg:flex" aria-label="Primary navigation">
-              {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`brand-link flex items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
-                  >
-                    <Icon className="hidden h-4 w-4 xl:block" aria-hidden />
-                    {t(item.label)}
-                  </Link>
-                );
-              })}
+              {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`brand-link whitespace-nowrap rounded-md px-2 py-2 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+                >
+                  {t(item.short ?? item.label)}
+                </Link>
+              ))}
             </nav>
 
             <div className="ml-auto flex items-center gap-1 lg:ml-0">
