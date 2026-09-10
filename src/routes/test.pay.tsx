@@ -1,14 +1,20 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { PublicLayout } from "@/components/PublicLayout";
-import { ChevronLeft, ChevronRight, BadgePercent, IndianRupee, ShieldCheck } from "lucide-react";
-import paymentQR from "@/assets/payment-qr.jpg";
+import { ChevronLeft, BadgePercent, ShieldCheck, Lock, FileText, Sparkles } from "lucide-react";
+import { Badge, Button, Card, Input } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { createPaymentOrder, verifyPayment } from "@/lib/payments.functions";
 
 export const Route = createFileRoute("/test/pay")({
   head: () => ({
     meta: [
-      { title: "Pay & Unlock — HBK Careers Psychometric Test" },
-      { name: "description", content: "Pay ₹1,500 (intro) via UPI/QR and unlock the 20-page personalised report." },
+      { title: "Secure payment — HBK Careers Psychometric Test" },
+      { name: "description", content: "Pay securely by UPI, card, netbanking or wallet and unlock your 20-page personalised career report." },
+      { property: "og:title", content: "Secure payment — HBK Careers Psychometric Test" },
+      { property: "og:description", content: "Pay securely and unlock your 20-page personalised career report." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PayPage,
@@ -19,20 +25,44 @@ const DISCOUNTED_PRICE = 1500;
 const VALID_COUPON = "HBK1000";
 
 interface Meta {
-  name: string;
-  grade: string;
-  age: string;
-  language: "en";
+  name?: string;
+  grade?: string;
+  age?: string;
+  email?: string;
+  mobile?: string;
+  school?: string;
+  schoolName?: string;
+  language?: string;
+}
+
+declare global {
+  interface Window {
+    Razorpay?: new (options: Record<string, unknown>) => { open: () => void };
+  }
+}
+
+function loadRazorpay(): Promise<boolean> {
+  return new Promise((resolve) => {
+    if (window.Razorpay) return resolve(true);
+    const s = document.createElement("script");
+    s.src = "https://checkout.razorpay.com/v1/checkout.js";
+    s.onload = () => resolve(true);
+    s.onerror = () => resolve(false);
+    document.body.appendChild(s);
+  });
 }
 
 function PayPage() {
   const navigate = useNavigate();
+  const startOrder = useServerFn(createPaymentOrder);
+  const confirmPayment = useServerFn(verifyPayment);
+
   const [meta, setMeta] = useState<Meta | null>(null);
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
   const [couponError, setCouponError] = useState("");
-  const [utr, setUtr] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [payError, setPayError] = useState("");
 
   useEffect(() => {
     const raw = sessionStorage.getItem("disha-test-meta");
@@ -40,7 +70,8 @@ function PayPage() {
       navigate({ to: "/test" });
       return;
     }
-    setMeta({ ...(JSON.parse(raw) as Meta), language: "en" });
+    setMeta(JSON.parse(raw) as Meta);
+    void loadRazorpay();
   }, [navigate]);
 
   const price = useMemo(() => (couponApplied ? DISCOUNTED_PRICE : FULL_PRICE), [couponApplied]);
@@ -52,178 +83,197 @@ function PayPage() {
       setCouponError("");
     } else {
       setCouponApplied(false);
-      setCouponError("Invalid coupon. Try HBK1000.");
+      setCouponError("That code is not valid. Try HBK1000.");
     }
   };
 
-  const proceed = () => {
-    if (!utr.trim() || utr.trim().length < 6) return;
-    setSubmitting(true);
-    sessionStorage.setItem(
-      "disha-test-payment",
-      JSON.stringify({
-        amount: price,
-        coupon: couponApplied ? VALID_COUPON : null,
-        utr: utr.trim(),
-        paid_at: new Date().toISOString(),
-      }),
-    );
-    navigate({ to: "/test/take" });
+  const pay = async () => {
+    if (!meta) return;
+    setPayError("");
+    setBusy(true);
+    try {
+      const ok = await loadRazorpay();
+      if (!ok || !window.Razorpay) throw new Error("Could not load the secure payment window. Check your connection.");
+
+      const order = await startOrder({
+        data: {
+          coupon: couponApplied ? VALID_COUPON : null,
+          student_name: meta.name ?? null,
+          grade: meta.grade ?? null,
+          age: meta.age ?? null,
+          email: meta.email ?? null,
+          mobile: meta.mobile ?? null,
+          school_name: meta.schoolName ?? meta.school ?? null,
+          language: meta.language ?? "en",
+        },
+      });
+
+      const rzp = new window.Razorpay({
+        key: order.keyId,
+        order_id: order.orderId,
+        amount: order.amountPaise,
+        currency: order.currency,
+        name: "HBK Careers",
+        description: "Psychometric assessment + 20-page report",
+        prefill: {
+          name: meta.name ?? "",
+          email: meta.email ?? "",
+          contact: meta.mobile ?? "",
+        },
+        theme: { color: "#5B2A86" },
+        modal: {
+          ondismiss: () => {
+            setBusy(false);
+            setPayError("Payment was cancelled. You can try again any time.");
+          },
+        },
+        handler: async (r: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) => {
+          try {
+            const res = await confirmPayment({
+              data: {
+                orderId: r.razorpay_order_id,
+                paymentId: r.razorpay_payment_id,
+                signature: r.razorpay_signature,
+              },
+            });
+            sessionStorage.setItem(
+              "disha-test-payment",
+              JSON.stringify({
+                amount: res.amount ?? price,
+                coupon: res.coupon,
+                order_id: r.razorpay_order_id,
+                payment_id: r.razorpay_payment_id,
+                paid_at: new Date().toISOString(),
+              }),
+            );
+            navigate({ to: "/test/take" });
+          } catch (err) {
+            setBusy(false);
+            setPayError(err instanceof Error ? err.message : "We could not confirm your payment. Please contact us.");
+          }
+        },
+      });
+      rzp.open();
+    } catch (err) {
+      setBusy(false);
+      setPayError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    }
   };
 
   if (!meta) return null;
 
   return (
     <PublicLayout>
-      <section className="max-w-4xl mx-auto px-4 md:px-8 py-10">
-        <Link to="/test" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
-          <ChevronLeft className="h-3.5 w-3.5" /> Back to overview
+      <section className="mx-auto max-w-5xl px-4 py-10 md:px-8">
+        <Link to="/test" className="hbk-focus inline-flex items-center gap-1 text-caption text-muted-foreground hover:text-foreground">
+          <ChevronLeft className="h-4 w-4" /> Back to overview
         </Link>
 
-        <div className="mt-4 grid md:grid-cols-5 gap-8">
-          {/* Left — pay card */}
-          <div className="md:col-span-3 rounded-2xl border border-border bg-card p-6 md:p-8">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
-              <IndianRupee className="h-3.5 w-3.5" /> Step 1 — Payment
-            </div>
-            <h1 className="mt-2 font-serif text-2xl md:text-3xl">Unlock your 20-page report</h1>
-            <p className="text-sm text-muted-foreground mt-2">
-              Hi {meta.name}, scan the QR with any UPI app (PhonePe, GPay, Paytm, etc.) and pay the amount shown below.
+        <div className="mt-6 grid gap-8 md:grid-cols-5">
+          {/* Payment */}
+          <Card variant="surface" padding="lg" className="md:col-span-3">
+            <Badge variant="primary" size="sm">Secure payment</Badge>
+            <h1 className="mt-3 font-display text-title">Unlock your 20-page career report</h1>
+            <p className="mt-2 text-body text-muted-foreground">
+              Hi {meta.name || "there"} — pay securely with UPI, card, netbanking or wallet. Your test starts the moment
+              your payment is confirmed.
             </p>
 
-            {/* Price summary */}
-            <div className="mt-6 rounded-xl border border-border bg-background p-5">
-              <div className="flex items-baseline justify-between">
+            <div className="mt-6 rounded-lg border border-border bg-background p-5">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <div>
-                  <div className="text-xs text-muted-foreground">Test fee</div>
-                  <div className="font-serif text-3xl mt-1">
+                  <div className="text-caption text-muted-foreground">Total payable</div>
+                  <div className="mt-1 font-display text-title">
                     {couponApplied && (
-                      <span className="line-through text-muted-foreground text-xl mr-2">₹{FULL_PRICE.toLocaleString("en-IN")}</span>
+                      <span className="mr-2 text-subheading text-muted-foreground line-through">
+                        ₹{FULL_PRICE.toLocaleString("en-IN")}
+                      </span>
                     )}
-                    <span className={couponApplied ? "text-accent" : "text-primary"}>
-                      ₹{price.toLocaleString("en-IN")}
-                    </span>
+                    <span className="text-primary">₹{price.toLocaleString("en-IN")}</span>
                   </div>
                 </div>
                 {couponApplied && (
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 text-accent px-3 py-1 text-xs font-medium">
-                    <BadgePercent className="h-3.5 w-3.5" /> HBK1000 applied · save ₹{(FULL_PRICE - DISCOUNTED_PRICE).toLocaleString("en-IN")}
-                  </div>
+                  <Badge variant="success" size="sm">
+                    <BadgePercent className="h-3.5 w-3.5" /> HBK1000 · saved ₹{(FULL_PRICE - DISCOUNTED_PRICE).toLocaleString("en-IN")}
+                  </Badge>
                 )}
               </div>
 
               {!couponApplied && (
                 <div className="mt-5 border-t border-border pt-5">
-                  <div className="text-xs text-muted-foreground">Have a coupon code?</div>
-                  <div className="mt-2 flex gap-2">
-                    <input
+                  <div className="text-caption text-muted-foreground">Have a coupon code?</div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <Input
                       value={coupon}
                       onChange={(e) => setCoupon(e.target.value)}
                       placeholder="Enter coupon (e.g. HBK1000)"
-                      className="flex-1 rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      aria-label="Coupon code"
+                      className="flex-1"
                     />
-                    <button
-                      onClick={applyCoupon}
-                      className="rounded-md bg-accent text-accent-foreground px-4 py-2 text-sm font-medium hover:opacity-90"
-                    >
-                      Apply
-                    </button>
+                    <Button variant="accent" onClick={applyCoupon}>Apply</Button>
                   </div>
-                  {couponError && <div className="text-xs text-destructive mt-2">{couponError}</div>}
-                  <div className="text-[11px] text-muted-foreground mt-2">
-                    Tip: Use code <span className="font-mono font-semibold">HBK1000</span> for the introductory ₹1,500 price.
-                  </div>
+                  {couponError && <p className="mt-2 text-caption text-destructive">{couponError}</p>}
                 </div>
               )}
             </div>
 
-            {/* QR */}
-            <div className="mt-6 rounded-xl border border-border bg-background p-5 flex flex-col sm:flex-row items-center gap-5">
-              <img
-                src={paymentQR}
-                alt="HBK Careers payment QR (HDFC PayZapp)"
-                className="w-48 rounded-lg border border-border bg-white"
-              />
-              <div className="text-sm flex-1">
-                <div className="font-serif text-lg">Scan to pay ₹{price.toLocaleString("en-IN")}</div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  Pay via PhonePe, GPay, Paytm, Amazon Pay, PayZapp, or any UPI/cards-enabled app. Payee: <span className="font-medium text-foreground">The H B Kapadia New High School</span>.
-                </div>
-                <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground">
-                  <li>1. Open your UPI app and scan the QR.</li>
-                  <li>2. Enter the exact amount: <span className="font-medium text-foreground">₹{price.toLocaleString("en-IN")}</span>.</li>
-                  <li>3. Complete payment and copy the transaction reference (UTR).</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* UTR */}
-            <div className="mt-6">
-              <label className="block">
-                <span className="text-xs text-muted-foreground">Enter the 12-digit UPI Transaction Reference (UTR)</span>
-                <input
-                  value={utr}
-                  onChange={(e) => setUtr(e.target.value)}
-                  placeholder="e.g. 432189765012"
-                  className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono tracking-wider"
-                />
-              </label>
-              <p className="text-[11px] text-muted-foreground mt-2">
-                Your UTR confirms the payment. We log it against your submission so the school can verify it.
+            {payError && (
+              <p className="mt-4 rounded-md border border-destructive bg-background p-3 text-caption text-destructive">
+                {payError}
               </p>
-            </div>
+            )}
 
-            <button
-              onClick={proceed}
-              disabled={!utr.trim() || utr.trim().length < 6 || submitting}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-md px-5 py-3 text-sm font-medium hover:opacity-90 disabled:opacity-40"
-            >
-              I've paid — start the test <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
+            <Button className="mt-6" size="lg" fullWidth withArrow loading={busy} disabled={busy} onClick={pay}>
+              Pay ₹{price.toLocaleString("en-IN")} securely
+            </Button>
 
-          {/* Right — summary */}
-          <aside className="md:col-span-2 space-y-4">
-            <div className="rounded-2xl border border-border bg-card p-5">
-              <div className="text-xs uppercase tracking-widest text-accent">Order summary</div>
-              <div className="mt-3 text-sm space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Student</span>
-                  <span className="font-medium">{meta.name}</span>
+            <p className="mt-3 flex items-center justify-center gap-2 text-caption text-muted-foreground">
+              <Lock className="h-3.5 w-3.5" aria-hidden="true" /> Payments processed by Razorpay. We never see your card or UPI details.
+            </p>
+          </Card>
+
+          {/* Summary */}
+          <aside className="space-y-4 md:col-span-2">
+            <Card variant="plain" padding="md">
+              <div className="text-overline uppercase text-muted-foreground">Order summary</div>
+              <dl className="mt-3 space-y-2 text-body">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-muted-foreground">Student</dt>
+                  <dd className="font-medium">{meta.name || "—"}</dd>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Grade</span>
-                  <span className="font-medium">{meta.grade || "—"}</span>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-muted-foreground">Grade</dt>
+                  <dd className="font-medium">{meta.grade || "—"}</dd>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Assessment</span>
-                  <span className="font-medium">RIASEC + MI + Aptitude</span>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-muted-foreground">Assessment</dt>
+                  <dd className="font-medium">RIASEC + MI + Aptitude</dd>
                 </div>
-                <div className="flex justify-between border-t border-border pt-2 mt-2">
-                  <span className="text-muted-foreground">Subtotal</span>
-                  <span>₹{FULL_PRICE.toLocaleString("en-IN")}</span>
+                <div className="flex justify-between gap-3 border-t border-border pt-2">
+                  <dt className="text-muted-foreground">Subtotal</dt>
+                  <dd>₹{FULL_PRICE.toLocaleString("en-IN")}</dd>
                 </div>
                 {couponApplied && (
-                  <div className="flex justify-between text-accent">
-                    <span>Coupon HBK1000</span>
-                    <span>− ₹{(FULL_PRICE - DISCOUNTED_PRICE).toLocaleString("en-IN")}</span>
+                  <div className="flex justify-between gap-3 text-success">
+                    <dt>Coupon HBK1000</dt>
+                    <dd>− ₹{(FULL_PRICE - DISCOUNTED_PRICE).toLocaleString("en-IN")}</dd>
                   </div>
                 )}
-                <div className="flex justify-between font-serif text-lg border-t border-border pt-2 mt-2">
-                  <span>Total</span>
-                  <span className="text-primary">₹{price.toLocaleString("en-IN")}</span>
+                <div className="flex justify-between gap-3 border-t border-border pt-2 font-display text-subheading">
+                  <dt>Total</dt>
+                  <dd className="text-primary">₹{price.toLocaleString("en-IN")}</dd>
                 </div>
-              </div>
-            </div>
+              </dl>
+            </Card>
 
-            <div className="rounded-2xl border border-border bg-muted/30 p-5">
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <div className="text-xs text-muted-foreground">
-                  Payments go directly to <span className="font-medium text-foreground">The H B Kapadia New High School</span> via HDFC Bank PayZapp. We never see or store your card or UPI PIN.
-                </div>
-              </div>
-            </div>
+            <Card variant="highlight" padding="md">
+              <div className="text-overline uppercase">What you get</div>
+              <ul className="mt-3 space-y-2 text-body">
+                <li className="flex gap-2"><FileText className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" /> A 20-page personalised report for you and your parents</li>
+                <li className="flex gap-2"><Sparkles className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" /> Interests, intelligences, aptitude and stream fit</li>
+                <li className="flex gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" /> Career, exam and college pathways matched to your result</li>
+              </ul>
+            </Card>
           </aside>
         </div>
       </section>
