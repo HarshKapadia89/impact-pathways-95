@@ -25,6 +25,7 @@ export function StudentPhotoHero({
   return (
     <section className={`relative isolate overflow-hidden ${brand ? "bg-highlight text-highlight-foreground" : "bg-surface text-surface-foreground"}`}>
       <img
+        suppressHydrationWarning
         src={image}
         alt={imageAlt}
         width={1536}
