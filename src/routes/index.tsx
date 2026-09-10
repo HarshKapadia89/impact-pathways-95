@@ -38,6 +38,8 @@ import studentsHero from "@/assets/hbk-students-hero.jpg";
 import studentsPath from "@/assets/hbk-students-path.jpg";
 import reportCover from "@/assets/sample-report-cover.jpg";
 import reportRiasec from "@/assets/sample-report-riasec.jpg";
+import brandGuidePoster from "@/assets/hbk-guide-poster.png.asset.json";
+import brandStudentArrow from "@/assets/hbk-career-student-arrow.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -138,6 +140,30 @@ function HomePage() {
           </div>
         </Section>
       </div>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
+        <div className="grid items-stretch gap-6 md:grid-cols-2">
+          <Card variant="surface" padding="none" className="overflow-hidden">
+            <img
+              src={brandGuidePoster.url}
+              alt="HBK Careers poster: we guide you toward the right career path"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </Card>
+          <Card variant="surface" padding="none" className="overflow-hidden">
+            <img
+              src={brandStudentArrow.url}
+              alt="Student with books in front of the HBK Careers arrow"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </Card>
+        </div>
+      </section>
+
+
+
 
       <section className="bg-accent text-accent-foreground">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-8">
