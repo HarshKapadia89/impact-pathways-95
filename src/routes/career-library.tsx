@@ -7,6 +7,7 @@ import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import professionIndex from "@/lib/professionIndex.json";
 import { Library, ArrowRight, Search, GraduationCap } from "lucide-react";
 import { ArrowIcon, Badge, Card, Input, Stat as BrandStat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { PLATFORM_STATS } from "@/lib/platformStats";
 
 type IndexRow = { n: string; s: string; p: string };
 const PROFESSIONS = professionIndex as IndexRow[];
@@ -18,12 +19,12 @@ export const Route = createFileRoute("/career-library")({
       {
         name: "description",
         content:
-          "India-wide career library: browse 48 streams and 1,600+ professions from A to Z. Search any career to see the study path, entrance exams, top institutes, salaries and growth ladder.",
+          "India-wide career library: browse 48 streams and 1,651 professions from A to Z, with 499 entrance exams and 1,943 top institutes.",
       },
       { property: "og:title", content: "Career Library — A to Z Careers across India | HBK Careers" },
       {
         property: "og:description",
-        content: "48 streams, 1,600+ professions, 490+ entrance exams and 1,900+ top institutes across India — searchable in one place.",
+        content: "48 streams, 1,651 professions, 499 entrance exams and 1,943 top institutes across India — searchable in one place.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -85,13 +86,13 @@ function CareerLibraryPage() {
             {t4(lang, "Every career, A to Z — in one place", "A થી Z — દરેક કારકિર્દી, એક જગ્યાએ")}
           </h1>
           <p className="mt-4 text-subheading text-highlight-foreground/80 max-w-3xl">
-            {t4(lang, "Search 48 streams and 1,600+ professions — each with the study path, entrance exams, top institutes, salary bands and growth ladder.", "48 પ્રવાહો અને 1,600+ વ્યવસાયો શોધો — અભ્યાસ માર્ગ, પ્રવેશ પરીક્ષાઓ, ટોચની સંસ્થાઓ, પગાર અને વૃદ્ધિની સીડી સાથે.")}
+            {t4(lang, "Search 48 streams and 1,651 professions — with 499 entrance exams, 1,943 top institutes, study paths, salaries and growth ladders.", "48 પ્રવાહો અને 1,651 વ્યવસાયો શોધો — 499 પ્રવેશ પરીક્ષાઓ, 1,943 ટોચની સંસ્થાઓ, અભ્યાસ માર્ગો, પગાર અને વિકાસની સીડી સાથે.")}
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
-            <BrandStat value={HANDBOOK_SUMMARIES.length.toString()} label={t4(lang, "streams", "પ્રવાહો")} className="[&_p]:text-highlight-foreground" />
-            <BrandStat value={totals.professions.toLocaleString()} label={t4(lang, "professions", "વ્યવસાયો")} className="[&_p]:text-highlight-foreground" />
-            <BrandStat value={totals.exams.toLocaleString()} label={t4(lang, "entrance exams", "પરીક્ષાઓ")} className="[&_p]:text-highlight-foreground" />
-            <BrandStat value={totals.institutes.toLocaleString()} label={t4(lang, "top institutes", "સંસ્થાઓ")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={PLATFORM_STATS.careerStreams.toLocaleString("en-IN")} label={t4(lang, "streams", "પ્રવાહો")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={PLATFORM_STATS.professions.toLocaleString("en-IN")} label={t4(lang, "professions", "વ્યવસાયો")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={PLATFORM_STATS.careerEntranceExams.toLocaleString("en-IN")} label={t4(lang, "entrance exams", "પરીક્ષાઓ")} className="[&_p]:text-highlight-foreground" />
+            <BrandStat value={PLATFORM_STATS.topInstitutes.toLocaleString("en-IN")} label={t4(lang, "top institutes", "સંસ્થાઓ")} className="[&_p]:text-highlight-foreground" />
           </div>
         </div>
       </section>

@@ -2,12 +2,8 @@ import { useLang, translator } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { StatsBand } from "@/components/StatsBand";
 import { HANDBOOK_SUMMARIES } from "@/lib/handbookData";
-import professionIndex from "@/lib/professionIndex.json";
-import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
-import { SCHOLARSHIPS } from "@/lib/scholarshipsData";
-import { TOTAL_LESSONS } from "@/lib/upskilling";
+import { PLATFORM_STATS } from "@/lib/platformStats";
 import {
   ArrowIcon,
   Badge,
@@ -45,7 +41,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "HBK Careers — Career Guidance for Students" },
-      { name: "description", content: "Discover your strengths, explore 1,600+ careers, find colleges, exams and scholarships, and build your next-step plan with HBK Careers." },
+      { name: "description", content: "Discover your strengths, explore 1,651 professions, find institutes, exams and scholarships, and build your next-step plan with HBK Careers." },
       { property: "og:title", content: "HBK Careers — Find Your Direction" },
       { property: "og:description", content: "A complete career guidance platform for students in English, Gujarati, Hindi and Marathi." },
       { property: "og:type", content: "website" },
@@ -86,11 +82,11 @@ function HomePage() {
   ];
 
   const features = [
-    { icon: Library, to: "/career-library" as const, title: t({ en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }), text: `${professionIndex.length.toLocaleString("en-IN")}+ ${t({ en: "professions across", gu: "વ્યવસાયો, કુલ", hi: "पेशे, कुल", mr: "व्यवसाय, एकूण" })} ${HANDBOOK_SUMMARIES.length} ${t({ en: "streams", gu: "પ્રવાહો", hi: "स्ट्रीम", mr: "प्रवाह" })}` },
+    { icon: Library, to: "/career-library" as const, title: t({ en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }), text: `${PLATFORM_STATS.professions.toLocaleString("en-IN")} ${t({ en: "professions across", gu: "વ્યવસાયો, કુલ", hi: "पेशे, कुल", mr: "व्यवसाय, एकूण" })} ${PLATFORM_STATS.careerStreams} ${t({ en: "streams", gu: "પ્રવાહો", hi: "स्ट्रीम", mr: "પ્રवाह" })}` },
     { icon: Search, to: "/find-college" as const, title: t({ en: "Find a College", gu: "કોલેજ શોધો", hi: "कॉलेज खोजें", mr: "महाविद्यालय शोधा" }), text: t({ en: "Search by course, city, state and institution type.", gu: "કોર્સ, શહેર, રાજ્ય અને સંસ્થાના પ્રકાર મુજબ શોધો.", hi: "कोर्स, शहर, राज्य और संस्थान के प्रकार से खोजें।", mr: "अभ्यासक्रम, शहर, राज्य आणि संस्थेच्या प्रकारानुसार शोधा." }) },
-    { icon: ClipboardList, to: "/exams" as const, title: t({ en: "Entrance Exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }), text: `${ENTRANCE_EXAMS.length} ${t({ en: "exam pathways with eligibility and dates.", gu: "પરીક્ષા માર્ગો, પાત્રતા અને તારીખો સાથે.", hi: "परीक्षा मार्ग, पात्रता और तारीखों के साथ।", mr: "परीक्षा मार्ग, पात्रता आणि तारखांसह." })}` },
-    { icon: Award, to: "/scholarships" as const, title: t({ en: "Scholarships", gu: "શિષ્યવૃત્તિઓ", hi: "छात्रवृत्तियाँ", mr: "शिष्यवृत्ती" }), text: `${SCHOLARSHIPS.length} ${t({ en: "opportunities with amounts and deadlines.", gu: "તકો, રકમ અને અંતિમ તારીખ સાથે.", hi: "अवसर, राशि और अंतिम तारीखों के साथ।", mr: "संधी, रक्कम आणि अंतिम तारखांसह." })}` },
-    { icon: Rocket, to: "/upskill" as const, title: "LevelUp Lab", text: `${TOTAL_LESSONS} ${t({ en: "skill lessons, quizzes and certificates.", gu: "કુશળતા પાઠ, ક્વિઝ અને પ્રમાણપત્રો.", hi: "कौशल पाठ, क्विज़ और प्रमाणपत्र।", mr: "कौशल्य धडे, प्रश्नमंजुषा आणि प्रमाणपत्रे." })}` },
+    { icon: ClipboardList, to: "/exams" as const, title: t({ en: "Entrance Exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }), text: `${PLATFORM_STATS.entranceExamListings} ${t({ en: "exam pathways with eligibility and dates.", gu: "પરીક્ષા માર્ગો, પાત્રતા અને તારીખો સાથે.", hi: "परीक्षा मार्ग, पात्रता और तारीखों के साथ।", mr: "परीक्षा मार्ग, पात्रता आणि तारखांसહ." })}` },
+    { icon: Award, to: "/scholarships" as const, title: t({ en: "Scholarships", gu: "શિષ્યવૃત્તિઓ", hi: "छात्रवृत्तियाँ", mr: "शिष्यवृत्ती" }), text: `${PLATFORM_STATS.scholarships} ${t({ en: "opportunities with amounts and deadlines.", gu: "તકો, રકમ અને અંતિમ તારીખ સાથે.", hi: "अवसर, राशि और अंतिम तारीखों के साथ।", mr: "संधी, रक्कम आणि अंतिम तारखांसह." })}` },
+    { icon: Rocket, to: "/upskill" as const, title: "LevelUp Lab", text: `${PLATFORM_STATS.skillLessons} ${t({ en: "skill lessons, quizzes and certificates.", gu: "કુશળતા પાઠ, ક્વિઝ અને પ્રમાણપત્રો.", hi: "कौशल पाठ, क्विज़ और प्रमाणपत्र।", mr: "कौशल्य धडे, प्रश्नमंजुषा आणि प्रमाणपत्रे." })}` },
     { icon: FileText, to: "/profile-builder" as const, title: t({ en: "Resume Builder", gu: "રિઝ્યુમે બિલ્ડર", hi: "रिज़्यूमे बिल्डर", mr: "रेझ्युमे बिल्डर" }), text: t({ en: "Create a student profile ready to download and share.", gu: "ડાઉનલોડ અને શેર કરવા તૈયાર વિદ્યાર્થી પ્રોફાઇલ બનાવો.", hi: "डाउनलोड और साझा करने योग्य छात्र प्रोफ़ाइल बनाएँ।", mr: "डाउनलोड आणि शेअर करण्यासाठी विद्यार्थी प्रोफाइल तयार करा." }) },
     { icon: LayoutDashboard, to: "/dashboard" as const, title: t({ en: "Student Dashboard", gu: "વિદ્યાર્થી ડૅશબોર્ડ", hi: "स्टूडेंट डैशबोर्ड", mr: "विद्यार्थी डॅशबोर्ड" }), text: t({ en: "Keep your reports, saved careers and progress together.", gu: "તમારા રિપોર્ટ, સાચવેલી કારકિર્દી અને પ્રગતિ એક સાથે રાખો.", hi: "अपनी रिपोर्ट, सहेजे करियर और प्रगति एक साथ रखें।", mr: "अहवाल, जतन केलेली करिअर्स आणि प्रगती एकत्र ठेवा." }) },
     { icon: CalendarCheck, to: "/counsellor" as const, title: t({ en: "Book a Counsellor", gu: "માર્ગદર્શક બુક કરો", hi: "काउंसलर बुक करें", mr: "समुपदेशक बुक करा" }), text: t({ en: "Get personal guidance connected to your assessment results.", gu: "તમારા મૂલ્યાંકન પરિણામો સાથે જોડાયેલ વ્યક્તિગત માર્ગદર્શન મેળવો.", hi: "अपने आकलन नतीजों से जुड़ा व्यक्तिगत मार्गदर्शन पाएँ।", mr: "तुमच्या मूल्यांकन निकालांशी जोडलेले वैयक्तिक मार्गदर्शन मिळवा." }) },
@@ -160,8 +156,6 @@ function HomePage() {
           </div>
         </Section>
       </div>
-
-      <StatsBand lang={lang} />
 
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid overflow-hidden rounded-xl bg-highlight text-highlight-foreground md:grid-cols-2">
