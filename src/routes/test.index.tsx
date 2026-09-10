@@ -78,7 +78,12 @@ export const Route = createFileRoute("/test/")({
 
 const MARK_NOTE: Record<string, string> = {"en": "1 mark per question · MCQ · no negative marking", "hi": "प्रति प्रश्न 1 अंक · MCQ · कोई नकारात्मक अंक नहीं", "gu": "પ્રતિ પ્રશ્ન ૧ ગુણ · MCQ · નકારાત્મક ગુણ નહીં", "mr": "प्रति प्रश्न १ गुण · MCQ · ऋण गुण नाहीत"};
 
-const LEN_LABEL: Record<string, [string, string, string, string]> = {"en": ["Aptitude test length", "questions", "Marks per question", "Total marks"], "hi": ["योग्यता परीक्षा की लंबाई", "प्रश्न", "प्रति प्रश्न अंक", "कुल अंक"], "gu": ["યોગ્યતા ટેસ્ટની લંબાઈ", "પ્રશ્નો", "પ્રતિ પ્રશ્ન ગુણ", "કુલ ગુણ"], "mr": ["अ‍ॅप्टिट्यूड चाचणीची लांबी", "प्रश्न", "प्रति प्रश्न गुण", "एकूण गुण"]};
+const FIXED_TEST_NOTE: Record<string, [string, string]> = {
+  en: ["Complete assessment", "Everyone takes the same full test — interests, intelligences and the complete aptitude set for your grade."],
+  hi: ["संपूर्ण मूल्यांकन", "सभी विद्यार्थी एक ही पूर्ण परीक्षा देते हैं — रुचियाँ, बुद्धिमत्ताएँ और आपकी कक्षा के लिए पूरा योग्यता सेट।"],
+  gu: ["સંપૂર્ણ મૂલ્યાંકન", "બધા વિદ્યાર્થીઓ એક જ સંપૂર્ણ ટેસ્ટ આપે છે — રુચિઓ, બુદ્ધિમત્તાઓ અને તમારા ધોરણ માટેનો આખો યોગ્યતા સેટ."],
+  mr: ["संपूर्ण मूल्यांकन", "सर्व विद्यार्थी एकच पूर्ण चाचणी देतात — आवडी, बुद्धिमत्ता आणि तुमच्या इयत्तेसाठीचा संपूर्ण अ‍ॅप्टिट्यूड संच."],
+};
 
 function TestIntro() {
   const navigate = useNavigate();
@@ -96,7 +101,6 @@ function TestIntro() {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [parentEmail, setParentEmail] = useState("");
-  const [aptCount, setAptCount] = useState(25);
 
   const mobileDigits = mobile.replace(/\D/g, "");
   const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
@@ -126,7 +130,6 @@ function TestIntro() {
         email: email.trim(),
         parent_email: parentEmail.trim() || null,
         vibe: vibe ?? null,
-        aptCount,
         marksPerQ: 1,
       }),
     );
@@ -659,32 +662,13 @@ function TestIntro() {
                 {tp("langNote", lang)}
               </p>
             </div>
-            {/* TEST LENGTH + MARKS */}
+            {/* FULL TEST — no length selection */}
             <div className="mb-5 rounded-xl border border-accent/30 bg-accent/5 p-4">
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                <div className="text-xs font-semibold uppercase tracking-widest text-accent">
-                  {LEN_LABEL[lang][0]}
-                </div>
-                <div className="text-sm font-medium">
-                  {aptCount} {LEN_LABEL[lang][1]}
-                </div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-accent">
+                {FIXED_TEST_NOTE[lang][0]}
               </div>
-              <input
-                type="range"
-                min={10}
-                max={50}
-                step={5}
-                value={aptCount}
-                onChange={(e) => setAptCount(Number(e.target.value))}
-                className="mt-3 w-full accent-[var(--primary)]"
-              />
-              <div className="flex justify-between text-[10px] text-muted-foreground">
-                <span>10</span>
-                <span>50</span>
-              </div>
-              <p className="mt-3 text-[11px] text-muted-foreground">
-                {MARK_NOTE[lang]} · {LEN_LABEL[lang][3]}: {aptCount}
-              </p>
+              <p className="mt-2 text-[13px]">{FIXED_TEST_NOTE[lang][1]}</p>
+              <p className="mt-2 text-[11px] text-muted-foreground">{MARK_NOTE[lang]}</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
 
