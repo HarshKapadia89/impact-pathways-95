@@ -91,6 +91,7 @@
     font-weight: 700;
     letter-spacing: 0;
   }
+
 }
 
 @layer utilities {
@@ -143,4 +144,34 @@
     outline: 2px solid var(--ring);
     outline-offset: 2px;
   }
+}
+
+/* Surface-aware contrast safeguards sit after utilities so inherited muted
+   text cannot override the foreground assigned to saturated brand panels. */
+.bg-highlight :where(.text-muted-foreground, .text-foreground, .text-surface-foreground, .text-primary, .text-accent),
+.bg-highlight.text-muted-foreground,
+.bg-highlight.text-foreground,
+.bg-highlight.text-surface-foreground {
+  color: var(--highlight-foreground);
+}
+
+.bg-primary :where(.text-muted-foreground, .text-foreground, .text-surface-foreground),
+.bg-primary.text-muted-foreground,
+.bg-primary.text-foreground,
+.bg-primary.text-surface-foreground {
+  color: var(--primary-foreground);
+}
+
+.bg-info :where(.text-muted-foreground, .text-foreground, .text-surface-foreground),
+.bg-info.text-muted-foreground,
+.bg-info.text-foreground,
+.bg-info.text-surface-foreground {
+  color: var(--info-foreground);
+}
+
+.bg-success :where(.text-muted-foreground, .text-foreground, .text-surface-foreground),
+.bg-success.text-muted-foreground,
+.bg-success.text-foreground,
+.bg-success.text-surface-foreground {
+  color: var(--success-foreground);
 }
