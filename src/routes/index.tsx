@@ -143,20 +143,25 @@ function HomePage() {
 
       <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
         <div className="grid items-stretch gap-6 md:grid-cols-2">
-          <img
-            src={brandGuidePoster.url}
-            alt="HBK Careers poster: we guide you toward the right career path"
-            loading="lazy"
-            className="h-full w-full rounded-xl object-cover shadow-lift"
-          />
-          <img
-            src={brandStudentArrow.url}
-            alt="Student with books in front of the HBK Careers arrow"
-            loading="lazy"
-            className="h-full w-full rounded-xl object-cover shadow-lift"
-          />
+          <Card variant="surface" padding="none" className="overflow-hidden">
+            <img
+              src={brandGuidePoster.url}
+              alt="HBK Careers poster: we guide you toward the right career path"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </Card>
+          <Card variant="surface" padding="none" className="overflow-hidden">
+            <img
+              src={brandStudentArrow.url}
+              alt="Student with books in front of the HBK Careers arrow"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </Card>
         </div>
       </section>
+
 
 
 
