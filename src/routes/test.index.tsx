@@ -659,32 +659,13 @@ function TestIntro() {
                 {tp("langNote", lang)}
               </p>
             </div>
-            {/* TEST LENGTH + MARKS */}
+            {/* FULL TEST — no length selection */}
             <div className="mb-5 rounded-xl border border-accent/30 bg-accent/5 p-4">
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                <div className="text-xs font-semibold uppercase tracking-widest text-accent">
-                  {LEN_LABEL[lang][0]}
-                </div>
-                <div className="text-sm font-medium">
-                  {aptCount} {LEN_LABEL[lang][1]}
-                </div>
+              <div className="text-xs font-semibold uppercase tracking-widest text-accent">
+                {FIXED_TEST_NOTE[lang][0]}
               </div>
-              <input
-                type="range"
-                min={10}
-                max={50}
-                step={5}
-                value={aptCount}
-                onChange={(e) => setAptCount(Number(e.target.value))}
-                className="mt-3 w-full accent-[var(--primary)]"
-              />
-              <div className="flex justify-between text-[10px] text-muted-foreground">
-                <span>10</span>
-                <span>50</span>
-              </div>
-              <p className="mt-3 text-[11px] text-muted-foreground">
-                {MARK_NOTE[lang]} · {LEN_LABEL[lang][3]}: {aptCount}
-              </p>
+              <p className="mt-2 text-[13px]">{FIXED_TEST_NOTE[lang][1]}</p>
+              <p className="mt-2 text-[11px] text-muted-foreground">{MARK_NOTE[lang]}</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
 
