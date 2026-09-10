@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { ArrowIcon, Badge } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
-import { BrandArrows } from "@/components/BrandArrows";
 
 type StudentPhotoHeroProps = {
   image: string;
