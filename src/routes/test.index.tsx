@@ -78,7 +78,12 @@ export const Route = createFileRoute("/test/")({
 
 const MARK_NOTE: Record<string, string> = {"en": "1 mark per question · MCQ · no negative marking", "hi": "प्रति प्रश्न 1 अंक · MCQ · कोई नकारात्मक अंक नहीं", "gu": "પ્રતિ પ્રશ્ન ૧ ગુણ · MCQ · નકારાત્મક ગુણ નહીં", "mr": "प्रति प्रश्न १ गुण · MCQ · ऋण गुण नाहीत"};
 
-const LEN_LABEL: Record<string, [string, string, string, string]> = {"en": ["Aptitude test length", "questions", "Marks per question", "Total marks"], "hi": ["योग्यता परीक्षा की लंबाई", "प्रश्न", "प्रति प्रश्न अंक", "कुल अंक"], "gu": ["યોગ્યતા ટેસ્ટની લંબાઈ", "પ્રશ્નો", "પ્રતિ પ્રશ્ન ગુણ", "કુલ ગુણ"], "mr": ["अ‍ॅप्टिट्यूड चाचणीची लांबी", "प्रश्न", "प्रति प्रश्न गुण", "एकूण गुण"]};
+const FIXED_TEST_NOTE: Record<string, [string, string]> = {
+  en: ["Complete assessment", "Everyone takes the same full test — interests, intelligences and the complete aptitude set for your grade."],
+  hi: ["संपूर्ण मूल्यांकन", "सभी विद्यार्थी एक ही पूर्ण परीक्षा देते हैं — रुचियाँ, बुद्धिमत्ताएँ और आपकी कक्षा के लिए पूरा योग्यता सेट।"],
+  gu: ["સંપૂર્ણ મૂલ્યાંકન", "બધા વિદ્યાર્થીઓ એક જ સંપૂર્ણ ટેસ્ટ આપે છે — રુચિઓ, બુદ્ધિમત્તાઓ અને તમારા ધોરણ માટેનો આખો યોગ્યતા સેટ."],
+  mr: ["संपूर्ण मूल्यांकन", "सर्व विद्यार्थी एकच पूर्ण चाचणी देतात — आवडी, बुद्धिमत्ता आणि तुमच्या इयत्तेसाठीचा संपूर्ण अ‍ॅप्टिट्यूड संच."],
+};
 
 function TestIntro() {
   const navigate = useNavigate();
