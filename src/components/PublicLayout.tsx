@@ -36,7 +36,7 @@ const PRIMARY_NAV: NavItem[] = [
   { to: "/", label: { en: "Home", gu: "હોમ", hi: "होम", mr: "होम" }, icon: Sparkles },
   { to: "/test", label: { en: "Aptitude Test", gu: "અભિરુચિ ટેસ્ટ", hi: "एप्टीट्यूड टेस्ट", mr: "अ‍ॅप्टिट्यूड टेस्ट" }, short: { en: "Test", gu: "ટેસ્ટ", hi: "टेस्ट", mr: "टेस्ट" }, icon: Brain },
   { to: "/career-library", label: { en: "Career Library", gu: "કારકિર્દી લાઇબ્રેરી", hi: "करियर लाइब्रेरी", mr: "करिअर लायब्ररी" }, short: { en: "Careers", gu: "કારકિર્દી", hi: "करियर", mr: "करिअर" }, icon: Library },
-  { to: "/find-college", label: { en: "Colleges", gu: "કૉલેજ", hi: "कॉलेज", mr: "कॉलेज" }, icon: Search },
+  { to: "/find-college", label: { en: "College Finder", gu: "કૉલેજ શોધક", hi: "कॉलेज फाइंडर", mr: "कॉलेज फाइंडर" }, short: { en: "Colleges", gu: "કૉલેજ", hi: "कॉलेज", mr: "कॉलेज" }, icon: Search },
   { to: "/upskill", label: { en: "LevelUp Lab", gu: "લેવલઅપ લેબ", hi: "लेवलअप लॅब", mr: "लेवलअप लॅब" }, short: { en: "LevelUp", gu: "લેવલઅપ", hi: "लेवलअप", mr: "लेवलअप" }, icon: Rocket },
   { to: "/counsellor", label: { en: "Counsellor", gu: "માર્ગદર્શક", hi: "काउंसलर", mr: "समुपदेशक" }, icon: CalendarCheck },
 ];
