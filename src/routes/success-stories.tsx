@@ -2,7 +2,10 @@ import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
-import { Quote, Sparkles, ArrowRight, Star } from "lucide-react";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
+import { ArrowIcon, Badge, Card } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { Quote, Star } from "lucide-react";
+import careerStudents from "@/assets/hbk-career-students.jpg";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
@@ -130,29 +133,12 @@ function SuccessStoriesPage() {
 
   return (
     <PublicLayout>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} aria-hidden />
-        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-20 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-xs text-primary font-medium mb-5">
-            <Sparkles className="h-3.5 w-3.5" />
-            {t4(lang, "Where they are now", "ક્યાં છે અત્યારે?")}
-          </div>
-          <h1 className="font-serif text-4xl md:text-6xl leading-tight">
-            {t4(lang, "Real students. Real paths.", "વાસ્તવિક વિદ્યાર્થી. વાસ્તવિક પાથ.")}
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t4(lang, "Gujarat students who used HBK Careers to find their direction — and made it happen.", "ગુજરાતના વિદ્યાર્થીઓ જેમણે HBK Careers વાપરીને દિશા શોધી.")}
-          </p>
-        </div>
-      </section>
+      <StudentPhotoHero tone="brand" image={careerStudents} imageAlt="Indian students moving confidently toward their college and career goals" eyebrow={t4(lang, "Where they are now", "ક્યાં છે અત્યારે?")} title={t4(lang, "Real students. Real paths.", "વાસ્તવિક વિદ્યાર્થી. વાસ્તવિક પાથ.")} subtitle={t4(lang, "Student journeys that show how self-awareness, information and a clear plan can turn direction into action.", "વિદ્યાર્થીઓની સફર જે બતાવે છે કે આત્મજ્ઞાન, માહિતી અને સ્પષ્ટ યોજના દિશાને કાર્યમાં કેવી રીતે ફેરવે છે.")} />
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {stories.map((s) => (
-            <article
-              key={s.name}
-              className="relative rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-lift transition overflow-hidden"
-            >
+            <Card key={s.name} variant="lifted" padding="md" className="relative overflow-hidden">
               <Quote className="absolute -top-2 -right-2 h-20 w-20 text-accent/10" />
               <div className="flex items-center gap-1 text-amber-500">
                 {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
@@ -162,11 +148,9 @@ function SuccessStoriesPage() {
                 <div className="text-sm font-semibold">{s.name}</div>
                 <div className="text-xs text-muted-foreground">{s.grade} · {s.city}</div>
                 <div className="text-xs text-accent font-medium mt-1">{s.where}</div>
-                <span className="inline-block mt-3 text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-accent/10 text-accent font-semibold">
-                  {s.tag}
-                </span>
+                <div className="mt-3"><Badge variant="accent" size="sm">{s.tag}</Badge></div>
               </div>
-            </article>
+            </Card>
           ))}
         </div>
       </section>
@@ -176,8 +160,8 @@ function SuccessStoriesPage() {
           {t4(lang, "Your story is next.", "તમારી વાર્તા આગળ છે.")}
         </h2>
         <div className="mt-6">
-          <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">
-            {t4(lang, "Take the free test", "મફત ટેસ્ટ આપો")} <ArrowRight className="h-4 w-4" />
+          <Link to="/test" className="brand-link hbk-focus inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">
+            {t4(lang, "Take the free test", "મફત ટેસ્ટ આપો")} <ArrowIcon size={16} />
           </Link>
         </div>
       </section>

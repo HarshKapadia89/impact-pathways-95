@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { supabase } from "@/integrations/supabase/client";
 import { getCurrentToken, getCurrentStudentName } from "@/lib/dashboardStore";
 import { useLang } from "@/lib/lang";
@@ -15,6 +16,7 @@ import {
   Brain,
 } from "lucide-react";
 import { Badge, Button, Card, Input, Select, Textarea } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import communityImage from "@/assets/hbk-guidance-community.jpg";
 
 export const Route = createFileRoute("/counsellor")({
   head: () => ({
@@ -149,22 +151,12 @@ function CounsellorPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-highlight text-highlight-foreground">
-        <header className="mx-auto max-w-4xl px-4 py-16 text-center md:px-8 md:py-20">
-          <Badge variant="accent" withArrow>{pick(lang, { en: "Free 1:1 Session", gu: "મફત 1:1 સત્ર", hi: "मुफ़्त 1:1 सत्र", mr: "मोफत 1:1 सत्र" })}</Badge>
-          <h1 className="mt-6 font-display text-title md:text-display">
-            {pick(lang, { en: "Talk to a Career Counsellor", gu: "કારકિર્દી માર્ગદર્શક સાથે વાત કરો", hi: "करियर काउंसलर से बात करें", mr: "करिअर समुपदेशकाशी बोला" })}
-          </h1>
-          <p className="mt-5 text-subheading text-highlight-foreground/80 max-w-2xl mx-auto">
-            {pick(lang, {
+      <StudentPhotoHero tone="brand" image={communityImage} imageAlt="An Indian student receiving personal career guidance from an educator" eyebrow={pick(lang, { en: "Free 1:1 Session", gu: "મફત 1:1 સત્ર", hi: "मुफ़्त 1:1 सत्र", mr: "मोफत 1:1 सत्र" })} title={pick(lang, { en: "Talk to a Career Counsellor", gu: "કારકિર્દી માર્ગદર્શક સાથે વાત કરો", hi: "करियर काउंसलर से बात करें", mr: "करिअर समुपदेशकाशी बोला" })} subtitle={pick(lang, {
               en: "Book a personal session. Our counsellor reviews your aptitude test results and helps you decide your stream, career and next steps.",
               gu: "વ્યક્તિગત સત્ર બુક કરો. અમારા માર્ગદર્શક તમારા ટેસ્ટના પરિણામો જોઈને પ્રવાહ, કારકિર્દી અને આગળના પગલાં નક્કી કરવામાં મદદ કરે છે.",
               hi: "व्यक्तिगत सत्र बुक करें। हमारे काउंसलर आपके टेस्ट के नतीजे देखकर स्ट्रीम, करियर और अगले कदम तय करने में मदद करते हैं।",
               mr: "वैयक्तिक सत्र बुक करा. आमचे समुपदेशक तुमच्या टेस्ट निकालांवरून प्रवाह, करिअर आणि पुढील पायऱ्या ठरवण्यास मदत करतात.",
-            })}
-          </p>
-        </header>
-      </section>
+            })} />
       <div className="mx-auto max-w-3xl px-4 py-10 md:py-14 space-y-8">
 
         {done ? (

@@ -6,6 +6,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { ENTRANCE_EXAMS } from "@/lib/entranceExamsData";
 import { Search, Calendar, FileCheck, X, Filter, ArrowRight, Building2 } from "lucide-react";
 import { Badge, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import planningStudents from "@/assets/hbk-planning-students.jpg";
 
 export const Route = createFileRoute("/exams")({
   head: () => ({
@@ -53,7 +54,8 @@ function ExamsPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-highlight text-highlight-foreground">
+      <section className="relative isolate overflow-hidden bg-highlight text-highlight-foreground">
+        <img src={planningStudents} alt="Indian students preparing for entrance exams" width={1536} height={1024} className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-20 mix-blend-luminosity" />
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
           <Badge variant="accent" withArrow>{t4(lang, "Entrance Exams", "પ્રવેશ પરીક્ષાઓ")}</Badge>
           <h1 className="font-display text-title md:text-display mt-6">

@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { Search, MapPin, Globe, GraduationCap, Building2, Filter } from "lucide-react";
 import { Badge, Card, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import careerStudents from "@/assets/hbk-career-students.jpg";
 
 type College = Tables<"colleges">;
 
@@ -82,7 +83,8 @@ function CollegesPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-accent text-accent-foreground">
+      <section className="relative isolate overflow-hidden bg-accent text-accent-foreground">
+        <img src={careerStudents} alt="Indian students on a college campus" width={1536} height={1024} className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-20 mix-blend-multiply" />
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
           <Badge variant="highlight" withArrow>{t4(lang, "College Finder", "કોલેજ શોધ")}</Badge>
           <h1 className="font-display text-title md:text-display mt-6">

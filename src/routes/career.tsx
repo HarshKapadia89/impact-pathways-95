@@ -3,6 +3,7 @@ import { useLang, type Lang } from "@/lib/lang";
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { STREAMS, ENTRANCE_EXAMS } from "@/lib/careerData";
 import { GUJ_COLLEGES, GUJ_COLLEGE_STATS, type CategoryGroup } from "@/lib/gujaratColleges";
 import {
@@ -17,6 +18,8 @@ import {
   Users,
   Search as SearchIcon,
 } from "lucide-react";
+import { Badge, Card, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import careerStudents from "@/assets/hbk-career-students.jpg";
 
 export const Route = createFileRoute("/career")({
   head: () => ({
@@ -51,19 +54,9 @@ function CareerIndex() {
   return (
     <PublicLayout>
       {/* HERO */}
-      <section className="bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b border-border">
+      <StudentPhotoHero tone="brand" image={careerStudents} imageAlt="Indian students exploring higher education and career directions" eyebrow={t4(lang, "Gujarat-focused guidance", "ગુજરાત-કેન્દ્રિત માર્ગદર્શન")} title={t4(lang, "Career Guidance — Gujarat", "કારકિર્દી માર્ગદર્શન — ગુજરાત")} subtitle={t4(lang, "Explore Gujarat colleges, courses, entrance exams, counselling and state schemes—connected to the wider Career Library.", "ગુજરાતની કોલેજો, અભ્યાસક્રમો, પ્રવેશ પરીક્ષાઓ, કાઉન્સેલિંગ અને રાજ્ય યોજનાઓ શોધો—વિસ્તૃત કારકિર્દી લાઇબ્રેરી સાથે જોડાયેલ.")} />
+      <section className="border-b border-border bg-surface">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary px-3 py-1 text-xs font-medium">
-            <MapPin className="h-3.5 w-3.5" />
-            {t4(lang, "100% Gujarat-focused", "ગુજરાત-કેન્દ્રિત")}
-          </div>
-          <h1 className="font-serif text-3xl md:text-5xl mt-3">
-            {t4(lang, "Career Guidance — Gujarat", "કારકિર્દી માર્ગદર્શન — ગુજરાત")}
-          </h1>
-          <p className="mt-3 text-muted-foreground max-w-3xl">
-            {t4(lang, "Top Gujarat colleges for every stream after Class 12 — careers, courses, entrance exams (GUJCET, JEE, NEET, CLAT, NID), ACPC counselling, MYSY scholarship and state schemes — all in one place.", "ધોરણ 12 પછીના દરેક પ્રવાહ માટે ગુજરાતની ટોચની કોલેજો, વિગતવાર કારકિર્દી, અભ્યાસક્રમો, પ્રવેશ પરીક્ષાઓ (GUJCET, JEE, NEET, CLAT, NID), ACPC કાઉન્સેલિંગ, MYSY શિષ્યવૃત્તિ અને રાજ્ય યોજનાઓ — એક જ જગ્યાએ.")}
-          </p>
-
           <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-3 max-w-4xl">
             <Stat label={t4(lang, "Streams", "પ્રવાહો")} value={String(STREAMS.length)} />
             <Stat
@@ -282,29 +275,20 @@ function CareerIndex() {
 
 /* ---------------------------- Subcomponents ---------------------------- */
 
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl border border-border bg-card px-3 py-2.5">
-      <div className="text-lg md:text-xl font-serif text-foreground">{value}</div>
-      <div className="text-[11px] uppercase tracking-wide text-muted-foreground mt-0.5">{label}</div>
-    </div>
-  );
-}
-
 function ResourceCard({ title, sub, url }: { title: string; sub: string; url: string }) {
   return (
     <a
       href={`https://${url}`}
       target="_blank"
       rel="noreferrer"
-      className="block rounded-xl border border-border bg-card p-4 hover:border-primary/40 hover:shadow-lift transition-all"
+      className="brand-link block rounded-lg"
     >
-      <div className="font-medium text-foreground">{title}</div>
+      <Card variant="arrow" padding="sm" className="h-full"><div className="font-medium text-foreground">{title}</div>
       <div className="text-xs text-muted-foreground mt-1">{sub}</div>
       <div className="text-xs text-primary mt-2 inline-flex items-center gap-1 hover:underline">
         <ExternalLink className="h-3 w-3" />
         {url}
-      </div>
+      </div></Card>
     </a>
   );
 }

@@ -2,8 +2,10 @@ import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
-import { Card } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
-import { GraduationCap, Heart, Globe, Shield, ArrowRight } from "lucide-react";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
+import { ArrowIcon, Card } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { GraduationCap, Heart, Globe, Shield } from "lucide-react";
+import communityImage from "@/assets/hbk-guidance-community.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -55,21 +57,7 @@ function AboutPage() {
 
   return (
     <PublicLayout>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} aria-hidden />
-        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-xs text-primary font-medium mb-5">
-            <GraduationCap className="h-3.5 w-3.5" />
-            {t4(lang, "Our story", "અમારી વાર્તા")}
-          </div>
-          <h1 className="font-serif text-4xl md:text-6xl leading-tight">
-            {t4(lang, "Every student deserves to choose with clarity.", "દરેક વિદ્યાર્થી દિશા જાણીને નિર્ણય લે.")}
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            {t4(lang, "HBK Careers is built by The H B Kapadia New High School, Ahmedabad — a school that has been teaching Gujarat's students since 1925. We noticed that most decisions after Class 10 are made out of fear, family pressure, or incomplete information. So we built this — free, bilingual, and grounded in real psychometric science.", "HBK Careers The H B Kapadia New High School, અમદાવાદ દ્વારા બનાવાયેલ છે — 1925 થી ગુજરાતના વિદ્યાર્થીઓને ભણાવનાર શાળા. અમે જોયું કે ધોરણ 10 પછી મોટાભાગના નિર્ણયો ડર, દબાણ અથવા અધૂરી માહિતી પર લેવાય છે. તેથી અમે આ બનાવ્યું — મફત, દ્વિભાષી, અને વૈજ્ઞાનિક.")}
-          </p>
-        </div>
-      </section>
+      <StudentPhotoHero image={communityImage} imageAlt="Indian students, a parent and an educator discussing a career plan" eyebrow={t4(lang, "Our story", "અમારી વાર્તા")} title={t4(lang, "Every student deserves to choose with clarity.", "દરેક વિદ્યાર્થી દિશા જાણીને નિર્ણય લે.")} subtitle={t4(lang, "Built by educators at The H B Kapadia New High School, Ahmedabad—free, student-first guidance grounded in real psychometric science.", "The H B Kapadia New High School, અમદાવાદના શિક્ષકો દ્વારા બનાવાયેલ—મફત, વિદ્યાર્થી-કેન્દ્રિત અને વૈજ્ઞાનિક માર્ગદર્શન.")} />
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-14">
         <h2 className="font-serif text-2xl md:text-3xl mb-8">{t4(lang, "What we stand for", "અમારા મૂલ્યો")}</h2>
@@ -89,10 +77,10 @@ function AboutPage() {
           {t4(lang, "Find your direction — free", "તમારી દિશા શોધો — મફત")}
         </h2>
         <div className="mt-6 flex flex-wrap gap-3 justify-center">
-          <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">
-            {t4(lang, "Take the test", "ટેસ્ટ આપો")} <ArrowRight className="h-4 w-4" />
+          <Link to="/test" className="brand-link hbk-focus inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">
+            {t4(lang, "Take the test", "ટેસ્ટ આપો")} <ArrowIcon size={16} />
           </Link>
-          <Link to="/for-schools" className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold border-2 border-accent/40 hover:bg-accent/10 transition">
+          <Link to="/for-schools" className="brand-link hbk-focus inline-flex h-12 items-center gap-2 rounded-md border border-border px-6 text-subheading font-semibold">
             {t4(lang, "For schools", "શાળાઓ માટે")}
           </Link>
         </div>

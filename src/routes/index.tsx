@@ -1,6 +1,7 @@
 import { useLang, translator } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { HANDBOOK_SUMMARIES } from "@/lib/handbookData";
 import { PLATFORM_STATS } from "@/lib/platformStats";
@@ -95,29 +96,23 @@ function HomePage() {
 
   return (
     <PublicLayout>
-      <section className="relative overflow-hidden bg-surface">
-        <img src={studentsHero} alt="Indian students discussing their future on a school campus" width={1600} height={1000} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-background/85 md:bg-background/70" aria-hidden />
-        <div className="relative mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl items-center px-4 py-16 md:px-8">
-          <div className="max-w-2xl">
-            <Badge variant="accent" withArrow>{t({ en: "Grades 6–12 · Four languages", gu: "ધોરણ 6–12 · ચાર ભાષાઓ", hi: "कक्षा 6–12 · चार भाषाएँ", mr: "इयत्ता 6–12 · चार भाषा" })}</Badge>
-            <h1 className="mt-6 font-display text-display text-foreground">HBK Careers</h1>
-            <p className="mt-4 font-display text-title text-highlight">{t({ en: "Find your direction.", gu: "તમારી દિશા શોધો.", hi: "अपनी दिशा खोजें।", mr: "तुमची दिशा शोधा." })}</p>
-            <p className="mt-6 max-w-xl text-subheading text-foreground">{t({ en: "Know your strengths. Explore every possibility. Build a clear plan for the future—with guidance made for students like you.", gu: "તમારી શક્તિઓ જાણો. દરેક શક્યતા શોધો. તમારા જેવા વિદ્યાર્થીઓ માટે બનાવેલા માર્ગદર્શન સાથે ભવિષ્યની સ્પષ્ટ યોજના બનાવો.", hi: "अपनी क्षमताएँ जानें। हर संभावना देखें। अपने जैसे विद्यार्थियों के लिए बनाए गए मार्गदर्शन से भविष्य की स्पष्ट योजना बनाएँ।", mr: "तुमच्या क्षमता जाणा. प्रत्येक शक्यता शोधा. तुमच्यासारख्या विद्यार्थ्यांसाठी तयार केलेल्या मार्गदर्शनासह भविष्याची स्पष्ट योजना बनवा." })}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+      <StudentPhotoHero
+        image={studentsHero}
+        imageAlt="Indian students discussing their future on a school campus"
+        eyebrow={t({ en: "Grades 6–12 · Four languages", gu: "ધોરણ 6–12 · ચાર ભાષાઓ", hi: "कक्षा 6–12 · चार भाषाएँ", mr: "इयत्ता 6–12 · चार भाषा" })}
+        title="HBK Careers"
+        subtitle={t({ en: "Find your direction. Know your strengths, explore every possibility and build a clear plan for your future.", gu: "તમારી દિશા શોધો. તમારી શક્તિઓ જાણો, દરેક શક્યતા શોધો અને તમારા ભવિષ્ય માટે સ્પષ્ટ યોજના બનાવો.", hi: "अपनी दिशा खोजें। अपनी क्षमताएँ जानें, हर संभावना देखें और अपने भविष्य की स्पष्ट योजना बनाएँ।", mr: "तुमची दिशा शोधा. तुमच्या क्षमता जाणा, प्रत्येक शक्यता शोधा आणि भविष्यासाठी स्पष्ट योजना बनवा." })}
+        actions={
+          <>
               <Link to="/test" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 font-body text-subheading font-semibold text-primary-foreground transition-[background-color,color,border-color,box-shadow] hover:brightness-95 active:brightness-90">
                 <Brain className="h-5 w-5" aria-hidden />{t({ en: "Take the aptitude test", gu: "અભિરુચિ ટેસ્ટ આપો", hi: "एप्टीट्यूड टेस्ट दें", mr: "अ‍ॅप्टिट्यूड टेस्ट द्या" })}<ArrowIcon size={18} />
               </Link>
               <Link to="/career-library" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-6 font-body text-subheading font-semibold text-foreground transition-[background-color,color,border-color,box-shadow] hover:bg-muted">
                 {t({ en: "Explore careers", gu: "કારકિર્દી શોધો", hi: "करियर देखें", mr: "करिअर शोधा" })}<ArrowIcon size={18} />
               </Link>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-4 text-caption text-foreground">
-              {[t({ en: "No login to explore", gu: "અન્વેષણ માટે લૉગિન નહીં", hi: "जानकारी के लिए लॉगिन नहीं", mr: "माहितीसाठी लॉगिन नाही" }), t({ en: "Evidence-based assessment", gu: "પુરાવા આધારિત મૂલ્યાંકન", hi: "प्रमाण-आधारित आकलन", mr: "पुराव्यावर आधारित मूल्यांकन" }), t({ en: "India-focused pathways", gu: "ભારત કેન્દ્રિત માર્ગો", hi: "भारत-केंद्रित रास्ते", mr: "भारत-केंद्रित मार्ग" })].map((item) => <span key={item} className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-success" />{item}</span>)}
-            </div>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <Section spacing="lg" eyebrow={t({ en: "One clear journey", gu: "એક સ્પષ્ટ સફર", hi: "एक स्पष्ट यात्रा", mr: "एक स्पष्ट प्रवास" })} title={t({ en: "From uncertainty to your next move", gu: "અનિશ્ચિતતાથી તમારા આગલા પગલા સુધી", hi: "उलझन से अपने अगले कदम तक", mr: "अनिश्चिततेपासून पुढच्या पावलापर्यंत" })} description={t({ en: "A connected path that helps you understand yourself before choosing what comes next.", gu: "આગળ શું પસંદ કરવું તે પહેલાં પોતાને સમજવામાં મદદ કરતો જોડાયેલ માર્ગ.", hi: "आगे क्या चुनना है, उससे पहले खुद को समझने में मदद करने वाला जुड़ा रास्ता।", mr: "पुढे काय निवडायचे याआधी स्वतःला समजून घेण्यास मदत करणारा सलग मार्ग." })}>
