@@ -3,7 +3,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { StatsBand } from "@/components/StatsBand";
-import { BrandArrows } from "@/components/BrandArrows";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { HANDBOOK_SUMMARIES } from "@/lib/handbookData";
 import { PLATFORM_STATS } from "@/lib/platformStats";
@@ -110,7 +109,6 @@ function HomePage() {
           className="absolute inset-0 -z-20 h-full w-full object-cover object-right mix-blend-luminosity opacity-30"
         />
         <div className="absolute inset-0 -z-10 bg-highlight/75" aria-hidden />
-        <BrandArrows width={520} className="pointer-events-none absolute -right-20 -top-24 -z-10 opacity-30" />
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-28">
           <div className="max-w-5xl">
             <Badge variant="accent" withArrow>{t({ en: "HBK Careers · Grades 6–12 · Four languages", gu: "HBK Careers · ધોરણ 6–12 · ચાર ભાષાઓ", hi: "HBK Careers · कक्षा 6–12 · चार भाषाएँ", mr: "HBK Careers · इयत्ता 6–12 · चार भाषा" })}</Badge>
@@ -143,7 +141,7 @@ function HomePage() {
       </div>
 
       <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
-        <div className="grid items-stretch gap-6 md:grid-cols-3">
+        <div className="grid items-stretch gap-6 md:grid-cols-2">
           <Card variant="surface" padding="none" className="overflow-hidden">
             <img
               src={brandGuidePoster.url}
@@ -159,9 +157,6 @@ function HomePage() {
               loading="lazy"
               className="h-full w-full object-cover"
             />
-          </Card>
-          <Card variant="highlight" padding="lg" className="flex items-center justify-center">
-            <BrandArrows width={320} className="h-auto w-full max-w-56" />
           </Card>
         </div>
       </section>

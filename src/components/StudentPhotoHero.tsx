@@ -35,7 +35,6 @@ export function StudentPhotoHero({
       />
       <div className={`absolute inset-0 -z-10 ${brand ? "bg-highlight/70" : "bg-background/65 md:bg-transparent"}`} aria-hidden />
       {brand ? (
-        <BrandArrows width={420} className="pointer-events-none absolute -right-12 -top-12 -z-10 opacity-25" />
       ) : (
         <ArrowIcon size={280} weight="bold" className="pointer-events-none absolute -right-16 -top-16 -z-10 text-highlight opacity-10" />
       )}

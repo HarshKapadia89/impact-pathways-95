@@ -72,7 +72,6 @@ function UpskillHub() {
     <PublicLayout>
       <section className="relative isolate overflow-hidden bg-accent text-accent-foreground">
         <img src={levelUpStudents} alt="Indian students building practical skills together" width={1536} height={1024} className="absolute inset-0 -z-20 h-full w-full object-cover object-right opacity-20 mix-blend-multiply" />
-        <BrandArrows width={460} className="pointer-events-none absolute -right-16 -top-16 -z-10 opacity-15" />
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
         <Badge variant="highlight" withArrow>{t("hubKicker")}</Badge>
         <h1 className="font-display text-title md:text-display mt-6">{t("hubTitle")}</h1>
