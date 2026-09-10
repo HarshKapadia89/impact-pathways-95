@@ -6,6 +6,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { SCHOLARSHIPS, DO_NOT_CIRCULATE, SCHOLARSHIP_PRIORITY_ORDER } from "@/lib/scholarshipsData";
 import { Search, IndianRupee, Calendar, ExternalLink, GraduationCap, Filter, X, AlertTriangle, Users } from "lucide-react";
 import { Badge, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import discoveryStudents from "@/assets/hbk-discovery-students.jpg";
 
 export const Route = createFileRoute("/scholarships")({
   head: () => ({
@@ -62,7 +63,8 @@ function ScholarshipsPage() {
 
   return (
     <PublicLayout>
-      <section className="bg-accent text-accent-foreground">
+      <section className="relative isolate overflow-hidden bg-accent text-accent-foreground">
+        <img src={discoveryStudents} alt="Indian students exploring scholarship opportunities" width={1536} height={1024} className="absolute inset-0 -z-10 h-full w-full object-cover object-right opacity-20 mix-blend-multiply" />
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
           <Badge variant="highlight" withArrow>{t4(lang, "Scholarships Directory", "શિષ્યવૃત્તિ ડિરેક્ટરી")}</Badge>
           <h1 className="font-display text-title md:text-display mt-6">

@@ -34,6 +34,7 @@ import sampleMI from "@/assets/sample-report-mi.jpg";
 import sampleCareers from "@/assets/sample-report-careers.jpg";
 import sampleActionPlan from "@/assets/sample-report-action-plan.jpg";
 import { ArrowIcon, Badge } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import planningStudents from "@/assets/hbk-planning-students.jpg";
 
 type VibeId = "investigator" | "creator" | "builder" | "leader";
 const VIBE_IDS: VibeId[] = ["investigator", "creator", "builder", "leader"];
@@ -198,6 +199,8 @@ function TestIntro() {
     <PublicLayout>
       {/* HERO */}
       <section className="relative overflow-hidden bg-highlight text-highlight-foreground">
+        <img suppressHydrationWarning src={planningStudents} alt="Indian students preparing for their next academic step" width={1536} height={1024} className="absolute inset-0 h-full w-full object-cover object-right opacity-15 mix-blend-luminosity" />
+        <ArrowIcon size={280} weight="bold" className="pointer-events-none absolute -right-16 -top-16 text-accent opacity-15" />
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
             {vibeMeta && (
@@ -240,7 +243,7 @@ function TestIntro() {
               </a>
               <a
                 href="#sample"
-                className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-background px-6 text-subheading font-semibold text-foreground"
+                className="brand-link inline-flex h-12 items-center gap-2 rounded-md bg-accent px-6 text-subheading font-semibold text-accent-foreground"
               >
                 {tp("ctaSample", lang)}
               </a>

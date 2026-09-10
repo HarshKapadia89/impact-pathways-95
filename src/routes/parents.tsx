@@ -2,7 +2,10 @@ import { t4 } from "@/lib/t4";
 import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
-import { Heart, ShieldCheck, IndianRupee, Calendar, MessageSquare, ArrowRight } from "lucide-react";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
+import { ArrowIcon, Card } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { ShieldCheck, IndianRupee, Calendar, MessageSquare } from "lucide-react";
+import communityImage from "@/assets/hbk-guidance-community.jpg";
 
 export const Route = createFileRoute("/parents")({
   head: () => ({
@@ -54,27 +57,7 @@ function ParentsPage() {
 
   return (
     <PublicLayout>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} aria-hidden />
-        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/15 px-3 py-1 text-xs text-primary font-medium mb-5">
-            <Heart className="h-3.5 w-3.5" />
-            {t4(lang, "For parents", "માતા-પિતા માટે")}
-          </div>
-          <h1 className="font-serif text-4xl md:text-6xl leading-tight">
-            {t4(lang, "Decide together. Without pressure.", "નિર્ણય એકસાથે લો. દબાણ વગર.")}
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t4(lang, "Let your child take the test. Then read the 20-page report together — in Gujarati or English. It's free, private, and built by a school you can trust.", "તમારા બાળકને ટેસ્ટ આપવા દો. પછી 20-પાનાનો રિપોર્ટ સાથે વાંચો. ગુજરાતી અથવા અંગ્રેજીમાં.")}
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3 justify-center">
-            <Link to="/test" className="inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-full px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 transition">
-              {t4(lang, "Ask your child to take the test", "બાળકને ટેસ્ટ આપવા કહો")}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <StudentPhotoHero image={communityImage} imageAlt="An Indian family and educator reviewing a student's career plan" eyebrow={t4(lang, "For parents", "માતા-પિતા માટે")} title={t4(lang, "Decide together. Without pressure.", "નિર્ણય એકસાથે લો. દબાણ વગર.")} subtitle={t4(lang, "Understand your child's strengths, read the personalised report together and turn uncertainty into a practical next step.", "તમારા બાળકની શક્તિઓ સમજો, વ્યક્તિગત રિપોર્ટ સાથે વાંચો અને અનિશ્ચિતતાને વ્યવહારુ આગલા પગલામાં ફેરવો.")} actions={<Link to="/test" className="brand-link hbk-focus inline-flex h-12 items-center gap-2 rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">{t4(lang, "Ask your child to take the test", "બાળકને ટેસ્ટ આપવા કહો")}<ArrowIcon size={16} /></Link>} />
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-14">
         <h2 className="font-serif text-2xl md:text-3xl text-center mb-8">
@@ -82,19 +65,17 @@ function ParentsPage() {
         </h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {cards.map((c) => (
-            <div key={c.title} className="rounded-2xl border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-lift transition">
-              <div className="h-10 w-10 rounded-xl flex items-center justify-center" style={{ background: "color-mix(in oklab, var(--accent) 15%, transparent)" }}>
-                <c.icon className="h-5 w-5 text-accent" />
-              </div>
+            <Card key={c.title} variant="arrow" padding="md">
+              <c.icon className="h-6 w-6 text-primary" />
               <div className="mt-3 font-serif text-lg">{c.title}</div>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{c.desc}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 md:px-8 py-14">
-        <div className="rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/10 to-primary/5 p-8 md:p-10">
+        <Card variant="highlight" padding="lg">
           <h2 className="font-serif text-2xl md:text-3xl">
             {t4(lang, "How to read the report together", "રિપોર્ટ કેવી રીતે વાંચવો?")}
           </h2>
@@ -104,7 +85,7 @@ function ParentsPage() {
             <li><span className="font-semibold text-foreground">3.</span> {t4(lang, "Review the salary ranges — these are real Gujarat figures.", "પગાર શ્રેણી જુઓ — તે વાસ્તવિક Gujarat ડેટા છે.")}</li>
             <li><span className="font-semibold text-foreground">4.</span> {t4(lang, "Open the 90-day plan together. Take one step per week.", "90-દિવસનો પ્લાન સાથે ખોલો. અઠવાડિક એક પગલું ભરો.")}</li>
           </ol>
-        </div>
+        </Card>
       </section>
     </PublicLayout>
   );

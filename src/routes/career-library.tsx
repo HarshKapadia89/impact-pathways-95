@@ -3,11 +3,13 @@ import { useLang } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
+import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { HANDBOOK_SUMMARIES, streamEmoji } from "@/lib/handbookData";
 import professionIndex from "@/lib/professionIndex.json";
 import { Library, ArrowRight, Search, GraduationCap } from "lucide-react";
 import { ArrowIcon, Badge, Card, Input, Stat as BrandStat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { PLATFORM_STATS } from "@/lib/platformStats";
+import careerStudents from "@/assets/hbk-career-students.jpg";
 
 type IndexRow = { n: string; s: string; p: string };
 const PROFESSIONS = professionIndex as IndexRow[];
@@ -66,16 +68,10 @@ function CareerLibraryPage() {
 
   return (
     <PublicLayout>
+      <StudentPhotoHero tone="brand" image={careerStudents} imageAlt="Indian students exploring college and career possibilities" eyebrow={t4(lang, "Career Library", "કારકિર્દી લાઇબ્રેરી")} title={t4(lang, "Every career, A to Z — in one place", "A થી Z — દરેક કારકિર્દી, એક જગ્યાએ")} subtitle={t4(lang, "Search 48 streams and 1,651 professions—with entrance exams, top institutes, study paths, salaries and growth ladders.", "48 પ્રવાહો અને 1,651 વ્યવસાયો શોધો—પ્રવેશ પરીક્ષાઓ, ટોચની સંસ્થાઓ, અભ્યાસ માર્ગો, પગાર અને વિકાસની સીડી સાથે.")} />
       <section className="bg-highlight text-highlight-foreground">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
-          <Badge variant="accent" withArrow>{t4(lang, "Career Library", "કારકિર્દી લાઇબ્રેરી")}</Badge>
-          <h1 className="font-display text-title md:text-display mt-6">
-            {t4(lang, "Every career, A to Z — in one place", "A થી Z — દરેક કારકિર્દી, એક જગ્યાએ")}
-          </h1>
-          <p className="mt-4 text-subheading text-highlight-foreground/80 max-w-3xl">
-            {t4(lang, "Search 48 streams and 1,651 professions — with 499 entrance exams, 1,943 top institutes, study paths, salaries and growth ladders.", "48 પ્રવાહો અને 1,651 વ્યવસાયો શોધો — 499 પ્રવેશ પરીક્ષાઓ, 1,943 ટોચની સંસ્થાઓ, અભ્યાસ માર્ગો, પગાર અને વિકાસની સીડી સાથે.")}
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 py-8 md:px-8">
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             <BrandStat value={PLATFORM_STATS.careerStreams.toLocaleString("en-IN")} label={t4(lang, "streams", "પ્રવાહો")} className="[&_p]:text-highlight-foreground" />
             <BrandStat value={PLATFORM_STATS.professions.toLocaleString("en-IN")} label={t4(lang, "professions", "વ્યવસાયો")} className="[&_p]:text-highlight-foreground" />
             <BrandStat value={PLATFORM_STATS.careerEntranceExams.toLocaleString("en-IN")} label={t4(lang, "entrance exams", "પરીક્ષાઓ")} className="[&_p]:text-highlight-foreground" />

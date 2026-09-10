@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { UpskillProgressCard } from "@/components/UpskillProgressCard";
-import { Card, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { Button, Card, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { supabase } from "@/integrations/supabase/client";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
 import {
@@ -212,23 +212,20 @@ function DashboardPage() {
             {tabs.map((t) => {
               const active = tab === t.id;
               return (
-                <button
+                <Button
                   key={t.id}
                   onClick={() => setTab(t.id)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-sm transition ${
-                    active
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "bg-card border border-border hover:bg-muted"
-                  }`}
+                  variant={active ? "primary" : "outline"}
+                  size="sm"
                 >
                   <t.icon className="h-4 w-4" />
                   {t.label}
                   {typeof t.count === "number" && t.count > 0 && (
-                    <span className={`ml-1 text-[10px] rounded-full px-1.5 py-0.5 ${active ? "bg-primary-foreground/20" : "bg-accent/15 text-accent"}`}>
+                    <span>
                       {t.count}
                     </span>
                   )}
-                </button>
+                </Button>
               );
             })}
           </div>
