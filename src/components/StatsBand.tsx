@@ -18,9 +18,7 @@ export function StatsBand({ lang }: { lang: Lang }) {
     <section className="bg-accent text-accent-foreground" aria-label={t({ en: "Platform statistics", gu: "પ્લેટફોર્મ આંકડા", hi: "प्लेटफ़ॉर्म आँकड़े", mr: "प्लॅटफॉर्म आकडेवारी" })}>
       <div className="mx-auto grid max-w-7xl grid-cols-2 items-stretch gap-8 px-4 py-12 sm:grid-cols-4 md:px-8 lg:grid-cols-8">
         {stats.map((item) => (
-          <div key={item.label} className="flex h-full min-w-0 flex-col justify-between">
-            <Stat label={item.label} value={item.value} />
-          </div>
+          <Stat key={item.label} label={item.label} value={item.value} className="h-full min-w-0 justify-between" />
         ))}
       </div>
     </section>
