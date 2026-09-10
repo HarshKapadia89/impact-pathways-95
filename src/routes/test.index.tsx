@@ -101,7 +101,6 @@ function TestIntro() {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [parentEmail, setParentEmail] = useState("");
-  const [aptCount, setAptCount] = useState(25);
 
   const mobileDigits = mobile.replace(/\D/g, "");
   const mobileValid = /^[6-9]\d{9}$/.test(mobileDigits);
@@ -131,7 +130,6 @@ function TestIntro() {
         email: email.trim(),
         parent_email: parentEmail.trim() || null,
         vibe: vibe ?? null,
-        aptCount,
         marksPerQ: 1,
       }),
     );

@@ -45,7 +45,6 @@ interface Meta {
   mobile?: string;
   email?: string;
   parent_email?: string | null;
-  aptCount?: number;
   marksPerQ?: number;
 }
 
@@ -231,11 +230,8 @@ function TakeTest() {
 
 
   const band = useMemo(() => gradeToBand(meta?.grade), [meta?.grade]);
-  const aptCount = Math.min(50, Math.max(10, meta?.aptCount ?? 25));
-  const aptItems = useMemo<AptitudeItem[]>(
-    () => aptitudeItemsForBand(band).slice(0, aptCount),
-    [band, aptCount],
-  );
+  // Fixed, complete test: every aptitude item for the student's grade band.
+  const aptItems = useMemo<AptitudeItem[]>(() => aptitudeItemsForBand(band), [band]);
 
   const t = T[meta?.language ?? "en"];
   const sections = useMemo(
