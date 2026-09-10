@@ -7,7 +7,7 @@ export const Route = createFileRoute("/handbook")({
   head: () => ({
     meta: [
       { title: "Career Library — HBK Careers" },
-      { name: "description", content: "Browse 48 career streams and 1,600+ professions from A to Z." },
+      { name: "description", content: "Browse 48 career streams and 1,651 professions from A to Z." },
       { name: "robots", content: "noindex" },
     ],
   }),

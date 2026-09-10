@@ -86,7 +86,7 @@ function CareerIndex() {
             <span>
               {lang === "gu" ? (
                 <>
-                  ભારત-વ્યાપી 935+ વ્યવસાયો અને 1,400+ ટોચની સંસ્થાઓ માટે,{" "}
+                  ભારત-વ્યાપી 1,651 વ્યવસાયો અને 1,943 ટોચની સંસ્થાઓ માટે,{" "}
                   <Link to="/career-library" className="text-primary hover:underline inline-flex items-center gap-1">
                     કારકિર્દી હેન્ડબુક <BookOpen className="h-3 w-3" />
                   </Link>{" "}
@@ -94,7 +94,7 @@ function CareerIndex() {
                 </>
               ) : (
                 <>
-                  Looking for an India-wide reference of 935+ professions and 1,400+ top institutes? See the{" "}
+                  Looking for an India-wide reference of 1,651 professions and 1,943 top institutes? See the{" "}
                   <Link to="/career-library" className="text-primary hover:underline inline-flex items-center gap-1">
                     Career Handbook <BookOpen className="h-3 w-3" />
                   </Link>
