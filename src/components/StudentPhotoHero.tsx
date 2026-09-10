@@ -33,8 +33,7 @@ export function StudentPhotoHero({
         className={`absolute inset-0 -z-20 h-full w-full object-cover object-right ${brand ? "mix-blend-luminosity opacity-35" : ""}`}
       />
       <div className={`absolute inset-0 -z-10 ${brand ? "bg-highlight/70" : "bg-background/65 md:bg-transparent"}`} aria-hidden />
-      {brand ? (
-      ) : (
+      {!brand && (
         <ArrowIcon size={280} weight="bold" className="pointer-events-none absolute -right-16 -top-16 -z-10 text-highlight opacity-10" />
       )}
       <div className="mx-auto flex max-w-7xl items-center px-4 py-24 md:px-8">
