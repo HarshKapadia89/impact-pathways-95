@@ -120,7 +120,7 @@ function PayPage() {
           email: meta.email ?? "",
           contact: meta.mobile ?? "",
         },
-        theme: { color: "#5B2A86" },
+        theme: { color: "#6a05cc" } /* --hbk-purple token value; Razorpay needs a literal */,
         modal: {
           ondismiss: () => {
             setBusy(false);
