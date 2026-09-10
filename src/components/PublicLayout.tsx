@@ -101,8 +101,20 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-
-
+          <nav className="overflow-x-auto border-t border-border py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden xl:hidden" aria-label="Quick navigation">
+            <div className="flex w-max items-center gap-1">
+              {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setMobileOpen(false)}
+                  className={`brand-link whitespace-nowrap rounded-md px-2.5 py-1.5 text-caption font-semibold ${active(item.to) ? "bg-highlight text-highlight-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+                >
+                  {t(item.short ?? item.label)}
+                </Link>
+              ))}
+            </div>
+          </nav>
 
           {mobileOpen && (
             <nav className="border-t border-border py-4 xl:hidden" aria-label="Mobile navigation">
