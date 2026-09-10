@@ -2,6 +2,7 @@ import { useLang, translator } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { StudentPhotoHero } from "@/components/StudentPhotoHero";
+import { StatsBand } from "@/components/StatsBand";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { HANDBOOK_SUMMARIES } from "@/lib/handbookData";
 import { PLATFORM_STATS } from "@/lib/platformStats";
