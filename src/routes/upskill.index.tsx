@@ -17,6 +17,7 @@ import { UpskillCertificateCard } from "@/components/UpskillCertificateCard";
 import { usePhraseTranslator } from "@/lib/usePhraseTranslator";
 import { Search, ArrowRight, Clock, Sparkles, CheckCircle2, Trophy } from "lucide-react";
 import { ArrowIcon, Badge, Card, Input, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { BrandArrows } from "@/components/BrandArrows";
 import levelUpStudents from "@/assets/hbk-levelup-students.jpg";
 
 export const Route = createFileRoute("/upskill/")({
