@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ArrowIcon, Badge } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { BrandArrows } from "@/components/BrandArrows";
 
 type StudentPhotoHeroProps = {
   image: string;
@@ -33,7 +34,11 @@ export function StudentPhotoHero({
         className={`absolute inset-0 -z-20 h-full w-full object-cover object-right ${brand ? "mix-blend-luminosity opacity-35" : ""}`}
       />
       <div className={`absolute inset-0 -z-10 ${brand ? "bg-highlight/70" : "bg-background/65 md:bg-transparent"}`} aria-hidden />
-      <ArrowIcon size={280} weight="bold" className={`pointer-events-none absolute -right-16 -top-16 -z-10 ${brand ? "text-accent opacity-20" : "text-highlight opacity-10"}`} />
+      {brand ? (
+        <BrandArrows size={260} className="pointer-events-none absolute -right-12 -top-12 -z-10 opacity-25" />
+      ) : (
+        <ArrowIcon size={280} weight="bold" className="pointer-events-none absolute -right-16 -top-16 -z-10 text-highlight opacity-10" />
+      )}
       <div className="mx-auto flex max-w-7xl items-center px-4 py-24 md:px-8">
         <div className="max-w-2xl">
           <Badge variant={brand ? "accent" : "highlight"} withArrow>{eyebrow}</Badge>
