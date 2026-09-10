@@ -151,9 +151,15 @@ function ScholarshipsPage() {
                   <div><span className="font-medium">{t4(lang, "Income limit:", "આવક મર્યાદા:")} </span>{s.incomeLimit || "—"}</div>
                   {s.notes && <div><span className="font-medium">{t4(lang, "Note:", "નોંધ:")} </span>{s.notes}</div>}
                 </div>
-                <a href={`https://${s.applyAt.replace(/^https?:\/\//, "")}`} target="_blank" rel="noreferrer" className="mt-3 text-xs text-primary inline-flex items-center gap-1 hover:underline">
-                  <ExternalLink className="h-3 w-3" /> {s.applyAt}
-                </a>
+                {s.applyUrl ? (
+                  <a href={s.applyUrl} target="_blank" rel="noreferrer" className="mt-3 text-xs text-primary inline-flex items-center gap-1 hover:underline">
+                    <ExternalLink className="h-3 w-3" /> {t4(lang, "Apply / official page", "અરજી / સત્તાવાર પેજ")} — {s.applyAt}
+                  </a>
+                ) : (
+                  <div className="mt-3 text-xs text-muted-foreground">
+                    <span className="font-medium">{t4(lang, "Where to apply:", "ક્યાં અરજી કરવી:")} </span>{s.applyAt}
+                  </div>
+                )}
               </article>
             ))}
           </div>
