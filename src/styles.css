@@ -92,34 +92,6 @@
     letter-spacing: 0;
   }
 
-  /* Keep supporting copy and accent icons readable on strong brand surfaces. */
-  .bg-highlight :where(.text-muted-foreground, .text-foreground, .text-surface-foreground, .text-primary, .text-accent),
-  .bg-highlight.text-muted-foreground,
-  .bg-highlight.text-foreground,
-  .bg-highlight.text-surface-foreground {
-    color: var(--highlight-foreground);
-  }
-
-  .bg-primary :where(.text-muted-foreground, .text-foreground, .text-surface-foreground),
-  .bg-primary.text-muted-foreground,
-  .bg-primary.text-foreground,
-  .bg-primary.text-surface-foreground {
-    color: var(--primary-foreground);
-  }
-
-  .bg-info :where(.text-muted-foreground, .text-foreground, .text-surface-foreground),
-  .bg-info.text-muted-foreground,
-  .bg-info.text-foreground,
-  .bg-info.text-surface-foreground {
-    color: var(--info-foreground);
-  }
-
-  .bg-success :where(.text-muted-foreground, .text-foreground, .text-surface-foreground),
-  .bg-success.text-muted-foreground,
-  .bg-success.text-foreground,
-  .bg-success.text-surface-foreground {
-    color: var(--success-foreground);
-  }
 }
 
 @layer utilities {
