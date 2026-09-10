@@ -2,6 +2,7 @@ import { useLang, translator } from "@/lib/lang";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PublicLayout } from "@/components/PublicLayout";
 import { StudentPhotoHero } from "@/components/StudentPhotoHero";
+import { StatsBand } from "@/components/StatsBand";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { HANDBOOK_SUMMARIES } from "@/lib/handbookData";
 import { PLATFORM_STATS } from "@/lib/platformStats";
@@ -96,23 +97,39 @@ function HomePage() {
 
   return (
     <PublicLayout>
-      <StudentPhotoHero
-        image={studentsHero}
-        imageAlt="Indian students discussing their future on a school campus"
-        eyebrow={t({ en: "Grades 6–12 · Four languages", gu: "ધોરણ 6–12 · ચાર ભાષાઓ", hi: "कक्षा 6–12 · चार भाषाएँ", mr: "इयत्ता 6–12 · चार भाषा" })}
-        title="HBK Careers"
-        subtitle={t({ en: "Find your direction. Know your strengths, explore every possibility and build a clear plan for your future.", gu: "તમારી દિશા શોધો. તમારી શક્તિઓ જાણો, દરેક શક્યતા શોધો અને તમારા ભવિષ્ય માટે સ્પષ્ટ યોજના બનાવો.", hi: "अपनी दिशा खोजें। अपनी क्षमताएँ जानें, हर संभावना देखें और अपने भविष्य की स्पष्ट योजना बनाएँ।", mr: "तुमची दिशा शोधा. तुमच्या क्षमता जाणा, प्रत्येक शक्यता शोधा आणि भविष्यासाठी स्पष्ट योजना बनवा." })}
-        actions={
-          <>
+      <section className="relative isolate overflow-hidden bg-highlight text-highlight-foreground">
+        <img
+          suppressHydrationWarning
+          src={studentsHero}
+          alt="Indian students discussing their future on a school campus"
+          width={1536}
+          height={1024}
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-right mix-blend-luminosity opacity-30"
+        />
+        <div className="absolute inset-0 -z-10 bg-highlight/75" aria-hidden />
+        <ArrowIcon size={340} weight="bold" className="pointer-events-none absolute -right-20 -top-24 -z-10 text-accent opacity-25" />
+        <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-28">
+          <div className="max-w-5xl">
+            <Badge variant="accent" withArrow>{t({ en: "HBK Careers · Grades 6–12 · Four languages", gu: "HBK Careers · ધોરણ 6–12 · ચાર ભાષાઓ", hi: "HBK Careers · कक्षा 6–12 · चार भाषाएँ", mr: "HBK Careers · इयत्ता 6–12 · चार भाषा" })}</Badge>
+            <h1 className="mt-6 font-display text-display font-semibold leading-[1.05]">
+              {t({ en: "THE WORLD OF CAREERS, ALL IN ONE PLACE.", gu: "કારકિર્દીની દુનિયા, બધું એક જગ્યાએ.", hi: "करियर की दुनिया, सब एक जगह।", mr: "करिअरचा विश्व, सर्व एका ठिकाणी." })}
+            </h1>
+            <p className="mt-5 max-w-2xl text-subheading text-highlight-foreground/85">
+              {t({ en: "Explore possibilities. Understand yourself. Make informed choices.", gu: "શક્યતાઓ શોધો. પોતાને સમજો. સભાન પસંદગી કરો.", hi: "संभावनाएँ देखें। खुद को समझें। सोच-समझकर चुनें।", mr: "शक्यता शोधा. स्वतःला समजा. जाणीवपूर्वक निवडा." })}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/test" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 font-body text-subheading font-semibold text-primary-foreground transition-[background-color,color,border-color,box-shadow] hover:brightness-95 active:brightness-90">
                 <Brain className="h-5 w-5" aria-hidden />{t({ en: "Take the aptitude test", gu: "અભિરુચિ ટેસ્ટ આપો", hi: "एप्टीट्यूड टेस्ट दें", mr: "अ‍ॅप्टिट्यूड टेस्ट द्या" })}<ArrowIcon size={18} />
               </Link>
-              <Link to="/career-library" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-6 font-body text-subheading font-semibold text-foreground transition-[background-color,color,border-color,box-shadow] hover:bg-muted">
+              <Link to="/career-library" className="brand-link hbk-focus inline-flex h-12 items-center justify-center gap-2 rounded-md border border-accent/60 bg-transparent px-6 font-body text-subheading font-semibold text-highlight-foreground transition-[background-color,color,border-color,box-shadow] hover:bg-accent/20">
                 {t({ en: "Explore careers", gu: "કારકિર્દી શોધો", hi: "करियर देखें", mr: "करिअर शोधा" })}<ArrowIcon size={18} />
               </Link>
-          </>
-        }
-      />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <StatsBand lang={lang} />
 
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <Section spacing="lg" eyebrow={t({ en: "One clear journey", gu: "એક સ્પષ્ટ સફર", hi: "एक स्पष्ट यात्रा", mr: "एक स्पष्ट प्रवास" })} title={t({ en: "From uncertainty to your next move", gu: "અનિશ્ચિતતાથી તમારા આગલા પગલા સુધી", hi: "उलझन से अपने अगले कदम तक", mr: "अनिश्चिततेपासून पुढच्या पावलापर्यंत" })} description={t({ en: "A connected path that helps you understand yourself before choosing what comes next.", gu: "આગળ શું પસંદ કરવું તે પહેલાં પોતાને સમજવામાં મદદ કરતો જોડાયેલ માર્ગ.", hi: "आगे क्या चुनना है, उससे पहले खुद को समझने में मदद करने वाला जुड़ा रास्ता।", mr: "पुढे काय निवडायचे याआधी स्वतःला समजून घेण्यास मदत करणारा सलग मार्ग." })}>
