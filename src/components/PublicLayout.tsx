@@ -74,7 +74,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               <Logotype size="md" />
             </Link>
 
-            <nav className="ml-auto hidden items-center gap-0.5 lg:flex" aria-label="Primary navigation">
+            <nav className="ml-auto hidden items-center gap-0.5 xl:flex" aria-label="Primary navigation">
               {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => (
                 <Link
                   key={item.to}
@@ -86,13 +86,13 @@ export function PublicLayout({ children }: { children: ReactNode }) {
               ))}
             </nav>
 
-            <div className="ml-auto flex items-center gap-1 lg:ml-0">
+            <div className="ml-auto flex items-center gap-1 xl:ml-0">
               <LanguageToggle />
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setMobileOpen((value) => !value)}
-                className="lg:hidden"
+                className="xl:hidden"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
               >
@@ -105,7 +105,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
 
 
           {mobileOpen && (
-            <nav className="border-t border-border py-4 lg:hidden" aria-label="Mobile navigation">
+            <nav className="border-t border-border py-4 xl:hidden" aria-label="Mobile navigation">
               <div className="grid gap-1">
                 {[...PRIMARY_NAV, ...TOOL_NAV].map((item) => {
                   const Icon = item.icon;
