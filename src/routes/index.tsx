@@ -38,6 +38,8 @@ import studentsHero from "@/assets/hbk-students-hero.jpg";
 import studentsPath from "@/assets/hbk-students-path.jpg";
 import reportCover from "@/assets/sample-report-cover.jpg";
 import reportRiasec from "@/assets/sample-report-riasec.jpg";
+import brandGuidePoster from "@/assets/hbk-guide-poster.png.asset.json";
+import brandStudentArrow from "@/assets/hbk-career-student-arrow.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
