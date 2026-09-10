@@ -1,32 +1,49 @@
 import type { SVGProps } from "react";
 
 /**
- * HBK four-arrow brand lockup — lime, orange, magenta and paper block arrows
- * pointing in four directions, drawn as crisp vector geometry (no blur).
+ * HBK four-arrow brand lockup — FIXED artwork.
+ *
+ * Order, directions and colours are locked to the brand reference and must never
+ * be reordered, rotated, mirrored or recoloured:
+ *   1. paper (pale)  up-right
+ *   2. magenta       down-right
+ *   3. orange        up-left
+ *   4. lime          down-left
+ *
  * Decorative only; place on purple (highlight) surfaces.
  */
-export function BrandArrows({ size = 120, className, ...props }: SVGProps<SVGSVGElement> & { size?: number }) {
-  // Chunky right-pointing block arrow inside a 100x100 cell; rotated per direction.
-  const arrow = "M10 42 H52 V26 L90 50 L52 74 V58 H10 Z";
-  const cell = (x: number, y: number, rotate: number, fill: string) => (
-    <g transform={`translate(${x} ${y})`}>
-      <path d={arrow} fill={fill} transform={`rotate(${rotate} 50 50)`} />
-    </g>
-  );
+type BrandArrowsProps = Omit<SVGProps<SVGSVGElement>, "children" | "fill" | "transform" | "viewBox"> & {
+  /** Rendered width in px; height follows the fixed 4:1 ratio. */
+  width?: number;
+};
+
+// Diagonal arrow (square shaft + solid triangular head) pointing up-right in a 100x100 cell.
+const ARROW_UP_RIGHT =
+  "M30 78 L62 46 L44 46 L44 30 L78 30 L78 64 L62 64 L62 46 L30 78 Z M22 70 L54 38 L62 46 L30 78 Z";
+
+const LOCKUP = [
+  { x: 0, rotate: 0, fill: "var(--hbk-paper)" }, // up-right
+  { x: 106, rotate: 90, fill: "var(--hbk-magenta)" }, // down-right
+  { x: 212, rotate: 270, fill: "var(--hbk-orange)" }, // up-left
+  { x: 318, rotate: 180, fill: "var(--hbk-lime)" }, // down-left
+] as const;
+
+export function BrandArrows({ width = 320, className, ...props }: BrandArrowsProps) {
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 212 212"
+      width={width}
+      height={width / 4}
+      viewBox="0 0 424 106"
       role="presentation"
       aria-hidden="true"
       className={className}
       {...props}
     >
-      {cell(0, 0, -135, "var(--hbk-orange)")} {/* up-left */}
-      {cell(112, 0, -45, "var(--hbk-paper)")} {/* up-right */}
-      {cell(0, 112, 135, "var(--hbk-lime)")} {/* down-left */}
-      {cell(112, 112, 45, "var(--hbk-magenta)")} {/* down-right */}
+      {LOCKUP.map((a) => (
+        <g key={a.x} transform={`translate(${a.x} 3)`}>
+          <path d={ARROW_UP_RIGHT} fill={a.fill} transform={`rotate(${a.rotate} 50 50)`} />
+        </g>
+      ))}
     </svg>
   );
 }
