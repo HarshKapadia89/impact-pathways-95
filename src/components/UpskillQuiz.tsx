@@ -212,10 +212,11 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
             {t("quizScore")}
           </div>
           <div className="font-serif text-3xl mt-2">
-            {correctCount} / {questions.length}
+            {scoreMarks} / {totalMarks}
           </div>
           <div className="text-xs text-muted-foreground mt-1">
-            {correctCount}/{questions.length} {t("quizCorrect")} · {pct}%
+            {correctCount}/{questions.length} {t("quizCorrect")} · {pct}% ·{" "}
+            {t(level === "easy" ? "quizEasy" : level === "medium" ? "quizMedium" : "quizHard")}
           </div>
           <div className={`mt-2 text-sm font-medium ${pct >= PASS_PCT ? "text-primary" : "text-destructive"}`}>
             {pct >= PASS_PCT ? t("quizPassed") : t("quizFailed")}
