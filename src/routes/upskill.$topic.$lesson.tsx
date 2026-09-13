@@ -12,7 +12,6 @@ import {
   BookOpen,
   CheckCircle2,
   Circle,
-  ExternalLink,
   Globe2,
   Lightbulb,
   ListChecks,
