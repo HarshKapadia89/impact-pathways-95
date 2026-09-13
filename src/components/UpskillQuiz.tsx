@@ -144,7 +144,54 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
               </button>
             ))}
         </div>
-        <p className="mt-3 text-[11px] text-muted-foreground">{t("quizOneMark")}</p>
+
+        <div className="mt-6 flex items-center justify-between gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{t("quizLevel")}</span>
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-3">
+          {(["easy", "medium", "hard"] as Level[]).map((lv) => {
+            const label = { easy: "quizEasy", medium: "quizMedium", hard: "quizHard" }[lv];
+            const note = { easy: "quizEasyNote", medium: "quizMediumNote", hard: "quizHardNote" }[lv];
+            return (
+              <button
+                key={lv}
+                type="button"
+                onClick={() => setLevel(lv)}
+                aria-pressed={level === lv}
+                className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+                  level === lv ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
+                }`}
+              >
+                <span className="block text-sm font-medium">{t(label)}</span>
+                <span className={`block text-[11px] ${level === lv ? "opacity-80" : "text-muted-foreground"}`}>{t(note)}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 flex items-center justify-between gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{t("quizMarks")}</span>
+          <span className="text-sm font-medium">
+            {t("quizTotal")}: {count * marks}
+          </span>
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[1, 2, 5].map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMarks(m)}
+              aria-pressed={marks === m}
+              className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
+                marks === m ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
+              }`}
+            >
+              {m} {t("quizMarkEach")}
+            </button>
+          ))}
+        </div>
+        <p className="mt-3 text-[11px] text-muted-foreground">{t("quizNoNeg")}</p>
+
 
         <button
           onClick={() => setStarted(true)}
