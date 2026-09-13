@@ -47,15 +47,29 @@ interface Question {
   source: string;
 }
 
-function buildQuestions(pool: PoolItem[], count: number, seed: number): Question[] {
+type Level = "easy" | "medium" | "hard";
+
+const LEVEL_OPTIONS: Record<Level, number> = { easy: 3, medium: 4, hard: 5 };
+
+function buildQuestions(pool: PoolItem[], count: number, seed: number, level: Level): Question[] {
   const picked = shuffle(pool, seed).slice(0, count);
+  const need = LEVEL_OPTIONS[level] - 1;
   return picked.map((item, i) => {
-    const distractors = shuffle(
-      pool.filter((p) => p.a !== item.a),
-      seed + i * 7 + 3,
-    )
-      .slice(0, 3)
-      .map((p) => p.a);
+    const others = pool.filter((p) => p.a !== item.a);
+    // Hard: draw look-alike answers from the same lesson first, then the same topic.
+    const ranked =
+      level === "hard"
+        ? [
+            ...others.filter((p) => p.lesson === item.lesson),
+            ...others.filter((p) => p.lesson !== item.lesson && p.topic === item.topic),
+            ...others.filter((p) => p.topic !== item.topic),
+          ]
+        : shuffle(others, seed + i * 7 + 3);
+    const distractors: string[] = [];
+    for (const p of ranked) {
+      if (distractors.length >= need) break;
+      if (!distractors.includes(p.a)) distractors.push(p.a);
+    }
     const options = shuffle([item.a, ...distractors], seed + i * 13 + 5);
     return {
       q: item.q,
