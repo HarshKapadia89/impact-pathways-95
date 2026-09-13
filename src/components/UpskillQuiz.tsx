@@ -89,7 +89,6 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
 
   const [count, setCount] = useState(Math.min(10, maxQ));
   const [level, setLevel] = useState<Level>("easy");
-  const [marks, setMarks] = useState(1);
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 100000));
   const [started, setStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -102,8 +101,8 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
   const correctCount = questions.reduce((n, q, i) => n + (answers[i] === q.correct ? 1 : 0), 0);
 
   const pct = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
-  const scoreMarks = correctCount * marks;
-  const totalMarks = questions.length * marks;
+  const scoreMarks = correctCount;
+  const totalMarks = questions.length;
 
   useEffect(() => {
     if (submitted && topic) saveQuizResult(topic.slug, correctCount, questions.length);
@@ -170,27 +169,12 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
         </div>
 
         <div className="mt-6 flex items-center justify-between gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{t("quizMarks")}</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{t("quizTotal")}</span>
           <span className="text-sm font-medium">
-            {t("quizTotal")}: {count * marks}
+            {count} {t("quizMarksShort")}
           </span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {[1, 2, 5].map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMarks(m)}
-              aria-pressed={marks === m}
-              className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
-                marks === m ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
-              }`}
-            >
-              {m} {t("quizMarkEach")}
-            </button>
-          ))}
-        </div>
-        <p className="mt-3 text-[11px] text-muted-foreground">{t("quizNoNeg")}</p>
+        <p className="mt-2 text-[11px] text-muted-foreground">{t("quizNoNeg")}</p>
 
 
         <button
@@ -232,7 +216,7 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
         {questions.map((q, i) => (
           <li key={i} className="rounded-xl border border-border p-4">
             <div className="text-[11px] text-muted-foreground">
-              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · {marks} {t("quizMarksShort")}
+              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · 1 {t("quizMarkShort")}
             </div>
             <div className="text-sm font-medium mt-1.5">{phrase(q.q)}</div>
             <div className="mt-3 space-y-2">
