@@ -232,7 +232,7 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
         {questions.map((q, i) => (
           <li key={i} className="rounded-xl border border-border p-4">
             <div className="text-[11px] text-muted-foreground">
-              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · 1 {t("quizMarksShort")}
+              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · {marks} {t("quizMarksShort")}
             </div>
             <div className="text-sm font-medium mt-1.5">{phrase(q.q)}</div>
             <div className="mt-3 space-y-2">
