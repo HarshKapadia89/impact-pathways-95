@@ -88,15 +88,22 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
   const maxQ = Math.min(50, pool.length);
 
   const [count, setCount] = useState(Math.min(10, maxQ));
+  const [level, setLevel] = useState<Level>("easy");
+  const [marks, setMarks] = useState(1);
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 100000));
   const [started, setStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const questions = useMemo(() => buildQuestions(pool, count, seed), [pool, count, seed]);
+  const questions = useMemo(
+    () => buildQuestions(pool, count, seed, level),
+    [pool, count, seed, level],
+  );
   const correctCount = questions.reduce((n, q, i) => n + (answers[i] === q.correct ? 1 : 0), 0);
 
   const pct = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
+  const scoreMarks = correctCount * marks;
+  const totalMarks = questions.length * marks;
 
   useEffect(() => {
     if (submitted && topic) saveQuizResult(topic.slug, correctCount, questions.length);
