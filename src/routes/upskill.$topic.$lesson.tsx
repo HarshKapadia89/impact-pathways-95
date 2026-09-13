@@ -242,27 +242,6 @@ function LessonPage() {
           </Link>
         </section>
 
-        <section className="mt-10">
-          <h2 className="font-serif text-2xl">{t("resources")}</h2>
-          <ul className="mt-4 space-y-2">
-            {lesson.resources.map((r) => (
-              <li key={r.label}>
-                <a
-                  href={r.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-start gap-2 text-sm text-primary hover:underline"
-                >
-                  <ExternalLink className="h-3.5 w-3.5 mt-0.5 shrink-0" />
-                  <span>
-                    {phrase(r.label)}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <button
             onClick={() => setDone(toggleLesson(topic.slug, lesson.slug))}
