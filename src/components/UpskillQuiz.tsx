@@ -47,15 +47,29 @@ interface Question {
   source: string;
 }
 
-function buildQuestions(pool: PoolItem[], count: number, seed: number): Question[] {
+type Level = "easy" | "medium" | "hard";
+
+const LEVEL_OPTIONS: Record<Level, number> = { easy: 3, medium: 4, hard: 5 };
+
+function buildQuestions(pool: PoolItem[], count: number, seed: number, level: Level): Question[] {
   const picked = shuffle(pool, seed).slice(0, count);
+  const need = LEVEL_OPTIONS[level] - 1;
   return picked.map((item, i) => {
-    const distractors = shuffle(
-      pool.filter((p) => p.a !== item.a),
-      seed + i * 7 + 3,
-    )
-      .slice(0, 3)
-      .map((p) => p.a);
+    const others = pool.filter((p) => p.a !== item.a);
+    // Hard: draw look-alike answers from the same lesson first, then the same topic.
+    const ranked =
+      level === "hard"
+        ? [
+            ...others.filter((p) => p.lesson === item.lesson),
+            ...others.filter((p) => p.lesson !== item.lesson && p.topic === item.topic),
+            ...others.filter((p) => p.topic !== item.topic),
+          ]
+        : shuffle(others, seed + i * 7 + 3);
+    const distractors: string[] = [];
+    for (const p of ranked) {
+      if (distractors.length >= need) break;
+      if (!distractors.includes(p.a)) distractors.push(p.a);
+    }
     const options = shuffle([item.a, ...distractors], seed + i * 13 + 5);
     return {
       q: item.q,
@@ -74,15 +88,22 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
   const maxQ = Math.min(50, pool.length);
 
   const [count, setCount] = useState(Math.min(10, maxQ));
+  const [level, setLevel] = useState<Level>("easy");
+  const [marks, setMarks] = useState(1);
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 100000));
   const [started, setStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const questions = useMemo(() => buildQuestions(pool, count, seed), [pool, count, seed]);
+  const questions = useMemo(
+    () => buildQuestions(pool, count, seed, level),
+    [pool, count, seed, level],
+  );
   const correctCount = questions.reduce((n, q, i) => n + (answers[i] === q.correct ? 1 : 0), 0);
 
   const pct = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
+  const scoreMarks = correctCount * marks;
+  const totalMarks = questions.length * marks;
 
   useEffect(() => {
     if (submitted && topic) saveQuizResult(topic.slug, correctCount, questions.length);
@@ -123,7 +144,54 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
               </button>
             ))}
         </div>
-        <p className="mt-3 text-[11px] text-muted-foreground">{t("quizOneMark")}</p>
+
+        <div className="mt-6 flex items-center justify-between gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{t("quizLevel")}</span>
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-3">
+          {(["easy", "medium", "hard"] as Level[]).map((lv) => {
+            const label = { easy: "quizEasy", medium: "quizMedium", hard: "quizHard" }[lv];
+            const note = { easy: "quizEasyNote", medium: "quizMediumNote", hard: "quizHardNote" }[lv];
+            return (
+              <button
+                key={lv}
+                type="button"
+                onClick={() => setLevel(lv)}
+                aria-pressed={level === lv}
+                className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+                  level === lv ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
+                }`}
+              >
+                <span className="block text-sm font-medium">{t(label)}</span>
+                <span className={`block text-[11px] ${level === lv ? "opacity-80" : "text-muted-foreground"}`}>{t(note)}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 flex items-center justify-between gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{t("quizMarks")}</span>
+          <span className="text-sm font-medium">
+            {t("quizTotal")}: {count * marks}
+          </span>
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[1, 2, 5].map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMarks(m)}
+              aria-pressed={marks === m}
+              className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
+                marks === m ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:bg-muted"
+              }`}
+            >
+              {m} {t("quizMarkEach")}
+            </button>
+          ))}
+        </div>
+        <p className="mt-3 text-[11px] text-muted-foreground">{t("quizNoNeg")}</p>
+
 
         <button
           onClick={() => setStarted(true)}
@@ -144,10 +212,11 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
             {t("quizScore")}
           </div>
           <div className="font-serif text-3xl mt-2">
-            {correctCount} / {questions.length}
+            {scoreMarks} / {totalMarks}
           </div>
           <div className="text-xs text-muted-foreground mt-1">
-            {correctCount}/{questions.length} {t("quizCorrect")} · {pct}%
+            {correctCount}/{questions.length} {t("quizCorrect")} · {pct}% ·{" "}
+            {t(level === "easy" ? "quizEasy" : level === "medium" ? "quizMedium" : "quizHard")}
           </div>
           <div className={`mt-2 text-sm font-medium ${pct >= PASS_PCT ? "text-primary" : "text-destructive"}`}>
             {pct >= PASS_PCT ? t("quizPassed") : t("quizFailed")}
@@ -163,7 +232,7 @@ export function UpskillQuiz({ topic }: { topic?: Topic }) {
         {questions.map((q, i) => (
           <li key={i} className="rounded-xl border border-border p-4">
             <div className="text-[11px] text-muted-foreground">
-              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · 1 {t("quizMarksShort")}
+              {i + 1}. {phrase(q.source.split(" · ")[0])} · {phrase(q.source.split(" · ")[1])} · {marks} {t("quizMarksShort")}
             </div>
             <div className="text-sm font-medium mt-1.5">{phrase(q.q)}</div>
             <div className="mt-3 space-y-2">
