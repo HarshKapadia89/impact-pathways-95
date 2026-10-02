@@ -1,4 +1,5 @@
-import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
+import { trackPageView } from "@/lib/metaPixel";
 import { Suspense, useEffect } from "react";
 
 import appCss from "../styles.css?url";
@@ -91,6 +92,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => {
+    trackPageView(pathname);
+  }, [pathname]);
   useEffect(() => {
     applyStoredTheme();
     bootstrapOffline();

@@ -86,7 +86,7 @@ export const createPaymentOrder = createServerFn({ method: "POST" })
 
 /** Verifies the Razorpay signature and marks the order paid. */
 export const verifyPayment = createServerFn({ method: "POST" })
-  .inputValidator((data: { orderId: string; paymentId: string; signature: string }) => {
+  .inputValidator((data: { orderId: string; paymentId: string; signature: string; fbp?: string | null; fbc?: string | null; sourceUrl?: string | null }) => {
     if (!data?.orderId || !data?.paymentId || !data?.signature) throw new Error("Incomplete payment data");
     return data;
   })
@@ -106,7 +106,8 @@ export const verifyPayment = createServerFn({ method: "POST" })
     }
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: row, error } = await supabaseAdmin
+    // Only transition orders that are not yet paid — makes repeat calls no-ops.
+    const { data: changed, error } = await supabaseAdmin
       .from("payment_orders")
       .update({
         razorpay_payment_id: data.paymentId,
@@ -114,6 +115,7 @@ export const verifyPayment = createServerFn({ method: "POST" })
         paid_at: new Date().toISOString(),
       })
       .eq("razorpay_order_id", data.orderId)
+      .neq("status", "paid")
       .select("amount_paise, coupon")
       .maybeSingle();
 
@@ -122,9 +124,70 @@ export const verifyPayment = createServerFn({ method: "POST" })
       throw new Error("Payment recorded but could not be saved. Please contact us.");
     }
 
+    let row = changed;
+    if (!row) {
+      const { data: existing } = await supabaseAdmin
+        .from("payment_orders")
+        .select("amount_paise, coupon")
+        .eq("razorpay_order_id", data.orderId)
+        .maybeSingle();
+      row = existing;
+    }
+
+    const eventId = `purchase_${data.orderId}`;
+    const amount = row ? row.amount_paise / 100 : null;
+
+    if (changed && amount != null) {
+      await sendMetaPurchase({ orderId: data.orderId, eventId, amount, fbp: data.fbp, fbc: data.fbc, sourceUrl: data.sourceUrl });
+    }
+
     return {
       ok: true as const,
-      amount: row ? row.amount_paise / 100 : null,
+      amount,
       coupon: row?.coupon ?? null,
+      eventId,
+      firstConfirmation: !!changed,
     };
   });
+
+async function sendMetaPurchase(p: { orderId: string; eventId: string; amount: number; fbp?: string | null; fbc?: string | null; sourceUrl?: string | null }) {
+  const token = process.env["META_CAPI_ACCESS_TOKEN"];
+  if (!token) return;
+  try {
+    const { getRequest } = await import("@tanstack/react-start/server");
+    const req = getRequest();
+    const ip = req?.headers.get("cf-connecting-ip") ?? req?.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? undefined;
+    const ua = req?.headers.get("user-agent") ?? undefined;
+    const user_data: Record<string, string> = {};
+    if (ip) user_data["client_ip_address"] = ip;
+    if (ua) user_data["client_user_agent"] = ua;
+    if (p.fbp) user_data["fbp"] = p.fbp;
+    if (p.fbc) user_data["fbc"] = p.fbc;
+    const body: Record<string, unknown> = {
+      data: [{
+        event_name: "Purchase",
+        event_time: Math.floor(Date.now() / 1000),
+        event_id: p.eventId,
+        action_source: "website",
+        event_source_url: p.sourceUrl || "https://hbkcareers.org/test/pay",
+        user_data,
+        custom_data: { value: p.amount, currency: "INR", content_ids: ["hbk_aptitude_test"], content_type: "product", num_items: 1 },
+      }],
+    };
+    const testCode = process.env["META_TEST_EVENT_CODE"];
+    if (testCode) body["test_event_code"] = testCode;
+    const res = await fetch(`https://graph.facebook.com/v21.0/1164890204578653/events?access_token=${encodeURIComponent(token)}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      console.error(`Meta CAPI failed [${res.status}]: ${await res.text()}`);
+      return;
+    }
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    await supabaseAdmin.from("payment_orders").update({ meta_purchase_sent_at: new Date().toISOString() }).eq("razorpay_order_id", p.orderId);
+  } catch (e) {
+    console.error("Meta CAPI error:", e instanceof Error ? e.message : e);
+  }
+}
