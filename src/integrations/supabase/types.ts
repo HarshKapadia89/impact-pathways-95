@@ -246,6 +246,7 @@ export type Database = {
           grade: string | null
           id: string
           language: string | null
+          meta_purchase_sent_at: string | null
           mobile: string | null
           paid_at: string | null
           razorpay_order_id: string | null
@@ -265,6 +266,7 @@ export type Database = {
           grade?: string | null
           id?: string
           language?: string | null
+          meta_purchase_sent_at?: string | null
           mobile?: string | null
           paid_at?: string | null
           razorpay_order_id?: string | null
@@ -284,6 +286,7 @@ export type Database = {
           grade?: string | null
           id?: string
           language?: string | null
+          meta_purchase_sent_at?: string | null
           mobile?: string | null
           paid_at?: string | null
           razorpay_order_id?: string | null
