@@ -3,7 +3,7 @@
 Follows the uploaded brief: Purchase is the main signal, fires once per verified Razorpay order, and the browser and server copies are deduplicated.
 
 ## What you need to provide
-- **Meta Pixel ID** (a number like 1234567890). It is public and can sit in the site code.
+- **Meta Pixel ID**: received (1164890204578653). It is public, so it can sit in the site code.
 - **Conversions API access token** (from Events Manager > Settings). It will be stored as an encrypted secret, never in the code.
 - Optional: a **Test Event Code** so you can watch events arrive in Meta's "Test Events" tab before launch.
 
