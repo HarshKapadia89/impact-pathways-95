@@ -5,6 +5,7 @@ import { PublicLayout } from "@/components/PublicLayout";
 import { ChevronLeft, BadgePercent, ShieldCheck, Lock, FileText, Sparkles } from "lucide-react";
 import { Badge, Button, Card, Input } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { createPaymentOrder, verifyPayment } from "@/lib/payments.functions";
+import { trackStandard, metaCookies, PRODUCT_ID } from "@/lib/metaPixel";
 
 export const Route = createFileRoute("/test/pay")({
   head: () => ({
@@ -108,6 +109,12 @@ function PayPage() {
         },
       });
 
+      trackStandard(
+        "InitiateCheckout",
+        { value: order.amountPaise / 100, currency: "INR", content_ids: [PRODUCT_ID], content_type: "product", num_items: 1 },
+        `checkout_${order.orderId}`,
+      );
+
       const rzp = new window.Razorpay({
         key: order.keyId,
         order_id: order.orderId,
@@ -129,13 +136,24 @@ function PayPage() {
         },
         handler: async (r: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) => {
           try {
+            const { fbp, fbc } = metaCookies();
             const res = await confirmPayment({
               data: {
                 orderId: r.razorpay_order_id,
                 paymentId: r.razorpay_payment_id,
                 signature: r.razorpay_signature,
+                fbp,
+                fbc,
+                sourceUrl: window.location.href.split("?")[0],
               },
             });
+            if (res.firstConfirmation && res.amount != null) {
+              trackStandard(
+                "Purchase",
+                { value: res.amount, currency: "INR", content_ids: [PRODUCT_ID], content_type: "product", num_items: 1 },
+                res.eventId,
+              );
+            }
             sessionStorage.setItem(
               "disha-test-payment",
               JSON.stringify({

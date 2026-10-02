@@ -1,0 +1,1 @@
+ALTER TABLE public.payment_orders ADD COLUMN IF NOT EXISTS meta_purchase_sent_at timestamptz;

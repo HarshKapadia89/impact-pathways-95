@@ -1,7 +1,7 @@
 import { Lang, toLang, persistLang } from "@/lib/lang";
 import { tp } from "@/lib/testPageStrings";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PublicLayout } from "@/components/PublicLayout";
 import { OfflineStatus } from "@/components/OfflineStatus";
@@ -94,6 +94,15 @@ function TestIntro() {
   const [testLang, setTestLang] = useState<Lang>(initialLang);
   // Page + form copy follows the chosen test language.
   const lang: Lang = testLang;
+  useEffect(() => {
+    import("@/lib/metaPixel").then((p) =>
+      p.trackStandard(
+        "ViewContent",
+        { content_ids: [p.PRODUCT_ID], content_name: "HBK Career Assessment", content_type: "product", value: 2500, currency: "INR" },
+        p.newEventId("vc"),
+      ),
+    );
+  }, []);
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
   const [age, setAge] = useState("");
@@ -484,7 +493,12 @@ function TestIntro() {
               </p>
               <div className="mt-4 grid grid-cols-2 gap-2">
                 <button
-                  onClick={() => import("@/lib/sampleReport").then((m) => m.openSampleReport("en"))}
+                  onClick={() =>
+                    import("@/lib/sampleReport").then((m) => {
+                      m.openSampleReport("en");
+                      import("@/lib/metaPixel").then((p) => p.trackCustom("ViewSampleReport", { content_ids: [p.PRODUCT_ID] }));
+                    })
+                  }
                   className="inline-flex items-center justify-center gap-1.5 bg-primary text-primary-foreground rounded-md px-3 py-2 text-xs font-medium hover:opacity-90"
                 >
                   View sample PDF <ChevronRight className="h-3.5 w-3.5" />
