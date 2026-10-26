@@ -33,7 +33,7 @@ type Dict = Record<string, string>;
 const dicts: Partial<Record<string, Dict>> = {};
 let activeDict: Dict | null = null;
 let activeNames: string[] = [];
-let collector: ((key: string) => void) | null = null;
+let collector: ((key: string, hit: boolean) => void) | null = null;
 
 /** Called by the report generator before drawing. */
 export function setReportContext(lang: string, names: string[]) {
@@ -46,7 +46,7 @@ export function setReportContext(lang: string, names: string[]) {
   }
   activeNames = [...all].sort((a, b) => b.length - a.length);
 }
-export function setReportStringCollector(fn: ((key: string) => void) | null) {
+export function setReportStringCollector(fn: ((key: string, hit: boolean) => void) | null) {
   collector = fn;
 }
 const INDIC_RUN = /[\u0900-\u097F\u0A80-\u0AFF](?:[\u0900-\u097F\u0A80-\u0AFF\u200c\u200d]|[\s\-/·]+(?=[\u0900-\u097F\u0A80-\u0AFF]))*/g;
@@ -77,8 +77,8 @@ export function maskReportString(s: string, names: string[]) {
 function translateOne(s: string, dict: Dict | null, names: string[]): string | null {
   if (!hasLatinWord(s)) return null;
   const { key, nameVals, nums, runs } = maskReportString(s, names);
-  collector?.(key);
   const v = dict?.[key];
+  collector?.(key, !!v && v !== key);
   if (!v || v === key) return null;
   return v
     .replace(/\{N(\d+)\}/g, (_, i) => nameVals[+i] ?? "")
