@@ -651,14 +651,18 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
 
   // Methodology footnote
   setFill(doc, COLORS.band);
-  doc.roundedRect(M, PH - 32, PW - 2 * M, 14, 2, 2, "F");
+  doc.roundedRect(M, PH - 34, PW - 2 * M, 17, 2, 2, "F");
   font("normal");
   doc.setFontSize(7.5);
   setText(doc, COLORS.muted);
-  doc.text("METHODOLOGY", M + 4, PH - 26);
+  doc.text("METHODOLOGY", M + 4, PH - 28.5);
   doc.setFontSize(8.5);
   setText(doc, COLORS.ink);
-  doc.text("Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.", M + 4, PH - 21);
+  const methLines = wrap(
+    "Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.",
+    PW - 2 * M - 8,
+  );
+  methLines.slice(0, 2).forEach((l, i) => doc.text(l, M + 4, PH - 23.5 + i * 4));
 
   footer(5, 21);
 
