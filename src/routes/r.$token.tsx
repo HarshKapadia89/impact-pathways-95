@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
-import { generatePsychometricPDF } from "@/lib/psychometricReport";
+import { generatePsychometricPDF, preloadReportFonts } from "@/lib/psychometricReport";
 import { buildParentSummary } from "@/lib/parentSummary";
 import { rankCareerPaths, recommendStreamsAccurate } from "@/lib/careerMatch";
 import type { ScoreReport } from "@/lib/psychometricData";
@@ -166,6 +166,7 @@ function WebReportPage() {
   const download = async () => {
     setDownloading(true);
     try {
+      await preloadReportFonts();
       const doc = generatePsychometricPDF({
         name: studentName,
         grade: row.grade ?? "",
