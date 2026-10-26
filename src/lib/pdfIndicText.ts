@@ -50,7 +50,12 @@ export function setReportStringCollector(fn: ((key: string) => void) | null) {
   collector = fn;
 }
 export function maskReportString(s: string, names: string[]) {
-  let out = s;
+  const nums: string[] = [];
+  // Numbers first so the digits inside {N0} placeholders are never masked.
+  let out = s.replace(/\d+(?:[.,]\d+)*/g, (m) => {
+    nums.push(m);
+    return `{D${nums.length - 1}}`;
+  });
   const nameVals: string[] = [];
   for (const n of names) {
     if (out.includes(n)) {
@@ -58,11 +63,6 @@ export function maskReportString(s: string, names: string[]) {
       nameVals.push(n);
     }
   }
-  const nums: string[] = [];
-  out = out.replace(/\d+(?:[.,]\d+)*/g, (m) => {
-    nums.push(m);
-    return `{D${nums.length - 1}}`;
-  });
   return { key: out, nameVals, nums };
 }
 export function translateReportString(s: string, dict: Dict | null = activeDict, names = activeNames): string {
