@@ -92,40 +92,40 @@ type Question = { en: string; gu: string; options: QOption[] };
 const QUESTIONS: Question[] = [
   {
     en: "Free Saturday afternoon. What sounds best?",
-    gu: "ફ્રી શનિવારની બપોર. શું ગમશે?",
+    gu: "શનિવારની નવરાશની બપોરે શું કરવું ગમશે?",
     options: [
-      { en: "Disassembling something to see how it works", gu: "કોઈ વસ્તુ ખોલીને જોવી કેવી રીતે કામ કરે", vibe: "investigator" },
-      { en: "Sketching, editing, or making a reel", gu: "સ્કેચ, એડિટ, અથવા રીલ બનાવવી", vibe: "creator" },
-      { en: "Coding a side project or fixing something", gu: "કોડિંગ અથવા કંઈક ઠીક કરવું", vibe: "builder" },
+      { en: "Disassembling something to see how it works", gu: "કોઈ વસ્તુ ખોલીને જોવી કે તે કેવી રીતે કામ કરે છે", vibe: "investigator" },
+      { en: "Sketching, editing, or making a reel", gu: "સ્કેચ બનાવવો, એડિટિંગ કરવું કે રીલ બનાવવી", vibe: "creator" },
+      { en: "Coding a side project or fixing something", gu: "કોડિંગ કરવું કે કંઈક રિપેર કરવું", vibe: "builder" },
       { en: "Organising plans with friends", gu: "મિત્રો સાથે પ્લાન બનાવવો", vibe: "leader" },
     ],
   },
   {
     en: "Group project — what role do you grab?",
-    gu: "ગ્રુપ પ્રોજેક્ટ — તમે કયો રોલ લો છો?",
+    gu: "ગ્રૂપ પ્રોજેક્ટ — તમે કઈ ભૂમિકા પસંદ કરો છો?",
     options: [
-      { en: "The researcher digging into facts", gu: "જે ડેટા અને હકીકત શોધે", vibe: "investigator" },
-      { en: "The one designing the slides & visuals", gu: "જે સ્લાઇડ અને વિઝ્યુઅલ બનાવે", vibe: "creator" },
+      { en: "The researcher digging into facts", gu: "જે ડેટા અને હકીકતો શોધે", vibe: "investigator" },
+      { en: "The one designing the slides & visuals", gu: "જે સ્લાઇડ્સ અને વિઝ્યુઅલ્સ બનાવે", vibe: "creator" },
       { en: "The one actually building the prototype", gu: "જે ખરેખર પ્રોટોટાઇપ બનાવે", vibe: "builder" },
       { en: "The one leading and presenting", gu: "જે લીડ કરે અને પ્રેઝન્ટ કરે", vibe: "leader" },
     ],
   },
   {
     en: "Pick the compliment that hits hardest:",
-    gu: "આમાંથી કયો કોમ્પ્લિમેન્ટ સૌથી વધુ ગમે?",
+    gu: "આમાંથી કઈ પ્રશંસા સૌથી વધુ ગમે?",
     options: [
       { en: "\"You really think deeply.\"", gu: "\"તું ખરેખર ઊંડાણથી વિચારે છે.\"", vibe: "investigator" },
       { en: "\"That's so original.\"", gu: "\"એ ખરેખર ઓરિજિનલ છે.\"", vibe: "creator" },
-      { en: "\"You actually got it done.\"", gu: "\"તે ખરેખર પૂરું કર્યું.\"", vibe: "builder" },
+      { en: "\"You actually got it done.\"", gu: "\"તેં ખરેખર પૂરું કર્યું.\"", vibe: "builder" },
       { en: "\"People listen to you.\"", gu: "\"લોકો તારી વાત સાંભળે છે.\"", vibe: "leader" },
     ],
   },
   {
     en: "An app crashes mid-use. First instinct?",
-    gu: "એપ વચ્ચે crash થઈ. પહેલી પ્રતિક્રિયા?",
+    gu: "એપ અધવચ્ચે ક્રેશ થઈ ગઈ. પહેલી પ્રતિક્રિયા?",
     options: [
       { en: "Investigate the error message", gu: "એરર મેસેજ તપાસું", vibe: "investigator" },
-      { en: "Imagine how the UI should've worked", gu: "વિચારું કે UI કેવી હોવી જોઈતી હતી", vibe: "creator" },
+      { en: "Imagine how the UI should've worked", gu: "વિચારું કે UI કેવું હોવું જોઈતું હતું", vibe: "creator" },
       { en: "Try a workaround, retry, or restart", gu: "કંઈક અલગ રીત અજમાવું", vibe: "builder" },
       { en: "Report it loudly so it gets fixed", gu: "જોરથી ફરિયાદ કરું જેથી ઠીક થાય", vibe: "leader" },
     ],
@@ -134,10 +134,10 @@ const QUESTIONS: Question[] = [
     en: "Dream first job description?",
     gu: "સપનાની પહેલી જોબ?",
     options: [
-      { en: "Solving puzzles nobody else has cracked", gu: "એવા કોયડા ઉકેલવા જે કોઈએ ન ઉકેલ્યા", vibe: "investigator" },
+      { en: "Solving puzzles nobody else has cracked", gu: "એવા કોયડા ઉકેલવા જે કોઈએ ન ઉકેલ્યા હોય", vibe: "investigator" },
       { en: "Making things people fall in love with", gu: "એવી વસ્તુઓ બનાવવી જે લોકોને ગમે", vibe: "creator" },
-      { en: "Shipping products that actually work", gu: "પ્રોડક્ટ બનાવવા જે ખરેખર કામ કરે", vibe: "builder" },
-      { en: "Running a team and calling shots", gu: "ટીમ ચલાવવી અને નિર્ણય લેવા", vibe: "leader" },
+      { en: "Shipping products that actually work", gu: "એવી પ્રોડક્ટ બનાવવી જે ખરેખર કામ કરે", vibe: "builder" },
+      { en: "Running a team and calling shots", gu: "ટીમનું નેતૃત્વ કરવું અને નિર્ણયો લેવા", vibe: "leader" },
     ],
   },
 ];

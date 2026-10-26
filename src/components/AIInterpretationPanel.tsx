@@ -6,19 +6,19 @@ import type { Lang } from "@/lib/lang";
 const P: Record<string, Record<Lang, string>> = {
   reviewFailed: {
     en: "Career Counsellor review couldn't complete",
-    gu: "કારકિર્દી સહાયકની સમીક્ષા પૂરી ન થઈ",
+    gu: "કારકિર્દી સહાયકની સમીક્ષા પૂર્ણ થઈ શકી નથી",
     hi: "करियर काउंसलर की समीक्षा पूरी नहीं हो सकी",
     mr: "करिअर समुपदेशकाचे विश्लेषण पूर्ण होऊ शकले नाही",
   },
   retryNote: {
     en: "Please try again. Your deterministic scores above are unaffected.",
-    gu: "ફરી પ્રયાસ કરો. ઉપરના સ્કોર પર કોઈ અસર નથી.",
+    gu: "ફરી પ્રયાસ કરો. ઉપરના સ્કોર પર કોઈ અસર થશે નહીં.",
     hi: "फिर कोशिश करें। ऊपर दिए स्कोर पर कोई असर नहीं है।",
     mr: "पुन्हा प्रयत्न करा. वरील गुणांवर परिणाम होत नाही.",
   },
   meaning: {
     en: "What your scores actually mean",
-    gu: "તમારા સ્કોરનો ખરો અર્થ શું છે",
+    gu: "તમારા સ્કોરનો સાચો અર્થ શું છે",
     hi: "आपके स्कोर का असल मतलब",
     mr: "तुमच्या गुणांचा खरा अर्थ",
   },
@@ -42,7 +42,7 @@ const P: Record<string, Record<Lang, string>> = {
   },
   apt: {
     en: "Your aptitude strengths",
-    gu: "તમારી એપ્ટિટ્યુડ તાકાત",
+    gu: "તમારી એપ્ટિટ્યુડ ક્ષમતા",
     hi: "आपकी एप्टीट्यूड क्षमताएँ",
     mr: "तुमची अ‍ॅप्टिट्यूड बलस्थाने",
   },
@@ -54,13 +54,13 @@ const P: Record<string, Record<Lang, string>> = {
   },
   careers: {
     en: "Careers worth exploring",
-    gu: "શોધવા જેવી કારકિર્દીઓ",
+    gu: "જાણવા જેવી કારકિર્દીઓ",
     hi: "जाँचने लायक करियर",
     mr: "पाहण्यासारखी करिअर",
   },
   next90: {
     en: "Next 90 days — what to work on",
-    gu: "આગામી 90 દિવસ — શું કરવું",
+    gu: "આગામી 90 દિવસ — શું કરવું?",
     hi: "अगले 90 दिन — किस पर काम करें",
     mr: "पुढील ९० दिवस — कशावर काम करावे",
   },

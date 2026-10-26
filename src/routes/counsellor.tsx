@@ -46,7 +46,7 @@ const SLOTS = [
 ];
 
 const MODES = [
-  { id: "video", icon: Video, en: "Video call", gu: "વિડિયો કૉલ", hi: "वीडियो कॉल", mr: "व्हिडिओ कॉल" },
+  { id: "video", icon: Video, en: "Video call", gu: "વિડિઓ કૉલ", hi: "वीडियो कॉल", mr: "व्हिडिओ कॉल" },
   { id: "phone", icon: Phone, en: "Phone call", gu: "ફોન કૉલ", hi: "फ़ोन कॉल", mr: "फोन कॉल" },
   { id: "in-person", icon: MapPin, en: "In person", gu: "રૂબરૂ", hi: "सामने-सामने", mr: "समक्ष" },
 ];
@@ -117,11 +117,11 @@ function CounsellorPage() {
     e.preventDefault();
     setError("");
     if (!name.trim() || !mobile.trim() || !date) {
-      setError(pick(lang, { en: "Please fill name, mobile and preferred date.", gu: "કૃપા કરી નામ, મોબાઇલ અને તારીખ ભરો.", hi: "कृपया नाम, मोबाइल और तारीख भरें।", mr: "कृपया नाव, मोबाइल आणि तारीख भरा." }));
+      setError(pick(lang, { en: "Please fill name, mobile and preferred date.", gu: "કૃપા કરીને નામ, મોબાઇલ નંબર અને તારીખ ભરો.", hi: "कृपया नाम, मोबाइल और तारीख भरें।", mr: "कृपया नाव, मोबाइल आणि तारीख भरा." }));
       return;
     }
     if (!/^[0-9+\-\s]{8,15}$/.test(mobile.trim())) {
-      setError(pick(lang, { en: "Please enter a valid mobile number.", gu: "માન્ય મોબાઇલ નંબર નાખો.", hi: "मान्य मोबाइल नंबर डालें।", mr: "वैध मोबाइल नंबर टाका." }));
+      setError(pick(lang, { en: "Please enter a valid mobile number.", gu: "માન્ય મોબાઇલ નંબર દાખલ કરો.", hi: "मान्य मोबाइल नंबर डालें।", mr: "वैध मोबाइल नंबर टाका." }));
       return;
     }
     setSubmitting(true);
@@ -153,7 +153,7 @@ function CounsellorPage() {
     <PublicLayout>
       <StudentPhotoHero tone="brand" image={communityImage} imageAlt="An Indian student receiving personal career guidance from an educator" eyebrow={pick(lang, { en: "Free 1:1 Session", gu: "મફત 1:1 સત્ર", hi: "मुफ़्त 1:1 सत्र", mr: "मोफत 1:1 सत्र" })} title={pick(lang, { en: "Talk to a Career Counsellor", gu: "કારકિર્દી માર્ગદર્શક સાથે વાત કરો", hi: "करियर काउंसलर से बात करें", mr: "करिअर समुपदेशकाशी बोला" })} subtitle={pick(lang, {
               en: "Book a personal session. Our counsellor reviews your aptitude test results and helps you decide your stream, career and next steps.",
-              gu: "વ્યક્તિગત સત્ર બુક કરો. અમારા માર્ગદર્શક તમારા ટેસ્ટના પરિણામો જોઈને પ્રવાહ, કારકિર્દી અને આગળના પગલાં નક્કી કરવામાં મદદ કરે છે.",
+              gu: "વ્યક્તિગત સત્ર બુક કરો. અમારા માર્ગદર્શક તમારા ટેસ્ટનાં પરિણામો જોઈને પ્રવાહ, કારકિર્દી અને આગળનાં પગલાં નક્કી કરવામાં મદદ કરશે.",
               hi: "व्यक्तिगत सत्र बुक करें। हमारे काउंसलर आपके टेस्ट के नतीजे देखकर स्ट्रीम, करियर और अगले कदम तय करने में मदद करते हैं।",
               mr: "वैयक्तिक सत्र बुक करा. आमचे समुपदेशक तुमच्या टेस्ट निकालांवरून प्रवाह, करिअर आणि पुढील पायऱ्या ठरवण्यास मदत करतात.",
             })} />
@@ -163,7 +163,7 @@ function CounsellorPage() {
           <div className="rounded-2xl border border-border bg-card p-8 text-center space-y-4 shadow-sm">
             <CheckCircle2 className="h-14 w-14 text-green-600 mx-auto" />
             <h2 className="font-serif text-2xl">
-              {pick(lang, { en: "Booking received!", gu: "બુકિંગ મળી ગયું!", hi: "बुकिंग मिल गई!", mr: "बुकिंग मिळाली!" })}
+              {pick(lang, { en: "Booking received!", gu: "બુકિંગ નોંધાઈ ગયું!", hi: "बुकिंग मिल गई!", mr: "बुकिंग मिळाली!" })}
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto">
               {pick(lang, {
@@ -178,7 +178,7 @@ function CounsellorPage() {
                 {pick(lang, { en: "Go to Dashboard", gu: "ડૅશબોર્ડ પર જાઓ", hi: "डैशबोर्ड पर जाएँ", mr: "डॅशबोर्डवर जा" })}
               </Link>
               <Link to="/" className="rounded-xl border border-border px-5 py-2.5 text-sm font-medium">
-                {pick(lang, { en: "Back to Home", gu: "હોમ પર પાછા", hi: "होम पर वापस", mr: "मुख्यपृष्ठावर परत" })}
+                {pick(lang, { en: "Back to Home", gu: "હોમ પર પાછા જાઓ", hi: "होम पर वापस", mr: "मुख्यपृष्ठावर परत" })}
               </Link>
             </div>
           </div>
@@ -189,11 +189,11 @@ function CounsellorPage() {
                 <Brain className="h-8 w-8 text-primary shrink-0 mt-0.5" />
                 <div className="text-sm space-y-1">
                   <p className="font-semibold">
-                    {pick(lang, { en: "Your test results are attached", gu: "તમારા ટેસ્ટના પરિણામો જોડાયેલા છે", hi: "आपके टेस्ट के नतीजे जुड़े हैं", mr: "तुमचे टेस्ट निकाल जोडले आहेत" })}
+                    {pick(lang, { en: "Your test results are attached", gu: "તમારા ટેસ્ટનાં પરિણામો જોડાયેલાં છે", hi: "आपके टेस्ट के नतीजे जुड़े हैं", mr: "तुमचे टेस्ट निकाल जोडले आहेत" })}
                   </p>
                   <p className="text-muted-foreground">
                     Holland code: <span className="font-medium text-foreground">{ctx.holland}</span>
-                    {ctx.topStream && <> · {pick(lang, { en: "Top stream", gu: "ટોપ પ્રવાહ", hi: "टॉप स्ट्रीम", mr: "टॉप प्रवाह" })}: <span className="font-medium text-foreground">{ctx.topStream}</span></>}
+                    {ctx.topStream && <> · {pick(lang, { en: "Top stream", gu: "ટોચનો પ્રવાહ", hi: "टॉप स्ट्रीम", mr: "टॉप प्रवाह" })}: <span className="font-medium text-foreground">{ctx.topStream}</span></>}
                   </p>
                   <p className="text-xs text-muted-foreground">
                     {pick(lang, { en: "The counsellor will see these before your session.", gu: "માર્ગદર્શક સત્ર પહેલાં આ જોશે.", hi: "काउंसलर सत्र से पहले ये देखेंगे।", mr: "समुपदेशक सत्रापूर्वी हे पाहतील." })}
@@ -207,7 +207,7 @@ function CounsellorPage() {
                 <span>
                   {pick(lang, {
                     en: "Tip: take the aptitude test first so the counsellor can prepare for you.",
-                    gu: "ટિપ: પહેલા ટેસ્ટ આપો જેથી માર્ગદર્શક તૈયારી કરી શકે.",
+                    gu: "ટિપ: પહેલાં ટેસ્ટ આપો, જેથી માર્ગદર્શક તૈયારી કરી શકે.",
                     hi: "सुझाव: पहले टेस्ट दें ताकि काउंसलर तैयारी कर सके।",
                     mr: "टीप: आधी टेस्ट द्या म्हणजे समुपदेशक तयारी करू शकतील.",
                   })}
@@ -265,7 +265,7 @@ function CounsellorPage() {
               </div>
 
               <div className="space-y-2">
-                <span className="text-sm font-medium">{pick(lang, { en: "Session mode", gu: "સત્રની રીત", hi: "सत्र का तरीका", mr: "सत्राची पद्धत" })}</span>
+                <span className="text-sm font-medium">{pick(lang, { en: "Session mode", gu: "સત્રનું માધ્યમ", hi: "सत्र का तरीका", mr: "सत्राची पद्धत" })}</span>
                 <div className="grid grid-cols-3 gap-2">
                   {MODES.map((m) => (
                     <Button
