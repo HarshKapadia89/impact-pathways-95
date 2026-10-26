@@ -33,10 +33,24 @@ type Dict = Record<string, string>;
 const dicts: Partial<Record<string, Dict>> = {};
 let activeDict: Dict | null = null;
 let activeNames: string[] = [];
+let activeLang = "en";
+
+// Sentences that wrap a variable list of course names (kept in Latin).
+const LIST_PATTERNS: { re: RegExp; tpl: Record<string, string> }[] = [
+  {
+    re: /^Concrete paths that fit the profile include (.+?)\.?$/,
+    tpl: {
+      gu: "આ પ્રોફાઇલને અનુરૂપ ચોક્કસ વિકલ્પો: {L}.",
+      hi: "इस प्रोफ़ाइल के अनुरूप ठोस विकल्प: {L}।",
+      mr: "या प्रोफाइलशी जुळणारे ठोस पर्याय: {L}.",
+    },
+  },
+];
 let collector: ((key: string, hit: boolean) => void) | null = null;
 
 /** Called by the report generator before drawing. */
 export function setReportContext(lang: string, names: string[]) {
+  activeLang = lang;
   activeDict = lang === "en" ? null : dicts[lang] ?? null;
   const all = new Set<string>();
   for (const n of names) {
@@ -78,8 +92,21 @@ function translateOne(s: string, dict: Dict | null, names: string[]): string | n
   if (!hasLatinWord(s)) return null;
   const { key, nameVals, nums, runs } = maskReportString(s, names);
   const v = dict?.[key];
-  collector?.(key, !!v && v !== key);
-  if (!v || v === key) return null;
+  if (!v || v === key) {
+    if (dict && activeLang !== "en") {
+      for (const p of LIST_PATTERNS) {
+        const m = s.trim().match(p.re);
+        const tpl = p.tpl[activeLang];
+        if (m && tpl) {
+          collector?.(key, true);
+          return tpl.replace("{L}", m[1]);
+        }
+      }
+    }
+    collector?.(key, false);
+    return null;
+  }
+  collector?.(key, true);
   return v
     .replace(/\{N(\d+)\}/g, (_, i) => nameVals[+i] ?? "")
     .replace(/\{T(\d+)\}/g, (_, i) => runs[+i] ?? "")

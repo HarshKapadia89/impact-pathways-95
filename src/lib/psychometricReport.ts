@@ -128,6 +128,12 @@ const PL: Record<string, Record<string, string>> = {
   direction: { en: "What direction the data points to", gu: "માહિતી કઈ દિશા બતાવે છે", hi: "डेटा किस दिशा की ओर इशारा करता है", mr: "माहिती कोणती दिशा दाखवते" },
   threeThings: { en: "3 things you can do this term", gu: "આ સત્રમાં તમે કરી શકો તેવી 3 બાબતો", hi: "इस सत्र में आप ये 3 काम कर सकते हैं", mr: "या सत्रात तुम्ही करू शकता अशा 3 गोष्टी" },
   whyFits: { en: "Why this fits you:", gu: "આ તમને કેમ અનુકૂળ છે:", hi: "यह आपके लिए क्यों सही है:", mr: "हे तुम्हाला का योग्य आहे:" },
+  narrative: {
+    en: "Your profile points to a {code} interest pattern with {mi} as your strongest intelligence and {apt} as standout aptitudes. The streams below are mapped to fit this combined profile.",
+    gu: "તમારી પ્રોફાઇલ {code} રુચિ પેટર્ન દર્શાવે છે, જેમાં {mi} તમારી સૌથી પ્રબળ બુદ્ધિ છે અને {apt} તમારી વિશેષ પ્રબળ એપ્ટિટ્યુડ છે. નીચેની સ્ટ્રીમ્સ આ સંયુક્ત પ્રોફાઇલને અનુરૂપ પસંદ કરવામાં આવી છે.",
+    hi: "आपकी प्रोफ़ाइल {code} रुचि पैटर्न दिखाती है, जिसमें {mi} आपकी सबसे मज़बूत इंटेलिजेंस है और {apt} आपकी प्रमुख एप्टीट्यूड हैं। नीचे दी गई स्ट्रीम्स इसी संयुक्त प्रोफ़ाइल के अनुसार चुनी गई हैं।",
+    mr: "तुमची प्रोफाइल {code} आवड पॅटर्न दर्शवते; यात {mi} ही तुमची सर्वात प्रबळ बुद्धिमत्ता आहे आणि {apt} ही तुमची ठळक अ‍ॅप्टिट्यूड आहेत. खालील शाखा या एकत्रित प्रोफाइलनुसार निवडल्या आहेत.",
+  },
   grade: { en: "Grade", gu: "ધોરણ", hi: "कक्षा", mr: "इयत्ता" },
   age: { en: "Age", gu: "ઉંમર", hi: "आयु", mr: "वय" },
   child: { en: "your child", gu: "તમારું બાળક", hi: "आपका बच्चा", mr: "तुमचे मूल" },
@@ -598,7 +604,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setText(doc, COLORS.ink);
 
   // Narrative
-  const narrative = `Your profile points to a ${report.riasecTop.join("-")} interest pattern with ${t.mi[report.miTop[0]]?.name ?? "broad"} as your strongest intelligence and ${report.aptitudeTop.map(t.aptCategoryName).join(" & ")} as standout aptitudes. The streams below are mapped to fit this combined profile.`;
+  const andWord = language === "gu" ? " અને " : language === "hi" ? " और " : language === "mr" ? " आणि " : " & ";
+  const narrative = pl("narrative")
+    .replace("{code}", report.riasecTop.join("-"))
+    .replace("{mi}", t.mi[report.miTop[0]]?.name ?? "—")
+    .replace("{apt}", report.aptitudeTop.map((a) => translateReportString(t.aptCategoryName(a))).join(andWord));
   font("normal");
   doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
