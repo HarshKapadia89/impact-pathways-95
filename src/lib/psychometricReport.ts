@@ -100,8 +100,27 @@ function safe(text: string): string {
   return out;
 }
 
+// Test scoring uses "Linguistic", "LogicalMath", ...; report strings use "linguistic", "logical", ...
+export const MI_KEY_MAP: Record<string, string> = {
+  Linguistic: "linguistic",
+  LogicalMath: "logical",
+  Spatial: "spatial",
+  Bodily: "bodily",
+  Musical: "musical",
+  Interpersonal: "interpersonal",
+  Intrapersonal: "intrapersonal",
+  Naturalist: "naturalist",
+};
+
+export function normalizeMiForReport(report: ScoreReport): ScoreReport {
+  const mi: Record<string, number> = {};
+  for (const [k, v] of Object.entries(report.mi ?? {})) mi[MI_KEY_MAP[k] ?? k] = v;
+  return { ...report, mi, miTop: (report.miTop ?? []).map((k) => MI_KEY_MAP[k] ?? k) };
+}
+
 export function generatePsychometricPDF(input: ReportInput): jsPDF {
-  const { name, grade, age, report } = input;
+  const { name, grade, age } = input;
+  const report = normalizeMiForReport(input.report);
   // Marathi shares the Devanagari script with Hindi (same embedded font).
   const language = input.language;
   const t: ReportStrings = getReportStrings(language);
