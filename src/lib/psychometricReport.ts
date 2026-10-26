@@ -32,20 +32,20 @@ interface ReportInput {
 
 // --- styling helpers ---
 const COLORS = {
-  primary: [28, 24, 78] as [number, number, number],          // deep indigo
-  primaryDark: [18, 16, 52] as [number, number, number],
-  accent: [212, 138, 42] as [number, number, number],         // warm gold
-  accentSoft: [245, 224, 184] as [number, number, number],
-  ink: [28, 28, 46] as [number, number, number],
+  primary: [106, 5, 204] as [number, number, number],          // HBK purple (--hbk-purple)
+  primaryDark: [70, 3, 140] as [number, number, number],
+  accent: [233, 101, 43] as [number, number, number],         // HBK orange (--hbk-orange)
+  accentSoft: [238, 244, 214] as [number, number, number],
+  ink: [20, 17, 15] as [number, number, number],
   muted: [110, 110, 130] as [number, number, number],
   hairline: [220, 220, 232] as [number, number, number],
   rule: [225, 225, 235] as [number, number, number],
   band: [248, 246, 240] as [number, number, number],
-  bandAlt: [241, 240, 248] as [number, number, number],
-  bar: [60, 50, 130] as [number, number, number],
-  bar2: [200, 130, 60] as [number, number, number],
-  callout: [248, 244, 232] as [number, number, number],
-  calloutBorder: [212, 138, 42] as [number, number, number],
+  bandAlt: [243, 236, 252] as [number, number, number],
+  bar: [106, 5, 204] as [number, number, number],
+  bar2: [233, 101, 43] as [number, number, number],
+  callout: [244, 248, 230] as [number, number, number],
+  calloutBorder: [171, 202, 68] as [number, number, number],
   ok: [38, 130, 90] as [number, number, number],
 };
 

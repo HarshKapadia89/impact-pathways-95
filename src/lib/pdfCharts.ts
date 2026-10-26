@@ -35,8 +35,8 @@ export function drawRadar(doc: jsPDF, opts: RadarOpts) {
     rings = 4,
     ringColor = [225, 225, 235],
     axisColor = [200, 200, 215],
-    fillColor = [60, 50, 130],
-    strokeColor = [40, 30, 95],
+    fillColor = [106, 5, 204],
+    strokeColor = [70, 3, 140],
     labelColor = [30, 30, 50],
     fillOpacity = 0.28,
     labelFontSize = 9,
@@ -174,8 +174,8 @@ function filledPolygon(doc: jsPDF, pts: [number, number][]) {
  */
 export function proficiencyBand(pct: number): { label: string; color: RGB } {
   if (pct >= 75) return { label: "Advanced", color: [38, 130, 90] };
-  if (pct >= 55) return { label: "Proficient", color: [60, 50, 130] };
-  if (pct >= 35) return { label: "Developing", color: [220, 145, 50] };
+  if (pct >= 55) return { label: "Proficient", color: [106, 5, 204] };
+  if (pct >= 35) return { label: "Developing", color: [233, 101, 43] };
   return { label: "Emerging", color: [180, 80, 80] };
 }
 
@@ -192,7 +192,7 @@ export function drawScoreBar(
   opts?: { trackColor?: RGB; fillColor?: RGB; chip?: boolean; sub?: string },
 ) {
   const trackColor = opts?.trackColor ?? [232, 232, 240];
-  const fillColor = opts?.fillColor ?? [60, 50, 130];
+  const fillColor = opts?.fillColor ?? [106, 5, 204];
   const showChip = opts?.chip ?? false;
 
   // label (left)
