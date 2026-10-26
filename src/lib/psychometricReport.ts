@@ -17,7 +17,7 @@ import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
 import { notoSansDevanagariRegular, notoSansDevanagariBold } from "./fonts/notoSansDevanagari";
 import { installIndicShaping, setReportContext } from "./pdfIndicText";
-export { preloadReportFonts } from "./pdfIndicText";
+export { preloadReportFonts, setReportStringCollector } from "./pdfIndicText";
 import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 import { buildParentSummary } from "./parentSummary";
 
