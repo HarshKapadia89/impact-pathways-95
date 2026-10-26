@@ -49,12 +49,20 @@ export function setReportContext(lang: string, names: string[]) {
 export function setReportStringCollector(fn: ((key: string) => void) | null) {
   collector = fn;
 }
+const INDIC_RUN = /[\u0900-\u097F\u0A80-\u0AFF](?:[\u0900-\u097F\u0A80-\u0AFF\u200c\u200d]|[\s\-/·]+(?=[\u0900-\u097F\u0A80-\u0AFF]))*/g;
+
 export function maskReportString(s: string, names: string[]) {
   const nums: string[] = [];
-  // Numbers first so the digits inside {N0} placeholders are never masked.
+  // Numbers first so the digits inside placeholders are never masked.
   let out = s.replace(/\d+(?:[.,]\d+)*/g, (m) => {
     nums.push(m);
     return `{D${nums.length - 1}}`;
+  });
+  // Already-translated runs (e.g. "ભાષાકીય STANDS OUT") become {T0}.
+  const runs: string[] = [];
+  out = out.replace(INDIC_RUN, (m) => {
+    runs.push(m);
+    return `{T${runs.length - 1}}`;
   });
   const nameVals: string[] = [];
   for (const n of names) {
@@ -63,16 +71,21 @@ export function maskReportString(s: string, names: string[]) {
       nameVals.push(n);
     }
   }
-  return { key: out, nameVals, nums };
+  return { key: out, nameVals, nums, runs };
 }
 function translateOne(s: string, dict: Dict | null, names: string[]): string | null {
-  const { key, nameVals, nums } = maskReportString(s, names);
+  if (!hasLatinWord(s)) return null;
+  const { key, nameVals, nums, runs } = maskReportString(s, names);
   collector?.(key);
   const v = dict?.[key];
   if (!v || v === key) return null;
   return v
     .replace(/\{N(\d+)\}/g, (_, i) => nameVals[+i] ?? "")
+    .replace(/\{T(\d+)\}/g, (_, i) => runs[+i] ?? "")
     .replace(/\{D(\d+)\}/g, (_, i) => nums[+i] ?? "");
+}
+function hasLatinWord(s: string) {
+  return /[A-Za-z]{3,}/.test(s.replace(INDIC_RUN, ""));
 }
 
 /**
@@ -80,8 +93,8 @@ function translateOne(s: string, dict: Dict | null, names: string[]): string | n
  * sentence so templated paragraphs (different traits, streams) still match.
  */
 export function translateReportString(s: string, dict: Dict | null = activeDict, names = activeNames): string {
-  if (!s || isIndic(s) || !/[A-Za-z]{3,}/.test(s)) return s;
-  const sentences = s.split(/(?<=[.!?:])\s+(?=[A-Z{"(₹\d•])/);
+  if (!s || !hasLatinWord(s)) return s;
+  const sentences = s.split(/(?<=[.!?:।])\s+(?=[A-Z{"(₹\d•\u0900-\u097F\u0A80-\u0AFF])/);
   if (sentences.length <= 1) return translateOne(s, dict, names) ?? s;
   const whole = dict?.[maskReportString(s, names).key];
   if (whole) return translateOne(s, dict, names) ?? s;
