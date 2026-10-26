@@ -65,15 +65,27 @@ export function maskReportString(s: string, names: string[]) {
   }
   return { key: out, nameVals, nums };
 }
-export function translateReportString(s: string, dict: Dict | null = activeDict, names = activeNames): string {
-  if (!s || isIndic(s) || !/[A-Za-z]{3,}/.test(s)) return s;
+function translateOne(s: string, dict: Dict | null, names: string[]): string | null {
   const { key, nameVals, nums } = maskReportString(s, names);
   collector?.(key);
   const v = dict?.[key];
-  if (!v || v === key) return s;
+  if (!v || v === key) return null;
   return v
     .replace(/\{N(\d+)\}/g, (_, i) => nameVals[+i] ?? "")
     .replace(/\{D(\d+)\}/g, (_, i) => nums[+i] ?? "");
+}
+
+/**
+ * Translate leftover English. Tries the whole string first, then sentence by
+ * sentence so templated paragraphs (different traits, streams) still match.
+ */
+export function translateReportString(s: string, dict: Dict | null = activeDict, names = activeNames): string {
+  if (!s || isIndic(s) || !/[A-Za-z]{3,}/.test(s)) return s;
+  const sentences = s.split(/(?<=[.!?:])\s+(?=[A-Z{"(₹\d•])/);
+  if (sentences.length <= 1) return translateOne(s, dict, names) ?? s;
+  const whole = dict?.[maskReportString(s, names).key];
+  if (whole) return translateOne(s, dict, names) ?? s;
+  return sentences.map((p) => translateOne(p, dict, names) ?? p).join(" ");
 }
 
 async function loadDict(lang: string) {
