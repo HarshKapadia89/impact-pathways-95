@@ -9,170 +9,60 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UpskillRouteImport } from './routes/upskill'
-import { Route as TestRouteImport } from './routes/test'
-import { Route as TeachersRouteImport } from './routes/teachers'
-import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
-import { Route as SessionsRouteImport } from './routes/sessions'
-import { Route as SchoolsRouteImport } from './routes/schools'
-import { Route as ScholarshipsRouteImport } from './routes/scholarships'
-import { Route as ReportsRouteImport } from './routes/reports'
-import { Route as ProgramsRouteImport } from './routes/programs'
-import { Route as ProfileBuilderRouteImport } from './routes/profile-builder'
-import { Route as ParentsRouteImport } from './routes/parents'
-import { Route as HandbookRouteImport } from './routes/handbook'
-import { Route as ForSchoolsRouteImport } from './routes/for-schools'
-import { Route as FindCollegeRouteImport } from './routes/find-college'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ExamsRouteImport } from './routes/exams'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as CounsellorRouteImport } from './routes/counsellor'
-import { Route as CollegesRouteImport } from './routes/colleges'
-import { Route as CareerLibraryRouteImport } from './routes/career-library'
-import { Route as CareerRouteImport } from './routes/career'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UpskillIndexRouteImport } from './routes/upskill.index'
-import { Route as TestIndexRouteImport } from './routes/test.index'
-import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
-import { Route as UpskillQuizRouteImport } from './routes/upskill.quiz'
-import { Route as UpskillTopicRouteImport } from './routes/upskill.$topic'
-import { Route as TestTakeRouteImport } from './routes/test.take'
-import { Route as TestPayRouteImport } from './routes/test.pay'
-import { Route as TeacherSessionsRouteImport } from './routes/teacher.sessions'
-import { Route as TeacherSchoolsRouteImport } from './routes/teacher.schools'
-import { Route as TeacherProfileRouteImport } from './routes/teacher.profile'
-import { Route as RTokenRouteImport } from './routes/r.$token'
-import { Route as HandbookSlugRouteImport } from './routes/handbook.$slug'
-import { Route as CareerStreamRouteImport } from './routes/career.$stream'
-import { Route as AdminReportsRouteImport } from './routes/admin.reports'
-import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CareerRouteImport } from './routes/career'
+import { Route as CareerLibraryRouteImport } from './routes/career-library'
+import { Route as CollegesRouteImport } from './routes/colleges'
+import { Route as CounsellorRouteImport } from './routes/counsellor'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ExamsRouteImport } from './routes/exams'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FindCollegeRouteImport } from './routes/find-college'
+import { Route as ForSchoolsRouteImport } from './routes/for-schools'
+import { Route as HandbookRouteImport } from './routes/handbook'
+import { Route as ParentsRouteImport } from './routes/parents'
+import { Route as ProfileBuilderRouteImport } from './routes/profile-builder'
+import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ScholarshipsRouteImport } from './routes/scholarships'
+import { Route as SchoolsRouteImport } from './routes/schools'
+import { Route as SessionsRouteImport } from './routes/sessions'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as TeachersRouteImport } from './routes/teachers'
+import { Route as TestRouteImport } from './routes/test'
+import { Route as UpskillRouteImport } from './routes/upskill'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
-import { Route as UpskillTopicIndexRouteImport } from './routes/upskill.$topic.index'
-import { Route as HandbookSlugIndexRouteImport } from './routes/handbook.$slug.index'
+import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as CareerStreamRouteImport } from './routes/career.$stream'
+import { Route as HandbookSlugRouteImport } from './routes/handbook.$slug'
+import { Route as RTokenRouteImport } from './routes/r.$token'
+import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
+import { Route as TeacherProfileRouteImport } from './routes/teacher.profile'
+import { Route as TeacherSchoolsRouteImport } from './routes/teacher.schools'
+import { Route as TeacherSessionsRouteImport } from './routes/teacher.sessions'
+import { Route as TestIndexRouteImport } from './routes/test.index'
+import { Route as TestPayRouteImport } from './routes/test.pay'
+import { Route as TestTakeRouteImport } from './routes/test.take'
+import { Route as UpskillIndexRouteImport } from './routes/upskill.index'
+import { Route as UpskillTopicRouteImport } from './routes/upskill.$topic'
+import { Route as UpskillQuizRouteImport } from './routes/upskill.quiz'
 import { Route as CareerStreamIndexRouteImport } from './routes/career.$stream.index'
-import { Route as UpskillTopicQuizRouteImport } from './routes/upskill.$topic.quiz'
-import { Route as UpskillTopicLessonRouteImport } from './routes/upskill.$topic.$lesson'
-import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
-import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
-import { Route as HandbookSlugProfessionRouteImport } from './routes/handbook.$slug.$profession'
 import { Route as CareerStreamPathRouteImport } from './routes/career.$stream.$path'
+import { Route as HandbookSlugIndexRouteImport } from './routes/handbook.$slug.index'
+import { Route as HandbookSlugProfessionRouteImport } from './routes/handbook.$slug.$profession'
+import { Route as TeacherSchoolSchoolIdRouteImport } from './routes/teacher.school.$schoolId'
+import { Route as TeacherSessionSessionIdRouteImport } from './routes/teacher.session.$sessionId'
+import { Route as UpskillTopicIndexRouteImport } from './routes/upskill.$topic.index'
+import { Route as UpskillTopicLessonRouteImport } from './routes/upskill.$topic.$lesson'
+import { Route as UpskillTopicQuizRouteImport } from './routes/upskill.$topic.quiz'
 
-const UpskillRoute = UpskillRouteImport.update({
-  id: '/upskill',
-  path: '/upskill',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TestRoute = TestRouteImport.update({
-  id: '/test',
-  path: '/test',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TeachersRoute = TeachersRouteImport.update({
-  id: '/teachers',
-  path: '/teachers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
-  id: '/success-stories',
-  path: '/success-stories',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SessionsRoute = SessionsRouteImport.update({
-  id: '/sessions',
-  path: '/sessions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SchoolsRoute = SchoolsRouteImport.update({
-  id: '/schools',
-  path: '/schools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ScholarshipsRoute = ScholarshipsRouteImport.update({
-  id: '/scholarships',
-  path: '/scholarships',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportsRoute = ReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgramsRoute = ProgramsRouteImport.update({
-  id: '/programs',
-  path: '/programs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfileBuilderRoute = ProfileBuilderRouteImport.update({
-  id: '/profile-builder',
-  path: '/profile-builder',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ParentsRoute = ParentsRouteImport.update({
-  id: '/parents',
-  path: '/parents',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HandbookRoute = HandbookRouteImport.update({
-  id: '/handbook',
-  path: '/handbook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ForSchoolsRoute = ForSchoolsRouteImport.update({
-  id: '/for-schools',
-  path: '/for-schools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FindCollegeRoute = FindCollegeRouteImport.update({
-  id: '/find-college',
-  path: '/find-college',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExamsRoute = ExamsRouteImport.update({
-  id: '/exams',
-  path: '/exams',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CounsellorRoute = CounsellorRouteImport.update({
-  id: '/counsellor',
-  path: '/counsellor',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CollegesRoute = CollegesRouteImport.update({
-  id: '/colleges',
-  path: '/colleges',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareerLibraryRoute = CareerLibraryRouteImport.update({
-  id: '/career-library',
-  path: '/career-library',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareerRoute = CareerRouteImport.update({
-  id: '/career',
-  path: '/career',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -180,79 +70,124 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UpskillIndexRoute = UpskillIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => UpskillRoute,
-} as any)
-const TestIndexRoute = TestIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => TestRoute,
-} as any)
-const TeacherIndexRoute = TeacherIndexRouteImport.update({
-  id: '/teacher/',
-  path: '/teacher/',
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UpskillQuizRoute = UpskillQuizRouteImport.update({
-  id: '/quiz',
-  path: '/quiz',
-  getParentRoute: () => UpskillRoute,
-} as any)
-const UpskillTopicRoute = UpskillTopicRouteImport.update({
-  id: '/$topic',
-  path: '/$topic',
-  getParentRoute: () => UpskillRoute,
-} as any)
-const TestTakeRoute = TestTakeRouteImport.update({
-  id: '/take',
-  path: '/take',
-  getParentRoute: () => TestRoute,
-} as any)
-const TestPayRoute = TestPayRouteImport.update({
-  id: '/pay',
-  path: '/pay',
-  getParentRoute: () => TestRoute,
-} as any)
-const TeacherSessionsRoute = TeacherSessionsRouteImport.update({
-  id: '/teacher/sessions',
-  path: '/teacher/sessions',
+const CareerRoute = CareerRouteImport.update({
+  id: '/career',
+  path: '/career',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeacherSchoolsRoute = TeacherSchoolsRouteImport.update({
-  id: '/teacher/schools',
-  path: '/teacher/schools',
+const CareerLibraryRoute = CareerLibraryRouteImport.update({
+  id: '/career-library',
+  path: '/career-library',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeacherProfileRoute = TeacherProfileRouteImport.update({
-  id: '/teacher/profile',
-  path: '/teacher/profile',
+const CollegesRoute = CollegesRouteImport.update({
+  id: '/colleges',
+  path: '/colleges',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RTokenRoute = RTokenRouteImport.update({
-  id: '/r/$token',
-  path: '/r/$token',
+const CounsellorRoute = CounsellorRouteImport.update({
+  id: '/counsellor',
+  path: '/counsellor',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HandbookSlugRoute = HandbookSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => HandbookRoute,
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const CareerStreamRoute = CareerStreamRouteImport.update({
-  id: '/$stream',
-  path: '/$stream',
-  getParentRoute: () => CareerRoute,
+const ExamsRoute = ExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminReportsRoute = AdminReportsRouteImport.update({
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindCollegeRoute = FindCollegeRouteImport.update({
+  id: '/find-college',
+  path: '/find-college',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForSchoolsRoute = ForSchoolsRouteImport.update({
+  id: '/for-schools',
+  path: '/for-schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HandbookRoute = HandbookRouteImport.update({
+  id: '/handbook',
+  path: '/handbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentsRoute = ParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileBuilderRoute = ProfileBuilderRouteImport.update({
+  id: '/profile-builder',
+  path: '/profile-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRoute = ProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScholarshipsRoute = ScholarshipsRouteImport.update({
+  id: '/scholarships',
+  path: '/scholarships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchoolsRoute = SchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SessionsRoute = SessionsRouteImport.update({
+  id: '/sessions',
+  path: '/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeachersRoute = TeachersRouteImport.update({
+  id: '/teachers',
+  path: '/teachers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpskillRoute = UpskillRouteImport.update({
+  id: '/upskill',
+  path: '/upskill',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBookingsRoute = AdminBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminCollegesRoute = AdminCollegesRouteImport.update({
@@ -260,29 +195,109 @@ const AdminCollegesRoute = AdminCollegesRouteImport.update({
   path: '/colleges',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminBookingsRoute = AdminBookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => AdminRoute,
 } as any)
-const UpskillTopicIndexRoute = UpskillTopicIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => UpskillTopicRoute,
+const CareerStreamRoute = CareerStreamRouteImport.update({
+  id: '/$stream',
+  path: '/$stream',
+  getParentRoute: () => CareerRoute,
 } as any)
-const HandbookSlugIndexRoute = HandbookSlugIndexRouteImport.update({
+const HandbookSlugRoute = HandbookSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HandbookRoute,
+} as any)
+const RTokenRoute = RTokenRouteImport.update({
+  id: '/r/$token',
+  path: '/r/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherIndexRoute = TeacherIndexRouteImport.update({
+  id: '/teacher/',
+  path: '/teacher/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherProfileRoute = TeacherProfileRouteImport.update({
+  id: '/teacher/profile',
+  path: '/teacher/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherSchoolsRoute = TeacherSchoolsRouteImport.update({
+  id: '/teacher/schools',
+  path: '/teacher/schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherSessionsRoute = TeacherSessionsRouteImport.update({
+  id: '/teacher/sessions',
+  path: '/teacher/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestIndexRoute = TestIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => HandbookSlugRoute,
+  getParentRoute: () => TestRoute,
+} as any)
+const TestPayRoute = TestPayRouteImport.update({
+  id: '/pay',
+  path: '/pay',
+  getParentRoute: () => TestRoute,
+} as any)
+const TestTakeRoute = TestTakeRouteImport.update({
+  id: '/take',
+  path: '/take',
+  getParentRoute: () => TestRoute,
+} as any)
+const UpskillIndexRoute = UpskillIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => UpskillRoute,
+} as any)
+const UpskillTopicRoute = UpskillTopicRouteImport.update({
+  id: '/$topic',
+  path: '/$topic',
+  getParentRoute: () => UpskillRoute,
+} as any)
+const UpskillQuizRoute = UpskillQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => UpskillRoute,
 } as any)
 const CareerStreamIndexRoute = CareerStreamIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CareerStreamRoute,
 } as any)
-const UpskillTopicQuizRoute = UpskillTopicQuizRouteImport.update({
-  id: '/quiz',
-  path: '/quiz',
+const CareerStreamPathRoute = CareerStreamPathRouteImport.update({
+  id: '/$path',
+  path: '/$path',
+  getParentRoute: () => CareerStreamRoute,
+} as any)
+const HandbookSlugIndexRoute = HandbookSlugIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HandbookSlugRoute,
+} as any)
+const HandbookSlugProfessionRoute = HandbookSlugProfessionRouteImport.update({
+  id: '/$profession',
+  path: '/$profession',
+  getParentRoute: () => HandbookSlugRoute,
+} as any)
+const TeacherSchoolSchoolIdRoute = TeacherSchoolSchoolIdRouteImport.update({
+  id: '/teacher/school/$schoolId',
+  path: '/teacher/school/$schoolId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherSessionSessionIdRoute = TeacherSessionSessionIdRouteImport.update({
+  id: '/teacher/session/$sessionId',
+  path: '/teacher/session/$sessionId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpskillTopicIndexRoute = UpskillTopicIndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => UpskillTopicRoute,
 } as any)
 const UpskillTopicLessonRoute = UpskillTopicLessonRouteImport.update({
@@ -290,25 +305,10 @@ const UpskillTopicLessonRoute = UpskillTopicLessonRouteImport.update({
   path: '/$lesson',
   getParentRoute: () => UpskillTopicRoute,
 } as any)
-const TeacherSessionSessionIdRoute = TeacherSessionSessionIdRouteImport.update({
-  id: '/teacher/session/$sessionId',
-  path: '/teacher/session/$sessionId',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TeacherSchoolSchoolIdRoute = TeacherSchoolSchoolIdRouteImport.update({
-  id: '/teacher/school/$schoolId',
-  path: '/teacher/school/$schoolId',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HandbookSlugProfessionRoute = HandbookSlugProfessionRouteImport.update({
-  id: '/$profession',
-  path: '/$profession',
-  getParentRoute: () => HandbookSlugRoute,
-} as any)
-const CareerStreamPathRoute = CareerStreamPathRouteImport.update({
-  id: '/$path',
-  path: '/$path',
-  getParentRoute: () => CareerStreamRoute,
+const UpskillTopicQuizRoute = UpskillTopicQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => UpskillTopicRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -654,165 +654,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/upskill': {
-      id: '/upskill'
-      path: '/upskill'
-      fullPath: '/upskill'
-      preLoaderRoute: typeof UpskillRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/test': {
-      id: '/test'
-      path: '/test'
-      fullPath: '/test'
-      preLoaderRoute: typeof TestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/teachers': {
-      id: '/teachers'
-      path: '/teachers'
-      fullPath: '/teachers'
-      preLoaderRoute: typeof TeachersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/success-stories': {
-      id: '/success-stories'
-      path: '/success-stories'
-      fullPath: '/success-stories'
-      preLoaderRoute: typeof SuccessStoriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sessions': {
-      id: '/sessions'
-      path: '/sessions'
-      fullPath: '/sessions'
-      preLoaderRoute: typeof SessionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/schools': {
-      id: '/schools'
-      path: '/schools'
-      fullPath: '/schools'
-      preLoaderRoute: typeof SchoolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/scholarships': {
-      id: '/scholarships'
-      path: '/scholarships'
-      fullPath: '/scholarships'
-      preLoaderRoute: typeof ScholarshipsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reports': {
-      id: '/reports'
-      path: '/reports'
-      fullPath: '/reports'
-      preLoaderRoute: typeof ReportsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs': {
-      id: '/programs'
-      path: '/programs'
-      fullPath: '/programs'
-      preLoaderRoute: typeof ProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/profile-builder': {
-      id: '/profile-builder'
-      path: '/profile-builder'
-      fullPath: '/profile-builder'
-      preLoaderRoute: typeof ProfileBuilderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/parents': {
-      id: '/parents'
-      path: '/parents'
-      fullPath: '/parents'
-      preLoaderRoute: typeof ParentsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/handbook': {
-      id: '/handbook'
-      path: '/handbook'
-      fullPath: '/handbook'
-      preLoaderRoute: typeof HandbookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/for-schools': {
-      id: '/for-schools'
-      path: '/for-schools'
-      fullPath: '/for-schools'
-      preLoaderRoute: typeof ForSchoolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/find-college': {
-      id: '/find-college'
-      path: '/find-college'
-      fullPath: '/find-college'
-      preLoaderRoute: typeof FindCollegeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/exams': {
-      id: '/exams'
-      path: '/exams'
-      fullPath: '/exams'
-      preLoaderRoute: typeof ExamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/counsellor': {
-      id: '/counsellor'
-      path: '/counsellor'
-      fullPath: '/counsellor'
-      preLoaderRoute: typeof CounsellorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/colleges': {
-      id: '/colleges'
-      path: '/colleges'
-      fullPath: '/colleges'
-      preLoaderRoute: typeof CollegesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/career-library': {
-      id: '/career-library'
-      path: '/career-library'
-      fullPath: '/career-library'
-      preLoaderRoute: typeof CareerLibraryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/career': {
-      id: '/career'
-      path: '/career'
-      fullPath: '/career'
-      preLoaderRoute: typeof CareerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -822,109 +668,172 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/upskill/': {
-      id: '/upskill/'
-      path: '/'
-      fullPath: '/upskill/'
-      preLoaderRoute: typeof UpskillIndexRouteImport
-      parentRoute: typeof UpskillRoute
-    }
-    '/test/': {
-      id: '/test/'
-      path: '/'
-      fullPath: '/test/'
-      preLoaderRoute: typeof TestIndexRouteImport
-      parentRoute: typeof TestRoute
-    }
-    '/teacher/': {
-      id: '/teacher/'
-      path: '/teacher'
-      fullPath: '/teacher/'
-      preLoaderRoute: typeof TeacherIndexRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/upskill/quiz': {
-      id: '/upskill/quiz'
-      path: '/quiz'
-      fullPath: '/upskill/quiz'
-      preLoaderRoute: typeof UpskillQuizRouteImport
-      parentRoute: typeof UpskillRoute
-    }
-    '/upskill/$topic': {
-      id: '/upskill/$topic'
-      path: '/$topic'
-      fullPath: '/upskill/$topic'
-      preLoaderRoute: typeof UpskillTopicRouteImport
-      parentRoute: typeof UpskillRoute
-    }
-    '/test/take': {
-      id: '/test/take'
-      path: '/take'
-      fullPath: '/test/take'
-      preLoaderRoute: typeof TestTakeRouteImport
-      parentRoute: typeof TestRoute
-    }
-    '/test/pay': {
-      id: '/test/pay'
-      path: '/pay'
-      fullPath: '/test/pay'
-      preLoaderRoute: typeof TestPayRouteImport
-      parentRoute: typeof TestRoute
-    }
-    '/teacher/sessions': {
-      id: '/teacher/sessions'
-      path: '/teacher/sessions'
-      fullPath: '/teacher/sessions'
-      preLoaderRoute: typeof TeacherSessionsRouteImport
+    '/career': {
+      id: '/career'
+      path: '/career'
+      fullPath: '/career'
+      preLoaderRoute: typeof CareerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teacher/schools': {
-      id: '/teacher/schools'
-      path: '/teacher/schools'
-      fullPath: '/teacher/schools'
-      preLoaderRoute: typeof TeacherSchoolsRouteImport
+    '/career-library': {
+      id: '/career-library'
+      path: '/career-library'
+      fullPath: '/career-library'
+      preLoaderRoute: typeof CareerLibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teacher/profile': {
-      id: '/teacher/profile'
-      path: '/teacher/profile'
-      fullPath: '/teacher/profile'
-      preLoaderRoute: typeof TeacherProfileRouteImport
+    '/colleges': {
+      id: '/colleges'
+      path: '/colleges'
+      fullPath: '/colleges'
+      preLoaderRoute: typeof CollegesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/r/$token': {
-      id: '/r/$token'
-      path: '/r/$token'
-      fullPath: '/r/$token'
-      preLoaderRoute: typeof RTokenRouteImport
+    '/counsellor': {
+      id: '/counsellor'
+      path: '/counsellor'
+      fullPath: '/counsellor'
+      preLoaderRoute: typeof CounsellorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/handbook/$slug': {
-      id: '/handbook/$slug'
-      path: '/$slug'
-      fullPath: '/handbook/$slug'
-      preLoaderRoute: typeof HandbookSlugRouteImport
-      parentRoute: typeof HandbookRoute
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/career/$stream': {
-      id: '/career/$stream'
-      path: '/$stream'
-      fullPath: '/career/$stream'
-      preLoaderRoute: typeof CareerStreamRouteImport
-      parentRoute: typeof CareerRoute
+    '/exams': {
+      id: '/exams'
+      path: '/exams'
+      fullPath: '/exams'
+      preLoaderRoute: typeof ExamsRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/admin/reports': {
-      id: '/admin/reports'
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/find-college': {
+      id: '/find-college'
+      path: '/find-college'
+      fullPath: '/find-college'
+      preLoaderRoute: typeof FindCollegeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-schools': {
+      id: '/for-schools'
+      path: '/for-schools'
+      fullPath: '/for-schools'
+      preLoaderRoute: typeof ForSchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/handbook': {
+      id: '/handbook'
+      path: '/handbook'
+      fullPath: '/handbook'
+      preLoaderRoute: typeof HandbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parents': {
+      id: '/parents'
+      path: '/parents'
+      fullPath: '/parents'
+      preLoaderRoute: typeof ParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile-builder': {
+      id: '/profile-builder'
+      path: '/profile-builder'
+      fullPath: '/profile-builder'
+      preLoaderRoute: typeof ProfileBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
       path: '/reports'
-      fullPath: '/admin/reports'
-      preLoaderRoute: typeof AdminReportsRouteImport
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scholarships': {
+      id: '/scholarships'
+      path: '/scholarships'
+      fullPath: '/scholarships'
+      preLoaderRoute: typeof ScholarshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schools': {
+      id: '/schools'
+      path: '/schools'
+      fullPath: '/schools'
+      preLoaderRoute: typeof SchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sessions': {
+      id: '/sessions'
+      path: '/sessions'
+      fullPath: '/sessions'
+      preLoaderRoute: typeof SessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teachers': {
+      id: '/teachers'
+      path: '/teachers'
+      fullPath: '/teachers'
+      preLoaderRoute: typeof TeachersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upskill': {
+      id: '/upskill'
+      path: '/upskill'
+      fullPath: '/upskill'
+      preLoaderRoute: typeof UpskillRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/bookings': {
+      id: '/admin/bookings'
+      path: '/bookings'
+      fullPath: '/admin/bookings'
+      preLoaderRoute: typeof AdminBookingsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/colleges': {
@@ -934,26 +843,103 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCollegesRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/bookings': {
-      id: '/admin/bookings'
-      path: '/bookings'
-      fullPath: '/admin/bookings'
-      preLoaderRoute: typeof AdminBookingsRouteImport
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/upskill/$topic/': {
-      id: '/upskill/$topic/'
-      path: '/'
-      fullPath: '/upskill/$topic/'
-      preLoaderRoute: typeof UpskillTopicIndexRouteImport
-      parentRoute: typeof UpskillTopicRoute
+    '/career/$stream': {
+      id: '/career/$stream'
+      path: '/$stream'
+      fullPath: '/career/$stream'
+      preLoaderRoute: typeof CareerStreamRouteImport
+      parentRoute: typeof CareerRoute
     }
-    '/handbook/$slug/': {
-      id: '/handbook/$slug/'
+    '/handbook/$slug': {
+      id: '/handbook/$slug'
+      path: '/$slug'
+      fullPath: '/handbook/$slug'
+      preLoaderRoute: typeof HandbookSlugRouteImport
+      parentRoute: typeof HandbookRoute
+    }
+    '/r/$token': {
+      id: '/r/$token'
+      path: '/r/$token'
+      fullPath: '/r/$token'
+      preLoaderRoute: typeof RTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher/': {
+      id: '/teacher/'
+      path: '/teacher'
+      fullPath: '/teacher/'
+      preLoaderRoute: typeof TeacherIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher/profile': {
+      id: '/teacher/profile'
+      path: '/teacher/profile'
+      fullPath: '/teacher/profile'
+      preLoaderRoute: typeof TeacherProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher/schools': {
+      id: '/teacher/schools'
+      path: '/teacher/schools'
+      fullPath: '/teacher/schools'
+      preLoaderRoute: typeof TeacherSchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher/sessions': {
+      id: '/teacher/sessions'
+      path: '/teacher/sessions'
+      fullPath: '/teacher/sessions'
+      preLoaderRoute: typeof TeacherSessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test/': {
+      id: '/test/'
       path: '/'
-      fullPath: '/handbook/$slug/'
-      preLoaderRoute: typeof HandbookSlugIndexRouteImport
-      parentRoute: typeof HandbookSlugRoute
+      fullPath: '/test/'
+      preLoaderRoute: typeof TestIndexRouteImport
+      parentRoute: typeof TestRoute
+    }
+    '/test/pay': {
+      id: '/test/pay'
+      path: '/pay'
+      fullPath: '/test/pay'
+      preLoaderRoute: typeof TestPayRouteImport
+      parentRoute: typeof TestRoute
+    }
+    '/test/take': {
+      id: '/test/take'
+      path: '/take'
+      fullPath: '/test/take'
+      preLoaderRoute: typeof TestTakeRouteImport
+      parentRoute: typeof TestRoute
+    }
+    '/upskill/': {
+      id: '/upskill/'
+      path: '/'
+      fullPath: '/upskill/'
+      preLoaderRoute: typeof UpskillIndexRouteImport
+      parentRoute: typeof UpskillRoute
+    }
+    '/upskill/$topic': {
+      id: '/upskill/$topic'
+      path: '/$topic'
+      fullPath: '/upskill/$topic'
+      preLoaderRoute: typeof UpskillTopicRouteImport
+      parentRoute: typeof UpskillRoute
+    }
+    '/upskill/quiz': {
+      id: '/upskill/quiz'
+      path: '/quiz'
+      fullPath: '/upskill/quiz'
+      preLoaderRoute: typeof UpskillQuizRouteImport
+      parentRoute: typeof UpskillRoute
     }
     '/career/$stream/': {
       id: '/career/$stream/'
@@ -962,11 +948,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareerStreamIndexRouteImport
       parentRoute: typeof CareerStreamRoute
     }
-    '/upskill/$topic/quiz': {
-      id: '/upskill/$topic/quiz'
-      path: '/quiz'
-      fullPath: '/upskill/$topic/quiz'
-      preLoaderRoute: typeof UpskillTopicQuizRouteImport
+    '/career/$stream/$path': {
+      id: '/career/$stream/$path'
+      path: '/$path'
+      fullPath: '/career/$stream/$path'
+      preLoaderRoute: typeof CareerStreamPathRouteImport
+      parentRoute: typeof CareerStreamRoute
+    }
+    '/handbook/$slug/': {
+      id: '/handbook/$slug/'
+      path: '/'
+      fullPath: '/handbook/$slug/'
+      preLoaderRoute: typeof HandbookSlugIndexRouteImport
+      parentRoute: typeof HandbookSlugRoute
+    }
+    '/handbook/$slug/$profession': {
+      id: '/handbook/$slug/$profession'
+      path: '/$profession'
+      fullPath: '/handbook/$slug/$profession'
+      preLoaderRoute: typeof HandbookSlugProfessionRouteImport
+      parentRoute: typeof HandbookSlugRoute
+    }
+    '/teacher/school/$schoolId': {
+      id: '/teacher/school/$schoolId'
+      path: '/teacher/school/$schoolId'
+      fullPath: '/teacher/school/$schoolId'
+      preLoaderRoute: typeof TeacherSchoolSchoolIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher/session/$sessionId': {
+      id: '/teacher/session/$sessionId'
+      path: '/teacher/session/$sessionId'
+      fullPath: '/teacher/session/$sessionId'
+      preLoaderRoute: typeof TeacherSessionSessionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upskill/$topic/': {
+      id: '/upskill/$topic/'
+      path: '/'
+      fullPath: '/upskill/$topic/'
+      preLoaderRoute: typeof UpskillTopicIndexRouteImport
       parentRoute: typeof UpskillTopicRoute
     }
     '/upskill/$topic/$lesson': {
@@ -976,33 +997,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UpskillTopicLessonRouteImport
       parentRoute: typeof UpskillTopicRoute
     }
-    '/teacher/session/$sessionId': {
-      id: '/teacher/session/$sessionId'
-      path: '/teacher/session/$sessionId'
-      fullPath: '/teacher/session/$sessionId'
-      preLoaderRoute: typeof TeacherSessionSessionIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/teacher/school/$schoolId': {
-      id: '/teacher/school/$schoolId'
-      path: '/teacher/school/$schoolId'
-      fullPath: '/teacher/school/$schoolId'
-      preLoaderRoute: typeof TeacherSchoolSchoolIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/handbook/$slug/$profession': {
-      id: '/handbook/$slug/$profession'
-      path: '/$profession'
-      fullPath: '/handbook/$slug/$profession'
-      preLoaderRoute: typeof HandbookSlugProfessionRouteImport
-      parentRoute: typeof HandbookSlugRoute
-    }
-    '/career/$stream/$path': {
-      id: '/career/$stream/$path'
-      path: '/$path'
-      fullPath: '/career/$stream/$path'
-      preLoaderRoute: typeof CareerStreamPathRouteImport
-      parentRoute: typeof CareerStreamRoute
+    '/upskill/$topic/quiz': {
+      id: '/upskill/$topic/quiz'
+      path: '/quiz'
+      fullPath: '/upskill/$topic/quiz'
+      preLoaderRoute: typeof UpskillTopicQuizRouteImport
+      parentRoute: typeof UpskillTopicRoute
     }
   }
 }
