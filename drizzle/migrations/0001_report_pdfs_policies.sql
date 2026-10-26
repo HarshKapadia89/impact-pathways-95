@@ -1,0 +1,2 @@
+CREATE POLICY "Anyone can upload report pdfs" ON storage.objects FOR INSERT TO anon, authenticated WITH CHECK (bucket_id = 'report-pdfs' AND name ~ '^[A-Za-z0-9-]+\.pdf$');
+CREATE POLICY "Admins can read report pdfs" ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'report-pdfs' AND public.has_role(auth.uid(), 'admin'));
