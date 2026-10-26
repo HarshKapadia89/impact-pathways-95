@@ -537,9 +537,12 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   font("normal");
   doc.setFontSize(11);
   let yy = 50;
-  for (const l of t.about) {
-    doc.text(l, M, yy);
-    yy += 6.5;
+  for (const para of t.about) {
+    for (const l of doc.splitTextToSize(para, PW - 2 * M) as string[]) {
+      doc.text(l, M, yy);
+      yy += 6.5;
+    }
+    yy += 2;
   }
   footer(4, 21);
 
