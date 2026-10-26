@@ -98,7 +98,7 @@ export function buildSampleReportInput(language: Lang = "en") {
 }
 
 export async function openSampleReport(language: Lang = "en") {
-  await preloadReportFonts();
+  await preloadReportFonts(language);
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
   const blob = doc.output("blob");
   const url = URL.createObjectURL(blob);
@@ -107,7 +107,7 @@ export async function openSampleReport(language: Lang = "en") {
 }
 
 export async function downloadSampleReport(language: Lang = "en") {
-  await preloadReportFonts();
+  await preloadReportFonts(language);
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
   const suffix = language === "gu" ? "Gujarati" : language === "hi" ? "Hindi" : language === "mr" ? "Marathi" : "English";
   doc.save(`HBK-Careers-Sample-Report-Aarav-Patel-${suffix}.pdf`);
