@@ -114,10 +114,10 @@ const QUESTIONS: Question[] = [
     en: "Pick the compliment that hits hardest:",
     gu: "આમાંથી કઈ પ્રશંસા સૌથી વધુ ગમે?",
     options: [
-      { en: "\"You really think deeply.\"", gu: "\\"તું ખરેખર ઊંડાણથી વિચારે છે.\\"", vibe: "investigator" },
-      { en: "\"That's so original.\"", gu: "\\"એ ખરેખર ઓરિજિનલ છે.\\"", vibe: "creator" },
-      { en: "\"You actually got it done.\"", gu: "\\"તેં ખરેખર પૂરું કર્યું.\\"", vibe: "builder" },
-      { en: "\"People listen to you.\"", gu: "\\"લોકો તારી વાત સાંભળે છે.\\"", vibe: "leader" },
+      { en: "\"You really think deeply.\"", gu: "\"તું ખરેખર ઊંડાણથી વિચારે છે.\"", vibe: "investigator" },
+      { en: "\"That's so original.\"", gu: "\"એ ખરેખર ઓરિજિનલ છે.\"", vibe: "creator" },
+      { en: "\"You actually got it done.\"", gu: "\"તેં ખરેખર પૂરું કર્યું.\"", vibe: "builder" },
+      { en: "\"People listen to you.\"", gu: "\"લોકો તારી વાત સાંભળે છે.\"", vibe: "leader" },
     ],
   },
   {
