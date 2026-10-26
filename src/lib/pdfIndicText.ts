@@ -234,6 +234,12 @@ export function installIndicShaping(doc: jsPDF, isBold: () => boolean): boolean 
   const origText = doc.text.bind(doc) as (...a: unknown[]) => jsPDF;
   const origSplit = doc.splitTextToSize.bind(doc);
 
+  const origWidth = doc.getTextWidth.bind(doc);
+  doc.getTextWidth = function (text: string) {
+    const tr = translateReportString(text);
+    return isIndic(tr) ? measureIndic(tr, doc.getFontSize(), isBold()) : origWidth(tr);
+  } as typeof doc.getTextWidth;
+
   doc.splitTextToSize = function (text: string, maxlen: number, options?: unknown) {
     if (typeof text === "string") text = translateReportString(text);
     if (typeof text === "string" && isIndic(text)) {
