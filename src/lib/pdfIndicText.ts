@@ -28,12 +28,74 @@ function b64ToBuf(b64: string): ArrayBuffer {
   return out.buffer;
 }
 
+// ---------- Runtime translation of leftover English report text ----------
+type Dict = Record<string, string>;
+const dicts: Partial<Record<string, Dict>> = {};
+let activeDict: Dict | null = null;
+let activeNames: string[] = [];
+let collector: ((key: string) => void) | null = null;
+
+/** Called by the report generator before drawing. */
+export function setReportContext(lang: string, names: string[]) {
+  activeDict = lang === "en" ? null : dicts[lang] ?? null;
+  const all = new Set<string>();
+  for (const n of names) {
+    if (!n) continue;
+    all.add(n);
+    all.add(n.toUpperCase());
+  }
+  activeNames = [...all].sort((a, b) => b.length - a.length);
+}
+export function setReportStringCollector(fn: ((key: string) => void) | null) {
+  collector = fn;
+}
+export function maskReportString(s: string, names: string[]) {
+  let out = s;
+  const nameVals: string[] = [];
+  for (const n of names) {
+    if (out.includes(n)) {
+      out = out.split(n).join(`{N${nameVals.length}}`);
+      nameVals.push(n);
+    }
+  }
+  const nums: string[] = [];
+  out = out.replace(/\d+(?:[.,]\d+)*/g, (m) => {
+    nums.push(m);
+    return `{D${nums.length - 1}}`;
+  });
+  return { key: out, nameVals, nums };
+}
+export function translateReportString(s: string, dict: Dict | null = activeDict, names = activeNames): string {
+  if (!s || isIndic(s) || !/[A-Za-z]{3,}/.test(s)) return s;
+  const { key, nameVals, nums } = maskReportString(s, names);
+  collector?.(key);
+  const v = dict?.[key];
+  if (!v || v === key) return s;
+  return v
+    .replace(/\{N(\d+)\}/g, (_, i) => nameVals[+i] ?? "")
+    .replace(/\{D(\d+)\}/g, (_, i) => nums[+i] ?? "");
+}
+
+async function loadDict(lang: string) {
+  if (lang === "en" || dicts[lang]) return;
+  try {
+    const mod = (await import(`./reportXlate/${lang}.json`)) as { default: Dict };
+    dicts[lang] = mod.default;
+  } catch {
+    dicts[lang] = {};
+  }
+}
+
 export function indicShapingReady(): boolean {
   return ready;
 }
 
 /** Load the report fonts into the browser so canvas can shape Indic text. */
-export function preloadReportFonts(): Promise<void> {
+export async function preloadReportFonts(lang?: string): Promise<void> {
+  if (lang) await loadDict(lang);
+  return loadFonts();
+}
+function loadFonts(): Promise<void> {
   if (ready) return Promise.resolve();
   if (typeof document === "undefined" || typeof FontFace === "undefined") return Promise.resolve();
   if (!loading) {
@@ -147,6 +209,7 @@ export function installIndicShaping(doc: jsPDF, isBold: () => boolean): boolean 
   const origSplit = doc.splitTextToSize.bind(doc);
 
   doc.splitTextToSize = function (text: string, maxlen: number, options?: unknown) {
+    if (typeof text === "string") text = translateReportString(text);
     if (typeof text === "string" && isIndic(text)) {
       return wrapIndic(text, maxlen, doc.getFontSize(), isBold());
     }
@@ -154,6 +217,8 @@ export function installIndicShaping(doc: jsPDF, isBold: () => boolean): boolean 
   } as typeof doc.splitTextToSize;
 
   doc.text = function (text: unknown, x: unknown, y: unknown, options?: unknown, ...rest: unknown[]) {
+    if (typeof text === "string") text = translateReportString(text);
+    else if (Array.isArray(text)) text = text.map((l) => (typeof l === "string" ? translateReportString(l) : l));
     const lines = typeof text === "string" ? text.split("\n") : Array.isArray(text) ? (text as unknown[]) : null;
     if (lines && lines.some((l) => typeof l === "string" && isIndic(l)) && typeof x === "number" && typeof y === "number") {
       const o = (options ?? {}) as { align?: string; maxWidth?: number };

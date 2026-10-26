@@ -16,7 +16,7 @@ import { getReportStrings, type ReportLang, type ReportStrings } from "./psychom
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
 import { notoSansDevanagariRegular, notoSansDevanagariBold } from "./fonts/notoSansDevanagari";
-import { installIndicShaping } from "./pdfIndicText";
+import { installIndicShaping, setReportContext } from "./pdfIndicText";
 export { preloadReportFonts } from "./pdfIndicText";
 import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 import { buildParentSummary } from "./parentSummary";
@@ -143,7 +143,9 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   registerFonts(doc);
   // Shape Gujarati/Devanagari through the browser (jsPDF can't join conjuncts).
-  installIndicShaping(doc, () => currentWeight === "bold");
+  if (installIndicShaping(doc, () => currentWeight === "bold")) {
+    setReportContext(language, [name, name.split(/\s+/)[0]]);
+  }
 
   // Choose font based on language. Noto Sans Gujarati does NOT contain Latin
   // glyphs, so for Gujarati we still need the Latin font for proper nouns
