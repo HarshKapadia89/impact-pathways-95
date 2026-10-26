@@ -118,12 +118,24 @@ export function normalizeMiForReport(report: ScoreReport): ScoreReport {
   return { ...report, mi, miTop: (report.miTop ?? []).map((k) => MI_KEY_MAP[k] ?? k) };
 }
 
+
+const PL: Record<string, Record<string, string>> = {
+  parentsTitle: { en: "For Parents — In 2 Minutes", gu: "વાલીઓ માટે — 2 મિનિટમાં", hi: "अभिभावकों के लिए — 2 मिनट में", mr: "पालकांसाठी — 2 मिनिटांत" },
+  parentsIntro: { en: "This first page is written in plain language for parents. The 19 pages that follow contain the full assessment with charts and frameworks.", gu: "આ પહેલું પાનું વાલીઓ માટે સરળ ભાષામાં લખાયેલું છે. આગળનાં 19 પાનાંમાં ચાર્ટ અને માળખાં સાથેનું સંપૂર્ણ મૂલ્યાંકન છે.", hi: "यह पहला पेज अभिभावकों के लिए सरल भाषा में लिखा गया है। आगे के 19 पेजों में चार्ट और फ्रेमवर्क के साथ पूरा मूल्यांकन है।", mr: "हे पहिले पान पालकांसाठी सोप्या भाषेत लिहिले आहे. पुढील 19 पानांमध्ये तक्ते आणि चौकटींसह संपूर्ण मूल्यांकन आहे." },
+  whoIs: { en: "Who {n} is", gu: "{n} કોણ છે", hi: "{n} कौन है", mr: "{n} कोण आहे" },
+  direction: { en: "What direction the data points to", gu: "માહિતી કઈ દિશા બતાવે છે", hi: "डेटा किस दिशा की ओर इशारा करता है", mr: "माहिती कोणती दिशा दाखवते" },
+  threeThings: { en: "3 things you can do this term", gu: "આ સત્રમાં તમે કરી શકો તેવી 3 બાબતો", hi: "इस सत्र में आप ये 3 काम कर सकते हैं", mr: "या सत्रात तुम्ही करू शकता अशा 3 गोष्टी" },
+  whyFits: { en: "Why this fits you:", gu: "આ તમને કેમ અનુકૂળ છે:", hi: "यह आपके लिए क्यों सही है:", mr: "हे तुम्हाला का योग्य आहे:" },
+  child: { en: "your child", gu: "તમારું બાળક", hi: "आपका बच्चा", mr: "तुमचे मूल" },
+};
+
 export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const { name, grade, age } = input;
   const report = normalizeMiForReport(input.report);
   // Marathi shares the Devanagari script with Hindi (same embedded font).
   const language = input.language;
   const t: ReportStrings = getReportStrings(language);
+  const pl = (k: string) => PL[k]?.[language] ?? PL[k].en;
   const recommendedStreams = recommendStreamsAccurate(input.report, 2);
   const topCareers = rankCareerPaths(input.report, recommendedStreams, 8);
   const doc = new jsPDF({ unit: "mm", format: "a4" });
@@ -413,7 +425,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // ============== PAGE 2 — FOR PARENTS (Plain-language summary) ==============
   doc.addPage();
   current.page = 2;
-  header("For Parents — In 2 Minutes", `Page 2 / 21`);
+  header(pl("parentsTitle"), `Page 2 / 21`);
 
   const parentSummary = buildParentSummary({
     studentName: name,
@@ -432,7 +444,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(9.5);
   setText(doc, COLORS.muted);
   const introLines = wrap(
-    "This first page is written in plain language for parents. The 19 pages that follow contain the full assessment with charts and frameworks.",
+    pl("parentsIntro"),
     PW - 2 * M,
   );
   for (const ln of introLines) { doc.text(ln, M, py); py += 5.2; }
@@ -442,7 +454,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   font("bold");
   doc.setFontSize(12);
   setText(doc, COLORS.primary);
-  doc.text("Who " + (name?.split(" ")[0] || "your child") + " is", M, py);
+  doc.text(pl("whoIs").replace("{n}", name?.split(" ")[0] || pl("child")), M, py);
   py += 7;
   font("normal");
   doc.setFontSize(10.5);
@@ -454,7 +466,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   py += 4;
 
   // Section 2 — Direction (callout)
-  py = callout(M, py, PW - 2 * M, "What direction the data points to",
+  py = callout(M, py, PW - 2 * M, pl("direction"),
     parentSummary.direction.replace(/\*\*/g, ""));
   py += 2;
 
@@ -462,7 +474,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   font("bold");
   doc.setFontSize(12);
   setText(doc, COLORS.primary);
-  doc.text("3 things you can do this term", M, py);
+  doc.text(pl("threeThings"), M, py);
   py += 7;
   font("normal");
   doc.setFontSize(10.5);
@@ -983,7 +995,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     // Why this fits
     font("bold");
     setText(doc, COLORS.accent);
-    doc.text("Why this fits you:", M + 4, yy + 12.5);
+    doc.text(pl("whyFits"), M + 4, yy + 12.5);
     font("normal");
     setText(doc, COLORS.ink);
     const reasonW = PW - 2 * M - 38;
