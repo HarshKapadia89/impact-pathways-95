@@ -550,6 +550,27 @@ function Result({
     })
       .then(() => flushQueue().catch(() => null))
       .catch(() => null);
+    // Keep a backend copy of the PDF report for admins (file name = result id).
+    void (async () => {
+      try {
+        const pdf = generatePsychometricPDF({
+          name: meta.name,
+          grade: meta.grade,
+          age: meta.age,
+          language: meta.language,
+          report,
+          riasecAnswers: riasec,
+          miAnswers: mi,
+          aptAnswers: apt,
+        });
+        const { supabase } = await import("@/integrations/supabase/client");
+        await supabase.storage
+          .from("report-pdfs")
+          .upload(`${id}.pdf`, pdf.output("blob"), { contentType: "application/pdf", upsert: false });
+      } catch {
+        /* non-blocking */
+      }
+    })();
     saveReport({
       name: meta.name,
       grade: meta.grade,
