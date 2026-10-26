@@ -16,6 +16,8 @@ import { getReportStrings, type ReportLang, type ReportStrings } from "./psychom
 import { notoSansRegular, notoSansBold } from "./fonts/notoSans";
 import { notoSansGujaratiRegular, notoSansGujaratiBold } from "./fonts/notoSansGujarati";
 import { notoSansDevanagariRegular, notoSansDevanagariBold } from "./fonts/notoSansDevanagari";
+import { installIndicShaping, setReportContext, translateReportString } from "./pdfIndicText";
+export { preloadReportFonts, setReportStringCollector } from "./pdfIndicText";
 import { drawRadar, drawScoreBar, proficiencyBand } from "./pdfCharts";
 import { buildParentSummary } from "./parentSummary";
 
@@ -126,6 +128,14 @@ const PL: Record<string, Record<string, string>> = {
   direction: { en: "What direction the data points to", gu: "માહિતી કઈ દિશા બતાવે છે", hi: "डेटा किस दिशा की ओर इशारा करता है", mr: "माहिती कोणती दिशा दाखवते" },
   threeThings: { en: "3 things you can do this term", gu: "આ સત્રમાં તમે કરી શકો તેવી 3 બાબતો", hi: "इस सत्र में आप ये 3 काम कर सकते हैं", mr: "या सत्रात तुम्ही करू शकता अशा 3 गोष्टी" },
   whyFits: { en: "Why this fits you:", gu: "આ તમને કેમ અનુકૂળ છે:", hi: "यह आपके लिए क्यों सही है:", mr: "हे तुम्हाला का योग्य आहे:" },
+  narrative: {
+    en: "Your profile points to a {code} interest pattern with {mi} as your strongest intelligence and {apt} as standout aptitudes. The streams below are mapped to fit this combined profile.",
+    gu: "તમારી પ્રોફાઇલ {code} રુચિ પેટર્ન દર્શાવે છે, જેમાં {mi} તમારી સૌથી પ્રબળ બુદ્ધિ છે અને {apt} તમારી વિશેષ પ્રબળ એપ્ટિટ્યુડ છે. નીચેની સ્ટ્રીમ્સ આ સંયુક્ત પ્રોફાઇલને અનુરૂપ પસંદ કરવામાં આવી છે.",
+    hi: "आपकी प्रोफ़ाइल {code} रुचि पैटर्न दिखाती है, जिसमें {mi} आपकी सबसे मज़बूत इंटेलिजेंस है और {apt} आपकी प्रमुख एप्टीट्यूड हैं। नीचे दी गई स्ट्रीम्स इसी संयुक्त प्रोफ़ाइल के अनुसार चुनी गई हैं।",
+    mr: "तुमची प्रोफाइल {code} आवड पॅटर्न दर्शवते; यात {mi} ही तुमची सर्वात प्रबळ बुद्धिमत्ता आहे आणि {apt} ही तुमची ठळक अ‍ॅप्टिट्यूड आहेत. खालील शाखा या एकत्रित प्रोफाइलनुसार निवडल्या आहेत.",
+  },
+  grade: { en: "Grade", gu: "ધોરણ", hi: "कक्षा", mr: "इयत्ता" },
+  age: { en: "Age", gu: "ઉંમર", hi: "आयु", mr: "वय" },
   child: { en: "your child", gu: "તમારું બાળક", hi: "आपका बच्चा", mr: "तुमचे मूल" },
 };
 
@@ -140,6 +150,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   const topCareers = rankCareerPaths(input.report, recommendedStreams, 8);
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   registerFonts(doc);
+  // Shape Gujarati/Devanagari through the browser (jsPDF can't join conjuncts).
+  // Translation of leftover English only runs when shaping works (else the
+  // translated text could not be drawn correctly).
+  const shaped = installIndicShaping(doc, () => currentWeight === "bold");
+  setReportContext(shaped ? language : "en", [name, name.split(/\s+/)[0]]);
 
   // Choose font based on language. Noto Sans Gujarati does NOT contain Latin
   // glyphs, so for Gujarati we still need the Latin font for proper nouns
@@ -391,7 +406,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
   doc.text(
-    `Grade ${grade || "—"}   ·   Age ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : language === "hi" ? "हिन्दी" : language === "mr" ? "मराठी" : t.langNameEn}`,
+    `${pl("grade")} ${grade || "—"}   ·   ${pl("age")} ${age || "—"}   ·   ${language === "gu" ? t.langNameGu : language === "hi" ? "हिन्दी" : language === "mr" ? "मराठी" : t.langNameEn}`,
     M,
     SPLIT + 46,
   );
@@ -589,7 +604,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setText(doc, COLORS.ink);
 
   // Narrative
-  const narrative = `Your profile points to a ${report.riasecTop.join("-")} interest pattern with ${t.mi[report.miTop[0]]?.name ?? "broad"} as your strongest intelligence and ${report.aptitudeTop.map(t.aptCategoryName).join(" & ")} as standout aptitudes. The streams below are mapped to fit this combined profile.`;
+  const andWord = language === "gu" ? " અને " : language === "hi" ? " और " : language === "mr" ? " आणि " : " & ";
+  const narrative = pl("narrative")
+    .replace("{code}", report.riasecTop.join("-"))
+    .replace("{mi}", t.mi[report.miTop[0]]?.name ?? "—")
+    .replace("{apt}", report.aptitudeTop.map((a) => translateReportString(t.aptCategoryName(a))).join(andWord));
   font("normal");
   doc.setFontSize(10.5);
   setText(doc, COLORS.ink);
@@ -632,14 +651,18 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
 
   // Methodology footnote
   setFill(doc, COLORS.band);
-  doc.roundedRect(M, PH - 32, PW - 2 * M, 14, 2, 2, "F");
+  doc.roundedRect(M, PH - 34, PW - 2 * M, 17, 2, 2, "F");
   font("normal");
   doc.setFontSize(7.5);
   setText(doc, COLORS.muted);
-  doc.text("METHODOLOGY", M + 4, PH - 26);
+  doc.text("METHODOLOGY", M + 4, PH - 28.5);
   doc.setFontSize(8.5);
   setText(doc, COLORS.ink);
-  doc.text("Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.", M + 4, PH - 21);
+  const methLines = wrap(
+    "Based on Holland's RIASEC, Gardner's Multiple Intelligences, and a grade-banded aptitude battery. Scores are 0–100. This is guidance, not a verdict — revisit annually.",
+    PW - 2 * M - 8,
+  );
+  methLines.slice(0, 2).forEach((l, i) => doc.text(l, M + 4, PH - 23.5 + i * 4));
 
   footer(5, 21);
 
@@ -987,20 +1010,25 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
     font("normal");
     doc.setFontSize(9);
     setText(doc, COLORS.ink);
-    doc.text(
-      `${t.pathStream(c.streamName)}  •  ${c.path.duration}  •  ${t.pathSalary(c.path.avgSalary)}`,
-      M + 4,
-      yy + 7,
-    );
+    // Translate each part separately so durations/salaries match the dictionary,
+    // then shrink the line until it fits inside the card.
+    const metaLine = [t.pathStream(translateReportString(c.streamName)), translateReportString(c.path.duration), t.pathSalary(translateReportString(c.path.avgSalary))].join("  •  ");
+    let metaSize = 9;
+    while (metaSize > 6.5 && doc.getTextWidth(metaLine) > PW - 2 * M - 8) doc.setFontSize((metaSize -= 0.5));
+    doc.text(metaLine, M + 4, yy + 7);
+    doc.setFontSize(9);
     // Why this fits
     font("bold");
     setText(doc, COLORS.accent);
     doc.text(pl("whyFits"), M + 4, yy + 12.5);
     font("normal");
     setText(doc, COLORS.ink);
-    const reasonW = PW - 2 * M - 38;
+    font("bold");
+    const reasonX = M + 4 + doc.getTextWidth(pl("whyFits")) + 2;
+    font("normal");
+    const reasonW = PW - M - 4 - reasonX;
     const reasonLines = wrap(c.reason, reasonW);
-    doc.text(reasonLines[0] ?? "", M + 32, yy + 12.5);
+    doc.text(reasonLines[0] ?? "", reasonX, yy + 12.5);
     // Entrance exams (compact)
     setText(doc, COLORS.muted);
     const ent = c.path.entranceExams.slice(0, 4).join(", ");
@@ -1026,8 +1054,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       for (const e of p.entranceExams) allExams.add(e);
     }
   }
-  doc.text(t.examsIntro(allExams.size), M, yy);
-  yy += 7;
+  for (const l of wrap(t.examsIntro(allExams.size), PW - 2 * M)) {
+    doc.text(l, M, yy);
+    yy += 5;
+  }
+  yy += 2;
   for (const ex of allExams) {
     yy = ensureSpace(yy, 8, current);
     setFill(doc, COLORS.band);

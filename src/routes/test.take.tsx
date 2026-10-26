@@ -13,7 +13,7 @@ import {
   gradeToBand,
   type AptitudeItem,
 } from "@/lib/psychometricData";
-import { generatePsychometricPDF } from "@/lib/psychometricReport";
+import { generatePsychometricPDF, preloadReportFonts } from "@/lib/psychometricReport";
 import { STREAM_BY_ID } from "@/lib/careerData";
 import { recommendStreamsAccurate, rankCareerPaths } from "@/lib/careerMatch";
 import { enqueueSubmission } from "@/lib/offlineQueue";
@@ -553,6 +553,7 @@ function Result({
     // Keep a backend copy of the PDF report for admins (file name = result id).
     void (async () => {
       try {
+        await preloadReportFonts(meta.language);
         const pdf = generatePsychometricPDF({
           name: meta.name,
           grade: meta.grade,
@@ -591,6 +592,7 @@ function Result({
 
   const download = async () => {
     setDownloading(true);
+    await preloadReportFonts(meta.language);
     const doc = generatePsychometricPDF({
       name: meta.name,
       grade: meta.grade,

@@ -11,7 +11,7 @@ import {
   type LikertItem,
   type AptitudeItem,
 } from "./psychometricData";
-import { generatePsychometricPDF } from "./psychometricReport";
+import { generatePsychometricPDF, preloadReportFonts } from "./psychometricReport";
 
 // Realistic answer profile for a sample Science-leaning grade-10 student.
 // Each category gets a target Likert value (1-5); answers are deterministic.
@@ -97,7 +97,8 @@ export function buildSampleReportInput(language: Lang = "en") {
   };
 }
 
-export function openSampleReport(language: Lang = "en") {
+export async function openSampleReport(language: Lang = "en") {
+  await preloadReportFonts(language);
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
   const blob = doc.output("blob");
   const url = URL.createObjectURL(blob);
@@ -105,8 +106,9 @@ export function openSampleReport(language: Lang = "en") {
   setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
-export function downloadSampleReport(language: Lang = "en") {
+export async function downloadSampleReport(language: Lang = "en") {
+  await preloadReportFonts(language);
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
-  const suffix = language === "gu" ? "Gujarati" : language === "hi" ? "Hindi" : "English";
+  const suffix = language === "gu" ? "Gujarati" : language === "hi" ? "Hindi" : language === "mr" ? "Marathi" : "English";
   doc.save(`HBK-Careers-Sample-Report-Aarav-Patel-${suffix}.pdf`);
 }
