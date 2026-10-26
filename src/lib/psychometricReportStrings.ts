@@ -249,7 +249,7 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
   ];
   const PAGE_LABEL = T("page");
   const OF_LABEL = T("of");
-  const genOn = (language === "hi" || language === "mr") ? "इस दिन तैयार:" : language === "gu" ? "તૈયાર કરવાની તારીખ:" : "Generated on";
+  const genOn = (language === "hi" || language === "mr") ? "इस दिन तैयार:" : language === "gu" ? "તૈયાર કર્યાની તારીખ:" : "Generated on";
   const meta = (grade: string, age: string, lang: string) =>
     language === "hi"
       ? `कक्षा ${grade}  ·  आयु ${age}  ·  भाषा: ${lang}`
