@@ -29,6 +29,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
     { to: "/reports", label: t("nav.reports"), icon: FileText },
     { to: "/admin/colleges", label: "Colleges", icon: Library },
     { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+    { to: "/admin/reports", label: "PDF Reports", icon: FileText },
     { to: "/career", label: "Career Guides", icon: Compass },
     { to: "/test", label: "Public Test", icon: Brain },
     { to: "/teacher", label: t("teacher.appName"), icon: Smartphone },
