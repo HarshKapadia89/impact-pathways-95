@@ -5,16 +5,16 @@ import { Brain, FileText, Compass, ArrowRight } from "lucide-react";
 export function HowItWorks({ lang }: { lang: Lang }) {
   const t = translator(lang);
   const T = {
-    eyebrow: t({ en: "How it works", gu: "કેવી રીતે કામ કરે છે", hi: "यह कैसे काम करता है", mr: "हे कसे चालते" }),
+    eyebrow: t({ en: "How it works", gu: "તે કેવી રીતે કામ કરે છે?", hi: "यह कैसे काम करता है", mr: "हे कसे चालते" }),
     title: t({
       en: "Your direction in 3 steps",
-      gu: "ત્રણ સ્ટેપમાં તમારી દિશા",
+      gu: "ત્રણ પગલાંમાં તમારી દિશા",
       hi: "तीन चरणों में अपनी दिशा पाएँ",
       mr: "तीन टप्प्यांत तुमची दिशा",
     }),
     sub: t({
       en: "Starts in minutes. Stays useful for years.",
-      gu: "મિનિટોમાં શરૂ થાય છે. વર્ષો સુધી ઉપયોગી રહે છે.",
+      gu: "થોડી જ મિનિટોમાં શરૂ થાય છે, વર્ષો સુધી ઉપયોગી રહે છે.",
       hi: "मिनटों में शुरू। वर्षों तक उपयोगी।",
       mr: "काही मिनिटांत सुरू. वर्षानुवर्षे उपयुक्त.",
     }),
@@ -38,7 +38,7 @@ export function HowItWorks({ lang }: { lang: Lang }) {
       title: t({ en: "Get your report", gu: "રિપોર્ટ મેળવો", hi: "अपनी रिपोर्ट पाएँ", mr: "तुमचा अहवाल मिळवा" }),
       desc: t({
         en: "Personalised 20-page PDF — graphs, career matches and a 90-day action plan.",
-        gu: "વ્યક્તિગત 20-પાનાનો PDF — ગ્રાફ, વ્યવસાય મેચ અને 90-દિવસનો એક્શન પ્લાન.",
+        gu: "વ્યક્તિગત 20 પાનાનો PDF રિપોર્ટ — ગ્રાફ, અનુકૂળ વ્યવસાયો અને 90 દિવસનો એક્શન પ્લાન.",
         hi: "व्यक्तिगत 20-पृष्ठ PDF — ग्राफ़, करियर मैच और 90-दिन की कार्ययोजना।",
         mr: "वैयक्तिक 20-पानी PDF — आलेख, करिअर जुळणी आणि 90-दिवसांची कृती योजना.",
       }),
@@ -49,7 +49,7 @@ export function HowItWorks({ lang }: { lang: Lang }) {
       title: t({ en: "Explore paths", gu: "માર્ગો શોધો", hi: "रास्ते खोजें", mr: "मार्ग शोधा" }),
       desc: t({
         en: "Dive into matched streams, colleges, entrance exams and scholarships.",
-        gu: "મેચ થયેલા પ્રવાહો, કોલેજો, પ્રવેશ પરીક્ષાઓ અને શિષ્યવૃત્તિમાં ઊંડા ઊતરો.",
+        gu: "તમારા રસ અનુસારના પ્રવાહો, કૉલેજો, પ્રવેશ પરીક્ષાઓ અને શિષ્યવૃત્તિઓ વિશે વિગતવાર જાણો.",
         hi: "मिलते-जुलते स्ट्रीम, कॉलेज, प्रवेश परीक्षाएँ और छात्रवृत्तियाँ देखें।",
         mr: "जुळणारे प्रवाह, महाविद्यालये, प्रवेश परीक्षा आणि शिष्यवृत्ती पाहा.",
       }),

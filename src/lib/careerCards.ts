@@ -97,7 +97,7 @@ export const DEFAULT_PLACES: TList = {
 export const DEFAULT_WORK_ENV: T = {
   en: "Typically 5–6 days a week, 8–9 hours per day. Some roles include shift or weekend duty.",
   hi: "आमतौर पर सप्ताह में 5–6 दिन, प्रतिदिन 8–9 घंटे। कुछ भूमिकाओं में शिफ्ट या सप्ताहांत ड्यूटी होती है।",
-  gu: "સામાન્ય રીતે અઠવાડિયામાં 5–6 દિવસ, રોજ 8–9 કલાક. કેટલીક ભૂમિકાઓમાં શિફ્ટ કે વીકએન્ડ ડ્યુટી હોય શકે.",
+  gu: "સામાન્ય રીતે અઠવાડિયામાં 5–6 દિવસ, રોજ 8–9 કલાક. કેટલીક ભૂમિકાઓમાં શિફ્ટ કે વીકએન્ડ ડ્યુટી હોઈ શકે.",
 };
 
 export const DEFAULT_ENTREPRENEURSHIP: T = {
@@ -115,7 +115,7 @@ export const DEFAULT_DIFFERENTLY_ABLED: T = {
 export const DEFAULT_LOANS: Loan[] = [
   { label: { en: "Vidya Lakshmi portal – single application for education loans from major banks.", hi: "विद्या लक्ष्मी पोर्टल – प्रमुख बैंकों से शिक्षा ऋण के लिए एक ही आवेदन।", gu: "વિદ્યા લક્ષ્મી પોર્ટલ – મુખ્ય બેંકોમાંથી શિક્ષણ લોન માટે એક જ અરજી." }, url: "https://www.vidyalakshmi.co.in" },
   { label: { en: "All nationalised & private banks offer education loans up to ₹10 L without collateral.", hi: "सभी राष्ट्रीयकृत व निजी बैंक ₹10 लाख तक बिना गारंटी शिक्षा ऋण देते हैं।", gu: "તમામ રાષ્ટ્રીયકૃત અને ખાનગી બેંકો ₹10 લાખ સુધીની શિક્ષણ લોન કોલેટરલ વગર આપે છે." } },
-  { label: { en: "Some states (West Bengal, Odisha, Bihar) offer student credit cards at low interest.", hi: "पश्चिम बंगाल, ओडिशा, बिहार जैसे कुछ राज्य कम ब्याज पर स्टूडेंट क्रेडिट कार्ड देते हैं।", gu: "પશ્ચિમ બંગાળ, ઓડિશા, બિહાર જેવા કેટલાક રાજ્યો ઓછા વ્યાજે સ્ટુડન્ટ ક્રેડિટ કાર્ડ આપે છે." } },
+  { label: { en: "Some states (West Bengal, Odisha, Bihar) offer student credit cards at low interest.", hi: "पश्चिम बंगाल, ओडिशा, बिहार जैसे कुछ राज्य कम ब्याज पर स्टूडेंट क्रेडिट कार्ड देते हैं।", gu: "પશ્ચિમ બંગાળ, ઓડિશા, બિહાર જેવાં કેટલાક રાજ્યો ઓછા વ્યાજે સ્ટુડન્ટ ક્રેડિટ કાર્ડ આપે છે." } },
 ];
 
 export const DEFAULT_ONLINE: OnlineCourse[] = [
@@ -204,7 +204,7 @@ export const CAREER_CARDS: Record<string, CareerCardExtras> = {
       bio: {
         en: "Indian product/industrial designer and Design Director at HOF (award-winning Indian furniture brand). B.Des from NID Ahmedabad; won Elle Decor International Design Award in 2009 and 2010.",
         hi: "भारतीय प्रोडक्ट/इंडस्ट्रियल डिज़ाइनर, HOF (पुरस्कार-प्राप्त फ़र्नीचर ब्रांड) के डिज़ाइन डायरेक्टर। NID अहमदाबाद से B.Des; 2009 व 2010 में Elle Decor इंटरनेशनल डिज़ाइन अवार्ड।",
-        gu: "ભારતીય પ્રોડક્ટ/ઇન્ડસ્ટ્રિયલ ડિઝાઇનર, HOF (પુરસ્કૃત ફર્નિચર બ્રાન્ડ) ના ડિઝાઇન ડિરેક્ટર. NID અમદાવાદથી B.Des; 2009 અને 2010માં Elle Decor ઇન્ટરનેશનલ ડિઝાઇન એવોર્ડ.",
+        gu: "ભારતીય પ્રોડક્ટ/ઇન્ડસ્ટ્રિયલ ડિઝાઇનર, HOF (પુરસ્કૃત ફર્નિચર બ્રાન્ડ)ના ડિઝાઇન ડિરેક્ટર. NID અમદાવાદથી B.Des; 2009 અને 2010માં Elle Decor ઇન્ટરનેશનલ ડિઝાઇન એવોર્ડ.",
       },
       sourceUrl: "https://shop.hofindia.com/mann-singh-collection-2",
     },
@@ -244,7 +244,7 @@ export const CAREER_CARDS: Record<string, CareerCardExtras> = {
     distanceLearning: DEFAULT_DISTANCE,
     onlineCourses: [
       { provider: "NPTEL", title: { en: "Full B.Tech courseware across CSE, ECE, Mech, Civil.", hi: "CSE, ECE, Mech, Civil में पूरा B.Tech पाठ्यक्रम.", gu: "CSE, ECE, Mech, Civil માટે સંપૂર્ણ B.Tech અભ્યાસક્રમ." }, url: "https://nptel.ac.in" },
-      { provider: "Coursera / edX", title: { en: "IIT & IISc micro-credentials, Google/Meta specialisations.", hi: "IIT/IISc माइक्रो-क्रेडेंशियल, Google/Meta स्पेशलाइज़ेशन.", gu: "IIT/IISc માઇક્રો-ક્રેડેન્શિયલ, Google/Meta સ્પેશલાઇઝેશન." }, url: "https://www.coursera.org" },
+      { provider: "Coursera / edX", title: { en: "IIT & IISc micro-credentials, Google/Meta specialisations.", hi: "IIT/IISc माइक्रो-क्रेडेंशियल, Google/Meta स्पेशलाइज़ेशन.", gu: "IIT/IISc માઇક્રો-ક્રેડેન્શિયલ, Google/Meta સ્પેશિયલાઇઝેશન." }, url: "https://www.coursera.org" },
     ],
     loans: DEFAULT_LOANS,
     roleModel: {

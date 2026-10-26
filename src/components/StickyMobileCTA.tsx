@@ -15,7 +15,7 @@ export function StickyMobileCTA() {
         <Brain className="h-4 w-4" />
         {t({
           en: "Take free test → 20-page report",
-          gu: "મફત ટેસ્ટ આપો → 20-પાનાનો રિપોર્ટ",
+          gu: "મફત ટેસ્ટ આપો → 20 પાનાનો રિપોર્ટ",
           hi: "मुफ़्त टेस्ट दें → 20-पृष्ठ रिपोर्ट",
           mr: "मोफत चाचणी द्या → 20-पानी अहवाल",
         })}

@@ -32,7 +32,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
   }[] = [
     {
       icon: Brain,
-      title: t({ en: "Know what fits you", gu: "શું યોગ્ય છે તે જાણો", hi: "जानें क्या सही है", mr: "काय योग्य आहे ते जाणा" }),
+      title: t({ en: "Know what fits you", gu: "તમારા માટે શું યોગ્ય છે તે જાણો", hi: "जानें क्या सही है", mr: "काय योग्य आहे ते जाणा" }),
       desc: t({
         en: "Psychometric + aptitude test. 25 minutes, in your language.",
         gu: "સાયકોમેટ્રિક + યોગ્યતા ટેસ્ટ. 25 મિનિટ, તમારી ભાષામાં.",
@@ -68,7 +68,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       title: t({ en: "Track 100 entrance exams", gu: "100 પ્રવેશ પરીક્ષાઓ જુઓ", hi: "100 प्रवेश परीक्षाएँ देखें", mr: "100 प्रवेश परीक्षा पाहा" }),
       desc: t({
         en: "Who conducts them, when, and which careers they open.",
-        gu: "કોણ લે છે, ક્યારે, અને કઈ કારકિર્દી ખુલે છે.",
+        gu: "કોણ લે છે, ક્યારે લેવાય છે અને કારકિર્દીની કઈ તકો ખૂલે છે.",
         hi: "कौन कराता है, कब, और कौन से करियर खुलते हैं।",
         mr: "कोण घेते, केव्हा आणि कोणते करिअर उघडतात.",
       }),
@@ -79,7 +79,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       title: t({ en: "Find 100 scholarships", gu: "100 શિષ્યવૃત્તિઓ શોધો", hi: "100 छात्रवृत्तियाँ खोजें", mr: "100 शिष्यवृत्त्या शोधा" }),
       desc: t({
         en: "Eligibility, amounts and deadlines — filtered for you.",
-        gu: "પાત્રતા, રકમ અને છેલ્લી તારીખ — તમારા માટે ફિલ્ટર કરેલી.",
+        gu: "પાત્રતા, રકમ અને છેલ્લી તારીખ — તમારા માટે ફિલ્ટર કરેલ.",
         hi: "पात्रता, राशि और समय-सीमा — आपके लिए छांटी गई।",
         mr: "पात्रता, रक्कम आणि मुदत — तुमच्यासाठी निवडलेली.",
       }),
@@ -87,7 +87,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
     },
     {
       icon: Sparkles,
-      title: t({ en: "Build life skills free", gu: "જીવન કુશળતા મફત શીખો", hi: "मुफ़्त में लाइफ स्किल सीखें", mr: "जीवन कौशल्ये मोफत शिका" }),
+      title: t({ en: "Build life skills free", gu: "જીવન કૌશલ્યો મફત શીખો", hi: "मुफ़्त में लाइफ स्किल सीखें", mr: "जीवन कौशल्ये मोफत शिका" }),
       desc: t({
         en: "LevelUp Lab: 150 lessons, quizzes and certificates.",
         gu: "LevelUp Lab: 150 પાઠ, ક્વિઝ અને પ્રમાણપત્રો.",
@@ -101,7 +101,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       title: t({ en: "Make your resume", gu: "તમારું રેઝ્યુમે બનાવો", hi: "अपना रेज़्यूमे बनाएँ", mr: "तुमचे रेझ्युमे बनवा" }),
       desc: t({
         en: "A clean student profile PDF in minutes — ready to share.",
-        gu: "થોડી મિનિટમાં સ્વચ્છ વિદ્યાર્થી પ્રોફાઇલ PDF — શેર કરવા તૈયાર.",
+        gu: "થોડી જ મિનિટોમાં સ્વચ્છ વિદ્યાર્થી પ્રોફાઇલ PDF — શેર કરવા તૈયાર.",
         hi: "कुछ मिनटों में साफ़ स्टूडेंट प्रोफ़ाइल PDF — साझा करने के लिए तैयार।",
         mr: "काही मिनिटांत स्वच्छ विद्यार्थी प्रोफाइल PDF — शेअर करण्यासाठी तयार.",
       }),
@@ -112,18 +112,18 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       title: t({ en: "Ask the AI counsellor", gu: "AI કાઉન્સેલરને પૂછો", hi: "AI काउंसलर से पूछें", mr: "AI काउन्सेलरला विचारा" }),
       desc: t({
         en: "HBK Career Counsellor answers in all 4 languages, 24×7.",
-        gu: "HBK કારકિર્દી કાઉન્સેલર ચારેય ભાષામાં જવાબ આપે છે, 24×7.",
+        gu: "HBK કારકિર્દી કાઉન્સેલર ચારેય ભાષાઓમાં જવાબ આપે છે, 24×7.",
         hi: "HBK करियर काउंसलर चारों भाषाओं में जवाब देता है, 24×7।",
         mr: "HBK करिअर काउन्सेलर चारही भाषांत उत्तरे देते, 24×7.",
       }),
-      hint: t({ en: "Bottom-right on every page", gu: "દરેક પાનાની જમણી બાજુ નીચે", hi: "हर पेज पर नीचे दाईं ओर", mr: "प्रत्येक पानाच्या उजव्या कोपऱ्यात खाली" }),
+      hint: t({ en: "Bottom-right on every page", gu: "દરેક પાના પર નીચે જમણી બાજુ", hi: "हर पेज पर नीचे दाईं ओर", mr: "प्रत्येक पानाच्या उजव्या कोपऱ्यात खाली" }),
     },
     {
       icon: CalendarCheck,
       title: t({ en: "Book a counsellor", gu: "કાઉન્સેલર બુક કરો", hi: "काउंसलर बुक करें", mr: "काउन्सेलर बुक करा" }),
       desc: t({
         en: "A 1-on-1 session that uses your actual test results.",
-        gu: "તમારા ખરા ટેસ્ટ પરિણામો સાથે 1-ઓન-1 સત્ર.",
+        gu: "તમારા ટેસ્ટ પરિણામો સાથે 1-ઓન-1 સત્ર.",
         hi: "आपके असली टेस्ट नतीजों के साथ 1-ऑन-1 सेशन।",
         mr: "तुमच्या खऱ्या चाचणी निकालांसह 1-ऑन-1 सत्र.",
       }),
@@ -156,7 +156,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       title: t({ en: "Success stories", gu: "સફળતાની વાર્તાઓ", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" }),
       desc: t({
         en: "Real students who found their path with HBK — and how they did it.",
-        gu: "HBK સાથે પોતાનો માર્ગ શોધનાર વાસ્તવિક વિદ્યાર્થીઓ — અને તેણે કેવી રીતે કર્યું.",
+        gu: "HBK સાથે પોતાનો માર્ગ શોધનારા વાસ્તવિક વિદ્યાર્થીઓ — અને તેમણે તે કેવી રીતે કર્યું.",
         hi: "HBK से अपना रास्ता पाने वाले असली छात्र — और उन्होंने कैसे किया।",
         mr: "HBK सोबत स्वतःचा मार्ग शोधणारे खरे विद्यार्थी — आणि त्यांनी ते कसे केले.",
       }),
@@ -167,7 +167,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
       title: t({ en: "For parents", gu: "વાલીઓ માટે", hi: "अभिभावकों के लिए", mr: "पालकांसाठी" }),
       desc: t({
         en: "Understand your child's report and support their career choice.",
-        gu: "તમારા બાળકનો રિપોર્ટ સમજો અને તેમની કારકિર્દી પસંદગીમાં સાથ આપો.",
+        gu: "તમારા બાળકનો રિપોર્ટ સમજો અને તેની કારકિર્દીની પસંદગીમાં સાથ આપો.",
         hi: "अपने बच्चे की रिपोर्ट समझें और उसके करियर चुनाव में साथ दें।",
         mr: "तुमच्या मुलाचा अहवाल समजून घ्या आणि त्यांच्या करिअर निवडीत साथ द्या.",
       }),
@@ -195,7 +195,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
         <h2 className="mt-3 font-serif text-3xl md:text-4xl">
           {t({
             en: "Everything you can do here",
-            gu: "અહીં તમે શું બધું કરી શકો",
+            gu: "અહીં તમે શું શું કરી શકો છો",
             hi: "यहाँ आप क्या-क्या कर सकते हैं",
             mr: "इथे तुम्ही काय काय करू शकता",
           })}
@@ -203,7 +203,7 @@ export function FeatureShowcase({ lang }: { lang: Lang }) {
         <p className="mt-2 text-sm text-muted-foreground">
           {t({
             en: "One free platform — from discovering your direction to reaching the right college.",
-            gu: "એક મફત પ્લેટફોર્મ — તમારી દિશા શોધવાથી લઈને યોગ્ય કોલેજ સુધી પહોંચવા સુધી.",
+            gu: "એક મફત પ્લેટફોર્મ — તમારી સાચી દિશા શોધવાથી લઈને યોગ્ય કૉલેજ સુધી પહોંચવા માટે.",
             hi: "एक मुफ़्त प्लेटफ़ॉर्म — अपनी दिशा खोजने से लेकर सही कॉलेज तक पहुँचने तक।",
             mr: "एक मोफत व्यासपीठ — तुमची दिशा शोधण्यापासून योग्य महाविद्यालयात पोहोचेपर्यंत.",
           })}

@@ -43,7 +43,7 @@ const PRIMARY_NAV: NavItem[] = [
 
 const TOOL_NAV = [
   { to: "/career", label: { en: "Gujarat guidance", gu: "ગુજરાત માર્ગદર્શન", hi: "गुजरात मार्गदर्शन", mr: "गुजरात मार्गदर्शन" }, short: { en: "Gujarat", gu: "ગુજરાત", hi: "गुजरात", mr: "गुजरात" }, icon: Compass },
-  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
+  { to: "/scholarships", label: { en: "Scholarships", gu: "શિષ્યવૃત્તિઓ", hi: "छात्रवृत्ति", mr: "शिष्यवृत्ती" }, icon: Award },
   { to: "/exams", label: { en: "Entrance exams", gu: "પ્રવેશ પરીક્ષાઓ", hi: "प्रवेश परीक्षाएँ", mr: "प्रवेश परीक्षा" }, short: { en: "Exams", gu: "પરીક્ષાઓ", hi: "परीक्षाएँ", mr: "परीक्षा" }, icon: FileCheck },
   { to: "/dashboard", label: { en: "Dashboard", gu: "ડૅશબોર્ડ", hi: "डैशबोर्ड", mr: "डॅशबोर्ड" }, icon: LayoutDashboard },
   { to: "/profile-builder", label: { en: "Resume Builder", gu: "રિઝ્યુમે બિલ્ડર", hi: "रिज़्यूमे बिल्डर", mr: "रेझ्युमे बिल्डर" }, short: { en: "Resume", gu: "રિઝ્યુમે", hi: "रिज़्यूमे", mr: "रेझ्युमे" }, icon: FileText },
@@ -53,8 +53,8 @@ const FOOTER_NAV = [
   { to: "/about", label: { en: "About", gu: "અમારા વિશે", hi: "हमारे बारे में", mr: "आमच्याविषयी" } },
   { to: "/parents", label: { en: "For Parents", gu: "વાલીઓ માટે", hi: "अभिभावकों के लिए", mr: "पालकांसाठी" }, icon: Heart },
   { to: "/for-schools", label: { en: "For Schools", gu: "શાળાઓ માટે", hi: "स्कूलों के लिए", mr: "शाळांसाठी" }, icon: Building2 },
-  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતાની વાતો", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" }, icon: Trophy },
-  { to: "/faq", label: { en: "FAQ", gu: "પ્રશ્નો", hi: "सवाल", mr: "प्रश्न" }, icon: HelpCircle },
+  { to: "/success-stories", label: { en: "Success Stories", gu: "સફળતાની ગાથાઓ", hi: "सफलता की कहानियाँ", mr: "यशोगाथा" }, icon: Trophy },
+  { to: "/faq", label: { en: "FAQ", gu: "વારંવાર પૂછાતા પ્રશ્નો", hi: "सवाल", mr: "प्रश्न" }, icon: HelpCircle },
 ];
 
 export function PublicLayout({ children }: { children: ReactNode }) {
@@ -158,14 +158,14 @@ export function PublicLayout({ children }: { children: ReactNode }) {
             <p className="mt-4 max-w-sm text-caption text-highlight-foreground/80">
               {t({
                 en: "Clear, practical career guidance for every student—built by The H B Kapadia New High School, Ahmedabad.",
-                gu: "દરેક વિદ્યાર્થી માટે સ્પષ્ટ અને વ્યવહારુ કારકિર્દી માર્ગદર્શન—ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ દ્વારા.",
+                gu: "દરેક વિદ્યાર્થી માટે સ્પષ્ટ અને વ્યવહારુ કારકિર્દી માર્ગદર્શન — ધ એચ. બી. કાપડિયા ન્યૂ હાઈસ્કૂલ, અમદાવાદ દ્વારા.",
                 hi: "हर विद्यार्थी के लिए स्पष्ट और व्यावहारिक करियर मार्गदर्शन—द एच. बी. कापड़िया न्यू हाई स्कूल, अहमदाबाद द्वारा।",
                 mr: "प्रत्येक विद्यार्थ्यासाठी स्पष्ट आणि व्यावहारिक करिअर मार्गदर्शन—द एच. बी. कापडिया न्यू हायस्कूल, अहमदाबाद तर्फे.",
               })}
             </p>
           </div>
           <div>
-            <h2 className="text-subheading">{t({ en: "Explore", gu: "અન્વેષણ", hi: "जानकारी", mr: "शोधा" })}</h2>
+            <h2 className="text-subheading">{t({ en: "Explore", gu: "અન્વેષણ કરો", hi: "जानकारी", mr: "शोधा" })}</h2>
             <ul className="mt-4 grid gap-3 text-caption text-highlight-foreground/80">
               {[...PRIMARY_NAV.slice(1), ...TOOL_NAV.slice(1)].map((item) => (
                 <li key={item.to}><Link to={item.to} className="brand-link rounded-sm hover:text-highlight-foreground">{t(item.label)}</Link></li>
