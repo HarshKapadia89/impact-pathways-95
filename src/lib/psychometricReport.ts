@@ -1054,8 +1054,11 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       for (const e of p.entranceExams) allExams.add(e);
     }
   }
-  doc.text(t.examsIntro(allExams.size), M, yy);
-  yy += 7;
+  for (const l of wrap(t.examsIntro(allExams.size), PW - 2 * M)) {
+    doc.text(l, M, yy);
+    yy += 5;
+  }
+  yy += 2;
   for (const ex of allExams) {
     yy = ensureSpace(yy, 8, current);
     setFill(doc, COLORS.band);
