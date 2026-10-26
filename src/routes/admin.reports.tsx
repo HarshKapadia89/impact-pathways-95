@@ -29,7 +29,7 @@ type Row = {
   school_name: string | null;
   language: string | null;
   riasec_top: string[] | null;
-  created_at: string;
+  taken_at: string;
 };
 
 function ReportsAdmin() {
@@ -40,9 +40,9 @@ function ReportsAdmin() {
 
   useEffect(() => {
     supabase
-      .from("psychometric_results")
-      .select("id,student_name,grade,school_name,language,riasec_top,created_at")
-      .order("created_at", { ascending: false })
+      .from("psychometric_submissions")
+      .select("id,student_name,grade,school_name,language,riasec_top,taken_at")
+      .order("taken_at", { ascending: false })
       .limit(500)
       .then(({ data }) => {
         setRows((data ?? []) as Row[]);
@@ -80,7 +80,7 @@ function ReportsAdmin() {
                   <div className="text-subheading">{r.student_name ?? "Student"}</div>
                   <div className="text-caption text-muted-foreground">
                     Grade {r.grade ?? "—"} · {r.school_name ?? "—"} · {(r.language ?? "en").toUpperCase()} ·{" "}
-                    {r.riasec_top?.join("-") ?? ""} · {new Date(r.created_at).toLocaleDateString()}
+                    {r.riasec_top?.join("-") ?? ""} · {new Date(r.taken_at).toLocaleDateString()}
                   </div>
                 </div>
                 <Button onClick={() => download(r)}>Download PDF</Button>
