@@ -124,8 +124,8 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   // Marathi shares the Devanagari script with Hindi (same embedded font).
   const language = input.language;
   const t: ReportStrings = getReportStrings(language);
-  const recommendedStreams = recommendStreamsAccurate(report, 2);
-  const topCareers = rankCareerPaths(report, recommendedStreams, 8);
+  const recommendedStreams = recommendStreamsAccurate(input.report, 2);
+  const topCareers = rankCareerPaths(input.report, recommendedStreams, 8);
   const doc = new jsPDF({ unit: "mm", format: "a4" });
   registerFonts(doc);
 
