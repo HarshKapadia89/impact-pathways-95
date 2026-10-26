@@ -60,10 +60,11 @@ export function maskReportString(s: string, names: string[]) {
   });
   // Already-translated runs (e.g. "ભાષાકીય STANDS OUT") become {T0}.
   const runs: string[] = [];
-  out = out.replace(INDIC_RUN, (m) => {
+  const keep = (m: string) => {
     runs.push(m);
     return `{T${runs.length - 1}}`;
-  });
+  };
+  out = out.replace(INDIC_RUN, keep).replace(/\b[RIASEC](?:[-·][RIASEC]){1,2}\b/g, keep);
   const nameVals: string[] = [];
   for (const n of names) {
     if (out.includes(n)) {
