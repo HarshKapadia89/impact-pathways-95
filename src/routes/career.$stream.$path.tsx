@@ -92,7 +92,7 @@ export const Route = createFileRoute("/career/$stream/$path")({
   errorComponent: ({ error }) => (
     <PublicLayout>
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <p>Something went wrong: {error.message}</p>
+        <p>Something went wrong: {error instanceof Error ? error.message : String(error)}</p>
         <Link to="/career" className="text-primary mt-4 inline-block">
           ← Back
         </Link>
