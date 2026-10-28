@@ -87,13 +87,7 @@ function DashboardPage() {
     setChecklist(listChecklist(t));
     setRoadmapState(listRoadmap(t));
     (async () => {
-      const { data } = await supabase
-        .from("psychometric_submissions")
-        .select(
-          "id,student_name,grade,school_name,riasec_top,mi_top,recommended_streams,recommended_careers,taken_at,report_token",
-        )
-        .eq("report_token", t)
-        .maybeSingle();
+      const data = await getReportByToken({ data: { token: t } }).catch(() => null);
       if (data) setRow(data as SubmissionRow);
       setLoading(false);
     })();

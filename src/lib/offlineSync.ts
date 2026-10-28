@@ -43,8 +43,9 @@ export async function flushQueue(): Promise<{ ok: number; failed: number }> {
       try {
         const { error } = await supabase
           .from("psychometric_submissions")
-          .upsert(item.payload as never, { onConflict: "id" });
-        if (error) throw error;
+          .insert(item.payload as never);
+        // 23505 = already uploaded earlier; treat as done.
+        if (error && error.code !== "23505") throw error;
         // Mirror to Google Sheet (best effort — failures don't block sync).
         try {
           const { appendSubmissionToSheet } = await import(
