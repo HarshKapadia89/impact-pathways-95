@@ -196,14 +196,14 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminBookingsRoute = AdminBookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
-  getParentRoute: () => AdminRoute,
+  id: '/admin/bookings',
+  path: '/admin/bookings',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminCollegesRoute = AdminCollegesRouteImport.update({
-  id: '/colleges',
-  path: '/colleges',
-  getParentRoute: () => AdminRoute,
+  id: '/admin/colleges',
+  path: '/admin/colleges',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminPaymentsRoute = AdminPaymentsRouteImport.update({
   id: '/admin/payments',
@@ -211,9 +211,9 @@ const AdminPaymentsRoute = AdminPaymentsRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminReportsRoute = AdminReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => AdminRoute,
+  id: '/admin/reports',
+  path: '/admin/reports',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminTeamRoute = AdminTeamRouteImport.update({
   id: '/admin/team',
@@ -703,7 +703,10 @@ export interface RootRouteChildren {
   TeachersRoute: typeof TeachersRoute
   TestRoute: typeof TestRouteWithChildren
   UpskillRoute: typeof UpskillRouteWithChildren
+  AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminCollegesRoute: typeof AdminCollegesRoute
   AdminPaymentsRoute: typeof AdminPaymentsRoute
+  AdminReportsRoute: typeof AdminReportsRoute
   AdminTeamRoute: typeof AdminTeamRoute
   RTokenRoute: typeof RTokenRoute
   TeacherProfileRoute: typeof TeacherProfileRoute
@@ -903,17 +906,17 @@ declare module '@tanstack/react-router' {
     }
     '/admin/bookings': {
       id: '/admin/bookings'
-      path: '/bookings'
+      path: '/admin/bookings'
       fullPath: '/admin/bookings'
       preLoaderRoute: typeof AdminBookingsRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/colleges': {
       id: '/admin/colleges'
-      path: '/colleges'
+      path: '/admin/colleges'
       fullPath: '/admin/colleges'
       preLoaderRoute: typeof AdminCollegesRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/payments': {
       id: '/admin/payments'
@@ -924,10 +927,10 @@ declare module '@tanstack/react-router' {
     }
     '/admin/reports': {
       id: '/admin/reports'
-      path: '/reports'
+      path: '/admin/reports'
       fullPath: '/admin/reports'
       preLoaderRoute: typeof AdminReportsRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/team': {
       id: '/admin/team'
@@ -1229,7 +1232,10 @@ const rootRouteChildren: RootRouteChildren = {
   TeachersRoute: TeachersRoute,
   TestRoute: TestRouteWithChildren,
   UpskillRoute: UpskillRouteWithChildren,
+  AdminBookingsRoute: AdminBookingsRoute,
+  AdminCollegesRoute: AdminCollegesRoute,
   AdminPaymentsRoute: AdminPaymentsRoute,
+  AdminReportsRoute: AdminReportsRoute,
   AdminTeamRoute: AdminTeamRoute,
   RTokenRoute: RTokenRoute,
   TeacherProfileRoute: TeacherProfileRoute,
