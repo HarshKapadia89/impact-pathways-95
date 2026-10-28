@@ -37,7 +37,9 @@ import { Route as UpskillRouteImport } from './routes/upskill'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
+import { Route as AdminPaymentsRouteImport } from './routes/admin.payments'
 import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminTeamRouteImport } from './routes/admin.team'
 import { Route as CareerStreamRouteImport } from './routes/career.$stream'
 import { Route as HandbookSlugRouteImport } from './routes/handbook.$slug'
 import { Route as RTokenRouteImport } from './routes/r.$token'
@@ -51,6 +53,8 @@ import { Route as TestTakeRouteImport } from './routes/test.take'
 import { Route as UpskillIndexRouteImport } from './routes/upskill.index'
 import { Route as UpskillTopicRouteImport } from './routes/upskill.$topic'
 import { Route as UpskillQuizRouteImport } from './routes/upskill.quiz'
+import { Route as AdminStudentsIndexRouteImport } from './routes/admin.students.index'
+import { Route as AdminStudentsIdRouteImport } from './routes/admin.students.$id'
 import { Route as CareerStreamIndexRouteImport } from './routes/career.$stream.index'
 import { Route as CareerStreamPathRouteImport } from './routes/career.$stream.$path'
 import { Route as HandbookSlugIndexRouteImport } from './routes/handbook.$slug.index'
@@ -201,9 +205,19 @@ const AdminCollegesRoute = AdminCollegesRouteImport.update({
   path: '/admin/colleges',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminPaymentsRoute = AdminPaymentsRouteImport.update({
+  id: '/admin/payments',
+  path: '/admin/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminReportsRoute = AdminReportsRouteImport.update({
   id: '/admin/reports',
   path: '/admin/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTeamRoute = AdminTeamRouteImport.update({
+  id: '/admin/team',
+  path: '/admin/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareerStreamRoute = CareerStreamRouteImport.update({
@@ -270,6 +284,16 @@ const UpskillQuizRoute = UpskillQuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
   getParentRoute: () => UpskillRoute,
+} as any)
+const AdminStudentsIndexRoute = AdminStudentsIndexRouteImport.update({
+  id: '/admin/students/',
+  path: '/admin/students/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStudentsIdRoute = AdminStudentsIdRouteImport.update({
+  id: '/admin/students/$id',
+  path: '/admin/students/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CareerStreamIndexRoute = CareerStreamIndexRouteImport.update({
   id: '/',
@@ -345,7 +369,9 @@ export interface FileRoutesByFullPath {
   '/upskill': typeof UpskillRouteWithChildren
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/colleges': typeof AdminCollegesRoute
+  '/admin/payments': typeof AdminPaymentsRoute
   '/admin/reports': typeof AdminReportsRoute
+  '/admin/team': typeof AdminTeamRoute
   '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRouteWithChildren
   '/r/$token': typeof RTokenRoute
@@ -360,12 +386,14 @@ export interface FileRoutesByFullPath {
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
   '/upskill/': typeof UpskillIndexRoute
+  '/admin/students/$id': typeof AdminStudentsIdRoute
   '/career/$stream/$path': typeof CareerStreamPathRoute
   '/handbook/$slug/$profession': typeof HandbookSlugProfessionRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/upskill/$topic/$lesson': typeof UpskillTopicLessonRoute
   '/upskill/$topic/quiz': typeof UpskillTopicQuizRoute
+  '/admin/students/': typeof AdminStudentsIndexRoute
   '/career/$stream/': typeof CareerStreamIndexRoute
   '/handbook/$slug/': typeof HandbookSlugIndexRoute
   '/upskill/$topic/': typeof UpskillTopicIndexRoute
@@ -396,7 +424,9 @@ export interface FileRoutesByTo {
   '/teachers': typeof TeachersRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/colleges': typeof AdminCollegesRoute
+  '/admin/payments': typeof AdminPaymentsRoute
   '/admin/reports': typeof AdminReportsRoute
+  '/admin/team': typeof AdminTeamRoute
   '/r/$token': typeof RTokenRoute
   '/teacher/profile': typeof TeacherProfileRoute
   '/teacher/schools': typeof TeacherSchoolsRoute
@@ -408,12 +438,14 @@ export interface FileRoutesByTo {
   '/teacher': typeof TeacherIndexRoute
   '/test': typeof TestIndexRoute
   '/upskill': typeof UpskillIndexRoute
+  '/admin/students/$id': typeof AdminStudentsIdRoute
   '/career/$stream/$path': typeof CareerStreamPathRoute
   '/handbook/$slug/$profession': typeof HandbookSlugProfessionRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/upskill/$topic/$lesson': typeof UpskillTopicLessonRoute
   '/upskill/$topic/quiz': typeof UpskillTopicQuizRoute
+  '/admin/students': typeof AdminStudentsIndexRoute
   '/career/$stream': typeof CareerStreamIndexRoute
   '/handbook/$slug': typeof HandbookSlugIndexRoute
   '/upskill/$topic': typeof UpskillTopicIndexRoute
@@ -447,7 +479,9 @@ export interface FileRoutesById {
   '/upskill': typeof UpskillRouteWithChildren
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/colleges': typeof AdminCollegesRoute
+  '/admin/payments': typeof AdminPaymentsRoute
   '/admin/reports': typeof AdminReportsRoute
+  '/admin/team': typeof AdminTeamRoute
   '/career/$stream': typeof CareerStreamRouteWithChildren
   '/handbook/$slug': typeof HandbookSlugRouteWithChildren
   '/r/$token': typeof RTokenRoute
@@ -462,12 +496,14 @@ export interface FileRoutesById {
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
   '/upskill/': typeof UpskillIndexRoute
+  '/admin/students/$id': typeof AdminStudentsIdRoute
   '/career/$stream/$path': typeof CareerStreamPathRoute
   '/handbook/$slug/$profession': typeof HandbookSlugProfessionRoute
   '/teacher/school/$schoolId': typeof TeacherSchoolSchoolIdRoute
   '/teacher/session/$sessionId': typeof TeacherSessionSessionIdRoute
   '/upskill/$topic/$lesson': typeof UpskillTopicLessonRoute
   '/upskill/$topic/quiz': typeof UpskillTopicQuizRoute
+  '/admin/students/': typeof AdminStudentsIndexRoute
   '/career/$stream/': typeof CareerStreamIndexRoute
   '/handbook/$slug/': typeof HandbookSlugIndexRoute
   '/upskill/$topic/': typeof UpskillTopicIndexRoute
@@ -502,7 +538,9 @@ export interface FileRouteTypes {
     | '/upskill'
     | '/admin/bookings'
     | '/admin/colleges'
+    | '/admin/payments'
     | '/admin/reports'
+    | '/admin/team'
     | '/career/$stream'
     | '/handbook/$slug'
     | '/r/$token'
@@ -517,12 +555,14 @@ export interface FileRouteTypes {
     | '/teacher/'
     | '/test/'
     | '/upskill/'
+    | '/admin/students/$id'
     | '/career/$stream/$path'
     | '/handbook/$slug/$profession'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/upskill/$topic/$lesson'
     | '/upskill/$topic/quiz'
+    | '/admin/students/'
     | '/career/$stream/'
     | '/handbook/$slug/'
     | '/upskill/$topic/'
@@ -553,7 +593,9 @@ export interface FileRouteTypes {
     | '/teachers'
     | '/admin/bookings'
     | '/admin/colleges'
+    | '/admin/payments'
     | '/admin/reports'
+    | '/admin/team'
     | '/r/$token'
     | '/teacher/profile'
     | '/teacher/schools'
@@ -565,12 +607,14 @@ export interface FileRouteTypes {
     | '/teacher'
     | '/test'
     | '/upskill'
+    | '/admin/students/$id'
     | '/career/$stream/$path'
     | '/handbook/$slug/$profession'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/upskill/$topic/$lesson'
     | '/upskill/$topic/quiz'
+    | '/admin/students'
     | '/career/$stream'
     | '/handbook/$slug'
     | '/upskill/$topic'
@@ -603,7 +647,9 @@ export interface FileRouteTypes {
     | '/upskill'
     | '/admin/bookings'
     | '/admin/colleges'
+    | '/admin/payments'
     | '/admin/reports'
+    | '/admin/team'
     | '/career/$stream'
     | '/handbook/$slug'
     | '/r/$token'
@@ -618,12 +664,14 @@ export interface FileRouteTypes {
     | '/teacher/'
     | '/test/'
     | '/upskill/'
+    | '/admin/students/$id'
     | '/career/$stream/$path'
     | '/handbook/$slug/$profession'
     | '/teacher/school/$schoolId'
     | '/teacher/session/$sessionId'
     | '/upskill/$topic/$lesson'
     | '/upskill/$topic/quiz'
+    | '/admin/students/'
     | '/career/$stream/'
     | '/handbook/$slug/'
     | '/upskill/$topic/'
@@ -657,15 +705,19 @@ export interface RootRouteChildren {
   UpskillRoute: typeof UpskillRouteWithChildren
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminCollegesRoute: typeof AdminCollegesRoute
+  AdminPaymentsRoute: typeof AdminPaymentsRoute
   AdminReportsRoute: typeof AdminReportsRoute
+  AdminTeamRoute: typeof AdminTeamRoute
   RTokenRoute: typeof RTokenRoute
   TeacherProfileRoute: typeof TeacherProfileRoute
   TeacherSchoolsRoute: typeof TeacherSchoolsRoute
   TeacherSessionsRoute: typeof TeacherSessionsRoute
   AdminIndexRoute: typeof AdminIndexRoute
   TeacherIndexRoute: typeof TeacherIndexRoute
+  AdminStudentsIdRoute: typeof AdminStudentsIdRoute
   TeacherSchoolSchoolIdRoute: typeof TeacherSchoolSchoolIdRoute
   TeacherSessionSessionIdRoute: typeof TeacherSessionSessionIdRoute
+  AdminStudentsIndexRoute: typeof AdminStudentsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -866,11 +918,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCollegesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/payments': {
+      id: '/admin/payments'
+      path: '/admin/payments'
+      fullPath: '/admin/payments'
+      preLoaderRoute: typeof AdminPaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/reports': {
       id: '/admin/reports'
       path: '/admin/reports'
       fullPath: '/admin/reports'
       preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/team': {
+      id: '/admin/team'
+      path: '/admin/team'
+      fullPath: '/admin/team'
+      preLoaderRoute: typeof AdminTeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/career/$stream': {
@@ -963,6 +1029,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/upskill/quiz'
       preLoaderRoute: typeof UpskillQuizRouteImport
       parentRoute: typeof UpskillRoute
+    }
+    '/admin/students/': {
+      id: '/admin/students/'
+      path: '/admin/students'
+      fullPath: '/admin/students/'
+      preLoaderRoute: typeof AdminStudentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/students/$id': {
+      id: '/admin/students/$id'
+      path: '/admin/students/$id'
+      fullPath: '/admin/students/$id'
+      preLoaderRoute: typeof AdminStudentsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/career/$stream/': {
       id: '/career/$stream/'
@@ -1154,15 +1234,19 @@ const rootRouteChildren: RootRouteChildren = {
   UpskillRoute: UpskillRouteWithChildren,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminCollegesRoute: AdminCollegesRoute,
+  AdminPaymentsRoute: AdminPaymentsRoute,
   AdminReportsRoute: AdminReportsRoute,
+  AdminTeamRoute: AdminTeamRoute,
   RTokenRoute: RTokenRoute,
   TeacherProfileRoute: TeacherProfileRoute,
   TeacherSchoolsRoute: TeacherSchoolsRoute,
   TeacherSessionsRoute: TeacherSessionsRoute,
   AdminIndexRoute: AdminIndexRoute,
   TeacherIndexRoute: TeacherIndexRoute,
+  AdminStudentsIdRoute: AdminStudentsIdRoute,
   TeacherSchoolSchoolIdRoute: TeacherSchoolSchoolIdRoute,
   TeacherSessionSessionIdRoute: TeacherSessionSessionIdRoute,
+  AdminStudentsIndexRoute: AdminStudentsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { AdminLayout } from "@/components/AdminLayout";
 import { RequireAdmin } from "@/components/RequireAdmin";
 import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { adminOverview } from "@/lib/admin.functions";
+import { Stat as DsStat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import {
   School,
   Users,
@@ -45,7 +48,7 @@ function AdminOverview() {
         supabase.from("programs").select("id", { count: "exact", head: true }),
         supabase.from("sessions").select("id", { count: "exact", head: true }),
         supabase.from("colleges").select("id", { count: "exact", head: true }),
-        supabase.from("psychometric_results").select("id", { count: "exact", head: true }),
+        supabase.from("psychometric_submissions").select("id", { count: "exact", head: true }),
       ]);
       setStats({
         schools: s.count ?? 0,
@@ -80,6 +83,8 @@ function AdminOverview() {
           All operations and public modules in one place.
         </p>
       </header>
+
+      <ActivityStats />
 
       <section>
         <h2 className="font-serif text-xl mb-3">Operations</h2>
@@ -137,5 +142,65 @@ function AdminOverview() {
         </div>
       </section>
     </div>
+  );
+}
+
+type Overview = {
+  submissions: { taken_at: string; paid_at: string | null; payment_amount: number | null }[];
+  orders: { status: string; amount_paise: number; paid_at: string | null; created_at: string }[];
+  bookings: { created_at: string }[];
+  leads: { created_at: string }[];
+};
+
+function ActivityStats() {
+  const fetchOverview = useServerFn(adminOverview);
+  const [o, setO] = useState<Overview | null>(null);
+  const [period, setPeriod] = useState<"today" | "week" | "month" | "all">("all");
+  useEffect(() => {
+    fetchOverview().then((r) => setO(r as Overview)).catch(() => null);
+  }, [fetchOverview]);
+  const now = new Date();
+  const start =
+    period === "today" ? new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    : period === "week" ? new Date(now.getTime() - 7 * 864e5)
+    : period === "month" ? new Date(now.getTime() - 30 * 864e5)
+    : new Date(0);
+  const inP = (d: string | null) => !!d && new Date(d) >= start;
+  const subs = (o?.submissions ?? []).filter((s) => inP(s.taken_at));
+  const paidOrders = (o?.orders ?? []).filter((x) => x.status === "paid" && inP(x.paid_at ?? x.created_at));
+  const revenue = paidOrders.reduce((s, x) => s + x.amount_paise / 100, 0);
+  const tabs = [["today", "Today"], ["week", "7 days"], ["month", "30 days"], ["all", "All time"]] as const;
+  return (
+    <section className="space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 className="font-serif text-xl">Student activity</h2>
+        <div className="flex gap-2" role="group" aria-label="Period">
+          {tabs.map(([k, l]) => (
+            <button
+              key={k}
+              type="button"
+              aria-pressed={period === k}
+              onClick={() => setPeriod(k)}
+              className={`hbk-focus rounded-md px-3 py-1 text-caption ${period === k ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+        <DsStat label="Tests taken" value={o ? String(subs.length) : "…"} />
+        <DsStat label="Paid tests" value={o ? String(paidOrders.length) : "…"} />
+        <DsStat label="Revenue" value={o ? `₹${revenue.toLocaleString()}` : "…"} />
+        <DsStat label="Reports generated" value={o ? String(subs.length) : "…"} />
+        <DsStat label="Counsellor bookings" value={o ? String((o.bookings ?? []).filter((b) => inP(b.created_at)).length) : "…"} />
+        <DsStat label="School enquiries" value={o ? String((o.leads ?? []).filter((b) => inP(b.created_at)).length) : "…"} />
+      </div>
+      <div className="flex flex-wrap gap-3 text-caption">
+        <Link to="/admin/students" className="hbk-focus text-primary underline">All test takers →</Link>
+        <Link to="/admin/payments" className="hbk-focus text-primary underline">Payments →</Link>
+        <Link to="/admin/team" className="hbk-focus text-primary underline">Admin team →</Link>
+      </div>
+    </section>
   );
 }
