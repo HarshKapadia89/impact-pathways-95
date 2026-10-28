@@ -190,8 +190,8 @@ function ActivityStats() {
       </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
         <DsStat label="Tests taken" value={o ? String(subs.length) : "…"} />
-        <DsStat label="Paid tests" value={o ? String(paidOrders.length) : "…"} />
-        <DsStat label="Revenue" value={o ? `₹${revenue.toLocaleString()}` : "…"} />
+        <DsStat label="Paid tests" value={o ? String(subs.filter((s) => s.paid_at).length) : "…"} />
+        <DsStat label="Online payments (Razorpay)" value={o ? `₹${revenue.toLocaleString()}` : "…"} />
         <DsStat label="Reports generated" value={o ? String(subs.length) : "…"} />
         <DsStat label="Counsellor bookings" value={o ? String((o.bookings ?? []).filter((b) => inP(b.created_at)).length) : "…"} />
         <DsStat label="School enquiries" value={o ? String((o.leads ?? []).filter((b) => inP(b.created_at)).length) : "…"} />
