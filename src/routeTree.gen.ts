@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as CareerLibraryRouteImport } from './routes/career-library'
@@ -35,6 +34,7 @@ import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as TestRouteImport } from './routes/test'
 import { Route as UpskillRouteImport } from './routes/upskill'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminCollegesRouteImport } from './routes/admin.colleges'
 import { Route as AdminReportsRouteImport } from './routes/admin.reports'
@@ -69,11 +69,6 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -191,20 +186,25 @@ const UpskillRoute = UpskillRouteImport.update({
   path: '/upskill',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminBookingsRoute = AdminBookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
-  getParentRoute: () => AdminRoute,
+  id: '/admin/bookings',
+  path: '/admin/bookings',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminCollegesRoute = AdminCollegesRouteImport.update({
-  id: '/colleges',
-  path: '/colleges',
-  getParentRoute: () => AdminRoute,
+  id: '/admin/colleges',
+  path: '/admin/colleges',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminReportsRoute = AdminReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => AdminRoute,
+  id: '/admin/reports',
+  path: '/admin/reports',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CareerStreamRoute = CareerStreamRouteImport.update({
   id: '/$stream',
@@ -320,7 +320,6 @@ const UpskillTopicQuizRoute = UpskillTopicQuizRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/career-library': typeof CareerLibraryRoute
@@ -357,6 +356,7 @@ export interface FileRoutesByFullPath {
   '/test/take': typeof TestTakeRoute
   '/upskill/$topic': typeof UpskillTopicRouteWithChildren
   '/upskill/quiz': typeof UpskillQuizRoute
+  '/admin/': typeof AdminIndexRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
   '/upskill/': typeof UpskillIndexRoute
@@ -373,7 +373,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/career-library': typeof CareerLibraryRoute
@@ -405,6 +404,7 @@ export interface FileRoutesByTo {
   '/test/pay': typeof TestPayRoute
   '/test/take': typeof TestTakeRoute
   '/upskill/quiz': typeof UpskillQuizRoute
+  '/admin': typeof AdminIndexRoute
   '/teacher': typeof TeacherIndexRoute
   '/test': typeof TestIndexRoute
   '/upskill': typeof UpskillIndexRoute
@@ -422,7 +422,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/career': typeof CareerRouteWithChildren
   '/career-library': typeof CareerLibraryRoute
@@ -459,6 +458,7 @@ export interface FileRoutesById {
   '/test/take': typeof TestTakeRoute
   '/upskill/$topic': typeof UpskillTopicRouteWithChildren
   '/upskill/quiz': typeof UpskillQuizRoute
+  '/admin/': typeof AdminIndexRoute
   '/teacher/': typeof TeacherIndexRoute
   '/test/': typeof TestIndexRoute
   '/upskill/': typeof UpskillIndexRoute
@@ -477,7 +477,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/admin'
     | '/auth'
     | '/career'
     | '/career-library'
@@ -514,6 +513,7 @@ export interface FileRouteTypes {
     | '/test/take'
     | '/upskill/$topic'
     | '/upskill/quiz'
+    | '/admin/'
     | '/teacher/'
     | '/test/'
     | '/upskill/'
@@ -530,7 +530,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/admin'
     | '/auth'
     | '/career'
     | '/career-library'
@@ -562,6 +561,7 @@ export interface FileRouteTypes {
     | '/test/pay'
     | '/test/take'
     | '/upskill/quiz'
+    | '/admin'
     | '/teacher'
     | '/test'
     | '/upskill'
@@ -578,7 +578,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
-    | '/admin'
     | '/auth'
     | '/career'
     | '/career-library'
@@ -615,6 +614,7 @@ export interface FileRouteTypes {
     | '/test/take'
     | '/upskill/$topic'
     | '/upskill/quiz'
+    | '/admin/'
     | '/teacher/'
     | '/test/'
     | '/upskill/'
@@ -632,7 +632,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
   CareerRoute: typeof CareerRouteWithChildren
   CareerLibraryRoute: typeof CareerLibraryRoute
@@ -656,10 +655,14 @@ export interface RootRouteChildren {
   TeachersRoute: typeof TeachersRoute
   TestRoute: typeof TestRouteWithChildren
   UpskillRoute: typeof UpskillRouteWithChildren
+  AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminCollegesRoute: typeof AdminCollegesRoute
+  AdminReportsRoute: typeof AdminReportsRoute
   RTokenRoute: typeof RTokenRoute
   TeacherProfileRoute: typeof TeacherProfileRoute
   TeacherSchoolsRoute: typeof TeacherSchoolsRoute
   TeacherSessionsRoute: typeof TeacherSessionsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   TeacherIndexRoute: typeof TeacherIndexRoute
   TeacherSchoolSchoolIdRoute: typeof TeacherSchoolSchoolIdRoute
   TeacherSessionSessionIdRoute: typeof TeacherSessionSessionIdRoute
@@ -679,13 +682,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -849,26 +845,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UpskillRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/bookings': {
       id: '/admin/bookings'
-      path: '/bookings'
+      path: '/admin/bookings'
       fullPath: '/admin/bookings'
       preLoaderRoute: typeof AdminBookingsRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/colleges': {
       id: '/admin/colleges'
-      path: '/colleges'
+      path: '/admin/colleges'
       fullPath: '/admin/colleges'
       preLoaderRoute: typeof AdminCollegesRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/reports': {
       id: '/admin/reports'
-      path: '/reports'
+      path: '/admin/reports'
       fullPath: '/admin/reports'
       preLoaderRoute: typeof AdminReportsRouteImport
-      parentRoute: typeof AdminRoute
+      parentRoute: typeof rootRouteImport
     }
     '/career/$stream': {
       id: '/career/$stream'
@@ -1027,20 +1030,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AdminRouteChildren {
-  AdminBookingsRoute: typeof AdminBookingsRoute
-  AdminCollegesRoute: typeof AdminCollegesRoute
-  AdminReportsRoute: typeof AdminReportsRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminBookingsRoute: AdminBookingsRoute,
-  AdminCollegesRoute: AdminCollegesRoute,
-  AdminReportsRoute: AdminReportsRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
-
 interface CareerStreamRouteChildren {
   CareerStreamPathRoute: typeof CareerStreamPathRoute
   CareerStreamIndexRoute: typeof CareerStreamIndexRoute
@@ -1140,7 +1129,6 @@ const UpskillRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
   CareerRoute: CareerRouteWithChildren,
   CareerLibraryRoute: CareerLibraryRoute,
@@ -1164,10 +1152,14 @@ const rootRouteChildren: RootRouteChildren = {
   TeachersRoute: TeachersRoute,
   TestRoute: TestRouteWithChildren,
   UpskillRoute: UpskillRouteWithChildren,
+  AdminBookingsRoute: AdminBookingsRoute,
+  AdminCollegesRoute: AdminCollegesRoute,
+  AdminReportsRoute: AdminReportsRoute,
   RTokenRoute: RTokenRoute,
   TeacherProfileRoute: TeacherProfileRoute,
   TeacherSchoolsRoute: TeacherSchoolsRoute,
   TeacherSessionsRoute: TeacherSessionsRoute,
+  AdminIndexRoute: AdminIndexRoute,
   TeacherIndexRoute: TeacherIndexRoute,
   TeacherSchoolSchoolIdRoute: TeacherSchoolSchoolIdRoute,
   TeacherSessionSessionIdRoute: TeacherSessionSessionIdRoute,
