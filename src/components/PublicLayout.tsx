@@ -70,8 +70,12 @@ export function PublicLayout({ children }: { children: ReactNode }) {
       <header data-no-translate className="sticky top-0 z-40 border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex h-16 items-center gap-4">
-            <Link to="/" className="brand-link rounded-md shrink-0" aria-label="HBK Careers home">
-              <Logotype size="md" />
+            <Link to="/" className="brand-link rounded-md shrink-0" aria-label={location.pathname === "/" ? "SRMD Disha home" : "HBK Careers home"}>
+              {location.pathname === "/" ? (
+                <span className="font-display text-heading text-highlight">SRMD Disha</span>
+              ) : (
+                <Logotype size="md" />
+              )}
             </Link>
 
             <nav className="ml-auto hidden items-center gap-0.5 xl:flex" aria-label="Primary navigation">
