@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { supabase } from "@/integrations/supabase/client";
+import { getReportByToken } from "@/lib/report.functions";
 import { getCurrentToken, getCurrentStudentName } from "@/lib/dashboardStore";
 import { useLang } from "@/lib/lang";
 import {
@@ -87,11 +88,7 @@ function CounsellorPage() {
     if (storedName) setName(storedName);
     if (!token) return;
     (async () => {
-      const { data } = await supabase
-        .from("psychometric_submissions")
-        .select("student_name,grade,school_name,riasec_top,recommended_streams,recommended_careers")
-        .eq("report_token", token)
-        .maybeSingle();
+      const data = await getReportByToken({ data: { token } }).catch(() => null);
       if (!data) return;
       const c: TestContext = {
         name: data.student_name,

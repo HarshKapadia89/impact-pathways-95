@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
-import { supabase } from "@/integrations/supabase/client";
+import { getReportByToken } from "@/lib/report.functions";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
 import { generatePsychometricPDF, preloadReportFonts } from "@/lib/psychometricReport";
 import { buildParentSummary } from "@/lib/parentSummary";
@@ -64,13 +64,8 @@ function WebReportPage() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const { data, error } = await supabase
-        .from("psychometric_submissions")
-        .select(
-          "id,student_name,grade,age,grade_band,school_name,riasec,multiple_intelligences,aptitude,riasec_top,mi_top,aptitude_top,recommended_streams,recommended_careers,taken_at,report_token",
-        )
-        .eq("report_token", token)
-        .maybeSingle();
+      const data = await getReportByToken({ data: { token } }).catch(() => null);
+      const error = null;
       if (cancelled) return;
       if (error || !data) {
         setNotFoundFlag(true);

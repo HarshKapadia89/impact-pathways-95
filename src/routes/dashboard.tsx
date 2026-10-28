@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { UpskillProgressCard } from "@/components/UpskillProgressCard";
 import { Button, Card, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
-import { supabase } from "@/integrations/supabase/client";
+import { getReportByToken } from "@/lib/report.functions";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
 import {
   getCurrentToken,
@@ -87,13 +87,7 @@ function DashboardPage() {
     setChecklist(listChecklist(t));
     setRoadmapState(listRoadmap(t));
     (async () => {
-      const { data } = await supabase
-        .from("psychometric_submissions")
-        .select(
-          "id,student_name,grade,school_name,riasec_top,mi_top,recommended_streams,recommended_careers,taken_at,report_token",
-        )
-        .eq("report_token", t)
-        .maybeSingle();
+      const data = await getReportByToken({ data: { token: t } }).catch(() => null);
       if (data) setRow(data as SubmissionRow);
       setLoading(false);
     })();

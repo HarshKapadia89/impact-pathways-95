@@ -12,13 +12,21 @@ import {
   Library,
   Compass,
   Brain,
+  GraduationCap,
+  IndianRupee,
+  ShieldCheck,
+  LogOut,
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { LanguageToggle } from "./LanguageToggle";
 
 export function AdminLayout({ children }: { children: ReactNode }) {
   const { t } = useTranslation();
   const location = useLocation();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const nav = [
     { to: "/admin", label: t("nav.overview"), icon: LayoutDashboard, exact: true },
@@ -29,7 +37,10 @@ export function AdminLayout({ children }: { children: ReactNode }) {
     { to: "/reports", label: t("nav.reports"), icon: FileText },
     { to: "/admin/colleges", label: "Colleges", icon: Library },
     { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+    { to: "/admin/students", label: "Test takers", icon: GraduationCap },
+    { to: "/admin/payments", label: "Payments", icon: IndianRupee },
     { to: "/admin/reports", label: "PDF Reports", icon: FileText },
+    { to: "/admin/team", label: "Admin team", icon: ShieldCheck },
     { to: "/career", label: "Career Guides", icon: Compass },
     { to: "/test", label: "Public Test", icon: Brain },
     { to: "/teacher", label: t("teacher.appName"), icon: Smartphone },
@@ -77,6 +88,19 @@ export function AdminLayout({ children }: { children: ReactNode }) {
           <div className="md:hidden font-serif text-lg">{t("app.name")}</div>
           <div className="ml-auto flex items-center gap-2">
             <LanguageToggle />
+            {user && (
+              <button
+                type="button"
+                onClick={async () => {
+                  await signOut();
+                  navigate({ to: "/auth", search: { redirect: "/admin" }, replace: true });
+                }}
+                className="hbk-focus inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm text-muted-foreground hover:text-foreground"
+                aria-label="Sign out"
+              >
+                <LogOut className="h-4 w-4" /> <span className="hidden sm:inline">{user.email}</span>
+              </button>
+            )}
           </div>
         </header>
         <main className="flex-1 p-4 md:p-8 overflow-auto">{children}</main>
