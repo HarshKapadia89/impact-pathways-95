@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { StudentPhotoHero } from "@/components/StudentPhotoHero";
 import { supabase } from "@/integrations/supabase/client";
+import { getReportByToken } from "@/lib/report.functions";
 import { getCurrentToken, getCurrentStudentName } from "@/lib/dashboardStore";
 import { useLang } from "@/lib/lang";
 import {

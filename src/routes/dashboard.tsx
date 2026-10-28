@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PublicLayout } from "@/components/PublicLayout";
 import { UpskillProgressCard } from "@/components/UpskillProgressCard";
 import { Button, Card, Stat } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
-import { supabase } from "@/integrations/supabase/client";
+import { getReportByToken } from "@/lib/report.functions";
 import { STREAM_BY_ID, type StreamId } from "@/lib/careerData";
 import {
   getCurrentToken,
