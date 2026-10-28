@@ -10,9 +10,9 @@ import { trackStandard, metaCookies, PRODUCT_ID } from "@/lib/metaPixel";
 export const Route = createFileRoute("/test/pay")({
   head: () => ({
     meta: [
-      { title: "Secure payment — HBK Careers Psychometric Test" },
+      { title: "Secure payment — SRMD Disha Psychometric Test" },
       { name: "description", content: "Pay securely by UPI, card, netbanking or wallet and unlock your 20-page personalised career report." },
-      { property: "og:title", content: "Secure payment — HBK Careers Psychometric Test" },
+      { property: "og:title", content: "Secure payment — SRMD Disha Psychometric Test" },
       { property: "og:description", content: "Pay securely and unlock your 20-page personalised career report." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -120,7 +120,7 @@ function PayPage() {
         order_id: order.orderId,
         amount: order.amountPaise,
         currency: order.currency,
-        name: "HBK Careers",
+        name: "SRMD Disha",
         description: "Psychometric assessment + 20-page report",
         prefill: {
           name: meta.name ?? "",

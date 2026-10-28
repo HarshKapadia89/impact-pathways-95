@@ -110,5 +110,5 @@ export async function downloadSampleReport(language: Lang = "en") {
   await preloadReportFonts(language);
   const doc = generatePsychometricPDF(buildSampleReportInput(language));
   const suffix = language === "gu" ? "Gujarati" : language === "hi" ? "Hindi" : language === "mr" ? "Marathi" : "English";
-  doc.save(`HBK-Careers-Sample-Report-Aarav-Patel-${suffix}.pdf`);
+  doc.save(`SRMD Disha-Careers-Sample-Report-Aarav-Patel-${suffix}.pdf`);
 }

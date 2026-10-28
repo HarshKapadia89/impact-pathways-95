@@ -27,10 +27,10 @@ export const Route = createFileRoute("/upskill/$topic/$lesson")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Lesson not found | HBK Careers" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Lesson not found | SRMD Disha" }, { name: "robots", content: "noindex" }] };
     }
     const { topic, lesson } = loaderData;
-    const title = `${lesson.title} — ${topic.title} | HBK Careers`;
+    const title = `${lesson.title} — ${topic.title} | SRMD Disha`;
     const desc = lesson.why.slice(0, 155);
     return {
       meta: [

@@ -1,12 +1,12 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-/* HBK Careers brand design system — canonical theme (tokens, type, radius, shadows). */
+/* SRMD Disha brand design system — canonical theme (tokens, type, radius, shadows). */
 @import "./design-system/hbk-career-brand-guidelines-4f1c39/design-system/styles/theme.css";
 
 /*
  * App-level additions only. Colour, typography, radius and shadow values come
- * from the HBK Careers design system above — never redefined here.
+ * from the SRMD Disha design system above — never redefined here.
  */
 
 :root {

@@ -26,7 +26,7 @@ export const Route = createFileRoute("/handbook/$slug/")({
       ? {
           meta: [
             {
-              title: `${loaderData.stream.stream} — Professions, Exams & Top Institutes | HBK Careers`,
+              title: `${loaderData.stream.stream} — Professions, Exams & Top Institutes | SRMD Disha`,
             },
             {
               name: "description",
@@ -204,7 +204,7 @@ function OverviewBlock({ overview }: { overview: HandbookOverview }) {
       <div className="grid md:grid-cols-3 gap-4">
         <div className="md:col-span-2 rounded-xl border border-border bg-card p-5">
           <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted-foreground mb-2">
-            <BookOpen className="h-3.5 w-3.5" /> HBK Overview
+            <BookOpen className="h-3.5 w-3.5" /> SRMD Disha Overview
           </div>
           {overview.overview.split("\n\n").map((p, i) => (
             <p key={i} className="text-sm leading-relaxed text-foreground/85 mb-3 last:mb-0">
@@ -238,7 +238,7 @@ function SourcesFooter({ overview }: { overview: HandbookOverview }) {
           Sources
         </div>
         <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-          © HBK Careers. Compiled in-house from the following public sources — official
+          © SRMD Disha. Compiled in-house from the following public sources — official
           regulators, exam bodies and government portals. We do not reproduce content from
           third-party counselling sites.
         </p>

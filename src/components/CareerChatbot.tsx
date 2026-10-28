@@ -159,7 +159,7 @@ export function CareerChatbot() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-5 right-5 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:scale-105 transition-transform flex items-center justify-center group"
-          aria-label="Open HBK Career Counsellor"
+          aria-label="Open SRMD Disha Counsellor"
         >
           <MessageCircle className="h-6 w-6" />
           <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-accent animate-pulse" />

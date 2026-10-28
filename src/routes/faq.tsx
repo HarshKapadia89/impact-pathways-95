@@ -7,13 +7,13 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — HBK Careers | Free Psychometric Test & Career Guidance for Gujarat" },
+      { title: "FAQ — SRMD Disha | Free Psychometric Test & Career Guidance for Gujarat" },
       {
         name: "description",
         content:
-          "Common questions about HBK Careers' free 20-page psychometric report, bilingual test, grade coverage, data safety and school onboarding.",
+          "Common questions about SRMD Disha' free 20-page psychometric report, bilingual test, grade coverage, data safety and school onboarding.",
       },
-      { property: "og:title", content: "FAQ — HBK Careers" },
+      { property: "og:title", content: "FAQ — SRMD Disha" },
       { property: "og:description", content: "Answers to the questions students and parents ask most." },
       { property: "og:url", content: "https://hbkcareers.org/faq" },
     ],

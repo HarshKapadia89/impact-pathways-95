@@ -42,18 +42,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HBK Careers — Find Your Direction" },
+      { title: "SRMD Disha — Find Your Direction" },
       {
         name: "description",
         content:
           "Career guidance, assessments, professions, colleges, exams, scholarships and skill-building for students in four languages.",
       },
       { name: "author", content: "The H B Kapadia New High School, Ahmedabad" },
-      { property: "og:title", content: "HBK Careers — Find Your Direction" },
+      { property: "og:title", content: "SRMD Disha — Find Your Direction" },
       { property: "og:description", content: "A complete career guidance platform for students in English, Gujarati, Hindi and Marathi." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "HBK Careers — Find Your Direction" },
+      { name: "twitter:title", content: "SRMD Disha — Find Your Direction" },
       { name: "twitter:description", content: "A complete career guidance platform for students in four languages." },
     ],
     links: [

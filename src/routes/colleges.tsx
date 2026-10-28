@@ -14,13 +14,13 @@ type College = Tables<"colleges">;
 export const Route = createFileRoute("/colleges")({
   head: () => ({
     meta: [
-      { title: "Gujarat Colleges Directory — IIT, IIM, NID, GNLU, MSU & more | HBK Careers" },
+      { title: "Gujarat Colleges Directory — IIT, IIM, NID, GNLU, MSU & more | SRMD Disha" },
       {
         name: "description",
         content:
           "Browse and search 500+ colleges across Gujarat — engineering, medical, commerce, design, law, agriculture, vocational. Filter by stream, district and type.",
       },
-      { property: "og:title", content: "Gujarat Colleges Directory — HBK Careers" },
+      { property: "og:title", content: "Gujarat Colleges Directory — SRMD Disha" },
       { property: "og:description", content: "Search 500+ colleges across all streams." },
     ],
   }),

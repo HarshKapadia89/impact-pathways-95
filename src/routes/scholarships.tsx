@@ -11,9 +11,9 @@ import discoveryStudents from "@/assets/hbk-discovery-students.jpg";
 export const Route = createFileRoute("/scholarships")({
   head: () => ({
     meta: [
-      { title: "100 Scholarships for Indian Students — HBK Careers" },
+      { title: "100 Scholarships for Indian Students — SRMD Disha" },
       { name: "description", content: "Directory of 100 central, state, technical and private scholarships for Class 9-10, Class 11-12, UG, PG and research students. Amount, income limit, portal and last date." },
-      { property: "og:title", content: "Scholarships Directory — HBK Careers" },
+      { property: "og:title", content: "Scholarships Directory — SRMD Disha" },
       { property: "og:description", content: "Filter 100 verified scholarships by state, category and class level. Discontinued schemes flagged." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

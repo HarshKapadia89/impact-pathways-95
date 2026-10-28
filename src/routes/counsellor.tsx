@@ -22,16 +22,16 @@ import communityImage from "@/assets/hbk-guidance-community.jpg";
 export const Route = createFileRoute("/counsellor")({
   head: () => ({
     meta: [
-      { title: "Book a Career Counsellor — HBK Careers" },
+      { title: "Book a Career Counsellor — SRMD Disha" },
       {
         name: "description",
         content:
           "Book a free 1:1 career counselling session. We review your aptitude test results and help you pick the right stream, career and college.",
       },
-      { property: "og:title", content: "Book a Career Counsellor — HBK Careers" },
+      { property: "og:title", content: "Book a Career Counsellor — SRMD Disha" },
       {
         property: "og:description",
-        content: "Free 1:1 guidance session based on your HBK Careers aptitude test report.",
+        content: "Free 1:1 guidance session based on your SRMD Disha aptitude test report.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

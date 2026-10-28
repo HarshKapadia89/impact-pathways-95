@@ -246,7 +246,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
       font("normal");
       doc.setFontSize(8);
       setText(doc, COLORS.muted);
-      doc.text("HBK CAREERS  ·  CAREER DISCOVERY REPORT", M, 24);
+      doc.text("SRMD DISHA  ·  CAREER DISCOVERY REPORT", M, 24);
       font("bold");
       doc.setFontSize(20);
       setText(doc, COLORS.primary);
@@ -349,7 +349,7 @@ export function generatePsychometricPDF(input: ReportInput): jsPDF {
   setText(doc, [255, 255, 255]);
   font("bold");
   doc.setFontSize(11);
-  doc.text("HBK", M, 20);
+  doc.text("SRMD Disha", M, 20);
   setDraw(doc, COLORS.accent);
   doc.setLineWidth(0.8);
   doc.line(M + 13, 17.8, M + 24, 17.8);

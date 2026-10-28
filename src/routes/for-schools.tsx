@@ -15,10 +15,10 @@ import planningStudents from "@/assets/hbk-planning-students.jpg";
 export const Route = createFileRoute("/for-schools")({
   head: () => ({
     meta: [
-      { title: "For Schools — Career Guidance Program | HBK Careers" },
+      { title: "For Schools — Career Guidance Program | SRMD Disha" },
       { name: "description", content: "Bring evidence-based career counselling to your school. Aptitude testing, AI-interpreted reports, parent sessions and counsellor workshops. Book a demo." },
-      { property: "og:title", content: "Career Guidance for Schools — HBK Careers" },
-      { property: "og:description", content: "Partner with HBK Careers to deliver psychometric testing, AI reports and counsellor training for your students." },
+      { property: "og:title", content: "Career Guidance for Schools — SRMD Disha" },
+      { property: "og:description", content: "Partner with SRMD Disha to deliver psychometric testing, AI reports and counsellor training for your students." },
     ],
   }),
   component: ForSchoolsPage,
@@ -65,8 +65,8 @@ function ForSchoolsPage() {
     <PublicLayout>
       {/* HERO */}
       <StudentPhotoHero tone="brand" image={planningStudents} imageAlt="Indian school students learning and planning together" eyebrow={L("For Schools", "શાળાઓ માટે")} title={L("Bring evidence-based career guidance to every student.", "તમારી શાળાના દરેક વિદ્યાર્થી માટે પુરાવા-આધારિત કારકિર્દી માર્ગદર્શન.")} subtitle={L(
-              "HBK Careers partners with schools to deliver RIASEC + Multiple Intelligences + Aptitude testing, AI-interpreted reports, parent communication and counsellor training.",
-              "HBK Careers શાળાઓ સાથે મળીને RIASEC + મલ્ટિપલ ઇન્ટેલિજન્સ + એપ્ટિટ્યુડ ટેસ્ટ, AI-આધારિત રિપોર્ટ, વાલીઓ સાથે સંવાદ અને કાઉન્સેલર તાલીમ આપે છે."
+              "SRMD Disha partners with schools to deliver RIASEC + Multiple Intelligences + Aptitude testing, AI-interpreted reports, parent communication and counsellor training.",
+              "SRMD Disha શાળાઓ સાથે મળીને RIASEC + મલ્ટિપલ ઇન્ટેલિજન્સ + એપ્ટિટ્યુડ ટેસ્ટ, AI-આધારિત રિપોર્ટ, વાલીઓ સાથે સંવાદ અને કાઉન્સેલર તાલીમ આપે છે."
             )} actions={<><a href="#demo" className="brand-link hbk-focus inline-flex h-12 items-center rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">
               {L("Book a demo", "ડેમો બુક કરો")}
             </a>

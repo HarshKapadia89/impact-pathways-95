@@ -64,10 +64,10 @@ export const Route = createFileRoute("/handbook/$slug/$profession")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Profession not found | HBK Careers" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Profession not found | SRMD Disha" }, { name: "robots", content: "noindex" }] };
     }
     const p = loaderData.profile;
-    const title = `${p.name} — Career Path, Institutes & Entrance Exams | HBK Careers`;
+    const title = `${p.name} — Career Path, Institutes & Entrance Exams | SRMD Disha`;
     const description = `How to become a ${p.name} in India: study route after Class 10, entrance exams, leading Indian and overseas institutes, work description and pros & cons.`;
     return {
       meta: [
@@ -315,7 +315,7 @@ function ProfessionPage() {
             <div className="text-foreground">
               <div className="font-display text-xl">Are you fit for this career?</div>
               <p className="text-sm mt-1">
-                Take the free HBK psychometric test and see how {profile.name} matches your interests and aptitude.
+                Take the free SRMD Disha psychometric test and see how {profile.name} matches your interests and aptitude.
               </p>
             </div>
             <Link
@@ -332,9 +332,9 @@ function ProfessionPage() {
                 Sources
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-                © HBK Careers. Compiled in-house from official regulators, exam bodies and
+                © SRMD Disha. Compiled in-house from official regulators, exam bodies and
                 institute websites. Exam and institute records on this page are the same records
-                used across the HBK handbook and exams pages.
+                used across the SRMD Disha handbook and exams pages.
               </p>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {overview.sources.map((s) => (

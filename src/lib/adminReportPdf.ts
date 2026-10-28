@@ -49,5 +49,5 @@ export async function regenerateReportPdf(row: Row, language: "en" | "gu" | "hi"
     miAnswers: {},
     aptAnswers: {},
   });
-  doc.save(`HBK-Report-${name.replace(/\s+/g, "-")}-${language}.pdf`);
+  doc.save(`SRMD Disha-Report-${name.replace(/\s+/g, "-")}-${language}.pdf`);
 }

@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { Alert, Button, Card, Field, Input, Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { Alert, Button, Card, Field, Input } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>) => ({
@@ -10,10 +10,10 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Admin sign in — HBK Careers" },
-      { name: "description", content: "Sign in to the HBK Careers admin dashboard." },
-      { property: "og:title", content: "Admin sign in — HBK Careers" },
-      { property: "og:description", content: "Sign in to the HBK Careers admin dashboard." },
+      { title: "Admin sign in — SRMD Disha" },
+      { name: "description", content: "Sign in to the SRMD Disha admin dashboard." },
+      { property: "og:title", content: "Admin sign in — SRMD Disha" },
+      { property: "og:description", content: "Sign in to the SRMD Disha admin dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -72,7 +72,7 @@ function AuthPage() {
     <div className="flex min-h-screen items-center justify-center bg-background p-6">
       <div className="w-full max-w-md space-y-6">
         <div className="flex justify-center">
-          <Logotype />
+          <span className="font-display text-title text-highlight">SRMD Disha</span>
         </div>
         <Card variant="surface">
           <form onSubmit={submit} className="space-y-4">

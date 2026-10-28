@@ -1072,7 +1072,7 @@ export function buildProfessionProfile(
     (arch.lead
       ? `${arch.lead.replace(/^A \{name\}/, `${article(professionName)} {name}`).replace(/\{name\}/g, professionName)} In India this work sits inside the ${stream.stream} stream: students usually take ${ladder.after10} in Class 11–12, qualify through ${ladder.ug}, and specialise later through work experience or a master's. The sections below set out the study route, the entrance exams, the leading institutes in India and abroad, and the day-to-day reality of the job.`
       : null) ??
-    `A ${professionName} works within the ${stream.stream} field in India. The role applies the specialist training of this stream to real problems — in industry, in public service, in institutions or in independent practice. Students usually enter through the ${ladder.ug} route after Class 12, then specialise through work experience or a master's degree. This page brings together the study route, the entrance exams, the leading institutes and the day-to-day reality of the job, using the same exam and institute records published elsewhere on HBK Careers.`;
+    `A ${professionName} works within the ${stream.stream} field in India. The role applies the specialist training of this stream to real problems — in industry, in public service, in institutions or in independent practice. Students usually enter through the ${ladder.ug} route after Class 12, then specialise through work experience or a master's degree. This page brings together the study route, the entrance exams, the leading institutes and the day-to-day reality of the job, using the same exam and institute records published elsewhere on SRMD Disha.`;
 
   const path: EducationRow[] = [
     { stage: "After Class 10", options: ladder.after10, duration: "2 years (Class 11–12)" },
@@ -1090,7 +1090,7 @@ export function buildProfessionProfile(
     `Most institutes ask for 50–60% in the qualifying examination; reserved categories usually get a 5% relaxation.`,
     `Admission is through the entrance exams listed below — national tests plus the state CET where applicable.`,
     `Government and private institutes both offer this route; fee levels differ sharply between them.`,
-    `Scholarships listed on the HBK scholarships page apply to most of these programmes.`,
+    `Scholarships listed on the SRMD Disha scholarships page apply to most of these programmes.`,
   ];
 
   return {

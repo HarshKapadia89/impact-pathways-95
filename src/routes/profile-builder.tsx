@@ -10,7 +10,7 @@ import { FileText, Download, Plus, Trash2, Save } from "lucide-react";
 export const Route = createFileRoute("/profile-builder")({
   head: () => ({
     meta: [
-      { title: "Student Resume Builder — Free PDF Export | HBK Careers" },
+      { title: "Student Resume Builder — Free PDF Export | SRMD Disha" },
       { name: "description", content: "Build your student resume free. Add education, skills, projects and achievements. Export as polished PDF in one click." },
     ],
   }),
@@ -136,7 +136,7 @@ function ProfileBuilderPage() {
     if (p.hobbies.trim()) { section("Hobbies & Interests"); text(p.hobbies); }
 
     doc.setFont("helvetica", "italic").setFontSize(8).setTextColor(150);
-    doc.text(`Generated via HBK Careers — hbkcareers.org`, margin, 820);
+    doc.text(`Generated via SRMD Disha — hbkcareers.org`, margin, 820);
 
     const safe = p.fullName.replace(/[^a-z0-9]+/gi, "_");
     doc.save(`${safe || "resume"}_HBK.pdf`);

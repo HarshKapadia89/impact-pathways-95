@@ -67,7 +67,7 @@ const COPY: Record<Lang, Copy> = {
     hours: "Hours of study",
     score: "Chapter test score",
     issued: "Issued on",
-    org: "HBK Careers · hbkcareers.org",
+    org: "SRMD Disha · hbkcareers.org",
     note: "This is a self-certification of learning, not a government or university qualification.",
   },
   gu: {
@@ -80,7 +80,7 @@ const COPY: Record<Lang, Copy> = {
     hours: "અભ્યાસના કલાક",
     score: "પ્રકરણ કસોટીના ગુણ",
     issued: "તારીખ",
-    org: "HBK Careers · hbkcareers.org",
+    org: "SRMD Disha · hbkcareers.org",
     note: "આ શીખવાનું સ્વ-પ્રમાણપત્ર છે, સરકારી કે યુનિવર્સિટી લાયકાત નથી.",
   },
   hi: {
@@ -93,7 +93,7 @@ const COPY: Record<Lang, Copy> = {
     hours: "अध्ययन के घंटे",
     score: "अध्याय परीक्षा अंक",
     issued: "जारी दिनांक",
-    org: "HBK Careers · hbkcareers.org",
+    org: "SRMD Disha · hbkcareers.org",
     note: "यह सीखने का स्व-प्रमाणपत्र है, कोई सरकारी या विश्वविद्यालय योग्यता नहीं।",
   },
   mr: {
@@ -106,7 +106,7 @@ const COPY: Record<Lang, Copy> = {
     hours: "अभ्यासाचे तास",
     score: "प्रकरण चाचणी गुण",
     issued: "दिनांक",
-    org: "HBK Careers · hbkcareers.org",
+    org: "SRMD Disha · hbkcareers.org",
     note: "हे शिकण्याचे स्व-प्रमाणपत्र आहे, सरकारी किंवा विद्यापीठ पात्रता नाही.",
   },
 };
@@ -220,7 +220,7 @@ export function generateUpskillCertificate(input: CertificateInput): jsPDF {
   doc.setFont(FONT_LATIN, "bold");
   doc.setFontSize(10);
   doc.setTextColor(255, 255, 255);
-  doc.text("HBK Careers · Student Guidance Hub", W / 2, H - 5, { align: "center" });
+  doc.text("SRMD Disha · Student Guidance Hub", W / 2, H - 5, { align: "center" });
 
   return doc;
 }

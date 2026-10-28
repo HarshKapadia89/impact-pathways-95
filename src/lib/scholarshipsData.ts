@@ -1,4 +1,4 @@
-// Generated from the HBK Scholarships & Entrance Exams tracker. Static — edit to update.
+// Generated from the SRMD Disha Scholarships & Entrance Exams tracker. Static — edit to update.
 export type Scholarship = {
   id: string;
   name: string;

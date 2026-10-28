@@ -10,14 +10,14 @@ import careerStudents from "@/assets/hbk-career-students.jpg";
 export const Route = createFileRoute("/success-stories")({
   head: () => ({
     meta: [
-      { title: "Success Stories — Gujarat Students Who Found Their Path | HBK Careers" },
+      { title: "Success Stories — Gujarat Students Who Found Their Path | SRMD Disha" },
       {
         name: "description",
         content:
-          "Real stories from Gujarat students who used HBK Careers to find their direction — NIT, NID, AIIMS, CA, design, sports and more.",
+          "Real stories from Gujarat students who used SRMD Disha to find their direction — NIT, NID, AIIMS, CA, design, sports and more.",
       },
-      { property: "og:title", content: "Success Stories — HBK Careers" },
-      { property: "og:description", content: "Where they are now. How HBK helped them get there." },
+      { property: "og:title", content: "Success Stories — SRMD Disha" },
+      { property: "og:description", content: "Where they are now. How SRMD Disha helped them get there." },
       { property: "og:url", content: "https://hbkcareers.org/success-stories" },
     ],
     links: [{ rel: "canonical", href: "https://hbkcareers.org/success-stories" }],

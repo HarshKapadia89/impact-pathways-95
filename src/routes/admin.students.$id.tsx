@@ -8,7 +8,7 @@ import { regenerateReportPdf } from "@/lib/adminReportPdf";
 import { Alert, Badge, Button, Card, Field, Input, Select, Textarea } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/admin/students/$id")({
-  head: () => ({ meta: [{ title: "Student detail — HBK Careers admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Student detail — SRMD Disha admin" }, { name: "robots", content: "noindex" }] }),
   component: () => (
     <RequireAdmin>
       <AdminLayout>

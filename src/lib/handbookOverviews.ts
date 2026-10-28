@@ -1,4 +1,4 @@
-// HBK-original overview content for each handbook stream.
+// SRMD Disha-original overview content for each handbook stream.
 // Written in-house from public regulator/exam information (AICTE, NMC, BCI, ICAI,
 // NCHMCT, COA, NCTE, NCERT, Ministry of Education, official exam portals, official
 // Gujarat admission authorities). Does NOT reuse phrasing from any third-party site.

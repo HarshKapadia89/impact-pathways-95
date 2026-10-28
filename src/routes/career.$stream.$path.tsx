@@ -61,7 +61,7 @@ export const Route = createFileRoute("/career/$stream/$path")({
       ? {
           meta: [
             {
-              title: `${loaderData.path.title} — ${loaderData.stream.name} Career Guide (Gujarat) | HBK Careers`,
+              title: `${loaderData.path.title} — ${loaderData.stream.name} Career Guide (Gujarat) | SRMD Disha`,
             },
             {
               name: "description",
@@ -69,7 +69,7 @@ export const Route = createFileRoute("/career/$stream/$path")({
             },
             {
               property: "og:title",
-              content: `${loaderData.path.title} — HBK Careers Career Guide`,
+              content: `${loaderData.path.title} — SRMD Disha Career Guide`,
             },
             {
               property: "og:description",
