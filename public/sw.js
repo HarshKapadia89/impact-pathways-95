@@ -1,4 +1,4 @@
-/* HBK Careers — offline-first service worker
+/* SRMD Disha — offline-first service worker
  * Strategy:
  *   - Precache app shell and key static assets at install time.
  *   - HTML navigations: NetworkFirst (so new deploys win), fall back to cached shell when offline.

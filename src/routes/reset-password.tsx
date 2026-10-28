@@ -6,10 +6,10 @@ import { Alert, Button, Card, Field, Input } from "@/design-system/hbk-career-br
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Set a new password — HBK Careers" },
-      { name: "description", content: "Choose a new password for your HBK Careers account." },
-      { property: "og:title", content: "Set a new password — HBK Careers" },
-      { property: "og:description", content: "Choose a new password for your HBK Careers account." },
+      { title: "Set a new password — SRMD Disha" },
+      { name: "description", content: "Choose a new password for your SRMD Disha account." },
+      { property: "og:title", content: "Set a new password — SRMD Disha" },
+      { property: "og:description", content: "Choose a new password for your SRMD Disha account." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },

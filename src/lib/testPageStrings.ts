@@ -183,10 +183,10 @@ export const TEST_PAGE: Record<string, Record<Lang, string>> = {
     "mr": "प्रश्न आहेत का?"
   },
   "readMore": {
-    "en": "Read more about HBK Careers",
-    "gu": "HBK Careers વિશે વધુ વાંચો",
-    "hi": "HBK Careers के बारे में और पढ़ें",
-    "mr": "HBK करिअर्स बद्दल अधिक वाचा"
+    "en": "Read more about SRMD Disha",
+    "gu": "SRMD Disha વિશે વધુ વાંચો",
+    "hi": "SRMD Disha के बारे में और पढ़ें",
+    "mr": "SRMD Disha करिअर्स बद्दल अधिक वाचा"
   }
 };
 

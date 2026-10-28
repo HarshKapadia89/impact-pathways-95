@@ -13,13 +13,13 @@ export const Route = createFileRoute("/career/$stream")({
       ? {
           meta: [
             {
-              title: `${loaderData.stream.name} after Class 12 — Gujarat Colleges, Exams & Salaries | HBK Careers`,
+              title: `${loaderData.stream.name} after Class 12 — Gujarat Colleges, Exams & Salaries | SRMD Disha`,
             },
             {
               name: "description",
               content: `${loaderData.stream.name} in Gujarat: top colleges, GUJCET/national entrance exams, course durations and average salary ranges. ${loaderData.stream.tagline}.`,
             },
-            { property: "og:title", content: `${loaderData.stream.name} — HBK Careers` },
+            { property: "og:title", content: `${loaderData.stream.name} — SRMD Disha` },
             { property: "og:description", content: loaderData.stream.tagline },
           ],
         }

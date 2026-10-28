@@ -10,13 +10,13 @@ import communityImage from "@/assets/hbk-guidance-community.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About HBK Careers — Free Career Guidance from H B Kapadia New High School, Ahmedabad" },
+      { title: "About SRMD Disha — Free Career Guidance from H B Kapadia New High School, Ahmedabad" },
       {
         name: "description",
         content:
-          "HBK Careers is a free career-discovery platform built by The H B Kapadia New High School, Ahmedabad — four-language assessments, 1,651 professions and a personalised report.",
+          "SRMD Disha is a free career-discovery platform built by The H B Kapadia New High School, Ahmedabad — four-language assessments, 1,651 professions and a personalised report.",
       },
-      { property: "og:title", content: "About — HBK Careers" },
+      { property: "og:title", content: "About — SRMD Disha" },
       { property: "og:description", content: "Built by educators, not edtech. Free career guidance for every Gujarat student." },
       { property: "og:url", content: "https://hbkcareers.org/about" },
     ],

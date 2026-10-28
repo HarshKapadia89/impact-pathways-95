@@ -40,7 +40,7 @@ import {
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "My Dashboard — HBK Careers" },
+      { title: "My Dashboard — SRMD Disha" },
       { name: "description", content: "Your saved careers, colleges, roadmap and 90-day checklist." },
       { name: "robots", content: "noindex,nofollow" },
     ],

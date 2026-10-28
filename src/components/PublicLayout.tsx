@@ -70,7 +70,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
       <header data-no-translate className="sticky top-0 z-40 border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex h-16 items-center gap-4">
-            <Link to="/" className="brand-link rounded-md shrink-0" aria-label={location.pathname === "/" ? "SRMD Disha home" : "HBK Careers home"}>
+            <Link to="/" className="brand-link rounded-md shrink-0" aria-label={location.pathname === "/" ? "SRMD Disha home" : "SRMD Disha home"}>
               {location.pathname === "/" ? (
                 <span className="font-display text-heading text-highlight">SRMD Disha</span>
               ) : (
@@ -134,7 +134,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
                 })}
               </div>
               <Button variant="ghost" fullWidth onClick={() => setToolsOpen((value) => !value)} className="mt-2 justify-between" aria-expanded={toolsOpen}>
-                {t({ en: "About HBK Careers", gu: "HBK Careers વિશે", hi: "HBK Careers के बारे में", mr: "HBK Careers विषयी" })}
+                {t({ en: "About SRMD Disha", gu: "SRMD Disha વિશે", hi: "SRMD Disha के बारे में", mr: "SRMD Disha विषयी" })}
                 <ChevronDown className="h-4 w-4" />
               </Button>
               {toolsOpen && (

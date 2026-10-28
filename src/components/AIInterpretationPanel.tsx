@@ -95,7 +95,7 @@ export function AIInterpretationPanel({ lang = "en", state, interpretation, mode
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <Loader2 className="h-4 w-4 animate-spin text-primary" />
           <span>
-            HBK Career Counsellor is reviewing your answers with our most accurate reasoning model
+            SRMD Disha Counsellor is reviewing your answers with our most accurate reasoning model
             (this takes ~15–25 seconds)…
           </span>
         </div>

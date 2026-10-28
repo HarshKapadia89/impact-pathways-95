@@ -15,9 +15,9 @@ export const Route = createFileRoute("/upskill/$topic/quiz")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Quiz not found | HBK Careers" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Quiz not found | SRMD Disha" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${loaderData.topic.title} Chapter Test — MCQ | HBK Careers`;
+    const title = `${loaderData.topic.title} Chapter Test — MCQ | SRMD Disha`;
     const desc = `End-of-chapter MCQ test on ${loaderData.topic.title}. Choose 10 to 50 questions, 1 mark each, and get an instant score.`;
     return {
       meta: [

@@ -119,7 +119,7 @@ export interface ReportStrings {
 }
 
 const EN: Record<string, string> = {
-  brand: "HBK Careers · The H B Kapadia New High School",
+  brand: "SRMD Disha · The H B Kapadia New High School",
   reportTitle: "Career Discovery Report",
   subtitle: "Your personalised RIASEC + Multiple Intelligences + Aptitude profile",
   prepared: "Prepared for",
@@ -383,7 +383,7 @@ export function getReportStrings(requested: ReportLang = "en"): ReportStrings {
     ],
     closingDisclaimer: T("closingDisclaimer"),
 
-    footerName: (name) => `${name || ((language === "hi" || language === "mr") ? "छात्र" : language === "gu" ? "વિદ્યાર્થી" : "Student")} · HBK Careers Report`,
+    footerName: (name) => `${name || ((language === "hi" || language === "mr") ? "छात्र" : language === "gu" ? "વિદ્યાર્થી" : "Student")} · SRMD Disha Report`,
     pageOf: (page, total) => `${PAGE_LABEL} ${page} ${OF_LABEL} ${total}`,
     page: PAGE_LABEL,
     of: OF_LABEL,

@@ -56,13 +56,13 @@ export const Route = createFileRoute("/test/")({
   },
   head: () => ({
     meta: [
-      { title: "Psychometric Aptitude Test (Grades 6–12) — 20-page Report | HBK Careers" },
+      { title: "Psychometric Aptitude Test (Grades 6–12) — 20-page Report | SRMD Disha" },
       {
         name: "description",
         content:
           "Research-grade RIASEC + Multiple Intelligences + Aptitude assessment for grades 6–12. Get a 20-page personalised PDF career report. Introductory price ₹1,500.",
       },
-      { property: "og:title", content: "HBK Careers Psychometric Test — 20-page Report" },
+      { property: "og:title", content: "SRMD Disha Psychometric Test — 20-page Report" },
       {
         property: "og:description",
         content:
@@ -98,7 +98,7 @@ function TestIntro() {
     import("@/lib/metaPixel").then((p) =>
       p.trackStandard(
         "ViewContent",
-        { content_ids: [p.PRODUCT_ID], content_name: "HBK Career Assessment", content_type: "product", value: 2500, currency: "INR" },
+        { content_ids: [p.PRODUCT_ID], content_name: "SRMD Disha Assessment", content_type: "product", value: 2500, currency: "INR" },
         p.newEventId("vc"),
       ),
     );

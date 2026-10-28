@@ -10,10 +10,10 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Admin sign in — HBK Careers" },
-      { name: "description", content: "Sign in to the HBK Careers admin dashboard." },
-      { property: "og:title", content: "Admin sign in — HBK Careers" },
-      { property: "og:description", content: "Sign in to the HBK Careers admin dashboard." },
+      { title: "Admin sign in — SRMD Disha" },
+      { name: "description", content: "Sign in to the SRMD Disha admin dashboard." },
+      { property: "og:title", content: "Admin sign in — SRMD Disha" },
+      { property: "og:description", content: "Sign in to the SRMD Disha admin dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },

@@ -23,13 +23,13 @@ import careerStudents from "@/assets/hbk-career-students.jpg";
 export const Route = createFileRoute("/find-college")({
   head: () => ({
     meta: [
-      { title: "Find Your College — Search Gujarat & India | HBK Careers" },
+      { title: "Find Your College — Search Gujarat & India | SRMD Disha" },
       {
         name: "description",
         content:
           "Search across 200+ colleges in Gujarat and India. Filter by college name, course, city, state, category and type. IITs, NITs, AIIMS, IIMs, NLUs, NIDs, Gujarat state colleges and more.",
       },
-      { property: "og:title", content: "Find Your College — HBK Careers" },
+      { property: "og:title", content: "Find Your College — SRMD Disha" },
       {
         property: "og:description",
         content:

@@ -17,13 +17,13 @@ const PROFESSIONS = professionIndex as IndexRow[];
 export const Route = createFileRoute("/career-library")({
   head: () => ({
     meta: [
-      { title: "Career Library — A to Z Careers, Exams & Top Institutes in India | HBK Careers" },
+      { title: "Career Library — A to Z Careers, Exams & Top Institutes in India | SRMD Disha" },
       {
         name: "description",
         content:
           "India-wide career library: browse 48 streams and 1,651 professions from A to Z, with 499 entrance exams and 1,943 top institutes.",
       },
-      { property: "og:title", content: "Career Library — A to Z Careers across India | HBK Careers" },
+      { property: "og:title", content: "Career Library — A to Z Careers across India | SRMD Disha" },
       {
         property: "og:description",
         content: "48 streams, 1,651 professions, 499 entrance exams and 1,943 top institutes across India — searchable in one place.",
@@ -199,8 +199,8 @@ function CareerLibraryPage() {
         <p className="mt-12 text-xs text-muted-foreground max-w-3xl leading-relaxed border-t border-border pt-5">
           {t4(
             lang,
-            "© HBK Careers. Compiled in-house from public sources — official regulators and exam bodies including AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC Gujarat and the relevant ministries. Detailed sources are listed at the bottom of every stream page.",
-            "© HBK Careers. અધિકૃત નિયમનકારી અને પરીક્ષા સંસ્થાઓના જાહેર સ્ત્રોતોમાંથી HBK દ્વારા સંકલિત — AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC ગુજરાત અને સંબંધિત મંત્રાલયો. દરેક પ્રવાહ પૃષ્ઠના તળિયે વિગતવાર સ્ત્રોતો સૂચિબદ્ધ છે.",
+            "© SRMD Disha. Compiled in-house from public sources — official regulators and exam bodies including AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC Gujarat and the relevant ministries. Detailed sources are listed at the bottom of every stream page.",
+            "© SRMD Disha. અધિકૃત નિયમનકારી અને પરીક્ષા સંસ્થાઓના જાહેર સ્ત્રોતોમાંથી SRMD Disha દ્વારા સંકલિત — AICTE, NMC, BCI, ICAI, COA, NID, NIFT, NCHMCT, NTA, ACPC ગુજરાત અને સંબંધિત મંત્રાલયો. દરેક પ્રવાહ પૃષ્ઠના તળિયે વિગતવાર સ્ત્રોતો સૂચિબદ્ધ છે.",
           )}
         </p>
       </section>

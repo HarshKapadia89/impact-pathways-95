@@ -7,7 +7,7 @@ import { adminGrant, adminListTeam, adminRevoke } from "@/lib/admin.functions";
 import { Alert, Button, Card, Field, Input } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/admin/team")({
-  head: () => ({ meta: [{ title: "Admin team — HBK Careers admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Admin team — SRMD Disha admin" }, { name: "robots", content: "noindex" }] }),
   component: () => (
     <RequireAdmin>
       <AdminLayout>

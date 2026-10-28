@@ -8,7 +8,7 @@ import { adminListPayments } from "@/lib/admin.functions";
 import { Alert, Badge, Button, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/admin/payments")({
-  head: () => ({ meta: [{ title: "Payments — HBK Careers admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Payments — SRMD Disha admin" }, { name: "robots", content: "noindex" }] }),
   component: () => (
     <RequireAdmin>
       <AdminLayout>

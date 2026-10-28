@@ -8,7 +8,7 @@ import { Button, Card, Input } from "@/design-system/hbk-career-brand-guidelines
 export const Route = createFileRoute("/admin/reports")({
   head: () => ({
     meta: [
-      { title: "Student PDF reports — HBK Careers admin" },
+      { title: "Student PDF reports — SRMD Disha admin" },
       { name: "description", content: "Download saved aptitude test PDF reports." },
       { name: "robots", content: "noindex" },
     ],

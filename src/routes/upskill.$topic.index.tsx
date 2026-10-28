@@ -17,10 +17,10 @@ export const Route = createFileRoute("/upskill/$topic/")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Topic not found | HBK Careers" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Topic not found | SRMD Disha" }, { name: "robots", content: "noindex" }] };
     }
     const { topic } = loaderData;
-    const title = `${topic.title} — 10 Free Lessons for Students | HBK Careers`;
+    const title = `${topic.title} — 10 Free Lessons for Students | SRMD Disha`;
     const desc = `${topic.tagline} ${topic.lessons.length} lessons with a 7-day study plan, revision notes and real case studies.`.slice(0, 158);
     return {
       meta: [

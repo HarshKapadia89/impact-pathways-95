@@ -19,7 +19,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "We ran HBK with 180 students. The grade-banded aptitude actually maps to NCERT — it's the first test that didn't feel imported.",
+      "We ran SRMD Disha with 180 students. The grade-banded aptitude actually maps to NCERT — it's the first test that didn't feel imported.",
     name: "Pooja Mehta",
     role: "Principal · Ahmedabad",
   },

@@ -10,10 +10,10 @@ const S: Record<string, Q> = {
     mr: "करिअर समुपदेशक",
   },
   title: {
-    en: "HBK Career Counsellor",
-    gu: "HBK કારકિર્દી સહાયક",
-    hi: "HBK करियर काउंसलर",
-    mr: "HBK करिअर समुपदेशक",
+    en: "SRMD Disha Counsellor",
+    gu: "SRMD Disha કારકિર્દી સહાયક",
+    hi: "SRMD Disha करियर काउंसलर",
+    mr: "SRMD Disha करिअर समुपदेशक",
   },
   subAsk: {
     en: "Ask anything about careers",
@@ -34,10 +34,10 @@ const S: Record<string, Q> = {
     mr: "वैयक्तिक उत्तरांसाठी मोफत अ‍ॅप्टिट्यूड चाचणी द्या →",
   },
   greeting: {
-    en: "Hi! 👋 I'm your HBK career counsellor. Ask me about streams, colleges, exams, scholarships, study plans — or just say what's on your mind.",
-    gu: "નમસ્તે! 👋 હું HBK કારકિર્દી સહાયક છું. પ્રવાહ, કોલેજ, પરીક્ષા, શિષ્યવૃત્તિ, અભ્યાસ યોજના — કંઈપણ પૂછો.",
-    hi: "नमस्ते! 👋 मैं आपका HBK करियर काउंसलर हूँ। स्ट्रीम, कॉलेज, परीक्षा, छात्रवृत्ति, पढ़ाई की योजना — कुछ भी पूछें।",
-    mr: "नमस्कार! 👋 मी तुमचा HBK करिअर समुपदेशक आहे. शाखा, महाविद्यालये, परीक्षा, शिष्यवृत्ती, अभ्यास योजना — काहीही विचारा.",
+    en: "Hi! 👋 I'm your SRMD Disha career counsellor. Ask me about streams, colleges, exams, scholarships, study plans — or just say what's on your mind.",
+    gu: "નમસ્તે! 👋 હું SRMD Disha કારકિર્દી સહાયક છું. પ્રવાહ, કોલેજ, પરીક્ષા, શિષ્યવૃત્તિ, અભ્યાસ યોજના — કંઈપણ પૂછો.",
+    hi: "नमस्ते! 👋 मैं आपका SRMD Disha करियर काउंसलर हूँ। स्ट्रीम, कॉलेज, परीक्षा, छात्रवृत्ति, पढ़ाई की योजना — कुछ भी पूछें।",
+    mr: "नमस्कार! 👋 मी तुमचा SRMD Disha करिअर समुपदेशक आहे. शाखा, महाविद्यालये, परीक्षा, शिष्यवृत्ती, अभ्यास योजना — काहीही विचारा.",
   },
   tryAsking: {
     en: "Try asking",

@@ -44,9 +44,9 @@ import brandStudentArrow from "@/assets/hbk-career-student-arrow.png.asset.json"
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HBK Careers — Career Guidance for Students" },
-      { name: "description", content: "Discover your strengths, explore 1,651 professions, find institutes, exams and scholarships, and build your next-step plan with HBK Careers." },
-      { property: "og:title", content: "HBK Careers — Find Your Direction" },
+      { title: "SRMD Disha — Career Guidance for Students" },
+      { name: "description", content: "Discover your strengths, explore 1,651 professions, find institutes, exams and scholarships, and build your next-step plan with SRMD Disha." },
+      { property: "og:title", content: "SRMD Disha — Find Your Direction" },
       { property: "og:description", content: "A complete career guidance platform for students in English, Gujarati, Hindi and Marathi." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -94,7 +94,7 @@ function HomePage() {
     { icon: FileText, to: "/profile-builder" as const, title: t({ en: "Resume Builder", gu: "રિઝ્યુમે બિલ્ડર", hi: "रिज़्यूमे बिल्डर", mr: "रेझ्युमे बिल्डर" }), text: t({ en: "Create a student profile ready to download and share.", gu: "ડાઉનલોડ અને શેર કરવા માટે તૈયાર વિદ્યાર્થી પ્રોફાઇલ બનાવો.", hi: "डाउनलोड और साझा करने योग्य छात्र प्रोफ़ाइल बनाएँ।", mr: "डाउनलोड आणि शेअर करण्यासाठी विद्यार्थी प्रोफाइल तयार करा." }) },
     { icon: LayoutDashboard, to: "/dashboard" as const, title: t({ en: "Student Dashboard", gu: "વિદ્યાર્થી ડૅશબોર્ડ", hi: "स्टूडेंट डैशबोर्ड", mr: "विद्यार्थी डॅशबोर्ड" }), text: t({ en: "Keep your reports, saved careers and progress together.", gu: "તમારા રિપોર્ટ, સાચવેલી કારકિર્દી અને પ્રગતિ એકસાથે રાખો.", hi: "अपनी रिपोर्ट, सहेजे करियर और प्रगति एक साथ रखें।", mr: "अहवाल, जतन केलेली करिअर्स आणि प्रगती एकत्र ठेवा." }) },
     { icon: CalendarCheck, to: "/counsellor" as const, title: t({ en: "Book a Counsellor", gu: "માર્ગદર્શક બુક કરો", hi: "काउंसलर बुक करें", mr: "समुपदेशक बुक करा" }), text: t({ en: "Get personal guidance connected to your assessment results.", gu: "તમારા મૂલ્યાંકનનાં પરિણામો સાથે જોડાયેલું વ્યક્તિગત માર્ગદર્શન મેળવો.", hi: "अपने आकलन नतीजों से जुड़ा व्यक्तिगत मार्गदर्शन पाएँ।", mr: "तुमच्या मूल्यांकन निकालांशी जोडलेले वैयक्तिक मार्गदर्शन मिळवा." }) },
-    { icon: MessageCircle, title: "HBK Career Counsellor", text: t({ en: "Ask career questions in any of four languages, any time.", gu: "ચાર ભાષાઓમાં ગમે ત્યારે કારકિર્દીના પ્રશ્નો પૂછો.", hi: "चार भाषाओं में कभी भी करियर के सवाल पूछें।", mr: "चार भाषांत कधीही करिअरचे प्रश्न विचारा." }) },
+    { icon: MessageCircle, title: "SRMD Disha Counsellor", text: t({ en: "Ask career questions in any of four languages, any time.", gu: "ચાર ભાષાઓમાં ગમે ત્યારે કારકિર્દીના પ્રશ્નો પૂછો.", hi: "चार भाषाओं में कभी भी करियर के सवाल पूछें।", mr: "चार भाषांत कधीही करिअरचे प्रश्न विचारा." }) },
   ];
 
   return (
@@ -111,7 +111,7 @@ function HomePage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-highlight/90 via-highlight/60 to-highlight/30" aria-hidden />
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-28">
           <div className="max-w-5xl">
-            <Badge variant="accent" withArrow>{t({ en: "HBK Careers · Grades 6–12 · Four languages", gu: "HBK Careers · ધોરણ 6–12 · ચાર ભાષાઓ", hi: "HBK Careers · कक्षा 6–12 · चार भाषाएँ", mr: "HBK Careers · इयत्ता 6–12 · चार भाषा" })}</Badge>
+            <Badge variant="accent" withArrow>{t({ en: "SRMD Disha · Grades 6–12 · Four languages", gu: "SRMD Disha · ધોરણ 6–12 · ચાર ભાષાઓ", hi: "SRMD Disha · कक्षा 6–12 · चार भाषाएँ", mr: "SRMD Disha · इयत्ता 6–12 · चार भाषा" })}</Badge>
             <h1 className="mt-6 font-display text-display font-semibold leading-[1.05]">
               {t({ en: "THE WORLD OF CAREERS,", gu: "કારકિર્દીની દુનિયા,", hi: "करियर की दुनिया,", mr: "करिअरचा विश्व," })}
               <br />
@@ -147,7 +147,7 @@ function HomePage() {
           <Card variant="surface" padding="none" className="overflow-hidden">
             <img
               src={brandGuidePoster.url}
-              alt="HBK Careers poster: we guide you toward the right career path"
+              alt="SRMD Disha poster: we guide you toward the right career path"
               loading="lazy"
               className="h-full w-full object-cover"
             />
@@ -155,7 +155,7 @@ function HomePage() {
           <Card variant="surface" padding="none" className="overflow-hidden">
             <img
               src={brandStudentArrow.url}
-              alt="Student with books in front of the HBK Careers arrow"
+              alt="Student with books in front of the SRMD Disha arrow"
               loading="lazy"
               className="h-full w-full object-cover"
             />
@@ -178,7 +178,7 @@ function HomePage() {
             <Link to="/test" className="brand-link mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-highlight px-6 text-subheading font-semibold text-highlight-foreground">{t({ en: "See how the test works", gu: "ટેસ્ટ કેવી રીતે કામ કરે છે તે જુઓ", hi: "देखें टेस्ट कैसे काम करता है", mr: "चाचणी कशी काम करते ते पाहा" })}<ArrowIcon size={18} /></Link>
           </div>
           <div className="grid grid-cols-2 gap-4" aria-label="Sample report pages">
-            <img src={reportCover} alt="Sample HBK Careers report cover" width={1024} height={1280} loading="lazy" className="w-full rounded-lg border border-border shadow-lift" />
+            <img src={reportCover} alt="Sample SRMD Disha report cover" width={1024} height={1280} loading="lazy" className="w-full rounded-lg border border-border shadow-lift" />
             <img src={reportRiasec} alt="Sample RIASEC profile page" width={1024} height={1280} loading="lazy" className="mt-8 w-full rounded-lg border border-border shadow-lift" />
           </div>
         </div>
@@ -202,7 +202,7 @@ function HomePage() {
           <div className="flex flex-col justify-center p-8 md:p-12">
             <Badge variant="accent" withArrow>{t({ en: "Guidance when it matters", gu: "જ્યારે પણ જરૂર હોય ત્યારે માર્ગદર્શન", hi: "जब ज़रूरत हो तब मार्गदर्शन", mr: "गरज असेल तेव्हा मार्गदर्शन" })}</Badge>
             <h2 className="mt-6 font-display text-title">{t({ en: "You do not have to decide alone", gu: "તમારે એકલાએ નિર્ણય લેવાની જરૂર નથી", hi: "आपको अकेले फैसला नहीं करना है", mr: "तुम्हाला एकट्याने निर्णय घ्यायचा नाही" })}</h2>
-            <p className="mt-4 text-body text-highlight-foreground/80">{t({ en: "Bring your test results and career questions to a personal session with an HBK counsellor.", gu: "તમારા ટેસ્ટનાં પરિણામો અને કારકિર્દી સંબંધિત પ્રશ્નો સાથે HBK માર્ગદર્શકના વ્યક્તિગત સત્રમાં જોડાઓ.", hi: "अपने टेस्ट नतीजे और करियर के सवाल लेकर HBK काउंसलर के व्यक्तिगत सत्र में आएँ।", mr: "तुमचे चाचणी निकाल आणि करिअरचे प्रश्न घेऊन HBK समुपदेशकाच्या वैयक्तिक सत्रात या." })}</p>
+            <p className="mt-4 text-body text-highlight-foreground/80">{t({ en: "Bring your test results and career questions to a personal session with an SRMD Disha counsellor.", gu: "તમારા ટેસ્ટનાં પરિણામો અને કારકિર્દી સંબંધિત પ્રશ્નો સાથે SRMD Disha માર્ગદર્શકના વ્યક્તિગત સત્રમાં જોડાઓ.", hi: "अपने टेस्ट नतीजे और करियर के सवाल लेकर SRMD Disha काउंसलर के व्यक्तिगत सत्र में आएँ।", mr: "तुमचे चाचणी निकाल आणि करिअरचे प्रश्न घेऊन SRMD Disha समुपदेशकाच्या वैयक्तिक सत्रात या." })}</p>
             <Link to="/counsellor" className="brand-link mt-8 inline-flex h-12 w-fit items-center gap-2 rounded-md bg-primary px-6 text-subheading font-semibold text-primary-foreground">{t({ en: "Book a session", gu: "સત્ર બુક કરો", hi: "सेशन बुक करें", mr: "सत्र बुक करा" })}<ArrowIcon size={18} /></Link>
           </div>
         </div>

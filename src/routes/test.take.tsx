@@ -28,7 +28,7 @@ import { AIInterpretationPanel } from "@/components/AIInterpretationPanel";
 export const Route = createFileRoute("/test/take")({
   head: () => ({
     meta: [
-      { title: "Take the Psychometric Test — HBK Careers" },
+      { title: "Take the Psychometric Test — SRMD Disha" },
       { name: "description", content: "Answer the RIASEC + MI + grade-banded aptitude assessment." },
     ],
   }),
@@ -603,7 +603,7 @@ function Result({
       miAnswers: mi,
       aptAnswers: apt,
     });
-    doc.save(`HBK-Careers-Report-${meta.name.replace(/\s+/g, "-")}.pdf`);
+    doc.save(`SRMD Disha-Careers-Report-${meta.name.replace(/\s+/g, "-")}.pdf`);
     setDownloading(false);
   };
 
@@ -643,10 +643,10 @@ function Result({
                 <button
                   onClick={async () => {
                     const url = `${window.location.origin}/r/${reportToken}`;
-                    const text = `${meta.name}'s HBK Careers report — ${url}`;
+                    const text = `${meta.name}'s SRMD Disha report — ${url}`;
                     try {
                       if (navigator.share) {
-                        await navigator.share({ title: "HBK Careers Report", text, url });
+                        await navigator.share({ title: "SRMD Disha Report", text, url });
                       } else {
                         await navigator.clipboard.writeText(url);
                         toast.success("Shareable link copied");

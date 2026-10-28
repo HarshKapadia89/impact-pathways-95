@@ -8,7 +8,7 @@ import { adminListStudents } from "@/lib/admin.functions";
 import { Alert, Badge, Button, Input, Select } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 
 export const Route = createFileRoute("/admin/students/")({
-  head: () => ({ meta: [{ title: "All test takers — HBK Careers admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "All test takers — SRMD Disha admin" }, { name: "robots", content: "noindex" }] }),
   component: () => (
     <RequireAdmin>
       <AdminLayout>

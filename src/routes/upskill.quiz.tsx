@@ -8,13 +8,13 @@ import { ArrowLeft } from "lucide-react";
 export const Route = createFileRoute("/upskill/quiz")({
   head: () => ({
     meta: [
-      { title: "LevelUp Lab Quiz — 10 to 50 Questions, Your Marks | HBK Careers" },
+      { title: "LevelUp Lab Quiz — 10 to 50 Questions, Your Marks | SRMD Disha" },
       {
         name: "description",
         content:
           "Take a mixed skills quiz across time management, communication, money skills, AI and more. Choose 10 to 50 MCQs, each worth 1 mark, and get an instant score.",
       },
-      { property: "og:title", content: "LevelUp Lab Quiz | HBK Careers" },
+      { property: "og:title", content: "LevelUp Lab Quiz | SRMD Disha" },
       {
         property: "og:description",
         content: "Choose 10 to 50 MCQs worth 1 mark each and score yourself on life and career skills.",

@@ -475,7 +475,7 @@ export const MR_REPORT: Record<string, string> = {
   "of": "पैकी",
   "sec1": "1. या अहवालाविषयी",
   "sec2": "2. तुमचा स्नॅपशॉट",
-  "brand": "HBK Careers · द एच बी कपाडिया न्यू हायस्कूल",
+  "brand": "SRMD Disha · द एच बी कपाडिया न्यू हायस्कूल",
   "reportTitle": "करिअर शोध अहवाल",
   "subtitle": "तुमचे वैयक्तिक RIASEC + मल्टिपल इंटेलिजन्स + अ‍ॅप्टिट्यूड प्रोफाइल",
   "prepared": "यांच्यासाठी तयार केलेला",

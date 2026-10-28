@@ -11,9 +11,9 @@ import planningStudents from "@/assets/hbk-planning-students.jpg";
 export const Route = createFileRoute("/exams")({
   head: () => ({
     meta: [
-      { title: "100 Entrance Exams — JEE, NEET, GUJCET, CUET & More | HBK Careers" },
+      { title: "100 Entrance Exams — JEE, NEET, GUJCET, CUET & More | SRMD Disha" },
       { name: "description", content: "Directory of 100 Indian entrance exams after Class 10, Class 12 and graduation. Stream, qualifying level, conducting body, exam months and the route each exam opens." },
-      { property: "og:title", content: "Entrance Exams Directory — HBK Careers" },
+      { property: "og:title", content: "Entrance Exams Directory — SRMD Disha" },
       { property: "og:description", content: "Filter 100 entrance exams by stream, qualifying level and how realistic they are for your cohort." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

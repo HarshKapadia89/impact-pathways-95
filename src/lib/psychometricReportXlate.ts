@@ -1,7 +1,7 @@
 // Auto-generated translations for report strings (Hindi + Gujarati).
 // English source is authoritative; see getReportStrings().
 export const REPORT_XLATE: Record<string, { hi: string; gu: string }> = {
-  "brand": { hi: "HBK Careers · द एच बी कपाडिया न्यू हाई स्कूल", gu: "એચબીકે કારકિર્દી · ધ એચ બી કાપડિયા ન્યુ હાઈ સ્કૂલ" },
+  "brand": { hi: "SRMD Disha · द एच बी कपाडिया न्यू हाई स्कूल", gu: "એચબીકે કારકિર્દી · ધ એચ બી કાપડિયા ન્યુ હાઈ સ્કૂલ" },
   "reportTitle": { hi: "करियर खोज रिपोर्ट", gu: "કારકિર્દીની શોધનો અહેવાલ" },
   "subtitle": { hi: "आपकी व्यक्तिगत RIASEC + मल्टीपल इंटेलिजेंस + एप्टीट्यूड प्रोफ़ाइल", gu: "તમારી વ્યક્તિગત રાયસેક + મલ્ટિપલ ઇન્ટેલિજન્સ + એપ્ટિટ્યુડ પ્રોફાઇલ" },
   "prepared": { hi: "इनके लिए तैयार", gu: "આ વિદ્યાર્થી માટે તૈયાર કરેલો" },

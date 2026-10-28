@@ -23,11 +23,11 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/r/$token")({
   head: ({ params }) => ({
     meta: [
-      { title: `HBK Careers Report — ${params.token.slice(0, 6)}` },
+      { title: `SRMD Disha Report — ${params.token.slice(0, 6)}` },
       {
         name: "description",
         content:
-          "A personalised RIASEC + Multiple Intelligences + Aptitude career report from HBK Careers.",
+          "A personalised RIASEC + Multiple Intelligences + Aptitude career report from SRMD Disha.",
       },
       { name: "robots", content: "noindex,nofollow" },
     ],
@@ -140,7 +140,7 @@ function WebReportPage() {
           <h1 className="font-serif text-3xl">Report not found</h1>
           <p className="text-sm text-muted-foreground mt-3">
             This shareable link is invalid or has expired. If you took the test
-            and lost your link, please contact your counsellor at HBK.
+            and lost your link, please contact your counsellor at SRMD Disha.
           </p>
           <Link
             to="/test"
@@ -173,7 +173,7 @@ function WebReportPage() {
         miAnswers: {},
         aptAnswers: {},
       });
-      doc.save(`HBK-Careers-Report-${studentName.replace(/\s+/g, "-")}.pdf`);
+      doc.save(`SRMD Disha-Careers-Report-${studentName.replace(/\s+/g, "-")}.pdf`);
     } finally {
       setDownloading(false);
     }
@@ -181,10 +181,10 @@ function WebReportPage() {
 
   const share = async () => {
     const url = window.location.href;
-    const text = `${studentName}'s HBK Careers report — ${url}`;
+    const text = `${studentName}'s SRMD Disha report — ${url}`;
     try {
       if (navigator.share) {
-        await navigator.share({ title: "HBK Careers Report", text, url });
+        await navigator.share({ title: "SRMD Disha Report", text, url });
       } else {
         await navigator.clipboard.writeText(url);
         toast.success("Link copied");
@@ -196,7 +196,7 @@ function WebReportPage() {
 
   const whatsapp = () => {
     const url = window.location.href;
-    const msg = `Sharing ${studentName}'s personalised HBK Careers report: ${url}`;
+    const msg = `Sharing ${studentName}'s personalised SRMD Disha report: ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -206,7 +206,7 @@ function WebReportPage() {
         {/* Hero */}
         <header className="rounded-3xl bg-gradient-to-br from-primary/15 via-accent/10 to-primary/5 p-6 md:p-10 border border-border">
           <div className="inline-flex items-center gap-1.5 bg-card/70 backdrop-blur px-3 py-1 rounded-full text-[11px] uppercase tracking-widest text-primary border border-border">
-            <Sparkles className="h-3 w-3" /> HBK Careers · Personalised Report
+            <Sparkles className="h-3 w-3" /> SRMD Disha · Personalised Report
           </div>
           <h1 className="mt-4 font-serif text-3xl md:text-5xl text-foreground">
             {studentName}'s direction

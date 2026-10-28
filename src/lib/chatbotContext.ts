@@ -1,6 +1,6 @@
 import { Lang } from "@/lib/lang";
 // Reads the saved psychometric report (if any) and formats it as compact context
-// for HBK Career Counsellor.
+// for SRMD Disha Counsellor.
 
 const REPORT_KEY = "hbk-last-report";
 

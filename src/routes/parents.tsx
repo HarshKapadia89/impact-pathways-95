@@ -10,13 +10,13 @@ import communityImage from "@/assets/hbk-guidance-community.jpg";
 export const Route = createFileRoute("/parents")({
   head: () => ({
     meta: [
-      { title: "For Parents — HBK Careers | Help your child choose with confidence" },
+      { title: "For Parents — SRMD Disha | Help your child choose with confidence" },
       {
         name: "description",
         content:
-          "A parent's guide to HBK Careers: what the 20-page report says, how to read it together, salary realities for Gujarat, and how to support without pressuring.",
+          "A parent's guide to SRMD Disha: what the 20-page report says, how to read it together, salary realities for Gujarat, and how to support without pressuring.",
       },
-      { property: "og:title", content: "For Parents — HBK Careers" },
+      { property: "og:title", content: "For Parents — SRMD Disha" },
       { property: "og:description", content: "Read the report together. Make the decision together." },
       { property: "og:url", content: "https://hbkcareers.org/parents" },
     ],
@@ -61,7 +61,7 @@ function ParentsPage() {
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-14">
         <h2 className="font-serif text-2xl md:text-3xl text-center mb-8">
-          {t4(lang, "Why parents trust HBK Careers", "તમારે શા માટે ભરોસો કરવો?")}
+          {t4(lang, "Why parents trust SRMD Disha", "તમારે શા માટે ભરોસો કરવો?")}
         </h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {cards.map((c) => (
