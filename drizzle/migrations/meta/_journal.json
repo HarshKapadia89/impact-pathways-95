@@ -15,6 +15,13 @@
       "when": 1792990633621,
       "tag": "0001_report_pdfs_policies",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793164381439,
+      "tag": "0002_admin_only_student_data",
+      "breakpoints": true
     }
   ]
 }
