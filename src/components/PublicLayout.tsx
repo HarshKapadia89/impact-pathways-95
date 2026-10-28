@@ -23,7 +23,7 @@ import {
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { ArrowIcon, Button, Logotype } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
+import { ArrowIcon, Button } from "@/design-system/hbk-career-brand-guidelines-4f1c39";
 import { LanguageToggle } from "./LanguageToggle";
 import { CareerChatbot } from "./CareerChatbot";
 import { StickyMobileCTA } from "./StickyMobileCTA";
@@ -70,12 +70,8 @@ export function PublicLayout({ children }: { children: ReactNode }) {
       <header data-no-translate className="sticky top-0 z-40 border-b border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="flex h-16 items-center gap-4">
-            <Link to="/" className="brand-link rounded-md shrink-0" aria-label={location.pathname === "/" ? "SRMD Disha home" : "SRMD Disha home"}>
-              {location.pathname === "/" ? (
-                <span className="font-display text-heading text-highlight">SRMD Disha</span>
-              ) : (
-                <Logotype size="md" />
-              )}
+            <Link to="/" className="brand-link rounded-md shrink-0" aria-label="SRMD Disha home">
+              <span className="font-display text-heading text-highlight">SRMD Disha</span>
             </Link>
 
             <nav className="ml-auto hidden items-center gap-0.5 xl:flex" aria-label="Primary navigation">
@@ -158,7 +154,7 @@ export function PublicLayout({ children }: { children: ReactNode }) {
       <footer data-no-translate className="bg-highlight text-highlight-foreground">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
           <div>
-            <Logotype size="md" tone="inverse" />
+            <span className="font-display text-heading text-highlight-foreground">SRMD Disha</span>
             <p className="mt-4 max-w-sm text-caption text-highlight-foreground/80">
               {t({
                 en: "Clear, practical career guidance for every student—built by The H B Kapadia New High School, Ahmedabad.",
