@@ -27,6 +27,7 @@ import { Route as ParentsRouteImport } from './routes/parents'
 import { Route as ProfileBuilderRouteImport } from './routes/profile-builder'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ScholarshipsRouteImport } from './routes/scholarships'
 import { Route as SchoolsRouteImport } from './routes/schools'
 import { Route as SessionsRouteImport } from './routes/sessions'
@@ -148,6 +149,11 @@ const ProgramsRoute = ProgramsRouteImport.update({
 const ReportsRoute = ReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScholarshipsRoute = ScholarshipsRouteImport.update({
@@ -330,6 +336,7 @@ export interface FileRoutesByFullPath {
   '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
@@ -382,6 +389,7 @@ export interface FileRoutesByTo {
   '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
@@ -430,6 +438,7 @@ export interface FileRoutesById {
   '/profile-builder': typeof ProfileBuilderRoute
   '/programs': typeof ProgramsRoute
   '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/scholarships': typeof ScholarshipsRoute
   '/schools': typeof SchoolsRoute
   '/sessions': typeof SessionsRoute
@@ -484,6 +493,7 @@ export interface FileRouteTypes {
     | '/profile-builder'
     | '/programs'
     | '/reports'
+    | '/reset-password'
     | '/scholarships'
     | '/schools'
     | '/sessions'
@@ -536,6 +546,7 @@ export interface FileRouteTypes {
     | '/profile-builder'
     | '/programs'
     | '/reports'
+    | '/reset-password'
     | '/scholarships'
     | '/schools'
     | '/sessions'
@@ -583,6 +594,7 @@ export interface FileRouteTypes {
     | '/profile-builder'
     | '/programs'
     | '/reports'
+    | '/reset-password'
     | '/scholarships'
     | '/schools'
     | '/sessions'
@@ -636,6 +648,7 @@ export interface RootRouteChildren {
   ProfileBuilderRoute: typeof ProfileBuilderRoute
   ProgramsRoute: typeof ProgramsRoute
   ReportsRoute: typeof ReportsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ScholarshipsRoute: typeof ScholarshipsRoute
   SchoolsRoute: typeof SchoolsRoute
   SessionsRoute: typeof SessionsRoute
@@ -778,6 +791,13 @@ declare module '@tanstack/react-router' {
       path: '/reports'
       fullPath: '/reports'
       preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scholarships': {
@@ -1136,6 +1156,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileBuilderRoute: ProfileBuilderRoute,
   ProgramsRoute: ProgramsRoute,
   ReportsRoute: ReportsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ScholarshipsRoute: ScholarshipsRoute,
   SchoolsRoute: SchoolsRoute,
   SessionsRoute: SessionsRoute,
